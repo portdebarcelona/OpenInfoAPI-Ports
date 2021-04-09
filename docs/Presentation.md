@@ -1,5 +1,5 @@
 # Project presentation
-Here follows a short presentation about goals and execution path of the project.
+Here follows a short presentation about goals and execution path of the project 
 Also powerpoint presentation and youtube presentations used in initial steps.
 
 ### Powerpoint
@@ -8,7 +8,7 @@ Also powerpoint presentation and youtube presentations used in initial steps.
 ### Youtube
 - [Youtube presentacion](https://youtu.be/EXYsjfSUBBE)
 
-## Presentation
+## Presentation ( january 2021)
 ### Open Info API
 **Open Info API** for ports is the brainchild of Enric Rodellas and Jaume Bagot, both employees of the Port of Barcelona.
 
