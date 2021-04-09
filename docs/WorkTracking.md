@@ -10,5 +10,5 @@ Contains tracking of activities in this project.
 - Setup of github repository
   - Pushed presentation docs.
   - Setup of directories.
-  - Presentation document.
+  - Presentation documents (MD, pptx)
   - Catalog proposal (in progress).
