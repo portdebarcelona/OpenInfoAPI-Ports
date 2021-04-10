@@ -4,6 +4,8 @@ Contains tracking of activities in this project.
 ## April 15, 2021
 ... Todo
 
+## April 10, 2021
+- Catalog introduction extended (statistics, port contacts, ship liners, weather, infrastructure, ...)
 ## April 9, 2021
 - Ports 4.0 communicates that project OpenInfoAPI Ports has been selected
 - Created github repository [OpenInfoAPI-Ports](https://github.com/portdebarcelona/OpenInfoAPI-Ports) (JB/ER)
@@ -12,3 +14,4 @@ Contains tracking of activities in this project.
   - Setup of directories.
   - Presentation documents (MD, pptx)
   - Catalog proposal (in progress).
+
