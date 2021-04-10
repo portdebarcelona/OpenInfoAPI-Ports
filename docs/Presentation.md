@@ -7,7 +7,7 @@ Also powerpoint presentation and youtube presentations used in initial steps.
 
 
 ### Youtube
-- [Youtube presentacion](https://youtu.be/EXYsjfSUBBE)
+- [Youtube presentacion 9min](https://youtu.be/EXYsjfSUBBE)
 
 ## Presentation ( january 2021)
 ### Open Info API

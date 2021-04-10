@@ -1,13 +1,18 @@
 # OpenInfoAPI-Ports
-
+- IDEA awarded at [Ports 4.0 call](https://ports40.es/static/program_idea) on April 9, 2021.
 - [Ports 4.0 decision](docs/annexes/IDEAS-RESOLUCION-PROVISIONAL-CONCESION-DE-AYUDAS_signed.pdf)
 - [More detailed presentation](docs/Presentation.md)
 ## Goals
 
 ## Project Plan
 
-- [Work tracking](docs/WorkTracking.md)
+- [Work tracking](docs/changelog.md)
 
-## Ports 4.0
+## About [Ports 4.0](https://ports40.es/static/ports_40)
 
+The Ports 4,0 equity fund is the corporate open innovation model adopted by the Spanish State Port Authorities to attract, support and facilitate the application of talent and entrepreneurship to the Spanish public and private ports sector, within the context of 4th industrial revolution.
+
+The main target of the Fund is to actively promote and incorporate disruptive or incremental innovation as a competitiveness, efficiency, sustainability, security and protection element, in the Spanish public and private logistics-ports sector, to facilitate its transition towards economy 4.0.
+
+Ports 4,0 will stimulate the creation or consolidation of a fabric of emergent companies (Startups), spin-offs or new business lines, within the technological scope, in existing companies developing innovative market-driven products, services or processes for the ports logistics sector.
 
