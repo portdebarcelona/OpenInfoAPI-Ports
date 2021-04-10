@@ -1,7 +1,7 @@
 # Introduction to Info Open API catalog of Ports
 About ports ... and info
 
-## Concepts
+## Categories
 
 ### Escalas de buques
 Introduction to ship calls.
