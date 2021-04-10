@@ -1,7 +1,7 @@
 # Introduction to Info Open API catalog of Ports
 About ports ... and info
 
-## Concepts
+## Categories
 
 Use of **Enumerations**. Many concepts are common in all port (for instance: port services). Its advisable to use enumeration field that would allow better filtering and precise references
 ### Call Ships
@@ -107,6 +107,7 @@ De interés para la ciudadanía
 
 ### Port companies
 Direcciones y datos de contacto
+<<<<<<< HEAD
 
 ### Port Contacts
 Logistic services of a port are ofered through specialized companies. A port should publish companies, contact information, and services offered by stakeholders of a port. This is a classifications of port services:
@@ -169,3 +170,5 @@ Logistic services of a port are ofered through specialized companies. A port sho
 [see 'Organization' in schema.org](https://schema.org/Organization)
 [evaluate 'Offer' in scehma.org](https://schema.org/Offer)
 
+=======
+>>>>>>> bcb8c3c617ece1d8f12828cec4de704822a67375
