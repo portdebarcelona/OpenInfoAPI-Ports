@@ -1,1 +1,0 @@
-# Catalog - Arrival Forecasts specification
