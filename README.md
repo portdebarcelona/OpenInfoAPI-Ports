@@ -16,6 +16,15 @@
 ### Project Plan
 This project has an agenda that begins on April 9 and ends on October 9, 2021. Milestones of work plan are:
 
+| Activity                   | Month 1 | Month 2 | Month 3 | Month 4 | Month 5 | Month 6 |
+| -------------------------- | ------- | ------- | ------- | ------- | ------- | ------- |
+| Setup of github repository | XXXXXXX |         |         |         |         |         |
+| Setup of API repository    | XXXXXXX |         |         |         |         |         |
+| Identify information types |         | XXXXXXX | XXXXXXX | XXXXXXX |         |         |
+| Define attributes          |         | XXXXXXX | XXXXXXX | XXXXXXX | XXXXXXX |         |
+| Define in Open API 3.x     |         |         | XXXXXXX | XXXXXXX | XXXXXXX |         |
+| Develop examples           |         |         |         |         | XXXXXXX | XXXXXXX |
+| Document in Github         |         | XXXXXXX | XXXXXXX | XXXXXXX | XXXXXXX | XXXXXXX |
 
 ### Changelog
 Work progress is registered in own page:
