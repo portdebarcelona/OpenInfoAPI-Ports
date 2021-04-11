@@ -28,6 +28,7 @@ All these activities are carried out under:
 This project is oriented to the last two points, and therefore:
 - a
 - b
+
 - 
 
 ## Project Plan
@@ -35,13 +36,13 @@ This project has an agenda that begins on April 9 and ends on October 9, 2021. M
 
 | Activity                   | Month 1 | Month 2 | Month 3 | Month 4 | Month 5 | Month 6 |
 | -------------------------- | ------- | ------- | ------- | ------- | ------- | ------- |
-| Setup of github repository | XXXXXXX |         |         |         |         |         |
-| Setup of API repository    | XXXXXXX |         |         |         |         |         |
-| Identify information types |         | XXXXXXX | XXXXXXX | XXXXXXX |         |         |
-| Define attributes          |         | XXXXXXX | XXXXXXX | XXXXXXX | XXXXXXX |         |
-| Define in Open API 3.x     |         |         | XXXXXXX | XXXXXXX | XXXXXXX |         |
-| Develop examples           |         |         |         |         | XXXXXXX | XXXXXXX |
-| Document in Github         |         | XXXXXXX | XXXXXXX | XXXXXXX | XXXXXXX | XXXXXXX |
+| Setup of github repository | XXXXXX  |         |         |         |         |         |
+| Setup of API repository    | XXXXXX  |         |         |         |         |         |
+| Identify information types |         | XXXXXX  | XXXXXX  | XXXXXX  |         |         |
+| Define attributes          |         | XXXXXX  | XXXXXX  | XXXXXX  | XXXXXX  |         |
+| Define in Open API 3.x     |         |         | XXXXXX  | XXXXXX  | XXXXXX  |         |
+| Develop examples           |         |         |         |         | XXXXXX  | XXXXXX  |
+| Document in Github         |         | XXXXXX  | XXXXXX  | XXXXXX  | XXXXXX  | XXXXXX  |
 
 ## Changelog
 Work progress is registered in own page:
