@@ -1,4 +1,4 @@
-## Welcome to GitHub Pages
+## Open Info API for Ports
 
 You can use the [editor on GitHub](https://github.com/portdebarcelona/OpenInfoAPI-Ports/edit/gh-pages/index.md) to maintain and preview the content for your website in Markdown files.
 
