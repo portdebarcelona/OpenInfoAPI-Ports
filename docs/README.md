@@ -1,3 +1,4 @@
-# prova segona
-bla, bla  **ngreta** *italica* _negreta_?
+# About directory 'docs'
+
+This directory contains documentation about the project.
 

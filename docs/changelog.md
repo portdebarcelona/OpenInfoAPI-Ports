@@ -2,10 +2,24 @@
 Contains tracking of activities in this project.
 
 ## April 15, 2021
-... Todo
+- ?? Create a gmail account: openinfoapiports@gmail.com
+- ?? Create a github account openinfoapiports.github.com
+- ?? Move github repository to openinfoapiports.github.com
 
 ## April 10, 2021
 - Catalog introduction extended (statistics, port contacts, ship liners, weather, infrastructure, ...)
+- Choosing working tools:
+  - Editor for OAS 3.x: VScode extension [Open API (swagger) extension](https://marketplace.visualstudio.com/items?itemName=42Crunch.vscode-openapi)
+  - HMTL outputs: Git Pages?
+  - https://www.mkdocs.org/
+- Looking for API definition Best practices:
+  - https://www.vinaysahni.com/best-practices-for-a-pragmatic-restful-api
+  - https://github.com/darrin/yaras/blob/master/restful-standards.md
+  - https://docs.python-eve.org/en/stable/rest_api_for_humans.html ( and https://docs.python-eve.org/en/stable/rest_api_for_humans.html )
+  -**https://www.merixstudio.com/blog/best-practices-rest-api-development/** (Very clear!!)
+  - https://www.merixstudio.com/blog/api-documentation-few-tips-will-help-you-write-it-well/
+  - https://dzone.com/articles/api-led-connectivity-with-mule
+  - https://blogs.mulesoft.com/learn-apis/api-led-connectivity/what-is-api-led-connectivity/
 
 ## April 9, 2021
 - Ports 4.0 communicates that project OpenInfoAPI Ports has been selected

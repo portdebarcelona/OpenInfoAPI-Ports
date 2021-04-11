@@ -6,6 +6,8 @@
 
 ## Project Plan
 
+## Changelog
+
 - [Work tracking](docs/changelog.md)
 
 ## About [Ports 4.0](https://ports40.es/static/ports_40)
