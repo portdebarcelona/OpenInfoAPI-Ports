@@ -1,7 +1,7 @@
 # OpenInfoAPI-Ports content
 - [OpenInfoAPI-Ports content](#openinfoapi-ports-content)
   - [About OpenInfoAPI-Ports](#about-openinfoapi-ports)
-  - [Introduction to idea Open Info API for Ports](#introduction-to-idea-open-info-api-for-ports)
+  - [Introduction to the idea ***Open Info API for Ports***](#introduction-to-idea-open-info-api-for-ports)
   - [Project Plan](#project-plan)
   - [Changelog](#changelog)
   - [Web Page](#web-page)
@@ -12,12 +12,12 @@
 - [Ports 4.0 decision](docs/annexes/IDEAS-RESOLUCION-PROVISIONAL-CONCESION-DE-AYUDAS_signed.pdf)
 - [More detailed presentation](docs/Presentation.md)
 ## Introduction to idea Open Info API for Ports
-All the large commercial ports manage a logistics space dedicated to the exchange of means of transport of goods. Specifically from the marine environment (ships) to the land environment (truck or train) and vice versa. This activity is specified in:
-- Ships that arrive to port, load and unload the merchandise (normally in containers, or in bulk),
-- Port companies that facilitate the access and berthing of the ship,
-- Stevedores who operate the cranes and take the merchandise to the storage spaces,
+All the large commercial ports manage a logistics area where goods can change their mode of transport. Specifically from the sea side (vessels) to the land side (trucks or trains) and vice versa. This activity is specified in:
+- Vessels that arrive to port, load and unload their cargo (usually in containers/trailers or as a bulk cargo),
+- Port companies that facilitate the access and berthing of the vessel,
+- Stevedores who operate the cranes and take the equipments or cargo to the storage spaces,
 - Trucks that bring or take the goods from the port,
-- Trains that are loaded and unloaded and that will transport the goods to a destination in the hinterland
+- Trains that are loaded and unloaded and that will carry the goods to a destination in the hinterland.
 
 All these activities are carried out under:
 - An intense documentary exchange between the port operators,
@@ -57,4 +57,4 @@ The **Ports 4,0** equity fund is the corporate open innovation model adopted by 
 
 The main target of the Fund is to actively ***promote and incorporate disruptive or incremental innovation*** as a competitiveness, efficiency, sustainability, security and protection element, in the Spanish public and private logistics-ports sector, to facilitate its transition towards economy 4.0.
 
-Ports 4,0 will ***stimulate the creation or consolidation of a fabric of emergent companies*** (Startups), spin-offs or new business lines, within the technological scope, in existing companies developing innovative market-driven products, services or processes for the ports logistics sector.
+Ports 4,0 will ***stimulate the creation or consolidation of a factory of emergent companies*** (Startups), spin-offs or new business lines, within the technological scope, in existing companies developing innovative market-driven products, services or processes for the ports logistics sector.
