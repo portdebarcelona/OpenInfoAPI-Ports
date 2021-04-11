@@ -4,7 +4,7 @@ Contains tracking of activities in this project.
 ## April 15, 2021
 - ?? Create a gmail account: openinfoapiports@gmail.com
 - ?? Create a github account openinfoapiports.github.com
-- ?? Move github repository to openinfoapiports.github.com
+- Activated GitPages https://portdebarcelona.github.io/OpenInfoAPI-Ports/ with Jekyll processor and Slate theme.
 
 ## April 10, 2021
 - Catalog introduction extended (statistics, port contacts, ship liners, weather, infrastructure, ...)
