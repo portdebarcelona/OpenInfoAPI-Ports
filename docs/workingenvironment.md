@@ -5,10 +5,14 @@ To work in this project we have chosen and setup a set of tools. Here we explain
 - Web site
 - Editor of OAS
 
+## Markdown extension
+Better tools for editing markdown: https://marketplace.visualstudio.com/items?itemName=yzhang.markdown-all-in-one
 
 ## Open API editor
 Main goal is define and publish webservices wiht OAS3.x specification. We chose [Open API (swagger) extension](https://marketplace.visualstudio.com/items?itemName=42Crunch.vscode-openapi)
 
+## Definition of APIs following OAS 3.x
+Definition of APIs will follow [Open API Specification 3.x](https://github.com/OAI/OpenAPI-Specification). We evaluated RAML proposition, but OAS3 nowadays is outstanding.
 ## Web pages
 Because github.com facilitates Gitpages processes with Jekyll.
 
