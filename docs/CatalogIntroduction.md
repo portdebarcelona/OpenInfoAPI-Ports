@@ -102,8 +102,9 @@ Carga/Descarga de buques
 [see 'NewsArticle' at schema.org](https://schema.org/NewsArticle)
 
 ### Notices
-De interés para la CLP
-De interés para la ciudadanía
+Often, Port Authority have to publish some notices (meteorological alerts, port procedures, etc ). Normally these notices are sent by mail and sms, adn published in the web. But also is necessary to publish in webservices.
+
+Some notices are intended to port community, and other are intended to general public. Also each notice is of interest of some subgroups of port community, such as: shipagents, shipping companies, transport companies, stevedors,  concessionaire, etc.
 
 ### Port companies
 Direcciones y datos de contacto
