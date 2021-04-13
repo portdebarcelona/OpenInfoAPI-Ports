@@ -8,6 +8,7 @@ servers:
 paths:
   /test:
     get:
+      description: Summary del get de test
       responses:
         '200':
           description: descripcio de reposta 200 de get de /test
