@@ -4,10 +4,24 @@ info:
   version: '1.0'
 servers:
   - url: https://api.server.test/v1
+
 paths:
   /test:
     get:
       responses:
         '200':
           description: OK
+
+    get:
+      description: 
+      responses:
+        '200':
+          description: OK
+
+  /prova:
+    get:
+      responses:
+        '200':
+          description: OK
+  
           
