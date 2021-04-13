@@ -10,18 +10,14 @@ paths:
     get:
       responses:
         '200':
-          description: OK
-
-    get:
-      description: 
-      responses:
-        '200':
-          description: OK
+          description: descripcio de reposta 200 de get de /test
 
   /prova:
     get:
       responses:
         '200':
-          description: OK
+          description: descripcio de reposta 200 de get de /prova
+        '400':
+          description: descripcio de reposta 400 de get de /prova
   
           
