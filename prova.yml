@@ -1,6 +1,6 @@
 openapi: '3.0.2'
 info:
-  title: API Title
+  title: Proves de yaml
   version: '1.0'
 servers:
   - url: https://api.server.test/v1
@@ -11,14 +11,15 @@ paths:
       description: Summary del get de test
       responses:
         '200':
-          description: descripcio de reposta 200 de get de /test
-
+          description: Descripcio de reposta 200 de get de /test
   /prova:
     get:
+      description: Summary del get de prova
       responses:
         '200':
-          description: descripcio de reposta 200 de get de /prova
+          description: Descripcio de reposta 200 de get de /prova
         '400':
-          description: descripcio de reposta 400 de get de /prova
+          description: Descripcio de reposta 400 de get de /prova
+        '500':
+          description: Error de servidor
   
-          
