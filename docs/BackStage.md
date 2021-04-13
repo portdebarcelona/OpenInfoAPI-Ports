@@ -31,10 +31,10 @@ https://github.com/OAI/OpenAPI-Specification/blob/master/IMPLEMENTATIONS.md
     - [Slate](https://github.com/slatedocs/slate). Sembla força bo.
     - [Swagger-UI](https://swagger.io/tools/swagger-ui/)
     - [ReadME](https://readme.com/documentation)
-    - [ReDoc](https://github.com/Redocly/redoc)
+    - [ReDoc](https://github.com/Redocly/redoc): **Permet publicar en html una API sense haver de processar**. És a dir, només passant el url de l'especificacio yaml o json del OAS 3.0.
     - [ApiDocs](https://apidocjs.com/) Molt fàcil. No comenta res de OAS 3.0.
-    - [Insomnia](https://github.com/Kong/insomnia) i [veue(https://support.insomnia.rest/collection/105-inso-cli)
-
+    - [Insomnia](https://github.com/Kong/insomnia) Insomnia is a cross-platform REST client, built on top of Electron. I [veue(https://support.insomnia.rest/collection/105-inso-cli)
+  
   - Comparatives:
     - https://blog.vsoftconsulting.com/blog/is-raml-or-swagger-better-for-building-apis
     - https://nordicapis.com/oas-vs-raml-whats-the-difference/
