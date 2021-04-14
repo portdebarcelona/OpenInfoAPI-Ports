@@ -1,29 +1,39 @@
 # Working environment
 To work in this project we have chosen and setup a set of tools. Here we explain which tools we use. Each decision is a balance between functionalities and ease of use. Questions like:
-- Editor
 - Repository of code
+- Editor
 - Web site
-- Editor of OAS
+- Other tools related of OAS ( publishing, printing)
 
 Also, we consider aspects such as:
 - Best practices to define APIs
 - API-Led connectivity
+
+## Open API Services 3.x
+Goal is define Info Port webservices with (OAS 2.x)[https://github.com/OAI/OpenAPI-Specification/]
 
 ## API Led Connectivity
 Main goal is publish info that has meaning to humans. For that reason we'll try to follow guidelines of API led connectivity, centered in **Experience APIs**:
 - https://blogs.mulesoft.com/learn-apis/api-led-connectivity/what-is-api-led-connectivity/
 
 ## Best Practices to define APIs
+Here some places where give ideas about best practices dfining APIS:
+- https://github.com/RestCheatSheet/api-cheat-sheet
+- https://www.vinaysahni.com/best-practices-for-a-pragmatic-restful-api
+- https://github.com/darrin/yaras/blob/master/restful-standards.md
+- https://docs.python-eve.org/en/stable/rest_api_for_humans.html ( and https://docs.python-eve.org/en/stable/rest_api_for_humans.html )
+-**https://www.merixstudio.com/blog/best-practices-rest-api-development/**
+- https://www.merixstudio.com/blog/api-documentation-few-tips-will-help-you-write-it-well/
 ## Markdown extension
 Better tools for editing markdown: https://marketplace.visualstudio.com/items?itemName=yzhang.markdown-all-in-one
 
 ## Open API editor
 Main goal is define and publish webservices wiht OAS3.x specification. We chose [Open API (swagger) extension](https://marketplace.visualstudio.com/items?itemName=42Crunch.vscode-openapi).
 
-We can need other tools: [Open API tools](https://openapi.tools/)
+We could need other tools: [Open API tools](https://openapi.tools/)
 
 ## Definition of APIs following OAS 3.x
-Definition of APIs will follow [Open API Specification 3.x](https://github.com/OAI/OpenAPI-Specification). We evaluated [RAML](https://raml.org/) proposition, but OAS3 nowadays is outstanding. [review at](https://nordicapis.com/oas-vs-raml-whats-the-difference/)
+Definition of APIs will follow [Open API Specification 3.x](https://github.com/OAI/OpenAPI-Specification). We evaluated [RAML](https://raml.org/) proposition, but OAS3 nowadays is outstanding, [review at](https://nordicapis.com/oas-vs-raml-whats-the-difference/)
 
 ## Web pages of project
 Because github.com facilitates Gitpages processes with Jekyll.
@@ -34,7 +44,9 @@ It's needed to expose APIs in web format to facilitate comprehension of API defi
 - [Swagger-UI](https://swagger.io/tools/swagger-ui/)
 - [APIDOC](https://apidocjs.com/). Preprocessing comments of programming code.
 - [ReadME](https://readme.com/documentation)
-- 
+  
+## PDF printing of APIs
+To get a pdf of OAS definitions: https://mrin9.github.io/RapiPdf/
 ## Name of Code repository
 **OpenInfoAPI-Ports**, then https://github.com/portdebarcelona/OpenInfoAPI-Ports. In a initial phase is under domain 'portofbarcelona'. In a future we will see.
 
