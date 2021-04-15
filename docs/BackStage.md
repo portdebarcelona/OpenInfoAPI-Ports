@@ -49,7 +49,7 @@ https://github.com/OAI/OpenAPI-Specification/blob/master/IMPLEMENTATIONS.md
 [Open Weather API](https://openweathermap.org/api) hi ha exemples com documentar les APIs [exemple](https://openweathermap.org/current)
 
 ### Track and trace
-[DCSA Track and trace] (https://dcsa.org/standards/track-trace/)
+[DCSA Track and trace](https://dcsa.org/standards/track-trace/)
 
 
 
