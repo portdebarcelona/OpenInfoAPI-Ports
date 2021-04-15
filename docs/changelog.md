@@ -5,6 +5,9 @@ Contains tracking of activities in this project.
 - ?? Create a gmail account: openinfoapiports@gmail.com
 - ?? Create a github account openinfoapiports.github.com
 
+- Explore tools Of OAS definitions
+- Explore other intiatives related to shipping industries [eg. DCSA](http://dcsa.org) 
+- Administrative work and legal issues.
 ## April 11, 2021
 - Activated GitPages https://portdebarcelona.github.io/OpenInfoAPI-Ports/ with Jekyll processor and Slate theme.
 - New documents:
