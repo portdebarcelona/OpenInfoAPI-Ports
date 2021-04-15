@@ -54,7 +54,11 @@ https://github.com/OAI/OpenAPI-Specification/blob/master/IMPLEMENTATIONS.md
 
 
 
+[DCSA Track and trace](https://dcsa.org/standards/track-trace/)
 
+### Antwerp API marketplace
+- https://www.nxtport.com/market/our-marketplace/marketplace
+- https://github.com/NxtPort/API/blob/master/README.md
 
 
 

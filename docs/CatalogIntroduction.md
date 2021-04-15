@@ -109,7 +109,7 @@ Some notices are intended to port community, and other are intended to general p
 ### Port companies
 Direcciones y datos de contacto
 
-### Port Contacts
+### Port Directory
 Logistic services of a port are ofered through specialized companies. A port should publish companies, contact information, and services offered by stakeholders of a port. This is a classifications of port services:
 - **Warehousing & Logistics**:
   - Container (Depot)
@@ -142,9 +142,11 @@ Logistic services of a port are ofered through specialized companies. A port sho
   - Ship Suppliers
   - Pest control
   - Nautic-technic
-  - Tug & Mooring
+  - Tug
+  - Mooring
   - Shipyards & Repair
   - Shipowners
+  - Pilots
 - **Knowledge & Consulting**
   - Education
   - Further Education

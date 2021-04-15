@@ -17,7 +17,7 @@ Main goal is publish info that has meaning to humans. For that reason we'll try 
 - https://blogs.mulesoft.com/learn-apis/api-led-connectivity/what-is-api-led-connectivity/
 
 ## Best Practices to define APIs
-Here some places where give ideas about best practices dfining APIS:
+Here some places where give ideas about best practices defining APIS:
 - https://github.com/RestCheatSheet/api-cheat-sheet
 - https://www.vinaysahni.com/best-practices-for-a-pragmatic-restful-api
 - https://github.com/darrin/yaras/blob/master/restful-standards.md
