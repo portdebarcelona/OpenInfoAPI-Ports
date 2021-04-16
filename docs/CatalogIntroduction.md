@@ -69,9 +69,9 @@ Introduction to meteo. See [Free Weather APIS to access global weather data](htt
 #### Weather Alerts
 - ...
 ### Sea State
-Wave height and direction
-Swell direction
-Waves forecast
+- Wave height and direction
+- Swell direction
+- Waves forecast
 
 ### Contamination
 Contamination (real-time) [wheather api](https://www.weatherapi.com/docs/#intro-aqi)
@@ -91,9 +91,9 @@ Vehicle entrance or exit of the zone of the service of the Port
 - **Train Arrivals**
 
 ### Port Terminals
-Terminal access time
-Goods entry or exit
-Vessel loading/unloading
+- Terminal access time
+- Goods entry or exit
+- Vessel loading/unloading
 
 ### Inspections of goods
 - Border Inspection Post
