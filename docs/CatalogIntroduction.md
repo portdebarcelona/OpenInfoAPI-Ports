@@ -4,18 +4,18 @@ About ports ... and info
 ## Categories
 
 Use of **Enumerations**. Many concepts are common in all port (for instance: port services). Its advisable to use enumeration field that would allow better filtering and precise references
-### Call Ships
+### Ship Calls
 Introduction to ship calls.
 
 Proposals:
-- **Ships Arrival Forecasts**. Forecast o ships that will arrive to a port. Data: IMO number, ship name, ETA (Estimated time of arrival), etc [catalog](catalog/catalog-ShipsArrivalForecasts.md)
+- **Ship Arrivals Forecast**. Forecast o ships that will arrive to a port. Data: IMO number, ship name, ETA (Estimated time of arrival), etc [catalog](catalog/catalog-ShipsArrivalForecasts.md)
 - **Vessels in port**. Vessels that are moored in the port. Data: IMO number, ship name, ATA (Actual time of arrival), ETD (Estimared Time of Departure), mooring Quay, etc [catalog](catalog/catalog-VesselsInPort.md)
-- **Ship Exits**:
+- **Ship Departures**:
 - **Ship Arrivals**: 
-- **Ships Aproximation Manouvres**: Aproximation manouvres of ships to the port.
-- **Ferrys Arrivals**: [catalog](catalog/catalog-FerrysArrivals.md)
-- **Ferrys Departures**: [catalog](catalog/catalog-FerryDepartures.md)
-- **Cruisers Calls**: [catalog](catalog/catalog-CruisersCalls.md)
+- **Ship Aproximation Manouvres**: Aproximation manouvres of ships to the port.
+- **Ferries Arrivals**: [catalog](catalog/catalog-FerrysArrivals.md)
+- **Ferries Departures**: [catalog](catalog/catalog-FerryDepartures.md)
+- **Cruise Calls**: [catalog](catalog/catalog-CruisersCalls.md)
 
 ### Liner Services
 An important offer of a Port its related to foreland connections. So that, a port must publish a list with which ports have sea conection. This information should contain:
@@ -23,15 +23,15 @@ An important offer of a Port its related to foreland connections. So that, a por
 - Shipowner
 - Periodicity
 - List of ports
-### Ports Infrastructure
+### Port Infrastructure
 Information about port insfrastructure:
 - Latitude/Longitud
 - Land area
-- Berths (lenth, depths, loading capacities, contact information)
+- Berths (length, depth, loading capacities, contact information)
 - Terrestrial Gates
 - Terminals: 
-  - Ferris terminals
-  - Cruiser terminals
+  - Ferry terminals
+  - Cruise terminals
   - Container terminals
   - Vehicle Terminals
 
@@ -42,14 +42,14 @@ All ports have procedure instructions for certain types of operations. These pro
 - etc
 
 ### Statistics
-All the port have statistic information about activity. Usually are published annually, monthly, quarterly. Relevant data of a port are:
-- Number ship calls
+All the port have statistic information about activity. Usually are published annually, monthly, quarterly. Relevant statistical data of a port are:
+- Number of ship calls
 - Tones loaded/unloaded
-- Numer of containers
+- Number of containers
 - Vehicles loaded/unloaded
 - Passengers embarkded/disembarked
-- Liquid bulks loaded/unloaded
-- Solid bulks loaded/unloaded
+- Liquid bulk loaded/unloaded
+- Solid bulk loaded/unloaded
 - etc
 
 ### Weather
@@ -69,34 +69,35 @@ Introduction to meteo. See [Free Weather APIS to access global weather data](htt
 #### Weather Alerts
 - ...
 ### Sea State
-Altura y dirección olas
-Previsión oleaje
+Wave height and direction
+Swell direction
+Waves forecast
 
-### Contaminación
-Publicación en tiempo real [wheather api](https://www.weatherapi.com/docs/#intro-aqi)
+### Contamination
+Contamination (real-time) [wheather api](https://www.weatherapi.com/docs/#intro-aqi)
 
-Estimaciones de CO2 emitido
-Previsión episodios
-Descargas graneles
+Estimation of CO2 emitted
+Forecast of pollution episodes
+Bulk unloading 
 
 ### Vehicle Traffic
-Entradas y salidas de vehículos del recinto portuario
+Vehicle entrance or exit of the zone of the service of the Port
 
 ### Train services (o liners)
 
 ### Train information
 
-- **Train Exits**
+- **Train Departures**
 - **Train Arrivals**
 
-### Terminals
-Tiempos de acceso
-Entrada/salida de mercancías
-Carga/Descarga de buques
+### Port Terminals
+Terminal access time
+Goods entry or exit
+Vessel loading/unloading
 
-### Inspecciones sobre la mercancía
-- PIF
-- escáner
+### Inspections of goods
+- Border Inspection Post
+- Scanner (non intrusive inspection)
 
 ### News
 [see 'NewsArticle' at schema.org](https://schema.org/NewsArticle)
