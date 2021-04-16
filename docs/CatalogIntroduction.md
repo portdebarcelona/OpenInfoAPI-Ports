@@ -53,7 +53,7 @@ All the port have statistic information about activity. Usually are published an
 ### Weather
 Introduction to meteo. See [Free Weather APIS to access global weather data](https://rapidapi.com/blog/access-global-weather-data-with-these-weather-apis/), [wheatherapi.com](https://www.weatherapi.com/docs/#apis-realtime)
 
-#### Realtime weather
+#### Current weather
 
 - **WeatherTemperature**:
 - **WeatherPressure**:
