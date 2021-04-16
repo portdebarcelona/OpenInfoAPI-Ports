@@ -6,8 +6,6 @@ About ports ... and info
 Use of **Enumerations**. Many concepts are common in all port (for instance: port services). Its advisable to use enumeration field that would allow better filtering and precise references
 ### Ship Calls
 Introduction to ship calls.
-
-Proposals:
 - **Ship Arrivals Forecast**. Forecast o ships that will arrive to a port. Data: IMO number, ship name, ETA (Estimated time of arrival), etc [catalog](catalog/catalog-ShipsArrivalForecasts.md)
 - **Vessels in port**. Vessels that are moored in the port. Data: IMO number, ship name, ATA (Actual time of arrival), ETD (Estimared Time of Departure), mooring Quay, etc [catalog](catalog/catalog-VesselsInPort.md)
 - **Ship Departures**:
