@@ -76,9 +76,9 @@ Introduction to meteo. See [Free Weather APIS to access global weather data](htt
 ### Contamination
 Contamination (real-time) [wheather api](https://www.weatherapi.com/docs/#intro-aqi)
 
-Estimation of CO2 emitted
-Forecast of pollution episodes
-Bulk unloading 
+- Estimation of CO2 emitted
+- Forecast of pollution episodes
+- Bulk unloading 
 
 ### Vehicle Traffic
 Vehicle entrance or exit of the zone of the service of the Port
