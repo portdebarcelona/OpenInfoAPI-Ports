@@ -100,13 +100,13 @@ Vehicle entrance or exit of the zone of the service of the Port
 ### News
 [see 'NewsArticle' at schema.org](https://schema.org/NewsArticle)
 
-### Notices
-Often, Port Authority have to publish some notices (meteorological alerts, port procedures, etc ). Normally these notices are sent by mail and sms, adn published in the web. But also is necessary to publish in webservices.
+### Announcements
+Often, Port Authority have to publish some announcements (meteorological alerts, changes in some port procedures, etc ). Normally these announcements are sent by mail and sms, and published in the website. But it is also necessary to publish them as webservices.
 
-Some notices are intended to port community, and other are intended to general public. Also each notice is of interest of some subgroups of port community, such as: shipagents, shipping companies, transport companies, stevedors,  concessionaire, etc.
+Some announcements are intended to port community, and other are intended to general public. Also each announcement is of interest of some subgroups of port community, such as: shipagents, shipping companies, transport companies, stevedors, concessionaire, etc.
 
 ### Port companies
-Direcciones y datos de contacto
+Contact details ans addresses 
 
 ### Port Directory
 Logistic services of a port are ofered through specialized companies. A port should publish companies, contact information, and services offered by stakeholders of a port. This is a classifications of port services:
