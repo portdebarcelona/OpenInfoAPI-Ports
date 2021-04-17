@@ -13,5 +13,6 @@ Here some places where give ideas about best practices defining APIS:
 
 ## Best practices applied in this project
 
-These are best practices to apply.
+These are guidelines applied in this project.
+
 
