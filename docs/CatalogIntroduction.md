@@ -42,7 +42,7 @@ All ports have procedure instructions for certain types of operations. These pro
 ### Statistics
 All the port have statistic information about activity. Usually are published annually, monthly, quarterly. Relevant statistical data of a port are:
 - Number of ship calls
-- Tones loaded/unloaded
+- Tons loaded/unloaded
 - Number of containers
 - Vehicles loaded/unloaded
 - Passengers embarkded/disembarked
