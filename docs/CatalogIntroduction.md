@@ -38,7 +38,7 @@ Information about port insfrastructure:
 ### Port Procedures
 All ports have procedure instructions for certain types of operations. These procedures must be published and accessible to applications. Here sompe examples:
 - Approach instructions
-- VLM,
+- VGM,
 - etc
 
 ### Statistics
