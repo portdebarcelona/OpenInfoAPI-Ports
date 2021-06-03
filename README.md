@@ -1,7 +1,7 @@
 # OpenInfoAPI-Ports content
 - [OpenInfoAPI-Ports content](#openinfoapi-ports-content)
   - [About OpenInfoAPI-Ports](#about-openinfoapi-ports)
-  - [Introduction to the idea ***Open Info API for Ports***](#introduction-to-idea-open-info-api-for-ports)
+  - [Introduction to idea Open Info API for Ports](#introduction-to-idea-open-info-api-for-ports)
   - [Project Plan](#project-plan)
   - [Changelog](#changelog)
   - [Web Page](#web-page)
@@ -26,10 +26,14 @@ All these activities are carried out under:
 - The need to **increase the transparency** of what happens in the port, which citizens demand from public administrations.
 
 This project is oriented to the last two points, and therefore:
-- a
-- b
+- Identify information types of a Harbour.
+- To define APIs to show port state.
+- And do it following actual standards:
+  - HTTP protocol
+  - OAS 3.x Open API Specification
+  - API REST
+  - JSON:API
 
-- 
 
 ## Project Plan
 This project has an agenda that begins on April 9 and ends on October 9, 2021. Milestones of work plan are:

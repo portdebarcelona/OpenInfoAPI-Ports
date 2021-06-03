@@ -43,6 +43,13 @@ All ports have procedure instructions for certain types of operations. These pro
 - etc
 
 ### Statistics
+Inspiring webs:
+- Eurostat
+  - https://ec.europa.eu/eurostat/databrowser/view/MAR_TF_QM__custom_917144/default/table?lang=en
+  - https://ec.europa.eu/eurostat/web/transport/data/database
+- ONU:
+  - https://statswiki.unece.org/  (maritime transport is not covered)
+  - 
 All the port have statistic information about activity. Usually are published annually, monthly, quarterly. Relevant data of a port are:
 - Number ship calls
 - Tones loaded/unloaded
