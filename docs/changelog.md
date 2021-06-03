@@ -1,6 +1,10 @@
 # Work Tracking log
 Contains tracking of activities in this project.
 
+## June 3, 2021
+- Created Gmail account: openinfoapiports@gmail.com
+- Revisats documents:
+  - README introductori
 ## April 15, 2021
 - ?? Create a gmail account: openinfoapiports@gmail.com
 - ?? Create a github account openinfoapiports.github.com
