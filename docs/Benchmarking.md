@@ -16,6 +16,44 @@ I de les implementacions més interessants trobem:
 - Port de Barcelona 
 ### Decisions/Conclusion
 #### Content
-esum del contingut princiapl i link catalog/....
+Resum del contingut princiapl i link catalog/....
 #### Implementation
-resum ... link al catalog/...
+Resum ... link al catalog/...
+
+===
+
+## Realtime weather
+adfa
+## Weather Forecast
+--- 
+
+## Sea state
+asdfa
+...
+
+## Pollution
+asdf
+## Traffic Status 
+asdf
+## Rail Transport Calls
+asdf
+## Rail Transport Services (o liners)
+adsf
+## Liner Services
+asdf
+
+## Terminal Trailer Queues (Gate Congestion)
+Tiempos de acceso
+
+## Container Gate In/Out
+ref a Codeocos
+
+## Container Ship (un)loading operations
+ref Coarris
+## Inspecciones sobre la mercancía
+- PIF
+- escáner
+## News
+
+## Notices
+
