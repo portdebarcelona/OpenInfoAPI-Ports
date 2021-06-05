@@ -80,7 +80,7 @@ Introduction to meteo. See [Free Weather APIS to access global weather data](htt
 Altura y dirección olas
 Previsión oleaje
 
-### Contaminación
+### Pollution
 Publicación en tiempo real [wheather api](https://www.weatherapi.com/docs/#intro-aqi)
 
 Estimaciones de CO2 emitido
