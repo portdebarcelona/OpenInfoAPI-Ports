@@ -5,9 +5,8 @@ some words of introudction about benchmarking ....
 There are many implementations about shipcalls. Ens hem fixat amb alguns dels principals.
 ### Definitions and Implementaions
 **Definitions**
-
-Pel que fa a la definició i contingut de les escales destaquem:
-- EDIFACT [veure](http://uncefact.org)
+About definition and content of ship calls we remark:
+- [BERMAN message in Puertos Del EStado](http://www.puertos.es/Documents/BERMAN%204.1.2%20v1.0.pdf) and also [UNCEFACT](https://service.unece.org/trade/untdid/latest/trmd/berman_c.htm)
   
 **Implementations**
 
