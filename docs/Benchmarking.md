@@ -3,12 +3,13 @@ some words of introudction about benchmarking ....
 
 ## ShipCalls
 There are many implementations about shipcalls. Ens hem fixat amb alguns dels principals.
-### Definitions and Implementaions
-**Definitions**
-About definition and content of ship calls we remark:
-- [BERMAN message in Puertos Del EStado](http://www.puertos.es/Documents/BERMAN%204.1.2%20v1.0.pdf) and also [UNCEFACT](https://service.unece.org/trade/untdid/latest/trmd/berman_c.htm)
+### Definitions and Implementations
+**Definitions**: About definition and content of ship calls we remark:
+- [BERMAN message in Puertos Del Estado](http://www.puertos.es/Documents/BERMAN%204.1.2%20v1.0.pdf) and also [UNCEFACT](https://service.unece.org/trade/untdid/latest/trmd/berman_c.htm). 
+- [DCSA Just in Time Port Call](https://dcsa.org/initiatives/just-in-time-port-call/)
+- [SMDG Vessel schedules](https://newsmdg.de/documents/edifact-migs-message-implementation-guidelines/vessel-schedules/)
   
-**Implementations**
+**Implementations**:
 
 I de les implementacions més interessants trobem:
 - Hamburg [veure](http://hafen-hamburg.de)
