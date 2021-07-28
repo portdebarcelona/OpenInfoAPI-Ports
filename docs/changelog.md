@@ -1,6 +1,13 @@
 # Work Tracking log
 Contains tracking of activities in this project.
 
+## July 28, 2021
+- Added 
+- Revision of structure of github.
+## July, 2021
+- Administratives tasks with Puertos
+- Benchmarking (NxtPorts, Rotterdam, IPCSA, Hutchison, APM terminals)
+- Evaluation of FastAPI
 ## June 17, 2021
 - Received Notificacion of Grant (15 June)
 - Filling and sendig acceptation form to Puertos Estado

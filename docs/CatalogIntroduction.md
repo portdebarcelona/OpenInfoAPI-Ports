@@ -13,9 +13,9 @@ Proposals:
 - **Ship Exits**:
 - **Ship Arrivals**: 
 - **Ships Aproximation Manouvres**: Aproximation manouvres of ships to the port.
-- **Ferrys Arrivals**: [catalog](catalog/catalog-FerrysArrivals.md)
-- **Ferrys Departures**: [catalog](catalog/catalog-FerryDepartures.md)
-- **Cruisers Calls**: [catalog](catalog/catalog-CruisersCalls.md)
+- **Ferries Arrivals**: [catalog](catalog/catalog-FerriesArrivals.md)
+- **Ferries Departures**: [catalog](catalog/catalog-FerriesDepartures.md)
+- **Cruises Calls**: [catalog](catalog/catalog-CruisesCalls.md)
 
 **Benchmarking**: [veure](Benchmarking.md#ShipCalls)
 ### Liner Services
@@ -23,24 +23,34 @@ An important offer of a Port its related to foreland connections. So that, a por
 - Liner Service Name
 - Shipowner
 - Periodicity
-- List of ports
+- List of linked ports
+- TEU weekly
 ### Ports Infrastructure
 Information about port insfrastructure:
 - Latitude/Longitud
 - Land area
-- Berths (lenth, depths, loading capacities, contact information)
+- Berths (length, depths, loading capacities, contact information)
 - Terrestrial Gates
 - Terminals: 
   - Ferris terminals
   - Cruiser terminals
   - Container terminals
   - Vehicle Terminals
+  - Bulk Terminals
+- Marine Aids to Navigation
 
 ### Port Procedures
 All ports have procedure instructions for certain types of operations. These procedures must be published and accessible to applications. Here sompe examples:
 - Approach instructions
-- VGM,
-- etc
+- VGM (Verified Gross Mass)
+- Customs Inspections:
+  - Inspection in Terminal
+  - Non intrusive Inspection
+- Border Inspection Post
+- Port Calendar 
+- Container release (Recogida de contenedores en terminal)
+- Container Acceptance (Entrega de contenedores en terminal)
+- Efficiency Network Certificate
 
 ### Statistics
 Inspiring webs:
@@ -83,9 +93,10 @@ Previsión oleaje
 ### Pollution
 Publicación en tiempo real [wheather api](https://www.weatherapi.com/docs/#intro-aqi)
 
-Estimaciones de CO2 emitido
-Previsión episodios
-Descargas graneles
+- Estimaciones de CO2 emitido en función de las operativas
+- Previsión episodios
+- Descargas graneles
+- **Water quality** 
 
 ### Vehicle Traffic
 Entradas y salidas de vehículos del recinto portuario
@@ -98,13 +109,9 @@ Entradas y salidas de vehículos del recinto portuario
 - **Train Arrivals**
 
 ### Terminals
-Tiempos de acceso
-Entrada/salida de mercancías
-Carga/Descarga de buques
-
-### Inspecciones sobre la mercancía
-- PIF
-- escáner
+- Access/Wait time
+- Goods/Containers entrance/exit of Terminals
+- Vessel Loading/Unloading
 
 ### News
 [see 'NewsArticle' at schema.org](https://schema.org/NewsArticle)
@@ -114,11 +121,8 @@ Often, Port Authority have to publish some notices (meteorological alerts, port 
 
 Some notices are intended to port community, and other are intended to general public. Also each notice is of interest of some subgroups of port community, such as: shipagents, shipping companies, transport companies, stevedors,  concessionaire, etc.
 
-### Port companies
-Direcciones y datos de contacto
-
 ### Port Directory
-Logistic services of a port are ofered through specialized companies. A port should publish companies, contact information, and services offered by stakeholders of a port. This is a classifications of port services:
+Logistic services of a port are ofered through specialized companies. A port should publish companies, contact information, and services offered by stakeholders of a port. Mainly have to procure two APIs: one for creating and updating contact data, and another API to publish contact information. This is a classifications of port services that have to be used to tag contact info:
 - **Warehousing & Logistics**:
   - Container (Depot)
   - Container (CFS)
