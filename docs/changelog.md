@@ -1,6 +1,12 @@
 # Work Tracking log
 Contains tracking of activities in this project.
 
+## June 17, 2021
+- Received Notificacion of Grant (15 June)
+- Filling and sendig acceptation form to Puertos Estado
+
+## June 10, 2021
+- Working in benchmarking
 ## June 3, 2021
 - Created Gmail account: openinfoapiports@gmail.com
 - Revisats documents:

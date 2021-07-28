@@ -18,12 +18,16 @@ Main goal is publish info that has meaning to humans. For that reason we'll try 
 
 ## Best Practices to define APIs
 Here some places where give ideas about best practices defining APIS:
+- https://google.github.io/styleguide/jsoncstyleguide.xml
 - https://github.com/RestCheatSheet/api-cheat-sheet
 - https://www.vinaysahni.com/best-practices-for-a-pragmatic-restful-api
 - https://github.com/darrin/yaras/blob/master/restful-standards.md
 - https://docs.python-eve.org/en/stable/rest_api_for_humans.html ( and https://docs.python-eve.org/en/stable/rest_api_for_humans.html )
 -**https://www.merixstudio.com/blog/best-practices-rest-api-development/**
 - https://www.merixstudio.com/blog/api-documentation-few-tips-will-help-you-write-it-well/
+- https://developers.google.com/youtube/v3/docsv
+- https://opensource.zalando.com/restful-api-guidelines/#table-of-contents
+
 ## Markdown extension
 Better tools for editing markdown: https://marketplace.visualstudio.com/items?itemName=yzhang.markdown-all-in-one
 
