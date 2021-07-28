@@ -2,6 +2,7 @@
 - [OpenInfoAPI-Ports content](#openinfoapi-ports-content)
   - [About OpenInfoAPI-Ports](#about-openinfoapi-ports)
   - [Introduction to idea Open Info API for Ports](#introduction-to-idea-open-info-api-for-ports)
+  - [Deliverables](#deliverables)
   - [Project Plan](#project-plan)
   - [Changelog](#changelog)
   - [Web Page](#web-page)
@@ -33,6 +34,19 @@ This project is oriented to the last two points, and therefore:
   - OAS 3.x Open API Specification
   - API REST
   - JSON:API
+
+## Deliverables
+
+The deliverables of this idea will be a **catalog of information** that the ports can use and that will contain the definition of information types and their attributes. All this is defined in OpenAPI with its description and examples published on GitHub.
+
+In this six month phase, deliverables will be:
+
+- Creation of **Github repository** or similar [this repository](https://github.com/org/portdebarcelona/InfoOpenAPI-Ports)
+- Creation of **Swagger repository** or similar
+- Definition of the **types of information**
+- **Attributes** of each type of information
+- Definition in **OpenAPI 3.0**
+- **Description and examples** in GitHub
 
 
 ## Project Plan
