@@ -41,12 +41,12 @@ The deliverables of this idea will be a **catalog of information** that the port
 
 In this six month phase, deliverables will be:
 
-- Creation of **Github repository** or similar [this repository](https://github.com/org/portdebarcelona/InfoOpenAPI-Ports)
+- Creation of **Github repository** or similar **Done**: [this repository](https://github.com/org/portdebarcelona/InfoOpenAPI-Ports)
 - Creation of **Swagger repository** or similar
-- Definition of the **types of information**
-- **Attributes** of each type of information
-- Definition in **OpenAPI 3.0**
-- **Description and examples** in GitHub
+- Definition of the **types of information**. **Work in progress**: [see](docs/CatalogIntroduction.md)
+- **Attributes** of each type of information. **Work in progress**: [see](docs/catalog/README.md)
+- Definition in **OpenAPI 3.0**. **Work in progress**
+- **Description and examples** in GitHub. **ToDo**
 
 
 ## Project Plan
