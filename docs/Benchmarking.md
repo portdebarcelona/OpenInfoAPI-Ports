@@ -62,7 +62,7 @@ ref Coarris
 Antwerp port facilitate services through NxtPort plataform. See at https://www.nxtport.com/en/market/our-marketplace/marketplace#live
 - Arrival at Exit: Send the Charge Report (IE507) to Customs for export containers known in the E-balie application
 - Bulkchain: Bulkchain digitises the non-commercial communication between all supply chain members in the Breakbulk & project cargo sector.
-- CCRM: .Request or get notified about the Customs status of a container and know when it is allowed to leave the terminal.
+- CCRM: Request or get notified about the Customs status of a container and know when it is allowed to leave the terminal.
 - Certified Pick up: An innovative solution for releasing containers in the Port of Antwerp.
 - e-Balie+ Notifications: Receive status updates for cargo reported through e-Balie/e-Desk
 - Export_Manifest: Send an automated manifest when vessels with export cargo leave the port
