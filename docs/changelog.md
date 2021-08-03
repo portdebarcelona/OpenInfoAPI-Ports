@@ -1,6 +1,9 @@
 # Work Tracking log
 Contains tracking of activities in this project.
 
+## August 3, 2021
+- Added port calendar, port services and port fees
+- Benchmark update
 ## July 28, 2021
 - Added 
 - Revision of structure of github.

@@ -68,7 +68,8 @@ All the port have statistic information about activity. Usually are published an
 - Passengers embarkded/disembarked
 - Liquid bulks loaded/unloaded
 - Solid bulks loaded/unloaded
-- etc
+- Economic concepts
+- etc.
 
 ### Weather
 Introduction to meteo. See [Free Weather APIS to access global weather data](https://rapidapi.com/blog/access-global-weather-data-with-these-weather-apis/), [wheatherapi.com](https://www.weatherapi.com/docs/#apis-realtime)
@@ -121,8 +122,22 @@ Often, Port Authority have to publish some notices (meteorological alerts, port 
 
 Some notices are intended to port community, and other are intended to general public. Also each notice is of interest of some subgroups of port community, such as: shipagents, shipping companies, transport companies, stevedors,  concessionaire, etc.
 
+### Port fees Info
+
+Information about official fees of port services. Eg: navigation adis, goods (T3)... (TODO buscar a la web)
+
+### Port Services Info
+
+Information about services that are offered by a port. Eg: bunkering, marpol, mooring, pilots, tugs,... (TODO buscar a la web de l'APB)
+
+### Port Calendar
+
+Information about workdays, local holidays, ... 
+
 ### Port Directory
+
 Logistic services of a port are ofered through specialized companies. A port should publish companies, contact information, and services offered by stakeholders of a port. Mainly have to procure two APIs: one for creating and updating contact data, and another API to publish contact information. This is a classifications of port services that have to be used to tag contact info:
+
 - **Warehousing & Logistics**:
   - Container (Depot)
   - Container (CFS)
