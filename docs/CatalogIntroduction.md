@@ -122,9 +122,9 @@ Often, Port Authorities have to publish some notices (meteorological alerts, por
 
 Some notices are intended for the port community, and others are intended for the general public. Also, each notice is of interest to some subgroups of the port community, such as ship agents, shipping companies, transport companies, stevedore,  concessionaire, etc.
 
-### Port fees Info
+### Port rates and fees Info
 
-Information about official fees of port services:
+Summary of rates applicable by the Port Authority:
 - Navigation Support Rate (T0)
 - Vessel Rate (T1)
 - Passenger Rate (T2)
