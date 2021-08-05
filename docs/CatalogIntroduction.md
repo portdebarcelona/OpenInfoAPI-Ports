@@ -19,14 +19,14 @@ Proposals:
 
 **Benchmarking**: [veure](Benchmarking.md#ShipCalls)
 ### Liner Services
-An important offer of a Port its related to foreland connections. So that, a port must publish a list with which ports have sea conection. This information should contain:
+An important offer of a Port is related to foreland connections. So that, a port must publish a list with which ports have sea connection. This information should contain:
 - Liner Service Name
 - Shipowner
 - Periodicity
 - List of linked ports
 - TEU weekly
 ### Ports Infrastructure
-Information about port insfrastructure:
+Information about port infrastructure:
 - Latitude/Longitud
 - Land area
 - Berths (length, depths, loading capacities, contact information)
@@ -40,12 +40,12 @@ Information about port insfrastructure:
 - Marine Aids to Navigation
 
 ### Port Procedures
-All ports have procedure instructions for certain types of operations. These procedures must be published and accessible to applications. Here sompe examples:
+All ports have procedure instructions for certain types of operations. These procedures must be published and accessible to applications. Here are some examples:
 - Approach instructions
 - VGM (Verified Gross Mass)
 - Customs Inspections:
   - Inspection in Terminal
-  - Non intrusive Inspection
+  - Non-intrusive Inspection
 - Border Inspection Post
 - Port Calendar 
 - Container release (Recogida de contenedores en terminal)
@@ -60,19 +60,19 @@ Inspiring webs:
 - ONU:
   - https://statswiki.unece.org/  (maritime transport is not covered)
   - 
-All the port have statistic information about activity. Usually are published annually, monthly, quarterly. Relevant data of a port are:
+All the ports have statistical information about the activity. Usually are published annually, monthly, quarterly. Relevant data of a port are:
 - Number ship calls
 - Tones loaded/unloaded
-- Numer of containers
+- Number of containers
 - Vehicles loaded/unloaded
-- Passengers embarkded/disembarked
+- Passengers embarked/disembarked
 - Liquid bulks loaded/unloaded
 - Solid bulks loaded/unloaded
 - Economic concepts
 - etc.
 
 ### Weather
-Introduction to meteo. See [Free Weather APIS to access global weather data](https://rapidapi.com/blog/access-global-weather-data-with-these-weather-apis/), [wheatherapi.com](https://www.weatherapi.com/docs/#apis-realtime)
+Introduction to meteorological data. See [Free Weather APIS to access global weather data](https://rapidapi.com/blog/access-global-weather-data-with-these-weather-apis/), [wheatherapi.com](https://www.weatherapi.com/docs/#apis-realtime)
 
 #### Realtime weather
 
@@ -118,13 +118,23 @@ Entradas y salidas de vehículos del recinto portuario
 [see 'NewsArticle' at schema.org](https://schema.org/NewsArticle)
 
 ### Notices
-Often, Port Authority have to publish some notices (meteorological alerts, port procedures, etc ). Normally these notices are sent by mail and sms, adn published in the web. But also is necessary to publish in webservices.
+Often, Port Authorities have to publish some notices (meteorological alerts, port procedures, etc ). Normally these notices are sent by mail and sms, and published in the web. But also is necessary to publish in web services.
 
-Some notices are intended to port community, and other are intended to general public. Also each notice is of interest of some subgroups of port community, such as: shipagents, shipping companies, transport companies, stevedors,  concessionaire, etc.
+Some notices are intended for the port community, and others are intended for the general public. Also, each notice is of interest to some subgroups of the port community, such as ship agents, shipping companies, transport companies, stevedore,  concessionaire, etc.
 
 ### Port fees Info
 
-Information about official fees of port services. Eg: navigation adis, goods (T3)... (TODO buscar a la web)
+Information about official fees of port services:
+Navigation Support Rate (T0)
+Vessel Rate (T1)
+Passenger Rate (T2)
+Cargo Rate (T3)
+1. Simplified Modality
+2. Modality for Groups of Goods
+Fresh fish Rate (T4)
+Pleasure and Sports Craft Rate (T5)
+Special Use of the Transit Zone Rate (T6)
+Vessel-Generated Waste Collection Service Fee
 
 ### Port Services Info
 
@@ -193,7 +203,7 @@ Logistic services of a port are ofered through specialized companies. A port sho
 
 **Info Open APIs should**:
 - Publish kind of services that offer (catalog of services)
-- Allow filter companies depending services that offer
+- Allow filter companies depending on services that offer
 - Alow get information contact of a company (Name, email, phone, address, icon, etc)
 
 [see 'Organization' in schema.org](https://schema.org/Organization)
