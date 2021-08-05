@@ -3,13 +3,13 @@ About ports ... and info
 
 ## Categories
 
-Use of **Enumerations**. Many concepts are common in all port (for instance: port services). Its advisable to use enumeration field that would allow better filtering and precise references
+Use of **Enumerations**. Many concepts are common in all ports (for instance: port services). It is advisable to use an enumeration field that would allow better filtering and precise references
 ### Ship Calls
 Introduction to ship calls.
 
 Proposals:
-- **Ships Arrival Forecasts**. Forecast o ships that will arrive to a port. Data: IMO number, ship name, ETA (Estimated time of arrival), etc [catalog](catalog/catalog-ShipsArrivalForecasts.md)
-- **Vessels in port**. Vessels that are moored in the port. Data: IMO number, ship name, ATA (Actual time of arrival), ETD (Estimared Time of Departure), mooring Quay, etc [catalog](catalog/catalog-VesselsInPort.md)
+- **Ships Arrival Forecasts**. Forecast o ships that will arrive at a port. Data: IMO number, ship name, ETA (Estimated time of arrival), etc [catalog](catalog/catalog-ShipsArrivalForecasts.md)
+- **Vessels in port**. Vessels that are moored in the port. Data: IMO number, ship name, ATA (Actual time of arrival), ETD (Estimated Time of Departure), mooring Quay, etc [catalog](catalog/catalog-VesselsInPort.md)
 - **Ship Exits**:
 - **Ship Arrivals**: 
 - **Ships Aproximation Manouvres**: Aproximation manouvres of ships to the port.
