@@ -50,7 +50,7 @@ In this six month phase, deliverables will be:
 
 
 ## Project Plan
-This project has an agenda that begins on April 9 and ends on October 9, 2021. Milestones of work plan are:
+This project has an agenda that begins on April 9 and ends on October 9, 2021. Milestones of the work plan are:
 
 | Activity                   | Month 1 | Month 2 | Month 3 | Month 4 | Month 5 | Month 6 |
 | -------------------------- | ------- | ------- | ------- | ------- | ------- | ------- |
@@ -63,7 +63,7 @@ This project has an agenda that begins on April 9 and ends on October 9, 2021. M
 | Document in Github         |         | XXXXXX  | XXXXXX  | XXXXXX  | XXXXXX  | XXXXXX  |
 
 ## Changelog
-Work progress is registered in own page:
+Work progress is registered on own page:
 - [Work tracking](docs/changelog.md)
 
 ## Web Page
@@ -71,8 +71,8 @@ Web of this project is built with gitpages: https://portdebarcelona.github.io/Op
 
 ## About [Ports 4.0](https://ports40.es/static/ports_40)
 
-The **Ports 4,0** equity fund is the corporate open innovation model adopted by the **Spanish State Port Authorities** to attract, support and facilitate the application of talent and entrepreneurship to the Spanish public and private ports sector, within the context of 4th industrial revolution.
+The **Ports 4,0** equity fund is the corporate open innovation model adopted by the **Spanish State Port Authorities** to attract, support, and facilitate the application of talent and entrepreneurship to the Spanish public and private ports sector, within the context of 4th industrial revolution.
 
 The main target of the Fund is to actively ***promote and incorporate disruptive or incremental innovation*** as a competitiveness, efficiency, sustainability, security and protection element, in the Spanish public and private logistics-ports sector, to facilitate its transition towards economy 4.0.
 
-Ports 4,0 will ***stimulate the creation or consolidation of a factory of emergent companies*** (Startups), spin-offs or new business lines, within the technological scope, in existing companies developing innovative market-driven products, services or processes for the ports logistics sector.
+Ports 4,0 will ***stimulate the creation or consolidation of a factory of emergent companies*** (Startups), spin-offs, or new business lines, within the technological scope, in existing companies developing innovative market-driven products, services, or processes for the ports logistics sector.
