@@ -125,16 +125,16 @@ Some notices are intended for the port community, and others are intended for th
 ### Port fees Info
 
 Information about official fees of port services:
-Navigation Support Rate (T0)
-Vessel Rate (T1)
-Passenger Rate (T2)
-Cargo Rate (T3)
-1. Simplified Modality
-2. Modality for Groups of Goods
-Fresh fish Rate (T4)
-Pleasure and Sports Craft Rate (T5)
-Special Use of the Transit Zone Rate (T6)
-Vessel-Generated Waste Collection Service Fee
+- Navigation Support Rate (T0)
+- Vessel Rate (T1)
+- Passenger Rate (T2)
+- Cargo Rate (T3)
+- 1. Simplified Modality
+- 2. Modality for Groups of Goods
+- Fresh fish Rate (T4)
+- Pleasure and Sports Craft Rate (T5)
+- Special Use of the Transit Zone Rate (T6)
+- Vessel-Generated Waste Collection Service Fee
 
 ### Port Services Info
 
