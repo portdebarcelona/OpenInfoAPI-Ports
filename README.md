@@ -13,17 +13,17 @@
 - [Ports 4.0 decision](docs/annexes/IDEAS-RESOLUCION-PROVISIONAL-CONCESION-DE-AYUDAS_signed.pdf)
 - [More detailed presentation](docs/Presentation.md)
 ## Introduction to idea Open Info API for Ports
-All the large commercial ports manage a logistics area where goods can change their mode of transport. Specifically from the sea side (vessels) to the land side (trucks or trains) and vice versa. This activity is specified in:
-- Vessels that arrive to port, load and unload their cargo (usually in containers/trailers or as a bulk cargo),
+All the large commercial ports manage a logistics area where goods can change their mode of transport. Specifically from the seaside (vessels) to the land side (trucks or trains) and vice versa. This activity is specified in:
+- Vessels that arrive at port, load and unload their cargo (usually in containers/trailers or as a bulk cargo),
 - Port companies that facilitate the access and berthing of the vessel,
-- Stevedores who operate the cranes and take the equipments or cargo to the storage spaces,
+- Stevedores who operate the cranes and move the cargo or containers to the terminal yard,
 - Trucks that bring or take the goods from the port,
 - Trains that are loaded and unloaded and that will carry the goods to a destination in the hinterland.
 
 All these activities are carried out under:
 - An intense documentary exchange between the port operators,
-- A strict surveillance of the port authorities that the administrative, working, personal and environmental safety conditions, etc. are met,
-- The need to increase the efficiency of logistics processes, offering more **information services** in real time,
+- Strict surveillance of the port authorities that the administrative, working, personal and environmental safety conditions, etc. are met,
+- The need to increase the efficiency of logistics processes, offering more **information services** in real-time,
 - The need to **increase the transparency** of what happens in the port, which citizens demand from public administrations.
 
 This project is oriented to the last two points, and therefore:
@@ -33,7 +33,7 @@ This project is oriented to the last two points, and therefore:
   - HTTP protocol
   - OAS 3.x Open API Specification
   - API REST
-  - JSON:API
+  - JSON: API
 
 ## Deliverables
 
