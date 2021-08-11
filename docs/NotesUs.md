@@ -1,6 +1,6 @@
 # Notes del GitHub
 - Situar-se a la branca "develop" (part inferior esquerra de l'editor)
-- Pull
+- Pull -
 - Editar els fitxers (Ctrl+S, salva els canvis)
 - Obrir menú del Git
 - Amb "+" pugem els canvis a "stage area"
