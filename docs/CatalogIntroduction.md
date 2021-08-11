@@ -39,7 +39,7 @@ Information about port infrastructure:
   - Cruiser terminals
   - Container terminals
   - Vehicle Terminals
-  - Bulk Terminals
+  - Bulk Terminals .
 - Marine Aids to Navigation
 
 ### Port Procedures
