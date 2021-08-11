@@ -1,14 +1,14 @@
-# Introduction to Info Open API catalog of Ports
-About ports ... and info
+# Introduction to the catalog of Open Info APIs for Ports
+This catalog enumerates a list of APIs with information about ports that can be useful for the logistic activities and also for the citiens that want to know more about ports.
 
 ## Categories
 
-Use of **Enumerations**. Many concepts are common in all ports (for instance: port services). It is advisable to use an enumeration field that would allow better filtering and precise references
+Use of **Enumerations**. Many concepts are common in all ports (e.g., port services). It is advisable to use an enumeration field that would allow better filtering and precise references.
 ### Ship Calls
 Introduction to ship calls.
 
 Proposals:
-- **Ships Arrival Forecasts**. Forecast o ships that will arrive at a port. Data: IMO number, ship name, ETA (Estimated time of arrival), etc [catalog](catalog/catalog-ShipsArrivalForecasts.md)
+- **Ships Arrival Forecasts**. Forecast of ships that will arrive at a port. Data: IMO number, ship name, ETA (Estimated time of arrival), etc [catalog](catalog/catalog-ShipsArrivalForecasts.md)
 - **Vessels in port**. Vessels that are moored in the port. Data: IMO number, ship name, ATA (Actual time of arrival), ETD (Estimated Time of Departure), mooring Quay, etc [catalog](catalog/catalog-VesselsInPort.md)
 - **Ship Exits**:
 - **Ship Arrivals**: 
@@ -19,7 +19,7 @@ Proposals:
 
 **Benchmarking**: [veure](Benchmarking.md#ShipCalls)
 ### Liner Services
-An important offer of a Port is related to foreland connections. So that, a port must publish a list with which ports have sea connection. This information should contain:
+An important offer of a port is related to its connections with the foreland. Therefore, a port must publish a list of ports with which it has maritime connections. This information should contain:
 - Liner Service Name
 - Shipowner
 - Periodicity
