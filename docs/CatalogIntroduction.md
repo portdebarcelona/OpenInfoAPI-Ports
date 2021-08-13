@@ -55,7 +55,7 @@ Possible APIs:
   - [catalog](catalog/catalog-LinerServices.md)
 
 ### Port Infrastructure
-Information about port infrastructure (PENDING)
+Geographical/spatial information about the port, land accesses, terminals, and marine aids to navigation.
 
 Possible APIs:
 - **Port infrastructure**
@@ -71,8 +71,8 @@ Possible APIs:
   - Data included in the response: terminal name, type of terminal (ferry, cruise, container, multipurpose, vehicle, Bulk cargo,...), gate latitude/longitud, allowed vehicles, maximun width, maximum height, opening hours,...
   - [catalog](catalog/catalog-PortTerminals.md)
 - **Marine Aids to Navigation**
-  - Request parameters will be: (PENDING) 
-  - Data included in the response: (PENDING)
+  - Request parameters will be: port mouth
+  - Data included in the response: fixed bridges and other structures over navegable waters, identification parameters, latitude/longitude,...
   - [catalog](catalog/catalog-MarineAids.md)
 
 ### Port Procedures
