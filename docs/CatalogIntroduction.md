@@ -71,22 +71,28 @@ Possible APIs:
   - Data included in the response: terminal name, type of terminal (ferry, cruise, container, multipurpose, vehicle, Bulk cargo,...), gate latitude/longitud, allowed vehicles, maximun width, maximum height, opening hours,...
   - [catalog](catalog/catalog-PortTerminals.md)
 - **Marine Aids to Navigation**
-  - Request parameters will be: port mouth
+  - Request parameters will be: port name, port mouth
   - Data included in the response: fixed bridges and other structures over navegable waters, identification parameters, latitude/longitude,...
   - [catalog](catalog/catalog-MarineAids.md)
 
-### Port Procedures
-All ports have procedure instructions for certain types of operations. These procedures must be published and accessible to applications. Here are some examples:
-- Approach instructions
-- VGM (Verified Gross Mass)
-- Customs Inspections:
-  - Inspection in Terminal
-  - Non-intrusive Inspection
-- Border Inspection Post
-- Port Calendar 
-- Container release (Recogida de contenedores en terminal)
-- Container Acceptance (Entrega de contenedores en terminal)
-- Efficiency Network Certificate
+### Port Procedures (PENDING)
+Certain types of operations require some procedure instructions and these procedures should be published and accessible to several applications. 
+
+Here are some examples of APIs that can facilitate information of some of these procedures:
+- **Approach instructions** (PENDING)
+- **VGM (Verified Gross Mass)** (PENDING)
+- **Customs Inspections**
+
+  Customs can perform its inspections inside the cargo terminals, at the terminal yard or in a warehouse, but thay can also inspect containers, platforms or trucks using a non-intrusive technology as an X-ray scanner. Operators need to know which units have been selected by Customs to be inspected, to know if the inspection has been performed and if their goods have been cleared. 
+  - Request parameters will be: equipment id. 
+  - Data included in the response: selected for inspection (true/false), type of inspection (intrusive/non-intrusive), place of the inspection, status (pending/done/cleared,...),...
+  - [catalog](catalog/catalog-CustomsInspections.md)   
+
+- **Border Inspection Center**
+- **Port Calendar** 
+- **Container release (Container pick-up from the terminal)**
+- **Container Acceptance (Conteiner delivery to the terminal)**
+- **Efficiency Network Certificate**
 
 ### Statistics
 Inspiring webs:
