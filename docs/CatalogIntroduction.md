@@ -36,13 +36,13 @@ Possible APIs:
   - Data included in the response: ship name, ferry operator, ATA (Actual Time of Arrival) or ETA (Estimated time of arrival), previous port of call,...
   - [catalog](catalog/catalog-FerriesArrivals.md)
 - **Ferries Departures**: Ferries that have sailed for the past 24 hours or are sailing up in the next 24 hours. 
-    - Request parameters: none. 
-    - Data included in the response: ship name, ferry operator, ATD (Actual Time of Departure) or ETD (Estimated Time of Departure), mooring quay, next port of call,...
-    - [catalog](catalog/catalog-FerriesDepartures.md)
+  - Request parameters: none. 
+  - Data included in the response: ship name, ferry operator, ATD (Actual Time of Departure) or ETD (Estimated Time of Departure), mooring quay, next port of call,...
+  - [catalog](catalog/catalog-FerriesDepartures.md)
 - **Cruises Calls**: Cruise schedules 
-    - Request parameters: ship name. 
-    - Data included in the response: ship name, cruise line, ETA (Estimated Time of Arrival), ETD (Estimated Time of Departure), cruise terminal,...
-    - [catalog](catalog/catalog-CruisesCalls.md)
+  - Request parameters: ship name. 
+  - Data included in the response: ship name, cruise line, ETA (Estimated Time of Arrival), ETD (Estimated Time of Departure), cruise terminal,...
+  - [catalog](catalog/catalog-CruisesCalls.md)
 
 Benchmarking: [select](Benchmarking.md#ShipCalls)
 ### Liner Services
@@ -50,30 +50,30 @@ The connectivity of a port depends on the list of ports that are serviced period
 
 Possible APIs:
 - **Liner services**
-  - The request parameters will be: liner service name, shipowner, type of cargo,... 
-   - The data included in the response: liner service name, shipowner, type of cargo, periodicity, list of linked ports, capacity (TEU weekly),...
-   - [catalog](catalog/catalog-LinerServices.md)
+  - Request parameters: liner service name, shipowner, type of cargo,... 
+  - Data included in the response: liner service name, shipowner, type of cargo, periodicity, list of linked ports, capacity (TEU weekly),...
+  - [catalog](catalog/catalog-LinerServices.md)
 
 ### Port Infrastructure
 Information about port infrastructure (PENDING)
 
 Possible APIs:
 - **Port infrastructure**
-  - The request parameters will be: port name,... 
-   - The data included in the response: latitude/longitud, land area, berths (length, depth, loading capacities, contact information),...
-   - [catalog](catalog/catalog-PortInfrastructure.md)
+  - Request parameters: port name,... 
+  - Data included in the response: latitude/longitud, land area, berths (length, depth, loading capacities, contact information),...
+  - [catalog](catalog/catalog-PortInfrastructure.md)
 - **Port gates**
-  - The request parameters will be: none. 
-   - The data included in the response: gate name, latitude/longitud, allowed vehicles, maximun width, maximum height, opening hours,...
-   - [catalog](catalog/catalog-PortGates.md)
+  - Request parameters will be: none. 
+  - Data included in the response: gate name, latitude/longitud, allowed vehicles, maximun width, maximum height, opening hours,...
+  - [catalog](catalog/catalog-PortGates.md)
 - **Port terminals**
-  - The request parameters will be: none. 
-   - The data included in the response: terminal name, type of terminal (ferry, cruise, container, multipurpose, vehicle, Bulk cargo,...), gate latitude/longitud, allowed vehicles, maximun width, maximum height, opening hours,...
-   - [catalog](catalog/catalog-PortTerminals.md)
+  - Request parameters will be: none. 
+  - Data included in the response: terminal name, type of terminal (ferry, cruise, container, multipurpose, vehicle, Bulk cargo,...), gate latitude/longitud, allowed vehicles, maximun width, maximum height, opening hours,...
+  - [catalog](catalog/catalog-PortTerminals.md)
 - **Marine Aids to Navigation**
-  - The request parameters will be: (PENDING) 
-   - The data included in the response: (PENDING)
-   - [catalog](catalog/catalog-MarineAids.md)
+  - Request parameters will be: (PENDING) 
+  - Data included in the response: (PENDING)
+  - [catalog](catalog/catalog-MarineAids.md)
 
 ### Port Procedures
 All ports have procedure instructions for certain types of operations. These procedures must be published and accessible to applications. Here are some examples:
