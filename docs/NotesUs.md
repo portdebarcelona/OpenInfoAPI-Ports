@@ -1,4 +1,4 @@
-# Notes del GitHub
+# Notes ús del GitHub i Visual Code
 
 ## Editar continguts
 - Situar-se a la branca "**develop**" (part inferior esquerra de l'editor)
@@ -15,7 +15,7 @@ Nota Enric: No recordo si necessita un plugin
 
 - **Previsualitzar**
   - Posar cursor en la **pestanya** del fitxer
-  - **Botó dret ratolí** desplega ocpions
+  - **Botó dret ratolí** desplega opcions
   - Triar opció : **Open Preview** ( o Ctrl+Shift+V)
 - **Posar preview en una finestra al costat**
   - Posar cursor en la pestanya del fitxer de Preview
