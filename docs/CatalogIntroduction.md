@@ -5,7 +5,7 @@ This catalog enumerates a list of APIs with information about ports that can be 
 
 Use of **Categories**. Many concepts are common in all ports (e.g., port services). It is advisable to use a category field that would allow better filtering and precise referencing.
 
-### Ship Calls
+### Ships Calls
 Information about vessel's voyages in the port is particularly useful for planning logistic operations, but it can also be useful for acompanying or waiting people that will depart or arrive by ferry or cruise.
 
 This category reffers to all available information about vessels and their voyages within the port, such as their port calls or their voyages, including their stay number and the information about the vessel, such as IMO, lenght, tonnage, .
@@ -19,11 +19,11 @@ Possible APIs:
   - Request parameters: none. 
   - Data included in the response: IMO number, ship name, ATA (Actual time of arrival), ETD (Estimated Time of Departure), mooring quay, previous port of call,... 
   - [catalog](catalog/catalog-VesselsInPort.md)
-- **Ship Exits** Vessels that are sailing up in the next 24 hours or have sailed during the past 24 hours. 
+- **Ships Exits** Vessels that are sailing up in the next 24 hours or have sailed during the past 24 hours. 
   - Request parameters: none. 
   - Data included in the response: IMO number, ship name, ATD (Actual Time of Departure) or ETD (Estimated Time of Departure), mooring quay, next port of call,... 
   - [catalog](catalog/catalog-ShipExits.md)
-- **Ship Arrivals** Vessels that has arrived at a port during the the past 24 hours or will arrive in the next 24 hours. 
+- **Ships Arrivals** Vessels that has arrived at a port during the the past 24 hours or will arrive in the next 24 hours. 
   - Request parameters: none. 
   - Data included in the response: IMO number, ship name, ATA (Actual Time of Arrival) or ETA (Estimated time of arrival), previous port of call,... 
   - [catalog](catalog/catalog-ShipsArrivals.md) 
@@ -46,25 +46,34 @@ Possible APIs:
 
 Benchmarking: [select](Benchmarking.md#ShipCalls)
 ### Liner Services
-An important offer of a port is related to its connections with the foreland. Therefore, a port must publish a list of ports with which it has maritime connections. This information should contain:
-- Liner Service Name
-- Shipowner
-- Periodicity
-- List of linked ports
-- TEU weekly
-### Ports Infrastructure
-Information about port infrastructure:
-- Latitude/Longitud
-- Land area
-- Berths (length, depths, loading capacities, contact information)
-- Terrestrial Gates
-- Terminals: 
-  - Ferris terminals
-  - Cruiser terminals
-  - Container terminals
-  - Vehicle Terminals
-  - Bulk Terminals .
-- Marine Aids to Navigation
+The connectivity of a port depends on the list of ports that are serviced periodically. Liner services define the network of ports with direct maritime connections to a port and their periodicity and capacity.
+
+Possible APIs:
+- **Liner services**
+  - The request parameters will be: liner service name, shipowner, type of cargo,... 
+   - The data included in the response: liner service name, shipowner, type of cargo, periodicity, list of linked ports, capacity (TEU weekly),...
+   - [catalog](catalog/catalog-LinerServices.md)
+
+### Port Infrastructure
+Information about port infrastructure (PENDING)
+
+Possible APIs:
+- **Port infrastructure**
+  - The request parameters will be: port name,... 
+   - The data included in the response: latitude/longitud, land area, berths (length, depth, loading capacities, contact information),...
+   - [catalog](catalog/catalog-PortInfrastructure.md)
+- **Port gates**
+  - The request parameters will be: none. 
+   - The data included in the response: gate name, latitude/longitud, allowed vehicles, maximun width, maximum height, opening hours,...
+   - [catalog](catalog/catalog-PortGates.md)
+- **Port terminals**
+  - The request parameters will be: none. 
+   - The data included in the response: terminal name, type of terminal (ferry, cruise, container, multipurpose, vehicle, Bulk cargo,...), gate latitude/longitud, allowed vehicles, maximun width, maximum height, opening hours,...
+   - [catalog](catalog/catalog-PortTerminals.md)
+- **Marine Aids to Navigation**
+  - The request parameters will be: (PENDING) 
+   - The data included in the response: (PENDING)
+   - [catalog](catalog/catalog-MarineAids.md)
 
 ### Port Procedures
 All ports have procedure instructions for certain types of operations. These procedures must be published and accessible to applications. Here are some examples:
