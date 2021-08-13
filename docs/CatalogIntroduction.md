@@ -81,9 +81,36 @@ Certain types of operations require some procedure instructions and these proced
 Here are some examples of APIs that can facilitate information of some of these procedures:
 - **Approach instructions** (PENDING)
 - **VGM (Verified Gross Mass)** (PENDING)
+
+  A discrepancy between the declared gross mass and the actual gross mass of a packed container could have an adverse impact on the safety of the ship, seafarers and shore-side workers, by leading to incorrect vessel stowage decisions and potentially collapsed container stacks or loss of containers overboard.
+
+  The International Maritime Organisation (IMO) established a requirement that packed containers be weighed to obtain their actual gross mass prior to vessel loading.  This requirement is included in the Guidelines regarding the verified gross mass of a container carrying cargo (MSC.1/Circ.1475) and the adoption of amendment to SOLAS regulation VI/2 to require the mandatory verification of the gross mass of packed containers (resolution MSC.380(94)).
+
+  The aforementioned SOLAS amendments introduce two main new requirements:
+  1. the shipper is responsible for providing the verified weight by stating it in the shipping document and submitting it to the master or his representative and to the terminal representative sufficiently in advance to be used in the preparation of the ship stowage plan; and 
+  2. the verified gross mass is a condition for loading a packed container onto a ship.
+
+
+  Availability to both the terminal representative and to the master or his representative of the verified gross mass of a packed container sufficiently in advance to be used in the ship stowage plan is a prerequisite for the container to be loaded onto a ship to which the SOLAS regulations apply.  However, it does not constitute an entitlement for loading.  Nothing in the SOLAS regulations limits the principle that the master retains ultimate discretion in deciding whether to accept a packed container for loading onto his ship.
+
+  The verification of the gross mass can be achieved by either of two methods:
+  1. weighing the packed container; or
+  2. weighing all packages and cargo items, including the mass of pallets, dunnage and other securing material to be packed in the container and adding the tare mass of the container to the sum of the single masses, using a certified method approved by the competent authority of the State in which packing of the container was completed.
+
+  Possible APIs:
+
+
+- VGM
+  - Request parameters: equipment id, request of weighting or VGM communication . 
+  - Data included in the response: method of weighting, VGM,...
+  - [catalog](catalog/catalog-VGM.md)  
+ 
 - **Customs Inspections**
 
   Customs can perform its inspections inside the cargo terminals, at the terminal yard or in a warehouse, but thay can also inspect containers, platforms or trucks using a non-intrusive technology as an X-ray scanner. Operators need to know which units have been selected by Customs to be inspected, to know if the inspection has been performed and if their goods have been cleared. 
+  
+  Possible APIs:
+- Customs Inspections
   - Request parameters: equipment id. 
   - Data included in the response: selected for inspection (true/false), type of inspection (intrusive/non-intrusive), place of the inspection, status (pending/done/cleared,...),...
   - [catalog](catalog/catalog-CustomsInspections.md)   
