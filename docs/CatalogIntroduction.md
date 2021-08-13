@@ -1,4 +1,4 @@
-# Introduction to the catalog of Open Info APIs for Ports
+# Introduction to the catalog of APIs
 This catalog enumerates a list of APIs with information about ports that can be useful for the logistic activities and also for the citiens that want to know more about ports.
 
 ## Categories
@@ -6,21 +6,45 @@ This catalog enumerates a list of APIs with information about ports that can be 
 Use of **Categories**. Many concepts are common in all ports (e.g., port services). It is advisable to use a category field that would allow better filtering and precise referencing.
 
 ### Ship Calls
-Information about vessel's voyages in the port is particularly useful for planning logistic operations, but it can also be useful for acompanying or waiting friends that will depart or arrive by ferry or cruise.
+Information about vessel's voyages in the port is particularly useful for planning logistic operations, but it can also be useful for acompanying or waiting people that will depart or arrive by ferry or cruise.
 
 This category reffers to all available information about vessels and their voyages within the port, such as their port calls or their voyages, including their stay number and the information about the vessel, such as IMO, lenght, tonnage, .
 
 Possible APIs:
-- **Ships Arrival Forecasts**. Forecast of ships that will arrive at a port in a given period of time. Request parameters: period of time, type of vessel,... Data included in the response: IMO number, ship name, ETA (Estimated time of arrival), previous port of call,... [catalog](catalog/catalog-ShipsArrivalForecasts.md)
-- **Vessels in port**. Vessels that are anchored/moored in the port. Request parameters: none. Data included in the response: IMO number, ship name, ATA (Actual time of arrival), ETD (Estimated Time of Departure), mooring quay, previous port of call,... [catalog](catalog/catalog-VesselsInPort.md)
-- **Ship Exits** Vessels that are sailing up in the next 24 hours or have sailed for the past 24 hours. Request parameters: none. Data included in the response: IMO number, ship name, ATD (Actual Time of Departure) or ETD (Estimated Time of Departure), mooring quay, next port of call,... [catalog](catalog/catalog-ShipExits.md)
-- **Ship Arrivals** Vessels that has arrived at a port during the the past 24 hours or will arrive in the next 24 hours. Request parameters: none. Data included in the response: IMO number, ship name, ATA (Actual Time of Arrival) or ETA (Estimated time of arrival), previous port of call,... [catalog](catalog/catalog-ShipsArrivals.md) 
-- **Ships Aproximation Manouvres**: Aproximation manouvres of ships to the port. Vessels that have initiated their approximation manouvres. Request parameters: none. Data included in the response: IMO number, ship name, ETA (Estimated time of arrival), type of vessel, previous port of call,... [catalog](catalog/catalog-ShipsAproximationManouvres.md)
-- **Ferries Arrivals**: Ferries that has arrived at a port during the the past 24 hours or will arrive in the next 24 hours. Request parameters: none. Data included in the response: IMO number, ship name, ATA (Actual Time of Arrival) or ETA (Estimated time of arrival), previous port of call,...[catalog](catalog/catalog-FerriesArrivals.md)
-- **Ferries Departures**: Ferries that have sailed for the past 24 hours or are sailing up in the next 24 hours. Request parameters: none. Data included in the response: IMO number, ship name, ATD (Actual Time of Departure) or ETD (Estimated Time of Departure), mooring quay, next port of call,...[catalog](catalog/catalog-FerriesDepartures.md)
-- **Cruises Calls**: (PENDING) [catalog](catalog/catalog-CruisesCalls.md)
+- **Ships Arrival Forecasts**. Forecast of ships that will arrive at a port in a given period of time. 
+  - Request parameters: period of time, type of vessel,... 
+  - Data included in the response: IMO number, ship name, ETA (Estimated time of arrival), previous port of call,... 
+  - [catalog](catalog/catalog-ShipsArrivalForecasts.md)
+- **Vessels in port**. Vessels that are anchored/moored in the port. 
+  - Request parameters: none. 
+  - Data included in the response: IMO number, ship name, ATA (Actual time of arrival), ETD (Estimated Time of Departure), mooring quay, previous port of call,... 
+  - [catalog](catalog/catalog-VesselsInPort.md)
+- **Ship Exits** Vessels that are sailing up in the next 24 hours or have sailed during the past 24 hours. 
+  - Request parameters: none. 
+  - Data included in the response: IMO number, ship name, ATD (Actual Time of Departure) or ETD (Estimated Time of Departure), mooring quay, next port of call,... 
+  - [catalog](catalog/catalog-ShipExits.md)
+- **Ship Arrivals** Vessels that has arrived at a port during the the past 24 hours or will arrive in the next 24 hours. 
+  - Request parameters: none. 
+  - Data included in the response: IMO number, ship name, ATA (Actual Time of Arrival) or ETA (Estimated time of arrival), previous port of call,... 
+  - [catalog](catalog/catalog-ShipsArrivals.md) 
+- **Ships Aproximation Manouvres**: Aproximation manouvres of ships to the port. Vessels that have initiated their approximation manouvres. 
+  - Request parameters: none. 
+  - Data included in the response: IMO number, ship name, ETA (Estimated time of arrival), type of vessel, previous port of call,... 
+  - [catalog](catalog/catalog-ShipsAproximationManouvres.md)
+- **Ferries Arrivals**: Ferries that has arrived at a port during the the past 24 hours or will arrive in the next 24 hours. 
+  - Request parameters: none. 
+  - Data included in the response: ship name, ferry operator, ATA (Actual Time of Arrival) or ETA (Estimated time of arrival), previous port of call,...
+  - [catalog](catalog/catalog-FerriesArrivals.md)
+- **Ferries Departures**: Ferries that have sailed for the past 24 hours or are sailing up in the next 24 hours. 
+    - Request parameters: none. 
+    - Data included in the response: ship name, ferry operator, ATD (Actual Time of Departure) or ETD (Estimated Time of Departure), mooring quay, next port of call,...
+    - [catalog](catalog/catalog-FerriesDepartures.md)
+- **Cruises Calls**: Cruise schedules 
+    - Request parameters: ship name. 
+    - Data included in the response: ship name, cruise line, ETA (Estimated Time of Arrival), ETD (Estimated Time of Departure), cruise terminal,...
+    - [catalog](catalog/catalog-CruisesCalls.md)
 
-Benchmarking: [veure](Benchmarking.md#ShipCalls)
+Benchmarking: [select](Benchmarking.md#ShipCalls)
 ### Liner Services
 An important offer of a port is related to its connections with the foreland. Therefore, a port must publish a list of ports with which it has maritime connections. This information should contain:
 - Liner Service Name
