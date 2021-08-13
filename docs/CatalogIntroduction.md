@@ -75,7 +75,7 @@ Possible APIs:
   - Data included in the response: fixed bridges and other structures over navegable waters, identification parameters, latitude/longitude,...
   - [catalog](catalog/catalog-MarineAids.md)
 
-### Port Procedures (PENDING)
+### Port Procedures (Work in progress)
 Certain types of operations require some procedure instructions and these procedures should be published and accessible to several applications. 
 
 Here are some examples of APIs that can facilitate information of some of these procedures:
@@ -95,7 +95,7 @@ Here are some examples of APIs that can facilitate information of some of these 
 
   - Request parameters: equipment id. 
   - Data included in the response: selected for inspection (true/false), border inspection service (phytosanitary, veterinary, pharmacy, health,...), type of inspection (identity,...), place of the inspection, status (pending/done/cleared,...),...
-  - [catalog](catalog/catalog-CustomsInspections.md)   
+  - [catalog](catalog/catalog-BorderInspections.md)   
 
 - **Port Calendar** (PENDING) 
 - **Container release (Container pick-up from the terminal)** (PENDING)
