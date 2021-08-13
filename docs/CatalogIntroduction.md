@@ -100,29 +100,31 @@ Here are some examples of APIs that can facilitate information of some of these 
   Possible APIs:
 
 
-- VGM
-  - Request parameters: equipment id, request of weighting or VGM communication . 
-  - Data included in the response: method of weighting, VGM,...
-  - [catalog](catalog/catalog-VGM.md)  
+  - VGM
+    - Request parameters: equipment id, request of weighting or VGM communication . 
+    - Data included in the response: method of weighting, VGM,...
+    - [catalog](catalog/catalog-VGM.md)  
  
 - **Customs Inspections**
 
   Customs can perform its inspections inside the cargo terminals, at the terminal yard or in a warehouse, but thay can also inspect containers, platforms or trucks using a non-intrusive technology as an X-ray scanner. Operators need to know which units have been selected by Customs to be inspected, to know if the inspection has been performed and if their goods have been cleared. 
   
   Possible APIs:
-- Customs Inspections
-  - Request parameters: equipment id. 
-  - Data included in the response: selected for inspection (true/false), type of inspection (intrusive/non-intrusive), place of the inspection, status (pending/done/cleared,...),...
-  - [catalog](catalog/catalog-CustomsInspections.md)   
+  - Customs Inspections
+    - Request parameters: equipment id. 
+    - Data included in the response: selected for inspection (true/false), type of inspection (intrusive/non-intrusive), place of the inspection, status (pending/done/cleared,...),...
+    - [catalog](catalog/catalog-CustomsInspections.md)   
 
 - **Border Control Posts (BCP)**
 
   A Border Control Post is an inspection post designated and approved in line with EU legislation for carrying out checks on animals and animal products arriving from third countries at a European Union border. These checks are carried out to protect animal and public health, and animal welfare.
   Operators need to know which units have been selected by the Sanitary Authorities to be inspected, to know if the inspection has been performed and if their goods have been cleared.
 
-  - Request parameters: equipment id. 
-  - Data included in the response: selected for inspection (true/false), border inspection service (phytosanitary, veterinary, pharmacy, health,...), type of inspection (identity,...), place of the inspection, status (pending/done/cleared,...),...
-  - [catalog](catalog/catalog-BorderInspections.md)   
+  Possible APIs:
+  - Border Control Posts
+    - Request parameters: equipment id. 
+    - Data included in the response: selected for inspection (true/false), border inspection service (phytosanitary, veterinary, pharmacy, health,...), type of inspection (identity,...), place of the inspection, status (pending/done/cleared,...),...
+    - [catalog](catalog/catalog-BorderInspections.md)   
 
 - **Port Calendar** (PENDING) 
 - **Container release (Container pick-up from the terminal)** (PENDING)
