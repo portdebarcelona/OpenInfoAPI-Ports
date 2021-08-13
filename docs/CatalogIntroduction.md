@@ -63,15 +63,15 @@ Possible APIs:
   - Data included in the response: latitude/longitud, land area, berths (length, depth, loading capacities, contact information),...
   - [catalog](catalog/catalog-PortInfrastructure.md)
 - **Port gates**
-  - Request parameters will be: none. 
+  - Request parameters: none. 
   - Data included in the response: gate name, latitude/longitud, allowed vehicles, maximun width, maximum height, opening hours,...
   - [catalog](catalog/catalog-PortGates.md)
 - **Port terminals**
-  - Request parameters will be: none. 
+  - Request parameters: none. 
   - Data included in the response: terminal name, type of terminal (ferry, cruise, container, multipurpose, vehicle, Bulk cargo,...), gate latitude/longitud, allowed vehicles, maximun width, maximum height, opening hours,...
   - [catalog](catalog/catalog-PortTerminals.md)
 - **Marine Aids to Navigation**
-  - Request parameters will be: port name, port mouth
+  - Request parameters: port name, port mouth
   - Data included in the response: fixed bridges and other structures over navegable waters, identification parameters, latitude/longitude,...
   - [catalog](catalog/catalog-MarineAids.md)
 
@@ -84,15 +84,23 @@ Here are some examples of APIs that can facilitate information of some of these 
 - **Customs Inspections**
 
   Customs can perform its inspections inside the cargo terminals, at the terminal yard or in a warehouse, but thay can also inspect containers, platforms or trucks using a non-intrusive technology as an X-ray scanner. Operators need to know which units have been selected by Customs to be inspected, to know if the inspection has been performed and if their goods have been cleared. 
-  - Request parameters will be: equipment id. 
+  - Request parameters: equipment id. 
   - Data included in the response: selected for inspection (true/false), type of inspection (intrusive/non-intrusive), place of the inspection, status (pending/done/cleared,...),...
   - [catalog](catalog/catalog-CustomsInspections.md)   
 
-- **Border Inspection Center**
-- **Port Calendar** 
-- **Container release (Container pick-up from the terminal)**
-- **Container Acceptance (Conteiner delivery to the terminal)**
-- **Efficiency Network Certificate**
+- **Border Control Posts (BCP)**
+
+  A Border Control Post is an inspection post designated and approved in line with EU legislation for carrying out checks on animals and animal products arriving from third countries at a European Union border. These checks are carried out to protect animal and public health, and animal welfare.
+  Operators need to know which units have been selected by the Sanitary Authorities to be inspected, to know if the inspection has been performed and if their goods have been cleared.
+
+  - Request parameters: equipment id. 
+  - Data included in the response: selected for inspection (true/false), border inspection service (phytosanitary, veterinary, pharmacy, health,...), type of inspection (identity,...), place of the inspection, status (pending/done/cleared,...),...
+  - [catalog](catalog/catalog-CustomsInspections.md)   
+
+- **Port Calendar** (PENDING) 
+- **Container release (Container pick-up from the terminal)** (PENDING)
+- **Container Acceptance (Conteiner delivery to the terminal)** (PENDING)
+- **Efficiency Network Certificate** (PENDING)
 
 ### Statistics
 Inspiring webs:
