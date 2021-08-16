@@ -145,6 +145,12 @@ Here are some examples of APIs that can facilitate information of some of these 
 - **Approach instructions** (PENDING)
 
 ### Statistics (PENDING)
+Ports are ranked nationally and internationally, and they are compared in many different ways, i.e. by volume or value of trade, the number of TEUs, tones or cruise passengers, revenues, quays length, or storage capacity.
+
+Moreover, the size of a port, in terms of traffic flow, says nothing about productivity, efficiency, or responsiveness to customers. These are just some of the criteria that a shipper might consider in evaluating port performance. 
+
+
+
 Inspiring webs:
 - Eurostat
   - https://ec.europa.eu/eurostat/databrowser/view/MAR_TF_QM__custom_917144/default/table?lang=en
@@ -164,6 +170,17 @@ All the ports have statistical information about the activity. Usually are publi
 - etc.
 
 ### Weather (PENDING)
+Several activities at ports, such as berthing, dredging or construction typically require low weather energy conditions for safe execution. 
+
+Information can assist harbour masters, port pilots, tug masters, mooring officers, and port engineers to make decisions and help them increase safety and efficiency of marine operations in ports.
+
+Real time information about weather can optimise the scheduling of shipping movements, can minimise weather downtime, can optimise berth use reducing cargo transit delays, can aware of hazardous conditions off coast, can forecast long wave and surging conditions
+
+
+
+...wind forecasts: trained upon in-port or near-port wind observations, these forecasts let you precisely judge the percentage risk of high winds from one hour ahead to one week ahead.
+
+
 Introduction to meteorological data. See [Free Weather APIS to access global weather data](https://rapidapi.com/blog/access-global-weather-data-with-these-weather-apis/), [wheatherapi.com](https://www.weatherapi.com/docs/#apis-realtime)
 
 #### Realtime weather
