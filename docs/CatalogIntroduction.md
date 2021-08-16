@@ -79,7 +79,29 @@ Possible APIs:
 Certain operations require some procedure instructions and these procedures should be published and accessible to several applications. 
 
 Here are some examples of APIs that can facilitate information of some of these procedures:
-- **Approach instructions** (PENDING)
+
+- **Customs Controls and Inspections**
+
+  Customs can perform their physical inspections inside the cargo terminals, at the terminal yard or in a warehouse, but they can also inspect containers, platforms or trucks using a non-intrusive technology as an X-ray scanner. Operators need to know which units have been selected to be inspected by Customs, to know if the inspection has been carried out and whether the goods have been cleared. 
+  
+  Possible APIs:
+  - Customs Inspections
+    - Request parameters: equipment id. 
+    - Data included in the response: unit of cargo selected for inspection (true/false), type of inspection (intrusive/non-intrusive), place of the inspection (container yard, bonded warehouse,..), status (pending/carried out/cleared,...),...
+    - [catalog](catalog/catalog-CustomsInspections.md)   
+
+- **Border Control Posts (BCP)**
+
+  A Border Control Post is an inspection post designated and approved in line with EU legislation for carrying out checks on animals and animal products arriving from third countries at a European Union border. These checks are carried out to protect animal and public health, and animal welfare.
+  Operators need to know which units have been selected by the Sanitary Authorities to be inspected, to know if the inspection has been performed and if their goods have been cleared.
+
+  Possible APIs:
+  - Border Control Posts
+    - Request parameters: equipment id. 
+    - Data included in the response: unit of cargo selected for inspection (true/false), border inspection service (phytosanitary, veterinary, pharmacy, health, quality and industrial regulations,...), type of inspection (container emptying, container emptying and classification, identity, inspection, opening but not inspected, "passadís", resealing, resealed but not openned, thermodesinfection, transfer of goods, ventilation, fumigation, fumigation check...), place of the inspection (container yard, border inspection post, designated point of import (DPI), designated point of entry (DPE)), positioning reasons (inspection, customer requirements, others), status (pending/carried out/cleared,...),...
+    - [catalog](catalog/catalog-BorderInspections.md)   
+
+
 - **VGM (Verified Gross Mass)**
 
   As the International Maritime Organisation (IMO) declare: *"discrepancies between the declared gross mass and the actual gross mass of a packed container could have an adverse impact on the safety of the ship, seafarers and shore-side workers, by leading to incorrect vessel stowage decisions and potentially collapsed container stacks or loss of containers overboard"*.
@@ -102,34 +124,27 @@ Here are some examples of APIs that can facilitate information of some of these 
     - Request parameters: equipment id, request of weighting or VGM communication,... 
     - Data included in the response: method of weighting, VGM,...
     - [catalog](catalog/catalog-VGM.md)  
- 
-- **Customs Inspections**
 
-  Customs can perform their physical inspections inside the cargo terminals, at the terminal yard or in a warehouse, but they can also inspect containers, platforms or trucks using a non-intrusive technology as an X-ray scanner. Operators need to know which units have been selected to be inspected by Customs, to know if the inspection has been carried out and whether the goods have been cleared. 
+- **Efficiency Network Certificate** 
+
+  Efficiency Network is the brand of the Barcelona Port's quality label.
+  The Port of Barcelona every day manages the transportation of thousands of shipments. The job of the Port is to treat each one as it was the only one. To ensure that each shipment receives the treatment it deserves, the Port of Barcelona has created Efficiency Network, a quality brand that identifies the companies operating at the port that adopted a commitment to efficiency to provide the end customers with the utmost satisfaction. It garanties the reliability, transparency and security of all the operations carried out at the Port of Barcelona. Efficiency Network recognises and certifies organisations involved and commited to the most rigorous standards of reliability, so the shipments arrive wherever they need to. A network of people and organisations that join forces with the goal of making the Port of Barcelona a reference, open to the World, commited to a job done well, more effective, more efficient. 
+  Efficiency Network has about the destination but also about the path. A more collaborative and competitive path, a path to excellence. 
   
   Possible APIs:
-  - Customs Inspections
-    - Request parameters: equipment id. 
-    - Data included in the response: unit of cargo selected for inspection (true/false), type of inspection (intrusive/non-intrusive), place of the inspection (container yard, bonded warehouse,..), status (pending/carried out/cleared,...),...
-    - [catalog](catalog/catalog-CustomsInspections.md)   
 
-- **Border Control Posts (BCP)**
+  - Certified companies
+    - Request parameters: activity, name of the company,... 
+    - Data included in the response: name of the company, activities, company certified (true or false),...
+    - [catalog](catalog/catalog-EfficiencyNetwork.md)  
 
-  A Border Control Post is an inspection post designated and approved in line with EU legislation for carrying out checks on animals and animal products arriving from third countries at a European Union border. These checks are carried out to protect animal and public health, and animal welfare.
-  Operators need to know which units have been selected by the Sanitary Authorities to be inspected, to know if the inspection has been performed and if their goods have been cleared.
-
-  Possible APIs:
-  - Border Control Posts
-    - Request parameters: equipment id. 
-    - Data included in the response: unit of cargo selected for inspection (true/false), border inspection service (phytosanitary, veterinary, pharmacy, health,...), type of inspection (identity,...), place of the inspection (container yard, border inspection post, pre delivery inspection (PDI),...), status (pending/carried out/cleared,...),...
-    - [catalog](catalog/catalog-BorderInspections.md)   
-
-- **Port Calendar** (PENDING) 
 - **Container release (Container pick-up from the terminal)** (PENDING)
-- **Container Acceptance (Conteiner delivery to the terminal)** (PENDING)
-- **Efficiency Network Certificate** (PENDING)
 
-### Statistics
+- **Container Acceptance (Conteiner delivery to the terminal)** (PENDING)
+
+- **Approach instructions** (PENDING)
+
+### Statistics (PENDING)
 Inspiring webs:
 - Eurostat
   - https://ec.europa.eu/eurostat/databrowser/view/MAR_TF_QM__custom_917144/default/table?lang=en
@@ -148,7 +163,7 @@ All the ports have statistical information about the activity. Usually are publi
 - Economic concepts
 - etc.
 
-### Weather
+### Weather (PENDING)
 Introduction to meteorological data. See [Free Weather APIS to access global weather data](https://rapidapi.com/blog/access-global-weather-data-with-these-weather-apis/), [wheatherapi.com](https://www.weatherapi.com/docs/#apis-realtime)
 
 #### Realtime weather
@@ -164,11 +179,11 @@ Introduction to meteorological data. See [Free Weather APIS to access global wea
 - **WeatherTemperatureForecast**:
 #### Weather Alerts
 - ...
-### Sea State
+### Sea State (PENDING)
 Altura y dirección olas
 Previsión oleaje
 
-### Pollution
+### Pollution (PENDING)
 Publicación en tiempo real [wheather api](https://www.weatherapi.com/docs/#intro-aqi)
 
 - Estimaciones de CO2 emitido en función de las operativas
@@ -176,30 +191,30 @@ Publicación en tiempo real [wheather api](https://www.weatherapi.com/docs/#intr
 - Descargas graneles
 - **Water quality** 
 
-### Vehicle Traffic
+### Vehicle Traffic (PENDING)
 Entradas y salidas de vehículos del recinto portuario
 
-### Train services (o liners)
+### Train services (o liners) (PENDING)
 
-### Train information
+### Train information (PENDING)
 
 - **Train Exits**
 - **Train Arrivals**
 
-### Terminals
+### Terminals (PENDING)
 - Access/Wait time
 - Goods/Containers entrance/exit of Terminals
 - Vessel Loading/Unloading
 
-### News
+### News (PENDING)
 [see 'NewsArticle' at schema.org](https://schema.org/NewsArticle)
 
-### Notices
+### Notices (PENDING)
 Often, Port Authorities have to publish some notices (meteorological alerts, port procedures, etc ). Normally these notices are sent by mail and sms, and published in the web. But also is necessary to publish in web services.
 
 Some notices are intended for the port community, and others are intended for the general public. Also, each notice is of interest to some subgroups of the port community, such as ship agents, shipping companies, transport companies, stevedore,  concessionaire, etc.
 
-### Port rates and fees Info
+### Port rates and fees Info (PENDING)
 
 Summary of rates applicable by the Port Authority:
 - Navigation Support Rate (T0)
@@ -213,15 +228,15 @@ Summary of rates applicable by the Port Authority:
 - Special Use of the Transit Zone Rate (T6)
 - Vessel-Generated Waste Collection Service Fee
 
-### Port Services Info
+### Port Services Info (PENDING)
 
 Information about services that are offered by a port. Eg: bunkering, marpol, mooring, pilots, tugs,... (TODO buscar a la web de l'APB)
 
-### Port Calendar
+### Port Calendar (PENDING)
 
 Information about workdays, local holidays, ... 
 
-### Port Directory
+### Port Directory (PENDING)
 
 Logistic services of a port are offered through specialized companies. Also in the port area, some governmental bodies perform several controls.
 
@@ -288,7 +303,7 @@ We can implement two APIs in this category: one for creating and updating contac
   - Manufacturer
   - Health & Social Care
 
-**Info Open APIs should**:
+**Some notes:... Info Open APIs should**:
 - Publish kind of services that offer (catalog of services)
 - Allow filter companies depending on services that offer
 - Alow get information contact of a company (Name, email, phone, address, icon, etc)
