@@ -8,6 +8,10 @@ Use of **Categories**. Many concepts are common in all ports (e.g., port service
 ### Ships Calls
 ![Ferry](https://github.githubassets.com/images/icons/emoji/unicode/26f4.png?v8)
 
+![Anchor](https://github.githubassets.com/images/icons/emoji/unicode/2693.png?v8)
+
+![Passenger ship](https://github.githubassets.com/images/icons/emoji/unicode/1f6f3.png?v8)
+
 
 Information about vessel's voyages in the port is particularly useful for planning logistic operations, but it can also be useful for acompanying or waiting people that will depart or arrive by ferry or cruise.
 
@@ -81,7 +85,7 @@ Possible APIs:
 ### Port Procedures (Work in progress)
 
   ![Health worker](https://github.githubassets.com/images/icons/emoji/unicode/1f9d1-2695.png?v8)
-  
+
 Certain operations require some procedure instructions and these procedures should be published and accessible to several applications. 
 
 Here are some examples of APIs that can facilitate information of some of these procedures:
