@@ -162,6 +162,16 @@ Here are some examples of APIs that can facilitate information of some of these 
     - Data included in the response: container number, full/empty indicator, name of the container terminal or depot, status (pending, authorised, entered,...)...
     - [catalog](catalog/catalog-ContainerAcceptance.md) 
 
+    
+![GitHub Logo](https://github.githubassets.com/images/icons/emoji/unicode/1f1ea-1f1fa.png?v8)
+
+![GitHub Logo](https://github.githubassets.com/images/icons/emoji/unicode/1f1fa-1f1f3.png?v8)
+
+![GitHub Logo](https://github.githubassets.com/images/icons/emoji/unicode/1f6a2.png?v8)
+
+![GitHub Logo](https://github.githubassets.com/images/icons/emoji/unicode/26f5.png?v8)
+
+![GitHub Logo](https://github.githubassets.com/images/icons/emoji/unicode/1f5fa.png?v8)
 
 - **Approach instructions** (PENDING)
 
@@ -454,3 +464,4 @@ We can implement two APIs in this category: one for creating and updating contac
 
 [see 'Organization' in schema.org](https://schema.org/Organization)
 [evaluate 'Offer' in scehma.org](https://schema.org/Offer)
+
