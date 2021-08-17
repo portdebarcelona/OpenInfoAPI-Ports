@@ -71,7 +71,7 @@ Possible APIs:
   - Data included in the response: terminal name, type of terminal (ferry, cruise, container, multipurpose, vehicle, Bulk cargo,...), gate latitude/longitud, allowed vehicles, maximun width, maximum height, opening hours,...
   - [catalog](catalog/catalog-PortTerminals.md)
 - **Marine Aids to Navigation**
-  - Request parameters: port name, port mouth,...
+  - Request parameters: port name, port entrance/port mouth,...
   - Data included in the response: fixed bridges and other structures over navegable waters, identification parameters of those structures, latitude/longitude,...
   - [catalog](catalog/catalog-MarineAids.md)
 
@@ -161,64 +161,138 @@ Possible APIs:
     - [catalog](catalog/catalog-ContainerAcceptance.md) 
 
 
-
 - **Approach instructions** (PENDING)
 
-### Statistics (PENDING)
-Ports are ranked nationally and internationally, and they are compared in many different ways, i.e. by volume or value of trade, the number of TEUs, tones or cruise passengers, revenues, quays length, or storage capacity.
+  Port of Barcelona has two entrances - North and South - and each one has its own approach channel.
 
-Moreover, the size of a port, in terms of traffic flow, says nothing about productivity, efficiency, or responsiveness to customers. These are just some of the criteria that a shipper might consider in evaluating port performance. 
+  APPROACH CHANNELS
+
+    Approach channels consist of two traffic separation schemes guiding ships to/from north and south entrances respectively.
+    The separation line of the northern approach channel is indicated by a fairway buoy charted name “November - N” and is equipped with a radio beacon signal (racon) that it appears on X-Band radars as letter “N” of the Morse code.
+    The separation line of the southern approach channel is indicated by a fairway buoy charted name “Sierra – S” and is equipped with a radio beacon signal (racon) that it appears on X-Band radars as the letter “B” of the Morse code.
+
+  PRECAUTIONARY AREAS
+
+  Two Precautionary Areas have been set between the end of both approach channels and the port entrances.
+
+  PORT TRAFFIC
+
+  In Barcelona port waters the vessel traffic service (VTS) is provided by ‘Barcelona Port Control’.
+
+  Inbound Vessels-Reporting Points:  
+  
+  One hour prior to arrival at the fairway buoy ships must contact 'Barcelona Traffic' on VHF channel 10 and "Barcelona Port Control” on VHF channel 14.
+  
+  Two miles before passing the “Sierra” fairway buoy ships must contact “Barcelona Traffic” on VHF channel 10 and “Barcelona Port Control” on VHF channel 14.
+  
+  Four miles before passing the “November” fairway buoy ships must contact “Barcelona Traffic” on VHF channel 10 and “Barcelona Port Control” on VHF channel 14.
+  
+  Nevertheless, the High Speed Crafts must report in both cases when they are four miles off the fairway buoy.
+
+  Outbound or Shifting Vessels-Reporting Points
+
+  One hour before expected departure or shifting, vessels have to contact “Barcelona Port Control” on VHF channel 14.
+
+  Twenty minutes before departure or shifting, vessels have to contact “Barcelona Port Control” on VHF channel 14 in order to request port services and/or obtain permission to depart.
+
+  Passing fairway buoy must contact “Barcelona Traffic” on VHF channel 10 and “Barcelona Port Control”on VHF channel 14.
+
+  Radio Watch
+  
+  From one hour prior to arrival to two miles away from the “Sierra” fairway buoy or four miles away from “November” fairway buoy and vice versa, ships will maintain a continuous listening watch on VHF channels 10 and 16, and, if possible, VHF channel 14.
+
+  From two miles away from the fairway buoy or four miles away from “November” fairway buoy up to be berthed and vice versa, ships will maintain a continuous listening watch on VHF channels
+  14 and 16, and, if possible, VHF channel 10.
+  
+  OTHER INFORMATION 
+  
+  Emergency
+
+  In case of emergency on board, the following stations are on permanent duty 24 hours a day:
+  - “Barcelona Traffic” on VHF channel 10
+  - “Barcelona Port Control” on VHF channel 14
+
+  All ships in the port have to follow the instructions given by Port Emergency Plan authorities unless they have overriding contradictory safety reasons which then have to be immediately reported to the authorities.
+
+  Ships are requested to inform the aforementioned reporting stations any pollution observed on port waters.
+
+      
+  Possible APIs: (PENDING)
+
+    - Approach instructions
+      - Request parameters: xxx (tbd)
+      - Data included in the response: xxx, ... (tbd)
+      - [catalog](catalog/catalog-ApproachInstructions.md) 
+
+  ### Statistics (PENDING)
+  Ports are ranked nationally and internationally, and they are compared in many different ways, i.e. by volume or value of trade, the number of TEUs, tones or cruise passengers, revenues, quays length, or storage capacity.
+
+  Moreover, the size of a port, in terms of traffic flow, says nothing about productivity, efficiency, or responsiveness to customers. These are just some of the criteria that a shipper might consider in evaluating port performance. 
 
 
 
-Inspiring webs:
-- Eurostat
-  - https://ec.europa.eu/eurostat/databrowser/view/MAR_TF_QM__custom_917144/default/table?lang=en
-  - https://ec.europa.eu/eurostat/web/transport/data/database
-- ONU:
-  - https://statswiki.unece.org/  (maritime transport is not covered)
-  - 
-All the ports have statistical information about the activity. Usually are published annually, monthly, quarterly. Relevant data of a port are:
-- Number ship calls
-- Tones loaded/unloaded
-- Number of containers
-- Vehicles loaded/unloaded
-- Passengers embarked/disembarked
-- Liquid bulks loaded/unloaded
-- Solid bulks loaded/unloaded
-- Economic concepts
-- etc.
+  Inspiring webs:
+  - Eurostat
+    - https://ec.europa.eu/eurostat/databrowser/view/MAR_TF_QM__custom_917144/default/table?lang=en
+    - https://ec.europa.eu/eurostat/web/transport/data/database
+  - ONU:
+    - https://statswiki.unece.org/  (maritime transport is not covered)
+    - 
+  All the ports have statistical information about the activity. Usually are published annually, monthly, quarterly. Relevant data of a port are:
+  - Number ship calls
+  - Tones loaded/unloaded
+  - Number of containers
+  - Vehicles loaded/unloaded
+  - Passengers embarked/disembarked
+  - Liquid bulks loaded/unloaded
+  - Solid bulks loaded/unloaded
+  - Economic concepts
+  - etc.
 
-### Weather (PENDING)
-Several activities at ports, such as berthing, dredging or construction typically require low weather energy conditions for safe execution. 
+### Weather (Work in progress)
+  Several activities at ports, such as berthing, dredging or construction typically require low weather energy conditions for safe execution. 
 
-Information can assist harbour masters, port pilots, tug masters, mooring officers, and port engineers to make decisions and help them increase safety and efficiency of marine operations in ports.
+  Information can assist harbour masters, port pilots, tug masters, mooring officers, and port engineers to make decisions and help them increase safety and efficiency of marine operations in ports.
 
-Real time information about weather can optimise the scheduling of shipping movements, can minimise weather downtime, can optimise berth use reducing cargo transit delays, can aware of hazardous conditions off coast, can forecast long wave and surging conditions
-
-
-
-...wind forecasts: trained upon in-port or near-port wind observations, these forecasts let you precisely judge the percentage risk of high winds from one hour ahead to one week ahead.
+  Real time information about weather can optimise the scheduling of shipping movements, can minimise weather downtime, can optimise berth use reducing cargo transit delays, can aware of hazardous conditions off coast, can forecast long wave and surging conditions
 
 
-Introduction to meteorological data. See [Free Weather APIS to access global weather data](https://rapidapi.com/blog/access-global-weather-data-with-these-weather-apis/), [wheatherapi.com](https://www.weatherapi.com/docs/#apis-realtime)
 
-#### Realtime weather
+    ...wind forecasts: trained upon in-port or near-port wind observations, these forecasts let you precisely judge the percentage risk of high winds from one hour ahead to one week ahead.
 
-- **WeatherTemperature**:
-- **WeatherPressure**:
-- **WeatherWindSpeed**:
-- **WeatherWindDirection**:
-- ...
-#### Weather Forecast
+    Introduction to meteorological data. See [Free Weather APIS to access global weather data](https://rapidapi.com/blog/access-global-weather-data-with-these-weather-apis/), [wheatherapi.com](https://www.weatherapi.com/docs/#apis-realtime)
 
-- **WeatherForecast**: 
-- **WeatherTemperatureForecast**:
-#### Weather Alerts
-- ...
+
+  Possible APIs: (PENDING)
+
+  - Realtime weather
+    - Request parameters: parameter (temperature, air pressure, wind speed, wind direction, humidity, raifall, illuminance, all), weather station id,... 
+    - Data included in the response: Parameter, value, weather station id, latitude and longitude of the sensor, date and time of the data offered.
+    - [catalog](catalog/catalog-RealtimeWeather.md) 
+
+- Weather Forecast
+    - Request parameters: xxx (tbd) 
+    - Data included in the response: xxx (tbd)
+    - [catalog](catalog/catalog-WeatherForecast.md) 
+
+- Weather Alerts
+    - Request parameters: xxx (tbd) 
+    - Data included in the response: xxx (tbd)
+    - [catalog](catalog/catalog-WeatherAlerts.md) 
+
+
 ### Sea State (PENDING)
-Altura y dirección olas
-Previsión oleaje
+Puertos del Estado offers a service called SAPO (that in Spanish corresponds to the initials of Autonomous Wave Prediction System) to the Port Authorities that request it.
+
+This service allows obtaining a local wave prediction with a horizon of 48 hours considering the transformations induced by the coastline and the continental shelf. The forecast covers a region of about 600 km2 in the area outside the port with a wave generation and scheduling model and the interior area of the port with an agitation model. 
+
+
+  Possible APIs: (PENDING)
+
+  - Wave Prediction
+    - Request parameters: coordinates, date and time, parameter requested (all, wind speed, wind direction, mar total: Hs(m), Dir, Tp(s), Tz(s), Mar de viento (Hs(m), Dir), Mar de fondo (Hs(m), Dir, Tz(s))),... 
+    - Data included in the response: coordinates, date and time, value of the parameter requested (),...
+    - [catalog](catalog/catalog-WavePrediction.md) 
 
 ### Pollution (PENDING)
 Publicación en tiempo real [wheather api](https://www.weatherapi.com/docs/#intro-aqi)
@@ -267,7 +341,38 @@ Summary of rates applicable by the Port Authority:
 
 ### Port Services Info (PENDING)
 
-Information about services that are offered by a port. Eg: bunkering, marpol, mooring, pilots, tugs,... (TODO buscar a la web de l'APB)
+Information about services that are offered by a port. Eg: bunkering, marpol, mooring, pilots, tugs,... (TO DO buscar a la web de l'APB)
+
+Pilotage
+
+  Compulsory for vessels over 500 GT. The service is permanent.
+  
+Tugs and linesmen
+
+  7 private harbour tugs are available (From 45 to 80 tons of bollard pull). If required tug or linesmen assistance they will be requested through Barcelona Port Control. Tug's line used.
+  
+Reception Facilities
+
+  There are reception facilities for most residues generated from ships.
+  
+Buoyage
+
+  IALA Maritime Buoyage System A.
+
+Time
+  
+  GMT plus 1 hour; GMT plus 2 hours (spring and summer).
+  
+Social Services for Seamen
+  
+  “Stella Maris": 34 934431965 (24 hours) Fax 34 934431843  e-mail: apomar@icab.es
+
+  Special Operations
+
+  Special operations like launching lifeboats, cleaning, rinsing or painting of the hull, diving operations, main engine immobilisation, hot works and others must be permitted by port
+  authorities. It is recommended applying for permission trough agents in advance -at least 48 hours before arriving or 72 hours before arriving if the special operation is expected during
+  weekend or bank holyday -.
+
 
 ### Port Calendar (PENDING)
 
