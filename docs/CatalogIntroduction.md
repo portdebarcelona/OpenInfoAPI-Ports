@@ -132,7 +132,7 @@ Here are some examples of APIs that can facilitate information of some of these 
   Efficiency Network has about the destination but also about the path. A more collaborative and competitive path, a path to excellence. 
 
   Source: Efficiency Network, Port de Barcelona.
-  ![EN Logo](Escritorio\EN.png)
+  (https://github.com/portdebarcelona/OpenInfoAPI-Ports/blob/develop/docs/images/EN.png)
   
 
   Possible APIs:
