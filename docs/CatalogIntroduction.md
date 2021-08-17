@@ -6,6 +6,9 @@ This catalog enumerates a list of APIs with information about ports that can be 
 Use of **Categories**. Many concepts are common in all ports (e.g., port services). It is advisable to use a category field that would allow better filtering and precise referencing.
 
 ### Ships Calls
+![Ferry](https://github.githubassets.com/images/icons/emoji/unicode/26f4.png?v8)
+
+
 Information about vessel's voyages in the port is particularly useful for planning logistic operations, but it can also be useful for acompanying or waiting people that will depart or arrive by ferry or cruise.
 
 This category reffers to all available information about vessels and their voyages within the port, such as their port calls or their voyages, including their stay number and the information about the vessel, such as IMO, lenght, tonnage, .
@@ -76,6 +79,9 @@ Possible APIs:
   - [catalog](catalog/catalog-MarineAids.md)
 
 ### Port Procedures (Work in progress)
+
+  ![Health worker](https://github.githubassets.com/images/icons/emoji/unicode/1f9d1-2695.png?v8)
+  
 Certain operations require some procedure instructions and these procedures should be published and accessible to several applications. 
 
 Here are some examples of APIs that can facilitate information of some of these procedures:
@@ -91,6 +97,7 @@ Here are some examples of APIs that can facilitate information of some of these 
     - [catalog](catalog/catalog-CustomsInspections.md)   
 
 - **Border Control Posts (BCP)**
+
 
   A Border Control Post is an inspection post designated and approved in line with EU legislation for carrying out checks on animals and animal products arriving from third countries at a European Union border. These checks are carried out to protect animal and public health, and animal welfare.
   Operators need to know which units have been selected by the Sanitary Authorities to be inspected, to know if the inspection has been performed and if their goods have been cleared.
@@ -256,7 +263,7 @@ Here are some examples of APIs that can facilitate information of some of these 
   - etc.
 
 ### Weather (Work in progress)
-![GitHub Logo](https://github.githubassets.com/images/icons/emoji/unicode/1f326.png?v8)  
+![Sun with cloud and rain](https://github.githubassets.com/images/icons/emoji/unicode/1f326.png?v8)  
 Several activities at ports, such as berthing, dredging or construction typically require low weather energy conditions for safe execution. 
 
   Information can assist harbour masters, port pilots, tug masters, mooring officers, and port engineers to make decisions and help them increase safety and efficiency of marine operations in ports.
@@ -292,7 +299,7 @@ Several activities at ports, such as berthing, dredging or construction typicall
 
 
 ### Sea State (PENDING)
-![GitHub Logo](https://github.githubassets.com/images/icons/emoji/unicode/1f30a.png?v8)
+![Ocean](https://github.githubassets.com/images/icons/emoji/unicode/1f30a.png?v8)
 
 Puertos del Estado offers a service called SAPO (that in Spanish corresponds to the initials of Autonomous Wave Prediction System) to the Port Authorities that request it.
 
@@ -320,8 +327,8 @@ Publicación en tiempo real [wheather api](https://www.weatherapi.com/docs/#intr
 Entradas y salidas de vehículos del recinto portuario
 
 ### Train services (o liners) (PENDING)
-![GitHub Logo](https://github.githubassets.com/images/icons/emoji/unicode/1f683.png?v8)
-![GitHub Logo](https://github.githubassets.com/images/icons/emoji/unicode/1f6e4.png?v8)
+![Train](https://github.githubassets.com/images/icons/emoji/unicode/1f683.png?v8)
+![Rail tracks](https://github.githubassets.com/images/icons/emoji/unicode/1f6e4.png?v8)
 
 ### Train information (PENDING)
 
@@ -334,7 +341,7 @@ Entradas y salidas de vehículos del recinto portuario
 - Vessel Loading/Unloading
 
 ### News (PENDING)
-![GitHub Logo](https://github.githubassets.com/images/icons/emoji/unicode/1f4f0.png?v8)
+![Newspaper](https://github.githubassets.com/images/icons/emoji/unicode/1f4f0.png?v8)
 
 [see 'NewsArticle' at schema.org](https://schema.org/NewsArticle)
 
@@ -344,6 +351,10 @@ Often, Port Authorities have to publish some notices (meteorological alerts, por
 Some notices are intended for the port community, and others are intended for the general public. Also, each notice is of interest to some subgroups of the port community, such as ship agents, shipping companies, transport companies, stevedore,  concessionaire, etc.
 
 ### Port rates and fees Info (PENDING)
+
+
+![Spiral notepad](https://github.githubassets.com/images/icons/emoji/unicode/1f5d2.png?v8)
+![Money](https://github.githubassets.com/images/icons/emoji/unicode/1f4b0.png?v8)
 
 Summary of rates applicable by the Port Authority:
 - Navigation Support Rate (T0)
@@ -393,13 +404,16 @@ Social Services for Seamen
 
 
 ### Port Calendar (PENDING)
-![GitHub Logo](https://github.githubassets.com/images/icons/emoji/unicode/1f4c6.png?v8)
+![Calendar](https://github.githubassets.com/images/icons/emoji/unicode/1f4c6.png?v8)
 
 Information about workdays, local holidays, ... 
 
 
 
 ### Port Directory (PENDING)
+![Office](https://github.githubassets.com/images/icons/emoji/unicode/1f3e2.png?v8)
+
+
 
 Logistic services of a port are offered through specialized companies. Also in the port area, some governmental bodies perform several controls.
 
@@ -474,3 +488,9 @@ We can implement two APIs in this category: one for creating and updating contac
 [see 'Organization' in schema.org](https://schema.org/Organization)
 [evaluate 'Offer' in scehma.org](https://schema.org/Offer)
 
+
+![Office worker](https://github.githubassets.com/images/icons/emoji/unicode/1f9d1-1f4bc.png?v8)
+
+![Woman office worker](https://github.githubassets.com/images/icons/emoji/unicode/1f469-1f4bc.png?v8)
+
+![Passport](https://github.githubassets.com/images/icons/emoji/unicode/1f6c2.png?v8)
