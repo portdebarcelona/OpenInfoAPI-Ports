@@ -163,15 +163,9 @@ Here are some examples of APIs that can facilitate information of some of these 
     - [catalog](catalog/catalog-ContainerAcceptance.md) 
 
     
-![GitHub Logo](https://github.githubassets.com/images/icons/emoji/unicode/1f1ea-1f1fa.png?v8)
 
-![GitHub Logo](https://github.githubassets.com/images/icons/emoji/unicode/1f1fa-1f1f3.png?v8)
 
-![GitHub Logo](https://github.githubassets.com/images/icons/emoji/unicode/1f6a2.png?v8)
 
-![GitHub Logo](https://github.githubassets.com/images/icons/emoji/unicode/26f5.png?v8)
-
-![GitHub Logo](https://github.githubassets.com/images/icons/emoji/unicode/1f5fa.png?v8)
 
 - **Approach instructions** (PENDING)
 
@@ -262,7 +256,8 @@ Here are some examples of APIs that can facilitate information of some of these 
   - etc.
 
 ### Weather (Work in progress)
-  Several activities at ports, such as berthing, dredging or construction typically require low weather energy conditions for safe execution. 
+![GitHub Logo](https://github.githubassets.com/images/icons/emoji/unicode/1f326.png?v8)  
+Several activities at ports, such as berthing, dredging or construction typically require low weather energy conditions for safe execution. 
 
   Information can assist harbour masters, port pilots, tug masters, mooring officers, and port engineers to make decisions and help them increase safety and efficiency of marine operations in ports.
 
@@ -273,6 +268,9 @@ Here are some examples of APIs that can facilitate information of some of these 
     ...wind forecasts: trained upon in-port or near-port wind observations, these forecasts let you precisely judge the percentage risk of high winds from one hour ahead to one week ahead.
 
     Introduction to meteorological data. See [Free Weather APIS to access global weather data](https://rapidapi.com/blog/access-global-weather-data-with-these-weather-apis/), [wheatherapi.com](https://www.weatherapi.com/docs/#apis-realtime)
+
+
+
 
 
   Possible APIs: (PENDING)
@@ -294,9 +292,13 @@ Here are some examples of APIs that can facilitate information of some of these 
 
 
 ### Sea State (PENDING)
+![GitHub Logo](https://github.githubassets.com/images/icons/emoji/unicode/1f30a.png?v8)
+
 Puertos del Estado offers a service called SAPO (that in Spanish corresponds to the initials of Autonomous Wave Prediction System) to the Port Authorities that request it.
 
 This service allows obtaining a local wave prediction with a horizon of 48 hours considering the transformations induced by the coastline and the continental shelf. The forecast covers a region of about 600 km2 in the area outside the port with a wave generation and scheduling model and the interior area of the port with an agitation model. 
+
+
 
 
   Possible APIs: (PENDING)
@@ -318,6 +320,8 @@ Publicación en tiempo real [wheather api](https://www.weatherapi.com/docs/#intr
 Entradas y salidas de vehículos del recinto portuario
 
 ### Train services (o liners) (PENDING)
+![GitHub Logo](https://github.githubassets.com/images/icons/emoji/unicode/1f683.png?v8)
+![GitHub Logo](https://github.githubassets.com/images/icons/emoji/unicode/1f6e4.png?v8)
 
 ### Train information (PENDING)
 
@@ -330,6 +334,8 @@ Entradas y salidas de vehículos del recinto portuario
 - Vessel Loading/Unloading
 
 ### News (PENDING)
+![GitHub Logo](https://github.githubassets.com/images/icons/emoji/unicode/1f4f0.png?v8)
+
 [see 'NewsArticle' at schema.org](https://schema.org/NewsArticle)
 
 ### Notices (PENDING)
@@ -387,8 +393,11 @@ Social Services for Seamen
 
 
 ### Port Calendar (PENDING)
+![GitHub Logo](https://github.githubassets.com/images/icons/emoji/unicode/1f4c6.png?v8)
 
 Information about workdays, local holidays, ... 
+
+
 
 ### Port Directory (PENDING)
 
