@@ -6,11 +6,11 @@ This catalog enumerates a list of APIs with information about ports that can be 
 Use of **Categories**. Many concepts are common in all ports (e.g., port services). It is advisable to use a category field that would allow better filtering and precise referencing.
 
 ### Ships Calls
-![Ferry](https://github.githubassets.com/images/icons/emoji/unicode/26f4.png?v8)
+
 
 ![Anchor](https://github.githubassets.com/images/icons/emoji/unicode/2693.png?v8)
 
-![Passenger ship](https://github.githubassets.com/images/icons/emoji/unicode/1f6f3.png?v8)
+
 
 
 Information about vessel's voyages in the port is particularly useful for planning logistic operations, but it can also be useful for acompanying or waiting people that will depart or arrive by ferry or cruise.
@@ -62,6 +62,9 @@ Possible APIs:
   - [catalog](catalog/catalog-LinerServices.md)
 
 ### Port Infrastructure
+
+
+  
 Geographical/spatial information about the port, land accesses, terminals, and marine aids to navigation.
 
 Possible APIs:
@@ -138,13 +141,14 @@ Here are some examples of APIs that can facilitate information of some of these 
 
 - **Efficiency Network Certificate** 
 
+  ![Efficiency Network](https://github.com/portdebarcelona/OpenInfoAPI-Ports/blob/develop/docs/images/EN.png?raw=true)
+
   Efficiency Network is the brand of the Barcelona Port's quality label.
   The Port of Barcelona every day manages the transportation of thousands of shipments. The job of the Port is to treat each one as it was the only one. To ensure that each shipment receives the treatment it deserves, the Port of Barcelona has created Efficiency Network, a quality brand that identifies the companies operating at the port that adopted a commitment to efficiency to provide the end customers with the utmost satisfaction. It garanties the reliability, transparency and security of all the operations carried out at the Port of Barcelona. Efficiency Network recognises and certifies organisations involved and commited to the most rigorous standards of reliability, so the shipments arrive wherever they need to. A network of people and organisations that join forces with the goal of making the Port of Barcelona a reference, open to the World, commited to a job done well, more effective, more efficient. 
   Efficiency Network has about the destination but also about the path. A more collaborative and competitive path, a path to excellence. 
 
   Source: Efficiency Network, Port de Barcelona.
-  (https://github.com/portdebarcelona/OpenInfoAPI-Ports/blob/develop/docs/images/EN.png)
-  
+
 
   Possible APIs:
 
@@ -241,7 +245,8 @@ Here are some examples of APIs that can facilitate information of some of these 
       - Data included in the response: xxx, ... (tbd)
       - [catalog](catalog/catalog-ApproachInstructions.md) 
 
-  ### Statistics (PENDING)
+
+### Statistics (PENDING)
   Ports are ranked nationally and internationally, and they are compared in many different ways, i.e. by volume or value of trade, the number of TEUs, tones or cruise passengers, revenues, quays length, or storage capacity.
 
   Moreover, the size of a port, in terms of traffic flow, says nothing about productivity, efficiency, or responsiveness to customers. These are just some of the criteria that a shipper might consider in evaluating port performance. 
@@ -331,6 +336,7 @@ Publicación en tiempo real [wheather api](https://www.weatherapi.com/docs/#intr
 Entradas y salidas de vehículos del recinto portuario
 
 ### Train services (o liners) (PENDING)
+
 ![Train](https://github.githubassets.com/images/icons/emoji/unicode/1f683.png?v8)
 ![Rail tracks](https://github.githubassets.com/images/icons/emoji/unicode/1f6e4.png?v8)
 
@@ -498,3 +504,7 @@ We can implement two APIs in this category: one for creating and updating contac
 ![Woman office worker](https://github.githubassets.com/images/icons/emoji/unicode/1f469-1f4bc.png?v8)
 
 ![Passport](https://github.githubassets.com/images/icons/emoji/unicode/1f6c2.png?v8)
+
+![Ferry](https://github.githubassets.com/images/icons/emoji/unicode/26f4.png?v8)
+
+![Passenger ship](https://github.githubassets.com/images/icons/emoji/unicode/1f6f3.png?v8)
