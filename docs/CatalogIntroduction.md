@@ -131,8 +131,10 @@ Here are some examples of APIs that can facilitate information of some of these 
   The Port of Barcelona every day manages the transportation of thousands of shipments. The job of the Port is to treat each one as it was the only one. To ensure that each shipment receives the treatment it deserves, the Port of Barcelona has created Efficiency Network, a quality brand that identifies the companies operating at the port that adopted a commitment to efficiency to provide the end customers with the utmost satisfaction. It garanties the reliability, transparency and security of all the operations carried out at the Port of Barcelona. Efficiency Network recognises and certifies organisations involved and commited to the most rigorous standards of reliability, so the shipments arrive wherever they need to. A network of people and organisations that join forces with the goal of making the Port of Barcelona a reference, open to the World, commited to a job done well, more effective, more efficient. 
   Efficiency Network has about the destination but also about the path. A more collaborative and competitive path, a path to excellence. 
 
-  Source: Efficiency Network, Port de Barcelona
+  Source: Efficiency Network, Port de Barcelona.
+  ![EN Logo](Escritorio\EN.png)
   
+
   Possible APIs:
 
   - Certified companies
