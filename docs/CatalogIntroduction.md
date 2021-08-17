@@ -82,7 +82,7 @@ Here are some examples of APIs that can facilitate information of some of these 
 
 - **Customs Controls and Inspections**
 
-  Customs can perform their physical inspections inside the cargo terminals, at the terminal yard or in a warehouse, but they can also inspect containers, platforms or trucks using a non-intrusive technology as an X-ray scanner. Operators need to know which units have been selected to be inspected by Customs, to know if the inspection has been carried out and whether the goods have been cleared. 
+  Customs can carry out their physical inspections inside the cargo terminals, at the terminal yard or in a warehouse, but they can also inspect containers, platforms or trucks using a non-intrusive technology as an X-ray scanner. Operators need to know which units have been selected to be inspected by Customs, to know if the inspection has been carried out and whether the goods have been cleared. 
   
   Possible APIs:
   - Customs Inspections
@@ -130,6 +130,8 @@ Here are some examples of APIs that can facilitate information of some of these 
   Efficiency Network is the brand of the Barcelona Port's quality label.
   The Port of Barcelona every day manages the transportation of thousands of shipments. The job of the Port is to treat each one as it was the only one. To ensure that each shipment receives the treatment it deserves, the Port of Barcelona has created Efficiency Network, a quality brand that identifies the companies operating at the port that adopted a commitment to efficiency to provide the end customers with the utmost satisfaction. It garanties the reliability, transparency and security of all the operations carried out at the Port of Barcelona. Efficiency Network recognises and certifies organisations involved and commited to the most rigorous standards of reliability, so the shipments arrive wherever they need to. A network of people and organisations that join forces with the goal of making the Port of Barcelona a reference, open to the World, commited to a job done well, more effective, more efficient. 
   Efficiency Network has about the destination but also about the path. A more collaborative and competitive path, a path to excellence. 
+
+  Source: Efficiency Network, Port de Barcelona
   
   Possible APIs:
 
@@ -138,9 +140,27 @@ Here are some examples of APIs that can facilitate information of some of these 
     - Data included in the response: name of the company, activities, company certified (true or false),...
     - [catalog](catalog/catalog-EfficiencyNetwork.md)  
 
-- **Container release (Container pick-up from the terminal)** (PENDING)
+- **Container release or acceptance (Container pick-up or delivery from/to the terminal or depot)** 
 
-- **Container Acceptance (Conteiner delivery to the terminal)** (PENDING)
+  Container traffic has a big economic impact in ports and the area that they serve.
+   
+  Container operations in ports are docummented using EDI messages. The EDIFACT container messages are designed to provide standard formats for all functional areas related to the handling and movement of shipping containers and equipment.
+  They are divided into two main categories: ship and land operations.
+  In this category are included some APIs related with the information exchanged using the EDI messages for land operations with full and empty containers.
+
+Possible APIs:
+
+  - Container release information (container pick-up from the terminal or depot)
+    - Request parameters: container number, full/empty indicator 
+    - Data included in the response: container number, full/empty indicator, name of the container terminal or depot, status (pending, authorised, exited,...)...
+    - [catalog](catalog/catalog-ContainerRelease.md) 
+
+  - Container acceptance information (container delivery from the terminal or depot)
+    - Request parameters: container number, full/empty indicator  
+    - Data included in the response: container number, full/empty indicator, name of the container terminal or depot, status (pending, authorised, entered,...)...
+    - [catalog](catalog/catalog-ContainerAcceptance.md) 
+
+
 
 - **Approach instructions** (PENDING)
 
