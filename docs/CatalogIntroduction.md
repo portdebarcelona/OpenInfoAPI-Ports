@@ -159,6 +159,8 @@ Here are some examples of APIs that can facilitate information of some of these 
 
 - **Container release or acceptance (Container pick-up or delivery from/to the terminal or depot)** 
 
+  ![Camio](https://github.com/portdebarcelona/OpenInfoAPI-Ports/blob/develop/docs/images/camio.png?raw=true)
+ 
   Container traffic has a big economic impact in ports and the area that they serve.
    
   Container operations in ports are docummented using EDI messages. The EDIFACT container messages are designed to provide standard formats for all functional areas related to the handling and movement of shipping containers and equipment.
@@ -183,6 +185,8 @@ Here are some examples of APIs that can facilitate information of some of these 
 
 
 - **Approach instructions** (PENDING)
+ 
+  ![Approach](https://github.com/portdebarcelona/OpenInfoAPI-Ports/blob/develop/docs/images/approach3.png?raw=true)
 
   Port of Barcelona has two entrances - North and South - and each one has its own approach channel.
 
