@@ -87,7 +87,7 @@ Possible APIs:
 
 ### Port Procedures (Work in progress)
 
-  ![Health worker](https://github.githubassets.com/images/icons/emoji/unicode/1f9d1-2695.png?v8)
+  ![Efficiency Network](https://github.com/portdebarcelona/OpenInfoAPI-Ports/blob/develop/docs/images/Ft.png?raw=true)
 
 Certain operations require some procedure instructions and these procedures should be published and accessible to several applications. 
 
@@ -159,7 +159,7 @@ Here are some examples of APIs that can facilitate information of some of these 
 
 - **Container release or acceptance (Container pick-up or delivery from/to the terminal or depot)** 
 
-  ![Camio](https://github.com/portdebarcelona/OpenInfoAPI-Ports/blob/develop/docs/images/camio.png?raw=true)
+  ![Camio](https://github.com/portdebarcelona/OpenInfoAPI-Ports/blob/develop/docs/images/camio3.png?raw=true)
  
   Container traffic has a big economic impact in ports and the area that they serve.
    
