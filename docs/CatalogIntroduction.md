@@ -184,7 +184,7 @@ Here are some examples of APIs that can facilitate information of some of these 
 
 
 
-- **Approach instructions** (PENDING)
+- **Approach instructions** (Work in progress)
  
   ![Approach](https://github.com/portdebarcelona/OpenInfoAPI-Ports/blob/develop/docs/images/approach3.png?raw=true)
 
