@@ -63,8 +63,6 @@ Possible APIs:
 
 ### Port Infrastructure
 
-
-  
 Geographical/spatial information about the port, land accesses, terminals, and marine aids to navigation.
 
 Possible APIs:
@@ -87,7 +85,7 @@ Possible APIs:
 
 ### Port Procedures (Work in progress)
 
-  ![Efficiency Network](https://github.com/portdebarcelona/OpenInfoAPI-Ports/blob/develop/docs/images/Ft.png?raw=true)
+  ![Ft](https://github.com/portdebarcelona/OpenInfoAPI-Ports/blob/develop/docs/images/Ft3.png?raw=true)
 
 Certain operations require some procedure instructions and these procedures should be published and accessible to several applications. 
 
@@ -159,7 +157,7 @@ Here are some examples of APIs that can facilitate information of some of these 
 
 - **Container release or acceptance (Container pick-up or delivery from/to the terminal or depot)** 
 
-  ![Camio](https://github.com/portdebarcelona/OpenInfoAPI-Ports/blob/develop/docs/images/camio3.png?raw=true)
+  ![Camio](https://github.com/portdebarcelona/OpenInfoAPI-Ports/blob/develop/docs/images/camio2.png?raw=true)
  
   Container traffic has a big economic impact in ports and the area that they serve.
    
@@ -251,6 +249,9 @@ Here are some examples of APIs that can facilitate information of some of these 
 
 
 ### Statistics (PENDING)
+
+![Approach](https://github.com/portdebarcelona/OpenInfoAPI-Ports/blob/develop/docs/images/statistics3.png?raw=true)
+
   Ports are ranked nationally and internationally, and they are compared in many different ways, i.e. by volume or value of trade, the number of TEUs, tones or cruise passengers, revenues, quays length, or storage capacity.
 
   Moreover, the size of a port, in terms of traffic flow, says nothing about productivity, efficiency, or responsiveness to customers. These are just some of the criteria that a shipper might consider in evaluating port performance. 
