@@ -249,7 +249,6 @@ Here are some examples of APIs that can facilitate information of some of these 
 
 
 ### Statistics (PENDING)
-
 ![Approach](https://github.com/portdebarcelona/OpenInfoAPI-Ports/blob/develop/docs/images/statistics3.png?raw=true)
 
   Ports are ranked nationally and internationally, and they are compared in many different ways, i.e. by volume or value of trade, the number of TEUs, tones or cruise passengers, revenues, quays length, or storage capacity.
@@ -294,7 +293,7 @@ Several activities at ports, such as berthing, dredging or construction typicall
 
 
 
-  Possible APIs: (PENDING)
+  Possible APIs: (Work in progress)
 
   - Realtime weather
     - Request parameters: parameter (temperature, air pressure, wind speed, wind direction, humidity, raifall, illuminance, all), weather station id,... 
@@ -312,7 +311,7 @@ Several activities at ports, such as berthing, dredging or construction typicall
     - [catalog](catalog/catalog-WeatherAlerts.md) 
 
 
-### Sea State (PENDING)
+### Sea State (Work in progress)
 ![Ocean](https://github.githubassets.com/images/icons/emoji/unicode/1f30a.png?v8)
 
 Puertos del Estado offers a service called SAPO (that in Spanish corresponds to the initials of Autonomous Wave Prediction System) to the Port Authorities that request it.
@@ -322,7 +321,7 @@ This service allows obtaining a local wave prediction with a horizon of 48 hours
 
 
 
-  Possible APIs: (PENDING)
+  Possible APIs: (Work in progress)
 
   - Wave Prediction
     - Request parameters: coordinates, date and time, parameter requested (all, wind speed, wind direction, mar total: Hs(m), Dir, Tp(s), Tz(s), Mar de viento (Hs(m), Dir), Mar de fondo (Hs(m), Dir, Tz(s))),... (to be translated)
@@ -342,7 +341,7 @@ Entradas y salidas de vehículos del recinto portuario
 
 ### Train services (o liners) (PENDING)
 
-![Train](https://github.githubassets.com/images/icons/emoji/unicode/1f683.png?v8)
+
 ![Rail tracks](https://github.githubassets.com/images/icons/emoji/unicode/1f6e4.png?v8)
 
 ### Train information (PENDING)
