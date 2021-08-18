@@ -63,6 +63,8 @@ Possible APIs:
 
 ### Port Infrastructure
 
+  ![Porta Europa](https://github.com/portdebarcelona/OpenInfoAPI-Ports/blob/develop/docs/images/PortaEU.png?raw=true)
+
 Geographical/spatial information about the port, land accesses, terminals, and marine aids to navigation.
 
 Possible APIs:
