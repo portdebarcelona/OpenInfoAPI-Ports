@@ -327,10 +327,10 @@ This service allows obtaining a local wave prediction with a horizon of 48 hours
 
 
 
-  Possible APIs: (Work in progress)
+  Possible APIs: 
 
   - Wave Prediction
-    - Request parameters: coordinates, date and time, parameter requested (all, wind speed, wind direction, waves -total-(Hs(m), Dir, Tp(s), Tz(s)), wind waves (Hs(m), Dir), swell (Hs(m), Dir, Tz(s))),... (!!! check the English translation of mar total (waves -total-), mar de viento (wind waves) and mar de fondo (swell))
+    - Request parameters: coordinates, date and time, parameter requested (all, wind speed, wind direction, waves -total-(wave height Hs(m), direction, wave period Tp(s), wave period Tz(s)), wind waves (wave height Hs(m), direction), swell (wave height Hs(m), direction, period Tz(s))),... 
     - Data included in the response: coordinates, date and time, value of the parameter requested (),...
     - [catalog](catalog/catalog-WavePrediction.md) 
 
