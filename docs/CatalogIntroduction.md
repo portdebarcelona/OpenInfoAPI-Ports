@@ -148,7 +148,7 @@ Here are some examples of APIs that can facilitate information of some of these 
   The Port of Barcelona every day manages the transportation of thousands of shipments. The job of the Port is to treat each one as it was the only one. To ensure that each shipment receives the treatment it deserves, the Port of Barcelona has created Efficiency Network, a quality brand that identifies the companies operating at the port that adopted a commitment to efficiency to provide the end customers with the utmost satisfaction. It garanties the reliability, transparency and security of all the operations carried out at the Port of Barcelona. Efficiency Network recognises and certifies organisations involved and commited to the most rigorous standards of reliability, so the shipments arrive wherever they need to. A network of people and organisations that join forces with the goal of making the Port of Barcelona a reference, open to the World, commited to a job done well, more effective, more efficient. 
   Efficiency Network has about the destination but also about the path. A more collaborative and competitive path, a path to excellence. 
 
-  Source: Efficiency Network, Port de Barcelona.
+  ![Blue diamond](https://github.githubassets.com/images/icons/emoji/unicode/1f539.png?v8)Source: Efficiency Network, Port de Barcelona.
 
 
   Possible APIs:
@@ -160,7 +160,7 @@ Here are some examples of APIs that can facilitate information of some of these 
 
 - **Container release or acceptance (Container pick-up or delivery from/to the terminal or depot)** 
 
-  ![Camio](https://github.com/portdebarcelona/OpenInfoAPI-Ports/blob/develop/docs/images/camio2.png?raw=true)
+  ![Truck](https://github.githubassets.com/images/icons/emoji/unicode/1f69a.png?v8)
  
   Container traffic has a big economic impact in ports and the area that they serve.
    
@@ -242,7 +242,9 @@ Here are some examples of APIs that can facilitate information of some of these 
 
   Ships are requested to inform the aforementioned reporting stations any pollution observed on port waters.
 
-  Source: Port Authority of Barcelona
+  ![Blue diamond](https://github.githubassets.com/images/icons/emoji/unicode/1f539.png?v8)Source: Port Authority of Barcelona 
+
+
 
       
   Possible APIs: (PENDING)
@@ -254,7 +256,9 @@ Here are some examples of APIs that can facilitate information of some of these 
 
 
 ### Statistics (PENDING)
-![Approach](https://github.com/portdebarcelona/OpenInfoAPI-Ports/blob/develop/docs/images/statistics3.png?raw=true)
+
+![Chart upward](https://github.githubassets.com/images/icons/emoji/unicode/1f4c8.png?v8)
+
 
   Ports are ranked nationally and internationally, and they are compared in many different ways, i.e. by volume or value of trade, the number of TEUs, tones or cruise passengers, revenues, quays length, or storage capacity.
 
@@ -335,6 +339,7 @@ This service allows obtaining a local wave prediction with a horizon of 48 hours
     - [catalog](catalog/catalog-WavePrediction.md) 
 
 ### Pollution (Work in progress)
+![Factory](https://github.githubassets.com/images/icons/emoji/unicode/1f3ed.png?v8)
 
 Pollution from ports can affect the air and also the waters. 
 
@@ -386,8 +391,8 @@ Some notices are intended for the port community, and others are intended for th
 ### Port rates and fees Info (PENDING)
 
 
-![Spiral notepad](https://github.githubassets.com/images/icons/emoji/unicode/1f5d2.png?v8)
-![Money](https://github.githubassets.com/images/icons/emoji/unicode/1f4b0.png?v8)
+![Bookmark tabs](https://github.githubassets.com/images/icons/emoji/unicode/1f4d1.png?v8)
+
 
 Summary of rates applicable by the Port Authority:
 - Navigation Support Rate (T0)
@@ -525,10 +530,10 @@ We can implement two APIs in this category: one for creating and updating contac
 
 ![Office worker](https://github.githubassets.com/images/icons/emoji/unicode/1f9d1-1f4bc.png?v8)
 
-![Woman office worker](https://github.githubassets.com/images/icons/emoji/unicode/1f469-1f4bc.png?v8)
+![Weight lifting](https://github.githubassets.com/images/icons/emoji/unicode/1f3cb.png?v8)
 
-![Passport](https://github.githubassets.com/images/icons/emoji/unicode/1f6c2.png?v8)
 
-![Ferry](https://github.githubassets.com/images/icons/emoji/unicode/26f4.png?v8)
+![Truck](https://github.githubassets.com/images/icons/emoji/unicode/1f69a.png?v8)
+
 
 ![Passenger ship](https://github.githubassets.com/images/icons/emoji/unicode/1f6f3.png?v8)
