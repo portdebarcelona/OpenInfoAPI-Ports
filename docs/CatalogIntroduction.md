@@ -52,12 +52,13 @@ Possible APIs:
   - [catalog](catalog/catalog-CruisesCalls.md)
 
 Benchmarking: [select](Benchmarking.md#ShipCalls)
+
 ### Liner Services
 The connectivity of a port depends on the list of ports that are serviced periodically. Liner services define the network of ports with direct maritime connections to a port and their periodicity and capacity.
 
 Possible APIs:
 - **Liner services**
-  - Request parameters: liner service name, shipowner, type of cargo,... 
+  - Request parameters. Some of this: liner service name, shipowner, port of destination, type of cargo,... 
   - Data included in the response: liner service name, shipowner, type of cargo, periodicity, list of linked ports, capacity (TEU weekly),...
   - [catalog](catalog/catalog-LinerServices.md)
 
