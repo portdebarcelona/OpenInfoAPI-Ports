@@ -301,7 +301,8 @@ Several activities at ports, such as berthing, dredging or construction typicall
   Possible APIs: (Work in progress)
 
   - Realtime weather
-    - Request parameters: parameter (temperature, air pressure, wind speed, wind direction, humidity, raifall, illuminance, all), weather station id,... 
+    - Request parameters: weather 
+    parameter (temperature, air pressure, wind speed, wind direction, humidity, raifall, illuminance, all), weather station id,... 
     - Data included in the response: Parameter, value, weather station id, latitude and longitude of the sensor, date and time of the data offered.
     - [catalog](catalog/catalog-RealtimeWeather.md) 
 
