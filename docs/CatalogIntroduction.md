@@ -439,8 +439,9 @@ Social Services for Seamen
 ### Port Calendar (PENDING)
 ![Calendar](https://github.githubassets.com/images/icons/emoji/unicode/1f4c6.png?v8)
 
-Information about workdays, local holidays, ... 
+The companies and administrations that operate in the Port of Barcelona are not always operational. The hours of service and attention to the public of these companies may vary and may even be subject to specific festivities. And this knowledge can be of great help when a particular operation must be carried out through our Port.
 
+Information about workdays, local holidays, ... 
 
 
 ### Port Directory (PENDING)
