@@ -357,15 +357,16 @@ Benchmarking:
 ### Vehicle Traffic Monitoring (PENDING)
 Entradas y salidas de vehículos del recinto portuario
 
-### Train services (o liners) (PENDING)
-
+### Rail transport (PENDING)
 
 ![Rail tracks](https://github.githubassets.com/images/icons/emoji/unicode/1f6e4.png?v8)
 
-### Train information (PENDING)
+Rail transport connections
 
-- **Train Exits**
-- **Train Arrivals**
+Rail transport
+
+- Train Exits
+- Train Arrivals
 
 ### Terminals (PENDING)
 - Access/Wait time
