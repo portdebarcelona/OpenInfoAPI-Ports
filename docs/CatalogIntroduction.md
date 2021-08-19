@@ -1,5 +1,5 @@
 # Introduction to the catalog of APIs
-This catalog enumerates a list of APIs with information about ports that can be useful for the logistic activities and also for the citiens that want to know more about ports.
+This catalog enumerates a list of APIs with information about ports that can be useful for the logistic activities and also for the citiens that want to know more about what is happening in a port.
 
 ## Categories
 
@@ -272,7 +272,8 @@ Here are some examples of APIs that can facilitate information of some of these 
     - https://ec.europa.eu/eurostat/web/transport/data/database
   - ONU:
     - https://statswiki.unece.org/  (maritime transport is not covered)
-    - 
+    - Review of maritime transport [UNCTAD](https://unctad.org/es/node/29022)
+
   All the ports have statistical information about the activity. Usually are published annually, monthly, quarterly. Relevant data of a port are:
   - Number ship calls
   - Tones loaded/unloaded
@@ -359,19 +360,46 @@ Benchmarking:
   - Air Quality Data 
   - [wheather api](https://www.weatherapi.com/docs/#intro-aqi)
 
+Possible APIs:
+
+- Pollution
+  - Request parameters: parameter requested (all, air, water, carbon dioxide CO2, carbon monoxide CO, volatile organic compounds (VOCs), nitrogen oxides (NOx), sulfur oxides (SOx), particulate matter (PM), include water parameters), date and time...
+  - Data included in the response: value of the parameter requested (), date and time,...
+  - [catalog](catalog/catalog-Pollution.md)
+
 ### Vehicle Traffic Monitoring (PENDING)
 Entradas y salidas de vehículos del recinto portuario
 
-### Rail transport (PENDING)
+### Rail transport (Work in progress)
 
 ![Rail tracks](https://github.githubassets.com/images/icons/emoji/unicode/1f6e4.png?v8)
 
-Rail transport connections
+Rail transport is reliable and extremely suitable for heavy cargoes, including cars, chemical tanks and containers. One train takes an average of 45 trucks off the road. Rail transport for goods makes the logistical chain at the port much more sustainable and efficient. 
 
-Rail transport
+Containers are ideal for intermodal transport, including by rail. In intermodal transport, containers arriving by sea can be transported further by rail to their final destination in the hinterland.
 
-- Train Exits
+The number of rail services from the Port of Barcelona has high-frequency rail shuttles between the port and several inland terminals in the peninsula. The knowledge of these rail transport connections is key for port operators.
+
+Everyday more than 30 trains arrive or depart from the Port of Barcelona and logistic operators need traceability of their movements, including their estimated time of arrival (ETA) and estimated time of departure (ETD).
+
+
+Possible APIs:
+
+- Rail transport connections
+  - Request parameters: tbd...
+  - Data included in the response: tbd,...
+  - [catalog](catalog/catalog-RailConnections.md)
+
 - Train Arrivals
+  - Request parameters: tbd...
+  - Data included in the response: tbd,...
+  - [catalog](catalog/catalog-TrainArrivals.md)
+
+- Train Departures
+  - Request parameters: tbd...
+  - Data included in the response: tbd,...
+  - [catalog](catalog/catalog-TrainDepartures.md)
+
 
 ### Terminals (PENDING)
 - Access/Wait time
