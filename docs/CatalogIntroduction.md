@@ -62,6 +62,16 @@ Possible APIs:
   - Data included in the response: liner service name, shipowner, type of cargo, periodicity, list of linked ports, capacity (TEU weekly),...
   - [catalog](catalog/catalog-LinerServices.md)
 
+- **Linked ports**: Ports amb els que el port de referència té serveis marítims (connexions diresctes)
+  - Some of the possible request parameters: tbd
+  - Data included in the response: port name, port code, list of liners,  
+  - [catalog](catalog/catalog-LinkedPorts.md)
+
+- **Carriers/Alliance partners**: Armadors/operadors 
+  - Some of the possible request parameters: tbd
+  - Data included in the response: durada, tipus de servei, freqüència, capacitat
+  - [catalog](catalog/catalog-Carriers.md)
+
 ### Port Infrastructure
 
   ![Porta Europa](https://github.com/portdebarcelona/OpenInfoAPI-Ports/blob/develop/docs/images/PortaEU.png?raw=true)
@@ -79,7 +89,7 @@ Possible APIs:
   - [catalog](catalog/catalog-PortGates.md)
 - **Port terminals**
   - Request parameters: none. 
-  - Data included in the response: terminal name, type of terminal (ferry, cruise, container, multipurpose, vehicle, Bulk cargo,...), gate latitude/longitud, allowed vehicles, maximun width, maximum height, opening hours,...
+  - Data included in the response: terminal name, type of terminal (ferry, cruise, container, multipurpose, vehicle, Bulk cargo,...), address, gate latitude/longitud, allowed vehicles, maximun width, maximum height, opening hours,...
   - [catalog](catalog/catalog-PortTerminals.md)
 - **Marine Aids to Navigation**
   - Request parameters: port name, port entrance/port mouth,...
@@ -145,7 +155,7 @@ Here are some examples of APIs that can facilitate information of some of these 
     - Data included in the response: equipment id, tare weight
     - [catalog](catalog/catalog-Tare.md) 
 
-- **Efficiency Network Certificate** 
+- **Efficiency Network Certificate** (generalitzar - certificacions de marca de qualitat) 
 
   ![Efficiency Network](https://github.com/portdebarcelona/OpenInfoAPI-Ports/blob/develop/docs/images/EN.png?raw=true)
 
@@ -158,10 +168,20 @@ Here are some examples of APIs that can facilitate information of some of these 
 
   Possible APIs:
 
+  - Procediments per estar certificades
+    - Request parameters: atbd
+    - Data included in the response: tbd
+    - [catalog](catalog/catalog-ENProcedures.md) 
+    
   - Certified companies
     - Request parameters: activity, name of the company,... 
     - Data included in the response: name of the company, activities, company certified (true or false),...
-    - [catalog](catalog/catalog-EfficiencyNetwork.md)  
+    - [catalog](catalog/catalog-EfficiencyNetwork.md) 
+
+  - Activities/categories: i.e. freight-forwarder, shipping agent, custom broker,...
+    - Request parameters: none 
+    - Data included in the response: activities name, activity description.
+    - [catalog](catalog/catalog-EfficiencyNetwork.md)   
 
 - **Container release or acceptance (Container pick-up or delivery from/to the terminal or depot)** 
 
@@ -255,8 +275,8 @@ Here are some examples of APIs that can facilitate information of some of these 
   Possible APIs: (PENDING)
 
     - Approach instructions
-      - Request parameters: xxx (tbd)
-      - Data included in the response: xxx, ... (tbd)
+      - Request parameters: none
+      - Data included in the response: capítols del text precedent i darrers canvis
       - [catalog](catalog/catalog-ApproachInstructions.md) 
 
 
