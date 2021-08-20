@@ -91,10 +91,14 @@ Possible APIs:
   - Request parameters: none. 
   - Data included in the response: terminal name, type of terminal (ferry, cruise, container, multipurpose, vehicle, Bulk cargo,...), address, gate latitude/longitud, allowed vehicles, maximun width, maximum height, opening hours,...
   - [catalog](catalog/catalog-PortTerminals.md)
-- **Marine Aids to Navigation**
-  - Request parameters: port name, port entrance/port mouth,...
-  - Data included in the response: fixed bridges and other structures over navegable waters, identification parameters of those structures, latitude/longitude,...
-  - [catalog](catalog/catalog-MarineAids.md)
+- **Port terminals**
+  - Request parameters: none. 
+  - Data included in the response: terminal name, type of terminal (ferry, cruise, container, multipurpose, vehicle, Bulk cargo,...), address, gate latitude/longitud, allowed vehicles, maximun width, maximum height, opening hours,...
+  - [catalog](catalog/catalog-PortTerminals.md)
+- **Railway terminals** (pendent de revisar)
+  - Request parameters: none
+  - Data included in the response: list of railway terminals, latitude/longitude, address, type of cargo...
+  - [catalog](catalog/catalog-RailwayTerminals.md)
 
 ### Port Procedures (Work in progress)
 
@@ -310,6 +314,11 @@ Here are some examples of APIs that can facilitate information of some of these 
   - Economic concepts
   - etc.
 
+
+  Basar-se en la memòria anual (veure la versió en anglès) i en les mensuals.
+
+  Mensuals, trimestrals, semestrals i anuals.
+
 ### Weather (Work in progress)
 ![Sun with cloud and rain](https://github.githubassets.com/images/icons/emoji/unicode/1f326.png?v8)  
 Several activities at ports, such as berthing, dredging or construction typically require low weather energy conditions for safe execution. 
@@ -330,7 +339,7 @@ Several activities at ports, such as berthing, dredging or construction typicall
 
   Possible APIs: (Work in progress)
 
-  - Realtime weather
+  - Realtime weather (posar uns valors per defecte - una determinada estació i els valors que hi ha)
     - Request parameters: weather 
     parameter (temperature, air pressure, wind speed, wind direction, humidity, raifall, illuminance, all), weather station id,... 
     - Data included in the response: Parameter, value, weather station id, latitude and longitude of the sensor, date and time of the data offered.
@@ -360,8 +369,8 @@ This service allows obtaining a local wave prediction with a horizon of 48 hours
   Possible APIs: 
 
   - Wave Prediction
-    - Request parameters: coordinates, date and time, parameter requested (all, wind speed, wind direction, waves -total-(wave height Hs(m), direction, wave period Tp(s), wave period Tz(s)), wind waves (wave height Hs(m), direction), swell (wave height Hs(m), direction, period Tz(s))),... 
-    - Data included in the response: coordinates, date and time, value of the parameter requested (),...
+    - Request parameters: port
+    - Data included in the response: port, mouth coordinates, date and time, wind speed, wind direction, waves -total-(wave height Hs(m), direction, wave period Tp(s), wave period Tz(s)), wind waves (wave height Hs(m), direction), swell (wave height Hs(m), direction, period Tz(s)),... 
     - [catalog](catalog/catalog-WavePrediction.md) 
 
 ### Pollution (Work in progress)
@@ -412,8 +421,18 @@ Possible APIs:
 
 - Rail transport connections
   - Request parameters: tbd...
-  - Data included in the response: tbd,...
+  - Data included in the response: origin/destination, frequency, capacity,...
   - [catalog](catalog/catalog-RailConnections.md)
+
+- Linked railway terminals
+  - Request parameters: tbd...
+  - Data included in the response: tbd,...
+  - [catalog](catalog/catalog-InlandTerminals.md)
+
+- Railway undertaking
+  - Request parameters: tbd...
+  - Data included in the response: tbd,...
+  - [catalog](catalog/catalog-Undertaking.md)
 
 - Train Arrivals
   - Request parameters: tbd...
@@ -441,7 +460,7 @@ Often, Port Authorities have to publish some notices (meteorological alerts, por
 
 Some notices are intended for the port community, and others are intended for the general public. Also, each notice is of interest to some subgroups of the port community, such as ship agents, shipping companies, transport companies, stevedore,  concessionaire, etc.
 
-### Port rates and fees Info (PENDING)
+### Port rates and fees Info (PENDING) (pensar si ho posem a procedures)
 
 
 ![Bookmark tabs](https://github.githubassets.com/images/icons/emoji/unicode/1f4d1.png?v8)
@@ -459,7 +478,7 @@ Summary of rates applicable by the Port Authority:
 - Special Use of the Transit Zone Rate (T6)
 - Vessel-Generated Waste Collection Service Fee
 
-### Port Services Info (PENDING)
+### Port Services Info (PENDING) (indicar les empreses)
 
 Information about services that are offered by a port. Eg: bunkering, marpol, mooring, pilots, tugs,... (TO DO buscar a la web de l'APB)
 
