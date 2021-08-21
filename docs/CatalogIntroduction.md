@@ -76,7 +76,7 @@ Possible APIs:
 
   ![Porta Europa](https://github.com/portdebarcelona/OpenInfoAPI-Ports/blob/develop/docs/images/PortaEU.png?raw=true)
 
-Geographical/spatial information about the port, land accesses, terminals, and marine aids to navigation.
+Geographical/spatial information about the port, land accesses, maritime and rail terminals, and marine aids to navigation.
 
 Possible APIs:
 - **Port infrastructure**
@@ -87,18 +87,19 @@ Possible APIs:
   - Request parameters: none. 
   - Data included in the response: gate name, latitude/longitud, allowed vehicles, maximun width, maximum height, opening hours,...
   - [catalog](catalog/catalog-PortGates.md)
-- **Port terminals**
+- **Maritime terminals**
   - Request parameters: none. 
   - Data included in the response: terminal name, type of terminal (ferry, cruise, container, multipurpose, vehicle, Bulk cargo,...), address, gate latitude/longitud, allowed vehicles, maximun width, maximum height, opening hours,...
   - [catalog](catalog/catalog-PortTerminals.md)
-- **Port terminals**
-  - Request parameters: none. 
-  - Data included in the response: terminal name, type of terminal (ferry, cruise, container, multipurpose, vehicle, Bulk cargo,...), address, gate latitude/longitud, allowed vehicles, maximun width, maximum height, opening hours,...
-  - [catalog](catalog/catalog-PortTerminals.md)
-- **Railway terminals** (pendent de revisar)
+- **Rail terminals** (pendent de revisar)
   - Request parameters: none
-  - Data included in the response: list of railway terminals, latitude/longitude, address, type of cargo...
+  - Data included in the response: list of rail terminals, latitude/longitude, address, type of cargo...
   - [catalog](catalog/catalog-RailwayTerminals.md)
+- **Marine aids to navigation** Port marks. 
+  - Request parameters: none. 
+  - Data included in the response: mark, mark number, coordenates situation, apparience during the day, day mark, light phases, comments,...
+Observations,...
+  - [catalog](catalog/catalog-PortTerminals.md)
 
 ### Port Procedures (Work in progress)
 
@@ -490,7 +491,7 @@ Tugs and linesmen
 
   7 private harbour tugs are available (From 45 to 80 tons of bollard pull). If required tug or linesmen assistance they will be requested through Barcelona Port Control. Tug's line used.
   
-Reception Facilities
+Reception Facilities - waste management
 
   There are reception facilities for most residues generated from ships.
   
