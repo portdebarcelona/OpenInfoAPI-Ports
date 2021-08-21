@@ -103,9 +103,11 @@ Observations,...
 
 ### Port Procedures (Work in progress)
 
-  ![Ft](https://github.com/portdebarcelona/OpenInfoAPI-Ports/blob/develop/docs/images/Ft3.png?raw=true)
+  ![Ft](https://github.com/portdebarcelona/OpenInfoAPI-Ports/blob/develop/docs/images/Ft3.png?raw=true) (treure aquesta particularització de Barcelona)
 
-Certain operations require some procedure instructions and these procedures should be published and accessible to several applications. 
+Certain operations require some procedure instructions and these procedures should be published and accessible to several applications.
+
+The main objective of this category is to make transparent those procedures and to show how to proceed when someone need them.
 
 Here are some examples of APIs that can facilitate information of some of these procedures:
 
