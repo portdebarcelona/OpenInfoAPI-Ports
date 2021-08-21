@@ -111,17 +111,32 @@ The main objective of this category is to make transparent those procedures and 
 
 Here are some examples of APIs that can facilitate information of some of these procedures:
 
-- **Customs Controls and Inspections**
+- **Customs Clearance for imports**
 
-  Customs can carry out their physical inspections inside the cargo terminals, at the terminal yard or in a warehouse, but they can also inspect containers, platforms or trucks using a non-intrusive technology as an X-ray scanner. Operators need to know which units have been selected to be inspected by Customs, to know if the inspection has been carried out and whether the goods have been cleared. 
+  All shipments of goods entering the European Union from third countries are subject to Customs controls. All goods may be subject to the presentation of several documents and payments, as the payment of Customs duties based on the content of the shipment, payment of national taxes (VAT) or local taxes where applicable, payment of special taxes on tobacco, alcohol, etc., the cost of processing of Single Administrative Document (SAD) for imports, the costs arising from border safety controls, depending on the nature of the shipment (sanitary, pharmaceutical, veterinary, etc.).
+  
+  It is the recipient's responsibility to know the conditions for importing their shipment (prohibitions, restrictions, limitations, etc.) and to find out what documents may be required on arrival, including the commercial invoice, certificate of origin, licences and special authorisations for border controls, etc.
+
+  As a part of the customs clearance process, customs can carry out docummentary or physical inspections, and those can be carried out inside the cargo terminals, at the terminal yard or in a warehouse, but they can also inspect containers, platforms or trucks using a non-intrusive technology as an X-ray scanner. 
   
   Possible APIs:
-  - Customs Inspections
+
+  - Customs clearance procedure: Addresses where can be find information about the procedures for clearing the goods in import.
+    - Request parameters: none. 
+    - Data included in the response: addresses where information can be found,...
+    - [catalog](catalog/catalog-CustomsClearance.md) 
+
+  - Customs clearance actors: Contact information of the different actors involved in the customs clearance process.
+    - Request parameters: none. 
+    - Data included in the response: contact information about Customs, contact information of the operators involved,...
+    - [catalog](catalog/catalog-CustomsClearanceContacts.md) 
+
+  - Customs Inspections (2n phase of this project)
     - Request parameters: equipment id. 
     - Data included in the response: unit of cargo selected for inspection (true/false), type of inspection (intrusive/non-intrusive), place of the inspection (container yard, bonded warehouse,..), status (pending/carried out/cleared,...),...
     - [catalog](catalog/catalog-CustomsInspections.md)   
 
-- **Border Control Posts (BCP)**
+- **Border Control Posts (BCP)** (PENDING)
 
 
   A Border Control Post is an inspection post designated and approved in line with EU legislation for carrying out checks on animals and animal products arriving from third countries at a European Union border. These checks are carried out to protect animal and public health, and animal welfare.
