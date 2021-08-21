@@ -103,7 +103,7 @@ Observations,...
 
 ### Port Procedures (Work in progress)
 
-  ![Ft](https://github.com/portdebarcelona/OpenInfoAPI-Ports/blob/develop/docs/images/Ft3.png?raw=true) (treure aquesta particularització de Barcelona)
+  ![Port processes](https://github.com/portdebarcelona/OpenInfoAPI-Ports/blob/develop/docs/images/Processos1.png?raw=true)
 
 Certain operations require some procedure instructions and these procedures should be published and accessible to several applications.
 
