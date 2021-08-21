@@ -26,11 +26,11 @@ Possible APIs:
   - Request parameters: none. 
   - Data included in the response: IMO number, ship name, ATA (Actual time of arrival), ETD (Estimated Time of Departure), mooring quay, previous port of call,... 
   - [catalog](catalog/catalog-VesselsInPort.md)
-- **Ships Exits** Vessels that are sailing up in the next 24 hours or have sailed during the past 24 hours. 
+- **Ships Departures** Vessels that have sailed up or are sailing up today. 
   - Request parameters: none. 
   - Data included in the response: IMO number, ship name, ATD (Actual Time of Departure) or ETD (Estimated Time of Departure), mooring quay, next port of call,... 
-  - [catalog](catalog/catalog-ShipExits.md)
-- **Ships Arrivals** Vessels that has arrived at a port during the the past 24 hours or will arrive in the next 24 hours. 
+  - [catalog](catalog/catalog-ShipDepartures.md)
+- **Ships Arrivals** Vessels that has arrived or will arrive at a port today. 
   - Request parameters: none. 
   - Data included in the response: IMO number, ship name, ATA (Actual Time of Arrival) or ETA (Estimated time of arrival), previous port of call,... 
   - [catalog](catalog/catalog-ShipsArrivals.md) 
@@ -38,15 +38,15 @@ Possible APIs:
   - Request parameters: none. 
   - Data included in the response: IMO number, ship name, ETA (Estimated time of arrival), type of vessel, previous port of call,... 
   - [catalog](catalog/catalog-ShipsAproximationManouvres.md)
-- **Ferries Arrivals**: Ferries that has arrived at a port during the the past 24 hours or will arrive in the next 24 hours. 
+- **Ferries Arrivals**: Ferries that has arrived or will arrive at a port today. 
   - Request parameters: none. 
   - Data included in the response: ship name, ferry operator, ATA (Actual Time of Arrival) or ETA (Estimated time of arrival), previous port of call,...
   - [catalog](catalog/catalog-FerriesArrivals.md)
-- **Ferries Departures**: Ferries that have sailed for the past 24 hours or are sailing up in the next 24 hours. 
+- **Ferries Departures**: Ferries that have sailed up or are sailing up today. 
   - Request parameters: none. 
   - Data included in the response: ship name, ferry operator, ATD (Actual Time of Departure) or ETD (Estimated Time of Departure), mooring quay, next port of call,...
   - [catalog](catalog/catalog-FerriesDepartures.md)
-- **Cruises Calls**: Cruise schedules 
+- **Cruises Calls**: Cruise schedules. 
   - Request parameters: ship name. 
   - Data included in the response: ship name, cruise line, ETA (Estimated Time of Arrival), ETD (Estimated Time of Departure), cruise terminal,...
   - [catalog](catalog/catalog-CruisesCalls.md)
@@ -57,19 +57,19 @@ Benchmarking: [select](Benchmarking.md#ShipCalls)
 The connectivity of a port depends on the list of ports that are serviced periodically. Liner services define the network of ports with direct maritime connections to a port and their periodicity and capacity.
 
 Possible APIs:
-- **Liner services**
+- **Liner services**: Detailed information about some or all the liner services.
   - Some of the possible request parameters: liner service name, shipowner, port of destination, type of cargo,... 
   - Data included in the response: liner service name, shipowner, type of cargo, periodicity, list of linked ports, capacity (TEU weekly),...
   - [catalog](catalog/catalog-LinerServices.md)
 
-- **Linked ports**: Ports amb els que el port de referència té serveis marítims (connexions diresctes)
-  - Some of the possible request parameters: tbd
-  - Data included in the response: port name, port code, list of liners,  
+- **Linked ports**: Ports with which the port of reference has liner services (direct connections).
+  - Some of the possible request parameters: none.
+  - Data included in the response: port name, port code, list of liners,...  
   - [catalog](catalog/catalog-LinkedPorts.md)
 
-- **Carriers/Alliance partners**: Armadors/operadors 
-  - Some of the possible request parameters: tbd
-  - Data included in the response: durada, tipus de servei, freqüència, capacitat
+- **Carriers/Alliance partners**: Carriers and alliance partners that serve a particular liner service or a geographical area.
+  - Some of the possible request parameters: carrier name, carrier code (SCAC), geographical area,...
+  - Data included in the response: type of service, frequenct, capacity, duration of service,... 
   - [catalog](catalog/catalog-Carriers.md)
 
 ### Port Infrastructure
