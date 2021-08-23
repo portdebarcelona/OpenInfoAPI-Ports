@@ -360,7 +360,7 @@ Benchmarking:
 
 Possible APIs:
 
-- Pollution
+- **Pollution**: Current pollution data of a port. 
   - Request parameters: parameter requested (all, air, water, carbon dioxide CO2, carbon monoxide CO, volatile organic compounds (VOCs), nitrogen oxides (NOx), sulfur oxides (SOx), particulate matter (PM), include water parameters), date and time...
   - Data included in the response: value of the parameter requested (), date and time,...
   - [catalog](catalog/catalog-Pollution.md)
@@ -383,27 +383,27 @@ Everyday more than 30 trains arrive or depart from the Port of Barcelona and log
 
 Possible APIs:
 
-- Rail transport connections
+- **Rail transport connections**
   - Request parameters: tbd...
   - Data included in the response: origin/destination, frequency, capacity,...
   - [catalog](catalog/catalog-RailConnections.md)
 
-- Linked railway terminals
+- **Linked railway terminals**
   - Request parameters: tbd...
   - Data included in the response: tbd,...
   - [catalog](catalog/catalog-InlandTerminals.md)
 
-- Railway undertaking
+- **Railway undertaking**
   - Request parameters: tbd...
   - Data included in the response: tbd,...
   - [catalog](catalog/catalog-Undertaking.md)
 
-- Train Arrivals
+- **Train Arrivals**
   - Request parameters: tbd...
   - Data included in the response: tbd,...
   - [catalog](catalog/catalog-TrainArrivals.md)
 
-- Train Departures
+- **Train Departures**
   - Request parameters: tbd...
   - Data included in the response: tbd,...
   - [catalog](catalog/catalog-TrainDepartures.md)
@@ -426,9 +426,7 @@ Some notices are intended for the port community, and others are intended for th
 
 ### Port rates and fees Info (PENDING) (pensar si ho posem a procedures)
 
-
 ![Bookmark tabs](https://github.githubassets.com/images/icons/emoji/unicode/1f4d1.png?v8)
-
 
 Summary of rates applicable by the Port Authority:
 - Navigation Support Rate (T0)
