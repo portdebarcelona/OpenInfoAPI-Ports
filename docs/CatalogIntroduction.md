@@ -196,9 +196,7 @@ Here are some examples of APIs that can facilitate information of some of these 
     - Data included in the response: method of weighting, VGM,...
     - [catalog](catalog/catalog-VGM.md)  
 
-- **Quality Level Certificates**  
-
-  ![Efficiency Network](https://github.com/portdebarcelona/OpenInfoAPI-Ports/blob/develop/docs/images/EN.png?raw=true) Change this logo by a more generic one!
+- **Quality Level Certifications**  
 
   Several ports have developed own brands for their quality label schemas.
   There are some ports that every day manage the transportation of thousands of shipments. And the job of each port is to treat each one as it was the only one. To ensure that each shipment receives the treatment it deserves, some ports have created a quality brand that identifies the companies operating at that port that had adopted a commitment to efficiency the end customers with the utmost satisfaction. With this quality level the ports recognise and certify organisations involved and commited to the most rigorous standards of reliability.
@@ -247,76 +245,17 @@ Here are some examples of APIs that can facilitate information of some of these 
 
     
 
-
-
-
 - **Approach instructions** (Work in progress)
  
   ![Approach](https://github.com/portdebarcelona/OpenInfoAPI-Ports/blob/develop/docs/images/approach3.png?raw=true)
 
-  Port of Barcelona has two entrances - North and South - and each one has its own approach channel.
-
-  APPROACH CHANNELS
-
-    Approach channels consist of two traffic separation schemes guiding ships to/from north and south entrances respectively.
-    The separation line of the northern approach channel is indicated by a fairway buoy charted name “November - N” and is equipped with a radio beacon signal (racon) that it appears on X-Band radars as letter “N” of the Morse code.
-    The separation line of the southern approach channel is indicated by a fairway buoy charted name “Sierra – S” and is equipped with a radio beacon signal (racon) that it appears on X-Band radars as the letter “B” of the Morse code.
-
-  PRECAUTIONARY AREAS
-
-  Two Precautionary Areas have been set between the end of both approach channels and the port entrances.
-
-  PORT TRAFFIC
-
-  In Barcelona port waters the vessel traffic service (VTS) is provided by ‘Barcelona Port Control’.
-
-  Inbound Vessels-Reporting Points:  
-  
-  One hour prior to arrival at the fairway buoy ships must contact 'Barcelona Traffic' on VHF channel 10 and "Barcelona Port Control” on VHF channel 14.
-  
-  Two miles before passing the “Sierra” fairway buoy ships must contact “Barcelona Traffic” on VHF channel 10 and “Barcelona Port Control” on VHF channel 14.
-  
-  Four miles before passing the “November” fairway buoy ships must contact “Barcelona Traffic” on VHF channel 10 and “Barcelona Port Control” on VHF channel 14.
-  
-  Nevertheless, the High Speed Crafts must report in both cases when they are four miles off the fairway buoy.
-
-  Outbound or Shifting Vessels-Reporting Points
-
-  One hour before expected departure or shifting, vessels have to contact “Barcelona Port Control” on VHF channel 14.
-
-  Twenty minutes before departure or shifting, vessels have to contact “Barcelona Port Control” on VHF channel 14 in order to request port services and/or obtain permission to depart.
-
-  Passing fairway buoy must contact “Barcelona Traffic” on VHF channel 10 and “Barcelona Port Control”on VHF channel 14.
-
-  Radio Watch
-  
-  From one hour prior to arrival to two miles away from the “Sierra” fairway buoy or four miles away from “November” fairway buoy and vice versa, ships will maintain a continuous listening watch on VHF channels 10 and 16, and, if possible, VHF channel 14.
-
-  From two miles away from the fairway buoy or four miles away from “November” fairway buoy up to be berthed and vice versa, ships will maintain a continuous listening watch on VHF channels
-  14 and 16, and, if possible, VHF channel 10.
-  
-  OTHER INFORMATION 
-  
-  Emergency
-
-  In case of emergency on board, the following stations are on permanent duty 24 hours a day:
-  - “Barcelona Traffic” on VHF channel 10
-  - “Barcelona Port Control” on VHF channel 14
-
-  All ships in the port have to follow the instructions given by Port Emergency Plan authorities unless they have overriding contradictory safety reasons which then have to be immediately reported to the authorities.
-
-  Ships are requested to inform the aforementioned reporting stations any pollution observed on port waters.
-
-  ![Blue diamond](https://github.githubassets.com/images/icons/emoji/unicode/1f539.png?v8)Source: Port Authority of Barcelona 
-
-
-
+  Up-to-date information on approach instructions is vital so that maritime operations can be carried out safely.
       
-  Possible APIs: (PENDING)
+  Possible APIs: 
 
     - Approach instructions
       - Request parameters: none
-      - Data included in the response: capítols del text precedent i darrers canvis
+      - Data included in the response: Entrances, approach channels, precautionary areas, port traffic (inbound vessels-reporting points, outbound or shifting vessels-reporting points and radio watch), emergency, special operations (like launching lifeboats, cleaning, rinsing or painting of the hull, diving operations, main engine immobilisation, hot works and others), pilotage, tugs, linesmen and last changes in this information.
       - [catalog](catalog/catalog-ApproachInstructions.md) 
 
 
