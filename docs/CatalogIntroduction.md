@@ -86,7 +86,7 @@ Possible APIs:
   - Request parameters: none. 
   - Data included in the response: terminal name, type of terminal (ferry, cruise, container, multipurpose, vehicle, Bulk cargo,...), address, gate latitude/longitud, allowed vehicles, maximun width, maximum height, opening hours,...
   - [catalog](catalog/catalog-PortTerminals.md)
-- **Rail terminals**: Information of all the rail terminals of a port.
+- **Rail terminals and loading tracks**: Information of all the rail terminals and loading tracks of a port.
   - Request parameters: none
   - Data included in the response: list of rail terminals, latitude/longitude, address, type of cargo...
   - [catalog](catalog/catalog-RailwayTerminals.md)
@@ -286,6 +286,11 @@ Here are examples of some procedures and possible APIs that can help operators w
 
   Mensuals, trimestrals, semestrals i anuals.
 
+
+
+
+
+
 ### Weather
 ![Sun with cloud and rain](https://github.githubassets.com/images/icons/emoji/unicode/1f326.png?v8)  
 Several activities at ports, such as berthing, dredging or construction typically require low weather energy conditions for safe execution. 
@@ -385,37 +390,46 @@ Rail transport is reliable and extremely suitable for heavy cargoes, including c
 
 Containers are ideal for intermodal transport, including by rail. In intermodal transport, containers arriving by sea can be transported further by rail to their final destination in the hinterland.
 
-The number of rail services from the Port of Barcelona has high-frequency rail shuttles between the port and several inland terminals in the peninsula. The knowledge of these rail transport connections is key for port operators.
+Sometime ports have high-frequency rail shuttles between the port and several inland terminals and the knowledge of these rail transport connections is key for port operators.
 
-Everyday more than 30 trains arrive or depart from the Port of Barcelona and logistic operators need traceability of their movements, including their estimated time of arrival (ETA) and estimated time of departure (ETD).
+There are ports with a few dozen trains that arrive or depart everyday and logistic operators need traceability of their movements, including their estimated time of arrival (ETA) and estimated time of departure (ETD).
 
 
 Possible APIs:
 
-- **Rail transport connections**
-  - Request parameters: tbd...
-  - Data included in the response: origin/destination, frequency, capacity,...
+- **Rail transport connections**: Rail connections from a port. 
+  - Request parameters: port name, port code (UN/CEFACT).
+  - Data included in the response: origin/destination, rail lenght, rail undertaking, type of cargo, frequency, capacity,...
   - [catalog](catalog/catalog-RailConnections.md)
 
-- **Linked railway terminals**
-  - Request parameters: tbd...
-  - Data included in the response: tbd,...
+- **Linked railway terminals**: Rail destinations served by one port. 
+  - Request parameters: port name, port code (UN/CEFACT).
+  - Data included in the response: destination, rail undertaking, type of cargo, frequency, capacity,..
   - [catalog](catalog/catalog-InlandTerminals.md)
 
-- **Railway undertaking**
+- **Railway undertaking**: The rail undertaking is the entity responsible for running the trains and must have a valid license that shows that is authorized to run the train. 
   - Request parameters: tbd...
   - Data included in the response: tbd,...
   - [catalog](catalog/catalog-Undertaking.md)
 
-- **Train Arrivals**
+- **Logistic service provider**: A Logistic Service Provider (LSP) is a provider of logistic services who provides the goods for transport (not necessarily the owner of the goods). The LSP can be a freight forwarder, a shipping agent or a company dedicated exclussivelly to the rail transport of goods.
+  - Request parameters: tbd...
+  - Data included in the response: tbd,...
+  - [catalog](catalog/catalog-LSP.md)
+
+- **Train Arrivals**: Train arrivals for today.
   - Request parameters: tbd...
   - Data included in the response: tbd,...
   - [catalog](catalog/catalog-TrainArrivals.md)
 
-- **Train Departures**
+- **Train Departures**: Train departures for today.
   - Request parameters: tbd...
   - Data included in the response: tbd,...
   - [catalog](catalog/catalog-TrainDepartures.md)
+
+Benchmarking:
+
+- https://ontology.tno.nl/smart-rail/ 
 
 
 ### Terminals (PENDING)
@@ -562,21 +576,23 @@ We can implement two APIs in this category: one for creating and updating contac
   - Manufacturer
   - Health & Social Care
 
-**Some notes:... Info Open APIs should**:
+
+
+
+**Some last  notes:... Info Open APIs should**:
 - Publish kind of services that offer (catalog of services)
 - Allow filter companies depending on services that offer
 - Alow get information contact of a company (Name, email, phone, address, icon, etc)
 
-[see 'Organization' in schema.org](https://schema.org/Organization)
-[evaluate 'Offer' in scehma.org](https://schema.org/Offer)
+- [Ontology from TNO](https://ontology.tno.nl/) 
+
+- [see 'Organization' in schema.org](https://schema.org/Organization)
+- [evaluate 'Offer' in scehma.org](https://schema.org/Offer)
 
 
 ![Office worker](https://github.githubassets.com/images/icons/emoji/unicode/1f9d1-1f4bc.png?v8)
 
-![Weight lifting](https://github.githubassets.com/images/icons/emoji/unicode/1f3cb.png?v8)
-
-
-![Truck](https://github.githubassets.com/images/icons/emoji/unicode/1f69a.png?v8)
-
 
 ![Passenger ship](https://github.githubassets.com/images/icons/emoji/unicode/1f6f3.png?v8)
+
+
