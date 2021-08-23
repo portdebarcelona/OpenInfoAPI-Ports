@@ -260,15 +260,12 @@ Here are examples of some procedures and possible APIs that can help operators w
 
   Moreover, the size of a port, in terms of traffic flow, says nothing about productivity, efficiency, or responsiveness to customers. These are just some of the criteria that a shipper might consider in evaluating port performance. 
 
-
-
-  Inspiring webs:
-
-
   All the ports have statistical information about the activity. Usually are published annually, monthly, quarterly. Relevant data of a port are:
-  - Number ship calls
-  - Tones loaded/unloaded
-  - Number of containers
+  - Value of goods passing through port
+  - Number ship calls (stopovers)
+  - Tones loaded/unloaded by sector
+  - Traffic by geographical areas (total, main destination areas and main areas of origin)
+  - Container traffic (all, full/empty, import/export)
   - Vehicles loaded/unloaded
   - Passengers embarked/disembarked
   - Liquid bulks loaded/unloaded
