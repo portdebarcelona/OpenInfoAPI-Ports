@@ -152,7 +152,7 @@ Here are some examples of APIs that can facilitate information of some of these 
  
 
   Possible APIs: (ckeck the English version)
-    - Procedures for border inspection: Addresses where can be find information about the procedures for clearing the goods subject to controls from the border inspection services.
+  - Procedures for border inspection: Addresses where can be find information about the procedures for clearing the goods subject to controls from the border inspection services.
     - Request parameters: none. 
     - Data included in the response: addresses where information can be found,...
     - [catalog](catalog/catalog-BISClearance.md) 
