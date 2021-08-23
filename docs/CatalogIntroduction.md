@@ -7,11 +7,7 @@ Use of **Categories**. Many concepts are common in all ports (e.g., port service
 
 ### Ships Calls
 
-
 ![Anchor](https://github.githubassets.com/images/icons/emoji/unicode/2693.png?v8)
-
-
-
 
 Information about vessel's voyages in the port is particularly useful for planning logistic operations, but it can also be useful for acompanying or waiting people that will depart or arrive by ferry or cruise.
 
@@ -51,7 +47,6 @@ Possible APIs:
   - Data included in the response: ship name, cruise line, ETA (Estimated Time of Arrival), ETD (Estimated Time of Departure), cruise terminal,...
   - [catalog](catalog/catalog-CruisesCalls.md)
 
-Benchmarking: [select](Benchmarking.md#ShipCalls)
 
 ### Liner Services
 The connectivity of a port depends on the list of ports that are serviced periodically. Liner services define the network of ports with direct maritime connections to a port and their periodicity and capacity.
@@ -79,23 +74,23 @@ Possible APIs:
 Geographical/spatial information about the port, land accesses, maritime and rail terminals, and marine aids to navigation.
 
 Possible APIs:
-- **Port infrastructure**
+- **Port infrastructure**: Basic data of the infrastructure of a port.
   - Request parameters: port name,... 
   - Data included in the response: latitude/longitud, land area, berths (length, depth, loading capacities, contact information),...
   - [catalog](catalog/catalog-PortInfrastructure.md)
-- **Port gates**
+- **Port gates**: Information about the main land port accesses. 
   - Request parameters: none. 
   - Data included in the response: gate name, latitude/longitud, allowed vehicles, maximun width, maximum height, opening hours,...
   - [catalog](catalog/catalog-PortGates.md)
-- **Maritime terminals**
+- **Maritime terminals**: Information about the maritime terminals of a port.
   - Request parameters: none. 
   - Data included in the response: terminal name, type of terminal (ferry, cruise, container, multipurpose, vehicle, Bulk cargo,...), address, gate latitude/longitud, allowed vehicles, maximun width, maximum height, opening hours,...
   - [catalog](catalog/catalog-PortTerminals.md)
-- **Rail terminals** (pendent de revisar)
+- **Rail terminals**: Information of all the rail terminals of a port.
   - Request parameters: none
   - Data included in the response: list of rail terminals, latitude/longitude, address, type of cargo...
   - [catalog](catalog/catalog-RailwayTerminals.md)
-- **Marine aids to navigation** Port marks. 
+- **Marine aids to navigation** Port marks in a specific port. 
   - Request parameters: none. 
   - Data included in the response: mark, mark number, coordenates situation, apparience during the day, day mark, light phases, comments,...
 Observations,...
@@ -114,55 +109,55 @@ Certain operations require some procedure instructions and these procedures shou
 
 The main objective of this category is to make transparent those procedures and to show how to proceed when someone need them.
 
-Here are some examples of APIs that can facilitate information of some of these procedures:
+Here are examples of some procedures and possible APIs that can help operators with those procedures:
 
 - **Customs Clearance for imports**
 
   All shipments of goods entering the European Union from third countries are subject to Customs controls. All goods may be subject to the presentation of several documents and payments, as the payment of Customs duties based on the content of the shipment, payment of national taxes (VAT) or local taxes where applicable, payment of special taxes on tobacco, alcohol, etc., the cost of processing of Single Administrative Document (SAD) for imports, the costs arising from border safety controls, depending on the nature of the shipment (sanitary, pharmaceutical, veterinary, etc.).
   
-  It is the recipient's responsibility to know the conditions for importing their shipment (prohibitions, restrictions, limitations, etc.) and to find out what documents may be required on arrival, including the commercial invoice, certificate of origin, licences and special authorisations for border controls, etc.
-
   As a part of the customs clearance process, customs can carry out docummentary or physical inspections, and those can be carried out inside the cargo terminals, at the terminal yard or in a warehouse, but they can also inspect containers, platforms or trucks using a non-intrusive technology as an X-ray scanner. 
   
+  It is the recipient's responsibility to know the conditions for importing their shipment (prohibitions, restrictions, limitations, etc.) and to find out what documents may be required on arrival, including the commercial invoice, certificate of origin, licences and special authorisations for border controls, etc.
+
   Possible APIs:
 
-  - Customs clearance procedure: Addresses where can be find information about the procedures for clearing the goods in import.
+  - **Customs clearance procedure**: Addresses where can be find information about the procedures for clearing the goods in import.
     - Request parameters: none. 
     - Data included in the response: addresses where information can be found,...
     - [catalog](catalog/catalog-CustomsClearance.md) 
 
-  - Customs clearance actors: Contact information of the different actors involved in the customs clearance process.
+  - **Customs clearance actors**: Contact information of the different actors involved in the customs clearance process.
     - Request parameters: none. 
     - Data included in the response: contact information about Customs, contact information of the operators involved,...
     - [catalog](catalog/catalog-CustomsClearanceContacts.md) 
 
-  - Customs Inspections (2n phase of this project)
+  - **Customs Inspections** (2n phase of this project) Status of a customs inspection.
     - Request parameters: equipment id. 
     - Data included in the response: unit of cargo selected for inspection (true/false), type of inspection (intrusive/non-intrusive), place of the inspection (container yard, bonded warehouse,..), status (pending/carried out/cleared,...),...
     - [catalog](catalog/catalog-CustomsInspections.md)   
 
-- **Border Control Posts (BCP)** 
+- **Border Controls** (work in progress)
 
-
+  The border inspection post (BIP) is a controlled and authorised station for customs and sanitary controls of goods. Physical and documentary inspections are carried out at these posts as well as analysis of samples.
+  
   A Border Control Post is an inspection post designated and approved in line with EU legislation for carrying out checks on animals and animal products arriving from third countries at a European Union border. These checks are carried out to protect animal and public health, and animal welfare.
   
+  As a part of the border clearance process, border inspection services can carry out docummentary or physical inspections, and those can be carried out inside the cargo terminals but usually the physical inspections are carried out at the Border Inspection Posts (BIP), where coexist several specific inspection areas as a designated point of import (DPI), a designated point of entry (DPE) or a border control post (BCP).  
+ 
   It is the recipient's responsibility to know the conditions for importing their shipment (prohibitions, restrictions, limitations, etc.) and to find out what documents may be required on arrival, including the commercial invoice, certificate of origin, licences and special certifications for border controls, etc.
 
-  As a part of the border clearance process, border inspection services can carry out docummentary or physical inspections, and those can be carried out inside the cargo terminals but usually the physical inspections are carried out at the Border Inspection Posts, where coexist several specific inspection areas as a designated point of import (DPI), a designated point of entry (DPE) or a border control post (BCP).  
- 
-
   Possible APIs: (ckeck the English version)
-  - Procedures for border inspection: Addresses where can be find information about the procedures for clearing the goods subject to controls from the border inspection services.
+  - **Procedures for border inspection**: Addresses where can be find information about the procedures for clearing the goods subject to controls from the border inspection services.
     - Request parameters: none. 
     - Data included in the response: addresses where information can be found,...
     - [catalog](catalog/catalog-BISClearance.md) 
 
-  - Border inspection services clearance actors: Contact information of the different actors involved in the border inspection services clearance process.
+  - **Border inspection services clearance actors**: Contact information of the different actors involved in the border inspection services clearance process.
     - Request parameters: none. 
     - Data included in the response: contact information about the different border inspection services, contact information of the operators involved,...
     - [catalog](catalog/catalog-BISContacts.md) 
     
-  - Border Control Posts (2n phase of this project)
+  - **Border Control Posts** (2n phase of this project) Status of an inspection from the border inspection services.
     - Request parameters: equipment id. 
     - Data included in the response: unit of cargo selected for inspection (true/false), border inspection service (phytosanitary, veterinary, pharmacy, health, quality and industrial regulations,...), type of inspection (container emptying, container emptying and classification, identity, inspection, opening but not inspected, "passadís", resealing, resealed but not openned, thermodesinfection, transfer of goods, ventilation, fumigation, fumigation check...), place of the inspection (container yard, border inspection post, designated point of import (DPI), designated point of entry (DPE)), positioning reasons (inspection, customer requirements, others), status (pending/carried out/cleared,...),...
     - [catalog](catalog/catalog-BorderInspections.md)   
@@ -186,12 +181,12 @@ Here are some examples of APIs that can facilitate information of some of these 
 
   Possible APIs:
 
-  - Container tare weight. BIC (Bureau International des Containers et du Transport Intermodal) has developed the BoxTech Global Container Database that provides a platform to easily exchange container fleet technical details. BoxTech provides an easy-to-access source of container characteristics like the container number, the size-type code, the tare weight, the maximum gross mass, the maximum payload or the maximum stacking weight.
+  - **Container tare weight**: The BIC (Bureau International des Containers et du Transport Intermodal) has developed the BoxTech Global Container Database that provides a platform to easily exchange container fleet technical details. BoxTech provides an easy-to-access source of container characteristics like the container number, the size-type code, the tare weight, the maximum gross mass, the maximum payload or the maximum stacking weight.
     - Request parameters: equipment id 
     - Data included in the response: equipment id, tare weight
     - [catalog](catalog/catalog-Tare.md) 
 
-  - VGM (2n phase of this project)
+  - **VGM**: (2n phase of this project)
     - Request parameters: equipment id, request of weighting or VGM communication,... 
     - Data included in the response: method of weighting, VGM,...
     - [catalog](catalog/catalog-VGM.md)  
@@ -203,20 +198,18 @@ Here are some examples of APIs that can facilitate information of some of these 
 
   To know which companies have this quality level can be very useful for the users of a port. 
 
-
   Possible APIs:
-
-  - Procedures for being certified with the quality level of a port.
+  - **Procedures for being certified with the quality level of a port**.
     - Request parameters: name of the port, code of the port.
     - Data included in the response: tbd
     - [catalog](catalog/catalog-ENProcedures.md) 
     
-  - Certified companies
-    - Request parameters: activity, name of the company,... 
+  - **Certified companies**: List of companies that have been certified by the quality seal managers of a port.
+    - Request parameters: name of a port, activity, name of the company,... 
     - Data included in the response: name of the company, activities, company certified (true or false),...
     - [catalog](catalog/catalog-EfficiencyNetwork.md) 
 
-  - Activities/categories: i.e. freight-forwarder, shipping agent, custom broker,...
+  - **Activities/categories**: List of possible activities, i.e. freight-forwarder, shipping agent, custom broker,...
     - Request parameters: none 
     - Data included in the response: activities name, activity description.
     - [catalog](catalog/catalog-EfficiencyNetwork.md)   
@@ -233,12 +226,12 @@ Here are some examples of APIs that can facilitate information of some of these 
 
   Possible APIs:
 
-  - Container release information (container pick-up from the terminal or depot)
+  - **Container release information (container pick-up from the terminal or depot)**
     - Request parameters: container number, full/empty indicator 
     - Data included in the response: container number, full/empty indicator, name of the container terminal or depot, status (pending, authorised, exited,...)...
     - [catalog](catalog/catalog-ContainerRelease.md) 
 
-  - Container acceptance information (container delivery from the terminal or depot)
+  - **Container acceptance information (container delivery from the terminal or depot)**
     - Request parameters: container number, full/empty indicator  
     - Data included in the response: container number, full/empty indicator, name of the container terminal or depot, status (pending, authorised, entered,...)...
     - [catalog](catalog/catalog-ContainerAcceptance.md) 
@@ -253,8 +246,8 @@ Here are some examples of APIs that can facilitate information of some of these 
       
   Possible APIs: 
 
-    - Approach instructions
-      - Request parameters: none
+    - **Approach instructions**: Basic information for the vessels approach to a port
+      - Request parameters: name of the port, port code (UN/LOCODE).
       - Data included in the response: Entrances, approach channels, precautionary areas, port traffic (inbound vessels-reporting points, outbound or shifting vessels-reporting points and radio watch), emergency, special operations (like launching lifeboats, cleaning, rinsing or painting of the hull, diving operations, main engine immobilisation, hot works and others), pilotage, tugs, linesmen and last changes in this information.
       - [catalog](catalog/catalog-ApproachInstructions.md) 
 
