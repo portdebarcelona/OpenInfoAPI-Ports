@@ -100,6 +100,11 @@ Possible APIs:
   - Data included in the response: mark, mark number, coordenates situation, apparience during the day, day mark, light phases, comments,...
 Observations,...
   - [catalog](catalog/catalog-PortTerminals.md)
+- **Bathymetric data** Data from the regular hydrographic surveis that are being performed at ports. 
+  - Request parameters: situation (name of the situation -mouth, quay-, coordenates of the situation) 
+  - Data included in the response: coordinates, water depth...
+Observations,...
+  - [catalog](catalog/catalog-Bathymetry.md)
 
 ### Port Procedures (Work in progress)
 
@@ -191,21 +196,20 @@ Here are some examples of APIs that can facilitate information of some of these 
     - Data included in the response: method of weighting, VGM,...
     - [catalog](catalog/catalog-VGM.md)  
 
-- **Efficiency Network Certificate** (generalitzar - certificacions de marca de qualitat) 
+- **Quality Level Certificates**  
 
-  ![Efficiency Network](https://github.com/portdebarcelona/OpenInfoAPI-Ports/blob/develop/docs/images/EN.png?raw=true)
+  ![Efficiency Network](https://github.com/portdebarcelona/OpenInfoAPI-Ports/blob/develop/docs/images/EN.png?raw=true) Change this logo by a more generic one!
 
-  Efficiency Network is the brand of the Barcelona Port's quality label.
-  The Port of Barcelona every day manages the transportation of thousands of shipments. The job of the Port is to treat each one as it was the only one. To ensure that each shipment receives the treatment it deserves, the Port of Barcelona has created Efficiency Network, a quality brand that identifies the companies operating at the port that adopted a commitment to efficiency to provide the end customers with the utmost satisfaction. It garanties the reliability, transparency and security of all the operations carried out at the Port of Barcelona. Efficiency Network recognises and certifies organisations involved and commited to the most rigorous standards of reliability, so the shipments arrive wherever they need to. A network of people and organisations that join forces with the goal of making the Port of Barcelona a reference, open to the World, commited to a job done well, more effective, more efficient. 
-  Efficiency Network has about the destination but also about the path. A more collaborative and competitive path, a path to excellence. 
+  Several ports have developed own brands for their quality label schemas.
+  There are some ports that every day manage the transportation of thousands of shipments. And the job of each port is to treat each one as it was the only one. To ensure that each shipment receives the treatment it deserves, some ports have created a quality brand that identifies the companies operating at that port that had adopted a commitment to efficiency the end customers with the utmost satisfaction. With this quality level the ports recognise and certify organisations involved and commited to the most rigorous standards of reliability.
 
-  ![Blue diamond](https://github.githubassets.com/images/icons/emoji/unicode/1f539.png?v8)Source: Efficiency Network, Port de Barcelona.
+  To know which companies have this quality level can be very useful for the users of a port. 
 
 
   Possible APIs:
 
-  - Procediments per estar certificades
-    - Request parameters: atbd
+  - Procedures for being certified with the quality level of a port.
+    - Request parameters: name of the port, code of the port.
     - Data included in the response: tbd
     - [catalog](catalog/catalog-ENProcedures.md) 
     
@@ -393,10 +397,12 @@ Several activities at ports, such as berthing, dredging or construction typicall
 
 Puertos del Estado offers a service called SAPO (that in Spanish corresponds to the initials of Autonomous Wave Prediction System) to the Port Authorities that request it.
 
-This service allows obtaining a local wave prediction with a horizon of 48 hours considering the transformations induced by the coastline and the continental shelf. The forecast covers a region of about 600 km2 in the area outside the port with a wave generation and scheduling model and the interior area of the port with an agitation model. 
+This service allows obtaining a local wave prediction with a horizon of 48 hours considering the transformations induced by the coastline and the continental shelf. The forecast covers a region of about 600 km2 in the area outside the port with a wave generation and scheduling model and the interior area of the port with an agitation model.
 
+Europe has also developed a portal that aggregates this kind of information [EMODnet](https://emodnet.ec.europa.eu/en/physics) and is offering several APIs, like this one with all the sources of this kind of information:
 
-
+- www.emodnet-physics.eu/map/Service/WSEmodnet2.aspx
+- www.emodnet-physics.eu/map/service/WSEmodnet2.asmx
 
   Possible APIs: 
 
@@ -404,6 +410,11 @@ This service allows obtaining a local wave prediction with a horizon of 48 hours
     - Request parameters: port
     - Data included in the response: port, mouth coordinates, date and time, wind speed, wind direction, waves -total-(wave height Hs(m), direction, wave period Tp(s), wave period Tz(s)), wind waves (wave height Hs(m), direction), swell (wave height Hs(m), direction, period Tz(s)),... 
     - [catalog](catalog/catalog-WavePrediction.md) 
+
+  - Currents: Information available in https://map.emodnet-physics.eu/ (check pending) 
+    - Request parameters: port
+    - Data included in the response: ,... 
+    - [catalog](catalog/catalog-Currents.md) 
 
 ### Pollution (Work in progress)
 ![Factory](https://github.githubassets.com/images/icons/emoji/unicode/1f3ed.png?v8)
