@@ -162,7 +162,6 @@ Here are examples of some procedures and possible APIs that can help operators w
     - Data included in the response: unit of cargo selected for inspection (true/false), border inspection service (phytosanitary, veterinary, pharmacy, health, quality and industrial regulations,...), type of inspection (container emptying, container emptying and classification, identity, inspection, opening but not inspected, "passadís", resealing, resealed but not openned, thermodesinfection, transfer of goods, ventilation, fumigation, fumigation check...), place of the inspection (container yard, border inspection post, designated point of import (DPI), designated point of entry (DPE)), positioning reasons (inspection, customer requirements, others), status (pending/carried out/cleared,...),...
     - [catalog](catalog/catalog-BorderInspections.md)   
 
-
 - **VGM (Verified Gross Mass)**
 
   As the International Maritime Organisation (IMO) declare: *"discrepancies between the declared gross mass and the actual gross mass of a packed container could have an adverse impact on the safety of the ship, seafarers and shore-side workers, by leading to incorrect vessel stowage decisions and potentially collapsed container stacks or loss of containers overboard"*.
@@ -295,32 +294,22 @@ Several activities at ports, such as berthing, dredging or construction typicall
 
   Real time information about weather can optimise the scheduling of shipping movements, can minimise weather downtime, can optimise berth use reducing cargo transit delays, can aware of hazardous conditions off coast, can forecast long wave and surging conditions
 
+       Introduction to meteorological data. See [Free Weather APIS to access global weather data](https://rapidapi.com/blog/access-global-weather-data-with-these-weather-apis/), [wheatherapi.com](https://www.weatherapi.com/docs/#apis-realtime)
 
-
-    ...wind forecasts: trained upon in-port or near-port wind observations, these forecasts let you precisely judge the percentage risk of high winds from one hour ahead to one week ahead.
-
-    Introduction to meteorological data. See [Free Weather APIS to access global weather data](https://rapidapi.com/blog/access-global-weather-data-with-these-weather-apis/), [wheatherapi.com](https://www.weatherapi.com/docs/#apis-realtime)
-
-
-
-
-
-  Possible APIs: (Work in progress)
-
-  - Realtime weather (posar uns valors per defecte - una determinada estació i els valors que hi ha)
-    - Request parameters: weather 
-    parameter (temperature, air pressure, wind speed, wind direction, humidity, raifall, illuminance, all), weather station id,... 
-    - Data included in the response: Parameter, value, weather station id, latitude and longitude of the sensor, date and time of the data offered.
+  Possible APIs: 
+  - **Realtime weather**: Realtime weather of the default weather station of a port. 
+    - Request parameters: name of the port, port code (UN/LOCODE), parameter (all, temperature, air pressure, wind speed, wind direction, humidity, raifall, illuminance, all), weather station id,... 
+    - Data included in the response: Parameter, value, port name, port code (UN/LOCODE), weather station id, latitude and longitude of the sensor, date and time of the data offered.
     - [catalog](catalog/catalog-RealtimeWeather.md) 
 
-- Weather Forecast
-    - Request parameters: xxx (tbd) 
-    - Data included in the response: xxx (tbd)
+- **Weather Forecast**: 5 days weather forecast for a port
+    - Request parameters: name of the port, port code (UN/LOCODE) 
+    - Data included in the response: name of the port, port code (UN/LOCODE), minimum temperature, maximum temperature, rainfall probability,...
     - [catalog](catalog/catalog-WeatherForecast.md) 
 
-- Weather Alerts
-    - Request parameters: xxx (tbd) 
-    - Data included in the response: xxx (tbd)
+- **Weather Alerts**: Weather alerts for a port.
+    - Request parameters: name of the port, port code (UN/LOCODE)  
+    - Data included in the response: name of the port, port code (UN/LOCODE), active weather alert (true/false), type of weather alert (rainfall, low temperatures, high temperatures, lightning, snow, high winds,...)
     - [catalog](catalog/catalog-WeatherAlerts.md) 
 
 
@@ -338,12 +327,12 @@ Europe has also developed a portal that aggregates this kind of information [EMO
 
   Possible APIs: 
 
-  - Wave Prediction
-    - Request parameters: port
+  - **Wave Prediction**: Prediction of waves, including the component of the wind waves plus the swell.
+    - Request parameters: port name, port code (UN/LOCODE).
     - Data included in the response: port, mouth coordinates, date and time, wind speed, wind direction, waves -total-(wave height Hs(m), direction, wave period Tp(s), wave period Tz(s)), wind waves (wave height Hs(m), direction), swell (wave height Hs(m), direction, period Tz(s)),... 
     - [catalog](catalog/catalog-WavePrediction.md) 
 
-  - Currents: Information available in https://map.emodnet-physics.eu/ (check pending) 
+  - **Currents**: Information about the currents near the port and even inside the port waters. Available in https://map.emodnet-physics.eu/ (check pending) 
     - Request parameters: port
     - Data included in the response: ,... 
     - [catalog](catalog/catalog-Currents.md) 
