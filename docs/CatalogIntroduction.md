@@ -286,7 +286,7 @@ Here are examples of some procedures and possible APIs that can help operators w
 
   Mensuals, trimestrals, semestrals i anuals.
 
-### Weather (Work in progress)
+### Weather
 ![Sun with cloud and rain](https://github.githubassets.com/images/icons/emoji/unicode/1f326.png?v8)  
 Several activities at ports, such as berthing, dredging or construction typically require low weather energy conditions for safe execution. 
 
@@ -294,7 +294,6 @@ Several activities at ports, such as berthing, dredging or construction typicall
 
   Real time information about weather can optimise the scheduling of shipping movements, can minimise weather downtime, can optimise berth use reducing cargo transit delays, can aware of hazardous conditions off coast, can forecast long wave and surging conditions
 
-       Introduction to meteorological data. See [Free Weather APIS to access global weather data](https://rapidapi.com/blog/access-global-weather-data-with-these-weather-apis/), [wheatherapi.com](https://www.weatherapi.com/docs/#apis-realtime)
 
   Possible APIs: 
   - **Realtime weather**: Realtime weather of the default weather station of a port. 
@@ -312,20 +311,20 @@ Several activities at ports, such as berthing, dredging or construction typicall
     - Data included in the response: name of the port, port code (UN/LOCODE), active weather alert (true/false), type of weather alert (rainfall, low temperatures, high temperatures, lightning, snow, high winds,...)
     - [catalog](catalog/catalog-WeatherAlerts.md) 
 
+Benchmarking:
+- Free Weather APIS to access global weather data:
+  - https://rapidapi.com/blog/access-global-weather-data-with-these-weather-apis/)
+  - [wheatherapi.com](https://www.weatherapi.com/docs/#apis-realtime)
 
-### Sea State (Work in progress)
+
+### Sea State
 ![Ocean](https://github.githubassets.com/images/icons/emoji/unicode/1f30a.png?v8)
 
-Puertos del Estado offers a service called SAPO (that in Spanish corresponds to the initials of Autonomous Wave Prediction System) to the Port Authorities that request it.
+Wave prediction can be used for the prevention of loss of life and property at sea, providing timely and accurate marine weather warnings and forecasts.
 
-This service allows obtaining a local wave prediction with a horizon of 48 hours considering the transformations induced by the coastline and the continental shelf. The forecast covers a region of about 600 km2 in the area outside the port with a wave generation and scheduling model and the interior area of the port with an agitation model.
 
-Europe has also developed a portal that aggregates this kind of information [EMODnet](https://emodnet.ec.europa.eu/en/physics) and is offering several APIs, like this one with all the sources of this kind of information:
 
-- www.emodnet-physics.eu/map/Service/WSEmodnet2.aspx
-- www.emodnet-physics.eu/map/service/WSEmodnet2.asmx
-
-  Possible APIs: 
+Possible APIs: 
 
   - **Wave Prediction**: Prediction of waves, including the component of the wind waves plus the swell.
     - Request parameters: port name, port code (UN/LOCODE).
@@ -336,6 +335,16 @@ Europe has also developed a portal that aggregates this kind of information [EMO
     - Request parameters: port
     - Data included in the response: ,... 
     - [catalog](catalog/catalog-Currents.md) 
+
+  Benchmarking:
+- Europe has also developed a portal that aggregates this kind of information [EMODnet](https://emodnet.ec.europa.eu/en/physics) and is offering several APIs, like this one with all the sources of this kind of information:
+  - www.emodnet-physics.eu/map/Service/WSEmodnet2.aspx
+  - www.emodnet-physics.eu/map/service/WSEmodnet2.asmx
+
+- Puertos del Estado offers a service called SAPO (that in Spanish corresponds to the initials of Autonomous Wave Prediction System) to the Port Authorities that request it. This service offers a local wave prediction with a horizon of 48 hours considering the transformations induced by the coastline and the continental shelf. The forecast covers a region of about 600 km2 in the area outside the port with a wave generation and scheduling model and the interior area of the port with an agitation model. 
+  - http://www.puertos.es/es-es/oceanografia/Paginas/portus.aspx
+
+- [NOOA WAVEWATCH-III.v6.07.1 on GitHub](https://github.com/NOAA-EMC/WW3/releases/tag/6.07.1)
 
 ### Pollution (Work in progress)
 ![Factory](https://github.githubassets.com/images/icons/emoji/unicode/1f3ed.png?v8)
@@ -351,19 +360,19 @@ Ports concentrate industrial areas next to the water. Many activities such as tr
 - Bulk discharges
 - Water quality 
 
-Benchmarking:
-- WeatherAPI.com provides access to weather and geo data via a JSON/XML restful API. Among others, they provide following data through their API:
-  - Real-time weather
-  - Weather Alerts 
-  - Air Quality Data 
-  - [wheather api](https://www.weatherapi.com/docs/#intro-aqi)
-
 Possible APIs:
 
 - **Pollution**: Current pollution data of a port. 
   - Request parameters: parameter requested (all, air, water, carbon dioxide CO2, carbon monoxide CO, volatile organic compounds (VOCs), nitrogen oxides (NOx), sulfur oxides (SOx), particulate matter (PM), include water parameters), date and time...
   - Data included in the response: value of the parameter requested (), date and time,...
   - [catalog](catalog/catalog-Pollution.md)
+
+Benchmarking:
+- WeatherAPI.com provides access to weather and geo data via a JSON/XML restful API. Among others, they provide following data through their API:
+  - Real-time weather
+  - Weather Alerts 
+  - Air Quality Data 
+  - [wheather api](https://www.weatherapi.com/docs/#intro-aqi)
 
 ### Vehicle Traffic Monitoring (PENDING)
 Entradas y salidas de vehículos del recinto portuario
