@@ -251,7 +251,7 @@ Here are examples of some procedures and possible APIs that can help operators w
       - [catalog](catalog/catalog-ApproachInstructions.md) 
 
 
-### Statistics (PENDING)
+### Statistics (Work in progress)
 
 ![Chart upward](https://github.githubassets.com/images/icons/emoji/unicode/1f4c8.png?v8)
 
@@ -263,12 +263,7 @@ Here are examples of some procedures and possible APIs that can help operators w
 
 
   Inspiring webs:
-  - Eurostat
-    - https://ec.europa.eu/eurostat/databrowser/view/MAR_TF_QM__custom_917144/default/table?lang=en
-    - https://ec.europa.eu/eurostat/web/transport/data/database
-  - ONU:
-    - https://statswiki.unece.org/  (maritime transport is not covered)
-    - Review of maritime transport [UNCTAD](https://unctad.org/es/node/29022)
+
 
   All the ports have statistical information about the activity. Usually are published annually, monthly, quarterly. Relevant data of a port are:
   - Number ship calls
@@ -282,11 +277,24 @@ Here are examples of some procedures and possible APIs that can help operators w
   - etc.
 
 
-  Basar-se en la memòria anual (veure la versió en anglès) i en les mensuals.
+        - Basar-se en la memòria anual (veure la versió en anglès) i en les mensuals.
+          Mensuals, trimestrals, semestrals i anuals.
 
-  Mensuals, trimestrals, semestrals i anuals.
 
+Possible APIs: 
+  - **tbd**: aaaa. 
+    - Request parameters: aaa,... 
+    - Data included in the response: bbb,...
+    - [catalog](catalog/catalog-Statistics.md) 
+ 
 
+Benchmarking:
+- Eurostat
+    - https://ec.europa.eu/eurostat/databrowser/view/MAR_TF_QM__custom_917144/default/table?lang=en
+    - https://ec.europa.eu/eurostat/web/transport/data/database
+- United Nations:
+    - https://statswiki.unece.org/  (maritime transport is not covered)
+    - Review of maritime transport [UNCTAD](https://unctad.org/es/node/29022)
 
 
 
