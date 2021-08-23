@@ -136,14 +136,28 @@ Here are some examples of APIs that can facilitate information of some of these 
     - Data included in the response: unit of cargo selected for inspection (true/false), type of inspection (intrusive/non-intrusive), place of the inspection (container yard, bonded warehouse,..), status (pending/carried out/cleared,...),...
     - [catalog](catalog/catalog-CustomsInspections.md)   
 
-- **Border Control Posts (BCP)** (PENDING)
+- **Border Control Posts (BCP)** 
 
 
   A Border Control Post is an inspection post designated and approved in line with EU legislation for carrying out checks on animals and animal products arriving from third countries at a European Union border. These checks are carried out to protect animal and public health, and animal welfare.
-  Operators need to know which units have been selected by the Sanitary Authorities to be inspected, to know if the inspection has been performed and if their goods have been cleared.
+  
+  It is the recipient's responsibility to know the conditions for importing their shipment (prohibitions, restrictions, limitations, etc.) and to find out what documents may be required on arrival, including the commercial invoice, certificate of origin, licences and special certifications for border controls, etc.
 
-  Possible APIs:
-  - Border Control Posts
+  As a part of the border clearance process, border inspection services can carry out docummentary or physical inspections, and those can be carried out inside the cargo terminals but usually the physical inspections are carried out at the Border Inspection Posts, where coexist several specific inspection areas as a designated point of import (DPI), a designated point of entry (DPE) or a border control post (BCP).  
+ 
+
+  Possible APIs: (ckeck the English version)
+    - Procedures for border inspection: Addresses where can be find information about the procedures for clearing the goods subject to controls from the border inspection services.
+    - Request parameters: none. 
+    - Data included in the response: addresses where information can be found,...
+    - [catalog](catalog/catalog-BISClearance.md) 
+
+  - Border inspection services clearance actors: Contact information of the different actors involved in the border inspection services clearance process.
+    - Request parameters: none. 
+    - Data included in the response: contact information about the different border inspection services, contact information of the operators involved,...
+    - [catalog](catalog/catalog-BISContacts.md) 
+    
+  - Border Control Posts (2n phase of this project)
     - Request parameters: equipment id. 
     - Data included in the response: unit of cargo selected for inspection (true/false), border inspection service (phytosanitary, veterinary, pharmacy, health, quality and industrial regulations,...), type of inspection (container emptying, container emptying and classification, identity, inspection, opening but not inspected, "passadís", resealing, resealed but not openned, thermodesinfection, transfer of goods, ventilation, fumigation, fumigation check...), place of the inspection (container yard, border inspection post, designated point of import (DPI), designated point of entry (DPE)), positioning reasons (inspection, customer requirements, others), status (pending/carried out/cleared,...),...
     - [catalog](catalog/catalog-BorderInspections.md)   
@@ -167,15 +181,15 @@ Here are some examples of APIs that can facilitate information of some of these 
 
   Possible APIs:
 
-  - VGM
-    - Request parameters: equipment id, request of weighting or VGM communication,... 
-    - Data included in the response: method of weighting, VGM,...
-    - [catalog](catalog/catalog-VGM.md)  
-
   - Container tare weight. BIC (Bureau International des Containers et du Transport Intermodal) has developed the BoxTech Global Container Database that provides a platform to easily exchange container fleet technical details. BoxTech provides an easy-to-access source of container characteristics like the container number, the size-type code, the tare weight, the maximum gross mass, the maximum payload or the maximum stacking weight.
     - Request parameters: equipment id 
     - Data included in the response: equipment id, tare weight
     - [catalog](catalog/catalog-Tare.md) 
+
+  - VGM (2n phase of this project)
+    - Request parameters: equipment id, request of weighting or VGM communication,... 
+    - Data included in the response: method of weighting, VGM,...
+    - [catalog](catalog/catalog-VGM.md)  
 
 - **Efficiency Network Certificate** (generalitzar - certificacions de marca de qualitat) 
 
