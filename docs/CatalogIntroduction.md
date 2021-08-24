@@ -113,6 +113,8 @@ Here are examples of some procedures and possible APIs that can help operators w
 
 - **Customs Clearance for imports**
 
+ ![Customs](https://github.com/portdebarcelona/OpenInfoAPI-Ports/blob/develop/docs/images/Customs.png?raw=true)
+
   All shipments of goods entering the European Union from third countries are subject to Customs controls. All goods may be subject to the presentation of several documents and payments, as the payment of Customs duties based on the content of the shipment, payment of national taxes (VAT) or local taxes where applicable, payment of special taxes on tobacco, alcohol, etc., the cost of processing of Single Administrative Document (SAD) for imports, the costs arising from border safety controls, depending on the nature of the shipment (sanitary, pharmaceutical, veterinary, etc.).
   
   As a part of the customs clearance process, customs can carry out docummentary or physical inspections, and those can be carried out inside the cargo terminals, at the terminal yard or in a warehouse, but they can also inspect containers, platforms or trucks using a non-intrusive technology as an X-ray scanner. 
@@ -195,6 +197,7 @@ Here are examples of some procedures and possible APIs that can help operators w
     - [catalog](catalog/catalog-VGM.md)  
 
 - **Quality Level Certifications**  
+ ![Quality](https://github.com/portdebarcelona/OpenInfoAPI-Ports/blob/develop/docs/images/Quality.png?raw=true)ç
 
   Several ports have developed own brands for their quality label schemas.
   There are some ports that every day manage the transportation of thousands of shipments. And the job of each port is to treat each one as it was the only one. To ensure that each shipment receives the treatment it deserves, some ports have created a quality brand that identifies the companies operating at that port that had adopted a commitment to efficiency the end customers with the utmost satisfaction. With this quality level the ports recognise and certify organisations involved and commited to the most rigorous standards of reliability.
@@ -218,8 +221,7 @@ Here are examples of some procedures and possible APIs that can help operators w
     - [catalog](catalog/catalog-EfficiencyNetwork.md)   
 
 - **Container release or acceptance (Container pick-up or delivery from/to the terminal or depot)** 
-
-  ![Truck](https://github.githubassets.com/images/icons/emoji/unicode/1f69a.png?v8)
+ ![Exits](https://github.com/portdebarcelona/OpenInfoAPI-Ports/blob/develop/docs/images/Exits.png?raw=true)
  
   Container traffic has a big economic impact in ports and the area that they serve.
    
