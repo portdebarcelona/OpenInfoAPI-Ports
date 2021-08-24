@@ -138,6 +138,8 @@ Here are examples of some procedures and possible APIs that can help operators w
 
 - **Border Controls** (work in progress)
 
+  ![BIP](https://github.com/portdebarcelona/OpenInfoAPI-Ports/blob/develop/docs/images/BIP.png?raw=true)
+
   The border inspection post (BIP) is a controlled and authorised station for customs and sanitary controls of goods. Physical and documentary inspections are carried out at these posts as well as analysis of samples.
   
   A Border Control Post is an inspection post designated and approved in line with EU legislation for carrying out checks on animals and animal products arriving from third countries at a European Union border. These checks are carried out to protect animal and public health, and animal welfare.
