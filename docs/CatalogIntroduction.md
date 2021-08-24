@@ -415,7 +415,20 @@ Benchmarking:
   - [wheather api](https://www.weatherapi.com/docs/#intro-aqi)
 
 ### Vehicle Traffic Monitoring (PENDING)
+
+![Vehicle](https://github.com/portdebarcelona/OpenInfoAPI-Ports/blob/develop/docs/images/Vehicle.png?raw=true)
+
 Entradas y salidas de vehículos del recinto portuario
+
+Possible APIs:
+
+- **Vehicle traffic monitoring**: C
+  - Request parameters: aaa.
+  - Data included in the response: aaa.
+  - [catalog](catalog/catalog-Vehicle.md)
+
+Benchmarking:
+- W
 
 ### Rail transport (Work in progress)
 
