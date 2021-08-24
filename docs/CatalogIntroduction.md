@@ -106,7 +106,7 @@ Observations,...
 
 ### Port Procedures (Work in progress)
 
-  ![Process](https://github.com/portdebarcelona/OpenInfoAPI-Ports/blob/develop/docs/images/Process.png?raw=true)
+  ![Process](https://github.com/portdebarcelona/OpenInfoAPI-Ports/blob/develop/docs/images/process.png?raw=true)
 
 Certain operations require some procedure instructions and these procedures should be published and accessible to several applications.
 
