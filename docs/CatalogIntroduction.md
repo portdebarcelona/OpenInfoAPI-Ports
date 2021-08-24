@@ -121,7 +121,7 @@ Here are examples of some procedures and possible APIs that can help operators w
 
   Possible APIs:
 
-  - **Customs clearance procedure**: Addresses where can be find information about the procedures for clearing the goods in import.
+  - **Customs clearance procedure**: Resources where can be find information about the procedures for clearing the goods in import.
     - Request parameters: none. 
     - Data included in the response: addresses where information can be found,...
     - [catalog](catalog/catalog-CustomsClearance.md) 
@@ -147,7 +147,7 @@ Here are examples of some procedures and possible APIs that can help operators w
   It is the recipient's responsibility to know the conditions for importing their shipment (prohibitions, restrictions, limitations, etc.) and to find out what documents may be required on arrival, including the commercial invoice, certificate of origin, licences and special certifications for border controls, etc.
 
   Possible APIs: (ckeck the English version)
-  - **Procedures for border inspection**: Addresses where can be find information about the procedures for clearing the goods subject to controls from the border inspection services.
+  - **Procedures for border inspection**: Resources where can be find information about the procedures for clearing the goods subject to controls from the border inspection services.
     - Request parameters: none. 
     - Data included in the response: addresses where information can be found,...
     - [catalog](catalog/catalog-BISClearance.md) 
@@ -521,7 +521,7 @@ Social Services for Seamen
 ### Port Calendar (PENDING)
 ![Calendar](https://github.githubassets.com/images/icons/emoji/unicode/1f4c6.png?v8)
 
-The companies and administrations that operate in the Port of Barcelona are not always operational. The hours of service and attention to the public of these companies may vary and may even be subject to specific festivities. And this knowledge can be of great help when a particular operation must be carried out through our Port.
+The companies and administrations that operate in a port are not always operational. The hours of service and attention to the public of these companies may vary and may even be subject to specific festivities. And this knowledge can be of great help when a particular operation must be carried out through our Port.
 
 Information about workdays, local holidays, ... 
 
