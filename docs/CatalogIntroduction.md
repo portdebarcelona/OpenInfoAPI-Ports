@@ -209,8 +209,8 @@ Here are examples of some procedures and possible APIs that can help operators w
 
   Possible APIs:
   - **Procedures for being certified with the quality level of a port**.
-    - Request parameters: name of the port, code of the port.
-    - Data included in the response: Resurces where can be found the certification procedure.
+    - Request parameters: name of the port, UN/LOCODE of the port.
+    - Data included in the response: Resources where can be found the certification procedure.
     - [catalog](catalog/catalog-ENProcedures.md) 
     
   - **Certified companies**: List of companies that have been certified by the quality seal managers of a port.
@@ -225,15 +225,20 @@ Here are examples of some procedures and possible APIs that can help operators w
 
 - **Container release or acceptance (Container pick-up or delivery from/to the terminal or depot)**
 
-  ![Exits](https://github.com/portdebarcelona/OpenInfoAPI-Ports/blob/develop/docs/images/Exits.png?raw=true)
+  ![Exits](https://github.com/portdebarcelona/OpenInfoAPI-Ports/blob/develop/docs/images/Exits2.png?raw=true)
  
-     Container traffic has a big economic impact in ports and the area that they serve.
-    
-     Container operations in ports are docummented using EDI messages. The EDIFACT container messages are designed to provide standard formats for all functional areas related to the handling and movement of shipping containers and equipment.
-      They are divided into two main categories: ship and land operations.
-      In this category are included some APIs related with the information exchanged using the EDI messages for land operations with full and empty containers.
+    Container traffic has a big economic impact in ports and the area that they serve.
+
+    Logistic operators need to know the procedures that they have to follow for pick-up containes from a port or to delivery them. 
+
+    In this category are included some APIs related with the information exchanged using the EDI messages for land operations with full and empty containers.
 
   Possible APIs:
+
+  - **Procedures for pick-up or delivery containers from/to the terminal or depot**.
+    - Request parameters: name of the port, UN/LOCODE of the port.
+    - Data included in the response: Resources where can be found the procedures.
+    - [catalog](catalog/catalog-ESMTProcedures.md) 
 
   - **Container release information (container pick-up from the terminal or depot)**
     - Request parameters: container number, full/empty indicator 
