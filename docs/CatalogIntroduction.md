@@ -269,7 +269,7 @@ Here are examples of some procedures and possible APIs that can help operators w
       - [catalog](catalog/catalog-ApproachInstructions.md) 
 
 
-### Statistics (Work in progress)
+### Statistics 
 
 ![Chart upward](https://github.githubassets.com/images/icons/emoji/unicode/1f4c8.png?v8)
 
@@ -307,13 +307,18 @@ Here are examples of some procedures and possible APIs that can help operators w
     - Long term debt (thousand euro)
   - etc.
 
-  And it is also important to define how often the data will be obtained and published.
+  And it is also important to know how often the data can be obtained and published.
 
 Possible APIs: 
-  - **tbd**: aaaa. 
-    - Request parameters: aaa,... 
-    - Data included in the response: bbb,...
+  - **Traffic statistics**: Statistics of traffic from a port.
+    - Request parameters: port name, port UN/LOCODE, period of time, dimension, level of aggregation.   
+    - Data included in the response: data requested.
     - [catalog](catalog/catalog-Statistics.md) 
+
+  - **Economic data**: Economic data of a port. 
+    - Request parameters: port name, port UN/LOCODE, period of time, dimension, level of aggregation.    
+    - Data included in the response: data requested.
+    - [catalog](catalog/catalog-EconomicData.md) 
  
 Benchmarking:
 - Eurostat
@@ -322,6 +327,9 @@ Benchmarking:
 - United Nations:
     - https://statswiki.unece.org/  (maritime transport is not covered)
     - Review of maritime transport [UNCTAD](https://unctad.org/es/node/29022)
+    - [undata API](https://data.un.org/Host.aspx?Content=API)
+- World Bank
+    - https://datacatalog.worldbank.org/dataset/global-international-ports
 
 ### Weather
 ![Sun with cloud and rain](https://github.githubassets.com/images/icons/emoji/unicode/1f326.png?v8)  
@@ -371,7 +379,7 @@ Possible APIs:
     - [catalog](catalog/catalog-Currents.md) 
 
   Benchmarking:
-- Europe has also developed a portal that aggregates this kind of information [EMODnet](https://emodnet.ec.europa.eu/en/physics) and is offering several APIs, like this one with all the sources of this kind of information:
+- Europe has developed a website that aggregates several portals, one with this kind of information [EMODnet](https://emodnet.ec.europa.eu/en/physics) where are offered several APIs, like one with all the sources of this kind of information:
   - www.emodnet-physics.eu/map/Service/WSEmodnet2.aspx
   - www.emodnet-physics.eu/map/service/WSEmodnet2.asmx
 
