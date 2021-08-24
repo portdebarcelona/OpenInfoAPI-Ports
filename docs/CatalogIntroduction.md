@@ -7,7 +7,7 @@ Use of **Categories**. Many concepts are common in all ports (e.g., port service
 
 ### Ships Calls
 
-![Anchor](https://github.githubassets.com/images/icons/emoji/unicode/2693.png?v8)
+![Ship calls](https://github.com/portdebarcelona/OpenInfoAPI-Ports/blob/develop/docs/images/ShipCalls.png?raw=true)
 
 Information about vessel's voyages in the port is particularly useful for planning logistic operations, but it can also be useful for acompanying or waiting people that will depart or arrive by ferry or cruise.
 
@@ -163,6 +163,8 @@ Here are examples of some procedures and possible APIs that can help operators w
     - [catalog](catalog/catalog-BorderInspections.md)   
 
 - **VGM (Verified Gross Mass)**
+
+  ![VGM](https://github.com/portdebarcelona/OpenInfoAPI-Ports/blob/develop/docs/images/VGM.png?raw=true)
 
   As the International Maritime Organisation (IMO) declare: *"discrepancies between the declared gross mass and the actual gross mass of a packed container could have an adverse impact on the safety of the ship, seafarers and shore-side workers, by leading to incorrect vessel stowage decisions and potentially collapsed container stacks or loss of containers overboard"*.
 
@@ -614,5 +616,7 @@ We can implement two APIs in this category: one for creating and updating contac
 
 
 ![Passenger ship](https://github.githubassets.com/images/icons/emoji/unicode/1f6f3.png?v8)
+
+![Anchor](https://github.githubassets.com/images/icons/emoji/unicode/2693.png?v8)
 
 
