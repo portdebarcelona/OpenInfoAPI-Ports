@@ -189,6 +189,11 @@ Here are examples of some procedures and possible APIs that can help operators w
 
   Possible APIs:
 
+  - **VGM procedures**: Resources where can be find information about the VGM procedures.
+    - Request parameters: none. 
+    - Data included in the response: addresses where information can be found,...
+    - [catalog](catalog/catalog-VgmProcedures.md) 
+
   - **Container tare weight**: The BIC (Bureau International des Containers et du Transport Intermodal) has developed the BoxTech Global Container Database that provides a platform to easily exchange container fleet technical details. BoxTech provides an easy-to-access source of container characteristics like the container number, the size-type code, the tare weight, the maximum gross mass, the maximum payload or the maximum stacking weight.
     - Request parameters: equipment id 
     - Data included in the response: equipment id, tare weight
@@ -272,8 +277,6 @@ Here are examples of some procedures and possible APIs that can help operators w
 
 
   Ports are ranked nationally and internationally, and they are compared in many different ways, i.e. by volume or value of trade, the number of TEUs, tones or cruise passengers, revenues, quays length, or storage capacity.
-
-  Moreover, the size of a port, in terms of traffic flow, says nothing about productivity, efficiency, or responsiveness to customers. These are just some of the criteria that a shipper might consider in evaluating port performance. 
 
   All the ports have statistical information about the activity. Relevant data of a port can be:
   - Value of goods passing through the port (euros)
@@ -395,7 +398,7 @@ Ports concentrate industrial areas next to the water. Many activities such as tr
 
 Possible APIs:
 
-- **Pollution**: Current pollution data of a port. 
+- **Pollution**: Current air and water quality of a port. 
   - Request parameters: parameter requested (all, air, water, carbon dioxide CO2, carbon monoxide CO, volatile organic compounds (VOCs), nitrogen oxides (NOx), sulfur oxides (SOx), particulate matter (PM), include water parameters), date and time...
   - Data included in the response: value of the parameter requested (), date and time,...
   - [catalog](catalog/catalog-Pollution.md)
