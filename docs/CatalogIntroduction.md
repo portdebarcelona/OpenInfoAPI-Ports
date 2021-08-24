@@ -260,23 +260,38 @@ Here are examples of some procedures and possible APIs that can help operators w
 
   Moreover, the size of a port, in terms of traffic flow, says nothing about productivity, efficiency, or responsiveness to customers. These are just some of the criteria that a shipper might consider in evaluating port performance. 
 
-  All the ports have statistical information about the activity. Usually are published annually, monthly, quarterly. Relevant data of a port are:
-  - Value of goods passing through port
-  - Number ship calls (stopovers)
-  - Tones loaded/unloaded by sector
-  - Traffic by geographical areas (total, main destination areas and main areas of origin)
-  - Container traffic (all, full/empty, import/export)
-  - Vehicles loaded/unloaded
-  - Passengers embarked/disembarked
-  - Liquid bulks loaded/unloaded
-  - Solid bulks loaded/unloaded
-  - Economic concepts
+  All the ports have statistical information about the activity. Relevant data of a port can be:
+  - Value of goods passing through the port (euros)
+  - Number of ship calls (stopovers)
+  - Tones loaded/unloaded by sector (energy, vehicles and transport elements, agro-livestock and food, chemicals, iron and steel, building materials, fertilisers, non-metallic minerals, other goods)
+  - Traffic by geographical areas (total, main destination areas and main areas of origin)(tones)
+  - Goods by type of packaging and shipping (container load, conventional charge, liquid bulk or dry bulk)(tones)
+  - Container traffic (all, full/empty, import/export)(TEU)
+  - Vehicles loaded/unloaded (units)
+  - Liquid bulk loaded/unloaded (tones)
+  - Solid bulk loaded/unloaded (tones)
+  - Short sea shipping (intermodal transport units (UTI))
+  - Container rail traffic (TEU)
+  - Container rail share (%)
+  - Vehicle rail traffic (units)
+  - Vehicle rail share (%) 
+  - Passengers embarked/disembarked (units)
+  - Cruise passengers embarked/disembarked (units)
+  - Economic concepts:
+    - Turnover (thousand euro)
+    - Port fees (thousand euro)
+    - Operating income (thousand euro)
+    - Expenditure (thousand euro)
+    - Financial result (thousand euro)
+    - Financial income (thousand euro)
+    - Financial expenses (thousand euro)
+    - Earnings Before Interest, Taxes, Depreciation, and Amortisation (EBITDA) (thousand euro)
+    - Cash flow (thousand euro)
+    - Investment (thousand euro)
+    - Long term debt (thousand euro)
   - etc.
 
-
-        - Basar-se en la memòria anual (veure la versió en anglès) i en les mensuals.
-          Mensuals, trimestrals, semestrals i anuals.
-
+  And it is also important to define how often the data will be obtained and published.
 
 Possible APIs: 
   - **tbd**: aaaa. 
