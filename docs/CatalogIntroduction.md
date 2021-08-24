@@ -113,7 +113,7 @@ Here are examples of some procedures and possible APIs that can help operators w
 
 - **Customs Clearance for imports**
 
- ![Customs](https://github.com/portdebarcelona/OpenInfoAPI-Ports/blob/develop/docs/images/Customs.png?raw=true)
+  ![Customs](https://github.com/portdebarcelona/OpenInfoAPI-Ports/blob/develop/docs/images/Customs.png?raw=true)
 
   All shipments of goods entering the European Union from third countries are subject to Customs controls. All goods may be subject to the presentation of several documents and payments, as the payment of Customs duties based on the content of the shipment, payment of national taxes (VAT) or local taxes where applicable, payment of special taxes on tobacco, alcohol, etc., the cost of processing of Single Administrative Document (SAD) for imports, the costs arising from border safety controls, depending on the nature of the shipment (sanitary, pharmaceutical, veterinary, etc.).
   
@@ -207,7 +207,7 @@ Here are examples of some procedures and possible APIs that can help operators w
   Possible APIs:
   - **Procedures for being certified with the quality level of a port**.
     - Request parameters: name of the port, code of the port.
-    - Data included in the response: tbd
+    - Data included in the response: Resurces where can be found the certification procedure.
     - [catalog](catalog/catalog-ENProcedures.md) 
     
   - **Certified companies**: List of companies that have been certified by the quality seal managers of a port.
@@ -217,18 +217,18 @@ Here are examples of some procedures and possible APIs that can help operators w
 
   - **Activities/categories**: List of possible activities, i.e. freight-forwarder, shipping agent, custom broker,...
     - Request parameters: none 
-    - Data included in the response: activities name, activity description.
+    - Data included in the response: activity name, activity description.
     - [catalog](catalog/catalog-EfficiencyNetwork.md)   
 
 - **Container release or acceptance (Container pick-up or delivery from/to the terminal or depot)**
 
- ![Exits](https://github.com/portdebarcelona/OpenInfoAPI-Ports/blob/develop/docs/images/Exits.png?raw=true)
+  ![Exits](https://github.com/portdebarcelona/OpenInfoAPI-Ports/blob/develop/docs/images/Exits.png?raw=true)
  
-  Container traffic has a big economic impact in ports and the area that they serve.
-   
-  Container operations in ports are docummented using EDI messages. The EDIFACT container messages are designed to provide standard formats for all functional areas related to the handling and movement of shipping containers and equipment.
-  They are divided into two main categories: ship and land operations.
-  In this category are included some APIs related with the information exchanged using the EDI messages for land operations with full and empty containers.
+     Container traffic has a big economic impact in ports and the area that they serve.
+    
+     Container operations in ports are docummented using EDI messages. The EDIFACT container messages are designed to provide standard formats for all functional areas related to the handling and movement of shipping containers and equipment.
+      They are divided into two main categories: ship and land operations.
+      In this category are included some APIs related with the information exchanged using the EDI messages for land operations with full and empty containers.
 
   Possible APIs:
 
@@ -244,7 +244,7 @@ Here are examples of some procedures and possible APIs that can help operators w
 
     
 
-- **Approach instructions** (Work in progress)
+- **Approach instructions** 
  
   ![Approach](https://github.com/portdebarcelona/OpenInfoAPI-Ports/blob/develop/docs/images/approach3.png?raw=true)
 
@@ -252,7 +252,7 @@ Here are examples of some procedures and possible APIs that can help operators w
       
   Possible APIs: 
 
-    - **Approach instructions**: Basic information for the vessels approach to a port
+    - **Approach instructions**: Basic information for the approach of the vessels to a port
       - Request parameters: name of the port, port code (UN/LOCODE).
       - Data included in the response: Entrances, approach channels, precautionary areas, port traffic (inbound vessels-reporting points, outbound or shifting vessels-reporting points and radio watch), emergency, special operations (like launching lifeboats, cleaning, rinsing or painting of the hull, diving operations, main engine immobilisation, hot works and others), pilotage, tugs, linesmen and last changes in this information.
       - [catalog](catalog/catalog-ApproachInstructions.md) 
@@ -306,7 +306,6 @@ Possible APIs:
     - Data included in the response: bbb,...
     - [catalog](catalog/catalog-Statistics.md) 
  
-
 Benchmarking:
 - Eurostat
     - https://ec.europa.eu/eurostat/databrowser/view/MAR_TF_QM__custom_917144/default/table?lang=en
@@ -314,9 +313,6 @@ Benchmarking:
 - United Nations:
     - https://statswiki.unece.org/  (maritime transport is not covered)
     - Review of maritime transport [UNCTAD](https://unctad.org/es/node/29022)
-
-
-
 
 ### Weather
 ![Sun with cloud and rain](https://github.githubassets.com/images/icons/emoji/unicode/1f326.png?v8)  
@@ -348,13 +344,10 @@ Benchmarking:
   - https://rapidapi.com/blog/access-global-weather-data-with-these-weather-apis/)
   - [wheatherapi.com](https://www.weatherapi.com/docs/#apis-realtime)
 
-
 ### Sea State
 ![Ocean](https://github.githubassets.com/images/icons/emoji/unicode/1f30a.png?v8)
 
 Wave prediction can be used for the prevention of loss of life and property at sea, providing timely and accurate marine weather warnings and forecasts.
-
-
 
 Possible APIs: 
 
