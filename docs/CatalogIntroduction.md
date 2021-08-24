@@ -255,9 +255,7 @@ Here are examples of some procedures and possible APIs that can help operators w
     - Data included in the response: container number, full/empty indicator, name of the container terminal or depot, status (pending, authorised, entered,...)...
     - [catalog](catalog/catalog-ContainerAcceptance.md) 
 
-    
-
-- **Approach instructions** 
+    - **Approach instructions** 
  
   ![Approach](https://github.com/portdebarcelona/OpenInfoAPI-Ports/blob/develop/docs/images/approach3.png?raw=true)
 
