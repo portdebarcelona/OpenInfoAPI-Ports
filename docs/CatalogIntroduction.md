@@ -197,7 +197,7 @@ Here are examples of some procedures and possible APIs that can help operators w
     - [catalog](catalog/catalog-VGM.md)  
 
 - **Quality Level Certifications**  
- ![Quality](https://github.com/portdebarcelona/OpenInfoAPI-Ports/blob/develop/docs/images/Quality.png?raw=true)ç
+ ![Quality](https://github.com/portdebarcelona/OpenInfoAPI-Ports/blob/develop/docs/images/Quality.png?raw=true)
 
   Several ports have developed own brands for their quality label schemas.
   There are some ports that every day manage the transportation of thousands of shipments. And the job of each port is to treat each one as it was the only one. To ensure that each shipment receives the treatment it deserves, some ports have created a quality brand that identifies the companies operating at that port that had adopted a commitment to efficiency the end customers with the utmost satisfaction. With this quality level the ports recognise and certify organisations involved and commited to the most rigorous standards of reliability.
@@ -220,7 +220,8 @@ Here are examples of some procedures and possible APIs that can help operators w
     - Data included in the response: activities name, activity description.
     - [catalog](catalog/catalog-EfficiencyNetwork.md)   
 
-- **Container release or acceptance (Container pick-up or delivery from/to the terminal or depot)** 
+- **Container release or acceptance (Container pick-up or delivery from/to the terminal or depot)**
+
  ![Exits](https://github.com/portdebarcelona/OpenInfoAPI-Ports/blob/develop/docs/images/Exits.png?raw=true)
  
   Container traffic has a big economic impact in ports and the area that they serve.
