@@ -126,9 +126,9 @@ Here are examples of some procedures and possible APIs that can help operators w
 
   Possible APIs:
 
-  - **Customs clearance procedure**: Resources where can be find information about the procedures for clearing the goods in import.
+  - **Customs clearance procedure**: Resources where the procedures for clearing the goods in import can be found. 
     - Request parameters: none. 
-    - Data included in the response: addresses where information can be found,...
+    - Data included in the response: Resources where information can be found,...
     - [catalog](catalog/catalog-CustomsClearance.md) 
 
   - **Customs clearance actors**: Contact information of the different actors involved in the customs clearance process.
@@ -154,9 +154,9 @@ Here are examples of some procedures and possible APIs that can help operators w
   It is the recipient's responsibility to know the conditions for importing their shipment (prohibitions, restrictions, limitations, etc.) and to find out what documents may be required on arrival, including the commercial invoice, certificate of origin, licences and special certifications for border controls, etc.
 
   Possible APIs: (ckeck the English version)
-  - **Procedures for border inspection**: Resources where can be find information about the procedures for clearing the goods subject to controls from the border inspection services.
+  - **Procedures for border inspection**: Resources where the procedures for clearing the goods subject to controls from the border inspection services can be found. 
     - Request parameters: none. 
-    - Data included in the response: addresses where information can be found,...
+    - Data included in the response: Resources where information can be found,...
     - [catalog](catalog/catalog-BISClearance.md) 
 
   - **Border inspection services clearance actors**: Contact information of the different actors involved in the border inspection services clearance process.
@@ -189,9 +189,9 @@ Here are examples of some procedures and possible APIs that can help operators w
 
   Possible APIs:
 
-  - **VGM procedures**: Resources where can be find information about the VGM procedures.
+  - **VGM procedures**: Resources where the VGM procedures can be found.
     - Request parameters: none. 
-    - Data included in the response: addresses where information can be found,...
+    - Data included in the response: Resources where the VGM procedures can be found,...
     - [catalog](catalog/catalog-VgmProcedures.md) 
 
   - **Container tare weight**: The BIC (Bureau International des Containers et du Transport Intermodal) has developed the BoxTech Global Container Database that provides a platform to easily exchange container fleet technical details. BoxTech provides an easy-to-access source of container characteristics like the container number, the size-type code, the tare weight, the maximum gross mass, the maximum payload or the maximum stacking weight.
@@ -215,7 +215,7 @@ Here are examples of some procedures and possible APIs that can help operators w
   Possible APIs:
   - **Procedures for being certified with the quality level of a port**.
     - Request parameters: name of the port, UN/LOCODE of the port.
-    - Data included in the response: Resources where can be found the certification procedure.
+    - Data included in the response: Resources where the certification procedure can be found.
     - [catalog](catalog/catalog-ENProcedures.md) 
     
   - **Certified companies**: List of companies that have been certified by the quality seal managers of a port.
@@ -242,7 +242,7 @@ Here are examples of some procedures and possible APIs that can help operators w
 
   - **Procedures for pick-up or delivery containers from/to the terminal or depot**.
     - Request parameters: name of the port, UN/LOCODE of the port.
-    - Data included in the response: Resources where can be found the procedures.
+    - Data included in the response: Resources where the procedures can be found.
     - [catalog](catalog/catalog-ESMTProcedures.md) 
 
   - **Container release information (container pick-up from the terminal or depot)**
