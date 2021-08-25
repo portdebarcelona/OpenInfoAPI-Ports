@@ -581,12 +581,22 @@ Social Services for Seamen
   weekend or bank holyday -.
 
 
-### Port Calendar (PENDING)
+### Port Calendar
 ![Calendar](https://github.githubassets.com/images/icons/emoji/unicode/1f4c6.png?v8)
 
 The companies and administrations that operate in a port are not always operational. The hours of service and attention to the public of these companies may vary and may even be subject to specific festivities. And this knowledge can be of great help when a particular operation must be carried out through our Port.
 
-Information about workdays, local holidays, ... 
+Information about working days, weekend days, and list of public holidays from the requested date period and port.
+
+Possible APIs:
+
+- **Port calendar**: Query about the companies that will work on a specific period of time.
+  - Request parameters: port name, port UN/LOCODE, name of the company, activity, selected period of time.
+  - Data included in the response: json with the name of the company, day of the selected period, opening hours on that day.
+  - [catalog](catalog/catalog-Calendar.md)
+
+Benchmarking:
+- https://rapidapi.com/SergeG/api/working-days/
 
 
 ### Port Directory (PENDING)
