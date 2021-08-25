@@ -430,7 +430,7 @@ Possible APIs:
 Benchmarking:
 - W
 
-### Rail transport (Work in progress)
+### Rail transport
 
 ![Rail tracks](https://github.githubassets.com/images/icons/emoji/unicode/1f6e4.png?v8)
 
@@ -455,24 +455,24 @@ Possible APIs:
   - Data included in the response: destination, rail undertaking, type of cargo, frequency, capacity,..
   - [catalog](catalog/catalog-InlandTerminals.md)
 
-- **Railway undertaking**: The rail undertaking is the entity responsible for running the trains and must have a valid license that shows that is authorized to run the train. 
+- **Rail undertaking**: The rail undertaking is the entity responsible for running the trains and must have a valid license that shows that is authorized to run the train. 
   - Request parameters: port name, port UN/LOCODE).
-  - Data included in the response: tbd,...
+  - Data included in the response: rail undertaking, contact information,...
   - [catalog](catalog/catalog-Undertaking.md)
 
 - **Logistic service provider**: A Logistic Service Provider (LSP) is a provider of logistic services who provides the goods for transport (not necessarily the owner of the goods). The LSP can be a freight forwarder, a shipping agent or a company dedicated exclussivelly to the rail transport of goods.
   - Request parameters: port name, port UN/LOCODE).
-  - Data included in the response: tbd,...
+  - Data included in the response: logistic service provider, contact information,...
   - [catalog](catalog/catalog-LSP.md)
 
 - **Train Arrivals**: Train arrivals for today.
   - Request parameters: port name, port UN/LOCODE).
-  - Data included in the response: tbd,...
+  - Data included in the response: Estimated time of arrival (ETA), origin, logistic service provider, rail undertaking, type of cargo,...
   - [catalog](catalog/catalog-TrainArrivals.md)
 
 - **Train Departures**: Train departures for today.
   - Request parameters: port name, port UN/LOCODE).
-  - Data included in the response: tbd,...
+  - Data included in the response: Estimated time of departure (ETD), destination, logistic service provider, rail undertaking, type of cargo,...
   - [catalog](catalog/catalog-TrainDepartures.md)
 
 Benchmarking:
