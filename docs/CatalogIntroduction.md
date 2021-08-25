@@ -662,7 +662,7 @@ We can implement two APIs in this category: one for creating and updating contac
 
 
 
-**Some last  notes:... Info Open APIs should**:
+## Some last  notes:... Info Open APIs should
 - Publish kind of services that offer (catalog of services)
 - Allow filter companies depending on services that offer
 - Alow get information contact of a company (Name, email, phone, address, icon, etc)
