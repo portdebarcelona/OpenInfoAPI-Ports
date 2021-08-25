@@ -488,12 +488,31 @@ Benchmarking:
 ### News (PENDING)
 ![Newspaper](https://github.githubassets.com/images/icons/emoji/unicode/1f4f0.png?v8)
 
-[see 'NewsArticle' at schema.org](https://schema.org/NewsArticle)
+Possible APIs:
 
-### Notices (PENDING)
+- **Latest news**: Latest news related to certain port.
+  - Request parameters: port name, port UN/LOCODE.
+  - Data included in the response: tbd.
+  - [catalog](catalog/catalog-News.md)
+  
+Benchmarking:
+
+- [see 'NewsArticle' at schema.org](https://schema.org/NewsArticle)
+
+### Notices (work in progress)
 Often, Port Authorities have to publish some notices (meteorological alerts, port procedures, etc ). Normally these notices are sent by mail and sms, and published in the web. But also is necessary to publish in web services.
 
 Some notices are intended for the port community, and others are intended for the general public. Also, each notice is of interest to some subgroups of the port community, such as ship agents, shipping companies, transport companies, stevedore,  concessionaire, etc.
+
+Possible APIs:
+
+- **Current notices**: List of alerts and notices that are active for a certain port.
+  - Request parameters: port name, port UN/LOCODE.
+  - Data included in the response: tbd.
+  - [catalog](catalog/catalog-Notices.md)
+
+Benchmarking:
+- [SIMAP: Information about European public procurement (swagger)](https://esentool.ted.europa.eu/api/production/swagger-ui.html)
 
 ### Port rates and fees Info (PENDING) (pensar si ho posem a procedures)
 
