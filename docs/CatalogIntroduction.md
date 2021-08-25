@@ -414,21 +414,6 @@ Benchmarking:
   - Air Quality Data 
   - [wheather api](https://www.weatherapi.com/docs/#intro-aqi)
 
-### Vehicle Traffic Monitoring (PENDING)
-
-![Vehicle](https://github.com/portdebarcelona/OpenInfoAPI-Ports/blob/develop/docs/images/Vehicle.png?raw=true)
-
-Entradas y salidas de vehículos del recinto portuario
-
-Possible APIs:
-
-- **Vehicle traffic monitoring**: C
-  - Request parameters: aaa.
-  - Data included in the response: aaa.
-  - [catalog](catalog/catalog-Vehicle.md)
-
-Benchmarking:
-- W
 
 ### Rail transport
 
@@ -479,8 +464,25 @@ Benchmarking:
 
 - https://ontology.tno.nl/smart-rail/ 
 
+### Vehicle Traffic Monitoring (PENDING)
+
+![Vehicle](https://github.com/portdebarcelona/OpenInfoAPI-Ports/blob/develop/docs/images/Vehicle.png?raw=true)
+
+Entradas y salidas de vehículos del recinto portuario
+
+Possible APIs:
+
+- **Vehicle traffic monitoring**: C
+  - Request parameters: aaa.
+  - Data included in the response: aaa.
+  - [catalog](catalog/catalog-Vehicle.md)
+
+Benchmarking:
+- W
 
 ### Terminals (PENDING)
+![Bulk](https://github.com/portdebarcelona/OpenInfoAPI-Ports/blob/develop/docs/images/Bulk.png?raw=true)
+
 - Access/Wait time
 - Goods/Containers entrance/exit of Terminals
 - Vessel Loading/Unloading
