@@ -432,7 +432,7 @@ Benchmarking:
 
 ### Rail transport
 
-![Rail tracks](https://github.githubassets.com/images/icons/emoji/unicode/1f6e4.png?v8)
+![Rail](https://github.com/portdebarcelona/OpenInfoAPI-Ports/blob/develop/docs/images/Rail.png?raw=true)
 
 Rail transport is reliable and extremely suitable for heavy cargoes, including cars, chemical tanks and containers. One train takes an average of 45 trucks off the road. Rail transport for goods makes the logistical chain at the port much more sustainable and efficient. 
 
