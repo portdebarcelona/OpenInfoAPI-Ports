@@ -312,12 +312,12 @@ Here are examples of some procedures and possible APIs that can help operators w
 Possible APIs: 
   - **Traffic statistics**: Statistics of traffic from a port.
     - Request parameters: port name, port UN/LOCODE, period of time, dimension, level of aggregation.   
-    - Data included in the response: data requested.
+    - Data included in the response: data requested as json.
     - [catalog](catalog/catalog-Statistics.md) 
 
   - **Economic data**: Economic data of a port. 
     - Request parameters: port name, port UN/LOCODE, period of time, dimension, level of aggregation.    
-    - Data included in the response: data requested.
+    - Data included in the response: data requested as json.
     - [catalog](catalog/catalog-EconomicData.md) 
  
 Benchmarking:
@@ -350,7 +350,7 @@ Several activities at ports, such as berthing, dredging or construction typicall
 
 - **Weather Forecast**: 5 days weather forecast for a port
     - Request parameters: name of the port, port code (UN/LOCODE) 
-    - Data included in the response: name of the port, port code (UN/LOCODE), minimum temperature, maximum temperature, rainfall probability,...
+    - Data included in the response: It returns upto next 5 day weather forecast as json. It contains name of the port, port code (UN/LOCODE), minimum temperature, maximum temperature, rainfall probability,...
     - [catalog](catalog/catalog-WeatherForecast.md) 
 
 - **Weather Alerts**: Weather alerts for a port.
@@ -358,10 +358,17 @@ Several activities at ports, such as berthing, dredging or construction typicall
     - Data included in the response: name of the port, port code (UN/LOCODE), active weather alert (true/false), type of weather alert (rainfall, low temperatures, high temperatures, lightning, snow, high winds,...)
     - [catalog](catalog/catalog-WeatherAlerts.md) 
 
+- **Astronomy**: Up to date information for sunrise, sunset, moonrise, moonset, moon phase and illumination.
+    - Request parameters: name of the port, port code (UN/LOCODE)  
+    - Data included in the response: name of the port, port code (UN/LOCODE), sunrise, sunset, moonrise, moonset, moon phase and illumination.
+    - [catalog](catalog/catalog-Astronomy.md) 
+
 Benchmarking:
 - Free Weather APIS to access global weather data:
   - https://rapidapi.com/blog/access-global-weather-data-with-these-weather-apis/)
-  - [wheatherapi.com](https://www.weatherapi.com/docs/#apis-realtime)
+  - Wheatherapi:
+      - https://www.weatherapi.com/docs/#apis-realtime
+      - https://rapidapi.com/weatherapi/api/weatherapi-com/
 
 ### Sea State
 ![Ocean](https://github.githubassets.com/images/icons/emoji/unicode/1f30a.png?v8)
