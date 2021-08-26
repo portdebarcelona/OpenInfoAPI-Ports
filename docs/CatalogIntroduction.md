@@ -1,10 +1,6 @@
 # Introduction to the catalog of APIs
 This catalog enumerates a list of APIs with information about ports that can be useful for the logistic activities and also for the citiens that want to know more about what is happening in a port.
 
-Pensar com indicar el port per al que volem rebre les dades. 
-- Propostes: URL del ws/LOCODE. Si no hi ha LOCODE, el servei proporcionarà la informació del propi port. Per exemple, http://infoAPI.portic.net/liners/ESBCN o http://infoAPI.portdebarcelona.cat/liners/, admetent també http://infoAPI.portdebarcelona.cat/liners/ESBCN
-- El primer arg de qualsevol ws hauria de ser el LOCODE 
-
 ## Categories
 
 Use of **Categories**. Many concepts are common in all ports (e.g., port services). It is advisable to use a category field that would allow better filtering and precise referencing.
@@ -78,7 +74,7 @@ Possible APIs:
 
   ![Porta Europa](https://github.com/portdebarcelona/OpenInfoAPI-Ports/blob/develop/docs/images/PortaEU.png?raw=true)
 
-Geographical/spatial information about the port, land accesses, maritime and rail terminals, and marine aids to navigation.
+Geographical/spatial information about the port, land accesses, berths, depth, maritime and rail terminals, and marine aids to navigation.
 
 Possible APIs:
 - **Port infrastructure**: Basic data of the infrastructure of a port.
@@ -487,11 +483,11 @@ Benchmarking:
 
 ![Vehicle](https://github.com/portdebarcelona/OpenInfoAPI-Ports/blob/develop/docs/images/Vehicle.png?raw=true)
 
-Entradas y salidas de vehículos del recinto portuario
+Number of vehicles entering or leaving through a certain port gate in a certain period of time. And segregation of this data by vehicle type. 
 
 Possible APIs:
 
-- **Vehicle traffic monitoring**: C
+- **Vehicle traffic monitoring**: Vehicles entering or leaving through a certain port gate in one hour.
   - Request parameters: aaa.
   - Data included in the response: aaa.
   - [catalog](catalog/catalog-Vehicle.md)

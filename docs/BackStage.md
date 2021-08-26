@@ -40,6 +40,12 @@ https://github.com/OAI/OpenAPI-Specification/blob/master/IMPLEMENTATIONS.md
     - https://nordicapis.com/oas-vs-raml-whats-the-difference/
 
 
+## Sobre la particularització de les APIs per a un port determinat
+
+Pensar com indicar el port per al que volem rebre les dades. 
+- Propostes: URL del ws/LOCODE. Si no hi ha LOCODE, el servei proporcionarà la informació del propi port. Per exemple, http://infoAPI.portic.net/liners/ESBCN o http://infoAPI.portdebarcelona.cat/liners/, admetent també http://infoAPI.portdebarcelona.cat/liners/ESBCN
+- El primer arg de qualsevol ws hauria de ser el LOCODE 
+
 ## Sobre APIs concretes
 
 ### Weather
