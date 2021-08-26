@@ -1,6 +1,10 @@
 # Introduction to the catalog of APIs
 This catalog enumerates a list of APIs with information about ports that can be useful for the logistic activities and also for the citiens that want to know more about what is happening in a port.
 
+Pensar com indicar el port per al que volem rebre les dades. 
+- Propostes: URL del ws/LOCODE. Si no hi ha LOCODE, el servei proporcionarà la informació del propi port. Per exemple, http://infoAPI.portic.net/liners/ESBCN o http://infoAPI.portdebarcelona.cat/liners/, admetent també http://infoAPI.portdebarcelona.cat/liners/ESBCN
+- El primer arg de qualsevol ws hauria de ser el LOCODE 
+
 ## Categories
 
 Use of **Categories**. Many concepts are common in all ports (e.g., port services). It is advisable to use a category field that would allow better filtering and precise referencing.
@@ -56,12 +60,12 @@ The connectivity of a port depends on the list of ports that are serviced period
 
 Possible APIs:
 - **Liner services**: Detailed information about some or all the liner services.
-  - Some of the possible request parameters: liner service name, shipowner, port of destination, type of cargo,... 
-  - Data included in the response: liner service name, shipowner, type of cargo, periodicity, list of linked ports, capacity (TEU weekly),...
+  - Some of the possible request parameters: name of port, port UN/LOCODE, liner service name, shipowners/carriers, type of cargo (container, ro-ro),... 
+  - Data included in the response:liner service name, shipowners/carriers, type of cargo (container, ro-ro), periodicity, list of linked ports, capacity (TEU weekly),...
   - [catalog](catalog/catalog-LinerServices.md)
 
 - **Linked ports**: Ports with which the port of reference has liner services (direct connections).
-  - Some of the possible request parameters: none.
+  - Some of the possible request parameters: none, filter by geographical area,...
   - Data included in the response: port name, port code, list of liners,...  
   - [catalog](catalog/catalog-LinkedPorts.md)
 
@@ -85,7 +89,11 @@ Possible APIs:
   - Request parameters: none. 
   - Data included in the response: gate name, latitude/longitud, allowed vehicles, maximun width, maximum height, opening hours,...
   - [catalog](catalog/catalog-PortGates.md)
-- **Maritime terminals**: Information about the maritime terminals of a port.
+- **Berths**: Information about the berths of a port. 
+  - Request parameters: none. 
+  - Data included in the response: berth name, berth code, lenght, depth,...
+  - [catalog](catalog/catalog-Berths.md) 
+-**Maritime terminals**: Information about the maritime terminals of a port.
   - Request parameters: none. 
   - Data included in the response: terminal name, type of terminal (ferry, cruise, container, multipurpose, vehicle, Bulk cargo,...), address, gate latitude/longitud, allowed vehicles, maximun width, maximum height, opening hours,...
   - [catalog](catalog/catalog-PortTerminals.md)
@@ -255,7 +263,7 @@ Here are examples of some procedures and possible APIs that can help operators w
     - Data included in the response: container number, full/empty indicator, name of the container terminal or depot, status (pending, authorised, entered,...)...
     - [catalog](catalog/catalog-ContainerAcceptance.md) 
 
-    - **Approach instructions** 
+- **Approach instructions** 
  
   ![Approach](https://github.com/portdebarcelona/OpenInfoAPI-Ports/blob/develop/docs/images/approach3.png?raw=true)
 
@@ -530,7 +538,7 @@ Possible APIs:
 Benchmarking:
 - [SIMAP: Information about European public procurement (swagger)](https://esentool.ted.europa.eu/api/production/swagger-ui.html)
 
-### Port rates and fees Info (PENDING) (pensar si ho posem a procedures)
+### Port rates and fees Info (PENDING) (pensar si ho posem a procedures i veure si lliurem la informació en forma de taula. Veure procedures)
 
 ![Bookmark tabs](https://github.githubassets.com/images/icons/emoji/unicode/1f4d1.png?v8)
 
