@@ -1,6 +1,11 @@
 # Work Tracking log
 Contains tracking of activities in this project.
 
+## August 26, 2021
+- Catalog introduction update
+- Web service description improvement/expansion 
+## August 19, 2021
+- Catalog introduction update
 ## August 3, 2021
 - Added port calendar, port services and port fees
 - Benchmark update
