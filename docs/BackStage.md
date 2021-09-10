@@ -22,6 +22,7 @@ https://github.com/OAI/OpenAPI-Specification/blob/master/IMPLEMENTATIONS.md
  
   - Exemples:
     - https://github.com/microsoft/api-guidelines
+    - https://google.github.io/styleguide/jsoncstyleguide.xml
     - https://cloud.google.com/apis/design i http://apistylebook.com/design/guidelines/google-api-design-guide#api-design
     - https://stripe.com/docs/api
 
@@ -65,11 +66,10 @@ Pensar com indicar el port per al que volem rebre les dades.
 
 https://www.youtube.com/watch?v=NzgFdEGI8sI
 
+```XML
+<k>hola</k>
 
-
-
-
-
+``` 
 
 
  

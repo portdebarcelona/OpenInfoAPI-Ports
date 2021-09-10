@@ -1,6 +1,14 @@
 # Work Tracking log
 Contains tracking of activities in this project.
 
+## September 10, 2021
+- J. Bagot has recorded an interview for Puertos del Estado
+- Discussion about which API sytle guideline must be used for this project. For example:
+  - http://jsonapi.org. (has implementations in several programming languages, many contributors (290), open source, updated frequently
+  - Google JSON style guide ( less implementations, google powered, last update: 2018, 3 contributors, few implementations)
+  - Microsoft
+  - DCSA API design principles 1.0 (september 2020, oriented to requests )
+- Discussion about Tradelens.com and Portic interfaces.
 ## August 26, 2021
 - Catalog introduction update
 - Web service description improvement/expansion 
