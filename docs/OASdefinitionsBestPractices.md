@@ -25,3 +25,5 @@ We have undertaked a comparison between Api style guides. We have looked for a A
 ## API for responses
 
 - Formats de JSON per respondre (veure jsonapi.org,la de Google )
+- jsonapi.org https://www.youtube.com/watch?v=RSv-Yv3cgPg
+- 
