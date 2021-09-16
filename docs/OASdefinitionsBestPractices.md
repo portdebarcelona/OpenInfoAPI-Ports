@@ -17,6 +17,17 @@ Here some places where give ideas about best practices defining APIS:
 - https://cloud.google.com/apis/design
 ## Best practices applied in this project
 
+<<<<<<< HEAD
 These are the guidelines applied in this project:
+=======
+We have undertaked a comparison between Api style guides. We have looked for a API no specific for a sector, whetherThese are guidelines applied in this project.
+>>>>>>> 89a88237b0e9a5d600de3be1ec7e3d8778cd1039
 
+## API for requests
 
+- Veure DSCA API design principles 1.0 (on concreta molt bé com s'han de fer els requests)
+## API for responses
+
+- Formats de JSON per respondre (veure jsonapi.org,la de Google )
+- jsonapi.org https://www.youtube.com/watch?v=RSv-Yv3cgPg
+- 
