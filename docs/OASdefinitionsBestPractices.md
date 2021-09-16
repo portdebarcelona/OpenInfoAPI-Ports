@@ -16,12 +16,9 @@ Here some places where give ideas about best practices defining APIS:
 - http://apistylebook.com/design/guidelines/google-api-design-guide#api-design
 - https://cloud.google.com/apis/design
 ## Best practices applied in this project
-
-<<<<<<< HEAD
 These are the guidelines applied in this project:
-=======
-We have undertaked a comparison between Api style guides. We have looked for a API no specific for a sector, whetherThese are guidelines applied in this project.
->>>>>>> 89a88237b0e9a5d600de3be1ec7e3d8778cd1039
+
+We have undertaked a comparison between API style guides. We have looked for a API no specific for a sector, whetherThese are guidelines applied in this project.
 
 ## API for requests
 
