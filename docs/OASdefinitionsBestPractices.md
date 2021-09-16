@@ -18,13 +18,12 @@ Here some places where give ideas about best practices defining APIS:
 ## Best practices applied in this project
 These are the guidelines applied in this project:
 
-We have undertaked a comparison between API style guides. We have looked for a API no specific for a sector, whetherThese are guidelines applied in this project.
+We have undertaked a comparison between several API style guides. We have looked for some generic APIs, not specific for a sector, and then we have choosen these guidelines that will be applied in this project.
 
-## API for requests
+### API for requests
 
-- Veure DSCA API design principles 1.0 (on concreta molt bé com s'han de fer els requests)
-## API for responses
+- Look at DSCA API design principles 1.0 (it is a guidelines where requests are specified - on concreta molt bé com s'han de fer els requests)
+### API for responses
 
-- Formats de JSON per respondre (veure jsonapi.org,la de Google )
+- JSON formats for answers (look at jsonapi.org, or the Google guidelines)
 - jsonapi.org https://www.youtube.com/watch?v=RSv-Yv3cgPg
-- 
