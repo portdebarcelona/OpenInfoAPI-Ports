@@ -1,6 +1,11 @@
 # Work Tracking log
 Contains tracking of activities in this project.
 
+## September 17, 2021
+- The benchmarking information has been moved from CatalogIntroduction.md to Benchmarking.md 
+- Some new links have been included in file OASdefinitionsBestPractices.md
+- Discussion about requirements of JSON API
+- The agreement on the guideline for naming conventions,... that we will use --> Next meeting 
 ## September 10, 2021
 - J. Bagot has recorded an interview for Puertos del Estado
 - Discussion about which API sytle guideline must be used for this project. For example:
