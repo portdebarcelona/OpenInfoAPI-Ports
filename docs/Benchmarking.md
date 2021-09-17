@@ -135,3 +135,62 @@ https://notn.ipcsa.international/
 - Container Event History
 - Truck Appointments
 - Empty Container Returns
+
+
+## Statistics Benchmarking:
+- Eurostat
+    - https://ec.europa.eu/eurostat/databrowser/view/MAR_TF_QM__custom_917144/default/table?lang=en
+    - https://ec.europa.eu/eurostat/web/transport/data/database
+- United Nations:
+    - https://statswiki.unece.org/  (maritime transport is not covered)
+    - Review of maritime transport [UNCTAD](https://unctad.org/es/node/29022)
+    - [undata API](https://data.un.org/Host.aspx?Content=API)
+- World Bank
+    - https://datacatalog.worldbank.org/dataset/global-international-ports
+
+- [Datos.gob.es](https://datos.gob.es/en/apidata)
+
+
+## Weather Benchmarking:
+- Free Weather APIS to access global weather data:
+  - https://rapidapi.com/blog/access-global-weather-data-with-these-weather-apis/)
+  - Wheatherapi:
+      - https://www.weatherapi.com/docs/#apis-realtime
+      - https://rapidapi.com/weatherapi/api/weatherapi-com/
+
+
+## Sea state Benchmarking:
+- Europe has developed a website that aggregates several portals, one with this kind of information [EMODnet](https://emodnet.ec.europa.eu/en/physics) where are offered several APIs, like one with all the sources of this kind of information:
+  - www.emodnet-physics.eu/map/Service/WSEmodnet2.aspx
+  - www.emodnet-physics.eu/map/service/WSEmodnet2.asmx
+
+- Puertos del Estado offers a service called SAPO (that in Spanish corresponds to the initials of Autonomous Wave Prediction System) to the Port Authorities that request it. This service offers a local wave prediction with a horizon of 48 hours considering the transformations induced by the coastline and the continental shelf. The forecast covers a region of about 600 km2 in the area outside the port with a wave generation and scheduling model and the interior area of the port with an agitation model. 
+  - http://www.puertos.es/es-es/oceanografia/Paginas/portus.aspx
+
+- [NOOA WAVEWATCH-III.v6.07.1 on GitHub](https://github.com/NOAA-EMC/WW3/releases/tag/6.07.1)
+
+- Currents: https://map.emodnet-physics.eu/
+
+## Pollution Benchmarking
+
+- WeatherAPI.com provides access to weather and geo data via a JSON/XML restful API. Among others, they provide following data through their API:
+  - Real-time weather
+  - Weather Alerts 
+  - Air Quality Data 
+  - [wheather api](https://www.weatherapi.com/docs/#intro-aqi)
+
+## Rail Transport Benchmarking
+
+- https://ontology.tno.nl/smart-rail/ 
+
+## News Benchmarking
+
+Benchmarking:
+
+- [see 'NewsArticle' at schema.org](https://schema.org/NewsArticle)
+
+## Notices Benchmarking:
+- [SIMAP: Information about European public procurement (swagger)](https://esentool.ted.europa.eu/api/production/swagger-ui.html)
+
+## Port Calendar Benchmarking:
+- https://rapidapi.com/SergeG/api/working-days/
