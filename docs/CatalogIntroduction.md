@@ -458,16 +458,25 @@ Possible APIs:
   - [catalog](catalog/catalog-Vehicle.md)
 
 
-### Terminals (PENDING)
+### Terminals
 ![Bulk](https://github.com/portdebarcelona/OpenInfoAPI-Ports/blob/develop/docs/images/Bulk2.png?raw=true)
 
 Thic category will include some operational data related to the performance of the terminals, like their actual access time or some other figures like their dayly or hourly gate movements, at the land side, or information about their movements per hour at the sea side of the terminal. 
 
 Possible APIs:
 
-- Access/Wait time
-- Goods/Containers entrance/exit of Terminals
-- Vessel Loading/Unloading
+- **Access/Wait time**: Estimated period of time that trucks have to queue before they can enter into a terminal.
+  - Request parameters: port name, port UN/LOCODE, terminal.
+  - Data included in the response: number of minutes.
+  - [catalog](catalog/catalog-AccessTime.md)
+- **Goods/Containers entrance/exit of Terminals**: Number of units (containers, freight cars,...) that enter or leave a terminal per hour during the present day.
+  - Request parameters: port name, port UN/LOCODE, terminal, direction of the flow of the units.
+  - Data included in the response: number of units, direction of the flow, hour.
+  - [catalog](catalog/catalog-AccessTime.md)
+- **Vessel Loading/Unloading**: Number of containers loaded or unloaded from a vessel per hour during the present day.
+  - Request parameters: port name, port UN/LOCODE, terminal, direction of the flow of the equipments (loading or unloading).
+  - Data included in the response: number of units, direction of the flow, hour.
+  - [catalog](catalog/catalog-LadingUnloading.md)
 
 ### News (PENDING)
 ![Newspaper](https://github.githubassets.com/images/icons/emoji/unicode/1f4f0.png?v8)
