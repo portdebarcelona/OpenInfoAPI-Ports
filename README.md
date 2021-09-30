@@ -45,6 +45,7 @@ In this six month phase, deliverables will be:
 - Creation of **Swagger repository** or similar
 - Definition of the **types of information**. **Work in progress**: [see](docs/CatalogIntroduction.md)
 - **Attributes** of each type of information. **Work in progress**: [see](docs/catalog/README.md)
+- Selection of a **style guide** for API/JSON **Work in progress**: [see](docs/catalog/Pendent.md)
 - Definition in **OpenAPI 3.0**. **Work in progress**
 - **Description and examples** in GitHub. **ToDo**
 
