@@ -418,48 +418,52 @@ Possible APIs:
   - [catalog](catalog/catalog-RailConnections.md)
 
 - **Linked railway terminals**: Rail destinations served by one port. 
-  - Request parameters: port name, port UN/LOCODE).
+  - Request parameters: port name, port UN/LOCODE.
   - Data included in the response: destination, rail undertaking, type of cargo, frequency, capacity,..
   - [catalog](catalog/catalog-InlandTerminals.md)
 
 - **Rail undertaking**: The rail undertaking is the entity responsible for running the trains and must have a valid license that shows that is authorized to run the train. 
-  - Request parameters: port name, port UN/LOCODE).
+  - Request parameters: port name, port UN/LOCODE.
   - Data included in the response: rail undertaking, contact information,...
   - [catalog](catalog/catalog-Undertaking.md)
 
 - **Logistic service provider**: A Logistic Service Provider (LSP) is a provider of logistic services who provides the goods for transport (not necessarily the owner of the goods). The LSP can be a freight forwarder, a shipping agent or a company dedicated exclussivelly to the rail transport of goods.
-  - Request parameters: port name, port UN/LOCODE).
+  - Request parameters: port name, port UN/LOCODE.
   - Data included in the response: logistic service provider, contact information,...
   - [catalog](catalog/catalog-LSP.md)
 
 - **Train Arrivals**: Train arrivals for today.
-  - Request parameters: port name, port UN/LOCODE).
+  - Request parameters: port name, port UN/LOCODE.
   - Data included in the response: Estimated time of arrival (ETA), origin, logistic service provider, rail undertaking, type of cargo,...
   - [catalog](catalog/catalog-TrainArrivals.md)
 
 - **Train Departures**: Train departures for today.
-  - Request parameters: port name, port UN/LOCODE).
+  - Request parameters: port name, port UN/LOCODE.
   - Data included in the response: Estimated time of departure (ETD), destination, logistic service provider, rail undertaking, type of cargo,...
   - [catalog](catalog/catalog-TrainDepartures.md)
 
 
 
-### Vehicle Traffic Monitoring (PENDING)
+### Vehicle Traffic Monitoring
 
 ![Vehicle](https://github.com/portdebarcelona/OpenInfoAPI-Ports/blob/develop/docs/images/Vehicle.png?raw=true)
 
-Number of vehicles entering or leaving through a certain port gate in a certain period of time. And segregation of this data by vehicle type. 
+Number of vehicles entering or leaving through a certain port gate in a certain period of time. And segregation of this data by type of vehicles. 
 
 Possible APIs:
 
 - **Vehicle traffic monitoring**: Vehicles entering or leaving through a certain port gate in one hour.
-  - Request parameters: aaa.
-  - Data included in the response: aaa.
+  - Request parameters: port name, port UN/LOCODE, type of vehicles (optional), port gate (optional), direction of vehicle flow (optional).
+  - Data included in the response: number of vehicles, type of vehicles (optional), port gate (optional), direction of vehicle flow (optional)
   - [catalog](catalog/catalog-Vehicle.md)
 
 
 ### Terminals (PENDING)
 ![Bulk](https://github.com/portdebarcelona/OpenInfoAPI-Ports/blob/develop/docs/images/Bulk2.png?raw=true)
+
+Thic category will include some operational data related to the performance of the terminals, like their actual access time or some other figures like their dayly or hourly gate movements, at the land side, or information about their movements per hour at the sea side of the terminal. 
+
+Possible APIs:
 
 - Access/Wait time
 - Goods/Containers entrance/exit of Terminals
