@@ -478,19 +478,25 @@ Possible APIs:
   - Data included in the response: number of units, direction of the flow, hour.
   - [catalog](catalog/catalog-LadingUnloading.md)
 
-### News (PENDING)
+### News 
 ![Newspaper](https://github.githubassets.com/images/icons/emoji/unicode/1f4f0.png?v8)
+
+Request of the latest news published by a certain port. It will be also possible to subscribe to a service for recieving the news after indicating an email. 
 
 Possible APIs:
 
-- **Latest news**: Latest news related to certain port.
+- **Latest news**: Request of the latest news related to certain port.
   - Request parameters: port name, port UN/LOCODE.
-  - Data included in the response: tbd.
+  - Data included in the response: Text of the news.
   - [catalog](catalog/catalog-News.md)
+- **Latest news subscription**: Subscription to receive the latest news related to certain port.
+  - Request parameters: port name, port UN/LOCODE, email.
+  - Data included in the response: Subscription confirmation .
+  - [catalog](catalog/catalog-NewsSubscription.md)
   
 
 
-### Notices (work in progress)
+### Notices
 
 ![Notices](https://github.com/portdebarcelona/OpenInfoAPI-Ports/blob/develop/docs/images/Notices.png?raw=true)
 
@@ -504,10 +510,14 @@ Possible APIs:
   - Request parameters: port name, port UN/LOCODE.
   - Data included in the response: tbd.
   - [catalog](catalog/catalog-Notices.md)
+- **Port notices subscription**: Subscription to receive the notices published by a certain port.
+  - Request parameters: port name, port UN/LOCODE, email.
+  - Data included in the response: Subscription confirmation .
+  - [catalog](catalog/catalog-NoticesSubscription.md)
 
 
-
-### Port rates and fees Info (PENDING) (pensar si ho posem a procedures i veure si lliurem la informació en forma de taula. Veure procedures)
+### Port rates and fees Info (PENDING) 
+(there is the possibility to include this category in the procedures category and we also have to think if the information has to be delivered as a table)
 
 ![Bookmark tabs](https://github.githubassets.com/images/icons/emoji/unicode/1f4d1.png?v8)
 
@@ -523,7 +533,8 @@ Summary of rates applicable by the Port Authority:
 - Special Use of the Transit Zone Rate (T6)
 - Vessel-Generated Waste Collection Service Fee
 
-### Port Services Info (PENDING) (indicar les empreses)
+### Port Services Info (PENDING) 
+(include the companies)
 
 Information about services that are offered by a port. Eg: bunkering, marpol, mooring, pilots, tugs,... (TO DO buscar a la web de l'APB)
 
