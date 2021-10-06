@@ -13,23 +13,25 @@
 - [Ports 4.0 decision](docs/annexes/IDEAS-RESOLUCION-PROVISIONAL-CONCESION-DE-AYUDAS_signed.pdf)
 - [More detailed presentation](docs/Presentation.md)
 ## Introduction to idea Open Info API for Ports
-All the large commercial ports manage a logistics area where goods can change their mode of transport. Specifically from the seaside (vessels) to the land side (trucks or trains) and vice versa. This activity is specified in:
-- Vessels that arrive at port, load and unload their cargo (usually in containers/trailers or as a bulk cargo),
+All the large commercial ports manage a logistics area where goods change their mode of transport. Specifically from the seaside (vessels) to the land side (trucks or trains) or vice versa. This activity is specified as:
+- Vessels that arrive at port, load and unload their cargo (usually in containers/UTIs or as a bulk cargo),
 - Port companies that facilitate the access and berthing of the vessel,
-- Stevedores who operate the cranes and move the cargo or containers to the terminal yard,
+- Stevedores who operate the cranes that unload the cargo or equipments from the vessel to the terminal yard or vice versa,
 - Trucks that bring or take the goods from the port,
-- Trains that are loaded and unloaded and that will carry the goods to a destination in the hinterland.
+- Trains that are loaded and unloaded and that will carry the goods to or from a location in the hinterland.
 
-All these activities are carried out under:
+But ports also cover a wide area, sometimes close to a city, and their activity has to be sustainable from the economical, social and environmental points of view.
+
+All the activities of the ports are carried out under:
 - An intense documentary exchange between the port operators,
-- Strict surveillance of the port authorities that the administrative, working, personal and environmental safety conditions, etc. are met,
+- Strict surveillance of the port authorities that verify that the administrative, working, personal or environmental safety conditions are met,
 - The need to increase the efficiency of logistics processes, offering more **information services** in real-time,
 - The need to **increase the transparency** of what happens in the port, which citizens demand from public administrations.
 
-This project is oriented to the last two points, and therefore:
-- Identify information types of a Harbour.
-- To define APIs to show port state.
-- And do it following actual standards:
+This project is focused on the last two points:
+- Identifying and classifying the information of a port in different categories.
+- Defining APIs to show port state.
+- And doing it following actual standards:
   - HTTP protocol
   - OAS 3.x Open API Specification
   - API REST
