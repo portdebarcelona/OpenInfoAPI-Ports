@@ -500,7 +500,7 @@ Possible APIs:
 
 ![Notices](https://github.com/portdebarcelona/OpenInfoAPI-Ports/blob/develop/docs/images/Notices.png?raw=true)
 
-Often, Port Authorities have to publish some notices (meteorological alerts, port procedures, etc ). Normally these notices are sent by mail and sms, and published in the web. But also is necessary to publish in web services.
+Often, Port Authorities have to publish some notices (meteorological alerts, port procedures, etc). Normally these notices are sent by mail and sms, and published in the web. But also is necessary to publish in web services.
 
 Some notices are intended for the port community, and others are intended for the general public. Also, each notice is of interest to some subgroups of the port community, such as ship agents, shipping companies, transport companies, stevedore,  concessionaire, etc.
 
@@ -517,9 +517,13 @@ Possible APIs:
 
 
 ### Port rates and fees Info (PENDING) 
-(there is the possibility to include this category in the procedures category and we also have to think if the information has to be delivered as a table)
+
 
 ![Bookmark tabs](https://github.githubassets.com/images/icons/emoji/unicode/1f4d1.png?v8)
+
+The costs associated to the ship calls and  the flow of goods through ports must be published as part of a transparency policy of those ports.
+
+(We have to take the decission of if we have to include this kind of information as a part of the procedures category or it is part of a specific category, and we also have to think if this information can be published as a table)
 
 Summary of rates applicable by the Port Authority:
 - Navigation Support Rate (T0)
