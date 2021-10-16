@@ -59,3 +59,17 @@ Because our company (portofbarcelona) uses **Github.com**, this will be our code
 
 ## Editor
 **VSCode**: Visual Studio Code Editor is an outstanding editor that has many plugins and connection with git repositories
+
+
+## Other issues
+- [Ontology from TNO](https://ontology.tno.nl/) 
+
+- [see 'Organization' in schema.org](https://schema.org/Organization)
+- [evaluate 'Offer' in scehma.org](https://schema.org/Offer)
+
+- Technical Interoperability Regulations on the Re-use of Information Resources (NTI) (Spain)
+  - https://www.boe.es/diario_boe/txt.php?id=BOE-A-2013-2380)
+  - https://datos.gob.es/en/accessible-apidata
+
+
+

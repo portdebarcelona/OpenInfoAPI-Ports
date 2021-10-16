@@ -508,7 +508,7 @@ Possible APIs:
 
 - **Current notices**: List of alerts and notices that are active for a certain port.
   - Request parameters: port name, port UN/LOCODE.
-  - Data included in the response: tbd.
+  - Data included in the response: list of notices, including their subject and their content.
   - [catalog](catalog/catalog-Notices.md)
 - **Port notices subscription**: Subscription to receive the notices published by a certain port.
   - Request parameters: port name, port UN/LOCODE, email.
@@ -516,61 +516,43 @@ Possible APIs:
   - [catalog](catalog/catalog-NoticesSubscription.md)
 
 
-### Port rates and fees Info (PENDING) 
-
+### Port rates and fees Info 
 
 ![Bookmark tabs](https://github.githubassets.com/images/icons/emoji/unicode/1f4d1.png?v8)
 
 The costs associated to the ship calls and  the flow of goods through ports must be published as part of a transparency policy of those ports.
 
-(We have to take the decission of if we have to include this kind of information as a part of the procedures category or it is part of a specific category, and we also have to think if this information can be published as a table)
-
-Summary of rates applicable by the Port Authority:
+Bellow there is a summary of the rates applicable by a Spanish Port Authority:
 - Navigation Support Rate (T0)
 - Vessel Rate (T1)
 - Passenger Rate (T2)
 - Cargo Rate (T3)
-  - 1. Simplified Modality
-  - 2. Modality for Groups of Goods
 - Fresh fish Rate (T4)
 - Pleasure and Sports Craft Rate (T5)
 - Special Use of the Transit Zone Rate (T6)
 - Vessel-Generated Waste Collection Service Fee
 
-### Port Services Info (PENDING) 
-(include the companies)
+Possible APIs:
 
-Information about services that are offered by a port. Eg: bunkering, marpol, mooring, pilots, tugs,... (TO DO buscar a la web de l'APB)
+- **Ship calls fees**: List of the port rates and fees associated to a ship call at a specific port.
+  - Request parameters: port name, port UN/LOCODE.
+  - Data included in the response: link to the port website where this information is published.
+  - [catalog](catalog/catalog-ShipFees.md)
+- **Merchandise fees**: List of the port rates and fees associated to the flow of goods at a specific port.
+  - Request parameters: port name, port UN/LOCODE, email.
+  - Data included in the response: link to the port website where this information is published.
+  - [catalog](catalog/catalog-GoodsFees.md)
 
-Pilotage
+### Port Services Info
 
-  Compulsory for vessels over 500 GT. The service is permanent.
-  
-Tugs and linesmen
+Information about services that are offered by a port and which vessels can order those services. Eg: bunkering, marpol, mooring, pilots, tugs,...
 
-  7 private harbour tugs are available (From 45 to 80 tons of bollard pull). If required tug or linesmen assistance they will be requested through Barcelona Port Control. Tug's line used.
-  
-Reception Facilities - waste management
+Possible APIs:
 
-  There are reception facilities for most residues generated from ships.
-  
-Buoyage
-
-  IALA Maritime Buoyage System A.
-
-Time
-  
-  GMT plus 1 hour; GMT plus 2 hours (spring and summer).
-  
-Social Services for Seamen
-  
-  “Stella Maris": 34 934431965 (24 hours) Fax 34 934431843  e-mail: apomar@icab.es
-
-  Special Operations
-
-  Special operations like launching lifeboats, cleaning, rinsing or painting of the hull, diving operations, main engine immobilisation, hot works and others must be permitted by port
-  authorities. It is recommended applying for permission trough agents in advance -at least 48 hours before arriving or 72 hours before arriving if the special operation is expected during
-  weekend or bank holyday -.
+- **Port services**: Characteristics of the port services offered by a port.
+  - Request parameters: port name, port UN/LOCODE.
+  - Data included in the response: name of the port service, mname of the company that offers that service, phone number, website, vessels that can order the service, main characteristics of that service.
+  - [catalog](catalog/catalog-Services.md)
 
 
 ### Port Calendar
@@ -590,7 +572,7 @@ Possible APIs:
 
 
 
-### Port Directory (PENDING)
+### Port Directory
 ![Office](https://github.githubassets.com/images/icons/emoji/unicode/1f3e2.png?v8)
 
 
@@ -599,7 +581,7 @@ Logistic services of a port are offered through specialized companies. Also in t
 
 A port should maintain general information of those companies and governmental bodies, at least covering their contact information and basic information about the services they offer. 
 
-We can implement two APIs in this category: one for creating and updating contact data, and another to publish contact information. This is the classification of port services that have to be used to tag contact info:
+We can implement two APIs in this category: one for creating and updating contact data, and another to publish contact information. This is an example of the classification of port services that have to be used to tag contact info:
 
 - **Administration**:
   - Port Authority
@@ -660,29 +642,16 @@ We can implement two APIs in this category: one for creating and updating contac
   - Manufacturer
   - Health & Social Care
 
+Possible APIs:
 
+- **Creating and updating the Directory**: Incorporating companies or governmental bodies in the Directory or updating its information.
+  - Request parameters: port name, port UN/LOCODE, name of the company, activity, address, phone number, contact e-mail, website.
+  - Data included in the response: confirmation of the update and transcription of all the data of that record.
+  - [catalog](catalog/catalog-DirectoryUpdate.md)
 
-
-## Some last  notes:... Info Open APIs should
-- Publish kind of services that offer (catalog of services)
-- Allow filter companies depending on services that offer
-- Alow get information contact of a company (Name, email, phone, address, icon, etc)
-
-- [Ontology from TNO](https://ontology.tno.nl/) 
-
-- [see 'Organization' in schema.org](https://schema.org/Organization)
-- [evaluate 'Offer' in scehma.org](https://schema.org/Offer)
-
-- Technical Interoperability Regulations on the Re-use of Information Resources (NTI) (Spain)
-  - https://www.boe.es/diario_boe/txt.php?id=BOE-A-2013-2380)
-  - https://datos.gob.es/en/accessible-apidata
-
-
-![Office worker](https://github.githubassets.com/images/icons/emoji/unicode/1f9d1-1f4bc.png?v8)
-
-
-![Passenger ship](https://github.githubassets.com/images/icons/emoji/unicode/1f6f3.png?v8)
-
-![Anchor](https://github.githubassets.com/images/icons/emoji/unicode/2693.png?v8)
+- **Querying the Directory**: Query about a specific company or governmental body.
+  - Request parameters: port name, port UN/LOCODE, name of the company/governmental body, file format of the response (json or XML)
+  - Data included in the response: json/XML file of all the data of the record of the company selected.
+  - [catalog](catalog/catalog-DirectoryQuery.md)
 
 
