@@ -1,9 +1,9 @@
 # Introduction to the catalog of APIs
 This catalog enumerates a list of APIs with information about ports that can be useful for the logistic activities and also for the citiens that want to know more about what is happening in a port.
 
-## Categories
+## Domains
 
-Use of **Categories**. Many concepts are common in all ports (e.g., port services). It is advisable to use a category field that would allow better filtering and precise referencing.
+Use of **Domains**. Many concepts are common in all ports (e.g., port services). It is advisable to use a domain field that would allow better filtering and precise referencing.
 
 ### Ships Calls
 
@@ -11,7 +11,7 @@ Use of **Categories**. Many concepts are common in all ports (e.g., port service
 
 Information about vessel's voyages in the port is particularly useful for planning logistic operations, but it can also be useful for acompanying or waiting people that will depart or arrive by ferry or cruise.
 
-This category reffers to all available information about vessels and their voyages within the port, such as their port calls or their voyages, including their stay number and the information about the vessel, such as IMO, lenght, tonnage, .
+This domain reffers to all available information about vessels and their voyages within the port, such as their port calls or their voyages, including their stay number and the information about the vessel, such as IMO, lenght, tonnage, .
 
 Possible APIs:
 - **Ships Arrival Forecasts**. Forecast of ships that will arrive at a port in a given period of time. 
@@ -108,13 +108,13 @@ Observations,...
 Observations,...
   - [catalog](catalog/catalog-Bathymetry.md)
 
-### Port Procedures (Work in progress)
+### Port Procedures
 
   ![Process](https://github.com/portdebarcelona/OpenInfoAPI-Ports/blob/develop/docs/images/process.png?raw=true)
 
 Certain operations require some procedure instructions and these procedures should be published and accessible to several applications.
 
-The main objective of this category is to make transparent those procedures and to show how to proceed when someone need them.
+The main objective of this domain is to make transparent those procedures and to show how to proceed when someone need them.
 
 Here are examples of some procedures and possible APIs that can help operators with those procedures:
 
@@ -145,7 +145,7 @@ Here are examples of some procedures and possible APIs that can help operators w
     - Data included in the response: unit of cargo selected for inspection (true/false), type of inspection (intrusive/non-intrusive), place of the inspection (container yard, bonded warehouse,..), status (pending/carried out/cleared,...),...
     - [catalog](catalog/catalog-CustomsInspections.md)   
 
-- **Border Controls** (work in progress)
+- **Border Controls**
 
   ![BIP](https://github.com/portdebarcelona/OpenInfoAPI-Ports/blob/develop/docs/images/BIP.png?raw=true)
 
@@ -157,7 +157,7 @@ Here are examples of some procedures and possible APIs that can help operators w
  
   It is the recipient's responsibility to know the conditions for importing their shipment (prohibitions, restrictions, limitations, etc.) and to find out what documents may be required on arrival, including the commercial invoice, certificate of origin, licences and special certifications for border controls, etc.
 
-  Possible APIs: (ckeck the English version)
+  Possible APIs:
   - **Procedures for border inspection**: Resources where the procedures for clearing the goods subject to controls from the border inspection services can be found. 
     - Request parameters: none. 
     - Data included in the response: Resources where information can be found,...
@@ -240,7 +240,7 @@ Here are examples of some procedures and possible APIs that can help operators w
 
     Logistic operators need to know the procedures that they have to follow for pick-up containes from a port or to delivery them. 
 
-    In this category are included some APIs related with the information exchanged using the EDI messages for land operations with full and empty containers.
+    In this domain are included some APIs related with the information exchanged using the EDI messages for land operations with full and empty containers.
 
   Possible APIs:
 
@@ -461,7 +461,7 @@ Possible APIs:
 ### Terminals
 ![Bulk](https://github.com/portdebarcelona/OpenInfoAPI-Ports/blob/develop/docs/images/Bulk2.png?raw=true)
 
-Thic category will include some operational data related to the performance of the terminals, like their actual access time or some other figures like their dayly or hourly gate movements, at the land side, or information about their movements per hour at the sea side of the terminal. 
+This domain will include some operational data related to the performance of the terminals, like their actual access time or some other figures like their dayly or hourly gate movements, at the land side, or information about their movements per hour at the sea side of the terminal. 
 
 Possible APIs:
 
@@ -581,7 +581,7 @@ Logistic services of a port are offered through specialized companies. Also in t
 
 A port should maintain general information of those companies and governmental bodies, at least covering their contact information and basic information about the services they offer. 
 
-We can implement two APIs in this category: one for creating and updating contact data, and another to publish contact information. This is an example of the classification of port services that have to be used to tag contact info:
+We can implement two APIs in this domain: one for creating and updating contact data, and another to publish contact information. This is an example of the classification of port services that have to be used to tag contact info:
 
 - **Administration**:
   - Port Authority
@@ -644,12 +644,12 @@ We can implement two APIs in this category: one for creating and updating contac
 
 Possible APIs:
 
-- **Creating and updating the Directory**: Incorporating companies or governmental bodies in the Directory or updating its information.
+- **Create and update the Directory**: Incorporating companies or governmental bodies in the Directory or updating its information.
   - Request parameters: port name, port UN/LOCODE, name of the company, activity, address, phone number, contact e-mail, website.
   - Data included in the response: confirmation of the update and transcription of all the data of that record.
   - [catalog](catalog/catalog-DirectoryUpdate.md)
 
-- **Querying the Directory**: Query about a specific company or governmental body.
+- **Query the Directory**: Query about a specific company or governmental body.
   - Request parameters: port name, port UN/LOCODE, name of the company/governmental body, file format of the response (json or XML)
   - Data included in the response: json/XML file of all the data of the record of the company selected.
   - [catalog](catalog/catalog-DirectoryQuery.md)
