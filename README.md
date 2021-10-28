@@ -13,14 +13,14 @@
 - [Ports 4.0 decision](docs/annexes/IDEAS-RESOLUCION-PROVISIONAL-CONCESION-DE-AYUDAS_signed.pdf)
 - [More detailed presentation](docs/Presentation.md)
 ## Introduction to idea Open Info API for Ports
-All the large commercial ports manage a logistics area where goods change their mode of transport. Specifically from the seaside (vessels) to the land side (trucks or trains) or vice versa. This activity is specified as:
+All the large commercial ports manage a logistics area where goods change their mode of transport, from the seaside (vessels) to the land side (trucks or trains) and vice versa. This activity is specified as:
 - Vessels that arrive at port, load and unload their cargo (usually in containers/UTIs or as a bulk cargo),
 - Port companies that facilitate the access and berthing of the vessel,
 - Stevedores who operate the cranes that unload the cargo or equipments from the vessel to the terminal yard or vice versa,
 - Trucks that bring or take the goods from the port,
 - Trains that are loaded and unloaded and that will carry the goods to or from a location in the hinterland.
 
-But ports also cover a wide area, sometimes close to a city, and their activity has to be sustainable from the economical, social and environmental points of view.
+But ports often cover a wide area, sometimes close to a city, and their activity has to be sustainable from the economical, social and environmental points of view.
 
 All the activities of the ports are carried out under:
 - An intense documentary exchange between the port operators,
@@ -29,7 +29,7 @@ All the activities of the ports are carried out under:
 - The need to **increase the transparency** of what happens in the port, which citizens demand from public administrations.
 
 This project is focused on the last two points:
-- Identifying and classifying the information of a port in different categories.
+- Identifying and classifying the information of a port in different domains.
 - Defining APIs to show port state.
 - And doing it following actual standards:
   - HTTP protocol
@@ -41,15 +41,15 @@ This project is focused on the last two points:
 
 The deliverables of this idea will be a **catalog of information** that the ports can use and that will contain the definition of information types and their attributes. All this is defined in OpenAPI with its description and examples published on GitHub.
 
-In this six month phase, deliverables will be:
+In this six months plan, deliverables will be:
 
-- Creation of **Github repository** or similar **Done**: [this repository](https://github.com/org/portdebarcelona/InfoOpenAPI-Ports)
+- Creation of **Github repository** or similar: [this repository](https://github.com/org/portdebarcelona/InfoOpenAPI-Ports)
 - Creation of **Swagger repository** or similar
-- Definition of the **types of information**. **Work in progress**: [see](docs/CatalogIntroduction.md)
-- **Attributes** of each type of information. **Work in progress**: [see](docs/catalog/README.md)
-- Selection of a **style guide** for API/JSON **Work in progress**: [see](docs/catalog/Pendent.md)
-- Definition in **OpenAPI 3.0**. **Work in progress**
-- **Description and examples** in GitHub. **ToDo**
+- Definition of the **types of information**: [see](docs/CatalogIntroduction.md)
+- **Attributes** of each type of information: [see](docs/catalog/README.md)
+- Selection of a **style guide** for API/JSON: [see](docs/catalog/Pendent.md)
+- Definition in **OpenAPI 3.0**.
+- **Description and examples** in GitHub.
 
 
 ## Project Plan
