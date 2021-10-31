@@ -157,6 +157,8 @@ https://notn.ipcsa.international/
   - Wheatherapi:
       - https://www.weatherapi.com/docs/#apis-realtime
       - https://rapidapi.com/weatherapi/api/weatherapi-com/
+  - Meteomatics:
+      - https://www.meteomatics.com/en/api/getting-started/
 
 
 ## Sea state Benchmarking:
