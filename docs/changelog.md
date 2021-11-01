@@ -1,6 +1,15 @@
 # Work Tracking log
 Contains tracking of activities in this project.
 
+## November 1, 2021
+- First version of semantics.md 
+## October 24, 2021
+- First version of "Open Info Api para Puertos" data set (Excel file).
+- Change from the concept "categories" to "domains". 
+## October 12, 2021
+- CatalogIntroduction.md first version with all the domains completed. 
+## September 25, 2021
+- First version of toolbox.md 
 ## September 17, 2021
 - The benchmarking information has been moved from CatalogIntroduction.md to Benchmarking.md 
 - Some new links have been included in file OASdefinitionsBestPractices.md
@@ -32,13 +41,12 @@ Contains tracking of activities in this project.
 ## June 17, 2021
 - Received Notificacion of Grant (15 June)
 - Filling and sendig acceptation form to Puertos Estado
-
 ## June 10, 2021
 - Working in benchmarking
 ## June 3, 2021
 - Created Gmail account: openinfoapiports@gmail.com
-- Revisats documents:
-  - README introductori
+- Review of:
+  - Introductory README
 ## April 15, 2021
 - ?? Create a gmail account: openinfoapiports@gmail.com
 - ?? Create a github account openinfoapiports.github.com
