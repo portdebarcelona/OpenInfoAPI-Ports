@@ -12,10 +12,11 @@
 - All these data models cover a specific area but none of them covers all the data of the Open Info API for Ports project. 
 - The definition of data model is also a semantics issue, because the existence of a common data model will facilitate the alignment of terms across the diferent categories of information shared with our APIs.
 - Based on a common semantic to ensure the data shared can be understood in the same way by all the API consumers.
-- The data model describes haw data are organised and how they are related.
+- The data model describes how data are organised and how they are related.
 - Common understanding
 - Harmonizing the terminology, with clear definitions of what is what.
 - Semantic interoperability
+- Sematic decissions can be found in [semantics](./semantics.md)
 ## API design rules
 
 ## Open API specification
