@@ -7,8 +7,9 @@ To work in this project we have chosen and setup a set of tools. Here we explain
 
 Also, we consider aspects such as:
 - Best practices to define APIs
-- API-Led connectivity
+- API-Led connectivity´
 
+Also, we have included in our [toolbox](.\toolbox.md) the steps that we have to follow in the API design.
 ## Open API Services 3.x
 Goal is define Info Port webservices with (OAS 2.x)[https://github.com/OAI/OpenAPI-Specification/]
 
