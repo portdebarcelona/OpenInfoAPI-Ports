@@ -69,7 +69,7 @@ Because our company (portofbarcelona) uses **Github.com**, this will be our code
 - [evaluate 'Offer' in scehma.org](https://schema.org/Offer)
 
 - Technical Interoperability Regulations on the Re-use of Information Resources (NTI) (Spain)
-  - https://www.boe.es/diario_boe/txt.php?id=BOE-A-2013-2380)
+  - https://www.boe.es/diario_boe/txt.php?id=BOE-A-2013-2380
   - https://datos.gob.es/en/accessible-apidata
 
 
