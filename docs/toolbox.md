@@ -16,7 +16,7 @@
 - Common understanding
 - Harmonizing the terminology, with clear definitions of what is what.
 - Semantic interoperability
-- Sematic decissions can be found in [semantics](./semantics.md)
+- Sematic decissions can be found at the [semantics chapter](./semantics.md)
 ## API design rules
 
 ## Open API specification
