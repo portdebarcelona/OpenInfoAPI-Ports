@@ -69,6 +69,3 @@ who views or uses the information.
 ## Linked data
 - To make a huge amount of data on the Web available in a standard format, relationships among data should be made available and this collection of interrelated datasets on the Web can also be referred to as Linked Data.
 - Integrating facts from several datasets, the application may provide a much better user experience.
-
- 
- 
