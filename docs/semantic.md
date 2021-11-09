@@ -9,7 +9,8 @@ who views or uses the information.
 - Vocabularies are used to classify the terms that can be used in a particular application, characterize possible relationships, and define possible constraints on using those terms.
 - Their role is to help data integration when ambiguities may exist on the terms used.
 - Vocabularies can also be used to organize knowledge. 
-- JSON-LD is suitable for publishing vocabularies because it is useful for both humans and machines.
+- W3C offers a large palette of techniques to describe and define different forms of vocabularies in a standard format. These include RDF and RDF Schemas, Simple Knowledge Organization System (SKOS), Web Ontology Language (OWL), and the Rule Interchange Format (RIF). 
+- JSON-LD is also suitable for publishing vocabularies because it is useful for both humans and machines.
 - There are multiple vocabularies, some of them well established, such as schema.org and, for trade, transport and administration there is also the UN/CEFACT vocabulary.
 - Schema.org provides the most widely used JSON-LD vocabulary in use today and so is a good guide for what other vocabularies should look like.
 - A vocabulary can be published as a file with the reference data models and several files with code lists.
@@ -57,15 +58,24 @@ who views or uses the information.
 - In UN/CEFACT class (Primary entity) and properties belong to a class.
 - In a RDM can be defined several versions of the same class intended for use in different contexts.
 ## Naming and Design Rules (NDR)
-- For the deployment of this IDEA, we propose to use existing vocabularies, when it is possible, and according to this decission we can use different vocabularies in our APIs, depending of their Domain. 
+- For the deployment of this IDEA, we propose to use existing vocabularies, when it is possible, and, according to this decission, we can use different vocabularies in our APIs, depending of their Domain. 
 - But, not all the Domains covered by our IDEA have a well established vocabulary and we will have to propose our own and therefore we have to establish a Naming and Design Rules.
 - Most of the API guidelines include NDR as part of their specification.    
 ## Code lists
 - Some vocabularies are called “codelists”.
 - The recommended format for publishing codelists is to use rdf (resource description framework) and a JSON-LD data model.
-
-## Data set
+## Datasets
+- Datasets are collections of structured metadata
+- There ara a set of statements about things, where each statement consists of an element ("attribute") of the entity and a "value" for that element.
 ## Data dictionaries
+- Data dictionaries store and communicate metadata about data in a database, a system, or data used by applications.  Data dictionary contents can vary but typically include some or all of the following:
+  - A listing of data objects (names and definitions)
+  - Detailed properties of data elements (data type, size, nullability, optionality, indexes)
+  - Entity-relationship (ER) and other system-level diagrams
+  - Reference data (classification and descriptive domains)
+  - Missing data and quality-indicator codes
+  - Business rules, such as for validation of a schema or data quality
+- This is an example of a data dictionary that can be used for the weather and the pollution domains: http://cfconventions.org/Data/cf-standard-names/46/build/cf-standard-name-table.html
 ## Linked data
 - To make a huge amount of data on the Web available in a standard format, relationships among data should be made available and this collection of interrelated datasets on the Web can also be referred to as Linked Data.
 - Integrating facts from several datasets, the application may provide a much better user experience.
