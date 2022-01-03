@@ -21,22 +21,22 @@ who views or uses the information (CEFACT, documment ECE/TRADE/C/CEFACT/2019/27)
 ### Data model / Reference data model / Common Data Models
 - A Data Model is an abstract model that organizes information entities and standardizes how they relate to one another and to the real world. The model provides a standard means by which data may be described, categorized and also shared.
 - Data Model contains relationships between tables that which addresses cardinality and nullability of the relationships. 
-- A Data Model is composed by a set of Entities or Terms, several Attributes and sometimes some Metadata. 
+- A Data Model is composed by a set of Entities or Terms, several Attributes, sometimes some Metadata and relationships among them. 
   - Entities:
     - Entities represent a thing. 
     - Entities include a semantic type that describes the type of thing represented by the entity.
+    - Some examples of entities are person, company, building, ship, container... 
   - Attributes: 
     - Attributes are properties of entities.
-    - Attributes provide functionality.
+    - Attributes describe the entity they belong to.
+    - Attributes also provide information on the interactions between entitiesa (relationship attributes) 
     - Each initiative defines its minimal set of attributes.
+    - Some examples of attributes are address, type of ship, temperature,...
   - Metadata:
     - Metadata is data that describes data.
     - Metadata describes what is the functionality provided by an attribute to the user or a system that reads the attribute.
-   
-- Some examples:
-  - Entities: xxxx
-  - Attributes: xxx 
-  - Metadata: are XXX.
+    - Some examples of metadata are date created, accuracy,... 
+  - Relationships:
 
 - There are several data models and each one establishes the minimun information for defining their entities and attributes, for example:
   1. The Dublin Core Metadata Initiative (DCMI).
