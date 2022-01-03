@@ -28,15 +28,17 @@ who views or uses the information (CEFACT, documment ECE/TRADE/C/CEFACT/2019/27)
     - Some examples of entities are person, company, building, ship, container... 
   - Attributes: 
     - Attributes are properties of entities.
-    - Attributes describe the entity they belong to.
-    - Attributes also provide information on the interactions between entitiesa (relationship attributes) 
-    - Each initiative defines its minimal set of attributes.
+    - Attributes describe the current state of the entity they belong to.
+    - Attributes also provide information on the interactions between entities. 
+    - Each implementation defines its minimal set of attributes.
     - Some examples of attributes are address, type of ship, temperature,...
   - Metadata:
     - Metadata is data that describes data.
     - Metadata describes what is the functionality provided by an attribute to the user or a system that reads the attribute.
     - Some examples of metadata are date created, accuracy,... 
   - Relationships:
+    - In a Data Model there are relationships between their entities.
+    - For example, a container ship carries several containers and and several packages are stuffed on a container.  
 
 - There are several data models and each one establishes the minimun information for defining their entities and attributes, for example:
   1. The Dublin Core Metadata Initiative (DCMI).
@@ -89,18 +91,18 @@ who views or uses the information (CEFACT, documment ECE/TRADE/C/CEFACT/2019/27)
   - Missing data and quality-indicator codes
   - Business rules, such as for validation of a schema or data quality
 - This is an example of a data dictionary that can be used for the weather and the pollution domains: http://cfconventions.org/Data/cf-standard-names/46/build/cf-standard-name-table.html
-### Linked data
+### Linked data (RETHINK)
 - To make a huge amount of data on the Web available in a standard format, relationships among data should be made available and this collection of interrelated datasets on the Web can also be referred to as Linked Data.
 - Integrating facts from several datasets, the application may provide a much better user experience.
 - Context:
   - Define context !!!!
 
-### Naming and Design Rules (NDR)
+### Naming and Design Rules (NDR) (RETHINK)
 - For the deployment of this IDEA, we propose to use existing vocabularies, when it is possible, and, according to this decission, we can use different vocabularies in our APIs, depending of their Domain. 
 - But, not all the Domains covered by our IDEA have a well established vocabulary and we will have to propose our own and therefore we have to establish a Naming and Design Rules.
 - Most of the API guidelines include NDR as part of their specification.    
 
-## Open Info API para Puertos Data Model
+## Open Info API para Puertos Data Model (REWRITE)
 - The Open Info API para Puertos project Data Nodel covers information of several different domains and, in this project, we had to choose between two possibilities, to define our own dataset or to recommend the use of several datasets that are used by those specific domains.
 - As one of our main objectives is to standardize the development of APIs, reusing what others have done before, we have chosen the second alternative and our dataset will be created from others that are used in their specific domain.
 - But each organization or association has defined their own dataset metadata and we have to decide how the entities, attributes and metadata are expressed in our proposal and how we recommend to harmonize their semantics.
