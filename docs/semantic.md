@@ -4,7 +4,7 @@
 - Semantics, in the context of electronic data exchange, is the unambiguous meaning of
 each of the pieces of information to be shared between sender, receiver and any stakeholder
 who views or uses the information (CEFACT, documment ECE/TRADE/C/CEFACT/2019/27).
-## Some definitions:
+## Some semantic concepts:
 ### Vocabularies
 - A vocabulary define the concepts and relationships used to describe and represent a specific domain.
 - Vocabularies are used to classify the terms (entities) that can be used in a particular application, characterize possible relationships, and define possible constraints on using those terms.
@@ -21,23 +21,24 @@ who views or uses the information (CEFACT, documment ECE/TRADE/C/CEFACT/2019/27)
 ### Data model / Reference data model / Common Data Models
 - A Data Model is an abstract model that organizes information entities and standardizes how they relate to one another and to the real world. The model provides a standard means by which data may be described, categorized and also shared.
 - Data Model contains relationships between tables that which addresses cardinality and nullability of the relationships. 
-- A Data Model is composed by a set of Entities or Terms, several Attributes, sometimes some Metadata and relationships among them. 
+- The main constructs of a Data Model are Entities (terms or instances), Attributes (properties) and Relationships. Entities can be the subject of properties and relationships. Properties and relationships can be the subject of other properties and relationships.  
   - Entities:
     - Entities represent a thing. 
     - Entities include a semantic type that describes the type of thing represented by the entity.
-    - Some examples of entities are person, company, building, ship, container... 
+    - Some examples of entities are: person, company, building, ship, container... 
   - Attributes: 
     - Attributes are properties of entities.
+    - A property is a combination of an attribute and its value.
     - Attributes describe the current state of the entity they belong to.
-    - Attributes also provide information on the interactions between entities. 
+    - Attributes can also provide information on the interactions between entities. 
     - Each implementation defines its minimal set of attributes.
-    - Some examples of attributes are address, type of ship, temperature,...
-  - Metadata:
+    - Some nested properties of properties are called metadata. They describe what is the functionality provided by an attribute to the user or a system that reads the attribute.
     - Metadata is data that describes data.
-    - Metadata describes what is the functionality provided by an attribute to the user or a system that reads the attribute.
-    - Some examples of metadata are date created, accuracy,... 
+    - Some examples of attributes are: address, type of ship, temperature,... And some examples of metadata are: date created, accuracy,...  
   - Relationships:
     - In a Data Model there are relationships between their entities.
+    - Relationships can be expressed as new types of attributes intended to link one entity to another entity. 
+    - In some implementations, a relationship is expressed by means of a special attribute with a special value (relationship’s object), that is a URI which points to another entity.  
     - For example, a container ship carries several containers and and several packages are stuffed on a container.  
 
 - There are several data models and each one establishes the minimun information for defining their entities and attributes, for example:
@@ -73,15 +74,11 @@ who views or uses the information (CEFACT, documment ECE/TRADE/C/CEFACT/2019/27)
           - uncefact:cefactUNId
           - rdfs:comment
           - uncefact:cefactBusinessProcess
-          - 
-- Property (Primary entity) like consignment.consignor
-- Attributes like: domain or range
-- In UN/CEFACT class (Primary entity) and properties belong to a class.
-- In a RDM can be defined several versions of the same class intended for use in different contexts.
+
 
 ### Datasets
 - Datasets are collections of structured metadata
-- There are a set of statements about things, where each statement consists of an element ("attribute") of the entity and a "value" for that element.
+- There are sets of statements about things, where each statement consists of an element ("attribute") of the entity and a "value" for that element.
 ### Data dictionaries
 - Data dictionaries store and communicate metadata about data in a database, a system, or data used by applications.  Data dictionary contents can vary but typically include some or all of the following:
   - A listing of data objects (names and definitions)
@@ -91,19 +88,24 @@ who views or uses the information (CEFACT, documment ECE/TRADE/C/CEFACT/2019/27)
   - Missing data and quality-indicator codes
   - Business rules, such as for validation of a schema or data quality
 - This is an example of a data dictionary that can be used for the weather and the pollution domains: http://cfconventions.org/Data/cf-standard-names/46/build/cf-standard-name-table.html
-### Linked data (RETHINK)
-- To make a huge amount of data on the Web available in a standard format, relationships among data should be made available and this collection of interrelated datasets on the Web can also be referred to as Linked Data.
+### Linked data 
+- To make a huge amount of data on the Web available in a standard format, relationships among data should be made available, and this collection of interrelated datasets on the Web is referred to as Linked Data.
 - Integrating facts from several datasets, the application may provide a much better user experience.
-- Context:
-  - Define context !!!!
+- JSON-LD offers the capability of expanding JSON terms to URI, facilitating the unambigous definition of terms using vocabularies.
+### Context 
+- Some API implementations include a hash map used to map member names to URIs (uniform resourde identifiers).
+- Those URI can reference a local server, a GitHub URI or a particular URI of an implementation. Each alternative has pros and cons if we think about availability, lenght of the URI or control.  
+- This is one example that includes the @context:
 
-### Naming and Design Rules (NDR) (RETHINK)
-- For the deployment of this IDEA, we propose to use existing vocabularies, when it is possible, and, according to this decission, we can use different vocabularies in our APIs, depending of their Domain. 
-- But, not all the Domains covered by our IDEA have a well established vocabulary and we will have to propose our own and therefore we have to establish a Naming and Design Rules.
-- Most of the API guidelines include NDR as part of their specification.    
-
-## Open Info API para Puertos Data Model (REWRITE)
-- The Open Info API para Puertos project Data Nodel covers information of several different domains and, in this project, we had to choose between two possibilities, to define our own dataset or to recommend the use of several datasets that are used by those specific domains.
-- As one of our main objectives is to standardize the development of APIs, reusing what others have done before, we have chosen the second alternative and our dataset will be created from others that are used in their specific domain.
-- But each organization or association has defined their own dataset metadata and we have to decide how the entities, attributes and metadata are expressed in our proposal and how we recommend to harmonize their semantics.
-  
+      {
+        "@context": [
+          "https://uri.etsi.org/ngsi-ld/v1/ngsi-ld-core-context.jsonld",
+          "https://fiware.github.io/data-models/context.jsonld"
+        ]
+      }  
+### Naming and Design Rules (NDR)
+- Most of the API guidelines include NDR as part of their specification.
+- The NDR provides a means to identify, capture and maximize the re-use of business
+information components extensions in order to support information
+interoperability across integrated environments.
+ 
