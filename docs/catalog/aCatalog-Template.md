@@ -9,67 +9,6 @@
 
 
 
-- **Approach instructions** 
- 
-  Up-to-date information on approach instructions is vital so that maritime operations can be carried out safely.
-      
-  Possible APIs: 
-
-    - **Approach instructions**: Basic information for the approach of the vessels to a port
-      - Request parameters: name of the port, port code (UN/LOCODE).
-      - Data included in the response: Entrances, approach channels, precautionary areas, port traffic (inbound vessels-reporting points, outbound or shifting vessels-reporting points and radio watch), emergency, special operations (like launching lifeboats, cleaning, rinsing or painting of the hull, diving operations, main engine immobilisation, hot works and others), pilotage, tugs, linesmen and last changes in this information.
-      - [catalog](catalog/catalog-ApproachInstructions.md) 
-
-
-### Statistics 
-
-  Ports are ranked nationally and internationally, and they are compared in many different ways, i.e. by volume or value of trade, the number of TEUs, tones or cruise passengers, revenues, quays length, or storage capacity.
-
-  All the ports have statistical information about the activity. Relevant data of a port can be:
-  - Value of goods passing through the port (euros)
-  - Number of ship calls (stopovers)
-  - Tones loaded/unloaded by sector (energy, vehicles and transport elements, agro-livestock and food, chemicals, iron and steel, building materials, fertilisers, non-metallic minerals, other goods)
-  - Traffic by geographical areas (total, main destination areas and main areas of origin)(tones)
-  - Goods by type of packaging and shipping (container load, conventional charge, liquid bulk or dry bulk)(tones)
-  - Container traffic (all, full/empty, import/export)(TEU)
-  - Vehicles loaded/unloaded (units)
-  - Liquid bulk loaded/unloaded (tones)
-  - Solid bulk loaded/unloaded (tones)
-  - Short sea shipping (intermodal transport units (UTI))
-  - Container rail traffic (TEU)
-  - Container rail share (%)
-  - Vehicle rail traffic (units)
-  - Vehicle rail share (%) 
-  - Passengers embarked/disembarked (units)
-  - Cruise passengers embarked/disembarked (units)
-  - Economic concepts:
-    - Turnover (thousand euro)
-    - Port fees (thousand euro)
-    - Operating income (thousand euro)
-    - Expenditure (thousand euro)
-    - Financial result (thousand euro)
-    - Financial income (thousand euro)
-    - Financial expenses (thousand euro)
-    - Earnings Before Interest, Taxes, Depreciation, and Amortisation (EBITDA) (thousand euro)
-    - Cash flow (thousand euro)
-    - Investment (thousand euro)
-    - Long term debt (thousand euro)
-  - etc.
-
-  And it is also important to know how often the data can be obtained and published.
-
-Possible APIs: 
-  - **Traffic statistics**: Statistics of traffic from a port.
-    - Request parameters: port name, port UN/LOCODE, period of time, dimension, level of aggregation.   
-    - Data included in the response: data requested as json.
-    - [catalog](catalog/catalog-Statistics.md) 
-
-  - **Economic data**: Economic data of a port. 
-    - Request parameters: port name, port UN/LOCODE, period of time, dimension, level of aggregation.    
-    - Data included in the response: data requested as json.
-    - [catalog](catalog/catalog-EconomicData.md) 
- 
-
 ### Environment: Weather
  
 Several activities at ports, such as berthing, dredging or construction typically require low weather energy conditions for safe execution. 
