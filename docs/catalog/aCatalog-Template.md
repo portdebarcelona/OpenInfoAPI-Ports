@@ -8,50 +8,7 @@
 ## Output 
 
 
-
-- **Marine aids to navigation** Port marks in a specific port. 
-  - Request parameters: none. 
-  - Data included in the response: mark, mark number, coordenates situation, apparience during the day, day mark, light phases, comments,...
-Observations,...
-  - [catalog](catalog/catalog-PortTerminals.md)
-- **Bathymetric data** Data from the regular hydrographic surveis that are being performed at ports. 
-  - Request parameters: situation (name of the situation -mouth, quay-, coordenates of the situation) 
-  - Data included in the response: coordinates, water depth...
-Observations,...
-  - [catalog](catalog/catalog-Bathymetry.md)
-
-### Port Procedures
-
-Certain operations require some procedure instructions and these procedures should be published and accessible to several applications.
-
-The main objective of this domain is to make transparent those procedures and to show how to proceed when someone need them.
-
-Here are examples of some procedures and possible APIs that can help operators with those procedures:
-
-- **Customs Clearance for imports**
-
-  All shipments of goods entering the European Union from third countries are subject to Customs controls. All goods may be subject to the presentation of several documents and payments, as the payment of Customs duties based on the content of the shipment, payment of national taxes (VAT) or local taxes where applicable, payment of special taxes on tobacco, alcohol, etc., the cost of processing of Single Administrative Document (SAD) for imports, the costs arising from border safety controls, depending on the nature of the shipment (sanitary, pharmaceutical, veterinary, etc.).
   
-  As a part of the customs clearance process, customs can carry out docummentary or physical inspections, and those can be carried out inside the cargo terminals, at the terminal yard or in a warehouse, but they can also inspect containers, platforms or trucks using a non-intrusive technology as an X-ray scanner. 
-  
-  It is the recipient's responsibility to know the conditions for importing their shipment (prohibitions, restrictions, limitations, etc.) and to find out what documents may be required on arrival, including the commercial invoice, certificate of origin, licences and special authorisations for border controls, etc.
-
-  Possible APIs:
-
-  - **Customs clearance procedure**: Resources where the procedures for clearing the goods in import can be found. 
-    - Request parameters: none. 
-    - Data included in the response: Resources where information can be found,...
-    - [catalog](catalog/catalog-CustomsClearance.md) 
-
-  - **Customs clearance actors**: Contact information of the different actors involved in the customs clearance process.
-    - Request parameters: none. 
-    - Data included in the response: contact information about Customs, contact information of the operators involved,...
-    - [catalog](catalog/catalog-CustomsClearanceContacts.md) 
-
-  - **Customs Inspections** (2n phase of this project) Status of a customs inspection.
-    - Request parameters: equipment id. 
-    - Data included in the response: unit of cargo selected for inspection (true/false), type of inspection (intrusive/non-intrusive), place of the inspection (container yard, bonded warehouse,..), status (pending/carried out/cleared,...),...
-    - [catalog](catalog/catalog-CustomsInspections.md)   
 
 - **Border Controls**
 
