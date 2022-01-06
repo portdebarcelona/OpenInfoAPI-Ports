@@ -29,7 +29,7 @@ Possible APIs:
 - **Ships Arrivals** Vessels that has arrived or will arrive at a port today. 
   - Request parameters: none. 
   - Data included in the response: IMO number, ship name, ATA (Actual Time of Arrival) or ETA (Estimated time of arrival), previous port of call,... 
-  - [catalog](catalog/catalog-ShipsArrivals.md) 
+  - [catalog](catalog/catalog-ShipArrivals.md) 
 - **Ships Aproximation Manouvres**: Aproximation manouvres of ships to the port. Vessels that have initiated their approximation manouvres. 
   - Request parameters: none. 
   - Data included in the response: IMO number, ship name, ETA (Estimated time of arrival), type of vessel, previous port of call,... 
