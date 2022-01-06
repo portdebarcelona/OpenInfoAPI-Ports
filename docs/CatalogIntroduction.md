@@ -325,7 +325,7 @@ Possible APIs:
     - [catalog](catalog/catalog-EconomicData.md) 
  
 
-### Weather
+### Environment: Weather
 ![Sun with cloud and rain](https://github.githubassets.com/images/icons/emoji/unicode/1f326.png?v8)  
 Several activities at ports, such as berthing, dredging or construction typically require low weather energy conditions for safe execution. 
 
@@ -357,7 +357,7 @@ Several activities at ports, such as berthing, dredging or construction typicall
 
 
 
-### Sea State
+### Environment: Sea State
 ![Ocean](https://github.githubassets.com/images/icons/emoji/unicode/1f30a.png?v8)
 
 Wave prediction can be used for the prevention of loss of life and property at sea, providing timely and accurate marine weather warnings and forecasts.
@@ -376,7 +376,7 @@ Possible APIs:
 
 
 
-### Pollution 
+### Environment: Pollution 
 
 ![Pollution](https://github.com/portdebarcelona/OpenInfoAPI-Ports/blob/develop/docs/images/Pollution.png?raw=true)
 
