@@ -26,7 +26,7 @@
   14. **Port Calendar**
   15. **Port Directory**
 
-## APIs (Some examples)
+## Catalog of APIs
 - [Here](./CatalogIntroduction.md) there are some examples of possible APIs.
 
 ## APIs' Input and Output Parameters
