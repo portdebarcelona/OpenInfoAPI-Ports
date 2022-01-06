@@ -21,25 +21,27 @@ who views or uses the information (CEFACT, documment ECE/TRADE/C/CEFACT/2019/27)
 ### Data model / Reference data model / Common Data Models
 - A Data Model is an abstract model that organizes information entities and standardizes how they relate to one another and to the real world. The model provides a standard means by which data may be described, categorized and also shared.
 - Data Model contains relationships between tables that which addresses cardinality and nullability of the relationships. 
-- The main constructs of a Data Model are Entities (terms or instances), Attributes (properties) and Relationships. Entities can be the subject of properties and relationships. Properties and relationships can be the subject of other properties and relationships.  
-  - Entities:
+- The main constructs of a Data Model are Entities (terms or instances) and Attributes.
+  - Attributes can represent Properties and Relationships. 
+  - Entities can be the subject of attributes (properties and relationships). 
+  - Properties and relationships can be the subject of other properties and relationships.  
+  - **Entities**:
     - Entities represent a thing. 
     - Entities include a semantic type that describes the type of thing represented by the entity.
     - Some examples of entities are: person, company, building, ship, container... 
-  - Attributes: 
+  - **Attributes**: 
     - Attributes are properties of entities.
     - A property is a combination of an attribute and its value.
     - Attributes describe the current state of the entity they belong to.
-    - Attributes can also provide information on the interactions between entities. 
-    - Each implementation defines its minimal set of attributes.
     - Some nested properties of properties are called metadata. They describe what is the functionality provided by an attribute to the user or a system that reads the attribute.
     - Metadata is data that describes data.
-    - Some examples of attributes are: address, type of ship, temperature,... And some examples of metadata are: date created, accuracy,...  
-  - Relationships:
-    - In a Data Model there are relationships between their entities.
-    - Relationships can be expressed as new types of attributes intended to link one entity to another entity. 
+    - Attributes can also provide information on the interactions between entities. Relationships are new types of attributes intended to link one entity to another entity.
     - In some implementations, a relationship is expressed by means of a special attribute with a special value (relationship’s object), that is a URI which points to another entity.  
-    - For example, a container ship carries several containers and and several packages are stuffed on a container.  
+    - Each implementation defines its minimal set of attributes.
+    - Some examples of attributes are for specify:
+      - properties, like address, type of ship, temperature,... 
+      - metadata, like date created, accuracy,...
+      - relationships, like a container ship carries several containers and and several packages are stuffed on a container.  
 
 - There are several data models and each one establishes the minimun information for defining their entities and attributes, for example:
   1. The Dublin Core Metadata Initiative (DCMI).
