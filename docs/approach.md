@@ -1,7 +1,7 @@
 # Project approach
 
-## Top down approach
-- A top down approach will be followed for defining the data model, following this steps:
+## Top-down approach
+- A top-down approach will be followed to define the data model, following this steps:
   1. Identification of the **domains** that will be covered in the project.
   2. Identification of several **APIs** for each domain.
   3. Possible **input and output parameters** of those APIs.
@@ -27,3 +27,9 @@
 
 ## APIs (Some examples)
 - [Here](./CatalogIntroduction.md) there are some examples of possible APIs.
+
+## APIs' Input and Output Parameters
+- There are some examples of possible APIs.
+
+## Entities and attributes
+- Aaaa.
