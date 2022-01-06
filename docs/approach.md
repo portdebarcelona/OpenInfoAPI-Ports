@@ -24,12 +24,13 @@
   12. **Port Rates and Fees**
   13. **Port Services**
   14. **Port Calendar**
+  15. **Port Directory**
 
 ## APIs (Some examples)
 - [Here](./CatalogIntroduction.md) there are some examples of possible APIs.
 
 ## APIs' Input and Output Parameters
-- There are some examples of possible APIs.
+- Within the [catalog of APIs](./CatalogIntroduction.md), accompaining each example of API, there is also a list with its input and output parameters.
 
 ## Entities and attributes
-- Aaaa.
+- The parameters identified in each API can be classified as entities or atributtes of some entities.
