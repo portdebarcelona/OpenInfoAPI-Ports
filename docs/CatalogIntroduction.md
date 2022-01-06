@@ -230,7 +230,7 @@ Here are examples of some procedures and possible APIs that can help operators w
   - **Activities/categories**: List of possible activities, i.e. freight-forwarder, shipping agent, custom broker,...
     - Request parameters: none 
     - Data included in the response: activity name, activity description.
-    - [catalog](catalog/catalog-EfficiencyNetwork.md)   
+    - [catalog](catalog/catalog-Activity.md)   
 
 - **Container release or acceptance (Container pick-up or delivery from/to the terminal or depot)**
 
