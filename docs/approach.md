@@ -24,3 +24,6 @@
   12. **Port Rates and Fees**
   13. **Port Services**
   14. **Port Calendar**
+
+## APIs (Some examples)
+- Here there are some examples of possible APIs.
