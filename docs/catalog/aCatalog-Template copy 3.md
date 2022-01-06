@@ -8,31 +8,7 @@
 ## Output 
 
 
-### Port Infrastructure
 
-Geographical/spatial information about the port, land accesses, berths, depth, maritime and rail terminals, and marine aids to navigation.
-
-Possible APIs:
-- **Port infrastructure**: Basic data of the infrastructure of a port.
-  - Request parameters: port name,port UN/LOCODE.
-  - Data included in the response: latitude/longitud, land area, berths (length, depth, loading capacities, contact information), port entrance mouths (width, depth and orientation)...
-  - [catalog](catalog/catalog-PortInfrastructure.md)
-- **Port gates**: Information about the main land port accesses. 
-  - Request parameters: none. 
-  - Data included in the response: gate name, latitude/longitud, allowed vehicles, maximun width, maximum height, opening hours,...
-  - [catalog](catalog/catalog-PortGates.md)
-- **Berths**: Information about the berths of a port. 
-  - Request parameters: none. 
-  - Data included in the response: berth name, berth code, lenght, depth,...
-  - [catalog](catalog/catalog-Berths.md) 
--**Maritime terminals**: Information about the maritime terminals of a port.
-  - Request parameters: none. 
-  - Data included in the response: terminal name, type of terminal (ferry, cruise, container, multipurpose, vehicle, Bulk cargo,...), address, gate latitude/longitud, allowed vehicles, maximun width, maximum height, opening hours,...
-  - [catalog](catalog/catalog-PortTerminals.md)
-- **Rail terminals and loading tracks**: Information of all the rail terminals and loading tracks of a port.
-  - Request parameters: none
-  - Data included in the response: list of rail terminals, latitude/longitude, address, type of cargo...
-  - [catalog](catalog/catalog-RailwayTerminals.md)
 - **Marine aids to navigation** Port marks in a specific port. 
   - Request parameters: none. 
   - Data included in the response: mark, mark number, coordenates situation, apparience during the day, day mark, light phases, comments,...
@@ -45,8 +21,6 @@ Observations,...
   - [catalog](catalog/catalog-Bathymetry.md)
 
 ### Port Procedures
-
-  ![Process](https://github.com/portdebarcelona/OpenInfoAPI-Ports/blob/develop/docs/images/process.png?raw=true)
 
 Certain operations require some procedure instructions and these procedures should be published and accessible to several applications.
 
