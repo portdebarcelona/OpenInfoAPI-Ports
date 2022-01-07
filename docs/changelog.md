@@ -1,6 +1,17 @@
 # Work Tracking log
 Contains tracking of activities in this project.
 
+## January 7, 2022
+- 24 files added to catalog folder, each one for a possible API. 
+## January 6, 2022
+- 40 files added to catalog folder, each one for a possible API. 
+## December 26, 2021
+- Update of semantics.md
+## December 18, 2021
+- Reading about Smart Cities, NGIS and FIWARE initiative.
+## November 1, 2021
+- Work on the Excel sheet with the identified domains, possible APIs and data set.
+- We have identified 64 possible APIs. 
 ## November 1, 2021
 - First version of semantics.md 
 ## October 24, 2021
