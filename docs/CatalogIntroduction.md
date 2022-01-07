@@ -543,7 +543,7 @@ Possible APIs:
   - Request parameters: port name, port UN/LOCODE.
   - Data included in the response: link to the port website where this information is published.
   - [catalog](catalog/catalog-ShipFees.md)
-- **Merchandise fees**: List of the port rates and fees associated to the flow of goods at a specific port.
+- **Cargo fees**: List of the port rates and fees associated to the flow of goods at a specific port.
   - Request parameters: port name, port UN/LOCODE, email.
   - Data included in the response: link to the port website where this information is published.
   - [catalog](catalog/catalog-GoodsFees.md)
