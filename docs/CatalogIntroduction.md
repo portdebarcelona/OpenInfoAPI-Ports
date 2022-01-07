@@ -477,7 +477,7 @@ Possible APIs:
 - **Goods/Containers entrance/exit of Terminals**: Number of units (containers, freight cars,...) that enter or leave a terminal per hour during the present day.
   - Request parameters: port name, port UN/LOCODE, terminal, direction of the flow of the units.
   - Data included in the response: number of units, direction of the flow, hour.
-  - [catalog](catalog/catalog-AccessTime.md)
+  - [catalog](catalog/catalog-GateMovements.md)
 - **Vessel Loading/Unloading**: Number of containers loaded or unloaded from a vessel per hour during the present day.
   - Request parameters: port name, port UN/LOCODE, terminal, direction of the flow of the equipments (loading or unloading).
   - Data included in the response: number of units, direction of the flow, hour.
