@@ -1,6 +1,9 @@
 # Work Tracking log
 Contains tracking of activities in this project.
 
+## January 8, 2022
+- Some reorganization issues:
+  - Link from approach.md to semantics.md 
 ## January 7, 2022
 - 24 files added to catalog folder, each one for a possible API. 
 ## January 6, 2022

@@ -1,7 +1,9 @@
-# Project approach
+# Semantic approach
 
+There are some basic concepts that must be reviewed before defining our approach.
+There is an introduction to some of these concepts [here](./semantic.md).   
 ## Top-down approach
-- A top-down approach will be followed to define the data model, following this steps:
+- A top-down approach will be followed to define the data model for "Open Info API para puertos", following this steps:
   1. Identification of the **domains** that will be covered in the project.
   2. Identification of several **APIs** for each domain.
   3. Possible **input and output parameters** of those APIs.
