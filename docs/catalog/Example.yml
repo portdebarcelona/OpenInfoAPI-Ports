@@ -1,0 +1,233 @@
+openapi: 3.0.3
+info:
+  version: 2.0.2
+  title: 'DCSA OpenAPI specification for Operational Vessel Schedules'
+  description: |
+    This API also supports JIT v1.0 (Just in Time Portcalls). JIT is used for negotiating timestamps between vessel and port/terminal.
+    
+    API specification issued by DCSA.org
+
+    For explanation to specific values or objects please refer to the <a href='https://dcsa.org/wp-content/uploads/2021/07/202108_DCSA_P1_Information-Model-v3.2_Final.pdf'>Information Model v3.2</a>
+
+    It is possible to use this API as a standalone API. In order to do so it is necessary to use the poll-endPoint
+    - /v2/events
+
+    in order to poll event information.
+
+    It is recomended to implement the <a href='https://app.swaggerhub.com/apis/dcsaorg/OVS_EVENT_HUB'>DCSA Operational Vessel Schedules (OVS) Event Hub</a> in order to use the push model. Here events are pushed as they occur.
+    
+  license:
+    name: Apache 2.0
+    url: http://www.apache.org/licenses/LICENSE-2.0.html
+  contact:
+    name: Digital Container Shipping Association (DCSA)
+    url: https://dcsa.org
+    email: info@dcsa.org
+tags:
+  - name: Operational Vessel Schedules
+    description: Operational Vessel Schedules operations
+  - name: Events
+paths:
+  /v2/timestamps:
+    post:
+      parameters:
+        - $ref: 'https://api.swaggerhub.com/domains/dcsaorg/DCSA_DOMAIN/1.0.2#/components/parameters/Api-Version-Major'
+      tags:
+        - Operational Vessel Schedules
+      summary: Post a new timestamp
+      description: |
+        a timestamp object provides the date-time when a specific event is expected, requested or planned to occur or has occured
+      requestBody:
+        description: The new Timestamp
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: 'https://api.swaggerhub.com/domains/dcsaorg/OVS_DOMAIN/1.0.2#/components/schemas/timestamp'
+      responses:
+        '204':
+          description: Timestamp successfully posted
+          headers:
+            API-Version:
+              $ref: 'https://api.swaggerhub.com/domains/dcsaorg/DCSA_DOMAIN/1.0.2#/components/headers/API-Version'
+        default:
+          description: Unexpected error
+          headers:
+            API-Version:
+              $ref: 'https://api.swaggerhub.com/domains/dcsaorg/DCSA_DOMAIN/1.0.2#/components/headers/API-Version'
+          content:
+            application/json:
+              schema:
+                $ref: 'https://api.swaggerhub.com/domains/dcsaorg/ERROR_DOMAIN/1.0.0#/components/schemas/error'
+
+
+  /v2/events:
+    get:
+      tags:
+        - Events
+      summary: Get Operations and Transport events
+      description: |
+        Retrieves Operations and Transport events. The default sort order is by eventCreatedDateTime in descending order (DESC)
+        
+        <b>NB</b>&#58; It is possible to combine queryParameters. When combining queryParameters be aware that it is also possible to make combinations that are mutual contradicting.
+        
+        Example&#58; <i>operationsEventTypeCode=CMPL and transportEventTypeCode=ARRI</i>
+        
+        Since there is no event that can be an OperationsEvent <u>and</u> a TransportEvent at the same time <b>this will return an empty list<b>!
+      parameters:
+        - name: eventType
+          in: query
+          description: |
+            The type of event(s) to filter by. Possible values are
+            
+            - TRANSPORT (Transport events)
+            - OPERATIONS (Operations events)
+            
+            It is possible to select multiple values by comma (,) separating them. For multiple values the OR-operator is used. For example eventType=TRANSPORT,OPERATIONS matches both Transport- and Operations-events.
+            
+            Default value is all event types.
+          required: false
+          style: form
+          explode: false
+          schema:
+            type: array
+            items:
+              type: string
+              enum:
+                - TRANSPORT
+                - OPERATIONS
+
+        # Chunk with Transport related event parameters
+        - $ref: 'https://api.swaggerhub.com/domains/dcsaorg/EVENT_DOMAIN/1.1.0#/components/parameters/transportEventTypeCode'
+        - $ref: 'https://api.swaggerhub.com/domains/dcsaorg/EVENT_DOMAIN/1.1.0#/components/parameters/transportCallID'
+        - $ref: 'https://api.swaggerhub.com/domains/dcsaorg/EVENT_DOMAIN/1.1.0#/components/parameters/vesselIMONumber'
+        - $ref: 'https://api.swaggerhub.com/domains/dcsaorg/EVENT_DOMAIN/1.1.0#/components/parameters/carrierVoyageNumber'
+        - $ref: 'https://api.swaggerhub.com/domains/dcsaorg/EVENT_DOMAIN/1.1.0#/components/parameters/carrierServiceCode'
+
+        # Chunk with Operations related event parameters
+        - $ref: 'https://api.swaggerhub.com/domains/dcsaorg/EVENT_DOMAIN/1.1.0#/components/parameters/operationsEventTypeCode'
+
+        # Chunk with base event parameters
+        - $ref: 'https://api.swaggerhub.com/domains/dcsaorg/EVENT_DOMAIN/1.1.0#/components/parameters/eventCreatedDateTime'
+        # Removed for now as this is now yet approved by SMEs
+        # Specialized version of eventClassifierCode containing REQ (Requested) as enum value
+        # - in: query
+        #   name: eventClassifierCode
+        #   explode: false
+        #   style: form
+        #   description: |
+        #     Unique identifier for equipmentEventTypeCode.
+        #     - ACT (Actual)
+        #     - PLN (Planned)
+        #     - EST (Estimated)
+        #     - REQ (Requested)
+    
+        #     It is possible to select multiple values by comma (,) separating them. For multiple values the OR-operator is used. For example <i>eventClassifierCode=EST,ACT</i> matches <b>both</b> Estimated (EST) and Actual (ACT) events.
+            
+        #     Default is all eventClassifierCodes.
+            
+        #     Be aware that not all events support REQ (Requested).
+        #   example: EST,ACT
+        #   schema:
+        #     type: array
+        #     items:
+        #       type: string
+        #       description: |
+        #         Code for the event classifier. Values can vary depending on eventType
+        #         - PLN (Planned)
+        #         - ACT (Actual)
+        #         - REQ (Requested)
+        #         - EST (Estimated)
+        #       enum:
+        #         - PLN
+        #         - ACT
+        #         - REQ
+        #         - EST
+        #       example: ACT
+
+        # Chunk with Global related event parameters
+        - $ref: 'https://api.swaggerhub.com/domains/dcsaorg/DCSA_DOMAIN/1.0.2#/components/parameters/limit'
+        - $ref: 'https://api.swaggerhub.com/domains/dcsaorg/DCSA_DOMAIN/1.0.2#/components/parameters/cursor'
+        - $ref: 'https://api.swaggerhub.com/domains/dcsaorg/DCSA_DOMAIN/1.0.2#/components/parameters/Api-Version-Major'
+      responses:
+        '200':
+          description: Successful operation
+          headers:
+            API-Version:
+              $ref: 'https://api.swaggerhub.com/domains/dcsaorg/DCSA_DOMAIN/1.0.2#/components/headers/API-Version'
+            Current-Page:
+              $ref: 'https://api.swaggerhub.com/domains/dcsaorg/DCSA_DOMAIN/1.0.2#/components/headers/Current-Page'
+            Next-Page:
+              $ref: 'https://api.swaggerhub.com/domains/dcsaorg/DCSA_DOMAIN/1.0.2#/components/headers/Next-Page'
+            Prev-Page:
+              $ref: 'https://api.swaggerhub.com/domains/dcsaorg/DCSA_DOMAIN/1.0.2#/components/headers/Prev-Page'
+            Last-Page:
+              $ref: 'https://api.swaggerhub.com/domains/dcsaorg/DCSA_DOMAIN/1.0.2#/components/headers/Last-Page'
+            First-Page:
+              $ref: 'https://api.swaggerhub.com/domains/dcsaorg/DCSA_DOMAIN/1.0.2#/components/headers/First-Page'
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  anyOf:
+                    - $ref: 'https://api.swaggerhub.com/domains/dcsaorg/EVENT_DOMAIN/1.1.0#/components/schemas/operationsEvent'
+                    - $ref: 'https://api.swaggerhub.com/domains/dcsaorg/EVENT_DOMAIN/1.1.0#/components/schemas/operationsTransportEvent'
+              example: [{
+                "eventID": "84db923d-2a19-4eb0-beb5-446c1ec57d34",
+                "eventCreatedDateTime": "2021-01-09T14:12:56+01:00",
+                "eventType": "TRANSPORT",
+                "eventClassifierCode": "ACT",
+                "eventDateTime": "2019-11-12T07:41:00+08:30",
+                "transportEventTypeCode": "ARRI",
+                "delayReasonCode": "WEA",
+                "changeRemark": "Bad weather",
+                "transportCall": {
+                  "transportCallID": "123e4567-e89b-12d3-a456-426614174000",
+                  "carrierServiceCode": "FE1",
+                  "carrierVoyageNumber": "2103S",
+                  "transportCallSequenceNumber": "2103S",
+                  "UNLocationCode": "USNYC",
+                  "facilityCode": "ADT",
+                  "facilityCodeListProvider": "SMDG",
+                  "facilityTypeCode": "POTE",
+                  "otherFacility": "Depot location or address",
+                  "modeOfTransport": "VESSEL",
+                  "vessel": {
+                    "vesselIMONumber": 9321483,
+                    "vesselName": "King of the Seas"
+                  }
+                }
+              }]
+        default:
+          description: Unexpected error
+          headers:
+            API-Version:
+              $ref: 'https://api.swaggerhub.com/domains/dcsaorg/DCSA_DOMAIN/1.0.2#/components/headers/API-Version'
+          content:
+            application/json:
+              schema:
+                $ref: 'https://api.swaggerhub.com/domains/dcsaorg/ERROR_DOMAIN/1.0.0#/components/schemas/error'
+
+
+components:
+  parameters: 
+                  
+    ##############
+    # Query params
+    ##############
+
+    startDate:  
+      in: query
+      name: startDate
+      description: The start date of the period for which schedule information is requested. The value is populated in ISO 8601 Date format. If not provided, the current date is used by default.
+      required: false
+      schema:
+        $ref: 'https://api.swaggerhub.com/domains/dcsaorg/DCSA_DOMAIN/1.0.2#/components/schemas/startDate'
+    dateRange:  
+      in: query
+      name: dateRange
+      description: The time period for which schedule information is sent. The duration is populated in ISO 8601 Duration format.
+      required: false
+      schema:
+        $ref: 'https://api.swaggerhub.com/domains/dcsaorg/DCSA_DOMAIN/1.0.2#/components/schemas/dateRange'
