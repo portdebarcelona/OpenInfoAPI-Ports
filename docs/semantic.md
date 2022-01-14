@@ -98,13 +98,14 @@ who views or uses the information (CEFACT, documment ECE/TRADE/C/CEFACT/2019/27)
 - Some API implementations include a hash map used to map member names to URIs (uniform resourde identifiers).
 - Those URI can reference a local server, a GitHub URI or a particular URI of an implementation. Each alternative has pros and cons if we think about availability, lenght of the URI or control.  
 - This is one example that includes the @context:
-
+```json
       {
         "@context": [
           "https://uri.etsi.org/ngsi-ld/v1/ngsi-ld-core-context.jsonld",
           "https://fiware.github.io/data-models/context.jsonld"
         ]
-      }  
+      } 
+``` 
 ### Naming and Design Rules (NDR)
 - Most of the API guidelines include NDR as part of their specification.
 - The NDR provides a means to identify, capture and maximize the re-use of business
