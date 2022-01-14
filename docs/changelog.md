@@ -1,6 +1,11 @@
 # Work Tracking log
 Contains tracking of activities in this project.
-
+## Jaunary 18, 2022
+- Sharing OAS definitions
+- Definition of OAS template
+## January 14, 2022
+- Test of OAS definitions
+- Distribute work of catalog definition
 ## January 8, 2022
 - Some reorganization issues:
   - Link from approach.md to semantics.md 
