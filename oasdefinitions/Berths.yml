@@ -32,6 +32,7 @@ paths:
                 type: array
                 items: 
                   type: string
+                example: [ 1,2,3,4]
 components:
   parameters: 
     portCode:
@@ -54,7 +55,16 @@ components:
       style: form
       explode: false
       schema:
-        $ref: '#/components/schemas/imoVessel'
+        $ref: '#/components/schemas/vesselIMONumber'
+    enric:
+      in: query
+      name: enric
+      required: false
+      style: form
+      explode: false
+      schema:
+        $ref: 'OIAP_schemas.yml#/components/schemas/enric'
+        name: kaka
 
   schemas:
     portCode:
@@ -70,13 +80,18 @@ components:
       type: string
       maxLength: 5
       example: ESBCN
-    imoVessel:
-      name: imoVessel
+    vesselIMONumber:
+      name: vesselIMONumber
       description: |
             Vessel IMO code
             example: imoVessel=1234599
+            https://api.swaggerhub.com/domains/dcsaorg/EVENT_DOMAIN/1.1.0#/components/parameters/vesselIMONumber
+
       required: false
       style: form
       explode: false
-      schema:
-        $ref: 'https://api.swaggerhub.com/domains/dcsaorg/EVENT_DOMAIN/1.1.0#/components/parameters/vesselIMONumber'  
+      type: string
+      maxLength: 7
+      example: 9321483
+       
+
