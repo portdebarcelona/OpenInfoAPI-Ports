@@ -3,7 +3,7 @@
 ## Definition
 Information about the berths of a port.
 ## Endpoint
-[OAS yaml definition](../oasdefinitions/Berths.yml)
+[OAS yaml definition](../../oasdefinitions/Berths.yml)
 ## Parameters
 None.
 ## Output 
