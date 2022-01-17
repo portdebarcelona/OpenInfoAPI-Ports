@@ -63,33 +63,24 @@ components:
       style: form
       explode: false
       schema:
-        $ref: 'OIAP_schemas.yml#/components/schemas/enric'
+        $ref: 'OIAP_schemas_infrastructures.yml#/components/schemas/enric'
         name: kaka
 
   schemas:
     portCode:
-      name: portCode
       description: |
             UN/LOCODE of Port
             example: portCode=ESBCN
 
             Default value is Locode of Port what provides the services
-      required: false
-      style: form
-      explode: false
       type: string
       maxLength: 5
       example: ESBCN
     vesselIMONumber:
-      name: vesselIMONumber
       description: |
             Vessel IMO code
             example: imoVessel=1234599
             https://api.swaggerhub.com/domains/dcsaorg/EVENT_DOMAIN/1.1.0#/components/parameters/vesselIMONumber
-
-      required: false
-      style: form
-      explode: false
       type: string
       maxLength: 7
       example: 9321483

@@ -13,15 +13,11 @@ info:
 components:
   schemas:
     enric:
-      name: enric
       description: |
             Prova Enric
             example: portCode=ESBCN
 
             Default value is Locode of Port what provides the services
-      required: false
-      style: form
-      explode: false
       type: string
       maxLength: 5
       example: ESBCN
