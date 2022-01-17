@@ -15,10 +15,9 @@ components:
     enric:
       description: |
             Prova Enric
-            example: portCode=ESBCN
-
-            Default value is Locode of Port what provides the services
+            example: enric=Port de Barcelona
+            Default value is "Works for Port of Barcelona"
       type: string
-      maxLength: 5
-      example: ESBCN
+      maxLength: 35
+      example: Works for Port of Barcelona
       

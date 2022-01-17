@@ -15,6 +15,7 @@ tags:
     description: "Berths of a Port, with main characteristics: identification, length, depth"
 servers:
   - url: https://api.server.test/v1
+  - url: https://api.swaggerhub.com 
 paths:
   /berths:
     get:
@@ -23,6 +24,7 @@ paths:
       parameters:
         - $ref: '#/components/parameters/portCode'
         - $ref: '#/components/parameters/imoVessel'
+        - $ref: '#/components/parameters/enric'
       responses:
         '200':    # status code
           description: A JSON array of user names
@@ -59,12 +61,14 @@ components:
     enric:
       in: query
       name: enric
+      description: |
+        Dummy value
       required: false
       style: form
       explode: false
       schema:
-        $ref: 'OIAP_schemas_infrastructures.yml#/components/schemas/enric'
-        name: kaka
+        $ref: '#/components/schemas/enric'
+     
 
   schemas:
     portCode:
@@ -77,12 +81,18 @@ components:
       maxLength: 5
       example: ESBCN
     vesselIMONumber:
-      description: |
-            Vessel IMO code
-            example: imoVessel=1234599
-            https://api.swaggerhub.com/domains/dcsaorg/EVENT_DOMAIN/1.1.0#/components/parameters/vesselIMONumber
-      type: string
-      maxLength: 7
-      example: 9321483
-       
+      type: object
+      $ref: 'https://api.swaggerhub.com/domains/dcsaorg/EVENT_DOMAIN/1.1.0#/components/parameters/vesselIMONumber'
+    enric:
+      type: object
+      $ref: './OIAP_schemas_infrastructures.yml#/components/schemas/enric'
+    jaume:
+      type: object
+      allOf:
+        - type: object
+          properties:
+            subscriptionID:
+              $ref: 'https://api.swaggerhub.com/domains/dcsaorg/EVENT_DOMAIN/1.0.4#/components/schemas/subscriptionID'
+        - $ref: '#/components/schemas/enric'
+
 
