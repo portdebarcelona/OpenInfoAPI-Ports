@@ -17,7 +17,7 @@ servers:
   - url: https://api.server.test/v1
   - url: https://api.swaggerhub.com/domains/dcsaorg/EVENT_DOMAIN 
 paths:
-  /shipsArrival:
+  /shipsSchedulled:
     get:
       summary: Returns a list of ships that will arrive at a port in a given period of time
       description: Returns a list of ships that will arrive at a port in a given period of time
