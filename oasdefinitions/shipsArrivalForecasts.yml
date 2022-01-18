@@ -23,46 +23,97 @@ paths:
       description: Returns a list of ships that will arrive at a port in a given period of time
       parameters:
         - $ref: '#/components/parameters/portCode'
-        - $ref: '#/components/parameters/period'
+        - $ref: '#/components/parameters/startDate'
+        - $ref: '#/components/parameters/dateRange'
         - $ref: '#/components/parameters/shipType'
-      responses:
-        '200':    # status code
-          description: A JSON array of user names
+      responses: #status code
+        '200':
+          description: Successful operation
+          headers:
+            API-Version:
+              $ref: 'https://api.swaggerhub.com/domains/dcsaorg/DCSA_DOMAIN/1.0.2#/components/headers/API-Version'
+            Current-Page:
+              $ref: 'https://api.swaggerhub.com/domains/dcsaorg/DCSA_DOMAIN/1.0.2#/components/headers/Current-Page'
+            Next-Page:
+              $ref: 'https://api.swaggerhub.com/domains/dcsaorg/DCSA_DOMAIN/1.0.2#/components/headers/Next-Page'
+            Prev-Page:
+              $ref: 'https://api.swaggerhub.com/domains/dcsaorg/DCSA_DOMAIN/1.0.2#/components/headers/Prev-Page'
+            Last-Page:
+              $ref: 'https://api.swaggerhub.com/domains/dcsaorg/DCSA_DOMAIN/1.0.2#/components/headers/Last-Page'
+            First-Page:
+              $ref: 'https://api.swaggerhub.com/domains/dcsaorg/DCSA_DOMAIN/1.0.2#/components/headers/First-Page'
           content:
             application/json:
-              schema: 
+              schema:
                 type: array
-                items: 
-                  type: string
-                example: [ 1,2,3,4]
+                items:
+                  anyOf:
+                    - $ref: 'https://api.swaggerhub.com/domains/dcsaorg/EVENT_DOMAIN/1.1.0#/components/schemas/operationsEvent'
+                    - $ref: 'https://api.swaggerhub.com/domains/dcsaorg/EVENT_DOMAIN/1.1.0#/components/schemas/operationsTransportEvent'
+              example: 
+                eventID: 84db923d-2a19-4eb0-beb5-446c1ec57d34
+                eventCreatedDateTime: 2021-01-09T14:12:56+01:00
+                eventType: TRANSPORT
+                eventClassifierCode: ACT
+                eventDateTime: 2019-11-12T07:41:00+08:30
+                transportEventTypeCode: ARRI
+                delayReasonCode: WEA
+                changeRemark: Bad weather
+                transportCall: 
+                  transportCallID: 123e4567-e89b-12d3-a456-426614174000
+                  carrierServiceCode: FE1
+                  arrierVoyageNumber: 2103S
+                  transportCallSequenceNumber: 2103S
+                  UNLocationCode: USNYC
+                  facilityCode: ADT
+                  facilityCodeListProvider: SMDG
+                  facilityTypeCode: POTE
+                  otherFacility: Depot location or address
+                  modeOfTransport: VESSEL
+                  vessel: 
+                    vesselIMONumber: 9321483
+                    vesselName: King of the Seas
+        default:
+          description: Unexpected error
+          headers:
+            API-Version:
+              $ref: 'https://api.swaggerhub.com/domains/dcsaorg/DCSA_DOMAIN/1.0.2#/components/headers/API-Version'
+          content:
+            application/json:
+              schema:
+                $ref: 'https://api.swaggerhub.com/domains/dcsaorg/ERROR_DOMAIN/1.0.0#/components/schemas/error'                
 components:
   parameters: 
+    ##################
+    # Query parameters
+    ##################
+
     portCode:
       in: query
       name: portCode
       description: |
-            UN/LOCODE of Port
-            example: portCode=ESBCN
-
+            Port UN/LOCODE
             Default value is Locode of Port what provides the services
+            example: portCode=ESBCN        
       required: false
       style: form
       explode: false
       schema:
         $ref: '#/components/schemas/portCode'
-    period:
+    startDate:  
       in: query
-      name: period
-      description: |
-            Requested period of time
-            example: period=ESBCN
-
-            Default value is the present day
+      name: startDate
+      description: The start date of the period for which schedule information is requested. The value is populated in ISO 8601 Date format. If not provided, the current date is used by default.
       required: false
-      style: form
-      explode: false
       schema:
-        $ref: '#/components/schemas/period'    
+        $ref: '#/components/schemas/startDate'
+    dateRange:  
+      in: query
+      name: dateRange
+      description: The time period for which schedule information is sent. The duration is populated in ISO 8601 Duration format.
+      required: false
+      schema:
+        $ref: '#/components/schemas/dateRange'
     shipType:
       in: query
       name: shipType
@@ -77,30 +128,31 @@ components:
   schemas:
     portCode:
       description: |
-            UN/LOCODE of Port
-            example: portCode=ESBCN
-
-            Default value is Locode of Port what provides the services
+            Port UN/LOCODE
       type: string
       maxLength: 5
       example: ESBCN
     period:
       description: |
-            Requested period of time
-            example: period=ESBCN
-
-            Default value is the present day
+            Period of time
       type: string
       maxLength: 15
-      example: ESBCN    
+      example: E    
     shipType:
       description: |
-            Requested period of time
-            example: period=ESBCN
-
-            Default value is the present day
+            Type of vessel
       type: string
       maxLength: 15
       example: ESBCN     
-      type: object
       $ref: 'https://api.swaggerhub.com/domains/dcsaorg/EVENT_DOMAIN/1.1.0#/components/parameters/vesselIMONumber'
+    startDate:  
+      description: The start date of the period for which schedule information is sent. The value is populated in ISO 8601 Date format.
+      type: string
+      format: date
+      example: 2020-04-06
+    dateRange: 
+      description: 
+            The time period for which schedule information is sent. The duration is populated in ISO 8601 Duration format.
+      type: string
+      format: iso8601
+      example: P4W
