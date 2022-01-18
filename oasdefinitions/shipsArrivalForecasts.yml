@@ -42,37 +42,18 @@ paths:
               $ref: '#/components/headers/Last-Page'
             First-Page:
               $ref: '#/components/headers/First-Page'
-          content: #pendent de adaptar
+          content: 
             application/json:
               schema:
                 type: array
                 items:
                   anyOf:
-                    - $ref: 'https://api.swaggerhub.com/domains/dcsaorg/EVENT_DOMAIN/1.1.0#/components/schemas/operationsEvent'
-                    - $ref: 'https://api.swaggerhub.com/domains/dcsaorg/EVENT_DOMAIN/1.1.0#/components/schemas/operationsTransportEvent'
-              example: #pendent de adaptar
-                eventID: 84db923d-2a19-4eb0-beb5-446c1ec57d34
-                eventCreatedDateTime: 2021-01-09T14:12:56+01:00
-                eventType: TRANSPORT
-                eventClassifierCode: ACT
-                eventDateTime: 2019-11-12T07:41:00+08:30
-                transportEventTypeCode: ARRI
-                delayReasonCode: WEA
-                changeRemark: Bad weather
-                transportCall: 
-                  transportCallID: 123e4567-e89b-12d3-a456-426614174000
-                  carrierServiceCode: FE1
-                  arrierVoyageNumber: 2103S
-                  transportCallSequenceNumber: 2103S
-                  UNLocationCode: USNYC
-                  facilityCode: ADT
-                  facilityCodeListProvider: SMDG
-                  facilityTypeCode: POTE
-                  otherFacility: Depot location or address
-                  modeOfTransport: VESSEL
-                  vessel: 
-                    vesselIMONumber: 9321483
-                    vesselName: King of the Seas
+                    - $ref: '#/components/schemas/shipArrivalForecast'
+              example: 
+                oneOf:
+                  vesselIMONumber: 1234567
+                  vesselName: ALLURE OF THE SEAS
+                  estimatedTimeOfArrival: 2022-01-21 08:05
         default:
           description: Unexpected error
           headers:
@@ -166,20 +147,7 @@ components:
             Port UN/LOCODE
       type: string
       maxLength: 5
-      example: ESBCN
-    period:
-      description: |
-            Period of time
-      type: string
-      maxLength: 15
-      example: E    
-    shipType:
-      description: |
-            Type of vessel
-      type: string
-      maxLength: 15
-      example: ESBCN     
-      $ref: 'https://api.swaggerhub.com/domains/dcsaorg/EVENT_DOMAIN/1.1.0#/components/parameters/vesselIMONumber'
+      example: ESBCN 
     startDate:  
       description: The start date of the period for which schedule information is sent. The value is populated in ISO 8601 Date format.
       type: string
@@ -191,6 +159,47 @@ components:
       type: string
       format: iso8601
       example: P4W
+    shipType:
+      description: |
+            Type of vessel
+      type: string
+      maxLength: 15
+      example: ESBCN     
+      $ref: 'https://api.swaggerhub.com/domains/dcsaorg/EVENT_DOMAIN/1.1.0#/components/parameters/vesselIMONumber'
+    shipArrivalForecast:
+      description: list of ships that will arrive on a given period of time
+      type: object
+      allOf:
+        - type: object
+          properties:
+            vesselIMONumber:
+              $ref: '#/components/schemas/vesselIMONumber'
+        - type: object
+          properties:
+            vesselName:
+              $ref: '#/components/schemas/vesselName'
+        - type: object
+          properties:
+            estimatedTimeOfArrival:
+              $ref: '#/components/schemas/estimatedTimeOfArrival'
+      required: 
+        - vesselIMONumber
+        - vesselName
+        - estimatedTimeOfArrival
+      example: nom del vaixell
+    vesselIMONumber:
+      type: string
+      description: https://api.swaggerhub.com/domains/dcsaorg/EVENT_DOMAIN/1.1.0#/components/parameters/vesselIMONumber
+      maxLength: 7 
+    vesselName:
+      type: string
+      description: https://app.swaggerhub.com/domains/dcsaorg/DCSA_DOMAIN/1.0.2#/components/schemas/vesselName
+      maxLength: 35 
+    estimatedTimeOfArrival:  
+      description: The date and time the ship is estimated to arrive at a specified location (ETA), in ISO 8601 Date format.
+      type: string
+      format: date
+      example: 2020-04-06
     error: 
       description: 
             The time period for which schedule information is sent. The duration is populated in ISO 8601 Duration format.
