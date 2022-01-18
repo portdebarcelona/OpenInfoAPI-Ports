@@ -1,6 +1,6 @@
 openapi: '3.0.3'
 info:
-  version: '1.0'
+  version: '1.0.0'
   title: API Ships Arrival Forecasts info
   description: 
     Forecast of ships that will arrive at a port in a given period of time. 
@@ -47,13 +47,7 @@ paths:
               schema:
                 type: array
                 items:
-                  anyOf:
-                    - $ref: '#/components/schemas/shipArrivalForecast'
-              example: 
-                oneOf:
-                  vesselIMONumber: 1234567
-                  vesselName: ALLURE OF THE SEAS
-                  estimatedTimeOfArrival: 2022-01-21 08:05
+                  $ref: '#/components/schemas/shipArrivalForecast'
         default:
           description: Unexpected error
           headers:
@@ -134,7 +128,7 @@ components:
       in: query
       name: shipType
       description:
-            Type of ships
+            Type of ship 
             Default value are all types
       required: false
       style: form
@@ -155,54 +149,65 @@ components:
       example: 2020-04-06
     dateRange: 
       description: 
-            The time period for which schedule information is sent. The duration is populated in ISO 8601 Duration format.
+            The time period for which schedule information is sent. The duration is populated in ISO 8601 Duration format. E.g. 4 weeks and 2 days is represented as P4W2D
       type: string
       format: iso8601
       example: P4W
     shipType:
       description: |
-            Type of vessel
+            The type of the ship shown on its IMO ship's certificate.
       type: string
       maxLength: 15
-      example: ESBCN     
-      $ref: 'https://api.swaggerhub.com/domains/dcsaorg/EVENT_DOMAIN/1.1.0#/components/parameters/vesselIMONumber'
+      example: CONTAINERSHIP     
     shipArrivalForecast:
       description: list of ships that will arrive on a given period of time
       type: object
       allOf:
         - type: object
           properties:
-            vesselIMONumber:
-              $ref: '#/components/schemas/vesselIMONumber'
+            shipIMONumber:
+              $ref: '#/components/schemas/shipIMONumber'
         - type: object
           properties:
-            vesselName:
-              $ref: '#/components/schemas/vesselName'
+            shipName:
+              $ref: '#/components/schemas/shipName'
+        - type: object
+          properties:
+            shipType:
+              $ref: '#/components/schemas/shipType'
         - type: object
           properties:
             estimatedTimeOfArrival:
               $ref: '#/components/schemas/estimatedTimeOfArrival'
       required: 
-        - vesselIMONumber
-        - vesselName
+        - shipIMONumber
+        - shipName
+        - shipType
         - estimatedTimeOfArrival
-      example: nom del vaixell
-    vesselIMONumber:
+    shipIMONumber:
       type: string
-      description: https://api.swaggerhub.com/domains/dcsaorg/EVENT_DOMAIN/1.1.0#/components/parameters/vesselIMONumber
       maxLength: 7 
-    vesselName:
+      description: The identifier of ship for which schedule details are published.
+      example: 9876543 
+    shipName:
       type: string
-      description: https://app.swaggerhub.com/domains/dcsaorg/DCSA_DOMAIN/1.0.2#/components/schemas/vesselName
-      maxLength: 35 
+      description: https://app.swaggerhub.com/domains/dcsaorg/DCSA_DOMAIN/1.0.2#/components/schemas/shipName
+      maxLength: 35
+      example: MSC GULSUN 
     estimatedTimeOfArrival:  
       description: The date and time the ship is estimated to arrive at a specified location (ETA), in ISO 8601 Date format.
       type: string
       format: date
       example: 2020-04-06
-    error: 
+    error:
+      type: object
       description: 
-            The time period for which schedule information is sent. The duration is populated in ISO 8601 Duration format.
-      type: string
-      format: iso8601
-      example: P4W
+        Error body
+      properties:
+        code:
+          type: string
+        message:
+          type: string
+      required:
+        - code
+        - message
