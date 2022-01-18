@@ -31,18 +31,18 @@ paths:
           description: Successful operation
           headers:
             API-Version:
-              $ref: 'https://api.swaggerhub.com/domains/dcsaorg/DCSA_DOMAIN/1.0.2#/components/headers/API-Version'
+              $ref: '#/components/headers/API-Version'
             Current-Page:
-              $ref: 'https://api.swaggerhub.com/domains/dcsaorg/DCSA_DOMAIN/1.0.2#/components/headers/Current-Page'
+              $ref: '#/components/headers/Current-Page'
             Next-Page:
-              $ref: 'https://api.swaggerhub.com/domains/dcsaorg/DCSA_DOMAIN/1.0.2#/components/headers/Next-Page'
+              $ref: '#/components/headers/Next-Page'
             Prev-Page:
-              $ref: 'https://api.swaggerhub.com/domains/dcsaorg/DCSA_DOMAIN/1.0.2#/components/headers/Prev-Page'
+              $ref: '#/components/headers/Prev-Page'
             Last-Page:
-              $ref: 'https://api.swaggerhub.com/domains/dcsaorg/DCSA_DOMAIN/1.0.2#/components/headers/Last-Page'
+              $ref: '#/components/headers/Last-Page'
             First-Page:
-              $ref: 'https://api.swaggerhub.com/domains/dcsaorg/DCSA_DOMAIN/1.0.2#/components/headers/First-Page'
-          content:
+              $ref: '#/components/headers/First-Page'
+          content: #pendent de adaptar
             application/json:
               schema:
                 type: array
@@ -50,7 +50,7 @@ paths:
                   anyOf:
                     - $ref: 'https://api.swaggerhub.com/domains/dcsaorg/EVENT_DOMAIN/1.1.0#/components/schemas/operationsEvent'
                     - $ref: 'https://api.swaggerhub.com/domains/dcsaorg/EVENT_DOMAIN/1.1.0#/components/schemas/operationsTransportEvent'
-              example: 
+              example: #pendent de adaptar
                 eventID: 84db923d-2a19-4eb0-beb5-446c1ec57d34
                 eventCreatedDateTime: 2021-01-09T14:12:56+01:00
                 eventType: TRANSPORT
@@ -77,17 +77,52 @@ paths:
           description: Unexpected error
           headers:
             API-Version:
-              $ref: 'https://api.swaggerhub.com/domains/dcsaorg/DCSA_DOMAIN/1.0.2#/components/headers/API-Version'
+              $ref: '#/components/headers/API-Version'
           content:
             application/json:
               schema:
-                $ref: 'https://api.swaggerhub.com/domains/dcsaorg/ERROR_DOMAIN/1.0.0#/components/schemas/error'                
+                $ref: '#/components/schemas/error'                
 components:
+  headers: 
+    Current-Page: 
+        schema: 
+            type: string
+            example: fE9mZnNldHw9MCZsaW1pdD01
+        description: A link to the current page.
+        required: true
+    Next-Page: 
+        schema:
+            type: string
+            example: fE9mZnNldHw9NSZsaW1pdD01
+        description: A link to the next page. Next-Page header link MAY be omitted if the current page is the last page.
+        required: false
+    Prev-Page:
+        schema: 
+            type: string
+            example: fE9mZnNldHw9MCZsaW1pdD01
+        description: A link to the previous page. Previous-Page header link MAY be omitted if the current page is the first page.
+        required: false
+    Last-Page: 
+        schema: 
+            type: string
+            example: fE9mZnNldHw9NTkmbGltaXQ9NQ==
+        description: A link to the last page. Last-Page header link MAY be omitted if the current page is the last page.
+        required: false
+    First-Page: 
+        schema: 
+            type: string
+            example: fE9mZnNldHw9NjAmbGltaXQ9NQ==
+        description: A link to thefirst page. First-Page header link MAY be omitted if current page is the first page.
+        required: false
+    API-Version:
+        schema: 
+            type: string
+            example: 1.0.0
+        description: SemVer used to indicate the version of the contract (API version) returned.
   parameters: 
     ##################
     # Query parameters
     ##################
-
     portCode:
       in: query
       name: portCode
@@ -151,6 +186,12 @@ components:
       format: date
       example: 2020-04-06
     dateRange: 
+      description: 
+            The time period for which schedule information is sent. The duration is populated in ISO 8601 Duration format.
+      type: string
+      format: iso8601
+      example: P4W
+    error: 
       description: 
             The time period for which schedule information is sent. The duration is populated in ISO 8601 Duration format.
       type: string
