@@ -68,8 +68,6 @@ components:
       explode: false
       schema:
         $ref: '#/components/schemas/enric'
-     
-
   schemas:
     portCode:
       description: |
