@@ -1,7 +1,7 @@
 openapi: '3.0.3'
 info:
   version: '1.0.0'
-  title: API TEST - Weather
+  title: API TEST - Weather (from FIWARE)
   description: 
     Forecast of ships that will arrive at a port in a given period of time. 
   license:
