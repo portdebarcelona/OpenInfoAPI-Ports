@@ -1,0 +1,178 @@
+openapi: '3.0.3'
+info:
+  version: '1.0.0'
+  title: API TEST - Weather
+  description: 
+    Forecast of ships that will arrive at a port in a given period of time. 
+  license:
+    name: CC0 1.0 Universal (CC0 1.0)
+    url: https://creativecommons.org/publicdomain/zero/1.0/deed.es
+  contact:
+    name: OpenInfoAPI github
+    url: https://github.com/portdebarcelona/OpenInfoAPI-Ports
+tags:
+  - name: Ships Arrival Forecasts details
+    description: "Ships that will arrive at a port in a given period of time"
+servers:
+  - url: https://api.server.test/v1
+paths:
+  /weather:
+    get:
+      summary: Returns a list of ships that will arrive at a port in a given period of time
+components:
+  schemas:
+    WeatherCommons:
+      type: object
+      allOf:
+        - $ref: '#/components/schemas/WeatherAirConditions'
+      properties:
+        refPointOfInterest:
+          x-ngsi:
+            type: Relationship
+            model: 'https://schema.org/URL'
+          type: string
+          format: uri
+          description: 'A reference to a point of interest associated to this forecast.'
+        visibility:
+          $ref: '#/components/schemas/Visibility'
+        weatherType:
+          $ref: '#/components/schemas/WeatherType'
+        windDirection:
+          description: Wind direction forecasted
+          type: number
+          minimum: -180
+          maximum: 180
+        windSpeed:
+          description: Wind speed forecasted.
+          type: number
+          minimum: 0
+    WeatherAirConditions: 
+      type: object
+      properties:
+        temperature:
+          description: Air's temperature forecasted.
+          type: number
+        feelsLikeTemperature:
+          description: Feels like temperature forecasted.
+          type: number
+        relativeHumidity:
+          description: Air's relative humidity forecasted (percentage, expressed in parts per one).
+          type: number
+          minimum: 0
+          maximum: 1
+    WeatherAlertCategories: 
+      description: |
+        - `avalanches`
+        - `coastalEvent`
+        - `coldWave`
+        - `flood`
+        - `fog`
+        - `forestFire`
+        - `heatWave`
+        - `highTemperature`
+        - `hurricane`
+        - `ice`
+        - `lowTemperature`
+        - `rain/flood`
+        - `rainfall`
+        - `snow`
+        - `snow/ice`
+        - `thunderstorms`
+        - `tornado`
+        - `tropicalCyclone`
+        - `tsunami`
+        - `wind`
+      enum: 
+        - avalanches
+        - coastalEvent
+        - coldWave
+        - flood
+        - fog
+        - forestFire
+        - heatWave
+        - highTemperature
+        - hurricane
+        - ice
+        - lowTemperature
+        - rain/flood
+        - rainfall
+        - snow
+        - snow/ice
+        - thunderstorms
+        - tornado
+        - tropicalCyclone
+        - tsunami
+        - wind
+      type: string
+    Visibility:
+      description: |
+        - `veryPoor`
+        - `poor`
+        - `moderate`
+        - `good`
+        - `veryGood`
+        - `excellent`
+      type: string
+      enum:
+        - veryPoor
+        - poor
+        - moderate
+        - good
+        - veryGood
+        - excellent
+    WeatherType: 
+      type: string 
+      description: |
+        - `clearNight`
+        - `cloudy`
+        - `drizzle`
+        - `fog`
+        - `hail`
+        - `hailShower`
+        - `heavyRain`
+        - `heavyRainShower`
+        - `heavySnowShower`
+        - `heavySnow`
+        - `highClouds`
+        - `lightRain`
+        - `lightRainShower`
+        - `lightSnow`
+        - `mist`
+        - `overcast`
+        - `partlyCloudy`
+        - `sleet`
+        - `sleetShower`
+        - `slightlyCloudy`
+        - `shower`
+        - `snow`
+        - `sunnyDay`
+        - `thunderShower`
+        - `thunder`
+        - `veryCloudy`
+      enum:
+        - clearNight
+        - cloudy
+        - drizzle
+        - fog
+        - hail
+        - hailShower
+        - heavyRain
+        - heavyRainShower
+        - heavySnowShower
+        - heavySnow
+        - highClouds
+        - lightRain
+        - lightRainShower
+        - lightSnow
+        - mist
+        - overcast
+        - partlyCloudy
+        - sleet
+        - sleetShower
+        - slightlyCloudy
+        - shower
+        - snow
+        - sunnyDay
+        - thunderShower
+        - thunder
+        - veryCloudy
