@@ -15,7 +15,6 @@ tags:
     description: "Ships that will arrive at a port in a given period of time"
 servers:
   - url: https://api.server.test/v1
-  - url: https://api.swaggerhub.com/domains/dcsaorg/EVENT_DOMAIN 
 paths:
   /shipsSchedulled:
     get:
@@ -115,6 +114,8 @@ components:
       name: startDate
       description: The start date of the period for which schedule information is requested. The value is populated in ISO 8601 Date format. If not provided, the current date is used by default.
       required: false
+      style: form
+      explode: false
       schema:
         $ref: '#/components/schemas/startDate'
     dateRange:  
@@ -122,6 +123,8 @@ components:
       name: dateRange
       description: The time period for which schedule information is sent. The duration is populated in ISO 8601 Duration format.
       required: false
+      style: form
+      explode: false
       schema:
         $ref: '#/components/schemas/dateRange'
     shipType:
@@ -191,7 +194,7 @@ components:
       example: 9876543 
     shipName:
       type: string
-      description: https://app.swaggerhub.com/domains/dcsaorg/DCSA_DOMAIN/1.0.2#/components/schemas/shipName
+      description: The ship’s name shown on the IMO ship’s certificates.
       maxLength: 35
       example: MSC GULSUN 
     estimatedTimeOfArrival:  
