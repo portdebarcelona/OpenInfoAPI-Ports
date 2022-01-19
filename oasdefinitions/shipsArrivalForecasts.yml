@@ -16,7 +16,7 @@ tags:
 servers:
   - url: https://api.server.test/v1
 paths:
-  /shipsSchedulled:
+  /shipsScheduled:
     get:
       summary: Returns a list of ships that will arrive at a port in a given period of time
       description: Returns a list of ships that will arrive at a port in a given period of time
@@ -121,10 +121,11 @@ components:
     dateRange:  
       in: query
       name: dateRange
-      description: The time period for which schedule information is sent. The duration is populated in ISO 8601 Duration format.
+      description: The time period for which schedule information is sent. The duration is populated in ISO 8601 Duration format. If not provided, 24 hours is used by default.
       required: false
       style: form
       explode: false
+      example: T24H
       schema:
         $ref: '#/components/schemas/dateRange'
     shipType:
