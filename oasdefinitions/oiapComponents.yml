@@ -227,11 +227,13 @@ components:
     berth:
       type: object
       description: 
-        Berth 
+        Identification of a berth from a port.  
       properties:
         code:
+          description: Berth code. Code assigned to a berth from a port.  
           type: string
         description:
+          description: Berth name. 
           type: string
       required:
         - code
