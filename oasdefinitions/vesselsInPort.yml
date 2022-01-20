@@ -15,6 +15,9 @@ tags:
     description: "Vessels that are anchored/moored in the port."
 servers:
   - url: https://api.server.test/v1
+# context":
+#     rec21: "https://unece.org/codelists/rec21#",
+#     rdfs: "http://www.w3.org/2000/01/rdf-schema#"
 paths:
   /shipsInPort:
     get:
@@ -37,7 +40,7 @@ paths:
             Last-Page:
               $ref: './oiapComponents.yml#/components/headers/Last-Page'
             First-Page:
-              $ref: './oiapComponents.yml#/components/headers/First-Page'
+              $ref: 'oiapComponents.yml#/components/headers/First-Page'
           content: 
             application/json:
               schema:
@@ -52,7 +55,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: './oiapComponents.yml#/components/schemas/error'                
+                $ref: 'oiapComponents.yml#/components/schemas/error'                
 components:
   parameters: 
     ##################
