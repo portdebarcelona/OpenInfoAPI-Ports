@@ -159,10 +159,11 @@ components:
       example: P4W
     shipType:
       description: |
-            The type of the ship shown on its IMO ship's certificate.
+            The type of the ship. The value is populated using the 3 character code from Annex 2 from UN/ECE Recommendation Nº28 when the means of transport is 1 (maritime).
+            E.g.  505 Is the code  for a Carrier, general cargo/container. A vessel designed to carry general cargo and containers. 
       type: string
-      maxLength: 15
-      example: CONTAINERSHIP     
+      maxLength: 3
+      example: 505     
     shipArrivalForecast:
       description: list of ships that will arrive on a given period of time
       type: object
@@ -191,15 +192,15 @@ components:
     shipIMONumber:
       type: string
       maxLength: 7 
-      description: The identifier of ship for which schedule details are published.
+      description: The identifier of ship.
       example: 9876543 
     shipName:
       type: string
       description: The ship’s name shown on the IMO ship’s certificates.
       maxLength: 35
-      example: MSC GULSUN 
+      example: MSC GULSUN
     estimatedTimeOfArrival:  
-      description: The date and time the ship is estimated to arrive at a specified location (ETA), in ISO 8601 Date format.
+      description: The date and time the means of transport is estimated to arrive at a specified location (ETA), in ISO 8601 Date format.
       type: string
       format: date
       example: 2020-04-06
