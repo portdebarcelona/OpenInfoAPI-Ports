@@ -27,17 +27,17 @@ paths:
           description: Successful operation
           headers:
             API-Version:
-              $ref: '#/components/headers/API-Version'
+              $ref: './oiapComponents.yml#/components/headers/API-Version'
             Current-Page:
-              $ref: '#/components/headers/Current-Page'
+              $ref: './oiapComponents.yml#/components/headers/Current-Page'
             Next-Page:
-              $ref: '#/components/headers/Next-Page'
+              $ref: './oiapComponents.yml#/components/headers/Next-Page'
             Prev-Page:
-              $ref: '#/components/headers/Prev-Page'
+              $ref: './oiapComponents.yml#/components/headers/Prev-Page'
             Last-Page:
-              $ref: '#/components/headers/Last-Page'
+              $ref: './oiapComponents.yml#/components/headers/Last-Page'
             First-Page:
-              $ref: '#/components/headers/First-Page'
+              $ref: './oiapComponents.yml#/components/headers/First-Page'
           content: 
             application/json:
               schema:
@@ -48,48 +48,12 @@ paths:
           description: Unexpected error
           headers:
             API-Version:
-              $ref: '#/components/headers/API-Version'
+              $ref: './oiapComponents.yml#/components/headers/API-Version'
           content:
             application/json:
               schema:
                 $ref: './oiapComponents.yml#/components/schemas/error'                
 components:
-  headers: 
-    Current-Page: 
-        schema: 
-            type: string
-            example: fE9mZnNldHw9MCZsaW1pdD01
-        description: A link to the current page.
-        required: true
-    Next-Page: 
-        schema:
-            type: string
-            example: fE9mZnNldHw9NSZsaW1pdD01
-        description: A link to the next page. Next-Page header link MAY be omitted if the current page is the last page.
-        required: false
-    Prev-Page:
-        schema: 
-            type: string
-            example: fE9mZnNldHw9MCZsaW1pdD01
-        description: A link to the previous page. Previous-Page header link MAY be omitted if the current page is the first page.
-        required: false
-    Last-Page: 
-        schema: 
-            type: string
-            example: fE9mZnNldHw9NTkmbGltaXQ9NQ==
-        description: A link to the last page. Last-Page header link MAY be omitted if the current page is the last page.
-        required: false
-    First-Page: 
-        schema: 
-            type: string
-            example: fE9mZnNldHw9NjAmbGltaXQ9NQ==
-        description: A link to thefirst page. First-Page header link MAY be omitted if current page is the first page.
-        required: false
-    API-Version:
-        schema: 
-            type: string
-            example: 1.0.0
-        description: SemVer used to indicate the version of the contract (API version) returned.
   parameters: 
     ##################
     # Query parameters
