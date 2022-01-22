@@ -1,9 +1,9 @@
 openapi: '3.0.3'
 info:
   version: '1.0.0'
-  title: Open Info API para Puertos (OIAP) Components
+  title: API Ships Arrival Forecasts info
   description: 
-    List of components that are used in the APIs developed for the Open Info API para Puertos project.
+    Forecast of ships that will arrive at a port in a given period of time. 
   license:
     name: CC0 1.0 Universal (CC0 1.0)
     url: https://creativecommons.org/publicdomain/zero/1.0/deed.es
@@ -11,20 +11,51 @@ info:
     name: OpenInfoAPI github
     url: https://github.com/portdebarcelona/OpenInfoAPI-Ports
 tags:
-  - name: OIAP Components
-    description: "List of components that are used in the APIs developed for the Open Info API para Puertos project."
+  - name: Ships Arrival Forecasts details
+    description: "Ships that will arrive at a port in a given period of time"
 servers:
-  - url: https://api.server.test/v1   
+  - url: https://api.server.test/v1
 paths:
-  /nothing:
+  /shipsScheduled:
     get:
-      responses:
+      summary: Returns a list of ships that will arrive at a port in a given period of time
+      description: Returns a list of ships that will arrive at a port in a given period of time
+      parameters:
+        - $ref: '#/components/parameters/portCode'
+        - $ref: '#/components/parameters/startDate'
+        - $ref: '#/components/parameters/dateRange'
+        - $ref: '#/components/parameters/shipType'
+      responses: #status code
+        '200':
+          description: Successful operation
+          headers:
+            API-Version:
+              $ref: '#/components/headers/API-Version'
+            Current-Page:
+              $ref: '#/components/headers/Current-Page'
+            Next-Page:
+              $ref: '#/components/headers/Next-Page'
+            Prev-Page:
+              $ref: '#/components/headers/Prev-Page'
+            Last-Page:
+              $ref: '#/components/headers/Last-Page'
+            First-Page:
+              $ref: '#/components/headers/First-Page'
+          content: 
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/shipArrivalForecast'
         default:
           description: Unexpected error
+          headers:
+            API-Version:
+              $ref: '#/components/headers/API-Version'
           content:
             application/json:
               schema:
-                $ref: './oiapComponents.yml#/components/schemas/error'
+                $ref: '#/components/schemas/error'                
 components:
   headers: 
     Current-Page: 
@@ -63,6 +94,9 @@ components:
             example: 1.0.0
         description: SemVer used to indicate the version of the contract (API version) returned.
   parameters: 
+    ##################
+    # Query parameters
+    ##################
     portCode:
       in: query
       name: portCode
@@ -106,7 +140,30 @@ components:
       schema:
         $ref: '#/components/schemas/shipType'
   schemas:
-    # Response components 
+    portCode:
+      description: |
+            Port UN/LOCODE
+      type: string
+      maxLength: 5
+      example: ESBCN 
+    startDate:  
+      description: The start date of the period for which schedule information is sent. The value is populated in ISO 8601 Date format.
+      type: string
+      format: date
+      example: 2020-04-06
+    dateRange: 
+      description: 
+            The time period for which schedule information is sent. The duration is populated in ISO 8601 Duration format. E.g. 4 weeks and 2 days is represented as P4W2D
+      type: string
+      format: iso8601
+      example: P4W
+    shipType:
+      description: |
+            The type of the ship. The value is populated using the 3 character code from Annex 2 from UN/ECE Recommendation Nº28 when the means of transport is 1 (maritime).
+            E.g.  505 Is the code  for a Carrier, general cargo/container. A vessel designed to carry general cargo and containers. 
+      type: string
+      maxLength: 3
+      example: 505     
     shipArrivalForecast:
       description: list of ships that will arrive on a given period of time
       type: object
@@ -132,63 +189,6 @@ components:
         - shipName
         - shipType
         - estimatedTimeOfArrival
-    shipInPort:
-      description: list of ships that now are in Port
-      type: object
-      allOf:
-        - type: object
-          properties:
-            shipIMONumber:
-              $ref: '#/components/schemas/shipIMONumber'
-        - type: object
-          properties:
-            shipName:
-              $ref: '#/components/schemas/shipName'
-        - type: object
-          properties:
-            shipType:
-              $ref: '#/components/schemas/shipType'
-        - type: object
-          properties:
-            actualTimeOfArrival:
-              $ref: '#/components/schemas/actualTimeOfArrival'
-        - type: object
-          properties:
-            estimatedTimeOfDeparture:
-              $ref: '#/components/schemas/estimatedTimeOfDeparture'
-        - type: object
-          properties:
-            berth:
-              $ref: '#/components/schemas/berth'
-        - type: object
-          properties:
-            lastPortOfCall:
-              $ref: '#/components/schemas/lastPortOfCall'       
-      required: 
-        - shipIMONumber
-        - shipName
-        - shipType
-        - actualTimeOfArrival
-        - estimatedTimeOfDeparture    
-    # Location components
-    portCode:
-      description: |
-            Port UN/LOCODE
-      type: string
-      maxLength: 5
-      example: ESBCN 
-    lastPortOfCall:
-      description: |
-            UN/LOCODE of the last POrt of Call
-      type: string
-      maxLength: 5
-      example: HKHKG 
-    nextPortOfCall:
-      description: UN/LOCODE from next port of call. 
-      type: string
-      maxLength: 5
-      example: NLRTM
-    # Ship components
     shipIMONumber:
       type: string
       maxLength: 7 
@@ -198,61 +198,12 @@ components:
       type: string
       description: The ship’s name shown on the IMO ship’s certificates.
       maxLength: 35
-      example: MSC GULSUN 
-    shipType:
-      description: |
-            The type of the ship. The value is populated using the 3 character code from Annex 2 from UN/ECE Recommendation Nº28 when the means of transport is 1 (maritime).
-            E.g.  505 Is the code  for a Carrier, general cargo/container. A vessel designed to carry general cargo and containers. 
-      type: string
-      maxLength: 3
-      example: 505    
-    # Date and time components
-    startDate:  
-      description: The start date of a period. The value is populated in ISO 8601 Date format.
-      type: string
-      format: date
-      example: 2020-04-06
-    dateRange: 
-      description: 
-            The duration of a time period. It is populated in ISO 8601 duration format. E.g. 4 weeks and 2 days is represented as P4W2D
-      type: string
-      format: iso8601
-      example: P4W  
+      example: MSC GULSUN
     estimatedTimeOfArrival:  
       description: The date and time the means of transport is estimated to arrive at a specified location (ETA), in ISO 8601 Date format.
       type: string
       format: date
       example: 2020-04-06
-    actualTimeOfArrival:  
-      description: The date and time the means of transport arrives at a specified location (ATA), in ISO 8601 Date format.
-      type: string
-      format: date
-      example: 2020-04-06 06:00
-    estimatedTimeOfDeparture:  
-      description: The date and time the means of transport is estimated to depart from a specified location (ETD), in ISO 8601 Date format.
-      type: string
-      format: date
-      example: 2020-04-08 12:00
-    actualTimeOfDeparture:  
-      description: The date and time the means of transport departs from a specified location (ATD), in ISO 8601 Date format.
-      type: string
-      format: date
-      example: 2020-04-06 06:00      
-    # Infrastructure components
-    berth:
-      type: object
-      description: 
-        Identification of a berth from a port.  
-      properties:
-        code:
-          description: Berth code. Code assigned to a berth from a port.  
-          type: string
-        description:
-          description: Berth name. 
-          type: string
-      required:
-        - code
-    # Error schemas
     error:
       type: object
       description: 
@@ -265,6 +216,3 @@ components:
       required:
         - code
         - message
-# https://service.unece.org/trade/uncefact/vocabulary/rec20/
-# https://service.unece.org/trade/uncefact/vocabulary/rec21/
-# https://service.unece.org/trade/uncefact/vocabulary/unlocode-CC/  (CC is 2a ISO3166 country code)
