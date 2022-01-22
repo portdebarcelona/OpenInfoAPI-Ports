@@ -259,6 +259,39 @@ components:
         - shipIMONumber
         - shipName
         - estimatedTimeOfArrival 
+    ferriesArrivals:
+      description: list of all the ferries that have arrived or will arrive today
+      type: object
+      allOf:
+        - type: object
+          properties:
+            shipName:
+              $ref: '#/components/schemas/shipName'
+        - type: object
+          properties:
+            ferryOperator:
+              $ref: '#/components/schemas/ferryOperator'
+        - type: object
+          properties:
+            actualTimeOfArrival:
+              $ref: '#/components/schemas/actualTimeOfArrival'
+        - type: object
+          properties:
+            estimatedTimeOfArrival:
+              $ref: '#/components/schemas/estimatedTimeOfArrival'
+        - type: object
+          properties:
+            nextPortOfCall:
+              $ref: '#/components/schemas/lastPortOfCall'
+        - type: object
+          properties:
+            berth:
+              $ref: '#/components/schemas/berth'
+      required: 
+        - shipName
+        - ferryOperator
+        - estimatedTimeOfArrival
+        - berth
     # Location components
     portCode:
       description: |
@@ -295,6 +328,22 @@ components:
       type: string
       maxLength: 3
       example: 505    
+    # Partners
+    ferryOperator:
+      type: object
+      description: 
+        Identification of the company that operates a ferry.  
+      properties:
+        code:
+          description: Operator code. Code assigned to a ferry operator.  
+          type: string
+          example: GRM
+        description:
+          description: Name of the ferry operator. 
+          type: string
+          example: GRIMALDI 
+      required:
+        - description
     # Date and time components
     startDate:  
       description: The start date of a period. The value is populated in ISO 8601 Date format.
