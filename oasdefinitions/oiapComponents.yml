@@ -154,7 +154,111 @@ components:
         - shipName
         - shipType
         - actualTimeOfArrival
-        - estimatedTimeOfDeparture    
+        - estimatedTimeOfDeparture 
+    shipArrivals:
+      description: list of ships that have arrived or will arrive today
+      type: object
+      allOf:
+        - type: object
+          properties:
+            shipIMONumber:
+              $ref: '#/components/schemas/shipIMONumber'
+        - type: object
+          properties:
+            shipName:
+              $ref: '#/components/schemas/shipName'
+        - type: object
+          properties:
+            shipType:
+              $ref: '#/components/schemas/shipType'
+        - type: object
+          properties:
+            actualTimeOfArrival:
+              $ref: '#/components/schemas/actualTimeOfArrival'
+        - type: object
+          properties:
+            estimatedTimeOfArrival:
+              $ref: '#/components/schemas/estimatedTimeOfArrival'
+        - type: object
+          properties:
+            nextPortOfCall:
+              $ref: '#/components/schemas/lastPortOfCall'
+        - type: object
+          properties:
+            berth:
+              $ref: '#/components/schemas/berth'
+      required: 
+        - shipIMONumber
+        - shipName
+        - shipType
+        - estimatedTimeOfArrival
+        - berth   
+    shipDepartures:
+      description: list of ships that have departed or will depart today
+      type: object
+      allOf:
+        - type: object
+          properties:
+            shipIMONumber:
+              $ref: '#/components/schemas/shipIMONumber'
+        - type: object
+          properties:
+            shipName:
+              $ref: '#/components/schemas/shipName'
+        - type: object
+          properties:
+            shipType:
+              $ref: '#/components/schemas/shipType'
+        - type: object
+          properties:
+            actualTimeOfDeparture:
+              $ref: '#/components/schemas/actualTimeOfDeparture'
+        - type: object
+          properties:
+            estimatedTimeOfDeparture:
+              $ref: '#/components/schemas/estimatedTimeOfDeparture'
+        - type: object
+          properties:
+            nextPortOfCall:
+              $ref: '#/components/schemas/nextPortOfCall'
+        - type: object
+          properties:
+            berth:
+              $ref: '#/components/schemas/berth'
+      required: 
+        - shipIMONumber
+        - shipName
+        - shipType
+        - estimatedTimeOfDeparture
+        - berth
+    aproximationManouvres:
+      description: list of ships that have initiated their aproximation manouvres
+      type: object
+      allOf:
+        - type: object
+          properties:
+            shipIMONumber:
+              $ref: '#/components/schemas/shipIMONumber'
+        - type: object
+          properties:
+            shipName:
+              $ref: '#/components/schemas/shipName'
+        - type: object
+          properties:
+            estimatedTimeOfArrival:
+              $ref: '#/components/schemas/estimatedTimeOfArrival'
+        - type: object
+          properties:
+            shipType:
+              $ref: '#/components/schemas/shipType'
+        - type: object
+          properties:
+            lastPortOfCall:
+              $ref: '#/components/schemas/lastPortOfCall'       
+      required: 
+        - shipIMONumber
+        - shipName
+        - estimatedTimeOfArrival 
     # Location components
     portCode:
       description: |
