@@ -10,21 +10,6 @@ info:
   contact:
     name: OpenInfoAPI github
     url: https://github.com/portdebarcelona/OpenInfoAPI-Ports
-tags:
-  - name: OIAP Components
-    description: "List of components that are used in the APIs developed for the Open Info API para Puertos project."
-servers:
-  - url: https://api.server.test/v1   
-paths:
-  /nothing:
-    get:
-      responses:
-        default:
-          description: Unexpected error
-          content:
-            application/json:
-              schema:
-                $ref: './oiapComponents.yml#/components/schemas/error'
 components:
   headers: 
     Current-Page: 
