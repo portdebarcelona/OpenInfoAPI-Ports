@@ -69,7 +69,7 @@ components:
       style: form
       explode: false
       schema:
-        $ref: '#/components/schemas/portCode'
+        $ref: './oiapComponents.yml#/components/schemas/portCode'
     shipType:
       in: query
       name: shipType
@@ -80,21 +80,8 @@ components:
       style: form
       explode: false
       schema:
-        $ref: '#/components/schemas/shipType'
-  schemas:
-    portCode:
-      description: |
-            Port UN/LOCODE
-      type: string
-      maxLength: 5
-      example: ESBCN 
-    shipType:
-      description: |
-            The type of the ship. The value is populated using the 3 character code from Annex 2 from UN/ECE Recommendation Nº28 when the means of transport is 1 (maritime).
-            E.g.  505 Is the code  for a Carrier, general cargo/container. A vessel designed to carry general cargo and containers. 
-      type: string
-      maxLength: 3
-      example: 505     
+        $ref: './oiapComponents.yml#/components/schemas/shipType'
+  schemas:   
     shipArrivals:
       description: list of ships that have arrived or will arrive today
       type: object

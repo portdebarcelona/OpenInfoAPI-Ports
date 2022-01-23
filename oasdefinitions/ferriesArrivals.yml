@@ -69,14 +69,8 @@ components:
       style: form
       explode: false
       schema:
-        $ref: '#/components/schemas/portCode'
-  schemas:
-    portCode:
-      description: |
-            Port UN/LOCODE
-      type: string
-      maxLength: 5
-      example: ESBCN   
+        $ref: './oiapComponents.yml#/components/schemas/portCode'
+  schemas:  
     ferriesArrivals:
       description: list of all the ferries that have arrived or will arrive today
       type: object
