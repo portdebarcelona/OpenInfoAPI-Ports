@@ -177,7 +177,7 @@ components:
           type: string
           example: TERMINAL CREUERS
         berth:
-          $ref: './oiapComponents.yml#/components/schemas/lastPortOfCall' 
+          $ref: './oiapComponents.yml#/components/schemas/berth' 
       required:
         - description
     # Error schemas
