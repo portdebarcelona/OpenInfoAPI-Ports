@@ -1,0 +1,249 @@
+openapi: '3.0.3'
+info:
+  version: '1.0.0'
+  title: Open Info API para Puertos (OIAP) Response Components
+  description: 
+    List of components from each API response developed for the Open Info API para Puertos project.
+    Responses are objects that contain several components. Schemas of those components are described in file "oiapComponents.yml".  
+  license:
+    name: CC0 1.0 Universal (CC0 1.0)
+    url: https://creativecommons.org/publicdomain/zero/1.0/deed.es
+  contact:
+    name: OpenInfoAPI github
+    url: https://github.com/portdebarcelona/OpenInfoAPI-Ports
+components:
+  schemas:
+    # Response components 
+    shipArrivalForecast:
+      description: list of ships that will arrive on a given period of time
+      type: object
+      allOf:
+        - type: object
+          properties:
+            shipIMONumber:
+              $ref: './oiapComponents.yml#/components/schemas/shipIMONumber'
+        - type: object
+          properties:
+            shipName:
+              $ref: './oiapComponents.yml#/components/schemas/shipName'
+        - type: object
+          properties:
+            shipType:
+              $ref: './oiapComponents.yml#/components/schemas/shipType'
+        - type: object
+          properties:
+            estimatedTimeOfArrival:
+              $ref: './oiapComponents.yml#/components/schemas/estimatedTimeOfArrival'
+      required: 
+        - shipIMONumber
+        - shipName
+        - shipType
+        - estimatedTimeOfArrival
+    shipInPort:
+      description: list of ships that now are in Port
+      type: object
+      allOf:
+        - type: object
+          properties:
+            shipIMONumber:
+              $ref: './oiapComponents.yml#/components/schemas/shipIMONumber'
+        - type: object
+          properties:
+            shipName:
+              $ref: './oiapComponents.yml#/components/schemas/shipName'
+        - type: object
+          properties:
+            shipType:
+              $ref: './oiapComponents.yml#/components/schemas/shipType'
+        - type: object
+          properties:
+            actualTimeOfArrival:
+              $ref: './oiapComponents.yml#/components/schemas/actualTimeOfArrival'
+        - type: object
+          properties:
+            estimatedTimeOfDeparture:
+              $ref: './oiapComponents.yml#/components/schemas/estimatedTimeOfDeparture'
+        - type: object
+          properties:
+            berth:
+              $ref: './oiapComponents.yml#/components/schemas/berth'
+        - type: object
+          properties:
+            lastPortOfCall:
+              $ref: './oiapComponents.yml#/components/schemas/lastPortOfCall'       
+      required: 
+        - shipIMONumber
+        - shipName
+        - shipType
+        - actualTimeOfArrival
+        - estimatedTimeOfDeparture 
+    shipArrivals:
+      description: list of ships that have arrived or will arrive today
+      type: object
+      allOf:
+        - type: object
+          properties:
+            shipIMONumber:
+              $ref: './oiapComponents.yml#/components/schemas/shipIMONumber'
+        - type: object
+          properties:
+            shipName:
+              $ref: './oiapComponents.yml#/components/schemas/shipName'
+        - type: object
+          properties:
+            shipType:
+              $ref: './oiapComponents.yml#/components/schemas/shipType'
+        - type: object
+          properties:
+            actualTimeOfArrival:
+              $ref: './oiapComponents.yml#/components/schemas/actualTimeOfArrival'
+        - type: object
+          properties:
+            estimatedTimeOfArrival:
+              $ref: './oiapComponents.yml#/components/schemas/estimatedTimeOfArrival'
+        - type: object
+          properties:
+            nextPortOfCall:
+              $ref: './oiapComponents.yml#/components/schemas/lastPortOfCall'
+        - type: object
+          properties:
+            berth:
+              $ref: './oiapComponents.yml#/components/schemas/berth'
+      required: 
+        - shipIMONumber
+        - shipName
+        - shipType
+        - estimatedTimeOfArrival
+        - berth   
+    shipDepartures:
+      description: list of ships that have departed or will depart today
+      type: object
+      allOf:
+        - type: object
+          properties:
+            shipIMONumber:
+              $ref: './oiapComponents.yml#/components/schemas/shipIMONumber'
+        - type: object
+          properties:
+            shipName:
+              $ref: './oiapComponents.yml#/components/schemas/shipName'
+        - type: object
+          properties:
+            shipType:
+              $ref: './oiapComponents.yml#/components/schemas/shipType'
+        - type: object
+          properties:
+            actualTimeOfDeparture:
+              $ref: './oiapComponents.yml#/components/schemas/actualTimeOfDeparture'
+        - type: object
+          properties:
+            estimatedTimeOfDeparture:
+              $ref: './oiapComponents.yml#/components/schemas/estimatedTimeOfDeparture'
+        - type: object
+          properties:
+            nextPortOfCall:
+              $ref: './oiapComponents.yml#/components/schemas/nextPortOfCall'
+        - type: object
+          properties:
+            berth:
+              $ref: './oiapComponents.yml#/components/schemas/berth'
+      required: 
+        - shipIMONumber
+        - shipName
+        - shipType
+        - estimatedTimeOfDeparture
+        - berth
+    aproximationManouvres:
+      description: list of ships that have initiated their aproximation manouvres
+      type: object
+      allOf:
+        - type: object
+          properties:
+            shipIMONumber:
+              $ref: './oiapComponents.yml#/components/schemas/shipIMONumber'
+        - type: object
+          properties:
+            shipName:
+              $ref: './oiapComponents.yml#/components/schemas/shipName'
+        - type: object
+          properties:
+            estimatedTimeOfArrival:
+              $ref: './oiapComponents.yml#/components/schemas/estimatedTimeOfArrival'
+        - type: object
+          properties:
+            shipType:
+              $ref: './oiapComponents.yml#/components/schemas/shipType'
+        - type: object
+          properties:
+            lastPortOfCall:
+              $ref: './oiapComponents.yml#/components/schemas/lastPortOfCall'       
+      required: 
+        - shipIMONumber
+        - shipName
+        - estimatedTimeOfArrival 
+    ferriesArrivals:
+      description: list of all the ferries that have arrived or will arrive today
+      type: object
+      allOf:
+        - type: object
+          properties:
+            shipName:
+              $ref: './oiapComponents.yml#/components/schemas/shipName'
+        - type: object
+          properties:
+            ferryOperator:
+              $ref: './oiapComponents.yml#/components/schemas/ferryOperator'
+        - type: object
+          properties:
+            actualTimeOfArrival:
+              $ref: './oiapComponents.yml#/components/schemas/actualTimeOfArrival'
+        - type: object
+          properties:
+            estimatedTimeOfArrival:
+              $ref: './oiapComponents.yml#/components/schemas/estimatedTimeOfArrival'
+        - type: object
+          properties:
+            lastPortOfCall:
+              $ref: './oiapComponents.yml#/components/schemas/lastPortOfCall'
+        - type: object
+          properties:
+            berth:
+              $ref: './oiapComponents.yml#/components/schemas/berth'
+      required: 
+        - shipName
+        - ferryOperator
+        - estimatedTimeOfArrival
+        - berth
+    ferriesDepartures:
+      description: list of all the ferries that have departed or will depart today
+      type: object
+      allOf:
+        - type: object
+          properties:
+            shipName:
+              $ref: './oiapComponents.yml#/components/schemas/shipName'
+        - type: object
+          properties:
+            ferryOperator:
+              $ref: './oiapComponents.yml#/components/schemas/ferryOperator'
+        - type: object
+          properties:
+            actualTimeOfDeparture:
+              $ref: './oiapComponents.yml#/components/schemas/actualTimeOfDeparture'
+        - type: object
+          properties:
+            estimatedTimeOfDEparture:
+              $ref: './oiapComponents.yml#/components/schemas/estimatedTimeOfDeparture'
+        - type: object
+          properties:
+            nextPortOfCall:
+              $ref: './oiapComponents.yml#/components/schemas/nextPortOfCall'
+        - type: object
+          properties:
+            berth:
+              $ref: './oiapComponents.yml#/components/schemas/berth'
+      required: 
+        - shipName
+        - ferryOperator
+        - estimatedTimeOfDeparture
+        - berth
