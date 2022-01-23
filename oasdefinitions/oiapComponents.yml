@@ -47,49 +47,6 @@ components:
             type: string
             example: 1.0.0
         description: SemVer used to indicate the version of the contract (API version) returned.
-  parameters: 
-    portCode:
-      in: query
-      name: portCode
-      description: |
-            Port UN/LOCODE
-            Default value is Locode of Port what provides the services
-            example: portCode=ESBCN        
-      required: false
-      style: form
-      explode: false
-      schema:
-        $ref: '#/components/schemas/portCode'
-    startDate:  
-      in: query
-      name: startDate
-      description: The start date of the period for which schedule information is requested. The value is populated in ISO 8601 Date format. If not provided, the current date is used by default.
-      required: false
-      style: form
-      explode: false
-      schema:
-        $ref: '#/components/schemas/startDate'
-    dateRange:  
-      in: query
-      name: dateRange
-      description: The time period for which schedule information is sent. The duration is populated in ISO 8601 Duration format. If not provided, 24 hours is used by default.
-      required: false
-      style: form
-      explode: false
-      example: T24H
-      schema:
-        $ref: '#/components/schemas/dateRange'
-    shipType:
-      in: query
-      name: shipType
-      description:
-            Type of ship 
-            Default value are all types
-      required: false
-      style: form
-      explode: false
-      schema:
-        $ref: '#/components/schemas/shipType'
   schemas:
     # Location components
     portCode:
