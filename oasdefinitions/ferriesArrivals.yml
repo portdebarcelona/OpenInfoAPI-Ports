@@ -99,7 +99,7 @@ components:
               $ref: './oiapComponents.yml#/components/schemas/estimatedTimeOfArrival'
         - type: object
           properties:
-            nextPortOfCall:
+            lastPortOfCall:
               $ref: './oiapComponents.yml#/components/schemas/lastPortOfCall'
         - type: object
           properties:

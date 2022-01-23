@@ -1,10 +1,9 @@
 openapi: '3.0.3'
 info:
   version: '1.0.0'
-  title: API Ships Departures info
+  title: API Ferries Departures info
   description: 
-    # PENDING !!!!
-    Vessels that have sailed up or are sailing up today.  
+    Ferries that have sailed up or are sailing up today.  
   license:
     name: CC0 1.0 Universal (CC0 1.0)
     url: https://creativecommons.org/publicdomain/zero/1.0/deed.es
@@ -12,15 +11,15 @@ info:
     name: OpenInfoAPI github
     url: https://github.com/portdebarcelona/OpenInfoAPI-Ports
 tags:
-  - name: Vessels that have sailed up or are sailing up today.
-    description: "Vessels that have sailed up or are sailing up today."
+  - name: Ferries that have sailed up or are sailing up today.
+    description: "Ferries that have sailed up or are sailing up today."
 servers:
   - url: https://api.server.test/v1
 paths:
   /shipsScheduled:
     get:
-      summary: Returns a list of ships that have departed or will depart today from a port. 
-      description: Returns a list of ships that have departed or will depart today from a port.
+      summary: Returns a list of ferries that have departed or will depart today from a port. 
+      description: Returns a list of ferries that have departed or will depart today from a port.
       parameters:
         - $ref: '#/components/parameters/portCode'
       responses: #status code
@@ -44,7 +43,7 @@ paths:
               schema:
                 type: array
                 items:
-                  $ref: '#/components/schemas/shipDepartures'
+                  $ref: '#/components/schemas/ferriesDepartures'
         default:
           description: Unexpected error
           headers:
@@ -96,22 +95,18 @@ components:
       type: string
       maxLength: 3
       example: 505     
-    shipDepartures:
-      description: list of ships that have departed or will depart today
+    ferriesDepartures:
+      description: list of ferries that have departed or will depart today
       type: object
       allOf:
-        - type: object
-          properties:
-            shipIMONumber:
-              $ref: './oiapComponents.yml#/components/schemas/shipIMONumber'
         - type: object
           properties:
             shipName:
               $ref: './oiapComponents.yml#/components/schemas/shipName'
         - type: object
           properties:
-            shipType:
-              $ref: './oiapComponents.yml#/components/schemas/shipType'
+            ferryOperator:
+              $ref: './oiapComponents.yml#/components/schemas/ferryOperator'
         - type: object
           properties:
             actualTimeOfDeparture:
@@ -129,8 +124,7 @@ components:
             berth:
               $ref: './oiapComponents.yml#/components/schemas/berth'
       required: 
-        - shipIMONumber
         - shipName
-        - shipType
+        - ferryOperator
         - estimatedTimeOfDeparture
         - berth
