@@ -1,9 +1,10 @@
 openapi: '3.0.3'
 info:
   version: '1.0.0'
-  title: API Vessels in Port info
+  title: API Cruise Calls info
   description: 
-    Vessels that are anchored/moored in the port. 
+    Cruise schedule.
+    Information of interest for passengers that have to embark on a cruise ship. 
   license:
     name: CC0 1.0 Universal (CC0 1.0)
     url: https://creativecommons.org/publicdomain/zero/1.0/deed.es
@@ -11,17 +12,18 @@ info:
     name: OpenInfoAPI github
     url: https://github.com/portdebarcelona/OpenInfoAPI-Ports
 tags:
-  - name: Vessels in Port details
-    description: "Vessels that are anchored/moored in the port."
+  - name: Cruise schedule
+    description: "Cruise schedule."
 servers:
   - url: https://api.server.test/v1
 paths:
-  /shipsInPort:
+  /cruise:
     get:
-      summary: Returns a list of ships that are anchored or moored now in a Port.
-      description: Returns a list of ships that are anchored or moored now in a Port.
+      summary: Returns information about next arrival and departure of a cruise ship.
+      description: Returns information about next arrival and departure of a cruise ship.
       parameters:
         - $ref: '#/components/parameters/portCode'
+        - $ref: '#/components/parameters/shipName'
       responses: #status code
         '200':
           description: Successful operation
@@ -43,7 +45,7 @@ paths:
               schema:
                 type: array
                 items:
-                  $ref: '#/components/schemas/shipInPort'
+                  $ref: '#/components/schemas/cruiseCall'
         default:
           description: Unexpected error
           headers:
@@ -70,42 +72,45 @@ components:
       explode: false
       schema:
         $ref: './oiapComponents.yml#/components/schemas/portCode'
+    shipName:
+      in: query
+      name: shipName
+      description: |
+            Name of the cruise ship.  
+            Example: shipName=NORWEGIAN EPIC        
+      required: false
+      style: form
+      explode: false
+      schema:
+        $ref: './oiapComponents.yml#/components/schemas/shipName'
   schemas: 
-    shipInPort:
-      description: list of ships that now are in Port
+    cruiseCall:
+      description: information about next cruise ship call. 
       type: object
       allOf:
-        - type: object
-          properties:
-            shipIMONumber:
-              $ref: './oiapComponents.yml#/components/schemas/shipIMONumber'
         - type: object
           properties:
             shipName:
               $ref: './oiapComponents.yml#/components/schemas/shipName'
         - type: object
           properties:
-            shipType:
-              $ref: './oiapComponents.yml#/components/schemas/shipType'
+            cruiseLine:
+              $ref: './oiapComponents.yml#/components/schemas/cruiseLine'
         - type: object
           properties:
-            actualTimeOfArrival:
-              $ref: './oiapComponents.yml#/components/schemas/actualTimeOfArrival'
+            estimatedTimeOfArrival:
+              $ref: './oiapComponents.yml#/components/schemas/estimatedTimeOfArrival'
         - type: object
           properties:
             estimatedTimeOfDeparture:
               $ref: './oiapComponents.yml#/components/schemas/estimatedTimeOfDeparture'
         - type: object
           properties:
-            berth:
-              $ref: './oiapComponents.yml#/components/schemas/berth'
-        - type: object
-          properties:
-            lastPortOfCall:
-              $ref: './oiapComponents.yml#/components/schemas/lastPortOfCall'       
+            facility:
+              $ref: './oiapComponents.yml#/components/schemas/facility'       
       required: 
-        - shipIMONumber
         - shipName
-        - shipType
-        - actualTimeOfArrival
-        - estimatedTimeOfDeparture 
+        - cruiseLine
+        - estimatedTimeOfArrival
+        - estimatedTimeOfDeparture
+        - facility 

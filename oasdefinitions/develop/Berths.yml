@@ -35,6 +35,9 @@ paths:
                 items: 
                   type: string
                 example: [ 1,2,3,4]
+# context":
+#     rec21: "https://unece.org/codelists/rec21#",
+#     rdfs: "http://www.w3.org/2000/01/rdf-schema#"
 components:
   parameters: 
     portCode:

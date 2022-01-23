@@ -100,6 +100,21 @@ components:
           example: GRIMALDI 
       required:
         - description
+    cruiseLine:
+      type: object
+      description: 
+        Identification of the company that operates the cruise ship.  
+      properties:
+        code:
+          description: Operator code. Code assigned to a cruise line.  
+          type: string
+          example: COSTA
+        description:
+          description: Name of the cruise line. 
+          type: string
+          example: COSTA CRUCEROS 
+      required:
+        - description
     # Date and time components
     startDate:  
       description: The start date of a period. The value is populated in ISO 8601 Date format.
@@ -141,11 +156,30 @@ components:
         code:
           description: Berth code. Code assigned to a berth from a port.  
           type: string
+          example: 01B 
         description:
           description: Berth name. 
           type: string
+          example: ADOSSAT 
       required:
         - code
+    facility:
+      type: object
+      description: 
+        Identification of a port facility.  
+      properties:
+        code:
+          description: Facility code. Code assigned to a facility from a port.  
+          type: string
+          example: 08MBCN
+        description:
+          description: Facility name. 
+          type: string
+          example: TERMINAL CREUERS
+        berth:
+          $ref: './oiapComponents.yml#/components/schemas/lastPortOfCall' 
+      required:
+        - description
     # Error schemas
     error:
       type: object
