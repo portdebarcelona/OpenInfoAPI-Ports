@@ -10,6 +10,8 @@ info:
   contact:
     name: OpenInfoAPI github
     url: https://github.com/portdebarcelona/OpenInfoAPI-Ports
+servers:
+  - url: https://github.com/portdebarcelona/OpenInfoAPI-Ports/blob/develop/oasdefinitions/
 components:
   headers: 
     Current-Page: 
