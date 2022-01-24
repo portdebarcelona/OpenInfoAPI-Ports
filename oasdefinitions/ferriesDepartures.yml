@@ -16,7 +16,7 @@ tags:
 servers:
   - url: https://api.server.test/v1
 paths:
-  /shipsScheduled:
+  /departures:
     get:
       summary: Returns a list of ferries that have departed or will depart today from a port. 
       description: Returns a list of ferries that have departed or will depart today from a port.

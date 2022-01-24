@@ -16,7 +16,7 @@ tags:
 servers:
   - url: https://api.server.test/v1
 paths:
-  /shipsScheduled:
+  /arrivals:
     get:
       summary: Returns a list of ships that have arrived or will arrive today at a port. 
       description: Returns a list of ships that have arrived or will arrive today at a port.
