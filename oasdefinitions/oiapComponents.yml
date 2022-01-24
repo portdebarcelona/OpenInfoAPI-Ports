@@ -10,8 +10,8 @@ info:
   contact:
     name: OpenInfoAPI github
     url: https://github.com/portdebarcelona/OpenInfoAPI-Ports
-servers:
-  - url: https://github.com/portdebarcelona/OpenInfoAPI-Ports/blob/develop/oasdefinitions/
+# servers:
+#  - url: https://github.com/portdebarcelona/OpenInfoAPI-Ports/blob/develop/oasdefinitions/
 components:
   headers: 
     Current-Page: 
@@ -133,22 +133,22 @@ components:
       description: The date and time the means of transport is estimated to arrive at a specified location (ETA), in ISO 8601 Date format.
       type: string
       format: date
-      example: 2020-04-06
+      example: 2022-03-15 11:53
     actualTimeOfArrival:  
       description: The date and time the means of transport arrives at a specified location (ATA), in ISO 8601 Date format.
       type: string
       format: date
-      example: 2020-04-06 06:00
+      example: 2022-01-24 21:53
     estimatedTimeOfDeparture:  
       description: The date and time the means of transport is estimated to depart from a specified location (ETD), in ISO 8601 Date format.
       type: string
       format: date
-      example: 2020-04-08 12:00
+      example: 2022-04-08 12:00
     actualTimeOfDeparture:  
       description: The date and time the means of transport departs from a specified location (ATD), in ISO 8601 Date format.
       type: string
       format: date
-      example: 2020-04-06 06:00      
+      example: 2022-01-25 10:06      
     # Infrastructure components
     berth:
       type: object
@@ -179,7 +179,7 @@ components:
           type: string
           example: TERMINAL CREUERS
         berth:
-          $ref: './oiapComponents.yml#/components/schemas/berth' 
+          $ref: '#/components/schemas/berth' 
       required:
         - description
     # Error schemas
@@ -189,9 +189,11 @@ components:
         Error body
       properties:
         code:
-          type: string
+          type: string 
+          example: Error code
         message:
           type: string
+          example: Error description
       required:
         - code
         - message
