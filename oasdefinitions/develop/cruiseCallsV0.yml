@@ -16,6 +16,7 @@ tags:
     description: "Cruise schedule."
 servers:
   - url: https://github.com/portdebarcelona/OpenInfoAPI-Ports/blob/develop/oasdefinitions
+x-approved: "github.com"
 paths:
   /cruise:
     get:
