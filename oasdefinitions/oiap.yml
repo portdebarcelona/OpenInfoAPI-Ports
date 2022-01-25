@@ -15,28 +15,23 @@ info:
     name: OpenInfoAPI github
     url: https://github.com/portdebarcelona/OpenInfoAPI-Ports
 tags:
-  - name: Ships Calls Domain
-    description: "APIs related to the ships arrival or departure from a port."
+  - name: shipcalls
+    description: Ships Calls Domain. APIs related to the ships arrival or departure from a port. 
     externalDocs:
       description: Description 
       url: http://swagger.io
-  - name: Liner Services Domain
-    description: "APIs related to the liner services that serve a port."
+  - name: linerServices
+    description: Liner Services Domain. APIs related to the liner services that serve a port.
     externalDocs:
-      description: Description 
+      description: Description  
       url: http://swagger.io
-  - name: Liner Services Domain
-    description: "APIs related to the liner services that serve a port."
-    externalDocs:
-      description: Description 
-      url: http://swagger.io
-  - name: Port Infrastructure Domain
-    description: "APIs related to the infrastructure of a port."
+  - name: portInfrastructure
+    description: Port Infrastructure Domain. APIs related to the infrastructure of a port.
     externalDocs:
       description: Description 
       url: http://swagger.io  
-  - name: Port Procedures Domain
-    description: "APIs related to the docummentation of the procedures of a port."
+  - name: portProcedures
+    description: Port Procedures Domain. APIs related to the docummentation of the procedures of a port.
     externalDocs:
       description: Description 
       url: http://swagger.io  
@@ -99,7 +94,7 @@ servers:
   - url: https://github.com/portdebarcelona/OpenInfoAPI-Ports/blob/develop/oasdefinitions/
 paths:
   # Ships Arrivals Forecasts
-  /shipsCalls/shipsScheduled:
+  /shipcalls/shipsScheduled:
     get:
       summary: Returns a list of ships that will arrive at a port in a given period of time
       description: Returns a list of ships that will arrive at a port in a given period of time
@@ -140,7 +135,7 @@ paths:
               schema:
                 $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents.yml#/components/schemas/error'
   # Ships in Port
-  /shipsCalls/shipsInPort:
+  /shipcalls/shipsInPort:
     get:
       summary: Returns a list of ships that are anchored or moored now in a Port.
       description: Returns a list of ships that are anchored or moored now in a Port.
