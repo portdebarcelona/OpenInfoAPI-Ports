@@ -6,7 +6,9 @@ info:
     Open Info API para Puertos.  
     For this sample, you can use the api key
     `special-key` to test the authorization filters.
-    This file contains all the APIs developed for the Open Info API para Puertos project within the initiative Ports 4.0 form Puertos del Estado (ES).  
+    This file contains all the APIs developed for the Open Info API para Puertos project within the initiative Ports 4.0 form Puertos del Estado (ES).
+    For this sample, you can use the api key
+    `special-key` to test the authorization filters.  
   termsOfService: http://swagger.io/terms/
   license:
     name: CC0 1.0 Universal (CC0 1.0)
@@ -15,7 +17,7 @@ info:
     name: OpenInfoAPI github
     url: https://github.com/portdebarcelona/OpenInfoAPI-Ports
 tags:
-  - name: shipcalls
+  - name: ship
     description: Ships Calls Domain. APIs related to the ships arrival or departure from a port. 
     externalDocs:
       description: Description 
@@ -94,7 +96,7 @@ servers:
   - url: https://github.com/portdebarcelona/OpenInfoAPI-Ports/blob/develop/oasdefinitions/
 paths:
   # Ships Arrivals Forecasts
-  /shipcalls/shipsScheduled:
+  /ship/shipsScheduled:
     get:
       summary: Returns a list of ships that will arrive at a port in a given period of time
       description: Returns a list of ships that will arrive at a port in a given period of time
@@ -135,7 +137,7 @@ paths:
               schema:
                 $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents.yml#/components/schemas/error'
   # Ships in Port
-  /shipcalls/shipsInPort:
+  /ship/shipsInPort:
     get:
       summary: Returns a list of ships that are anchored or moored now in a Port.
       description: Returns a list of ships that are anchored or moored now in a Port.
@@ -178,7 +180,7 @@ paths:
   #
   #
 
-  /pet/{petId}/uploadImage:
+  /ship/{petId}/uploadImage:
     post:
       tags:
         - pet
@@ -217,7 +219,7 @@ paths:
         - petstore_auth:
             - write:pets
             - read:pets
-  /pet:
+  /ship:
     post:
       tags:
         - pet
@@ -252,7 +254,7 @@ paths:
         - petstore_auth:
             - write:pets
             - read:pets
-  /pet/findByStatus:
+  /ship/findByStatus:
     get:
       tags:
         - pet
@@ -294,7 +296,7 @@ paths:
         - petstore_auth:
             - write:pets
             - read:pets
-  /pet/findByTags:
+  /ship/findByTags:
     get:
       tags:
         - pet
@@ -334,7 +336,7 @@ paths:
             - write:pets
             - read:pets
       deprecated: true
-  /pet/{petId}:
+  /ship/{petId}:
     get:
       tags:
         - pet
@@ -426,7 +428,7 @@ paths:
         - petstore_auth:
             - write:pets
             - read:pets
-  /store/order:
+  /liner/order:
     post:
       tags:
         - store
