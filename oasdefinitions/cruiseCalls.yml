@@ -29,17 +29,17 @@ paths:
           description: Successful operation
           headers:
             API-Version:
-              $ref: './oiapComponents.yml#/components/headers/API-Version'
+              $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents.yml#/components/headers/API-Version'
             Current-Page:
-              $ref: './oiapComponents.yml#/components/headers/Current-Page'
+              $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents.yml#/components/headers/Current-Page'
             Next-Page:
-              $ref: './oiapComponents.yml#/components/headers/Next-Page'
+              $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents.yml#/components/headers/Next-Page'
             Prev-Page:
-              $ref: './oiapComponents.yml#/components/headers/Prev-Page'
+              $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents.yml#/components/headers/Prev-Page'
             Last-Page:
-              $ref: './oiapComponents.yml#/components/headers/Last-Page'
+              $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents.yml#/components/headers/Last-Page'
             First-Page:
-              $ref: 'oiapComponents.yml#/components/headers/First-Page'
+              $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents.yml#/components/headers/First-Page'
           content: 
             application/json:
               schema:
@@ -50,11 +50,11 @@ paths:
           description: Unexpected error
           headers:
             API-Version:
-              $ref: './oiapComponents.yml#/components/headers/API-Version'
+              $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents.yml#/components/headers/API-Version'
           content:
             application/json:
               schema:
-                $ref: 'oiapComponents.yml#/components/schemas/error'                
+                $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents.yml#/components/schemas/error'                
 components:
   parameters: 
     ##################
@@ -71,7 +71,7 @@ components:
       style: form
       explode: false
       schema:
-        $ref: './oiapComponents.yml#/components/schemas/portCode'
+        $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents.yml#/components/schemas/portCode'
     shipName:
       in: query
       name: shipName
@@ -91,23 +91,23 @@ components:
         - type: object
           properties:
             shipName:
-              $ref: './oiapComponents.yml#/components/schemas/shipName'
+              $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents.yml#/components/schemas/shipName'
         - type: object
           properties:
             cruiseLine:
-              $ref: './oiapComponents.yml#/components/schemas/cruiseLine'
+              $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents.yml#/components/schemas/cruiseLine'
         - type: object
           properties:
             estimatedTimeOfArrival:
-              $ref: './oiapComponents.yml#/components/schemas/estimatedTimeOfArrival'
+              $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents.yml#/components/schemas/estimatedTimeOfArrival'
         - type: object
           properties:
             estimatedTimeOfDeparture:
-              $ref: './oiapComponents.yml#/components/schemas/estimatedTimeOfDeparture'
+              $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents.yml#/components/schemas/estimatedTimeOfDeparture'
         - type: object
           properties:
             facility:
-              $ref: './oiapComponents.yml#/components/schemas/facility'       
+              $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents.yml#/components/schemas/facility'       
       required: 
         - shipName
         - cruiseLine
