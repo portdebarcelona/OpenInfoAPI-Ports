@@ -12,6 +12,17 @@ info:
     url: https://github.com/portdebarcelona/OpenInfoAPI-Ports
 # servers:
 #  - url: https://github.com/portdebarcelona/OpenInfoAPI-Ports/blob/develop/oasdefinitions/
+paths:
+  /resADir:
+    get:
+      tags:
+        - user
+      summary: Logs out current logged in user session
+      description: ''
+      operationId: logoutUser
+      responses:
+        default:
+          description: successful operation 
 components:
   headers: 
     Current-Page: 
