@@ -449,6 +449,17 @@ components:
       explode: false
       schema:
         $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents.yml#/components/schemas/shipType'
+    shipName:
+      in: query
+      name: shipName
+      description: |
+            Name of the cruise ship.  
+            Example: shipName=NORWEGIAN EPIC        
+      required: false
+      style: form
+      explode: false
+      schema:
+        $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents.yml#/components/schemas/shipName'
   schemas:
     shipArrivalForecast:
       description: list of ships that will arrive on a given period of time
