@@ -110,7 +110,7 @@ paths:
           description: Successful operation
           headers:
             API-Version:
-              $ref: 'oiapComponents.yml#/components/headers/API-Version'
+              $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents.yml#/components/headers/API-Version'
             Current-Page:
               $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents.yml#/components/headers/Current-Page'
             Next-Page:
