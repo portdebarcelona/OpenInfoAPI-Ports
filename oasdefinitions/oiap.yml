@@ -130,8 +130,8 @@ paths:
         default:
           description: Unexpected error
           headers:
-            API-Version:
-              $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents.yml#/components/headers/API-Version'
+            apiVersion:
+              $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents.yml#/components/headers/apiVersion'
           content:
             application/json:
               schema:
@@ -170,8 +170,8 @@ paths:
         default:
           description: Unexpected error
           headers:
-            API-Version:
-              $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents.yml#/components/headers/API-Version'
+            apiVersion:
+              $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents.yml#/components/headers/apiVersion'
           content:
             application/json:
               schema:
@@ -210,8 +210,8 @@ paths:
         default:
           description: Unexpected error
           headers:
-            API-Version:
-              $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents.yml#/components/headers/API-Version'
+            apiVersion:
+              $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents.yml#/components/headers/apiVersion'
           content:
             application/json:
               schema:
@@ -250,8 +250,8 @@ paths:
         default:
           description: Unexpected error
           headers:
-            API-Version:
-              $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents.yml#/components/headers/API-Version'
+            apiVersion:
+              $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents.yml#/components/headers/apiVersion'
           content:
             application/json:
               schema:
@@ -290,8 +290,8 @@ paths:
         default:
           description: Unexpected error
           headers:
-            API-Version:
-              $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents.yml#/components/headers/API-Version'
+            apiVersion:
+              $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents.yml#/components/headers/apiVersion'
           content:
             application/json:
               schema:
@@ -326,6 +326,15 @@ paths:
                 type: array
                 items:
                   $ref: '#/components/schemas/ferriesArrivals'
+        default:
+          description: Unexpected error
+          headers:
+            apiVersion:
+              $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents.yml#/components/headers/apiVersion'
+          content:
+            application/json:
+              schema:
+                $ref: 'oiapComponents.yml#/components/schemas/error'
   /portCalls/ferriesDepartures:
     get:
       tags:
@@ -359,12 +368,12 @@ paths:
         default:
           description: Unexpected error
           headers:
-            API-Version:
-              $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents.yml#/components/headers/API-Version'
+            apiVersion:
+              $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents.yml#/components/headers/apiVersion'
           content:
             application/json:
               schema:
-                $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents.yml#/components/schemas/error'        
+                $ref: 'oiapComponents.yml#/components/schemas/error'      
   /portCalls/cruiseCalls:
     get:
       tags:
@@ -399,12 +408,12 @@ paths:
         default:
           description: Unexpected error
           headers:
-            API-Version:
-              $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents.yml#/components/headers/API-Version'
+            apiVersion:
+              $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents.yml#/components/headers/apiVersion'
           content:
             application/json:
               schema:
-                $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents.yml#/components/schemas/error'                
+                $ref: 'oiapComponents.yml#/components/schemas/error'                
 components:
   parameters: 
     portCode:
