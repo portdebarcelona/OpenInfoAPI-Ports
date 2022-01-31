@@ -1,0 +1,213 @@
+openapi: '3.0.3'
+info:
+  version: '1.0.0'
+  title: Open Info API para Puertos (OIAP) Components
+  description: 
+    List of components that are used in the APIs developed for the Open Info API para Puertos project.
+  license:
+    name: CC0 1.0 Universal (CC0 1.0)
+    url: https://creativecommons.org/publicdomain/zero/1.0/deed.es
+  contact:
+    name: OpenInfoAPI github
+    url: https://github.com/portdebarcelona/OpenInfoAPI-Ports
+# servers:
+#  - url: https://github.com/portdebarcelona/OpenInfoAPI-Ports/blob/develop/oasdefinitions/
+paths:
+  /resADir:
+    get:
+      tags:
+        - user
+      summary: Logs out current logged in user session
+      description: ''
+      operationId: logoutUser
+      responses:
+        default:
+          description: successful operation 
+components:
+  headers: 
+    currentPage: 
+        schema: 
+            type: string
+            example: fE9mZnNldHw9MCZsaW1pdD01
+        description: A link to the current page.
+        required: true
+    nextPage: 
+        schema:
+            type: string
+            example: fE9mZnNldHw9NSZsaW1pdD01
+        description: A link to the next page. Next-Page header link MAY be omitted if the current page is the last page.
+        required: false
+    prevPage:
+        schema: 
+            type: string
+            example: fE9mZnNldHw9MCZsaW1pdD01
+        description: A link to the previous page. Previous-Page header link MAY be omitted if the current page is the first page.
+        required: false
+    lastPage: 
+        schema: 
+            type: string
+            example: fE9mZnNldHw9NTkmbGltaXQ9NQ==
+        description: A link to the last page. Last-Page header link MAY be omitted if the current page is the last page.
+        required: false
+    firstPage: 
+        schema: 
+            type: string
+            example: fE9mZnNldHw9NjAmbGltaXQ9NQ==
+        description: A link to thefirst page. First-Page header link MAY be omitted if current page is the first page.
+        required: false
+    apiVersion:
+        schema: 
+            type: string
+            example: 1.0.0
+        description: SemVer used to indicate the version of the contract (API version) returned.
+  schemas:
+    # Location components
+    portCode:
+      description: |
+            Port UN/LOCODE
+      type: string
+      maxLength: 5
+      example: ESBCN 
+    lastPortOfCall:
+      description: |
+            UN/LOCODE of the last POrt of Call
+      type: string
+      maxLength: 5
+      example: HKHKG 
+    nextPortOfCall:
+      description: UN/LOCODE from next port of call. 
+      type: string
+      maxLength: 5
+      example: NLRTM
+    # Ship components
+    shipIMONumber:
+      type: string
+      maxLength: 7 
+      description: The identifier of ship.
+      example: 9876543 
+    shipName:
+      type: string
+      description: The ship’s name shown on the IMO ship’s certificates.
+      maxLength: 35
+      example: MSC GULSUN 
+    shipType:
+      description: |
+            The type of the ship. The value is populated using the 3 character code from Annex 2 from UN/ECE Recommendation Nº28 when the means of transport is 1 (maritime).
+            E.g.  505 Is the code  for a Carrier, general cargo/container. A vessel designed to carry general cargo and containers. 
+      type: string
+      maxLength: 3
+      example: 505    
+    # Partners
+    ferryOperator:
+      type: object
+      description: 
+        Identification of the company that operates a ferry.  
+      properties:
+        code:
+          description: Operator code. Code assigned to a ferry operator.  
+          type: string
+          example: GRM
+        description:
+          description: Name of the ferry operator. 
+          type: string
+          example: GRIMALDI 
+      required:
+        - description
+    cruiseLine:
+      type: object
+      description: 
+        Identification of the company that operates the cruise ship.  
+      properties:
+        code:
+          description: Operator code. Code assigned to a cruise line.  
+          type: string
+          example: COSTA
+        description:
+          description: Name of the cruise line. 
+          type: string
+          example: COSTA CRUCEROS 
+      required:
+        - description
+    # Date and time components
+    startDate:  
+      description: The start date of a period. The value is populated in ISO 8601 Date format.
+      type: string
+      format: date
+      example: 2020-04-06
+    dateRange: 
+      description: 
+            The duration of a time period. It is populated in ISO 8601 duration format. E.g. 4 weeks and 2 days is represented as P4W2D
+      type: string
+      format: iso8601
+      example: P4W  
+    estimatedTimeOfArrival:  
+      description: The date and time the means of transport is estimated to arrive at a specified location (ETA), in ISO 8601 Date format.
+      type: string
+      format: date
+      example: 2022-03-15 11:53
+    actualTimeOfArrival:  
+      description: The date and time the means of transport arrives at a specified location (ATA), in ISO 8601 Date format.
+      type: string
+      format: date
+      example: 2022-01-24 21:53
+    estimatedTimeOfDeparture:  
+      description: The date and time the means of transport is estimated to depart from a specified location (ETD), in ISO 8601 Date format.
+      type: string
+      format: date
+      example: 2022-04-08 12:00
+    actualTimeOfDeparture:  
+      description: The date and time the means of transport departs from a specified location (ATD), in ISO 8601 Date format.
+      type: string
+      format: date
+      example: 2022-01-25 10:06      
+    # Infrastructure components
+    berth:
+      type: object
+      description: 
+        Identification of a berth from a port.  
+      properties:
+        code:
+          description: Berth code. Code assigned to a berth from a port.  
+          type: string
+          example: 01B 
+        description:
+          description: Berth name. 
+          type: string
+          example: ADOSSAT 
+      required:
+        - code
+    facility:
+      type: object
+      description: 
+        Identification of a port facility.  
+      properties:
+        code:
+          description: Facility code. Code assigned to a facility from a port.  
+          type: string
+          example: 08MBCN
+        description:
+          description: Facility name. 
+          type: string
+          example: TERMINAL CREUERS
+        berth:
+          $ref: '#/components/schemas/berth' 
+      required:
+        - description
+    # Error schemas
+    error:
+      type: object
+      description: 
+        Error body
+      properties:
+        code:
+          type: string 
+          example: Error code
+        message:
+          type: string
+          example: Error description
+      required:
+        - code
+        - message
+# https://service.unece.org/trade/uncefact/vocabulary/rec20/
+# https://service.unece.org/trade/uncefact/vocabulary/rec21/
+# https://service.unece.org/trade/uncefact/vocabulary/unlocode-CC/  (CC is 2a ISO3166 country code)
