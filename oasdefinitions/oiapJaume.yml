@@ -111,16 +111,6 @@ paths:
           headers:
             apiVersion:
               $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents.yml#/components/headers/apiVersion'
-            currentPage:
-              $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents.yml#/components/headers/currentPage'
-            nextPage:
-              $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents.yml#/components/headers/nextPage'
-            prevPage:
-              $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents.yml#/components/headers/prevPage'
-            lastPage:
-              $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents.yml#/components/headers/lastPage'
-            firstPage:
-              $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents.yml#/components/headers/firstPage'
           content: 
             application/json:
               schema:
