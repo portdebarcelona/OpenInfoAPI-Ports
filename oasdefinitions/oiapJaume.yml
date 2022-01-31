@@ -853,7 +853,11 @@ components:
         - type: object
           properties:
 #           urlCallFee:
-#             $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents.yml#/components/schemas/urlCallFee'    
+#             $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents.yml#/components/schemas/urlCallFee' 
+#   
+# 
+#
+#   
 #     required: 
 #       - urlCallFee
     merchandiseFee:
