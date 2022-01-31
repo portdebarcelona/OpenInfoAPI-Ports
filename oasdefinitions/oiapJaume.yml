@@ -752,24 +752,20 @@ components:
       allOf:
         - type: object
           properties:
-#           urlCallFee:
-#             $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents.yml#/components/schemas/urlCallFee' 
-#   
-# 
-#
-#   
+#           uriCallFee:
+#             $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents.yml#/components/schemas/uriCallFee' 
 #     required: 
-#       - urlCallFee
+#       - uriCallFee
     merchandiseFee:
       description: information about the rates and fees associated to the flow of goods through a port. 
       type: object
       allOf:
         - type: object
           properties:
-#           urlMerchandiseFee:
-#             $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents.yml#/components/schemas/urlMerchandiseFee'    
+#           uriMerchandiseFee:
+#             $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents.yml#/components/schemas/uriMerchandiseFee'    
 #     required: 
-#       - urlMerchandiseFee
+#       - uriMerchandiseFee
   
   
   
