@@ -4,7 +4,10 @@ NOTICES
 
 GET
  notices
-  obté llista avisos actius
+  obté llista avisos actius (per defecte)
+  possibilitat de per parametre accedir a la llista dels avisos EXPIRED fins a una data
+    - publishingStage = EXPIRED
+    - fromdate = 2022-02-03
  noticesCategories
   obté relació de categories
  noticesLanguages
@@ -29,25 +32,23 @@ POST
   [
    {
    "id": 85,
+   "language": "ES_ES",
    "subject": "DESCONVOCADA VAGA SERVEI AMARRATGE / DESCONVOCADA HUELGA SERVICIO AMARRE",
    "content": "Bona tarda,\r\n\r\nUs informem que avui s’ha signat acord entre ambdues parts i ha quedat desconvocada la vaga del servei d’amarratge del Port de Barcelona. \r\n\r\nBen cordialment,\r\n\r\n\r\n*****************************\r\n\r\nBuenas tardes:\r\n\r\nOs informamos que hoy se ha firmado acuerdo entre ambas partes y ha quedado desconvocada la huelga del servicio de amarre del Port de Barcelona.\r\n\r\nSaludos cordiales.\r\n",
    "startTime": "2022-02-01 20:35:35",
    "category": "OPERATIVA",
    "endTime": "2022-02-03 23:34:00",
-   "fitxersadjunts": [],
-   "llistaurls": [  "http://www.sac.portdebarcelona.cat", "http://www.portdebarcelona.cat"  ],
-   "urlshorten": "http://www.portdebarcelona.cat/avisos/default/avis/85"
+   "uri": "http://www.portdebarcelona.cat/avisos/default/avis/85"
     },
     {
     "id": 85,
+    "language": "ES_ES",
     "subject": "DESCONVOCADA VAGA SERVEI AMARRATGE / DESCONVOCADA HUELGA SERVICIO AMARRE",
     "content": "Bona tarda,\r\n\r\nUs informem que avui s’ha signat acord entre ambdues parts i ha quedat desconvocada la vaga del servei d’amarratge del Port de Barcelona. \r\n\r\nBen cordialment,\r\n\r\n\r\n*****************************\r\n\r\nBuenas tardes:\r\n\r\nOs informamos que hoy se ha firmado acuerdo entre ambas partes y ha quedado desconvocada la huelga del servicio de amarre del Port de Barcelona.\r\n\r\nSaludos cordiales.\r\n",
     "startTime": "2022-02-01 20:35:35",
     "category": "OPERATIVA",
     "endTime": "2022-02-03 23:34:00",
-    "fitxersadjunts": [],
-    "llistaurls": [  "http://www.sac.portdebarcelona.cat", "http://www.portdebarcelona.cat"  ],
-    "urlshorten": "http://www.portdebarcelona.cat/avisos/default/avis/85"
+    "uri": "http://www.portdebarcelona.cat/avisos/default/avis/85"
      }
   ]
 }
@@ -55,15 +56,14 @@ POST
 { "notice":
      {
           "id": 85,
+          "language": "ES_ES",
           "subject": "DESCONVOCADA VAGA SERVEI AMARRATGE / DESCONVOCADA HUELGA SERVICIO AMARRE",
           "content": "Bona tarda,\r\n\r\nUs informem que avui s’ha signat acord entre ambdues parts i ha quedat desconvocada la vaga del servei d’amarratge del Port de Barcelona. \r\n\r\nBen cordialment,\r\n\r\n\r\n*****************************\r\n\r\nBuenas tardes:\r\n\r\nOs informamos que hoy se ha firmado acuerdo entre ambas partes y ha quedado desconvocada la huelga del servicio de amarre del Port de Barcelona.\r\n\r\nSaludos cordiales.\r\n",
           "startTime": "2022-02-01 20:35:35",
           "category": "OPERATIVA",
           "endTime": "2022-02-03 23:34:00",
-          "fasepublicacio": "03-EN-ACTIU",
-          "fitxersadjunts": [],
-          "llistaurls": [  "http://www.sac.portdebarcelona.cat", "http://www.portdebarcelona.cat"  ],
-          "urlshorten": "http://www.portdebarcelona.cat/avisos/default/avis/85"
+          "publishingStage": "EXPIRED",
+          "uri": "http://www.portdebarcelona.cat/avisos/default/avis/85"
     }
 }
 
