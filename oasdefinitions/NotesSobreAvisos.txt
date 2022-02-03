@@ -1,0 +1,112 @@
+
+
+NOTICES
+
+GET
+ notices
+  obté llista avisos actius
+ noticesCategories
+  obté relació de categories
+ noticesLanguages
+  obté relació de idiomes
+ notices/{id}
+  obté un avis concret util per veure avisos caducats (especialment)
+
+POST
+ subscriptionRequest
+   - mail o telefon (hem de separar-ho amb dues funcions?)
+   - Nom i cognoms (opcional)
+   - Empresa (opcional)
+   - NIF (opcional)
+   - Categories
+   - Idioma
+ validacioAltaSubscripcio
+   - mail o telefon
+   - codi validacio rebut
+
+## Estructura dades
+{ "activeNotices":
+  [
+   {
+   "id": 85,
+   "subject": "DESCONVOCADA VAGA SERVEI AMARRATGE / DESCONVOCADA HUELGA SERVICIO AMARRE",
+   "content": "Bona tarda,\r\n\r\nUs informem que avui s’ha signat acord entre ambdues parts i ha quedat desconvocada la vaga del servei d’amarratge del Port de Barcelona. \r\n\r\nBen cordialment,\r\n\r\n\r\n*****************************\r\n\r\nBuenas tardes:\r\n\r\nOs informamos que hoy se ha firmado acuerdo entre ambas partes y ha quedado desconvocada la huelga del servicio de amarre del Port de Barcelona.\r\n\r\nSaludos cordiales.\r\n",
+   "startTime": "2022-02-01 20:35:35",
+   "category": "OPERATIVA",
+   "endTime": "2022-02-03 23:34:00",
+   "fasepublicacio": "03-EN-ACTIU",
+   "fitxersadjunts": [],
+   "llistaurls": [  "http://www.sac.portdebarcelona.cat", "http://www.portdebarcelona.cat"  ],
+   "urlshorten": "http://www.portdebarcelona.cat/avisos/default/avis/85"
+    },
+    {
+    "id": 85,
+    "subject": "DESCONVOCADA VAGA SERVEI AMARRATGE / DESCONVOCADA HUELGA SERVICIO AMARRE",
+    "content": "Bona tarda,\r\n\r\nUs informem que avui s’ha signat acord entre ambdues parts i ha quedat desconvocada la vaga del servei d’amarratge del Port de Barcelona. \r\n\r\nBen cordialment,\r\n\r\n\r\n*****************************\r\n\r\nBuenas tardes:\r\n\r\nOs informamos que hoy se ha firmado acuerdo entre ambas partes y ha quedado desconvocada la huelga del servicio de amarre del Port de Barcelona.\r\n\r\nSaludos cordiales.\r\n",
+    "startTime": "2022-02-01 20:35:35",
+    "category": "OPERATIVA",
+    "endTime": "2022-02-03 23:34:00",
+    "fasepublicacio": "03-EN-ACTIU",
+    "fitxersadjunts": [],
+    "llistaurls": [  "http://www.sac.portdebarcelona.cat", "http://www.portdebarcelona.cat"  ],
+    "urlshorten": "http://www.portdebarcelona.cat/avisos/default/avis/85"
+     }
+
+]
+}
+
+{ "notice":
+    { "queryResult": {
+          "id": 85,
+          "subject": "DESCONVOCADA VAGA SERVEI AMARRATGE / DESCONVOCADA HUELGA SERVICIO AMARRE",
+          "content": "Bona tarda,\r\n\r\nUs informem que avui s’ha signat acord entre ambdues parts i ha quedat desconvocada la vaga del servei d’amarratge del Port de Barcelona. \r\n\r\nBen cordialment,\r\n\r\n\r\n*****************************\r\n\r\nBuenas tardes:\r\n\r\nOs informamos que hoy se ha firmado acuerdo entre ambas partes y ha quedado desconvocada la huelga del servicio de amarre del Port de Barcelona.\r\n\r\nSaludos cordiales.\r\n",
+          "startTime": "2022-02-01 20:35:35",
+          "category": "OPERATIVA",
+          "endTime": "2022-02-03 23:34:00",
+          "fasepublicacio": "03-EN-ACTIU",
+          "fitxersadjunts": [],
+          "llistaurls": [  "http://www.sac.portdebarcelona.cat", "http://www.portdebarcelona.cat"  ],
+          "urlshorten": "http://www.portdebarcelona.cat/avisos/default/avis/85"
+          }, 
+    "queryParameters": {
+        "urlPath": "http://www.portdebarcelona.cat/avisos/ws/getAvis.json",
+        "params": {
+                "idavis": "83"
+            },
+        "responseDate": "2022-02-03 16:17:19",
+        "requestedReport": "AVIS"
+        }
+    }
+}
+
+{ "noticeCategories":
+    { "queryResult": 
+            [ "Categoria A", "Categoria B", "Categoria C"],
+      "queryParameters": {
+        "urlPath": "http://www.portdebarcelona.cat/avisos/ws/getCategories.json",
+        "params": null,
+        "responseDate": "2022-02-03 16:17:19",
+        "requestedReport": "noticeCategories"
+        }
+
+}
+
+{ "subscriptionRequest":
+    { "type" : "mobile",
+      "mobileNumber" : "+3465487699",
+      "email": "perebotero@portdebarcelona.cat",
+      "name": "Pere",
+      "surname": "Botero",
+      "company": "Port de Barcelona",
+      "vatNumber": "ES1231452452",
+      "noticeCategories": [ "Categoria A", "Categoria B" ],
+      "language": "ES_ES" 
+    }
+}
+
+{ "subscriptionValidation":
+    { "type": "mobile",
+      "mobileNumber": "+3456567575",
+      "email":  "perebotero@portdebarcelona.cat",
+      "validationKey": "123456"}
+}
