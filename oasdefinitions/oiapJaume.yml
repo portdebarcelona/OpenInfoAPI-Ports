@@ -361,6 +361,111 @@ paths:
             application/json:
               schema:
                 $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents.yml#/components/schemas/error'                
+  # News
+  /news/news:
+    get:
+      tags:
+        - News
+      summary: Returns the headlines and content of some news related to a port. 
+      description: Returns the headlines and content of some news related to a port. News can be queried  
+      parameters:
+        - $ref: '#/components/parameters/portCode'
+      responses: #status code
+        '200':
+          description: Successful operation
+          headers:
+            apiVersion:
+              $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents.yml#/components/headers/apiVersion'
+          content: 
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/news'
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents.yml#/components/schemas/error' 
+        '404':
+          description: Not found
+          content:
+            application/json:
+              schema:
+                $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents.yml#/components/schemas/error'    
+  # News Query
+  /news/newsQuery:
+    get:
+      tags:
+        - News
+      summary: Returns the headlines and content of some news related to a port. 
+      description: Returns the headlines and content of some news related to a port. News can be queried  
+      parameters:
+        - $ref: '#/components/parameters/portCode'
+      responses: #status code
+        '200':
+          description: Successful operation
+          headers:
+            apiVersion:
+              $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents.yml#/components/headers/apiVersion'
+          content: 
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/newsQuery'
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents.yml#/components/schemas/error' 
+        '404':
+          description: Not found
+          content:
+            application/json:
+              schema:
+                $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents.yml#/components/schemas/error'
+  # News Subscription (POST service)
+  /news/newsSubscription:
+    post:
+      tags:
+        - News
+      summary: Place an order for a subscription to a news service from a port. 
+      description: Place an order for a subscription to a news service from a port.  
+      operationId: subscribeNews
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/subscription'
+        description: order placed for a subscription to a news service
+        required: true
+      responses: #status code
+        '200':
+          description: Successful operation
+          headers:
+            apiVersion:
+              $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents.yml#/components/headers/apiVersion'
+          content: 
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/newsSubscription'
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents.yml#/components/schemas/error' 
+        '404':
+          description: Not found
+          content:
+            application/json:
+              schema:
+                $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents.yml#/components/schemas/error'
   # Ship Call Rates and Fees
   /portRatesAndFees/shipCallFees:
     get:
@@ -428,6 +533,16 @@ paths:
               schema:
                 $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents.yml#/components/schemas/error'    
 components:
+  requestBodies:
+    subscription:
+      content:
+        application/json:
+         schema:
+          type: array
+          items:
+            $ref: '#/components/schemas/subscription'
+      description: List of subscriptions
+      required: true    
   parameters: 
     portCode:
       in: query
@@ -483,6 +598,37 @@ components:
       schema:
         $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents.yml#/components/schemas/shipName'
   schemas:
+    # Subscription  
+    subscription:
+      type: object
+      properties:
+        eMail:
+          type: string
+        category:
+          type: string
+          description: Selected categories
+          enum:
+            - placed
+            - approved
+            - delivered
+        requestDate:
+          type: string
+          format: date-time
+        status:
+          type: string
+          description: Subscription Status
+          enum:
+            - rejected
+            - approved
+            - deleted
+        complete:
+          type: boolean
+      xml:
+        name: subscription
+      required: 
+        - eMail
+        - status
+    # Ship Calls
     shipArrivalForecast:
       description: list of ships that will arrive on a given period of time
       type: object
@@ -746,26 +892,65 @@ components:
         - estimatedTimeOfArrival
         - estimatedTimeOfDeparture
         - facility   
+# News Query
+    newsQuery:
+      description: Headline and content of a new. 
+      type: object
+      allOf:
+        - type: object
+          properties:
+            newsHeadline:
+              $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents.yml#/components/schemas/newsHeadline' 
+        - type: object
+          properties:
+            newsContent:
+              $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents.yml#/components/schemas/newsContent' 
+        - type: object
+          properties:
+            datePublished:
+              $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents.yml#/components/schemas/datePublished'
+      required: 
+        - newsHeadline
+# News Subscription   TRACTAR-HO COM UN POST
+    newsSubscription:
+      description: Headline and content of a new. 
+      type: object
+      allOf:
+        - type: object
+          properties:
+            newsHeadline:
+              $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents.yml#/components/schemas/newsHeadline' 
+        - type: object
+          properties:
+            newsContent:
+              $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents.yml#/components/schemas/newsContent' 
+        - type: object
+          properties:
+            datePublished:
+              $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents.yml#/components/schemas/datePublished'
+      required: 
+        - newsHeadline
+# Port Rates and Fees
     shipCallRate:
       description: information about the rates and fees associated to a ship call. 
       type: object
       allOf:
         - type: object
           properties:
-#           uriCallFee:
-#             $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents.yml#/components/schemas/uriCallFee' 
-#     required: 
-#       - uriCallFee
+            uriCallFee:
+              $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents.yml#/components/schemas/uriCallFee' 
+      required: 
+        - uriCallFee
     merchandiseFee:
       description: information about the rates and fees associated to the flow of goods through a port. 
       type: object
       allOf:
         - type: object
           properties:
-#           uriMerchandiseFee:
-#             $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents.yml#/components/schemas/uriMerchandiseFee'    
-#     required: 
-#       - uriMerchandiseFee
+            uriMerchandiseFee:
+              $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents.yml#/components/schemas/uriMerchandiseFee'    
+      required: 
+        - uriMerchandiseFee
   
   
   
