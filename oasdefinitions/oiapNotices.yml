@@ -1,0 +1,225 @@
+openapi: '3.0.3'
+info:
+  version: '1.0.0-oas3'
+  title: OIAP
+  description: 
+    Open Info API para Puertos.  
+    This file contains all the APIs developed for the Open Info API para Puertos project within the initiative Ports 4.0 form Puertos del Estado (ES).
+    For this sample, you can use the api key
+    `special-key` to test the authorization filters.  
+  termsOfService: http://swagger.io/terms/
+  license:
+    name: CC0 1.0 Universal (CC0 1.0)
+    url: https://creativecommons.org/publicdomain/zero/1.0/deed.es
+  contact:
+    name: OpenInfoAPI github
+    url: https://github.com/portdebarcelona/OpenInfoAPI-Ports
+tags:
+  - name: Notices
+    description: "APIs related to some notices of interest from a port."
+    externalDocs:
+      description: Description 
+      url: http://swagger.io
+servers:
+  - url: https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/
+paths:
+  /notices/activeNotices:
+    get:
+      tags:
+        - Notices
+      summary: Returns a list of notices
+      description: Returns a list of notices. The default value is a list of the active notices but notices that have expired can also be retrieved if the parameter 'publishingStage' is set to EXPIRED and the selection can be refined including the parameter 'fromDate'
+      parameters:
+        - $ref: '#/components/parameters/portCode'
+        - $ref: '#/components/parameters/publishingStage'
+        - $ref: '#/components/parameters/fromDate'
+      responses: #status code
+        '200':
+          description: Successful operation
+          headers:
+            apiVersion:
+              $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents.yml#/components/headers/apiVersion'
+          content: 
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/activeNotices'
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents.yml#/components/schemas/error' 
+        '404':
+          description: Not found
+          content:
+            application/json:
+              schema:
+                $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents.yml#/components/schemas/error'  
+  /notices/noticesCategories:
+    get:
+      tags:
+        - Notices
+      summary: Returns a list of notices categories 
+      description: Returns a list of notices categories
+      parameters:
+        - $ref: '#/components/parameters/portCode'
+      responses: #status code
+        '200':
+          description: Successful operation
+          headers:
+            apiVersion:
+              $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents.yml#/components/headers/apiVersion'
+          content: 
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/noticesCategories'
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents.yml#/components/schemas/error' 
+        '404':
+          description: Not found
+          content:
+            application/json:
+              schema:
+                $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents.yml#/components/schemas/error' 
+  /notices/noticesLanguages:
+    get:
+      tags:
+        - Notices
+      summary: List of the possible languages.
+      description: Returns a list of the possible languages for the notices published.
+      parameters:
+        - $ref: '#/components/parameters/portCode'
+      responses: #status code
+        '200':
+          description: Successful operation
+          headers:
+            apiVersion:
+              $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents.yml#/components/headers/apiVersion'
+          content: 
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/noticesLanguages'
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents.yml#/components/schemas/error' 
+        '404':
+          description: Not found
+          content:
+            application/json:
+              schema:
+                $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents.yml#/components/schemas/error'
+  /notices/noticesId:
+    get:
+      tags:
+        - Notices
+      summary: Returns a notice identified by its unique id.
+      description: Returns a notice identified by its unique id.
+      parameters:
+        - $ref: '#/components/parameters/portCode'
+        - $ref: '#/components/parameters/id'        
+      responses: #status code
+        '200':
+          description: Successful operation
+          headers:
+            apiVersion:
+              $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents.yml#/components/headers/apiVersion'
+          content: 
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/noticesId'
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents.yml#/components/schemas/error' 
+        '404':
+          description: Not found
+          content:
+            application/json:
+              schema:
+                $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents.yml#/components/schemas/error'  
+components:
+  parameters: 
+    portCode:
+      in: query
+      name: portCode
+      description: |
+            Port UN/LOCODE
+            Default value is Locode of Port what provides the services
+            example: portCode=ESBCN        
+      required: false
+      style: form
+      explode: false
+      schema:
+        $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents.yml#/components/schemas/portCode'
+    publishingStage:  
+      in: query
+      name: publishingStage
+      description: 
+            The stage of the publishing process of a notice. There are only two possible stages, ACTIVE and EXPIRED. This parameter must be used when the publishing process is EXPIRED. If not provided, the ACTIVE stage is used by default.
+      required: false
+      style: form
+      explode: false
+      schema:
+        $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents.yml#/components/schemas/publishingStage'
+    fromDate:  
+      in: query
+      name: fromDate
+      description: 
+            The date (day) from the expired notices are requested. The value is populated in ISO 8601 Date format (eg. 2022-01-30). This parameter is only needed to retrieve the expired notices and to limit their number.
+      required: false
+      style: form
+      explode: false
+      schema:
+        $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents.yml#/components/schemas/fromDate'
+    id:  
+      in: query
+      name: id
+      description: 
+            The unique identification of a notice.
+      required: false
+      style: form
+      explode: false
+      schema:
+        $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents.yml#/components/schemas/id'
+  schemas:
+    activeNotices:
+      description: A list of active notices.
+      type: object
+      properties:
+        activeNotices:
+          $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents.yml#/components/schemas/activeNotices'
+    noticesCategories:
+      description: A list of notices categories.
+      type: object
+      properties:
+        activeNotices:
+          $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents.yml#/components/schemas/noticesCategories'
+    noticesLanguages:
+      description: A list of languages available for the notices.
+      type: object
+      properties:
+        activeNotices:
+          $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents.yml#/components/schemas/noticesLanguages'  
+    noticesId:
+      description: A notice from its unique id.
+      type: object
+      properties:
+        activeNotices:
+          $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents.yml#/components/schemas/noticesId' 

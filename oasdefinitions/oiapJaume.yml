@@ -360,40 +360,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents.yml#/components/schemas/error'                
-  # News
-  /news/news:
-    get:
-      tags:
-        - News
-      summary: Returns the headlines and content of some news related to a port. 
-      description: Returns the headlines and content of some news related to a port. News can be queried  
-      parameters:
-        - $ref: '#/components/parameters/portCode'
-      responses: #status code
-        '200':
-          description: Successful operation
-          headers:
-            apiVersion:
-              $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents.yml#/components/headers/apiVersion'
-          content: 
-            application/json:
-              schema:
-                type: array
-                items:
-                  $ref: '#/components/schemas/news'
-        '400':
-          description: Bad request
-          content:
-            application/json:
-              schema:
-                $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents.yml#/components/schemas/error' 
-        '404':
-          description: Not found
-          content:
-            application/json:
-              schema:
-                $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents.yml#/components/schemas/error'    
+                $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents.yml#/components/schemas/error'                   
   # News Query
   /news/newsQuery:
     get:

@@ -61,6 +61,13 @@ components:
             example: 1.0.0
         description: SemVer used to indicate the version of the contract (API version) returned.
   schemas:
+    # Reference components
+    id:
+      description: |
+            Unique identifier of an element of a dataset.
+      type: string
+      maxLength: 35
+      example: XAC12345CA
     # Location components
     portCode:
       description: |
@@ -91,13 +98,41 @@ components:
       maxLength: 35
       example: MSC GULSUN 
     shipType:
-      description: |
-            The type of the ship. The value is populated using the 3 character code from Annex 2 from UN/ECE Recommendation Nº28 when the means of transport is 1 (maritime).
-            E.g.  505 Is the code  for a Carrier, general cargo/container. A vessel designed to carry general cargo and containers. 
+      description: >
+            The type of the ship. The value is populated using the 2 character code from Annex 2 from UN/ECE Recommendation Nº28 when the means of transport is 1 (maritime).
+            E.g.  50 Is the code  for a General cargo vessel. A vessel designed to carry general cargo.
+              * `50`	General cargo vessel	Vessel designed to carry general cargo.
+              * `51`	Unit carrier	Vessel designed to carry unit loads
+              * `52`	Bulk carrier	Vessel designed to carry bulk cargo.
+              * `53`	Tanker	Vessel solely equipped with tanks to carry cargo.
+              * `54`	Liquefied gas tanker	Tanker designed to carry liquefied gas.
+              * `55`	Other special tanker	Tanker designed to carry other special liquids.
+              * `57`	Cargo and passenger vessel	Vessel designed to carry cargo and passengers.
+              * `59`	Passenger ship	Vessel designed to carry more than 12 passengers.
+              * `60`	Assistance vessel	Vessel designed to give assistance.
+              * `70`	Other sea-going vessel	Sea-going vessel, not otherwise specified.
+              * `72`	Work ship	Vessel designed to assist in work.
+              * `73`	Push boat	Vessel designed to push other vessels.
+              * `74`	Dredger	Vessel designed to scoop or suck mud or sand.
+              * `75`	Fishing boat	Vessel designed for fishing.
+              * `76`	Research and education ship	Vessel designed for research and education.
+              * `77`	Navy vessel	Vessel operated by a Navy.
+              * `78`	Structure, floating	Any floating structure.
+              * `80`	Pleasure boat	Vessel designed for recreation.
+              * `81`	Speedboat	Vessel designed for speed, often used for recreation.
+              * `82`	Sailing boat with auxiliary motor	Vessel designed primarily for sailing outfitted with an auxiliary motor.
+              * `83`	Sailing yacht	A specific type of vessel mostly used for pleasure and designed for sailing.
+              * `84`	Boat for sport fishing	Vessel designed for sport fishing.
+              * `85`	Craft, pleasure, longer than 20 metres	Vessel longer than 20 metres, designed for recreation.
+              * `89`	Craft, other, recreational	Vessel designed for recreation, not otherwise specified.
+              * `90`	Fast ship	Fast, all-purpose vessel.
+              * `91`	Hydrofoil	Vessel with wing-like structure for skimming at high speed.
+              * `92`	Catamaran, fast	Fast vessel designed with two parallel hulls.   
       type: string
-      maxLength: 3
-      example: 505    
-    # Partners
+      maxLength: 2
+      example: 50    
+      enum: [50, 51, 52, 53, 54, 55, 57, 59, 60, 70, 72, 73, 74, 75, 76, 77, 78, 80, 81, 82, 83, 84, 85, 89, 90, 91, 92]
+    # Partners      
     ferryOperator:
       type: object
       description: 
@@ -160,6 +195,11 @@ components:
       type: string
       format: date
       example: 2022-01-25 10:06      
+    fromDate:  
+      description: The initial date of a periode of time.
+      type: string
+      format: date
+      example: 2022-01-20 
     # Infrastructure components
     berth:
       type: object
@@ -193,6 +233,14 @@ components:
           $ref: '#/components/schemas/berth' 
       required:
         - description
+    # Publication components
+    publishingStage:
+      type: string
+      enum: [ACTIVE, EXPIRED]
+      description: > 
+        Stages of a publishing process:
+          * `ACTIVE` - Element that is active
+          * `EXPIRED` - Element that has expired  
     # Error schemas
     error:
       type: object
