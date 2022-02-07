@@ -68,6 +68,41 @@ components:
       type: string
       maxLength: 35
       example: XAC12345CA
+    uri:
+      description: |
+            The Uniform Resource Identifier (URI) is a unique sequence of characters that identifies a logical or physical resource used by web technologies.
+      type: string
+    # Persons
+    contactInfo:
+      description: email or phone
+      type: string
+    name:
+      description: name
+      type: string
+    surname:
+      description: surname
+      type: string      
+    company:
+      type: object
+      description: 
+        Company
+      properties:
+        companyName:
+          type: string 
+          description: Name of the company
+        companyCode:
+          type: string
+          description: VAT code of the company
+      required:
+        - companyName   
+    language:
+
+      description: >
+            The ISO 639 code of a language. Each language is assigned a two-letter (639-1) lowercase abbreviation.
+            E.g. `ca` Catalan.
+      type: string
+      maxLength: 2
+      example: ca 
     # Location components
     portCode:
       description: |
@@ -200,6 +235,16 @@ components:
       type: string
       format: date
       example: 2022-01-20 
+    startTime:  
+      description: The initial date of a periode of time.
+      type: string
+      format: date
+      example: 2022-01-20 
+    endTime:  
+      description: The final date of a periode of time.
+      type: string
+      format: date
+      example: 2022-01-20 
     # Infrastructure components
     berth:
       type: object
@@ -240,7 +285,17 @@ components:
       description: > 
         Stages of a publishing process:
           * `ACTIVE` - Element that is active
-          * `EXPIRED` - Element that has expired  
+          * `EXPIRED` - Element that has expired 
+    subject:
+      type: string
+      description: Subject of a publication.      
+    content:
+      type: string
+      description: Content of a publication. 
+    category:
+      type: string
+      description: Category of a publication. 
+      enum: [category A, category B]
     # Error schemas
     error:
       type: object

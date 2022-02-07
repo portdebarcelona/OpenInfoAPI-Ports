@@ -22,8 +22,58 @@ tags:
       url: http://swagger.io
 servers:
   - url: https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/
+# Canvi efectuat: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions a '.
 paths:
-  /notices/activeNotices:
+  /notices/subscription: 
+    post:
+      tags:
+        - Notices
+      summary: Subscription request
+      description: 'Request a subscription to a notices service from a port'
+      operationId: subscriptionRequest
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/subscriber'
+        description: request placed for subscribing to a notices service
+        required: true
+      responses:
+        '200':
+          description: successful operation
+          content:
+            application/json:
+              schema: # subscription response
+                $ref: '#/components/schemas/subscriptionReference'
+
+        '400':
+          description: Invalid Order
+  /notices/subscriptionValidation: # Falten els parameters
+    post:
+      tags:
+        - Notices
+      summary: Subscription validation
+      description: 'Post the validation code received to fulfill the subscription request to a notices service from a port'
+      operationId: subscriptionValidation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+                - $ref: '#/components/schemas/subscriptionRequestNumber'
+                - $ref: './oiapComponents.yml#/components/schemas/validationKey'
+        description: request placed for validating the subscription to a notices service
+        required: true
+      responses:
+        '200':
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/validation'
+        '400':
+          description: Invalid Order
+  /notices/notices:
     get:
       tags:
         - Notices
@@ -38,25 +88,25 @@ paths:
           description: Successful operation
           headers:
             apiVersion:
-              $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents.yml#/components/headers/apiVersion'
+              $ref: './oiapComponents.yml#/components/headers/apiVersion'
           content: 
             application/json:
               schema:
                 type: array
                 items:
-                  $ref: '#/components/schemas/activeNotices'
+                  $ref: '#/components/schemas/notice'
         '400':
           description: Bad request
           content:
             application/json:
               schema:
-                $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents.yml#/components/schemas/error' 
+                $ref: './oiapComponents.yml#/components/schemas/error' 
         '404':
           description: Not found
           content:
             application/json:
               schema:
-                $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents.yml#/components/schemas/error'  
+                $ref: './oiapComponents.yml#/components/schemas/error'  
   /notices/noticesCategories:
     get:
       tags:
@@ -70,25 +120,24 @@ paths:
           description: Successful operation
           headers:
             apiVersion:
-              $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents.yml#/components/headers/apiVersion'
+              $ref: './oiapComponents.yml#/components/headers/apiVersion'
           content: 
             application/json:
               schema:
-                type: array
-                items:
-                  $ref: '#/components/schemas/noticesCategories'
+                type: object 
+                $ref: '#/components/schemas/noticesCategories'
         '400':
           description: Bad request
           content:
             application/json:
               schema:
-                $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents.yml#/components/schemas/error' 
+                $ref: './oiapComponents.yml#/components/schemas/error' 
         '404':
           description: Not found
           content:
             application/json:
               schema:
-                $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents.yml#/components/schemas/error' 
+                $ref: './oiapComponents.yml#/components/schemas/error' 
   /notices/noticesLanguages:
     get:
       tags:
@@ -102,58 +151,61 @@ paths:
           description: Successful operation
           headers:
             apiVersion:
-              $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents.yml#/components/headers/apiVersion'
+              $ref: './oiapComponents.yml#/components/headers/apiVersion'
           content: 
             application/json:
               schema:
-                type: array
-                items:
-                  $ref: '#/components/schemas/noticesLanguages'
+                type: object
+                $ref: '#/components/schemas/noticesLanguages'
         '400':
           description: Bad request
           content:
             application/json:
               schema:
-                $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents.yml#/components/schemas/error' 
+                $ref: './oiapComponents.yml#/components/schemas/error' 
         '404':
           description: Not found
           content:
             application/json:
               schema:
-                $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents.yml#/components/schemas/error'
-  /notices/noticesId:
+                $ref: './oiapComponents.yml#/components/schemas/error'
+  /notices/notices/{id}:
     get:
       tags:
         - Notices
       summary: Returns a notice identified by its unique id.
       description: Returns a notice identified by its unique id.
-      parameters:
-        - $ref: '#/components/parameters/portCode'
-        - $ref: '#/components/parameters/id'        
+      parameters:  
+        - name: id
+          in: path
+          description: ID of a notice
+          required: true
+          schema:
+            type: string
+        - $ref: '#/components/parameters/portCode' 
       responses: #status code
         '200':
           description: Successful operation
           headers:
             apiVersion:
-              $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents.yml#/components/headers/apiVersion'
+              $ref: './oiapComponents.yml#/components/headers/apiVersion'
           content: 
             application/json:
               schema:
-                type: array
-                items:
-                  $ref: '#/components/schemas/noticesId'
+                type: object
+                $ref: '#/components/schemas/notice'
         '400':
           description: Bad request
           content:
             application/json:
               schema:
-                $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents.yml#/components/schemas/error' 
+                $ref: './oiapComponents.yml#/components/schemas/error' 
         '404':
           description: Not found
           content:
             application/json:
               schema:
-                $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents.yml#/components/schemas/error'  
+                $ref: './oiapComponents.yml#/components/schemas/error'  
 components:
   parameters: 
     portCode:
@@ -167,7 +219,7 @@ components:
       style: form
       explode: false
       schema:
-        $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents.yml#/components/schemas/portCode'
+        $ref: './oiapComponents.yml#/components/schemas/portCode'
     publishingStage:  
       in: query
       name: publishingStage
@@ -177,7 +229,7 @@ components:
       style: form
       explode: false
       schema:
-        $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents.yml#/components/schemas/publishingStage'
+        $ref: './oiapComponents.yml#/components/schemas/publishingStage'
     fromDate:  
       in: query
       name: fromDate
@@ -187,7 +239,7 @@ components:
       style: form
       explode: false
       schema:
-        $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents.yml#/components/schemas/fromDate'
+        $ref: './oiapComponents.yml#/components/schemas/fromDate'
     id:  
       in: query
       name: id
@@ -197,29 +249,116 @@ components:
       style: form
       explode: false
       schema:
-        $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents.yml#/components/schemas/id'
+        $ref: './oiapComponents.yml#/components/schemas/id'
   schemas:
-    activeNotices:
-      description: A list of active notices.
+    subscriber: # Object with all the information of a service subscriber (useful for News and Notices) 
+      description: A subscriber identified by an email or a phone number.
       type: object
-      properties:
-        activeNotices:
-          $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents.yml#/components/schemas/activeNotices'
-    noticesCategories:
-      description: A list of notices categories.
+      allOf:
+        - type: object
+          properties:
+            contactInfo:  # email or phone
+              $ref: './oiapComponents.yml#/components/schemas/contactInfo'  
+        - type: object
+          properties:
+            name:
+              $ref: './oiapComponents.yml#/components/schemas/name' 
+        - type: object
+          properties:
+            surname:
+              $ref: './oiapComponents.yml#/components/schemas/surname' 
+        - type: object
+          properties:
+            company: # company is an composite object with a companyName and a companyCode
+              $ref: './oiapComponents.yml#/components/schemas/company' 
+        - type: object
+          properties:
+            categories: # it must be an array of categories Can be the same for News and Notices?
+              $ref: './oiapComponents.yml#/components/schemas/noticeCategory' 
+        - type: object
+          properties:
+            language:
+              $ref: './oiapComponents.yml#/components/schemas/language' 
+      required: 
+        - contactInfo
+        - categories
+        - language
+    validation: # Object with all the information for the validation of a subscription to a service (useful for News and Notices) 
+      description: The last step to subscribe to a service.
       type: object
-      properties:
-        activeNotices:
-          $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents.yml#/components/schemas/noticesCategories'
-    noticesLanguages:
-      description: A list of languages available for the notices.
-      type: object
-      properties:
-        activeNotices:
-          $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents.yml#/components/schemas/noticesLanguages'  
-    noticesId:
+      allOf:
+        - $ref: '#/components/schemas/subscriptionRequestNumber'  
+        - $ref: './oiapComponents.yml#/components/schemas/validationKey' 
+      # example: |
+      #  { "validationKey": "ZSA276R", "email": "string"} or
+      #   { "validationKey": "string", "phone": "string"}
+      required: 
+        - validationKey
+
+    notice: # Aixo podria ser comu per a tot el domini, dient-se notice i, a la part del path, cridar aquest esquema o un array d'aquest esquema
       description: A notice from its unique id.
       type: object
-      properties:
-        activeNotices:
-          $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents.yml#/components/schemas/noticesId' 
+      allOf:
+        - type: object
+          properties:
+            id:
+              $ref: './oiapComponents.yml#/components/schemas/id' 
+        - type: object
+          properties:
+            language:
+              $ref: './oiapComponents.yml#/components/schemas/language' 
+        - type: object
+          properties:
+            subject:
+              $ref: './oiapComponents.yml#/components/schemas/subject' 
+        - type: object
+          properties:
+            content:
+              $ref: './oiapComponents.yml#/components/schemas/content' 
+        - type: object
+          properties:
+            category:
+              $ref: './oiapComponents.yml#/components/schemas/noticeCategory' 
+        - type: object
+          properties:
+            startTime:
+              $ref: './oiapComponents.yml#/components/schemas/startTime' 
+        - type: object
+          properties:
+            endTime:
+              $ref: './oiapComponents.yml#/components/schemas/endTime' 
+        - type: object
+          properties:
+            uri:
+              $ref: './oiapComponents.yml#/components/schemas/uri'
+      required: 
+        - id
+        - language
+        - subject
+        - startTime
+    noticesCategories:
+      description: A list of notices categories.
+      type: array
+      items:
+        $ref: './oiapComponents.yml#/components/schemas/noticeCategory'
+      example: ['Ship arrival', 'Ship departure', 'Sea state', 'Pollution warning', 'Traffic status', 'Terminal notices']
+    noticesLanguages:
+      description: A list of languages available for the notices.
+      type: array
+      items:
+        $ref: './oiapComponents.yml#/components/schemas/noticeLanguage'  
+      example: ['ca', 'es', 'en', 'fr']
+    subscriptionRequestNumber: 
+      type: string
+      example: '2022-02-07T17:05:12_RZW256'
+    subscriptionRequestMessage:
+      type: string 
+      example: 'Your subscription request has been received and soon you will receive a validation code (email/sms)'
+    subscriptionReference:
+      description: Response after a subscription request has been received
+      type: object
+      allOf:
+        - $ref: '#/components/schemas/subscriptionRequestNumber'
+        - $ref: '#/components/schemas/subscriptionRequestMessage'
+
+
