@@ -48,7 +48,7 @@ paths:
 
         '400':
           description: Invalid Order
-  /notices/subscriptionValidation: # Falten els parameters
+  /notices/subscriptionValidation:
     post:
       tags:
         - Notices
@@ -59,8 +59,8 @@ paths:
         content:
           application/json:
             schema:
-              type: object
-                - $ref: '#/components/schemas/subscriptionRequestNumber'
+              allOf:
+                - $ref: '#/components/schemas/subscriptionRequestReference'
                 - $ref: './oiapComponents.yml#/components/schemas/validationKey'
         description: request placed for validating the subscription to a notices service
         required: true
@@ -70,7 +70,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/validation'
+                $ref: '#/components/schemas/validationMessage'
         '400':
           description: Invalid Order
   /notices/notices:
@@ -283,18 +283,18 @@ components:
         - contactInfo
         - categories
         - language
-    validation: # Object with all the information for the validation of a subscription to a service (useful for News and Notices) 
-      description: The last step to subscribe to a service.
+    subscriptionRequestReference: 
+      type: string
+      example: '2022-02-07T17:05:12_RZW256'
+    subscriptionRequestMessage:
+      type: string 
+      example: 'Your subscription request has been received and soon you will receive a validation code (email/sms)'
+    subscriptionReference:
+      description: Response after a subscription request has been received
       type: object
       allOf:
-        - $ref: '#/components/schemas/subscriptionRequestNumber'  
-        - $ref: './oiapComponents.yml#/components/schemas/validationKey' 
-      # example: |
-      #  { "validationKey": "ZSA276R", "email": "string"} or
-      #   { "validationKey": "string", "phone": "string"}
-      required: 
-        - validationKey
-
+        - $ref: '#/components/schemas/subscriptionRequestReference'
+        - $ref: '#/components/schemas/subscriptionRequestMessage'
     notice: # Aixo podria ser comu per a tot el domini, dient-se notice i, a la part del path, cridar aquest esquema o un array d'aquest esquema
       description: A notice from its unique id.
       type: object
@@ -348,17 +348,9 @@ components:
       items:
         $ref: './oiapComponents.yml#/components/schemas/noticeLanguage'  
       example: ['ca', 'es', 'en', 'fr']
-    subscriptionRequestNumber: 
-      type: string
-      example: '2022-02-07T17:05:12_RZW256'
-    subscriptionRequestMessage:
+    validationMessage:
       type: string 
-      example: 'Your subscription request has been received and soon you will receive a validation code (email/sms)'
-    subscriptionReference:
-      description: Response after a subscription request has been received
-      type: object
-      allOf:
-        - $ref: '#/components/schemas/subscriptionRequestNumber'
-        - $ref: '#/components/schemas/subscriptionRequestMessage'
+      example: 'Your subscription request has been approved'
+
 
 
