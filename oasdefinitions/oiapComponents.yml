@@ -72,9 +72,20 @@ components:
       description: |
             The Uniform Resource Identifier (URI) is a unique sequence of characters that identifies a logical or physical resource used by web technologies.
       type: string
+    validationKey:
+      description: |
+            The code received to complete a subscription process.
+      type: string
+      example: '4ZT2'
     # Persons
     contactInfo:
       description: email or phone
+      type: string
+    email:
+      description: email
+      type: string
+    phone:
+      description: phone number 
       type: string
     name:
       description: name
@@ -96,13 +107,14 @@ components:
       required:
         - companyName   
     language:
-
-      description: >
+      description: |
             The ISO 639 code of a language. Each language is assigned a two-letter (639-1) lowercase abbreviation.
             E.g. `ca` Catalan.
       type: string
       maxLength: 2
       example: ca 
+    noticeLanguage:
+      $ref: '#/components/schemas/language'
     # Location components
     portCode:
       description: |
@@ -292,10 +304,10 @@ components:
     content:
       type: string
       description: Content of a publication. 
-    category:
+    noticeCategory:
       type: string
       description: Category of a publication. 
-      enum: [category A, category B]
+      example: 'Ship arrival'
     # Error schemas
     error:
       type: object
