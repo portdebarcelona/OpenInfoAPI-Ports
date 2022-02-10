@@ -25,7 +25,7 @@ servers:
     description: Servidor server 
 # Canvi efectuat: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions a '.
 paths:
-  /notices/subscription: 
+  /notices/subscriptionRequest: 
     post:
       tags:
         - Notices
@@ -46,112 +46,8 @@ paths:
             application/json:
               schema: # subscription response
                 $ref: '#/components/schemas/subscriptionReference'
-
         '400':
           description: Invalid Order
-
-  /notices/subscription2: 
-    description: 'Request a subscription to a notices service from a port (inspired in swagger)'    
-    post:
-      tags:
-        - Notices
-      summary: Creates a suscriber and returns the subscriptionRequestReference
-      operationId: createSubscription
-      requestBody:
-        required: true
-        description: A JSON object that contains the subscriber information.
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/subscriber'
-      responses:
-        '201':
-          description: Created
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/subscriptionRequestReference'
-          # -----------------------------------------------------
-          # Links
-          # -----------------------------------------------------
-          links:
-            GetSubscriberById:  
-              operationId: getSubscriber
-              # or
-              # operationRef: '#/paths/~1users~1{suscriberId}/get'
-              parameters:
-                userId: '$response.body#/subscriptionRequestReference'
-              description: >
-                The `subscriptionRequestReference` value returned in the response can be used as
-                the `userId` parameter in `GET /notices/{suscriberId}`.
-          # -----------------------------------------------------
-
-
-  /notices/subscription3: 
-    description: 'Request a subscription to a notices service from a port (inspired in swagger)'    
-    post:
-      tags:
-        - Notices
-      parameters:
-        - name: callbackUrl
-          in: query
-          required: true
-          schema:
-            type: string
-            format: uri
-        - name: event
-          in: query
-          required: true
-          schema:
-            type: string
-      responses:
-        '201':
-          description: Added
-          content:
-            application/json:
-              schema: 
-                type: string
-                example: AAA-123-BBB-456                    
-#     links:  # Link the returned id with the unsubscribe operation
-#       unsubscribeOp:
-#         operationId: unsubscribeOperation
-#             parameters: 
-#               Id: $response.body#/subscriberId
-      callbacks:
-        myEvent:
-          '{$request.query.callbackUrl}?event={$request.query.event}':
-            post:
-              requestBody:
-                content:
-                  application/json:
-                    example:
-                      message: Some event
-              responses:
-                '200':
-                  description: OK      
-      
-      
-#     summary: Subscription request
-#     description: 'Request a subscription to a notices service from a port'
-#     operationId: subscriptionRequest
-#     requestBody:
-#       content:
-#         application/json:
-#           schema:
-#             $ref: '#/components/schemas/subscriber'
-#       description: request placed for subscribing to a notices service
-#       required: true
-#     responses:
-#       '200':
-#         description: successful operation
-#         content:
-#           application/json:
-#             schema: # subscription response
-#               $ref: '#/components/schemas/subscriptionReference'
-
-#       '400':
-#         description: Invalid Order
-
   /notices/subscriptionValidation:
     post:
       tags:
@@ -159,6 +55,58 @@ paths:
       summary: Subscription validation
       description: 'Post the validation code received to fulfill the subscription request to a notices service from a port'
       operationId: subscriptionValidation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              allOf:
+                - $ref: '#/components/schemas/subscriptionRequestReference'
+                - $ref: './oiapComponents.yml#/components/schemas/validationKey'
+        description: request placed for validating the subscription to a notices service
+        required: true
+      responses:
+        '200':
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/validationMessage'
+        '400':
+          description: Invalid Order
+  /notices/unsubscriptionRequest: 
+    post:
+      tags:
+        - Notices
+      summary: Unsubscription request
+      description: 'Request to cancel a subscription of a notices service from a port'
+      operationId: unsubscriptionRequest
+      requestBody:
+        content:
+          application/json:
+            schema:
+              oneOf:
+                - $ref: './oiapComponents.yml#/components/schemas/email'
+                - $ref: './oiapComponents.yml#/components/schemas/phone'
+              example: {"email": "name@domain.com"} 
+        description: request placed for unsubscribing to a notices service
+        required: true
+      responses:
+        '200':
+          description: successful operation
+          content:
+            application/json:
+              schema: # unsubscription response
+                $ref: '#/components/schemas/unsubscriptionReference'
+
+        '400':
+          description: Invalid Order
+  /notices/unsubscriptionValidation:
+    post:
+      tags:
+        - Notices
+      summary: Unsubscription validation
+      description: 'Post the validation code received to cancel the subscription to a notices service from a port'
+      operationId: unsubscriptionValidation
       requestBody:
         content:
           application/json:
@@ -391,18 +339,33 @@ components:
         - contactInfo
         - categories
         - language
+
+    subscriptionReference:
+      description: Response after a subscription request has been received
+      type: object
+      properties:
+        subscriptionRequestReference:
+          $ref: '#/components/schemas/subscriptionRequestReference'
+        subscriptionRequestMessage:
+          $ref: '#/components/schemas/subscriptionRequestMessage'
     subscriptionRequestReference: 
       type: string
       example: '2022-02-07T17:05:12_RZW256'
     subscriptionRequestMessage:
       type: string 
       example: 'Your subscription request has been received and soon you will receive a validation code (email/sms)'
-    subscriptionReference:
-      description: Response after a subscription request has been received
+    unsubscriptionRequestReference: 
+      type: string
+      example: '2022-02-10T17:05:12_RZT056'
+    unsubscriptionRequestMessage:
+      type: string 
+      example: 'Your unsubscription request has been received and soon you will receive a validation code (email/sms)'
+    unsubscriptionReference:
+      description: Response after an unsubscription request has been received
       type: object
       allOf:
-        - $ref: '#/components/schemas/subscriptionRequestReference'
-        - $ref: '#/components/schemas/subscriptionRequestMessage'
+        - $ref: '#/components/schemas/unsubscriptionRequestReference'
+        - $ref: '#/components/schemas/unsubscriptionRequestMessage'
     notice: # Aixo podria ser comu per a tot el domini, dient-se notice i, a la part del path, cridar aquest esquema o un array d'aquest esquema
       description: A notice from its unique id.
       type: object
