@@ -21,7 +21,8 @@ tags:
       description: Description 
       url: http://swagger.io
 servers:
-  - url: https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/
+  - url: https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions
+    description: Servidor server 
 # Canvi efectuat: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions a '.
 paths:
   /notices/subscription: 
@@ -48,6 +49,109 @@ paths:
 
         '400':
           description: Invalid Order
+
+  /notices/subscription2: 
+    description: 'Request a subscription to a notices service from a port (inspired in swagger)'    
+    post:
+      tags:
+        - Notices
+      summary: Creates a suscriber and returns the subscriptionRequestReference
+      operationId: createSubscription
+      requestBody:
+        required: true
+        description: A JSON object that contains the subscriber information.
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/subscriber'
+      responses:
+        '201':
+          description: Created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/subscriptionRequestReference'
+          # -----------------------------------------------------
+          # Links
+          # -----------------------------------------------------
+          links:
+            GetSubscriberById:  
+              operationId: getSubscriber
+              # or
+              # operationRef: '#/paths/~1users~1{suscriberId}/get'
+              parameters:
+                userId: '$response.body#/subscriptionRequestReference'
+              description: >
+                The `subscriptionRequestReference` value returned in the response can be used as
+                the `userId` parameter in `GET /notices/{suscriberId}`.
+          # -----------------------------------------------------
+
+
+  /notices/subscription3: 
+    description: 'Request a subscription to a notices service from a port (inspired in swagger)'    
+    post:
+      tags:
+        - Notices
+      parameters:
+        - name: callbackUrl
+          in: query
+          required: true
+          schema:
+            type: string
+            format: uri
+        - name: event
+          in: query
+          required: true
+          schema:
+            type: string
+      responses:
+        '201':
+          description: Added
+          content:
+            application/json:
+              schema: 
+                type: string
+                example: AAA-123-BBB-456                    
+#     links:  # Link the returned id with the unsubscribe operation
+#       unsubscribeOp:
+#         operationId: unsubscribeOperation
+#             parameters: 
+#               Id: $response.body#/subscriberId
+      callbacks:
+        myEvent:
+          '{$request.query.callbackUrl}?event={$request.query.event}':
+            post:
+              requestBody:
+                content:
+                  application/json:
+                    example:
+                      message: Some event
+              responses:
+                '200':
+                  description: OK      
+      
+      
+#     summary: Subscription request
+#     description: 'Request a subscription to a notices service from a port'
+#     operationId: subscriptionRequest
+#     requestBody:
+#       content:
+#         application/json:
+#           schema:
+#             $ref: '#/components/schemas/subscriber'
+#       description: request placed for subscribing to a notices service
+#       required: true
+#     responses:
+#       '200':
+#         description: successful operation
+#         content:
+#           application/json:
+#             schema: # subscription response
+#               $ref: '#/components/schemas/subscriptionReference'
+
+#       '400':
+#         description: Invalid Order
+
   /notices/subscriptionValidation:
     post:
       tags:
@@ -112,7 +216,11 @@ paths:
       tags:
         - Notices
       summary: Returns a list of notices categories 
-      description: Returns a list of notices categories
+      description: >-
+        This GET API returns the list of all the category names that a user can subscribe. 
+        Please see the 'noticesCategories' attribute which returns an
+        array of noticeCategories names. Each noticeCategories or a combination of noticeCategories can be
+        searched using the syntax options shown below.
       parameters:
         - $ref: '#/components/parameters/portCode'
       responses: #status code
