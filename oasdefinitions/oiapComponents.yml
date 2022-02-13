@@ -292,6 +292,8 @@ components:
     # Notices and news
     noticeLanguage:
       $ref: '#/components/schemas/language'
+    newsLanguage:
+      $ref: '#/components/schemas/language'
     publishingStage:
       type: string
       enum: [ACTIVE, EXPIRED]
@@ -309,6 +311,10 @@ components:
       type: string
       description: Category of a publication. 
       example: 'Ship arrival'
+    newsCategory:
+      type: string
+      description: Category of a publication. 
+      example: 'Traffic'
     # Subscriptions
     subscriptionReference:
       description: Response after a subscription request has been received
