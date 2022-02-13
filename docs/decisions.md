@@ -1,8 +1,8 @@
-# Standardization Recommendations and Decisions
+# Standardization, Recommendations and Decisions
 
 This document sumarizes all the decisions addopted during this project with the objective to develop a set of recommendations and best practices for the API definition.
    
-## camelcase
+## camelCase
 - Naming convention for fields: camelCase. 
 
 ## Open API version 3
@@ -35,7 +35,7 @@ style defines how multiple values are delimited.
 ## Grouping Operations With Tags (from [OpenAPI specification](https://swagger.io/docs/specification/grouping-operations-with-tags/))
 - WE RECOMMEND to group operations with tags. 
 
-## Callbacks
+## Callbacks (from [OpenAPI specification](https://swagger.io/docs/specification/callbacks/))
 - A callback is an asynchronous, out-of-band, request that a service will send to some other service in response to certain events. 
 - A typical example of a callback is subscription functionality – users subscribe to certain events of a service and receive a notification when this or that event occurs. For example, an e-shop can send a notification to the manager on each purchase. 
 - These notifications will be “out-of-band”, that is, they will go through a connection other than the connection through which a visitor works, and they will be asynchronous, as they will be out of the regular request-response flow. 
@@ -94,5 +94,35 @@ style defines how multiple values are delimited.
                 schema:
                   type: string
 
-## Responses must include information on the API called (with their parameters
-)
+## Responses must include information on the API called (with their parameters)
+
+## Security Scheme Object
+- Defines a security scheme that can be used by the operations. Supported schemes are:
+  
+  - HTTP authentication, 
+  - an API key (either as a header, a cookie parameter or as a query parameter), 
+  - OAuth2's common flows (implicit, password, client credentials and authorization code) as defined in RFC6749, and 
+  - OpenID Connect Discovery.
+
+- Fields required for the supported schemes:
+  - Common fields
+    - type
+    - description
+  - HTTP authentication
+    - scheme ([values registered in the IANA Authentication Scheme registry](https://www.iana.org/assignments/http-authschemes/http-authschemes.xhtml)]
+    - bearerFormat
+  - API key 
+    - name
+    - in (valid values are: query, header or cookie)
+  - oauth2
+    - flows (supported values are:  implicit, password, clientCredentials, authorizationCode)
+    - These are the configuration details for a supported OAuth Flow:
+      - authorizationUrl string (oauth2 ("implicit", "authorizationCode")) REQUIRED
+      - tokenUrl string (oauth2 ("password", "clientCredentials", "authorizationCode")) REQUIRED 
+      - refreshUrl string (oauth2)
+      - scopes Map[string, string] (oauth2) REQUIRED 
+  - openIdConnect
+    - openIdConnectUrl
+
+
+We recommend _____________ 

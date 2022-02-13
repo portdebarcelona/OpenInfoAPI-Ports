@@ -113,8 +113,7 @@ components:
       type: string
       maxLength: 2
       example: ca 
-    noticeLanguage:
-      $ref: '#/components/schemas/language'
+
     # Location components
     portCode:
       description: |
@@ -290,7 +289,9 @@ components:
           $ref: '#/components/schemas/berth' 
       required:
         - description
-    # Publication components
+    # Notices and news
+    noticeLanguage:
+      $ref: '#/components/schemas/language'
     publishingStage:
       type: string
       enum: [ACTIVE, EXPIRED]
@@ -308,6 +309,35 @@ components:
       type: string
       description: Category of a publication. 
       example: 'Ship arrival'
+    # Subscriptions
+    subscriptionReference:
+      description: Response after a subscription request has been received
+      type: object
+      properties:
+        subscriptionRequestReference:
+          $ref: '#/components/schemas/subscriptionRequestReference'
+        subscriptionRequestMessage:
+          $ref: '#/components/schemas/subscriptionRequestMessage'
+    subscriptionRequestReference: 
+      type: string
+      example: '2022-02-07T17:05:12_REF001'
+    subscriptionRequestMessage:
+      type: string 
+      example: 'Your subscription request has been received and soon you will receive a validation code (email/sms)'
+    unsubscriptionRequestReference: 
+      type: string
+      example: '2022-02-10T17:05:12_UNS056'
+    unsubscriptionRequestMessage:
+      type: string 
+      example: 'Your unsubscription request has been received and soon you will receive a validation code (email/sms)'
+    unsubscriptionReference:
+      description: Response after an unsubscription request has been received
+      type: object
+      properties:
+        unsubscriptionRequestReference:
+          $ref: '#/components/schemas/unsubscriptionRequestReference'
+        unsubscriptionRequestMessage:
+          $ref: '#/components/schemas/unsubscriptionRequestMessage'
     # Error schemas
     error:
       type: object

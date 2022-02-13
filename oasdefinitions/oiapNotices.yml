@@ -4,9 +4,7 @@ info:
   title: OIAP
   description: 
     Open Info API para Puertos.  
-    This file contains all the APIs developed for the Open Info API para Puertos project within the initiative Ports 4.0 form Puertos del Estado (ES).
-    For this sample, you can use the api key
-    `special-key` to test the authorization filters.  
+    This file contains all the APIs developed for the `Open Info API para Puertos` project within the initiative Ports 4.0 form Puertos del Estado (ES). 
   termsOfService: http://swagger.io/terms/
   license:
     name: CC0 1.0 Universal (CC0 1.0)
@@ -29,7 +27,7 @@ paths:
     post:
       tags:
         - Notices
-      summary: Subscription request
+      summary: Subscription request to a notices service
       description: 'Request a subscription to a notices service from a port'
       operationId: subscriptionRequest
       requestBody:
@@ -45,14 +43,14 @@ paths:
           content:
             application/json:
               schema: # subscription response
-                $ref: '#/components/schemas/subscriptionReference'
+                $ref: './oiapComponents.yml#/components/schemas/subscriptionReference'
         '400':
           description: Invalid Order
   /notices/subscriptionValidation:
     post:
       tags:
         - Notices
-      summary: Subscription validation
+      summary: Last step to subscribe to a notices service
       description: 'Post the validation code received to fulfill the subscription request to a notices service from a port'
       operationId: subscriptionValidation
       requestBody:
@@ -60,7 +58,7 @@ paths:
           application/json:
             schema:
               allOf:
-                - $ref: '#/components/schemas/subscriptionRequestReference'
+                - $ref: './oiapComponents.yml#/components/schemas/subscriptionRequestReference'
                 - $ref: './oiapComponents.yml#/components/schemas/validationKey'
         description: request placed for validating the subscription to a notices service
         required: true
@@ -77,7 +75,7 @@ paths:
     post:
       tags:
         - Notices
-      summary: Unsubscription request
+      summary: Request to cancel the subscription to a notices service
       description: 'Request to cancel a subscription of a notices service from a port'
       operationId: unsubscriptionRequest
       requestBody:
@@ -96,7 +94,7 @@ paths:
           content:
             application/json:
               schema: # unsubscription response
-                $ref: '#/components/schemas/unsubscriptionReference'
+                $ref: './oiapComponents.yml#/components/schemas/unsubscriptionReference'
 
         '400':
           description: Invalid Order
@@ -104,7 +102,7 @@ paths:
     post:
       tags:
         - Notices
-      summary: Unsubscription validation
+      summary: Last step to cancel the subscription to a notices service
       description: 'Post the validation code received to cancel the subscription to a notices service from a port'
       operationId: unsubscriptionValidation
       requestBody:
@@ -112,9 +110,9 @@ paths:
           application/json:
             schema:
               allOf:
-                - $ref: '#/components/schemas/subscriptionRequestReference'
+                - $ref: './oiapComponents.yml#/components/schemas/subscriptionRequestReference'
                 - $ref: './oiapComponents.yml#/components/schemas/validationKey'
-        description: request placed for validating the subscription to a notices service
+        description: request placed for validating the unsubscription to a notices service
         required: true
       responses:
         '200':
@@ -163,7 +161,7 @@ paths:
     get:
       tags:
         - Notices
-      summary: Returns a list of notices categories 
+      summary: Returns the list of notices categories from a notices service of a port  
       description: >-
         This GET API returns the list of all the category names that a user can subscribe. 
         Please see the 'noticesCategories' attribute which returns an
@@ -198,7 +196,7 @@ paths:
     get:
       tags:
         - Notices
-      summary: List of the possible languages.
+      summary: List of the possible languages from a notices service of a port
       description: Returns a list of the possible languages for the notices published.
       parameters:
         - $ref: '#/components/parameters/portCode'
@@ -229,7 +227,7 @@ paths:
     get:
       tags:
         - Notices
-      summary: Returns a notice identified by its unique id.
+      summary: Returns a particular notice identified by its unique id.
       description: Returns a notice identified by its unique id.
       parameters:  
         - name: id
@@ -339,34 +337,7 @@ components:
         - contactInfo
         - categories
         - language
-
-    subscriptionReference:
-      description: Response after a subscription request has been received
-      type: object
-      properties:
-        subscriptionRequestReference:
-          $ref: '#/components/schemas/subscriptionRequestReference'
-        subscriptionRequestMessage:
-          $ref: '#/components/schemas/subscriptionRequestMessage'
-    subscriptionRequestReference: 
-      type: string
-      example: '2022-02-07T17:05:12_RZW256'
-    subscriptionRequestMessage:
-      type: string 
-      example: 'Your subscription request has been received and soon you will receive a validation code (email/sms)'
-    unsubscriptionRequestReference: 
-      type: string
-      example: '2022-02-10T17:05:12_RZT056'
-    unsubscriptionRequestMessage:
-      type: string 
-      example: 'Your unsubscription request has been received and soon you will receive a validation code (email/sms)'
-    unsubscriptionReference:
-      description: Response after an unsubscription request has been received
-      type: object
-      allOf:
-        - $ref: '#/components/schemas/unsubscriptionRequestReference'
-        - $ref: '#/components/schemas/unsubscriptionRequestMessage'
-    notice: # Aixo podria ser comu per a tot el domini, dient-se notice i, a la part del path, cridar aquest esquema o un array d'aquest esquema
+    notice: 
       description: A notice from its unique id.
       type: object
       allOf:
@@ -421,7 +392,4 @@ components:
       example: ['ca', 'es', 'en', 'fr']
     validationMessage:
       type: string 
-      example: 'Your subscription request has been approved'
-
-
-
+      example: 'Your request has been approved'
