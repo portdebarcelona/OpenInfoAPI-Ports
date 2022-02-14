@@ -15,8 +15,6 @@ info:
 paths:
   /resADir:
     get:
-      tags:
-        - user
       summary: Logs out current logged in user session
       description: ''
       operationId: logoutUser
@@ -361,3 +359,18 @@ components:
 # https://service.unece.org/trade/uncefact/vocabulary/rec20/
 # https://service.unece.org/trade/uncefact/vocabulary/rec21/
 # https://service.unece.org/trade/uncefact/vocabulary/unlocode-CC/  (CC is 2a ISO3166 country code)
+
+    railService:  #Revisar      
+      type: string
+      description: Subject of a publication.  
+    locode: #Revisar
+      type: string
+      description: Subject of a publication.      
+    railTerminalCode: #Revisar
+      type: string
+      description: Subject of a publication.  
+    companyName: #Revisar
+      type: string
+      description: Subject of a publication.  
+
+
