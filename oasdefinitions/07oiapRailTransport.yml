@@ -273,7 +273,6 @@ components:
           properties:
             railService:  # railServiceName and railServiceCode
               $ref: './oiapComponents.yml#/components/schemas/railService'        
-
     inlandTerminal: # Important definir aquesta estructura de dades. Mirar Sòstrat !!!
       description: ''
       type: object
@@ -285,8 +284,7 @@ components:
         - type: object
           properties:
             railTerminalCode:  # Veure si existeix una taula d'estacions
-              $ref: './oiapComponents.yml#/components/schemas/railTerminalCode' 
-
+              $ref: './oiapComponents.yml#/components/schemas/railwayStation' 
     railUndertaking: # Es tracta d'una empresa estàndard - Veure schema.org
       description: ''
       type: object
@@ -297,7 +295,6 @@ components:
               $ref: './oiapComponents.yml#/components/schemas/companyName' 
       required: 
         - companyName
-
     logisticServiceProvider: # Es tracta d'una empresa estàndard - Veure schema.org
       description: ''
       type: object
@@ -308,45 +305,35 @@ components:
               $ref: './oiapComponents.yml#/components/schemas/companyName' 
       required: 
         - companyName 
-
     trainArrivals: # S'ha de particularitzar per als trens
       description: list of trains that have arrived or will arrive today
       type: object
       allOf:
         - type: object
           properties:
-            shipIMONumber:
-              $ref: './oiapComponents.yml#/components/schemas/shipIMONumber'
+            trainType:
+              $ref: './oiapComponents.yml#/components/schemas/trainType'
         - type: object
           properties:
-            shipName:
-              $ref: './oiapComponents.yml#/components/schemas/shipName'
+            placeOfDeparture:  # EDIFACT: Code "5" in DE3227; name and code
+              $ref: './oiapComponents.yml#/components/schemas/placeOfDeparture'
         - type: object
           properties:
-            shipType:
-              $ref: './oiapComponents.yml#/components/schemas/shipType'
-        - type: object
-          properties:
-            actualTimeOfArrival:
-              $ref: './oiapComponents.yml#/components/schemas/actualTimeOfArrival'
+            placeOfDestination:  # EDIFACT: Code "8" in DE3227; name and code
+              $ref: './oiapComponents.yml#/components/schemas/placeOfDestination'
         - type: object
           properties:
             estimatedTimeOfArrival:
               $ref: './oiapComponents.yml#/components/schemas/estimatedTimeOfArrival'
         - type: object
           properties:
-            nextPortOfCall:
-              $ref: './oiapComponents.yml#/components/schemas/lastPortOfCall'
-        - type: object
-          properties:
-            berth:
-              $ref: './oiapComponents.yml#/components/schemas/berth'
+            actualTimeOfArrival:
+              $ref: './oiapComponents.yml#/components/schemas/actualTimeOfArrival'
       required: 
-        - shipIMONumber
-        - shipName
-        - shipType
-        - estimatedTimeOfArrival
-        - berth  
+        - trainType
+        - placeOfDeparture
+        - placeOfDestination
+        - estimatedTimeOfArrival  
 
     trainDepartures: # S'ha de particularitzar per als trens
       description: list of trains that have departed or will depart today
@@ -354,35 +341,26 @@ components:
       allOf:
         - type: object
           properties:
-            shipIMONumber:
-              $ref: './oiapComponents.yml#/components/schemas/shipIMONumber'
+            trainType:
+              $ref: './oiapComponents.yml#/components/schemas/trainType'
         - type: object
           properties:
-            shipName:
-              $ref: './oiapComponents.yml#/components/schemas/shipName'
+            placeOfDeparture:  # EDIFACT: Code "5" in DE3227; name and code
+              $ref: './oiapComponents.yml#/components/schemas/placeOfDeparture'
         - type: object
           properties:
-            shipType:
-              $ref: './oiapComponents.yml#/components/schemas/shipType'
+            placeOfDestination:  # EDIFACT: Code "8" in DE3227; name and code
+              $ref: './oiapComponents.yml#/components/schemas/placeOfDestination'
         - type: object
           properties:
-            actualTimeOfArrival:
-              $ref: './oiapComponents.yml#/components/schemas/actualTimeOfArrival'
+            estimatedTimeOfDeparture:
+              $ref: './oiapComponents.yml#/components/schemas/estimatedTimeOfDeparture'
         - type: object
           properties:
-            estimatedTimeOfArrival:
-              $ref: './oiapComponents.yml#/components/schemas/estimatedTimeOfArrival'
-        - type: object
-          properties:
-            nextPortOfCall:
-              $ref: './oiapComponents.yml#/components/schemas/lastPortOfCall'
-        - type: object
-          properties:
-            berth:
-              $ref: './oiapComponents.yml#/components/schemas/berth'
+            actualTimeOfDeparture:
+              $ref: './oiapComponents.yml#/components/schemas/actualTimeOfDeparture'
       required: 
-        - shipIMONumber
-        - shipName
-        - shipType
-        - estimatedTimeOfArrival
-        - berth  
+        - trainType
+        - placeOfDeparture
+        - placeOfDestination
+        - estimatedTimeOfDeparture 

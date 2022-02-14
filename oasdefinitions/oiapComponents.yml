@@ -129,6 +129,38 @@ components:
       type: string
       maxLength: 5
       example: NLRTM
+    placeOfDeparture:
+      type: object
+      description: Name of the place of departure. 
+      anyOf:
+        - type: object
+          properties:
+            code:
+              description: Code of the place of departure.  
+              type: string
+              maxLength: 5
+        - type: object
+          properties:
+            description:
+              description: Name of the place of departure.  
+              type: string
+              maxLength: 35
+    placeOfDestination:
+      type: object
+      description: Name of the place of destination. 
+      anyOf:
+        - type: object
+          properties:
+            code:
+              description: Code of the place of destination.  
+              type: string
+              maxLength: 5
+        - type: object
+          properties:
+            description:
+              description: Name of the place of destination.  
+              type: string
+              maxLength: 35
     # Ship components
     shipIMONumber:
       type: string
@@ -175,6 +207,18 @@ components:
       maxLength: 2
       example: 50    
       enum: [50, 51, 52, 53, 54, 55, 57, 59, 60, 70, 72, 73, 74, 75, 76, 77, 78, 80, 81, 82, 83, 84, 85, 89, 90, 91, 92]
+    # Train components
+    trainType:
+      description: >
+            The type of the train. The value is populated using the following enumeration:
+              * `Containers`	General cargo vessel	Vessel designed to carry general cargo.
+              * `Vehicles`	Unit carrier	Vessel designed to carry unit loads
+              * `Bulk`	Bulk carrier	Vessel designed to carry bulk cargo.
+              * `Tanker`	Tanker	Vessel solely equipped with tanks to carry cargo. 
+      type: string
+      maxLength: 35
+      example: "Containers"    
+      enum: ["Containers", "Vehicles", "Bulk", "Tanker"]  
     # Partners      
     ferryOperator:
       type: object
@@ -366,7 +410,7 @@ components:
     locode: #Revisar
       type: string
       description: Subject of a publication.      
-    railTerminalCode: #Revisar
+    railwayStation: #Revisar
       type: string
       description: Subject of a publication.  
     companyName: #Revisar
