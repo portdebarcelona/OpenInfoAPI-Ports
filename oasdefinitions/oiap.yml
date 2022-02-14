@@ -150,11 +150,14 @@ paths:
                 type: array
                 items:
                   $ref: '#/components/schemas/shipInPort'
-        default:
-          description: Unexpected error
-          headers:
-            apiVersion:
-              $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents.yml#/components/headers/apiVersion'
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents.yml#/components/schemas/error' 
+        '404':
+          description: Not found
           content:
             application/json:
               schema:
@@ -180,11 +183,14 @@ paths:
                 type: array
                 items:
                   $ref: '#/components/schemas/shipArrivals'
-        default:
-          description: Unexpected error
-          headers:
-            apiVersion:
-              $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents.yml#/components/headers/apiVersion'
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents.yml#/components/schemas/error' 
+        '404':
+          description: Not found
           content:
             application/json:
               schema:
@@ -210,15 +216,18 @@ paths:
                 type: array
                 items:
                   $ref: '#/components/schemas/shipDepartures'
-        default:
-          description: Unexpected error
-          headers:
-            apiVersion:
-              $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents.yml#/components/headers/apiVersion'
+        '400':
+          description: Bad request
           content:
             application/json:
               schema:
                 $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents.yml#/components/schemas/error' 
+        '404':
+          description: Not found
+          content:
+            application/json:
+              schema:
+                $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents.yml#/components/schemas/error'
   # Ship Aproximation
   /portCalls/aproximation:
     get:
@@ -240,15 +249,18 @@ paths:
                 type: array
                 items:
                   $ref: '#/components/schemas/aproximationManouvres'
-        default:
-          description: Unexpected error
-          headers:
-            apiVersion:
-              $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents.yml#/components/headers/apiVersion'
+        '400':
+          description: Bad request
           content:
             application/json:
               schema:
-                $ref: 'oiapComponents.yml#/components/schemas/error'
+                $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents.yml#/components/schemas/error' 
+        '404':
+          description: Not found
+          content:
+            application/json:
+              schema:
+                $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents.yml#/components/schemas/error'
   /portCalls/ferriesArrivals:
     get:
       tags:
@@ -269,15 +281,18 @@ paths:
                 type: array
                 items:
                   $ref: '#/components/schemas/ferriesArrivals'
-        default:
-          description: Unexpected error
-          headers:
-            apiVersion:
-              $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents.yml#/components/headers/apiVersion'
+        '400':
+          description: Bad request
           content:
             application/json:
               schema:
-                $ref: 'oiapComponents.yml#/components/schemas/error'
+                $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents.yml#/components/schemas/error' 
+        '404':
+          description: Not found
+          content:
+            application/json:
+              schema:
+                $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents.yml#/components/schemas/error'
   /portCalls/ferriesDepartures:
     get:
       tags:
@@ -298,15 +313,18 @@ paths:
                 type: array
                 items:
                   $ref: '#/components/schemas/ferriesDepartures'
-        default:
-          description: Unexpected error
-          headers:
-            apiVersion:
-              $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents.yml#/components/headers/apiVersion'
+        '400':
+          description: Bad request
           content:
             application/json:
               schema:
-                $ref: 'oiapComponents.yml#/components/schemas/error'      
+                $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents.yml#/components/schemas/error' 
+        '404':
+          description: Not found
+          content:
+            application/json:
+              schema:
+                $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents.yml#/components/schemas/error'     
   /portCalls/cruiseCalls:
     get:
       tags:
@@ -328,15 +346,18 @@ paths:
                 type: array
                 items:
                   $ref: '#/components/schemas/cruiseCall'
-        default:
-          description: Unexpected error
-          headers:
-            apiVersion:
-              $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents.yml#/components/headers/apiVersion'
+        '400':
+          description: Bad request
           content:
             application/json:
               schema:
-                $ref: 'oiapComponents.yml#/components/schemas/error'                
+                $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents.yml#/components/schemas/error' 
+        '404':
+          description: Not found
+          content:
+            application/json:
+              schema:
+                $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents.yml#/components/schemas/error'               
 components:
   parameters: 
     portCode:
