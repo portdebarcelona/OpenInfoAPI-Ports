@@ -197,7 +197,7 @@ paths:
       tags:
         - News
       summary: List of the possible languages from a news service of a port
-      description: Returns a list of the possible languages for the news published.
+      description: Returns a list of the possible languages for news published.
       parameters:
         - $ref: '#/components/parameters/portCode'
       responses: #status code
@@ -227,12 +227,12 @@ paths:
     get:
       tags:
         - News
-      summary: Returns a particular news identified by its unique id.
-      description: Returns a notice identified by its unique id.
+      summary: Returns particular news identified by its unique id.
+      description: Returns particular news identified by its unique id.
       parameters:  
         - name: id
           in: path
-          description: ID of a notice
+          description: News ID
           required: true
           schema:
             type: string
@@ -288,7 +288,7 @@ components:
       in: query
       name: fromDate
       description: 
-            The date (day) from the expired News are requested. The value is populated in ISO 8601 Date format (eg. 2022-01-30). This parameter is only needed to retrieve the expired notices and to limit their number.
+            The date (day) from expired News are requested. The value is populated in ISO 8601 Date format (eg. 2022-01-30). This parameter is only needed to retrieve the expired notices and to limit their number.
       required: false
       style: form
       explode: false
@@ -338,7 +338,7 @@ components:
         - categories
         - language
     news: 
-      description: A news from its unique id.
+      description: News from its unique id.
       type: object
       allOf:
         - type: object
@@ -385,7 +385,7 @@ components:
         $ref: './oiapComponents.yml#/components/schemas/newsCategory'
       example: ['Traffic', 'Environment', 'Economy', 'Stakeholders', 'Infrastructure', 'Presentations']
     newsLanguages:
-      description: A list of languages available for the news.
+      description: A list of languages available for news.
       type: array
       items:
         $ref: './oiapComponents.yml#/components/schemas/newsLanguage'  
