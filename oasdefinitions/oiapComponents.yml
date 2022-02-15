@@ -1,8 +1,11 @@
 openapi: '3.0.3'
 info:
   version: '1.0.0'
-  title: Open Info API para Puertos (OIAP) Components
-  description: 
+  title: OIAP Components
+  description: |
+    **Open Info API para Puertos**
+
+
     List of components that are used in the APIs developed for the Open Info API para Puertos project.
   license:
     name: CC0 1.0 Universal (CC0 1.0)
@@ -53,7 +56,12 @@ components:
             example: fE9mZnNldHw9NjAmbGltaXQ9NQ==
         description: A link to thefirst page. First-Page header link MAY be omitted if current page is the first page.
         required: false
-    apiVersion:
+    apiVersion: # To be deleted
+        schema: 
+            type: string
+            example: 1.0.0
+        description: SemVer used to indicate the version of the contract (API version) returned.
+    oiapApiVersion:
         schema: 
             type: string
             example: 1.0.0
