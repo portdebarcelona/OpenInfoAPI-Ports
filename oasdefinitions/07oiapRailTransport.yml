@@ -41,7 +41,7 @@ paths:
         '200':
           description: Successful operation
           headers:
-            apiVersion:
+            oiapApiVersion:
               $ref: './oiapComponents.yml#/components/headers/oiapApiVersion'
           content: 
             application/json:
@@ -74,7 +74,7 @@ paths:
         '200':
           description: Successful operation
           headers:
-            apiVersion:
+            oiapApiVersion:
               $ref: './oiapComponents.yml#/components/headers/oiapApiVersion'
           content: 
             application/json:
@@ -106,7 +106,7 @@ paths:
         '200':
           description: Successful operation
           headers:
-            apiVersion:
+            oiapApiVersion:
               $ref: './oiapComponents.yml#/components/headers/oiapApiVersion'
           content: 
             application/json:
@@ -138,7 +138,7 @@ paths:
         '200':
           description: Successful operation
           headers:
-            apiVersion:
+            oiapApiVersion:
               $ref: './oiapComponents.yml#/components/headers/oiapApiVersion'
           content: 
             application/json:
@@ -171,7 +171,7 @@ paths:
         '200':
           description: Successful operation
           headers:
-            apiVersion:
+            oiapApiVersion:
               $ref: './oiapComponents.yml#/components/headers/oiapApiVersion'
           content: 
             application/json:
@@ -204,7 +204,7 @@ paths:
         '200':
           description: Successful operation
           headers:
-            apiVersion:
+            oiapApiVersion:
               $ref: './oiapComponents.yml#/components/headers/oiapApiVersion'
           content: 
             application/json:
