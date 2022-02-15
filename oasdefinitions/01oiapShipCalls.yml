@@ -3,7 +3,9 @@ info:
   version: '1.0.0-oas3'
   title: OIAP
   description: >-
-    Open Info API para Puertos. 
+    **Open Info API para Puertos** 
+
+
     This file contains all the APIs developed for the `Open Info API para Puertos` project for the **Ship Calls Domain** within the initiative Ports 4.0 form Puertos del Estado (ES).   
   termsOfService: http://swagger.io/terms/
   license:
@@ -22,7 +24,7 @@ servers:
   - url: https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/
 paths:
   # Ships Arrivals Forecasts
-  /portCalls/shipsScheduled:
+  /shipsScheduled:
     get:
       tags:
         - Port Calls
@@ -58,7 +60,7 @@ paths:
               schema:
                 $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents.yml#/components/schemas/error'
   # Ships in Port
-  /portCalls/shipsInPort:
+  /shipsInPort:
     get:
       tags:
         - Port Calls
@@ -91,7 +93,7 @@ paths:
               schema:
                 $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents.yml#/components/schemas/error'
   # Ship Arrivals
-  /portCalls/arrivals:
+  /shipsArrivals:
     get:
       tags:
         - Port Calls
@@ -124,7 +126,7 @@ paths:
               schema:
                 $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents.yml#/components/schemas/error'
   # Ship Departures
-  /portCalls/departures:
+  /shipsDepartures:
     get:
       tags:
         - Port Calls
@@ -157,7 +159,7 @@ paths:
               schema:
                 $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents.yml#/components/schemas/error'
   # Ship Aproximation
-  /portCalls/aproximation:
+  /shipsAproximation:
     get:
       tags:
         - Port Calls
@@ -189,7 +191,7 @@ paths:
             application/json:
               schema:
                 $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents.yml#/components/schemas/error'
-  /portCalls/ferriesArrivals:
+  /ferriesArrivals:
     get:
       tags:
         - Port Calls
@@ -221,7 +223,7 @@ paths:
             application/json:
               schema:
                 $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents.yml#/components/schemas/error'
-  /portCalls/ferriesDepartures:
+  /ferriesDepartures:
     get:
       tags:
         - Port Calls
@@ -253,7 +255,7 @@ paths:
             application/json:
               schema:
                 $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents.yml#/components/schemas/error'     
-  /portCalls/cruiseCalls:
+  /cruiseCalls:
     get:
       tags:
         - Port Calls

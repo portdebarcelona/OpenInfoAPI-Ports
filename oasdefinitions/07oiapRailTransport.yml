@@ -2,9 +2,12 @@ openapi: '3.0.3'
 info:
   version: '1.0.0-oas3'
   title: OIAP
-  description: 
-    Open Info API para Puertos. 
+  description: |
+    **Open Info API para Puertos**
+
+
     This file contains all the APIs developed for the `Open Info API para Puertos` project for the **Rail Transport Domain** within the initiative Ports 4.0 form Puertos del Estado (ES). 
+
   termsOfService: http://swagger.io/terms/
   license:
     name: CC0 1.0 Universal (CC0 1.0)
@@ -17,13 +20,16 @@ tags:
     description: "APIs related to the flow of trains and cargo by rail in a port."
     externalDocs:
       description: Description 
-      url: http://swagger.io  # It must be a link to a GitHub file with a more extensive description 
+      url: http://swagger.io/ # https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/docs/CatalogIntroduction.md It must be a link to a GitHub file with a more extensive description 
 servers:
   - url: https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions
     description: Servidor server 
 # Canvi efectuat: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions a '.
+
+# Afegir un get de terminals ferroviaries del port
+# Amb quines terminals tenim connexions
 paths:
-  /railTransport/railConnections:
+  /railConnections:
     get:
       tags:
         - Rail Transport
@@ -55,7 +61,7 @@ paths:
             application/json:
               schema:
                 $ref: './oiapComponents.yml#/components/schemas/error'  
-  /railTransport/inlandTerminals:
+  /railInlandTerminals:
     get:
       tags:
         - Rail Transport
@@ -88,7 +94,7 @@ paths:
             application/json:
               schema:
                 $ref: './oiapComponents.yml#/components/schemas/error' 
-  /railTransport/railUndertaking:
+  /railUndertakings:
     get:
       tags:
         - Rail Transport
@@ -120,7 +126,7 @@ paths:
             application/json:
               schema:
                 $ref: './oiapComponents.yml#/components/schemas/error'
-  /railTransport/logisticServiceProvider:
+  /logisticServiceProviders:
     get:
       tags:
         - Rail Transport
@@ -153,7 +159,7 @@ paths:
               schema:
                 $ref: './oiapComponents.yml#/components/schemas/error'
   # Train Arrivals
-  /railTransport/arrivals:
+  /trainArrivals:
     get:
       tags:
         - Rail Transport
@@ -185,9 +191,8 @@ paths:
             application/json:
               schema:
                 $ref: './oiapComponents.yml#/components/schemas/error'
-
   # Train Departures
-  /railTransport/departures:
+  /trainDepartures:
     get:
       tags:
         - Rail Transport
@@ -218,8 +223,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: './oiapComponents.yml#/components/schemas/error'
-  
+                $ref: './oiapComponents.yml#/components/schemas/error' 
 components:
   parameters: 
     portCode:

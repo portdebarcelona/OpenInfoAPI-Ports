@@ -3,10 +3,11 @@ info:
   version: '1.0.0-oas3'
   title: OIAP
   description: >-
-    Open Info API para Puertos.  
-    This file contains all the APIs developed for the Open Info API para Puertos project within the initiative Ports 4.0 form Puertos del Estado (ES).
-    For this sample, you can use the api key
-    `special-key` to test the authorization filters.  
+    **Open Info API para Puertos** 
+
+
+    This file contains all the APIs developed for the `Open Info API para Puertos` project for the **Rail Transport Domain** within the initiative Ports 4.0 form Puertos del Estado (ES).
+     
   termsOfService: http://swagger.io/terms/
   license:
     name: CC0 1.0 Universal (CC0 1.0)

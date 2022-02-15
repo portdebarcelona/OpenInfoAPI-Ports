@@ -23,7 +23,7 @@ servers:
     description: Servidor server 
 # Canvi efectuat: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions a '.
 paths:
-  /notices/subscriptionRequest: 
+  /noticesSubscriptionRequest: 
     post:
       tags:
         - Notices
@@ -46,7 +46,7 @@ paths:
                 $ref: './oiapComponents.yml#/components/schemas/subscriptionReference'
         '400':
           description: Invalid Order
-  /notices/subscriptionValidation:
+  /noticesSubscriptionValidation:
     post:
       tags:
         - Notices
@@ -71,7 +71,7 @@ paths:
                 $ref: '#/components/schemas/validationMessage'
         '400':
           description: Invalid Order
-  /notices/unsubscriptionRequest: 
+  /noticesUnsubscriptionRequest: 
     post:
       tags:
         - Notices
@@ -98,7 +98,7 @@ paths:
 
         '400':
           description: Invalid Order
-  /notices/unsubscriptionValidation:
+  /noticesUnsubscriptionValidation:
     post:
       tags:
         - Notices
@@ -123,7 +123,7 @@ paths:
                 $ref: '#/components/schemas/validationMessage'
         '400':
           description: Invalid Order
-  /notices/notices:
+  /notices:
     get:
       tags:
         - Notices
@@ -157,7 +157,7 @@ paths:
             application/json:
               schema:
                 $ref: './oiapComponents.yml#/components/schemas/error'  
-  /notices/noticesCategories:
+  /noticesCategories:
     get:
       tags:
         - Notices
@@ -192,7 +192,7 @@ paths:
             application/json:
               schema:
                 $ref: './oiapComponents.yml#/components/schemas/error' 
-  /notices/noticesLanguages:
+  /noticesLanguages:
     get:
       tags:
         - Notices
@@ -223,7 +223,7 @@ paths:
             application/json:
               schema:
                 $ref: './oiapComponents.yml#/components/schemas/error'
-  /notices/notices/{id}:
+  /notices/{id}:
     get:
       tags:
         - Notices
