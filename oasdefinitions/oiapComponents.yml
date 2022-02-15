@@ -56,11 +56,6 @@ components:
             example: fE9mZnNldHw9NjAmbGltaXQ9NQ==
         description: A link to thefirst page. First-Page header link MAY be omitted if current page is the first page.
         required: false
-    apiVersion: # To be deleted
-        schema: 
-            type: string
-            example: 1.0.0
-        description: SemVer used to indicate the version of the contract (API version) returned.
     oiapApiVersion:
         schema: 
             type: string

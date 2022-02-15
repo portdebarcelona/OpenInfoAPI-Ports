@@ -42,7 +42,7 @@ paths:
           description: Successful operation
           headers:
             apiVersion:
-              $ref: './oiapComponents.yml#/components/headers/apiVersion'
+              $ref: './oiapComponents.yml#/components/headers/oiapApiVersion'
           content: 
             application/json:
               schema:
@@ -75,7 +75,7 @@ paths:
           description: Successful operation
           headers:
             apiVersion:
-              $ref: './oiapComponents.yml#/components/headers/apiVersion'
+              $ref: './oiapComponents.yml#/components/headers/oiapApiVersion'
           content: 
             application/json:
               schema:
@@ -107,7 +107,7 @@ paths:
           description: Successful operation
           headers:
             apiVersion:
-              $ref: './oiapComponents.yml#/components/headers/apiVersion'
+              $ref: './oiapComponents.yml#/components/headers/oiapApiVersion'
           content: 
             application/json:
               schema:
@@ -139,7 +139,7 @@ paths:
           description: Successful operation
           headers:
             apiVersion:
-              $ref: './oiapComponents.yml#/components/headers/apiVersion'
+              $ref: './oiapComponents.yml#/components/headers/oiapApiVersion'
           content: 
             application/json:
               schema:
@@ -172,7 +172,7 @@ paths:
           description: Successful operation
           headers:
             apiVersion:
-              $ref: './oiapComponents.yml#/components/headers/apiVersion'
+              $ref: './oiapComponents.yml#/components/headers/oiapApiVersion'
           content: 
             application/json:
               schema:
@@ -205,7 +205,7 @@ paths:
           description: Successful operation
           headers:
             apiVersion:
-              $ref: './oiapComponents.yml#/components/headers/apiVersion'
+              $ref: './oiapComponents.yml#/components/headers/oiapApiVersion'
           content: 
             application/json:
               schema:
