@@ -358,11 +358,11 @@ components:
         - type: object
           properties:
             estimatedTimeOfDeparture:
-              $ref: './oiapComponents.yml#/components/schemas/estimatedTimeOfDeparture'
+              $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents.yml#/components/schemas/estimatedTimeOfDeparture'
         - type: object
           properties:
             actualTimeOfDeparture:
-              $ref: './oiapComponents.yml#/components/schemas/actualTimeOfDeparture'
+              $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents.yml#/components/schemas/actualTimeOfDeparture'
       required: 
         - trainType
         - placeOfDeparture
