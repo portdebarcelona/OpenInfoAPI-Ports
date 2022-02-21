@@ -1,6 +1,6 @@
 openapi: '3.0.3'
 info:
-  version: '1.0.0-oas3'
+  version: '0.9.0-oas3'
   title: OIAP
   description: | 
     **Open Info API para Puertos** 
@@ -178,10 +178,19 @@ paths:
             oiapApiVersion:
               $ref: './oiapComponents.yml#/components/headers/oiapApiVersion'
           content: 
-            application/json:
+            application/json:            
               schema:
-                type: object 
-                $ref: '#/components/schemas/noticesCategories'
+                type: object
+                properties:
+                  noticeCategories:
+                    $ref: '#/components/schemas/noticesCategories'
+                  requestedParams:
+                    type: object
+                    properties:
+                      portCode:
+                        $ref: './oiapComponents.yml#/components/schemas/portCode'
+                      noticeLanguage:
+                        $ref: './oiapComponents.yml#/components/schemas/noticeLanguage'
         '400':
           description: Bad request
           content:

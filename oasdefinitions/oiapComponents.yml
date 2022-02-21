@@ -1,6 +1,6 @@
 openapi: '3.0.3'
 info:
-  version: '1.0.0'
+  version: '0.9.0-oas3'
   title: OIAP Components
   description: |
     **Open Info API para Puertos**
@@ -59,7 +59,7 @@ components:
     oiapApiVersion:
         schema: 
             type: string
-            example: 1.0.0
+            example: 0.9.0-oas3
         description: SemVer used to indicate the version of the contract (API version) returned.
   schemas:
     # Reference components
@@ -115,6 +115,10 @@ components:
       maxLength: 2
       example: ca 
     # Location components
+    locode:
+      type: string
+      maxLength: 5
+      description: UN/LOCODE of a location as specified in the UN/ECE Recommendation nº16
     portCode:
       description: |
             Port UN/LOCODE
@@ -223,6 +227,9 @@ components:
       example: "Containers"    
       enum: ["Containers", "Vehicles", "Bulk", "Tanker"]  
     # Partners      
+    companyName: #Revisar
+      type: string
+      description: Name of a company.
     ferryOperator:
       type: object
       description: 
@@ -300,6 +307,32 @@ components:
       type: string
       format: date
       example: 2022-01-20 
+    # Rail transport components
+    railService:      
+      type: string
+      description: Code that identifies a rail service.     
+    railwayStationNearestCity:
+      type: string
+      description: Name of the nearest city to a railway station.
+    railTerminalLocode:
+      type: string
+      description: UN/LOCODE of a rail terminal. 
+    railTerminalCode: 
+      type: string
+      description: Code that identifies a railway terminal. 
+      example: ESCRB
+    railTerminalName: 
+      type: string
+      description: Name of a railway terminal. 
+      example: Zaragoza-Corbera-Alta  
+    railDirection:  
+      type: string
+      enum: [UP, DOWN]
+      example: UP
+      description: > 
+        Direction of a train:
+          * `UP` - Up or inbound is used for trains that are coming to a port.
+          * `DOWN` - Down or outbound is used for trains that are leaving a port. 
     # Infrastructure components
     berth:
       type: object
@@ -407,17 +440,6 @@ components:
 # https://service.unece.org/trade/uncefact/vocabulary/rec21/
 # https://service.unece.org/trade/uncefact/vocabulary/unlocode-CC/  (CC is 2a ISO3166 country code)
 
-    railService:  #Revisar      
-      type: string
-      description: Subject of a publication.  
-    locode: #Revisar
-      type: string
-      description: Subject of a publication.      
-    railwayStation: #Revisar
-      type: string
-      description: Subject of a publication.  
-    companyName: #Revisar
-      type: string
-      description: Subject of a publication.  
+
 
 
