@@ -1,6 +1,6 @@
 openapi: '3.0.3'
 info:
-  version: '1.0.0'
+  version: '0.9.0-oas3'
   title: Open Info API para Puertos (OIAP) Components
   description: 
     List of components that are used in the APIs developed for the Open Info API para Puertos project.
@@ -58,7 +58,7 @@ components:
     apiVersion:
         schema: 
             type: string
-            example: 1.0.0
+            example: 0.9.0-oas3
         description: SemVer used to indicate the version of the contract (API version) returned.
   schemas:
     # Location components
