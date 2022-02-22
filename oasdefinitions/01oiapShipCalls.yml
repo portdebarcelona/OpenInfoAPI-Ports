@@ -237,6 +237,7 @@ paths:
             application/json:
               schema:
                 $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents.yml#/components/schemas/error'
+  # Ferries Arrivals
   /ferriesArrivals:
     get:
       tags:
@@ -277,6 +278,7 @@ paths:
             application/json:
               schema:
                 $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents.yml#/components/schemas/error'
+  # Ferries Departures
   /ferriesDepartures:
     get:
       tags:
@@ -317,6 +319,7 @@ paths:
             application/json:
               schema:
                 $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents.yml#/components/schemas/error'     
+  # Cruise Calls
   /cruiseCalls:
     get:
       tags:
