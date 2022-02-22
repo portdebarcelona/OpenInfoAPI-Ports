@@ -44,9 +44,23 @@ paths:
           content: 
             application/json:
               schema:
-                type: array
-                items:
-                  $ref: '#/components/schemas/shipArrivalForecast'
+                type: object
+                properties:
+                  shipArrivalForecast:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/shipArrivalForecast'
+                  requestedParams:
+                    type: object
+                    properties:
+                      portCode:
+                        $ref: './oiapComponents.yml#/components/schemas/portCode'
+                      startDate:
+                        $ref: './oiapComponents.yml#/components/schemas/startDate'
+                      dateRange:
+                        $ref: './oiapComponents.yml#/components/schemas/dateRange'
+                      shipType:
+                        $ref: './oiapComponents.yml#/components/schemas/shipType'
         '400':
           description: Bad request
           content:
@@ -77,9 +91,17 @@ paths:
           content: 
             application/json:
               schema:
-                type: array
-                items:
-                  $ref: '#/components/schemas/shipInPort'
+                type: object
+                properties:
+                  shipInPort:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/shipInPort'
+                  requestedParams:
+                    type: object
+                    properties:
+                      portCode:
+                        $ref: './oiapComponents.yml#/components/schemas/portCode'
         '400':
           description: Bad request
           content:
@@ -110,9 +132,17 @@ paths:
           content: 
             application/json:
               schema:
-                type: array
-                items:
-                  $ref: '#/components/schemas/shipArrivals'
+                type: object
+                properties:
+                  shipArrivals:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/shipArrivals'
+                  requestedParams:
+                    type: object
+                    properties:
+                      portCode:
+                        $ref: './oiapComponents.yml#/components/schemas/portCode'
         '400':
           description: Bad request
           content:
@@ -143,9 +173,17 @@ paths:
           content: 
             application/json:
               schema:
-                type: array
-                items:
-                  $ref: '#/components/schemas/shipDepartures'
+                type: object
+                properties:
+                  shipDepartures:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/shipDepartures'
+                  requestedParams:
+                    type: object
+                    properties:
+                      portCode:
+                        $ref: './oiapComponents.yml#/components/schemas/portCode'
         '400':
           description: Bad request
           content:
@@ -176,9 +214,17 @@ paths:
           content: 
             application/json:
               schema:
-                type: array
-                items:
-                  $ref: '#/components/schemas/aproximationManouvres'
+                type: object
+                properties:
+                  aproximationManouvres:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/aproximationManouvres'
+                  requestedParams:
+                    type: object
+                    properties:
+                      portCode:
+                        $ref: './oiapComponents.yml#/components/schemas/portCode'
         '400':
           description: Bad request
           content:
@@ -208,9 +254,17 @@ paths:
           content: 
             application/json:
               schema:
-                type: array
-                items:
-                  $ref: '#/components/schemas/ferriesArrivals'
+                type: object
+                properties:
+                  ferriesArrivals:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/ferriesArrivals'
+                  requestedParams:
+                    type: object
+                    properties:
+                      portCode:
+                        $ref: './oiapComponents.yml#/components/schemas/portCode'
         '400':
           description: Bad request
           content:
@@ -240,9 +294,17 @@ paths:
           content: 
             application/json:
               schema:
-                type: array
-                items:
-                  $ref: '#/components/schemas/ferriesDepartures'
+                type: object
+                properties:
+                  ferriesDepartures:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/ferriesDepartures'
+                  requestedParams:
+                    type: object
+                    properties:
+                      portCode:
+                        $ref: './oiapComponents.yml#/components/schemas/portCode'
         '400':
           description: Bad request
           content:
@@ -273,9 +335,20 @@ paths:
           content: 
             application/json:
               schema:
-                type: array
-                items:
-                  $ref: '#/components/schemas/cruiseCall'
+                type: object
+                properties:
+                  cruiseCall:
+                    type: array  # ha de ser un array?
+                    items:
+                      $ref: '#/components/schemas/cruiseCall'
+                  requestedParams:
+                    type: object
+                    properties:
+                      portCode:
+                        $ref: './oiapComponents.yml#/components/schemas/portCode'
+                      shipName:
+                        $ref: './oiapComponents.yml#/components/schemas/shipName'
+
         '400':
           description: Bad request
           content:
