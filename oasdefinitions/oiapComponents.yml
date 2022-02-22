@@ -447,7 +447,7 @@ components:
 
     geographicalArea: 
       type: string
-      description: Name of a geographicalArea, as it is described in Geonomenclature. 
+      description: Name of a geographical area, as it is described in Geonomenclature. 
       example: xxx  
 
 

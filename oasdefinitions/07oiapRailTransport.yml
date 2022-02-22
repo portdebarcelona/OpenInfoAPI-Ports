@@ -317,7 +317,7 @@ components:
       schema:
         $ref: './oiapComponents.yml#/components/schemas/id'
   schemas:
-    railConnection: # Pendent incloure el nom de la ciutat i preveure-ho com a paràmetres !!!
+    railConnection: 
       description: ''
       type: object
       allOf:
