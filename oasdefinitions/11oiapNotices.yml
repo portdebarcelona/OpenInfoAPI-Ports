@@ -144,9 +144,21 @@ paths:
           content: 
             application/json:
               schema:
-                type: array
-                items:
-                  $ref: '#/components/schemas/notice'
+                type: object
+                properties:
+                  notice:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/notice'
+                  requestedParams:
+                    type: object
+                    properties:
+                      portCode:
+                        $ref: './oiapComponents.yml#/components/schemas/portCode'
+                      publishingStage:
+                        $ref: './oiapComponents.yml#/components/schemas/publishingStage'
+                      fromDate:
+                        $ref: './oiapComponents.yml#/components/schemas/fromDate'            
         '400':
           description: Bad request
           content:
@@ -221,7 +233,16 @@ paths:
             application/json:
               schema:
                 type: object
-                $ref: '#/components/schemas/noticesLanguages'
+                properties:
+                  noticesLanguages:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/noticesLanguages'
+                  requestedParams:
+                    type: object
+                    properties:
+                      portCode:
+                        $ref: './oiapComponents.yml#/components/schemas/portCode'
         '400':
           description: Bad request
           content:
@@ -258,7 +279,15 @@ paths:
             application/json:
               schema:
                 type: object
-                $ref: '#/components/schemas/notice'
+                properties:
+                  news:
+                    type: object
+                    $ref: '#/components/schemas/notice'
+                  requestedParams:
+                    type: object
+                    properties:
+                      portCode:
+                        $ref: './oiapComponents.yml#/components/schemas/portCode'
         '400':
           description: Bad request
           content:

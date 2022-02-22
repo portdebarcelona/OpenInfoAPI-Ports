@@ -144,9 +144,21 @@ paths:
           content: 
             application/json:
               schema:
-                type: array
-                items:
-                  $ref: '#/components/schemas/news'
+                type: object
+                properties:
+                  news:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/news'
+                  requestedParams:
+                    type: object
+                    properties:
+                      portCode:
+                        $ref: './oiapComponents.yml#/components/schemas/portCode'
+                      publishingStage:
+                        $ref: './oiapComponents.yml#/components/schemas/publishingStage'
+                      fromDate:
+                        $ref: './oiapComponents.yml#/components/schemas/fromDate'
         '400':
           description: Bad request
           content:
@@ -180,8 +192,16 @@ paths:
           content: 
             application/json:
               schema:
-                type: object 
-                $ref: '#/components/schemas/newsCategories'
+                type: object
+                properties:
+                  newsCategories:
+                    type: object
+                    $ref: '#/components/schemas/newsCategories'
+                  requestedParams:
+                    type: object
+                    properties:
+                      portCode:
+                        $ref: './oiapComponents.yml#/components/schemas/portCode'
         '400':
           description: Bad request
           content:
@@ -212,7 +232,15 @@ paths:
             application/json:
               schema:
                 type: object
-                $ref: '#/components/schemas/newsLanguages'
+                properties:
+                  newsLanguages:
+                    type: object
+                    $ref: '#/components/schemas/newsLanguages'
+                  requestedParams:
+                    type: object
+                    properties:
+                      portCode:
+                        $ref: './oiapComponents.yml#/components/schemas/portCode'
         '400':
           description: Bad request
           content:
@@ -249,7 +277,15 @@ paths:
             application/json:
               schema:
                 type: object
-                $ref: '#/components/schemas/news'
+                properties:
+                  news:
+                    type: object
+                    $ref: '#/components/schemas/news'
+                  requestedParams:
+                    type: object
+                    properties:
+                      portCode:
+                        $ref: './oiapComponents.yml#/components/schemas/portCode'
         '400':
           description: Bad request
           content:
