@@ -440,6 +440,14 @@ components:
 # https://service.unece.org/trade/uncefact/vocabulary/rec21/
 # https://service.unece.org/trade/uncefact/vocabulary/unlocode-CC/  (CC is 2a ISO3166 country code)
 
+    linerServiceName: 
+      type: string
+      description: Name of a Liner Service, as it is refered in Alphaliner. 
+      example: xxx  
 
+    geographicalArea: 
+      type: string
+      description: Name of a geographicalArea, as it is described in Geonomenclature. 
+      example: xxx  
 
 
