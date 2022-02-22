@@ -178,7 +178,7 @@ components:
       type: string
       description: The ship’s name shown on the IMO ship’s certificates.
       maxLength: 35
-      example: MSC GULSUN 
+      example: AURORA 
     shipType:
       description: >
             The type of the ship. The value is populated using the 2 character code from Annex 2 from UN/ECE Recommendation Nº28 when the means of transport is 1 (maritime).
