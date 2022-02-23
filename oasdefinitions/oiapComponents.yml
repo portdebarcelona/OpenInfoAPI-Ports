@@ -443,7 +443,6 @@ components:
 # https://service.unece.org/trade/uncefact/vocabulary/rec20/
 # https://service.unece.org/trade/uncefact/vocabulary/rec21/
 # https://service.unece.org/trade/uncefact/vocabulary/unlocode-CC/  (CC is 2a ISO3166 country code)
-
     linerServiceName: 
       description: Name of a Liner Service, as it is refered in Alphaliner
       type: string
@@ -455,8 +454,14 @@ components:
       maxLength: 4 
       example: 6513
     linerServiceType: 
-      description: Code of a Type of Liner Service. 
+      description: >
+            Type of Liner Service, coded. 
+              * `FC`	Full container - Containership.
+              * `CC`  Car-carrier.
+              * `RR`  Ro-Ro.
+              * `MP`  Multipurpose
       type: string
+      maxLength: 2 
       example: FC
     linerServiceCapacity: 
       description: Capacity of a liner service, expressed in units according to the typology of the liner service. Units are TEUs for containerships, cars for car-carriers and LIMs (lanes in meters) for ro-ro vessels. 

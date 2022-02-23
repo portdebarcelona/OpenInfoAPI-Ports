@@ -37,6 +37,7 @@ paths:
       description: Returns a list of liner services of a port. 
       parameters:
         - $ref: '#/components/parameters/portCode'
+        - $ref: '#/components/parameters/geographicalZone'
       responses: #status code
         '200':
           description: Successful operation
@@ -57,6 +58,8 @@ paths:
                     properties:
                       portCode:
                         $ref: './oiapComponents.yml#/components/schemas/portCode'
+                      geographicalZone:
+                        $ref: './oiapComponents.yml#/components/schemas/geographicalZone'
         '400':
           description: Bad request
           content:
@@ -202,7 +205,7 @@ components:
           properties:
             linerServiceName:  
               $ref: './oiapComponents.yml#/components/schemas/linerServiceName' 
-            linerServiceCode:  # alphaliner code
+            linerServiceCode: 
               $ref: './oiapComponents.yml#/components/schemas/linerServiceCode'
             linerPartners: 
               $ref: '#/components/schemas/linerPartners'        
@@ -212,6 +215,8 @@ components:
               $ref: '#/components/schemas/coveredGeographicalAreas' 
             linerServiceType:  
               $ref: './oiapComponents.yml#/components/schemas/linerServiceType'
+            linerServiceCapacity:  
+              $ref: './oiapComponents.yml#/components/schemas/linerServiceCapacity'
             linerSailingFrequency:  
               $ref: './oiapComponents.yml#/components/schemas/linerSailingFrequency' 
             linerDurationOfRotation:  
@@ -240,7 +245,7 @@ components:
     linkedPort: 
       description: 'Port that is served by a direct service of a liner and do not requires a transshipment.'
       $ref: './oiapComponents.yml#/components/schemas/locode' 
-    linerCarrier: # Important definir aquesta estructura de dades.
+    linerCarrier: # PENDENT definir aquesta estructura de dades.
       description: ''
       type: object
       allOf:
