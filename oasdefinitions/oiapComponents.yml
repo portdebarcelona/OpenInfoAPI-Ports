@@ -458,6 +458,10 @@ components:
       description: Code of a Type of Liner Service. 
       type: string
       example: FC
+    linerServiceCapacity: 
+      description: Capacity of a liner service, expressed in units according to the typology of the liner service. Units are TEUs for containerships, cars for car-carriers and LIMs (lanes in meters) for ro-ro vessels. 
+      type: string
+      example: 23064 TEU
     linerPartner: 
       description: Code of a Liner Partner
       type: string
