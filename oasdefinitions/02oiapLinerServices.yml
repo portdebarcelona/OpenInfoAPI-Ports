@@ -78,7 +78,7 @@ paths:
         This GET API returns the list of linked ports served by liner services from a port. 
       parameters:
         - $ref: '#/components/parameters/portCode'
-        - $ref: '#/components/parameters/geographicalArea'
+        - $ref: '#/components/parameters/geographicalZone'
       responses: #status code
         '200':
           description: Successful operation
@@ -99,8 +99,8 @@ paths:
                     properties:
                       portCode:
                         $ref: './oiapComponents.yml#/components/schemas/portCode'
-                      geographicalArea:
-                        $ref: './oiapComponents.yml#/components/schemas/geographicalArea'                        
+                      geographicalZone:
+                        $ref: './oiapComponents.yml#/components/schemas/geographicalZone'                        
         '400':
           description: Bad request
           content:
@@ -122,7 +122,7 @@ paths:
       parameters:
         - $ref: '#/components/parameters/portCode'
         - $ref: '#/components/parameters/linerServiceName'
-        - $ref: '#/components/parameters/geographicalArea'        
+        - $ref: '#/components/parameters/geographicalZone'        
       responses: #status code
         '200':
           description: Successful operation
@@ -145,8 +145,8 @@ paths:
                         $ref: './oiapComponents.yml#/components/schemas/portCode'
                       linerServiceName:
                         $ref: './oiapComponents.yml#/components/schemas/linerServiceName'
-                      geographicalArea:
-                        $ref: './oiapComponents.yml#/components/schemas/geographicalArea'
+                      geographicalZone:
+                        $ref: './oiapComponents.yml#/components/schemas/geographicalZone'
         '400':
           description: Bad request
           content:
@@ -173,16 +173,16 @@ components:
       explode: false
       schema:
         $ref: './oiapComponents.yml#/components/schemas/portCode'
-    geographicalArea:  
+    geographicalZone:  
       in: query
-      name: geographicalArea
+      name: geographicalZone
       description: 
             Geonomenclature.
       required: false
       style: form
       explode: false
       schema:
-        $ref: './oiapComponents.yml#/components/schemas/geographicalArea'
+        $ref: './oiapComponents.yml#/components/schemas/geographicalZone'
     linerServiceName:  
       in: query
       name: fromDate
@@ -200,22 +200,37 @@ components:
       allOf:
         - type: object
           properties:
-            railService:  
-              $ref: './oiapComponents.yml#/components/schemas/railService' 
-            railwayStationNearestCity:  
-              $ref: './oiapComponents.yml#/components/schemas/railwayStationNearestCity'
-            railTerminalLocode: 
-              $ref: './oiapComponents.yml#/components/schemas/railTerminalLocode'        
-            railTerminalCode:
-              $ref: './oiapComponents.yml#/components/schemas/railTerminalCode' 
-            railTerminalName:  
-              $ref: './oiapComponents.yml#/components/schemas/railTerminalName' 
-            railDirection:  
-              $ref: './oiapComponents.yml#/components/schemas/railDirection'
-            railLogisticServiceProvider: 
-              type: string
-              example: Name of the Rail Logistic Service Provider
-    linkedPort: # Important definir aquesta estructura de dades.
+            linerServiceName:  
+              $ref: './oiapComponents.yml#/components/schemas/linerServiceName' 
+            linerServiceCode:  # alphaliner code
+              $ref: './oiapComponents.yml#/components/schemas/linerServiceCode'
+            linerPartners: 
+              $ref: '#/components/schemas/linerPartners'        
+            linerSlots:
+              $ref: '#/components/schemas/linerSlots' 
+            coveredGeographicalAreas:  
+              $ref: '#/components/schemas/coveredGeographicalAreas' 
+            linerServiceType:  
+              $ref: './oiapComponents.yml#/components/schemas/linerServiceType'
+            linerSailingFrequency:  
+              $ref: './oiapComponents.yml#/components/schemas/linerSailingFrequency' 
+            linerDurationOfRotation:  
+              $ref: './oiapComponents.yml#/components/schemas/linerDurationOfRotation'
+
+    linerPartners:
+      type: array
+      items:
+        $ref: './oiapComponents.yml#/components/schemas/linerPartner'
+    linerSlots:
+      type: array
+      items:
+        $ref: './oiapComponents.yml#/components/schemas/linerSlot'
+    coveredGeographicalAreas:
+      type: array
+      items:
+        $ref: './oiapComponents.yml#/components/schemas/geographicalZone'
+
+    linkedPort: # PENDENT definir aquesta estructura de dades.
       description: ''
       type: object
       allOf:

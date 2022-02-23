@@ -442,12 +442,50 @@ components:
 
     linerServiceName: 
       type: string
-      description: Name of a Liner Service, as it is refered in Alphaliner. 
-      example: xxx  
+      description: Name of a Liner Service, as it is refered in Alphaliner
+      maxLength: 50 
+      example: New Eurosal / EuroAndes  
 
-    geographicalArea: 
+    linerServiceCode: 
       type: string
-      description: Name of a geographical area, as it is described in Geonomenclature. 
-      example: xxx  
+      description: Code of a Liner Service, as it is refered in Alphaliner
+      maxLength: 4 
+      example: 6513
+    linerServiceType: 
+      type: string
+      description: Code of a Type of Liner Service. 
+      example: FC
+    linerPartner: 
+      type: string
+      description: Code of a Liner Partner
+      example: CMA CGM
+    linerSlot: 
+      type: string
+      description: Code of a Liner Slot
+      example: MSC
+    linerSailingFrequency: 
+      type: string
+      description: Frequency of a liner service, expressed in days
+      example: 7
+    linerDurationOfRotation: 
+      type: string
+      description: Duration of the liner service rotation, expressed in days
+      example: 43
+    geographicalZone: 
+      description: Name of a geographical area, based on the Nomenclature of Countries and Territories for the European statistics on international trade in goods and on the geographical breakdown for other business statistics. 
+              * `5110`	European Union.
+              * `5190`  Europa, other than EU.
+              * `5210`  North Africa
+              * `5290`  Other African countries
+              * `5310`  North America
+              * `5320`  Central America and Caribbean
+              * `5330`  South America
+              * `5410`  Near and Middle Eastern countries
+              * `5490`  Other Asian countries
+              * `5510`  Australia and New Zealand
+              * `5590`  Other countries of Oceania and Polar regions              
+      maxLength: 4
+      example: 5110    
+      enum: [5110, 5190, 5210, 5290, 5310, 5320, 5330, 5410, 5490, 5510, 5590] 
 
 
