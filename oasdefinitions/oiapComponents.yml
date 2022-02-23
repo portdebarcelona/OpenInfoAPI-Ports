@@ -472,7 +472,8 @@ components:
       description: Duration of the liner service rotation, expressed in days
       example: 43
     geographicalZone: 
-      description: Name of a geographical area, based on the Nomenclature of Countries and Territories for the European statistics on international trade in goods and on the geographical breakdown for other business statistics. 
+      description: >
+            Name of a geographical area, based on the Nomenclature of Countries and Territories for the European statistics on international trade in goods and on the geographical breakdown for other business statistics. 
               * `5110`	European Union.
               * `5190`  Europa, other than EU.
               * `5210`  North Africa
