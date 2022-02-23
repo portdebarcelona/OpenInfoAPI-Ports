@@ -237,22 +237,9 @@ components:
       type: array
       items:
         $ref: './oiapComponents.yml#/components/schemas/geographicalZone'
-    linkedPort: # PENDENT definir aquesta estructura de dades.
-      description: ''
-      type: object
-      allOf:
-        - type: object
-          properties:
-            locode:  
-              $ref: './oiapComponents.yml#/components/schemas/locode' 
-        - type: object
-          properties:
-            railTerminalCode:  
-              $ref: './oiapComponents.yml#/components/schemas/railTerminalCode'  
-        - type: object
-          properties:
-            railTerminalName: 
-              $ref: './oiapComponents.yml#/components/schemas/railTerminalName' 
+    linkedPort: 
+      description: 'Port that is served by a direct service of a liner and do not requires a transshipment.'
+      $ref: './oiapComponents.yml#/components/schemas/locode' 
     linerCarrier: # Important definir aquesta estructura de dades.
       description: ''
       type: object
