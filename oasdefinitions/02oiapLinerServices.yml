@@ -177,7 +177,7 @@ components:
       in: query
       name: geographicalZone
       description: 
-            Geonomenclature.
+            Geographical area represented a a code defined in the Geonomenclature docummentation from EUROSTAT.
       required: false
       style: form
       explode: false
@@ -195,7 +195,7 @@ components:
         $ref: './oiapComponents.yml#/components/schemas/linerServiceName'
   schemas:
     linerService: # Important definir aquesta estructura de dades.
-      description: ''
+      description: 'List of attributes that describe a liner service.'
       type: object
       allOf:
         - type: object
@@ -216,35 +216,42 @@ components:
               $ref: './oiapComponents.yml#/components/schemas/linerSailingFrequency' 
             linerDurationOfRotation:  
               $ref: './oiapComponents.yml#/components/schemas/linerDurationOfRotation'
-
+      required:
+        - linerServiceName
+        - linerPartners
+        - coveredGeographicalAreas  
+        - linerServiceType
+        - linerSailingFrequency  
     linerPartners:
+      description: 'Shipping lines that share vessels for a liner service.'
       type: array
       items:
         $ref: './oiapComponents.yml#/components/schemas/linerPartner'
-    linerSlots:
+    linerSlots: # millorar descripcio
+      description: 'Shipping lines that have slots of a liner service.'
       type: array
       items:
         $ref: './oiapComponents.yml#/components/schemas/linerSlot'
     coveredGeographicalAreas:
+      description: 'Geographical area covered by a liner service.'
       type: array
       items:
         $ref: './oiapComponents.yml#/components/schemas/geographicalZone'
-
     linkedPort: # PENDENT definir aquesta estructura de dades.
       description: ''
       type: object
       allOf:
         - type: object
           properties:
-            locode:  # nearest LOCODE
+            locode:  
               $ref: './oiapComponents.yml#/components/schemas/locode' 
         - type: object
           properties:
-            railTerminalCode:  # Veure si existeix una taula d'estacions
+            railTerminalCode:  
               $ref: './oiapComponents.yml#/components/schemas/railTerminalCode'  
         - type: object
           properties:
-            railTerminalName:  # Veure si existeix una taula d'estacions
+            railTerminalName: 
               $ref: './oiapComponents.yml#/components/schemas/railTerminalName' 
     linerCarrier: # Important definir aquesta estructura de dades.
       description: ''
@@ -252,13 +259,13 @@ components:
       allOf:
         - type: object
           properties:
-            locode:  # nearest LOCODE
+            locode: 
               $ref: './oiapComponents.yml#/components/schemas/locode' 
         - type: object
           properties:
-            railTerminalCode:  # Veure si existeix una taula d'estacions
+            railTerminalCode: 
               $ref: './oiapComponents.yml#/components/schemas/railTerminalCode'  
         - type: object
           properties:
-            railTerminalName:  # Veure si existeix una taula d'estacions
+            railTerminalName: 
               $ref: './oiapComponents.yml#/components/schemas/railTerminalName' 
