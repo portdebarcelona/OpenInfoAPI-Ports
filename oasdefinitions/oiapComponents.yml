@@ -467,10 +467,17 @@ components:
       description: Capacity of a liner service, expressed in units according to the typology of the liner service. Units are TEUs for containerships, cars for car-carriers and LIMs (lanes in meters) for ro-ro vessels. 
       type: string
       example: 23064 TEU
-    linerPartner: 
-      description: Code of a Liner Partner
-      type: string
-      example: CMA CGM
+    linerCarrier: 
+      description: Liner carrier
+      properties:
+        carrierName:
+          description: Carrier name 
+          type: string
+          example: Mediterranean Shipping Company (MSC)
+        carrierCode:
+          description: Carrier code as Standard Carrier Alpha Code (SCAC) 
+          type: string
+          example: MSCU
     linerSlot: 
       description: Code of a Liner Slot
       type: string
@@ -485,20 +492,29 @@ components:
       example: 43
     geographicalZone: 
       description: >
-            Name of a geographical area, based on the Nomenclature of Countries and Territories for the European statistics on international trade in goods and on the geographical breakdown for other business statistics. 
-              * `5110`	European Union.
-              * `5190`  Europa, other than EU.
-              * `5210`  North Africa
-              * `5290`  Other African countries
-              * `5310`  North America
-              * `5320`  Central America and Caribbean
-              * `5330`  South America
-              * `5410`  Near and Middle Eastern countries
-              * `5490`  Other Asian countries
-              * `5510`  Australia and New Zealand
-              * `5590`  Other countries of Oceania and Polar regions              
+            MARITIME COASTAL AREAS The nomenclature to be used is the Geonomenclature (the nomenclature of countries and territories for the external trade statistics of the Union and statistics of trade between Member States) (1) in force in the year to which the data refer. The code consists of four digits: the ISO alpha 2 standard code for each country from the abovementioned nomenclature, followed by two zeros (e.g. code GR00 for Greece), except for countries which are divided into two or more maritime coastal areas, which are identified by a fourth digit other than zero (from 1 to 7)Name of a geographical area, based on the Nomenclature of Countries and Territories for the European statistics on international trade in goods and on the geographical breakdown for other business statistics.            
       maxLength: 4
-      example: 5110    
-      enum: [5110, 5190, 5210, 5290, 5310, 5320, 5330, 5410, 5490, 5510, 5590] 
-
-
+      example: GR00    
+    coastalArea: 
+      description: >
+            MARITIME COASTAL AREAS The nomenclature to be used is the Geonomenclature (the nomenclature of countries and territories for the external trade statistics of the Union and statistics of trade between Member States) (1) in force in the year to which the data refer. The code consists of four digits: the ISO alpha 2 standard code for each country from the abovementioned nomenclature, followed by two zeros (e.g. code GR00 for Greece), except for countries which are divided into two or more maritime coastal areas, which are identified by a fourth digit other than zero (from 1 to 7)Name of a geographical area, based on the Nomenclature of Countries and Territories for the European statistics on international trade in goods and on the geographical breakdown for other business statistics.            
+      maxLength: 4
+      example: GR00  
+    countryCode: 
+      description: >
+            Country code as a 2 alpha characters from ISO3166.            
+      maxLength: 2
+      example: GR 
+    linkedPort: 
+      description: 'Port that is served by a direct service of a liner and do not requires a transshipment.'
+      properties:
+        portCode:
+          example: SGSGP
+          $ref: '#/components/schemas/portCode' 
+        portName:
+          type: string 
+          example: Singapore
+    linkedPortCode: 
+      description: 'Port UN/LOCODE served by a liner'
+      example: SGSGP
+      $ref: '#/components/schemas/portCode'

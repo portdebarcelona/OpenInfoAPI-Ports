@@ -26,8 +26,6 @@ servers:
     description: Servidor server 
 # Canvi efectuat: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions a '.
 
-# Afegir un get de terminals ferroviaries del port
-# Amb quines terminals tenim connexions
 paths:
   /linerServices:
     get:
@@ -37,7 +35,9 @@ paths:
       description: Returns a list of liner services of a port. 
       parameters:
         - $ref: '#/components/parameters/portCode'
-        - $ref: '#/components/parameters/geographicalZone'
+        - $ref: '#/components/parameters/linkedPortCode'
+        - $ref: '#/components/parameters/coastalArea'
+
       responses: #status code
         '200':
           description: Successful operation
@@ -49,7 +49,7 @@ paths:
               schema:
                 type: object
                 properties:
-                  linerService:
+                  linerServices:
                     type: array
                     items:
                       $ref: '#/components/schemas/linerService'
@@ -58,8 +58,10 @@ paths:
                     properties:
                       portCode:
                         $ref: './oiapComponents.yml#/components/schemas/portCode'
-                      geographicalZone:
-                        $ref: './oiapComponents.yml#/components/schemas/geographicalZone'
+                      linkedPortCode:
+                        $ref: './oiapComponents.yml#/components/schemas/linkedPortCode'
+                      coastalArea:
+                        $ref: './oiapComponents.yml#/components/schemas/coastalArea'
         '400':
           description: Bad request
           content:
@@ -81,7 +83,8 @@ paths:
         This GET API returns the list of linked ports served by liner services from a port. 
       parameters:
         - $ref: '#/components/parameters/portCode'
-        - $ref: '#/components/parameters/geographicalZone'
+        - $ref: '#/components/parameters/coastalArea'
+        - $ref: '#/components/parameters/countryCode'
       responses: #status code
         '200':
           description: Successful operation
@@ -96,14 +99,16 @@ paths:
                   linkedPorts:
                     type: array
                     items:
-                      $ref: '#/components/schemas/linkedPort'
+                      $ref: './oiapComponents.yml#/components/schemas/linkedPort'
                   requestedParams:
                     type: object
                     properties:
                       portCode:
                         $ref: './oiapComponents.yml#/components/schemas/portCode'
-                      geographicalZone:
-                        $ref: './oiapComponents.yml#/components/schemas/geographicalZone'                        
+                      coastalArea:
+                        $ref: './oiapComponents.yml#/components/schemas/coastalArea'                        
+                      countryCode:
+                        $ref: './oiapComponents.yml#/components/schemas/countryCode'
         '400':
           description: Bad request
           content:
@@ -120,12 +125,13 @@ paths:
     get:
       tags:
         - Liner Services
-      summary: List of the carriers that serve a liner service or a geographical area.
-      description: Returns a list of the carriers and alliance partners that serve a particular liner service or a geographical area.
+      summary: List of the carriers that serve a port, a maritime coastal area or a country.
+      description: List of the carriers that serve a port, a maritime coastal area or a country.
       parameters:
         - $ref: '#/components/parameters/portCode'
-        - $ref: '#/components/parameters/linerServiceName'
-        - $ref: '#/components/parameters/geographicalZone'        
+        - $ref: '#/components/parameters/coastalArea'        
+        - $ref: '#/components/parameters/countryCode'
+        - $ref: '#/components/parameters/linkedPortCode'
       responses: #status code
         '200':
           description: Successful operation
@@ -140,16 +146,18 @@ paths:
                   linerCarriers:
                     type: array
                     items:
-                      $ref: '#/components/schemas/linerCarrier'
+                      $ref: './oiapComponents.yml#/components/schemas/linerCarrier'
                   requestedParams:
                     type: object
                     properties:
                       portCode:
                         $ref: './oiapComponents.yml#/components/schemas/portCode'
-                      linerServiceName:
-                        $ref: './oiapComponents.yml#/components/schemas/linerServiceName'
-                      geographicalZone:
-                        $ref: './oiapComponents.yml#/components/schemas/geographicalZone'
+                      coastalArea:
+                        $ref: './oiapComponents.yml#/components/schemas/coastalArea'
+                      countryCode:
+                        $ref: './oiapComponents.yml#/components/schemas/countryCode'
+                      linkedPortCode:
+                        $ref: './oiapComponents.yml#/components/schemas/linkedPortCode'
         '400':
           description: Bad request
           content:
@@ -176,16 +184,37 @@ components:
       explode: false
       schema:
         $ref: './oiapComponents.yml#/components/schemas/portCode'
-    geographicalZone:  
+    coastalArea:  
       in: query
-      name: geographicalZone
+      name: coastalArea
       description: 
-            Geographical area represented a a code defined in the Geonomenclature docummentation from EUROSTAT.
+            MARITIME COASTAL AREAS 
       required: false
       style: form
       explode: false
       schema:
-        $ref: './oiapComponents.yml#/components/schemas/geographicalZone'
+        $ref: './oiapComponents.yml#/components/schemas/coastalArea'
+    countryCode:  
+      in: query
+      name: countryCode
+      description: 
+            Country code as in ISO3166 2 alpha characters. 
+      required: false
+      style: form
+      explode: false
+      schema:
+        $ref: './oiapComponents.yml#/components/schemas/countryCode'
+    linkedPortCode:  
+      in: query
+      name: linkedPortCode
+      description: 
+            Port that is served by a direct service of a liner and do not requires a transshipment.
+      required: false
+      style: form
+      explode: false
+      example: HKHKG
+      schema:
+        $ref: './oiapComponents.yml#/components/schemas/linkedPort'
     linerServiceName:  
       in: query
       name: fromDate
@@ -207,10 +236,10 @@ components:
               $ref: './oiapComponents.yml#/components/schemas/linerServiceName' 
             linerServiceCode: 
               $ref: './oiapComponents.yml#/components/schemas/linerServiceCode'
-            linerPartners: 
-              $ref: '#/components/schemas/linerPartners'        
-            linerSlots:
-              $ref: '#/components/schemas/linerSlots' 
+            linerCarriers: 
+              $ref: '#/components/schemas/linerCarriers'        
+            linkedPorts:  
+              $ref: '#/components/schemas/linkedPorts'
             coveredGeographicalAreas:  
               $ref: '#/components/schemas/coveredGeographicalAreas' 
             linerServiceType:  
@@ -223,41 +252,29 @@ components:
               $ref: './oiapComponents.yml#/components/schemas/linerDurationOfRotation'
       required:
         - linerServiceName
-        - linerPartners
+        - linerCarriers
         - coveredGeographicalAreas  
         - linerServiceType
         - linerSailingFrequency  
-    linerPartners:
-      description: 'Shipping lines that share vessels for a liner service.'
+    linerCarriers:
+      description: 'Carriers that operate in a liner service.'
       type: array
       items:
-        $ref: './oiapComponents.yml#/components/schemas/linerPartner'
+        $ref: './oiapComponents.yml#/components/schemas/linerCarrier'
     linerSlots: # millorar descripcio
       description: 'Shipping lines that have slots of a liner service.'
       type: array
       items:
         $ref: './oiapComponents.yml#/components/schemas/linerSlot'
+    linkedPorts: 
+      description: 'Ports that are served by a liner service.'
+      type: array
+      items:
+        $ref: './oiapComponents.yml#/components/schemas/linkedPort'
     coveredGeographicalAreas:
       description: 'Geographical area covered by a liner service.'
       type: array
       items:
-        $ref: './oiapComponents.yml#/components/schemas/geographicalZone'
-    linkedPort: 
-      description: 'Port that is served by a direct service of a liner and do not requires a transshipment.'
-      $ref: './oiapComponents.yml#/components/schemas/locode' 
-    linerCarrier: # PENDENT definir aquesta estructura de dades.
-      description: ''
-      type: object
-      allOf:
-        - type: object
-          properties:
-            locode: 
-              $ref: './oiapComponents.yml#/components/schemas/locode' 
-        - type: object
-          properties:
-            railTerminalCode: 
-              $ref: './oiapComponents.yml#/components/schemas/railTerminalCode'  
-        - type: object
-          properties:
-            railTerminalName: 
-              $ref: './oiapComponents.yml#/components/schemas/railTerminalName' 
+        $ref: './oiapComponents.yml#/components/schemas/coastalArea' 
+
+
