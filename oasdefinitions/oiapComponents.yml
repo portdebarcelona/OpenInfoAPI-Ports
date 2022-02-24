@@ -515,6 +515,28 @@ components:
           type: string 
           example: Singapore
     linkedPortCode: 
-      description: 'Port UN/LOCODE served by a liner'
+      description: 'Port UN/LOCODE served by a liner.'
       example: SGSGP
       $ref: '#/components/schemas/portCode'
+    gate: 
+      description: 'Attributes of a land access gate.'
+      properties:
+        gateName:
+          description: Name of a gate. 
+          type: string
+        gateCoordinates:
+          description: Coordinates of a gate. 
+          $ref: '#/components/schemas/coordinates'
+    coordinates: 
+      description: 'Attributes of a land access gate.'
+      properties:
+        latitude:
+          description: latitude of a point. 
+          type: number
+          example: 42.234
+        longitude:
+          description: Longitude of a point 
+          type: number
+          example: -122.521
+
+
