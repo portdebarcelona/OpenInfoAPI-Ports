@@ -364,12 +364,12 @@ components:
             terminalName:  
               description: Terminal name.
               type: string
-              example: Barcelona Multipurpose Terminal (BMT)
+              example: Terminal Port Nou
             terminalCode:  
-              description: 'IMO Port Facility Number. It consists of a five-character LOCODE corresponding to a port and a 4-digit code separated with a dash.' 
+              description: 'IMO Port Facility Number. It consists of a five-character LOCODE corresponding to a port and a 4-digit code separated with a dash. Those codes can be retrieved in www.portcode.com' 
               type: string
               maxLength: 10 
-              example: ESBCN-0008              
+              example: ESBCN-0036              
             totalArea: 
               description: Total area of the terminal in ha.
               type: integer
@@ -403,15 +403,23 @@ components:
         - linerServiceName 
 
     portMark: # Important definir aquesta estructura de dades.
-      description: 'Land access gates from a port.' 
+      description: 'Buoys, Beacons and Marks, according to the IALA Buoyage System that includes five buoy types: cardinal, lateral, isolated danger, special and safe water marks.' 
       type: object
       allOf:
         - type: object
           properties:
-            linerServiceName:  
-              $ref: './oiapComponents.yml#/components/schemas/linerServiceName' 
-            linerServiceCode: 
-              $ref: './oiapComponents.yml#/components/schemas/linerServiceCode'
+            coordinates:
+              $ref: './oiapComponents.yml#/components/schemas/coordinates'
+            markType:  
+              $ref: './oiapComponents.yml#/components/schemas/markType' 
+            markTop: 
+              $ref: './oiapComponents.yml#/components/schemas/markTop'
+            markColour: 
+              $ref: './oiapComponents.yml#/components/schemas/markColour'
+            shapeOfBuoy: 
+              $ref: './oiapComponents.yml#/components/schemas/shapeOfBuoy'
+            markLight: 
+              $ref: './oiapComponents.yml#/components/schemas/markLight'
       required:
         - linerServiceName 
 

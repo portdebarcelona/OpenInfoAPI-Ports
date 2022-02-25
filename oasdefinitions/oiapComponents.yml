@@ -539,4 +539,35 @@ components:
           type: number
           example: -122.521
 
+    markType: 
+      description: >
+          * `Lateral Marks`
+          * `Cardinal Marks`
+          * `Isolated Danger Mark`
+          * `Safe Waters Mark`
+          * `Marking New Dangers`
+          * `Other Marks`
+      type: string
+      enum: [Lateral Marks, Cardinal Marks, Isolated Danger Mark, Safe Waters Mark, Marking New Dangers, Other Marks]
+      example: Isolated Danger Mark
+    markTop: 
+      description: a
+      type: string
+    markColour: 
+      description: a
+      type: string
+    shapeOfBuoy: 
+      description: a
+      type: string
+    markLight: 
+      description: a
+      properties:
+        colour:
+          description: colour 
+          type: string
+          example: red
+        rhythm:
+          description: Longitude of a point 
+          type: string
+          example: group flashing (2)
 
