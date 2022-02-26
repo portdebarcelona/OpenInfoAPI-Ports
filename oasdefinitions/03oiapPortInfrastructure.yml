@@ -402,7 +402,7 @@ components:
       required:
         - linerServiceName 
 
-    portMark: # Important definir aquesta estructura de dades.
+    portMark: 
       description: 'Buoys, Beacons and Marks, according to the IALA Buoyage System that includes five buoy types: cardinal, lateral, isolated danger, special and safe water marks.' 
       type: object
       allOf:
@@ -410,6 +410,8 @@ components:
           properties:
             coordinates:
               $ref: './oiapComponents.yml#/components/schemas/coordinates'
+            markRegion:  
+              $ref: './oiapComponents.yml#/components/schemas/markRegion'
             markType:  
               $ref: './oiapComponents.yml#/components/schemas/markType' 
             markTop: 
@@ -429,10 +431,10 @@ components:
       allOf:
         - type: object
           properties:
-            linerServiceName:  
-              $ref: './oiapComponents.yml#/components/schemas/linerServiceName' 
-            linerServiceCode: 
-              $ref: './oiapComponents.yml#/components/schemas/linerServiceCode'
+            singularPoint:
+              $ref: './oiapComponents.yml#/components/schemas/singularPoint'                  
+            underwaterDepth: 
+              $ref: './oiapComponents.yml#/components/schemas/underwaterDepth'
       required:
         - linerServiceName 
 
