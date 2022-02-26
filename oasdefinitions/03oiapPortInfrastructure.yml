@@ -193,7 +193,9 @@ paths:
       tags:
         - Port Infrastructure
       summary: Information of all the rail terminals and loading tracks of a port
-      description: List of the rail terminals and loading tracks from a port.
+      description: >
+          List of the rail terminals and loading tracks from a port.
+          Rail facilities are caracterized because they have rail bundles of up to 10 rail tracks with lengths of a maximum of 800 meters per track. They are equipped to allow simultaneous batch exchanges (direct transshipment) through the use of rail-mounted gantry cranes that stretch over the rail bundles.
       parameters:
         - $ref: '#/components/parameters/portCode'
       responses: #status code
@@ -210,7 +212,7 @@ paths:
                   railTerminals:
                     type: array
                     items:
-                      $ref: '#/components/schemas/railTerminal' # veure si hi ha algun tipus de codificació internacional
+                      $ref: '#/components/schemas/railTerminal' 
                   requestedParams:
                     type: object
                     properties:
@@ -323,28 +325,23 @@ components:
       schema:
         $ref: './oiapComponents.yml#/components/schemas/portCode'
   schemas:
-    portInfrastructure: # Important definir aquesta estructura de dades.
+    portInfrastructure:
       description: 'List of main attibutes from the infrastructure of a port.'
       type: object
       allOf:
-        - type: object  # REPENSAR-HO !!!
+        - type: object 
           properties:
-            linerServiceName:  
-              $ref: './oiapComponents.yml#/components/schemas/linerServiceName' 
-            linerServiceCode: 
-              $ref: './oiapComponents.yml#/components/schemas/linerServiceCode'
-            linerServiceType:  
-              $ref: './oiapComponents.yml#/components/schemas/linerServiceType'
-            linerServiceCapacity:  
-              $ref: './oiapComponents.yml#/components/schemas/linerServiceCapacity'
-            linerSailingFrequency:  
-              $ref: './oiapComponents.yml#/components/schemas/linerSailingFrequency' 
-            linerDurationOfRotation:  
-              $ref: './oiapComponents.yml#/components/schemas/linerDurationOfRotation'
+            portName:  
+              $ref: './oiapComponents.yml#/components/schemas/portName' 
+            portCode: 
+              $ref: './oiapComponents.yml#/components/schemas/portCode'
+            portCoordinates:  
+              $ref: './oiapComponents.yml#/components/schemas/coordinates'
+            # Afegir terminals i instal·lacions
       required:
-        - linerServiceName 
+        - portName 
 
-    portGate: # No té massa sentit que només hi hagi un element.
+    portGate: 
       description: 'Land access gates from a port.'
       type: object
       allOf:
@@ -389,18 +386,31 @@ components:
       required:
         - terminalName 
 
-    railTerminal: # Important definir aquesta estructura de dades.
-      description: 'Land access gates from a port.' # ccc
+    railTerminal: 
+      description: >
+          Attributes of a rail terminal facility.
       type: object
       allOf:
         - type: object
           properties:
-            linerServiceName:  
-              $ref: './oiapComponents.yml#/components/schemas/linerServiceName' 
-            linerServiceCode: 
-              $ref: './oiapComponents.yml#/components/schemas/linerServiceCode'
+            railTerminalName:  
+              $ref: './oiapComponents.yml#/components/schemas/railTerminalName' 
+            railTerminalCode:  
+              $ref: './oiapComponents.yml#/components/schemas/railTerminalCode' 
+            freightType: 
+              $ref: './oiapComponents.yml#/components/schemas/freightType'
+            coordinates: 
+              $ref: './oiapComponents.yml#/components/schemas/coordinates'
+            railBundles: 
+              $ref: './oiapComponents.yml#/components/schemas/railBundles'
+            trackMaximumLenght: 
+              $ref: './oiapComponents.yml#/components/schemas/trackMaximumLenght'
+            trackGauge: 
+              $ref: './oiapComponents.yml#/components/schemas/trackGauge'        
+            gantryCranes: 
+              $ref: './oiapComponents.yml#/components/schemas/gantryCranes'
       required:
-        - linerServiceName 
+        - railTerminalName 
 
     portMark: 
       description: 'Buoys, Beacons and Marks, according to the IALA Buoyage System that includes five buoy types: cardinal, lateral, isolated danger, special and safe water marks.' 
@@ -408,8 +418,6 @@ components:
       allOf:
         - type: object
           properties:
-            coordinates:
-              $ref: './oiapComponents.yml#/components/schemas/coordinates'
             markRegion:  
               $ref: './oiapComponents.yml#/components/schemas/markRegion'
             markType:  
@@ -422,10 +430,12 @@ components:
               $ref: './oiapComponents.yml#/components/schemas/shapeOfBuoy'
             markLight: 
               $ref: './oiapComponents.yml#/components/schemas/markLight'
+            coordinates:
+              $ref: './oiapComponents.yml#/components/schemas/coordinates'
       required:
         - linerServiceName 
 
-    bathymetry: # Important definir aquesta estructura de dades.
+    bathymetry: 
       description: 'Land access gates from a port.' 
       type: object
       allOf:

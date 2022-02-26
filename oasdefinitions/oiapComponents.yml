@@ -125,6 +125,11 @@ components:
       type: string
       maxLength: 5
       example: ESBCN 
+    portName:
+      description: |
+            Port name.
+      type: string
+      example: Barcelona 
     lastPortOfCall:
       description: |
             UN/LOCODE of the last POrt of Call
@@ -339,16 +344,19 @@ components:
       description: 
         Identification of a berth from a port.  
       properties:
-        code:
+        berthCode:
           description: Berth code. Code assigned to a berth from a port.  
           type: string
           example: 01B 
-        description:
+        berthName:
           description: Berth name. 
           type: string
           example: ADOSSAT 
         berthCoordinates:
           $ref: '#/components/schemas/coordinates'
+        berthDepth:
+          description: Berth depth. 
+          $ref: '#/components/schemas/underwaterDepth' 
       required:
         - code
     channel:
@@ -549,11 +557,11 @@ components:
         latitude:
           description: latitude of a point. 
           type: number
-          example: 42.234
+          example: 41.35331
         longitude:
           description: Longitude of a point 
           type: number
-          example: -122.521
+          example: 2.175017
 
     markRegion: 
       description: >
@@ -608,3 +616,35 @@ components:
       oneOf:
         - $ref: '#/components/schemas/berth'
         - $ref: '#/components/schemas/channel' 
+    freightType:
+      description: >
+            Type of freight.  
+              * `Solid bulk`
+              * `Liquid bulk`
+              * `Roll-on / roll-off`
+              * `Breakbulk`
+              * `Containers`
+      type: string
+      enum: [Solid bulk, Liquid bulk, Roll-on / roll-off, Breakbulk, Containers]
+      example: Containers
+    railBundles:
+      description: Number of rail tracks in a facility. 
+      type: integer
+      example: 8
+    trackMaximumLenght: 
+      description: Maximum lenght of a rail track in a facility, expressed in meters. 
+      type: integer
+      example: 800
+    trackGauge: 
+      description: >
+            Distance between the inside surfaces of the two load-bearing rails of a railway track. 
+              * `Standard gauge - UIC` 1,435 mm
+              * `Iberian gauge` 1,668 mm
+              * `Metre gauge` 1,000 mm
+      type: string
+      enum: [Standard gauge - UIC, Iberian gauge, Metre gauge]
+      example: Iberian gauge    
+    gantryCranes: 
+      description: Number of gantry cranes in a facility. 
+      type: integer
+      example: 3
