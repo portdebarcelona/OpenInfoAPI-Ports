@@ -648,3 +648,8 @@ components:
       description: Number of gantry cranes in a facility. 
       type: integer
       example: 3
+    containerNumber:
+      description: Container number as is described in ISO6346
+      type: string
+      maxLength: 11
+      example: ABCU1234567        
