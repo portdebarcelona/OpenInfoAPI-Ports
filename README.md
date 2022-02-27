@@ -45,11 +45,11 @@ In this six months plan, deliverables will be:
 
 - Creation of **Github repository** or similar: [this repository](https://github.com/org/portdebarcelona/InfoOpenAPI-Ports)
 - Creation of **Swagger repository** or similar
-- Definition of the **types of information**: [see](docs/approach.md)
-- **Attributes** of each type of information: [see](docs/catalog/README.md)
-- Selection of a **style guide** for API/JSON: [see](docs/catalog/Pendent.md)
-- Definition in **OpenAPI 3.0**.
-- **Description and examples** in GitHub.
+- Definition of the **types of information**: [see](docs/CatalogIntroduction.md)
+- **Attributes** of each type of information
+- Selection of a **style guide** for API/JSON: [see](docs/OASdefinitionsBestPractices.md)
+- Definition in **OpenAPI 3.x**.
+- **Description and examples** in GitHub
 
 
 ## Project Plan
