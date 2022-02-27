@@ -1,0 +1,101 @@
+openapi: '3.0.3'
+info:
+  version: '1.0.0'
+  title: Ships Aproximation API info
+  description: 
+    Vessels that have initiated their aproximation manouvres to a port. 
+  license:
+    name: CC0 1.0 Universal (CC0 1.0)
+    url: https://creativecommons.org/publicdomain/zero/1.0/deed.es
+  contact:
+    name: OpenInfoAPI github
+    url: https://github.com/portdebarcelona/OpenInfoAPI-Ports
+tags:
+  - name: Aproximation manouvres
+    description: "Vessels that have initiated their aproximation manouvres to a port."
+servers:
+  - url: https://api.server.test/v1
+paths:
+  /aproximation:
+    get:
+      summary: Returns a list of ships that have initiated their aproximation manouvres to a port.
+      description: Returns a list of ships that have initiated their aproximation manouvres to a port.
+      parameters:
+        - $ref: '#/components/parameters/portCode'
+      responses: #status code
+        '200':
+          description: Successful operation
+          headers:
+            API-Version:
+              $ref: './oiapComponents.yml#/components/headers/API-Version'
+            Current-Page:
+              $ref: './oiapComponents.yml#/components/headers/Current-Page'
+            Next-Page:
+              $ref: './oiapComponents.yml#/components/headers/Next-Page'
+            Prev-Page:
+              $ref: './oiapComponents.yml#/components/headers/Prev-Page'
+            Last-Page:
+              $ref: './oiapComponents.yml#/components/headers/Last-Page'
+            First-Page:
+              $ref: 'oiapComponents.yml#/components/headers/First-Page'
+          content: 
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/aproximationManouvres'
+        default:
+          description: Unexpected error
+          headers:
+            API-Version:
+              $ref: './oiapComponents.yml#/components/headers/API-Version'
+          content:
+            application/json:
+              schema:
+                $ref: 'oiapComponents.yml#/components/schemas/error'                
+components:
+  parameters: 
+    ##################
+    # Query parameters
+    ##################
+    portCode:
+      in: query
+      name: portCode
+      description: |
+            Port UN/LOCODE. 
+            Default value is Locode of Port what provides the services. 
+            Example: portCode=ESBCN        
+      required: false
+      style: form
+      explode: false
+      schema:
+        $ref: './oiapComponents.yml#/components/schemas/portCode'
+  schemas: 
+    aproximationManouvres:
+      description: list of ships that have initiated their aproximation manouvres
+      type: object
+      allOf:
+        - type: object
+          properties:
+            shipIMONumber:
+              $ref: './oiapComponents.yml#/components/schemas/shipIMONumber'
+        - type: object
+          properties:
+            shipName:
+              $ref: './oiapComponents.yml#/components/schemas/shipName'
+        - type: object
+          properties:
+            estimatedTimeOfArrival:
+              $ref: './oiapComponents.yml#/components/schemas/estimatedTimeOfArrival'
+        - type: object
+          properties:
+            shipType:
+              $ref: './oiapComponents.yml#/components/schemas/shipType'
+        - type: object
+          properties:
+            lastPortOfCall:
+              $ref: './oiapComponents.yml#/components/schemas/lastPortOfCall'       
+      required: 
+        - shipIMONumber
+        - shipName
+        - estimatedTimeOfArrival 

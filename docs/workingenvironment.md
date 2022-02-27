@@ -7,8 +7,9 @@ To work in this project we have chosen and setup a set of tools. Here we explain
 
 Also, we consider aspects such as:
 - Best practices to define APIs
-- API-Led connectivity
+- API-Led connectivity´
 
+Also, we have included in our [toolbox](./toolbox.md) the steps that we have to follow in the API design.
 ## Open API Services 3.x
 Goal is define Info Port webservices with (OAS 2.x)[https://github.com/OAI/OpenAPI-Specification/]
 
@@ -18,12 +19,16 @@ Main goal is publish info that has meaning to humans. For that reason we'll try 
 
 ## Best Practices to define APIs
 Here some places where give ideas about best practices defining APIS:
+- https://google.github.io/styleguide/jsoncstyleguide.xml
 - https://github.com/RestCheatSheet/api-cheat-sheet
 - https://www.vinaysahni.com/best-practices-for-a-pragmatic-restful-api
 - https://github.com/darrin/yaras/blob/master/restful-standards.md
 - https://docs.python-eve.org/en/stable/rest_api_for_humans.html ( and https://docs.python-eve.org/en/stable/rest_api_for_humans.html )
 -**https://www.merixstudio.com/blog/best-practices-rest-api-development/**
 - https://www.merixstudio.com/blog/api-documentation-few-tips-will-help-you-write-it-well/
+- https://developers.google.com/youtube/v3/docsv
+- https://opensource.zalando.com/restful-api-guidelines/#table-of-contents
+
 ## Markdown extension
 Better tools for editing markdown: https://marketplace.visualstudio.com/items?itemName=yzhang.markdown-all-in-one
 
@@ -55,3 +60,17 @@ Because our company (portofbarcelona) uses **Github.com**, this will be our code
 
 ## Editor
 **VSCode**: Visual Studio Code Editor is an outstanding editor that has many plugins and connection with git repositories
+
+
+## Other issues
+- [Ontology from TNO](https://ontology.tno.nl/) 
+
+- [see 'Organization' in schema.org](https://schema.org/Organization)
+- [evaluate 'Offer' in scehma.org](https://schema.org/Offer)
+
+- Technical Interoperability Regulations on the Re-use of Information Resources (NTI) (Spain)
+  - https://www.boe.es/diario_boe/txt.php?id=BOE-A-2013-2380
+  - https://datos.gob.es/en/accessible-apidata
+
+
+

@@ -1,0 +1,116 @@
+openapi: '3.0.3'
+info:
+  version: '1.0.0'
+  title: API Cruise Calls info
+  description: 
+    Cruise schedule.
+    Information of interest for passengers that have to embark on a cruise ship. 
+  license:
+    name: CC0 1.0 Universal (CC0 1.0)
+    url: https://creativecommons.org/publicdomain/zero/1.0/deed.es
+  contact:
+    name: OpenInfoAPI github
+    url: https://github.com/portdebarcelona/OpenInfoAPI-Ports
+tags:
+  - name: Cruise schedule
+    description: "Cruise schedule."
+servers:
+  - url: https://github.com/portdebarcelona/OpenInfoAPI-Ports/blob/develop/oasdefinitions/
+paths:
+  /cruise:
+    get:
+      summary: Returns information about next arrival and departure of a cruise ship.
+      description: Returns information about next arrival and departure of a cruise ship.
+      parameters:
+        - $ref: '#/components/parameters/portCode'
+        - $ref: '#/components/parameters/shipName'
+      responses: #status code
+        '200':
+          description: Successful operation
+          headers:
+            API-Version:
+              $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents.yml#/components/headers/API-Version'
+            Current-Page:
+              $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents.yml#/components/headers/Current-Page'
+            Next-Page:
+              $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents.yml#/components/headers/Next-Page'
+            Prev-Page:
+              $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents.yml#/components/headers/Prev-Page'
+            Last-Page:
+              $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents.yml#/components/headers/Last-Page'
+            First-Page:
+              $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents.yml#/components/headers/First-Page'
+          content: 
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/cruiseCall'
+        default:
+          description: Unexpected error
+          headers:
+            API-Version:
+              $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents.yml#/components/headers/API-Version'
+          content:
+            application/json:
+              schema:
+                $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents.yml#/components/schemas/error'                
+components:
+  parameters: 
+    ##################
+    # Query parameters
+    ##################
+    portCode:
+      in: query
+      name: portCode
+      description: |
+            Port UN/LOCODE. 
+            Default value is Locode of Port what provides the services. 
+            Example: portCode=ESBCN        
+      required: false
+      style: form
+      explode: false
+      schema:
+        $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents.yml#/components/schemas/portCode'
+    shipName:
+      in: query
+      name: shipName
+      description: |
+            Name of the cruise ship.  
+            Example: shipName=NORWEGIAN EPIC        
+      required: false
+      style: form
+      explode: false
+      schema:
+        $ref: './oiapComponents.yml#/components/schemas/shipName'
+  schemas: 
+    cruiseCall:
+      description: information about next cruise ship call. 
+      type: object
+      allOf:
+        - type: object
+          properties:
+            shipName:
+              $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents.yml#/components/schemas/shipName'
+        - type: object
+          properties:
+            cruiseLine:
+              $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents.yml#/components/schemas/cruiseLine'
+        - type: object
+          properties:
+            estimatedTimeOfArrival:
+              $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents.yml#/components/schemas/estimatedTimeOfArrival'
+        - type: object
+          properties:
+            estimatedTimeOfDeparture:
+              $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents.yml#/components/schemas/estimatedTimeOfDeparture'
+        - type: object
+          properties:
+            facility:
+              $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents.yml#/components/schemas/facility'       
+      required: 
+        - shipName
+        - cruiseLine
+        - estimatedTimeOfArrival
+        - estimatedTimeOfDeparture
+        - facility 

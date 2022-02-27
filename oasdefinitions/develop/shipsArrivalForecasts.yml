@@ -1,0 +1,131 @@
+openapi: '3.0.3'
+info:
+  version: '1.0.0'
+  title: API Ships Arrival Forecasts info
+  description: 
+    Forecast of ships that will arrive at a port in a given period of time. 
+  license:
+    name: CC0 1.0 Universal (CC0 1.0)
+    url: https://creativecommons.org/publicdomain/zero/1.0/deed.es
+  contact:
+    name: OpenInfoAPI github
+    url: https://github.com/portdebarcelona/OpenInfoAPI-Ports
+tags:
+  - name: Ships Arrival Forecasts details
+    description: "Ships that will arrive at a port in a given period of time"
+servers:
+  - url: https://api.server.test/v1
+paths:
+  /shipsScheduled:
+    get:
+      summary: Returns a list of ships that will arrive at a port in a given period of time
+      description: Returns a list of ships that will arrive at a port in a given period of time
+      parameters:
+        - $ref: '#/components/parameters/portCode'
+        - $ref: '#/components/parameters/startDate'
+        - $ref: '#/components/parameters/dateRange'
+        - $ref: '#/components/parameters/shipType'
+      responses: #status code
+        '200':
+          description: Successful operation
+          headers:
+            API-Version:
+              $ref: './oiapComponents.yml#/components/headers/API-Version'
+            Current-Page:
+              $ref: './oiapComponents.yml#/components/headers/Current-Page'
+            Next-Page:
+              $ref: './oiapComponents.yml#/components/headers/Next-Page'
+            Prev-Page:
+              $ref: './oiapComponents.yml#/components/headers/Prev-Page'
+            Last-Page:
+              $ref: './oiapComponents.yml#/components/headers/Last-Page'
+            First-Page:
+              $ref: './oiapComponents.yml#/components/headers/First-Page'
+          content: 
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/shipArrivalForecast'
+        default:
+          description: Unexpected error
+          headers:
+            API-Version:
+              $ref: './oiapComponents.yml#/components/headers/API-Version'
+          content:
+            application/json:
+              schema:
+                $ref: './oiapComponents.yml#/components/schemas/error'                
+components:
+  parameters: 
+    ##################
+    # Query parameters
+    ##################
+    portCode:
+      in: query
+      name: portCode
+      description: |
+            Port UN/LOCODE
+            Default value is Locode of Port what provides the services
+            example: portCode=ESBCN        
+      required: false
+      style: form
+      explode: false
+      schema:
+        $ref: './oiapComponents.yml#/components/schemas/portCode'
+    startDate:  
+      in: query
+      name: startDate
+      description: The start date of the period for which schedule information is requested. The value is populated in ISO 8601 Date format. If not provided, the current date is used by default.
+      required: false
+      style: form
+      explode: false
+      schema:
+        $ref: './oiapComponents.yml#/components/schemas/startDate'
+    dateRange:  
+      in: query
+      name: dateRange
+      description: The time period for which schedule information is sent. The duration is populated in ISO 8601 Duration format. If not provided, 24 hours is used by default.
+      required: false
+      style: form
+      explode: false
+      example: T24H
+      schema:
+        $ref: './oiapComponents.yml#/components/schemas/dateRange'
+    shipType:
+      in: query
+      name: shipType
+      description:
+            Type of ship 
+            Default value are all types
+      required: false
+      style: form
+      explode: false
+      schema:
+        $ref: './oiapComponents.yml#/components/schemas/shipType'
+  schemas:
+    shipArrivalForecast:
+      description: list of ships that will arrive on a given period of time
+      type: object
+      allOf:
+        - type: object
+          properties:
+            shipIMONumber:
+              $ref: './oiapComponents.yml#/components/schemas/shipIMONumber'
+        - type: object
+          properties:
+            shipName:
+              $ref: './oiapComponents.yml#/components/schemas/shipName'
+        - type: object
+          properties:
+            shipType:
+              $ref: './oiapComponents.yml#/components/schemas/shipType'
+        - type: object
+          properties:
+            estimatedTimeOfArrival:
+              $ref: './oiapComponents.yml#/components/schemas/estimatedTimeOfArrival'
+      required: 
+        - shipIMONumber
+        - shipName
+        - shipType
+        - estimatedTimeOfArrival

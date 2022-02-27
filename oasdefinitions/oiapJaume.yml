@@ -1,0 +1,923 @@
+openapi: '3.0.3'
+info:
+  version: '0.9.0-oas3'
+  title: OIAP
+  description: >-
+    Open Info API para Puertos.  
+    This file contains all the APIs developed for the Open Info API para Puertos project within the initiative Ports 4.0 form Puertos del Estado (ES).
+    For this sample, you can use the api key
+    `special-key` to test the authorization filters.  
+  termsOfService: http://swagger.io/terms/
+  license:
+    name: CC0 1.0 Universal (CC0 1.0)
+    url: https://creativecommons.org/publicdomain/zero/1.0/deed.es
+  contact:
+    name: OpenInfoAPI github
+    url: https://github.com/portdebarcelona/OpenInfoAPI-Ports
+tags:
+  - name: Port Calls
+    description: Port Calls Domain. APIs related to the ships arrival or departure from a port. 
+    externalDocs:
+      description: Description 
+      url: http://swagger.io
+  - name: Liner Services
+    description: Liner Services Domain. APIs related to the liner services that serve a port.
+    externalDocs:
+      description: Description  
+      url: http://swagger.io
+  - name: Port Infrastructure
+    description: Port Infrastructure Domain. APIs related to the infrastructure of a port.
+    externalDocs:
+      description: Description 
+      url: http://swagger.io  
+  - name: Port Procedures
+    description: Port Procedures Domain. APIs related to the docummentation of the procedures of a port.
+    externalDocs:
+      description: Description 
+      url: http://swagger.io  
+  - name: Statistics
+    description: "APIs related to port statistics."
+    externalDocs:
+      description: Description 
+      url: http://swagger.io  
+  - name: Environment
+    description: "APIs related to the weather, sea state and pollution of a port."
+    externalDocs:
+      description: Description 
+      url: http://swagger.io
+  - name: Railway Transport
+    description: "APIs related to railway transport of a port."
+    externalDocs:
+      description: Description 
+      url: http://swagger.io
+  - name: Vehicle Traffic Monitoring
+    description: "APIs related to the flow of wehicles in a port area."
+    externalDocs:
+      description: Description 
+      url: http://swagger.io
+  - name: Terminals
+    description: "APIs with information about the cargo terminals of a port."
+    externalDocs:
+      description: Description 
+      url: http://swagger.io
+  - name: News
+    description: "APIs that show news of interest from a port."
+    externalDocs:
+      description: Description 
+      url: http://swagger.io
+  - name: Notices
+    description: "APIs that offer notices of onterest from a port."
+    externalDocs:
+      description: Description 
+      url: http://swagger.io
+  - name: Port Rates and Fees
+    description: "APIs with information about rates and fees that are applied on a port."
+    externalDocs:
+      description: Description 
+      url: http://swagger.io
+  - name: Port Services
+    description: "APIs that offer information of services offered in a port."
+    externalDocs:
+      description: Description 
+      url: http://swagger.io
+  - name: Port Calendar
+    description: "APIs with information about the working days and hours of the partnes of a Port Community."
+    externalDocs:
+      description: Description 
+      url: http://swagger.io
+  - name: Port Directory
+    description: "APIs with information about the companies and administrations that operate in a port."
+    externalDocs:
+      description: Description 
+      url: http://swagger.io
+servers:
+  - url: https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/
+paths:
+  # Ships Arrivals Forecasts
+  /portCalls/shipsScheduled:
+    get:
+      tags:
+        - Port Calls
+      summary: Returns a list of ships that will arrive at a port in a given period of time
+      description: Returns a list of ships that will arrive at a port in a given period of time
+      parameters:
+        - $ref: '#/components/parameters/portCode'
+        - $ref: '#/components/parameters/startDate'
+        - $ref: '#/components/parameters/dateRange'
+        - $ref: '#/components/parameters/shipType'
+      responses: #status code
+        '200':
+          description: Successful operation
+          headers:
+            apiVersion:
+              $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents.yml#/components/headers/apiVersion'
+          content: 
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/shipArrivalForecast'
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents.yml#/components/schemas/error' 
+        '404':
+          description: Not found
+          content:
+            application/json:
+              schema:
+                $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents.yml#/components/schemas/error'
+  # Ships in Port
+  /portCalls/shipsInPort:
+    get:
+      tags:
+        - Port Calls
+      summary: Returns a list of ships that are anchored or moored now in a Port.
+      description: Returns a list of ships that are anchored or moored now in a Port.
+      parameters:
+        - $ref: '#/components/parameters/portCode'
+      responses: #status code
+        '200':
+          description: Successful operation
+          headers:
+            apiVersion:
+              $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents.yml#/components/headers/apiVersion'
+          content: 
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/shipInPort'
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents.yml#/components/schemas/error' 
+        '404':
+          description: Not found
+          content:
+            application/json:
+              schema:
+                $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents.yml#/components/schemas/error'
+  # Ship Arrivals
+  /portCalls/arrivals:
+    get:
+      tags:
+        - Port Calls
+      summary: Returns a list of ships that have arrived or will arrive today at a port. 
+      description: Returns a list of ships that have arrived or will arrive today at a port.
+      parameters:
+        - $ref: '#/components/parameters/portCode'
+      responses: #status code
+        '200':
+          description: Successful operation
+          headers:
+            apiVersion:
+              $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents.yml#/components/headers/apiVersion'
+          content: 
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/shipArrivals'
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents.yml#/components/schemas/error' 
+        '404':
+          description: Not found
+          content:
+            application/json:
+              schema:
+                $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents.yml#/components/schemas/error'
+  # Ship Departures
+  /portCalls/departures:
+    get:
+      tags:
+        - Port Calls
+      summary: Returns a list of ships that have departed or will depart today from a port. 
+      description: Returns a list of ships that have departed or will depart today from a port.
+      parameters:
+        - $ref: '#/components/parameters/portCode'
+      responses: #status code
+        '200':
+          description: Successful operation
+          headers:
+            apiVersion:
+              $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents.yml#/components/headers/apiVersion'
+          content: 
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/shipDepartures'
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents.yml#/components/schemas/error' 
+        '404':
+          description: Not found
+          content:
+            application/json:
+              schema:
+                $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents.yml#/components/schemas/error' 
+  # Ship Aproximation
+  /portCalls/aproximation:
+    get:
+      tags:
+        - Port Calls
+      summary: Returns a list of ships that have initiated their aproximation manouvres to a port.
+      description: Returns a list of ships that have initiated their aproximation manouvres to a port.
+      parameters:
+        - $ref: '#/components/parameters/portCode'
+      responses: #status code
+        '200':
+          description: Successful operation
+          headers:
+            apiVersion:
+              $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents.yml#/components/headers/apiVersion'
+          content: 
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/aproximationManouvres'
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents.yml#/components/schemas/error' 
+        '404':
+          description: Not found
+          content:
+            application/json:
+              schema:
+                $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents.yml#/components/schemas/error'
+  # Ferries Arrivals
+  /portCalls/ferriesArrivals:
+    get:
+      tags:
+        - Port Calls
+      summary: Returns a list of all the ferries that have arrived or will arrive today at a port. 
+      description: Returns a list of all the ferries that have arrived or will arrive today at a port.
+      parameters:
+        - $ref: '#/components/parameters/portCode'
+      responses: #status code
+        '200':
+          description: Successful operation
+          headers:
+            apiVersion:
+              $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents.yml#/components/headers/apiVersion'
+          content: 
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/ferriesArrivals'
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents.yml#/components/schemas/error' 
+        '404':
+          description: Not found
+          content:
+            application/json:
+              schema:
+                $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents.yml#/components/schemas/error'
+  # Ferries Departures
+  /portCalls/ferriesDepartures:
+    get:
+      tags:
+        - Port Calls
+      summary: Returns a list of ferries that have departed or will depart today from a port. 
+      description: Returns a list of ferries that have departed or will depart today from a port.
+      parameters:
+        - $ref: '#/components/parameters/portCode'
+      responses: #status code
+        '200':
+          description: Successful operation
+          headers:
+            apiVersion:
+              $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents.yml#/components/headers/apiVersion'
+          content: 
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/ferriesDepartures'
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents.yml#/components/schemas/error' 
+        '404':
+          description: Not found
+          content:
+            application/json:
+              schema:
+                $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents.yml#/components/schemas/error'      
+  # Cruise Calls
+  /portCalls/cruiseCalls:
+    get:
+      tags:
+        - Port Calls
+      summary: Returns information about next arrival and departure of a cruise ship.
+      description: Returns information about next arrival and departure of a cruise ship.
+      parameters:
+        - $ref: '#/components/parameters/portCode'
+        - $ref: '#/components/parameters/shipName'
+      responses: #status code
+        '200':
+          description: Successful operation
+          headers:
+            apiVersion:
+              $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents.yml#/components/headers/apiVersion'
+          content: 
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/cruiseCall'
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents.yml#/components/schemas/error' 
+        '404':
+          description: Not found
+          content:
+            application/json:
+              schema:
+                $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents.yml#/components/schemas/error'                   
+  # News Query
+  /news/newsQuery:
+    get:
+      tags:
+        - News
+      summary: Returns the headlines and content of some news related to a port. 
+      description: Returns the headlines and content of some news related to a port. News can be queried  
+      parameters:
+        - $ref: '#/components/parameters/portCode'
+      responses: #status code
+        '200':
+          description: Successful operation
+          headers:
+            apiVersion:
+              $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents.yml#/components/headers/apiVersion'
+          content: 
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/newsQuery'
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents.yml#/components/schemas/error' 
+        '404':
+          description: Not found
+          content:
+            application/json:
+              schema:
+                $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents.yml#/components/schemas/error'
+  # News Subscription (POST service)
+  /news/newsSubscription:
+    post:
+      tags:
+        - News
+      summary: Place an order for a subscription to a news service from a port. 
+      description: Place an order for a subscription to a news service from a port.  
+      operationId: subscribeNews
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/subscription'
+        description: order placed for a subscription to a news service
+        required: true
+      responses: #status code
+        '200':
+          description: Successful operation
+          headers:
+            apiVersion:
+              $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents.yml#/components/headers/apiVersion'
+          content: 
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/newsSubscription'
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents.yml#/components/schemas/error' 
+        '404':
+          description: Not found
+          content:
+            application/json:
+              schema:
+                $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents.yml#/components/schemas/error'
+  # Ship Call Rates and Fees
+  /portRatesAndFees/shipCallFees:
+    get:
+      tags:
+        - Port Rates and Fees
+      summary: Returns the list of port rates and fees associated to a ship call in a port.
+      description: Returns the list of port rates and fees associated to a ship call in a port.
+      parameters:
+        - $ref: '#/components/parameters/portCode'
+      responses: #status code
+        '200':
+          description: Successful operation
+          headers:
+            apiVersion:
+              $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents.yml#/components/headers/apiVersion'
+          content: 
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/shipCallRate'
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents.yml#/components/schemas/error' 
+        '404':
+          description: Not found
+          content:
+            application/json:
+              schema:
+                $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents.yml#/components/schemas/error'                
+  # Mercahandise Rates and Fees
+  /portRatesAndFees/merchandiseFees:
+    get:
+      tags:
+        - Port Rates and Fees
+      summary: Returns the list of port rates and fees associated to the flow of goods through a port.
+      description: Returns the list of port rates and fees associated to the flow of goods through a port.
+      parameters:
+        - $ref: '#/components/parameters/portCode'
+      responses: #status code
+        '200':
+          description: Successful operation
+          headers:
+            apiVersion:
+              $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents.yml#/components/headers/apiVersion'
+          content: 
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/merchandiseFee'
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents.yml#/components/schemas/error' 
+        '404':
+          description: Not found
+          content:
+            application/json:
+              schema:
+                $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents.yml#/components/schemas/error'    
+components:
+  requestBodies:
+    subscription:
+      content:
+        application/json:
+         schema:
+          type: array
+          items:
+            $ref: '#/components/schemas/subscription'
+      description: List of subscriptions
+      required: true    
+  parameters: 
+    portCode:
+      in: query
+      name: portCode
+      description: |
+            Port UN/LOCODE
+            Default value is Locode of Port what provides the services
+            example: portCode=ESBCN        
+      required: false
+      style: form
+      explode: false
+      schema:
+        $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents.yml#/components/schemas/portCode'
+    startDate:  
+      in: query
+      name: startDate
+      description: The start date of the period for which schedule information is requested. The value is populated in ISO 8601 Date format. If not provided, the current date is used by default.
+      required: false
+      style: form
+      explode: false
+      schema:
+        $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents.yml#/components/schemas/startDate'
+    dateRange:  
+      in: query
+      name: dateRange
+      description: The time period for which schedule information is sent. The duration is populated in ISO 8601 Duration format. If not provided, 24 hours is used by default.
+      required: false
+      style: form
+      explode: false
+      example: T24H
+      schema:
+        $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents.yml#/components/schemas/dateRange'
+    shipType:
+      in: query
+      name: shipType
+      description:
+            Type of ship 
+            Default value are all types
+      required: false
+      style: form
+      explode: false
+      schema:
+        $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents.yml#/components/schemas/shipType'
+    shipName:
+      in: query
+      name: shipName
+      description: |
+            Name of the cruise ship.  
+            Example: shipName=NORWEGIAN EPIC        
+      required: false
+      style: form
+      explode: false
+      schema:
+        $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents.yml#/components/schemas/shipName'
+  schemas:
+    # Subscription  
+    subscription:
+      type: object
+      properties:
+        eMail:
+          type: string
+        category:
+          type: string
+          description: Selected categories
+          enum:
+            - placed
+            - approved
+            - delivered
+        requestDate:
+          type: string
+          format: date-time
+        status:
+          type: string
+          description: Subscription Status
+          enum:
+            - rejected
+            - approved
+            - deleted
+        complete:
+          type: boolean
+      xml:
+        name: subscription
+      required: 
+        - eMail
+        - status
+    # Ship Calls
+    shipArrivalForecast:
+      description: list of ships that will arrive on a given period of time
+      type: object
+      allOf:
+        - type: object
+          properties:
+            shipIMONumber:
+              $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents.yml#/components/schemas/shipIMONumber'
+        - type: object
+          properties:
+            shipName:
+              $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents.yml#/components/schemas/shipName'
+        - type: object
+          properties:
+            shipType:
+              $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents.yml#/components/schemas/shipType'
+        - type: object
+          properties:
+            estimatedTimeOfArrival:
+              $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents.yml#/components/schemas/estimatedTimeOfArrival'
+      required: 
+        - shipIMONumber
+        - shipName
+        - shipType
+        - estimatedTimeOfArrival
+    shipInPort:
+      description: list of ships that now are in Port
+      type: object
+      allOf:
+        - type: object
+          properties:
+            shipIMONumber:
+              $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents.yml#/components/schemas/shipIMONumber'
+        - type: object
+          properties:
+            shipName:
+              $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents.yml#/components/schemas/shipName'
+        - type: object
+          properties:
+            shipType:
+              $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents.yml#/components/schemas/shipType'
+        - type: object
+          properties:
+            actualTimeOfArrival:
+              $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents.yml#/components/schemas/actualTimeOfArrival'
+        - type: object
+          properties:
+            estimatedTimeOfDeparture:
+              $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents.yml#/components/schemas/estimatedTimeOfDeparture'
+        - type: object
+          properties:
+            berth:
+              $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents.yml#/components/schemas/berth'
+        - type: object
+          properties:
+            lastPortOfCall:
+              $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents.yml#/components/schemas/lastPortOfCall'       
+      required: 
+        - shipIMONumber
+        - shipName
+        - shipType
+        - actualTimeOfArrival
+        - estimatedTimeOfDeparture 
+    shipArrivals:
+      description: list of ships that have arrived or will arrive today
+      type: object
+      allOf:
+        - type: object
+          properties:
+            shipIMONumber:
+              $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents.yml#/components/schemas/shipIMONumber'
+        - type: object
+          properties:
+            shipName:
+              $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents.yml#/components/schemas/shipName'
+        - type: object
+          properties:
+            shipType:
+              $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents.yml#/components/schemas/shipType'
+        - type: object
+          properties:
+            actualTimeOfArrival:
+              $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents.yml#/components/schemas/actualTimeOfArrival'
+        - type: object
+          properties:
+            estimatedTimeOfArrival:
+              $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents.yml#/components/schemas/estimatedTimeOfArrival'
+        - type: object
+          properties:
+            nextPortOfCall:
+              $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents.yml#/components/schemas/lastPortOfCall'
+        - type: object
+          properties:
+            berth:
+              $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents.yml#/components/schemas/berth'
+      required: 
+        - shipIMONumber
+        - shipName
+        - shipType
+        - estimatedTimeOfArrival
+        - berth  
+    shipDepartures:
+      description: list of ships that have departed or will depart today
+      type: object
+      allOf:
+        - type: object
+          properties:
+            shipIMONumber:
+              $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents.yml#/components/schemas/shipIMONumber'
+        - type: object
+          properties:
+            shipName:
+              $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents.yml#/components/schemas/shipName'
+        - type: object
+          properties:
+            shipType:
+              $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents.yml#/components/schemas/shipType'
+        - type: object
+          properties:
+            actualTimeOfDeparture:
+              $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents.yml#/components/schemas/actualTimeOfDeparture'
+        - type: object
+          properties:
+            estimatedTimeOfDeparture:
+              $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents.yml#/components/schemas/estimatedTimeOfDeparture'
+        - type: object
+          properties:
+            nextPortOfCall:
+              $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents.yml#/components/schemas/nextPortOfCall'
+        - type: object
+          properties:
+            berth:
+              $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents.yml#/components/schemas/berth'
+      required: 
+        - shipIMONumber
+        - shipName
+        - shipType
+        - estimatedTimeOfDeparture
+        - berth  
+    aproximationManouvres:
+      description: list of ships that have initiated their aproximation manouvres
+      type: object
+      allOf:
+        - type: object
+          properties:
+            shipIMONumber:
+              $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents.yml#/components/schemas/shipIMONumber'
+        - type: object
+          properties:
+            shipName:
+              $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents.yml#/components/schemas/shipName'
+        - type: object
+          properties:
+            estimatedTimeOfArrival:
+              $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents.yml#/components/schemas/estimatedTimeOfArrival'
+        - type: object
+          properties:
+            shipType:
+              $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents.yml#/components/schemas/shipType'
+        - type: object
+          properties:
+            lastPortOfCall:
+              $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents.yml#/components/schemas/lastPortOfCall'       
+      required: 
+        - shipIMONumber
+        - shipName
+        - estimatedTimeOfArrival   
+    ferriesArrivals:
+      description: list of all the ferries that have arrived or will arrive today
+      type: object
+      allOf:
+        - type: object
+          properties:
+            shipName:
+              $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents.yml#/components/schemas/shipName'
+        - type: object
+          properties:
+            ferryOperator:
+              $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents.yml#/components/schemas/ferryOperator'
+        - type: object
+          properties:
+            actualTimeOfArrival:
+              $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents.yml#/components/schemas/actualTimeOfArrival'
+        - type: object
+          properties:
+            estimatedTimeOfArrival:
+              $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents.yml#/components/schemas/estimatedTimeOfArrival'
+        - type: object
+          properties:
+            lastPortOfCall:
+              $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents.yml#/components/schemas/lastPortOfCall'
+        - type: object
+          properties:
+            berth:
+              $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents.yml#/components/schemas/berth'
+      required: 
+        - shipName
+        - ferryOperator
+        - estimatedTimeOfArrival
+        - berth
+    ferriesDepartures:
+      description: list of ferries that have departed or will depart today
+      type: object
+      allOf:
+        - type: object
+          properties:
+            shipName:
+              $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents.yml#/components/schemas/shipName'
+        - type: object
+          properties:
+            ferryOperator:
+              $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents.yml#/components/schemas/ferryOperator'
+        - type: object
+          properties:
+            actualTimeOfDeparture:
+              $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents.yml#/components/schemas/actualTimeOfDeparture'
+        - type: object
+          properties:
+            estimatedTimeOfDeparture:
+              $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents.yml#/components/schemas/estimatedTimeOfDeparture'
+        - type: object
+          properties:
+            nextPortOfCall:
+              $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents.yml#/components/schemas/nextPortOfCall'
+        - type: object
+          properties:
+            berth:
+              $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents.yml#/components/schemas/berth'
+      required: 
+        - shipName
+        - ferryOperator
+        - estimatedTimeOfDeparture
+        - berth
+    cruiseCall:
+      description: information about next cruise ship call. 
+      type: object
+      allOf:
+        - type: object
+          properties:
+            shipName:
+              $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents.yml#/components/schemas/shipName'
+        - type: object
+          properties:
+            cruiseLine:
+              $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents.yml#/components/schemas/cruiseLine'
+        - type: object
+          properties:
+            estimatedTimeOfArrival:
+              $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents.yml#/components/schemas/estimatedTimeOfArrival'
+        - type: object
+          properties:
+            estimatedTimeOfDeparture:
+              $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents.yml#/components/schemas/estimatedTimeOfDeparture'
+        - type: object
+          properties:
+            facility:
+              $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents.yml#/components/schemas/facility'       
+      required: 
+        - shipName
+        - cruiseLine
+        - estimatedTimeOfArrival
+        - estimatedTimeOfDeparture
+        - facility   
+# News Query
+    newsQuery:
+      description: Headline and content of a new. 
+      type: object
+      allOf:
+        - type: object
+          properties:
+            newsHeadline:
+              $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents.yml#/components/schemas/newsHeadline' 
+        - type: object
+          properties:
+            newsContent:
+              $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents.yml#/components/schemas/newsContent' 
+        - type: object
+          properties:
+            datePublished:
+              $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents.yml#/components/schemas/datePublished'
+      required: 
+        - newsHeadline
+# News Subscription   TRACTAR-HO COM UN POST
+    newsSubscription:
+      description: Headline and content of a new. 
+      type: object
+      allOf:
+        - type: object
+          properties:
+            newsHeadline:
+              $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents.yml#/components/schemas/newsHeadline' 
+        - type: object
+          properties:
+            newsContent:
+              $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents.yml#/components/schemas/newsContent' 
+        - type: object
+          properties:
+            datePublished:
+              $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents.yml#/components/schemas/datePublished'
+      required: 
+        - newsHeadline
+# Port Rates and Fees
+    shipCallRate:
+      description: information about the rates and fees associated to a ship call. 
+      type: object
+      allOf:
+        - type: object
+          properties:
+            uriCallFee:
+              $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents.yml#/components/schemas/uriCallFee' 
+      required: 
+        - uriCallFee
+    merchandiseFee:
+      description: information about the rates and fees associated to the flow of goods through a port. 
+      type: object
+      allOf:
+        - type: object
+          properties:
+            uriMerchandiseFee:
+              $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents.yml#/components/schemas/uriMerchandiseFee'    
+      required: 
+        - uriMerchandiseFee
+  
+  
+  

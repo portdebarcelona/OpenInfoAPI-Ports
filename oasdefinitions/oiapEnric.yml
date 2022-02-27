@@ -1,0 +1,137 @@
+openapi: '3.0.3'
+info:
+  version: '0.9.0-oas3'
+  title: OIAP
+  description: >-
+    Open Info API para Puertos.  
+    This file contains all the APIs developed for the Open Info API para Puertos project within the initiative Ports 4.0 form Puertos del Estado (ES).
+    For this sample, you can use the api key
+    `special-key` to test the authorization filters.  
+  termsOfService: http://swagger.io/terms/
+  license:
+    name: CC0 1.0 Universal (CC0 1.0)
+    url: https://creativecommons.org/publicdomain/zero/1.0/deed.es
+  contact:
+    name: OpenInfoAPI github
+    url: https://github.com/portdebarcelona/OpenInfoAPI-Ports
+tags:
+  - name: Environment
+    description: "APIs related to the weather, sea state and pollution of a port."
+    externalDocs:
+      description: Description 
+      url: http://swagger.io
+servers:
+  - url: https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/
+paths:
+  # Air Quality Observed
+  # https://smartdatamodels.org/index.php/list-of-data-models-3/
+  # https://smartdatamodels.org/
+  # https://github.com/smart-data-models/dataModel.Environment/blob/master/AirQualityObserved/README.md
+  # https://swagger.lab.fiware.org/?url=https://smart-data-models.github.io/dataModel.Environment/AirQualityObserved/swagger.yaml
+  # https://github.com/smart-data-models/dataModel.Weather/blob/master/WeatherObserved/doc/spec_ES.md
+
+  /environment/AirQualityObserved:
+    get:
+      tags:
+        - Environment
+      summary: Returns data of Air Quality
+      description: Returns data of Air Quality
+      parameters:
+        - $ref: '#/components/parameters/portCode'
+        - $ref: '#/components/parameters/dateTime'
+      responses: #status code
+        '200':
+          description: Successful operation
+          headers:
+            apiVersion:
+              $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponentsEnric.yml#/components/headers/apiVersion'
+          content: 
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/AirQualityObserved'
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents.yml#/components/schemas/error' 
+        '404':
+          description: Not found
+          content:
+            application/json:
+              schema:
+                $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents.yml#/components/schemas/error'
+  
+  # Air Quality Pollution
+  # https://github.com/smart-data-models/dataModel.Environment/blob/master/AirQualityMonitoring/README.md
+  # https://smart-data-models.github.io/dataModel.Environment/AirQualityMonitoring/swagger.yaml
+  /environment/AirQualityMonitoring:
+    get:
+      tags:
+        - Environment
+      summary: Returns data of Air Quality Pollution
+      description: Returns data of Air Quality Pollution
+      parameters:
+        - $ref: '#/components/parameters/portCode'
+        - $ref: '#/components/parameters/dateTime'
+      responses: #status code
+        '200':
+          description: Successful operation
+          headers:
+            apiVersion:
+              $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponentsEnric.yml#/components/headers/apiVersion'
+          content: 
+            application/json:
+              schema:
+                type: array
+                items:
+#                 $ref: '#/components/schemas/AirQualityPollution'
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents.yml#/components/schemas/error' 
+        '404':
+          description: Not found
+          content:
+            application/json:
+              schema:
+                $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents.yml#/components/schemas/error'
+  
+components:
+  parameters: 
+    portCode:
+      in: query
+      name: portCode
+      description: |
+            Port UN/LOCODE
+            Default value is Locode of Port what provides the services
+            example: portCode=ESBCN        
+      required: false
+      style: form
+      explode: false
+      schema:
+        $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents.yml#/components/schemas/portCode'
+    dateTime:  
+      in: query
+      name: dateTime
+      description: |
+          The datetime (day, hour, minute, second ) of the moment for which Air Quality Observed information is requested. The value is populated in ISO 8601 Date format (eg: 2022-01-30T17:24:09Z) If not provided, the current datetime is used by default.
+      required: false
+      style: form
+      explode: false
+      schema:
+        $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponentsEnric.yml#/components/schemas/dateTime'
+  schemas:
+    AirQualityObserved:
+      description: |
+        	An observation of weather conditions at a certain place and time.
+      type: object
+      properties:
+        AirQualityObserved:
+          $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponentsEnric.yml#/components/schemas/AirQualityObserved'
+
+  

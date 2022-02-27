@@ -1,6 +1,71 @@
 # Work Tracking log
 Contains tracking of activities in this project.
-
+## Jaunary 18, 2022
+- Sharing OAS definitions
+- Definition of OAS template
+## January 14, 2022
+- Test of OAS definitions
+- Distribute work of catalog definition
+## January 8, 2022
+- Some reorganization issues:
+  - Link from approach.md to semantics.md 
+## January 7, 2022
+- 24 files added to catalog folder, each one for a possible API. 
+## January 6, 2022
+- 40 files added to catalog folder, each one for a possible API. 
+## December 26, 2021
+- Update of semantics.md
+## December 18, 2021
+- Reading about Smart Cities, NGIS and FIWARE initiative.
+## November 1, 2021
+- Work on the Excel sheet with the identified domains, possible APIs and data set.
+- We have identified 64 possible APIs. 
+## November 1, 2021
+- First version of semantics.md 
+## October 24, 2021
+- First version of "Open Info Api para Puertos" data set (Excel file).
+- Change from the concept "categories" to "domains". 
+## October 12, 2021
+- CatalogIntroduction.md first version with all the domains completed. 
+## September 25, 2021
+- First version of toolbox.md 
+## September 17, 2021
+- The benchmarking information has been moved from CatalogIntroduction.md to Benchmarking.md 
+- Some new links have been included in file OASdefinitionsBestPractices.md
+- Discussion about requirements of JSON API
+- The agreement on the guideline for naming conventions,... that we will use --> Next meeting 
+## September 10, 2021
+- J. Bagot has recorded an interview for Puertos del Estado
+- Discussion about which API sytle guideline must be used for this project. For example:
+  - http://jsonapi.org. (has implementations in several programming languages, many contributors (290), open source, updated frequently
+  - Google JSON style guide ( less implementations, google powered, last update: 2018, 3 contributors, few implementations)
+  - Microsoft
+  - DCSA API design principles 1.0 (september 2020, oriented to requests )
+- Discussion about Tradelens.com and Portic interfaces.
+## August 26, 2021
+- Catalog introduction update
+- Web service description improvement/expansion 
+## August 19, 2021
+- Catalog introduction update
+## August 3, 2021
+- Added port calendar, port services and port fees
+- Benchmark update
+## July 28, 2021
+- Added 
+- Revision of structure of github.
+## July, 2021
+- Administratives tasks with Puertos
+- Benchmarking (NxtPorts, Rotterdam, IPCSA, Hutchison, APM terminals)
+- Evaluation of FastAPI
+## June 17, 2021
+- Received Notificacion of Grant (15 June)
+- Filling and sendig acceptation form to Puertos Estado
+## June 10, 2021
+- Working in benchmarking
+## June 3, 2021
+- Created Gmail account: openinfoapiports@gmail.com
+- Review of:
+  - Introductory README
 ## April 15, 2021
 - ?? Create a gmail account: openinfoapiports@gmail.com
 - ?? Create a github account openinfoapiports.github.com

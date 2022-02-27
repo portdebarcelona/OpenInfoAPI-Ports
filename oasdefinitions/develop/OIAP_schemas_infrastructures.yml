@@ -1,0 +1,23 @@
+openapi: '3.0.3'
+info:
+  version: '1.0'
+  title: API Berth info
+  description: 
+    Returns list and characteristics of berths of a Port
+  license:
+    name: CC0 1.0 Universal (CC0 1.0)
+    url: https://creativecommons.org/publicdomain/zero/1.0/deed.es
+  contact:
+    name: OpenInfoAPI github
+    url: https://github.com/portdebarcelona/OpenInfoAPI-Ports
+components:
+  schemas:
+    enric:
+      description: |
+            Prova Enric
+            example: enric=Port de Barcelona
+            Default value is "Works for Port of Barcelona"
+      type: string
+      maxLength: 35
+      example: Works for Port of Barcelona
+      

@@ -1,0 +1,436 @@
+openapi: '3.0.3'
+info:
+  version: '0.9.0-oas3'
+  title: OIAP
+  description: |
+    **Open Info API para Puertos**
+
+
+    This file contains all the APIs developed for the `Open Info API para Puertos` project for the **Rail Transport Domain** within the initiative Ports 4.0 form Puertos del Estado (ES). 
+
+  termsOfService: http://swagger.io/terms/
+  license:
+    name: CC0 1.0 Universal (CC0 1.0)
+    url: https://creativecommons.org/publicdomain/zero/1.0/deed.es
+  contact:
+    name: OpenInfoAPI github
+    url: https://github.com/portdebarcelona/OpenInfoAPI-Ports
+tags:
+  - name: Rail Transport
+    description: "APIs related to the flow of trains and cargo by rail in a port."
+    externalDocs:
+      description: Description 
+      url: http://swagger.io/ # https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/docs/CatalogIntroduction.md It must be a link to a GitHub file with a more extensive description 
+servers:
+  - url: https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions
+    description: Servidor server 
+# Canvi efectuat: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions a '.
+
+# Afegir un get de terminals ferroviaries del port
+# Amb quines terminals tenim connexions
+paths:
+  /railConnections:
+    get:
+      tags:
+        - Rail Transport
+      summary: Returns a list of rail connections from a port.
+      description: Returns a list of rail connections from a port. 
+      parameters:
+        - $ref: '#/components/parameters/portCode'
+      responses: #status code
+        '200':
+          description: Successful operation
+          headers:
+            oiapApiVersion:
+              $ref: './oiapComponents.yml#/components/headers/oiapApiVersion'
+          content: 
+            application/json:
+              schema:
+                type: object
+                properties:
+                  railConnections:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/railConnection'
+                  requestedParams:
+                    type: object
+                    properties:
+                      portCode:
+                        $ref: './oiapComponents.yml#/components/schemas/portCode'
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: './oiapComponents.yml#/components/schemas/error' 
+        '404':
+          description: Not found
+          content:
+            application/json:
+              schema:
+                $ref: './oiapComponents.yml#/components/schemas/error'  
+  /railInlandTerminals:
+    get:
+      tags:
+        - Rail Transport
+      summary: Returns the list of the inland terminals served by rail from a port. 
+      description: >-
+        This GET API returns the list of the inland terminals served by rail from a port.
+      parameters:
+        - $ref: '#/components/parameters/portCode'
+      responses: #status code
+        '200':
+          description: Successful operation
+          headers:
+            oiapApiVersion:
+              $ref: './oiapComponents.yml#/components/headers/oiapApiVersion'
+          content: 
+            application/json:
+              schema:
+                type: object
+                properties:
+                  inlandTerminals:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/inlandTerminal'
+                  requestedParams:
+                    type: object
+                    properties:
+                      portCode:
+                        $ref: './oiapComponents.yml#/components/schemas/portCode'
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: './oiapComponents.yml#/components/schemas/error' 
+        '404':
+          description: Not found
+          content:
+            application/json:
+              schema:
+                $ref: './oiapComponents.yml#/components/schemas/error' 
+  /railwayUndertakings:
+    get:
+      tags:
+        - Rail Transport
+      summary: List of the railway undertaking companies that operate in one port.
+      description: Returns a list of the rail undertaking companies that operate in a port.
+      parameters:
+        - $ref: '#/components/parameters/portCode'
+      responses: #status code
+        '200':
+          description: Successful operation
+          headers:
+            oiapApiVersion:
+              $ref: './oiapComponents.yml#/components/headers/oiapApiVersion'
+          content: 
+            application/json:
+              schema:
+                type: object
+                properties:
+                  railUndertakings:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/railwayUndertaking'
+                  requestedParams:
+                    type: object
+                    properties:
+                      portCode:
+                        $ref: './oiapComponents.yml#/components/schemas/portCode'
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: './oiapComponents.yml#/components/schemas/error' 
+        '404':
+          description: Not found
+          content:
+            application/json:
+              schema:
+                $ref: './oiapComponents.yml#/components/schemas/error'
+  /railLogisticServiceProviders:
+    get:
+      tags:
+        - Rail Transport
+      summary: List of the rail logistic service providers that operate in one port.
+      description: Returns a list of the rail logistic service providers that operate in a port.
+      parameters:
+        - $ref: '#/components/parameters/portCode'
+      responses: #status code
+        '200':
+          description: Successful operation
+          headers:
+            oiapApiVersion:
+              $ref: './oiapComponents.yml#/components/headers/oiapApiVersion'
+          content: 
+            application/json:
+              schema:
+                type: object
+                properties:
+                  railLogisticServiceProviders:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/railLogisticServiceProvider'
+                  requestedParams:
+                    type: object
+                    properties:
+                      portCode:
+                        $ref: './oiapComponents.yml#/components/schemas/portCode'
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: './oiapComponents.yml#/components/schemas/error' 
+        '404':
+          description: Not found
+          content:
+            application/json:
+              schema:
+                $ref: './oiapComponents.yml#/components/schemas/error'
+  # Train Arrivals
+  /trainArrivals:
+    get:
+      tags:
+        - Rail Transport
+      summary: Returns a list of trains that have arrived or will arrive today at a port. 
+      description: Returns a list of trains that have arrived or will arrive today at a port.
+      parameters:
+        - $ref: '#/components/parameters/portCode'
+      responses: #status code
+        '200':
+          description: Successful operation
+          headers:
+            oiapApiVersion:
+              $ref: './oiapComponents.yml#/components/headers/oiapApiVersion'
+          content: 
+            application/json:
+              schema:
+                type: object
+                properties:
+                  trainArrivals:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/trainArrivals'
+                  requestedParams:
+                    type: object
+                    properties:
+                      portCode:
+                        $ref: './oiapComponents.yml#/components/schemas/portCode'
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: './oiapComponents.yml#/components/schemas/error' 
+        '404':
+          description: Not found
+          content:
+            application/json:
+              schema:
+                $ref: './oiapComponents.yml#/components/schemas/error'
+  # Train Departures
+  /trainDepartures:
+    get:
+      tags:
+        - Rail Transport
+      summary: Returns a list of trains that have departed or will depart today from a port. 
+      description: Returns a list of trains that have departed or will depart today from a port.
+      parameters:
+        - $ref: '#/components/parameters/portCode'
+      responses: #status code
+        '200':
+          description: Successful operation
+          headers:
+            oiapApiVersion:
+              $ref: './oiapComponents.yml#/components/headers/oiapApiVersion'
+          content: 
+            application/json:
+              schema:
+                type: object
+                properties:
+                  trainDepartures:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/trainDepartures'
+                  requestedParams:
+                    type: object
+                    properties:
+                      portCode:
+                        $ref: './oiapComponents.yml#/components/schemas/portCode'
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: './oiapComponents.yml#/components/schemas/error' 
+        '404':
+          description: Not found
+          content:
+            application/json:
+              schema:
+                $ref: './oiapComponents.yml#/components/schemas/error' 
+components:
+  parameters: 
+    portCode:
+      in: query
+      name: portCode
+      description: |
+            Port UN/LOCODE
+            Default value is Locode of Port what provides the services
+            example: portCode=ESBCN        
+      required: false
+      style: form
+      explode: false
+      schema:
+        $ref: './oiapComponents.yml#/components/schemas/portCode'
+    publishingStage:  
+      in: query
+      name: publishingStage
+      description: 
+            The stage of the publishing process of a notice. There are only two possible stages, ACTIVE and EXPIRED. This parameter must be used when the publishing process is EXPIRED. If not provided, the ACTIVE stage is used by default.
+      required: false
+      style: form
+      explode: false
+      schema:
+        $ref: './oiapComponents.yml#/components/schemas/publishingStage'
+    fromDate:  
+      in: query
+      name: fromDate
+      description: 
+            The date (day) from the expired notices are requested. The value is populated in ISO 8601 Date format (eg. 2022-01-30). This parameter is only needed to retrieve the expired notices and to limit their number.
+      required: false
+      style: form
+      explode: false
+      schema:
+        $ref: './oiapComponents.yml#/components/schemas/fromDate'
+    id:  
+      in: query
+      name: id
+      description: 
+            The unique identification of a notice.
+      required: false
+      style: form
+      explode: false
+      schema:
+        $ref: './oiapComponents.yml#/components/schemas/id'
+  schemas:
+    railConnection: 
+      description: ''
+      type: object
+      allOf:
+        - type: object
+          properties:
+            railService:  
+              $ref: './oiapComponents.yml#/components/schemas/railService' 
+            railwayStationNearestCity:  
+              $ref: './oiapComponents.yml#/components/schemas/railwayStationNearestCity'
+            railTerminalLocode: 
+              $ref: './oiapComponents.yml#/components/schemas/railTerminalLocode'        
+            railTerminalCode:
+              $ref: './oiapComponents.yml#/components/schemas/railTerminalCode' 
+            railTerminalName:  
+              $ref: './oiapComponents.yml#/components/schemas/railTerminalName' 
+            railDirection:  
+              $ref: './oiapComponents.yml#/components/schemas/railDirection'
+            railLogisticServiceProvider: 
+              type: string
+              example: Name of the Rail Logistic Service Provider
+    inlandTerminal: # Important definir aquesta estructura de dades. Mirar Sòstrat !!!
+      description: ''
+      type: object
+      allOf:
+        - type: object
+          properties:
+            locode:  # nearest LOCODE
+              $ref: './oiapComponents.yml#/components/schemas/locode' 
+        - type: object
+          properties:
+            railTerminalCode:  # Veure si existeix una taula d'estacions
+              $ref: './oiapComponents.yml#/components/schemas/railTerminalCode'  
+        - type: object
+          properties:
+            railTerminalName:  # Veure si existeix una taula d'estacions
+              $ref: './oiapComponents.yml#/components/schemas/railTerminalName' 
+
+    railwayUndertaking: # Es tracta d'una empresa estàndard - Veure schema.org
+      description: ''
+      type: object
+      allOf:
+        - type: object
+          properties:
+            companyName:  
+              $ref: './oiapComponents.yml#/components/schemas/companyName' 
+      required: 
+        - companyName
+    railLogisticServiceProvider: # Es tracta d'una empresa estàndard - Veure schema.org
+      description: ''
+      type: object
+      allOf:
+        - type: object
+          properties:
+            companyName:  
+              $ref: './oiapComponents.yml#/components/schemas/companyName' 
+      required: 
+        - companyName 
+    trainArrivals: # S'ha de particularitzar per als trens
+      description: list of trains that have arrived or will arrive today
+      type: object
+      allOf:
+        - type: object
+          properties:
+            trainType:
+              $ref: './oiapComponents.yml#/components/schemas/trainType'
+        - type: object
+          properties:
+            placeOfDeparture:  # EDIFACT: Code "5" in DE3227; name and code
+              $ref: './oiapComponents.yml#/components/schemas/placeOfDeparture'
+        - type: object
+          properties:
+            placeOfDestination:  # EDIFACT: Code "8" in DE3227; name and code
+              $ref: './oiapComponents.yml#/components/schemas/placeOfDestination'
+        - type: object
+          properties:
+            estimatedTimeOfArrival:
+              $ref: './oiapComponents.yml#/components/schemas/estimatedTimeOfArrival'
+        - type: object
+          properties:
+            actualTimeOfArrival:
+              $ref: './oiapComponents.yml#/components/schemas/actualTimeOfArrival'
+      required: 
+        - trainType
+        - placeOfDeparture
+        - placeOfDestination
+        - estimatedTimeOfArrival  
+
+    trainDepartures: # S'ha de particularitzar per als trens
+      description: list of trains that have departed or will depart today
+      type: object
+      allOf:
+        - type: object
+          properties:
+            trainType:
+              $ref: './oiapComponents.yml#/components/schemas/trainType'
+        - type: object
+          properties:
+            placeOfDeparture:  # EDIFACT: Code "5" in DE3227; name and code
+              $ref: './oiapComponents.yml#/components/schemas/placeOfDeparture'
+        - type: object
+          properties:
+            placeOfDestination:  # EDIFACT: Code "8" in DE3227; name and code
+              $ref: './oiapComponents.yml#/components/schemas/placeOfDestination'
+        - type: object
+          properties:
+            estimatedTimeOfDeparture:
+              $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents.yml#/components/schemas/estimatedTimeOfDeparture'
+        - type: object
+          properties:
+            actualTimeOfDeparture:
+              $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents.yml#/components/schemas/actualTimeOfDeparture'
+      required: 
+        - trainType
+        - placeOfDeparture
+        - placeOfDestination
+        - estimatedTimeOfDeparture 

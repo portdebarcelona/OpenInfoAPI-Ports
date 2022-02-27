@@ -1,0 +1,433 @@
+openapi: '3.0.3'
+info:
+  version: '0.9.0-oas3'
+  title: OIAP
+  description: | 
+    **Open Info API para Puertos**
+    
+     
+    This file contains all the APIs developed for the `Open Info API para Puertos` project for the **News Domain** within the initiative Ports 4.0 form Puertos del Estado (ES). 
+  termsOfService: http://swagger.io/terms/
+  license:
+    name: CC0 1.0 Universal (CC0 1.0)
+    url: https://creativecommons.org/publicdomain/zero/1.0/deed.es
+  contact:
+    name: OpenInfoAPI github
+    url: https://github.com/portdebarcelona/OpenInfoAPI-Ports
+tags:
+  - name: News
+    description: "APIs related to some news of interest from a port."
+    externalDocs:
+      description: Description 
+      url: http://swagger.io
+servers:
+  - url: https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions
+    description: Servidor server 
+# Canvi efectuat: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions a '.
+paths:
+  /newsSubscriptionRequest: 
+    post:
+      tags:
+        - News
+      summary: Subscription request to a news service
+      description: 'Request a subscription to a news service from a port'
+      operationId: subscriptionRequest
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/subscriber'
+        description: request placed for subscribing to a news service
+        required: true
+      responses:
+        '200':
+          description: successful operation
+          content:
+            application/json:
+              schema: # subscription response
+                $ref: './oiapComponents.yml#/components/schemas/subscriptionReference'
+        '400':
+          description: Invalid Order
+  /newsSubscriptionValidation:
+    post:
+      tags:
+        - News
+      summary: Last step to subscribe to a news service
+      description: 'Post the validation code received to fulfill the subscription request to a news service from a port'
+      operationId: subscriptionValidation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              allOf:
+                - $ref: './oiapComponents.yml#/components/schemas/subscriptionRequestReference'
+                - $ref: './oiapComponents.yml#/components/schemas/validationKey'
+        description: request placed for validating the subscription to a news service
+        required: true
+      responses:
+        '200':
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/validationMessage'
+        '400':
+          description: Invalid Order
+  /newsUnsubscriptionRequest: 
+    post:
+      tags:
+        - News
+      summary: Request to cancel the subscription to a news service
+      description: 'Request to cancel a subscription of a news service from a port'
+      operationId: unsubscriptionRequest
+      requestBody:
+        content:
+          application/json:
+            schema:
+              oneOf:
+                - $ref: './oiapComponents.yml#/components/schemas/email'
+                - $ref: './oiapComponents.yml#/components/schemas/phone'
+              example: {"email": "name@domain.com"} 
+        description: request placed for unsubscribing to a news service
+        required: true
+      responses:
+        '200':
+          description: successful operation
+          content:
+            application/json:
+              schema: # unsubscription response
+                $ref: './oiapComponents.yml#/components/schemas/unsubscriptionReference'
+
+        '400':
+          description: Invalid Order
+  /newsUnsubscriptionValidation:
+    post:
+      tags:
+        - News
+      summary: Last step to cancel the subscription to a news service
+      description: 'Post the validation code received to cancel the subscription to a news service from a port'
+      operationId: unsubscriptionValidation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              allOf:
+                - $ref: './oiapComponents.yml#/components/schemas/subscriptionRequestReference'
+                - $ref: './oiapComponents.yml#/components/schemas/validationKey'
+        description: request placed for validating the unsubscription to a news service
+        required: true
+      responses:
+        '200':
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/validationMessage'
+        '400':
+          description: Invalid Order
+  /news:
+    get:
+      tags:
+        - News
+      summary: Returns a list of news
+      description: Returns a list of news. The default value is a list of the active news but news that have expired can also be retrieved if the parameter 'publishingStage' is set to EXPIRED and the selection can be refined including the parameter 'fromDate'
+      parameters:
+        - $ref: '#/components/parameters/portCode'
+        - $ref: '#/components/parameters/publishingStage'
+        - $ref: '#/components/parameters/fromDate'
+      responses: #status code
+        '200':
+          description: Successful operation
+          headers:
+            oiapApiVersion:
+              $ref: './oiapComponents.yml#/components/headers/oiapApiVersion'
+          content: 
+            application/json:
+              schema:
+                type: object
+                properties:
+                  news:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/news'
+                  requestedParams:
+                    type: object
+                    properties:
+                      portCode:
+                        $ref: './oiapComponents.yml#/components/schemas/portCode'
+                      publishingStage:
+                        $ref: './oiapComponents.yml#/components/schemas/publishingStage'
+                      fromDate:
+                        $ref: './oiapComponents.yml#/components/schemas/fromDate'
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: './oiapComponents.yml#/components/schemas/error' 
+        '404':
+          description: Not found
+          content:
+            application/json:
+              schema:
+                $ref: './oiapComponents.yml#/components/schemas/error'  
+  /newsCategories:
+    get:
+      tags:
+        - News
+      summary: Returns the list of news categories from a news service of a port  
+      description: >-
+        This GET API returns the list of all the category names that a user can subscribe. 
+        Please see the 'newsCategories' attribute which returns an
+        array of noticeCategories names. Each noticeCategories or a combination of noticeCategories can be
+        searched using the syntax options shown below.
+      parameters:
+        - $ref: '#/components/parameters/portCode'
+      responses: #status code
+        '200':
+          description: Successful operation
+          headers:
+            oiapApiVersion:
+              $ref: './oiapComponents.yml#/components/headers/oiapApiVersion'
+          content: 
+            application/json:
+              schema:
+                type: object
+                properties:
+                  newsCategories:
+                    type: object
+                    $ref: '#/components/schemas/newsCategories'
+                  requestedParams:
+                    type: object
+                    properties:
+                      portCode:
+                        $ref: './oiapComponents.yml#/components/schemas/portCode'
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: './oiapComponents.yml#/components/schemas/error' 
+        '404':
+          description: Not found
+          content:
+            application/json:
+              schema:
+                $ref: './oiapComponents.yml#/components/schemas/error' 
+  /newsLanguages:
+    get:
+      tags:
+        - News
+      summary: List of the possible languages from a news service of a port
+      description: Returns a list of the possible languages for news published.
+      parameters:
+        - $ref: '#/components/parameters/portCode'
+      responses: #status code
+        '200':
+          description: Successful operation
+          headers:
+            oiapApiVersion:
+              $ref: './oiapComponents.yml#/components/headers/oiapApiVersion'
+          content: 
+            application/json:
+              schema:
+                type: object
+                properties:
+                  newsLanguages:
+                    type: object
+                    $ref: '#/components/schemas/newsLanguages'
+                  requestedParams:
+                    type: object
+                    properties:
+                      portCode:
+                        $ref: './oiapComponents.yml#/components/schemas/portCode'
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: './oiapComponents.yml#/components/schemas/error' 
+        '404':
+          description: Not found
+          content:
+            application/json:
+              schema:
+                $ref: './oiapComponents.yml#/components/schemas/error'
+  /news/{id}:
+    get:
+      tags:
+        - News
+      summary: Returns particular news identified by its unique id.
+      description: Returns particular news identified by its unique id.
+      parameters:  
+        - name: id
+          in: path
+          description: News ID
+          required: true
+          schema:
+            type: string
+        - $ref: '#/components/parameters/portCode' 
+      responses: #status code
+        '200':
+          description: Successful operation
+          headers:
+            oiapApiVersion:
+              $ref: './oiapComponents.yml#/components/headers/oiapApiVersion'
+          content: 
+            application/json:
+              schema:
+                type: object
+                properties:
+                  news:
+                    type: object
+                    $ref: '#/components/schemas/news'
+                  requestedParams:
+                    type: object
+                    properties:
+                      portCode:
+                        $ref: './oiapComponents.yml#/components/schemas/portCode'
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: './oiapComponents.yml#/components/schemas/error' 
+        '404':
+          description: Not found
+          content:
+            application/json:
+              schema:
+                $ref: './oiapComponents.yml#/components/schemas/error'  
+components:
+  parameters: 
+    portCode:
+      in: query
+      name: portCode
+      description: |
+            Port UN/LOCODE
+            Default value is Locode of Port what provides the services
+            example: portCode=ESBCN        
+      required: false
+      style: form
+      explode: false
+      schema:
+        $ref: './oiapComponents.yml#/components/schemas/portCode'
+    publishingStage:  
+      in: query
+      name: publishingStage
+      description: 
+            The stage of the publishing process of a notice. There are only two possible stages, ACTIVE and EXPIRED. This parameter must be used when the publishing process is EXPIRED. If not provided, the ACTIVE stage is used by default.
+      required: false
+      style: form
+      explode: false
+      schema:
+        $ref: './oiapComponents.yml#/components/schemas/publishingStage'
+    fromDate:  
+      in: query
+      name: fromDate
+      description: 
+            The date (day) from expired News are requested. The value is populated in ISO 8601 Date format (eg. 2022-01-30). This parameter is only needed to retrieve the expired notices and to limit their number.
+      required: false
+      style: form
+      explode: false
+      schema:
+        $ref: './oiapComponents.yml#/components/schemas/fromDate'
+    id:  
+      in: query
+      name: id
+      description: 
+            The unique identification of a notice.
+      required: false
+      style: form
+      explode: false
+      schema:
+        $ref: './oiapComponents.yml#/components/schemas/id'
+  schemas:
+    subscriber: # Object with all the information of a service subscriber (useful for News and Notices) 
+      description: A subscriber identified by an email or a phone number.
+      type: object
+      allOf:
+        - type: object
+          properties:
+            contactInfo:  # email or phone
+              $ref: './oiapComponents.yml#/components/schemas/contactInfo'  
+        - type: object
+          properties:
+            name:
+              $ref: './oiapComponents.yml#/components/schemas/name' 
+        - type: object
+          properties:
+            surname:
+              $ref: './oiapComponents.yml#/components/schemas/surname' 
+        - type: object
+          properties:
+            company: # company is an composite object with a companyName and a companyCode
+              $ref: './oiapComponents.yml#/components/schemas/company' 
+        - type: object
+          properties:
+            categories: # it must be an array of categories Can be the same for News and Notices?
+              $ref: './oiapComponents.yml#/components/schemas/newsCategory' 
+        - type: object
+          properties:
+            language:
+              $ref: './oiapComponents.yml#/components/schemas/language' 
+      required: 
+        - contactInfo
+        - categories
+        - language
+    news: 
+      description: News from its unique id.
+      type: object
+      allOf:
+        - type: object
+          properties:
+            id:
+              $ref: './oiapComponents.yml#/components/schemas/id' 
+        - type: object
+          properties:
+            language:
+              $ref: './oiapComponents.yml#/components/schemas/language' 
+        - type: object
+          properties:
+            subject:
+              $ref: './oiapComponents.yml#/components/schemas/subject' 
+        - type: object
+          properties:
+            content:
+              $ref: './oiapComponents.yml#/components/schemas/content' 
+        - type: object
+          properties:
+            category:
+              $ref: './oiapComponents.yml#/components/schemas/noticeCategory' 
+        - type: object
+          properties:
+            startTime:
+              $ref: './oiapComponents.yml#/components/schemas/startTime' 
+        - type: object
+          properties:
+            endTime:
+              $ref: './oiapComponents.yml#/components/schemas/endTime' 
+        - type: object
+          properties:
+            uri:
+              $ref: './oiapComponents.yml#/components/schemas/uri'
+      required: 
+        - id
+        - language
+        - subject
+        - startTime
+    newsCategories:
+      description: A list of news categories.
+      type: array
+      items:
+        $ref: './oiapComponents.yml#/components/schemas/newsCategory'
+      example: ['Traffic', 'Environment', 'Economy', 'Stakeholders', 'Infrastructure', 'Presentations']
+    newsLanguages:
+      description: A list of languages available for news.
+      type: array
+      items:
+        $ref: './oiapComponents.yml#/components/schemas/newsLanguage'  
+      example: ['ca', 'es', 'en', 'fr']
+    validationMessage:
+      type: string 
+      example: 'Your request has been approved'

@@ -1,0 +1,99 @@
+openapi: '3.0.3'
+info:
+  version: '1.0'
+  title: API Berth info
+  description: 
+    Returns list and characteristics of berths of a Port
+  license:
+    name: CC0 1.0 Universal (CC0 1.0)
+    url: https://creativecommons.org/publicdomain/zero/1.0/deed.es
+  contact:
+    name: OpenInfoAPI github
+    url: https://github.com/portdebarcelona/OpenInfoAPI-Ports
+tags:
+  - name: Berths details
+    description: "Berths of a Port, with main characteristics: identification, length, depth"
+servers:
+  - url: https://api.server.test/v1
+  - url: https://api.swaggerhub.com 
+paths:
+  /berths:
+    get:
+      summary: Returns a list of berths and characteristics
+      description: Returns a list of berths and characteristics
+      parameters:
+        - $ref: '#/components/parameters/portCode'
+        - $ref: '#/components/parameters/imoVessel'
+        - $ref: '#/components/parameters/enric'
+      responses:
+        '200':    # status code
+          description: A JSON array of user names
+          content:
+            application/json:
+              schema: 
+                type: array
+                items: 
+                  type: string
+                example: [ 1,2,3,4]
+# context":
+#     rec21: "https://unece.org/codelists/rec21#",
+#     rdfs: "http://www.w3.org/2000/01/rdf-schema#"
+components:
+  parameters: 
+    portCode:
+      in: query
+      name: portCode
+      description: |
+            UN/LOCODE of Port
+            example: portCode=ESBCN
+
+            Default value is Locode of Port what provides the services
+      required: false
+      style: form
+      explode: false
+      schema:
+        $ref: '#/components/schemas/portCode'
+    imoVessel:
+      in: query
+      name: imoVessel
+      required: false
+      style: form
+      explode: false
+      schema:
+        $ref: '#/components/schemas/vesselIMONumber'
+    enric:
+      in: query
+      name: enric
+      description: |
+        Dummy value
+      required: false
+      style: form
+      explode: false
+      schema:
+        $ref: '#/components/schemas/enric'
+  schemas:
+    portCode:
+      description: |
+            UN/LOCODE of Port
+            example: portCode=ESBCN
+
+            Default value is Locode of Port what provides the services
+      type: string
+      maxLength: 5
+      example: ESBCN
+    vesselIMONumber:
+      type: object
+      $ref: 'https://api.swaggerhub.com/domains/dcsaorg/EVENT_DOMAIN/1.1.0#/components/parameters/vesselIMONumber'
+    enric:
+      type: object
+      $ref: './OIAP_schemas_infrastructures.yml#/components/schemas/enric'
+    jaume:
+      type: object
+      allOf:
+        - type: object
+          properties:
+            subscriptionID:
+              $ref: 'https://api.swaggerhub.com/domains/dcsaorg/EVENT_DOMAIN/1.0.4#/components/schemas/subscriptionID'
+        - $ref: '#/components/schemas/enric'
+
+
