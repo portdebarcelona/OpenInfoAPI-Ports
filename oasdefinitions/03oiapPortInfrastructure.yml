@@ -337,7 +337,12 @@ components:
               $ref: './oiapComponents.yml#/components/schemas/portCode'
             portCoordinates:  
               $ref: './oiapComponents.yml#/components/schemas/coordinates'
-            # Afegir terminals i instal·lacions
+            totalPortArea:
+              $ref: './oiapComponents.yml#/components/schemas/totalArea'
+            totalBerthLength:
+              $ref: './oiapComponents.yml#/components/schemas/berthLength'
+            totalCoveredWarehouses:
+              $ref: './oiapComponents.yml#/components/schemas/coveredWarehouses'
       required:
         - portName 
 
@@ -368,13 +373,9 @@ components:
               maxLength: 10 
               example: ESBCN-0036              
             totalArea: 
-              description: Total area of the terminal in ha.
-              type: integer
-              example: 55
+              $ref: './oiapComponents.yml#/components/schemas/totalArea'
             coveredWarehouses: 
-              description: Total area of the covered terminal warehouses in sq m.
-              type: integer
-              example: 4000
+              $ref: './oiapComponents.yml#/components/schemas/coveredWarehouses'
             terminalGates: 
               type: array
               items:
@@ -403,8 +404,8 @@ components:
               $ref: './oiapComponents.yml#/components/schemas/coordinates'
             railBundles: 
               $ref: './oiapComponents.yml#/components/schemas/railBundles'
-            trackMaximumLenght: 
-              $ref: './oiapComponents.yml#/components/schemas/trackMaximumLenght'
+            trackMaximumLength: 
+              $ref: './oiapComponents.yml#/components/schemas/trackMaximumLength'
             trackGauge: 
               $ref: './oiapComponents.yml#/components/schemas/trackGauge'        
             gantryCranes: 

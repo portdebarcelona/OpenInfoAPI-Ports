@@ -367,6 +367,8 @@ components:
           example: ADOSSAT 
         berthCoordinates:
           $ref: '#/components/schemas/coordinates'
+        berthLength:
+          $ref: '#/components/schemas/berthLength'
         berthDepth:
           description: Berth depth. 
           $ref: '#/components/schemas/underwaterDepth' 
@@ -389,7 +391,6 @@ components:
           $ref: '#/components/schemas/coordinates'
       required:
         - code
-
     facility:
       type: object
       description: 
@@ -407,6 +408,16 @@ components:
           $ref: '#/components/schemas/berth' 
       required:
         - description
+    totalArea: 
+      description: Total area expressed in ha.
+      type: integer
+    berthLength:
+      description: Berth length, expresed in meters. 
+      type: integer
+      example: 635  
+    coveredWarehouses: 
+      description: Total area of the covered warehouses in sq m.
+      type: integer
     # Notices and news
     noticeLanguage:
       description: Language used to write a notice. 
@@ -563,6 +574,25 @@ components:
         gateCoordinates:
           description: Coordinates of a gate. 
           $ref: '#/components/schemas/coordinates'
+        vehicleFlowDirection:
+          description: > 
+                Direction of the vehicle flow at the gate. 
+                  * `Inward`
+                  * `Outward`
+                  * `Both` - inward and outward
+          type: string
+          enum: [Inward, Outward, Both]
+          example: Both
+        gateTypeOfVehicles:
+          description: >
+                Type of vehicles. 
+                  * `Cars`
+                  * `Trucks`
+                  * `Both` - Trucks and cars
+                  * `Trains`
+          type: string
+          enum: [Cars, Trucks, Both, Trains]
+          example: Trucks
     coordinates: 
       description: >
         Either of the two lines of latitude and longitude whose intersection determines the geographical point of a place.
@@ -644,8 +674,8 @@ components:
       description: Number of rail tracks in a facility. 
       type: integer
       example: 8
-    trackMaximumLenght: 
-      description: Maximum lenght of a rail track in a facility, expressed in meters. 
+    trackMaximumLength: 
+      description: Maximum length of a rail track in a facility, expressed in meters. 
       type: integer
       example: 800
     trackGauge: 
