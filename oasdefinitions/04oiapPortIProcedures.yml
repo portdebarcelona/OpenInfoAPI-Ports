@@ -501,6 +501,10 @@ components:
       allOf:
         - type: object 
           properties:
+            customsClearanceDescription:  
+              description: 'Procedure description'
+              type: string
+              example: 'Procedure description' 
             customsClearanceUri:  
               $ref: './oiapComponents.yml#/components/schemas/uri' 
       required:
