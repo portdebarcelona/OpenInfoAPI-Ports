@@ -615,5 +615,5 @@ components:
               $ref: './oiapComponents.yml#/components/schemas/uri'
             lastChanges: #array  
               $ref: './oiapComponents.yml#/components/schemas/uri'
-      required:
+      required: # nota
         - portName
