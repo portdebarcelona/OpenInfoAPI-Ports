@@ -1,6 +1,6 @@
 openapi: '3.0.3'
 info:
-  version: '1.0.0-oas3'
+  version: '0.9.0-oas3'
   title: OIAP
   description: |
     **Open Info API para Puertos**
@@ -46,9 +46,17 @@ paths:
           content: 
             application/json:
               schema:
-                type: array
-                items:
-                  $ref: '#/components/schemas/railConnection'
+                type: object
+                properties:
+                  railConnections:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/railConnection'
+                  requestedParams:
+                    type: object
+                    properties:
+                      portCode:
+                        $ref: './oiapComponents.yml#/components/schemas/portCode'
         '400':
           description: Bad request
           content:
@@ -79,9 +87,17 @@ paths:
           content: 
             application/json:
               schema:
-                type: array
-                items:
-                  $ref: '#/components/schemas/inlandTerminal'
+                type: object
+                properties:
+                  inlandTerminals:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/inlandTerminal'
+                  requestedParams:
+                    type: object
+                    properties:
+                      portCode:
+                        $ref: './oiapComponents.yml#/components/schemas/portCode'
         '400':
           description: Bad request
           content:
@@ -94,11 +110,11 @@ paths:
             application/json:
               schema:
                 $ref: './oiapComponents.yml#/components/schemas/error' 
-  /railUndertakings:
+  /railwayUndertakings:
     get:
       tags:
         - Rail Transport
-      summary: List of the rail undertaking companies that operate in one port.
+      summary: List of the railway undertaking companies that operate in one port.
       description: Returns a list of the rail undertaking companies that operate in a port.
       parameters:
         - $ref: '#/components/parameters/portCode'
@@ -111,9 +127,17 @@ paths:
           content: 
             application/json:
               schema:
-                type: array
-                items:
-                  $ref: '#/components/schemas/railUndertaking'
+                type: object
+                properties:
+                  railUndertakings:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/railwayUndertaking'
+                  requestedParams:
+                    type: object
+                    properties:
+                      portCode:
+                        $ref: './oiapComponents.yml#/components/schemas/portCode'
         '400':
           description: Bad request
           content:
@@ -126,12 +150,12 @@ paths:
             application/json:
               schema:
                 $ref: './oiapComponents.yml#/components/schemas/error'
-  /logisticServiceProviders:
+  /railLogisticServiceProviders:
     get:
       tags:
         - Rail Transport
-      summary: List of the logistic service providers that operate in one port.
-      description: Returns a list of the logistic service providers that operate in a port.
+      summary: List of the rail logistic service providers that operate in one port.
+      description: Returns a list of the rail logistic service providers that operate in a port.
       parameters:
         - $ref: '#/components/parameters/portCode'
       responses: #status code
@@ -143,9 +167,17 @@ paths:
           content: 
             application/json:
               schema:
-                type: array
-                items:
-                  $ref: '#/components/schemas/logisticServiceProvider'
+                type: object
+                properties:
+                  railLogisticServiceProviders:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/railLogisticServiceProvider'
+                  requestedParams:
+                    type: object
+                    properties:
+                      portCode:
+                        $ref: './oiapComponents.yml#/components/schemas/portCode'
         '400':
           description: Bad request
           content:
@@ -176,9 +208,17 @@ paths:
           content: 
             application/json:
               schema:
-                type: array
-                items:
-                  $ref: '#/components/schemas/trainArrivals'
+                type: object
+                properties:
+                  trainArrivals:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/trainArrivals'
+                  requestedParams:
+                    type: object
+                    properties:
+                      portCode:
+                        $ref: './oiapComponents.yml#/components/schemas/portCode'
         '400':
           description: Bad request
           content:
@@ -209,9 +249,17 @@ paths:
           content: 
             application/json:
               schema:
-                type: array
-                items:
-                  $ref: '#/components/schemas/trainDepartures'
+                type: object
+                properties:
+                  trainDepartures:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/trainDepartures'
+                  requestedParams:
+                    type: object
+                    properties:
+                      portCode:
+                        $ref: './oiapComponents.yml#/components/schemas/portCode'
         '400':
           description: Bad request
           content:
@@ -269,14 +317,27 @@ components:
       schema:
         $ref: './oiapComponents.yml#/components/schemas/id'
   schemas:
-    railConnection: # Important definir aquesta estructura de dades. Mirar Sòstrat !!!
+    railConnection: 
       description: ''
       type: object
       allOf:
         - type: object
           properties:
-            railService:  # railServiceName and railServiceCode
-              $ref: './oiapComponents.yml#/components/schemas/railService'        
+            railService:  
+              $ref: './oiapComponents.yml#/components/schemas/railService' 
+            railwayStationNearestCity:  
+              $ref: './oiapComponents.yml#/components/schemas/railwayStationNearestCity'
+            railTerminalLocode: 
+              $ref: './oiapComponents.yml#/components/schemas/railTerminalLocode'        
+            railTerminalCode:
+              $ref: './oiapComponents.yml#/components/schemas/railTerminalCode' 
+            railTerminalName:  
+              $ref: './oiapComponents.yml#/components/schemas/railTerminalName' 
+            railDirection:  
+              $ref: './oiapComponents.yml#/components/schemas/railDirection'
+            railLogisticServiceProvider: 
+              type: string
+              example: Name of the Rail Logistic Service Provider
     inlandTerminal: # Important definir aquesta estructura de dades. Mirar Sòstrat !!!
       description: ''
       type: object
@@ -288,8 +349,13 @@ components:
         - type: object
           properties:
             railTerminalCode:  # Veure si existeix una taula d'estacions
-              $ref: './oiapComponents.yml#/components/schemas/railwayStation' 
-    railUndertaking: # Es tracta d'una empresa estàndard - Veure schema.org
+              $ref: './oiapComponents.yml#/components/schemas/railTerminalCode'  
+        - type: object
+          properties:
+            railTerminalName:  # Veure si existeix una taula d'estacions
+              $ref: './oiapComponents.yml#/components/schemas/railTerminalName' 
+
+    railwayUndertaking: # Es tracta d'una empresa estàndard - Veure schema.org
       description: ''
       type: object
       allOf:
@@ -299,7 +365,7 @@ components:
               $ref: './oiapComponents.yml#/components/schemas/companyName' 
       required: 
         - companyName
-    logisticServiceProvider: # Es tracta d'una empresa estàndard - Veure schema.org
+    railLogisticServiceProvider: # Es tracta d'una empresa estàndard - Veure schema.org
       description: ''
       type: object
       allOf:

@@ -1,6 +1,6 @@
 openapi: '3.0.3'
 info:
-  version: '1.0.0'
+  version: '0.9.0-oas3'
   title: OIAP Components
   description: |
     **Open Info API para Puertos**
@@ -27,40 +27,40 @@ paths:
 components:
   headers: 
     currentPage: 
+        description: A link to the current page.
         schema: 
             type: string
             example: fE9mZnNldHw9MCZsaW1pdD01
-        description: A link to the current page.
         required: true
     nextPage: 
+        description: A link to the next page. Next-Page header link MAY be omitted if the current page is the last page.
         schema:
             type: string
             example: fE9mZnNldHw9NSZsaW1pdD01
-        description: A link to the next page. Next-Page header link MAY be omitted if the current page is the last page.
         required: false
     prevPage:
+        description: A link to the previous page. Previous-Page header link MAY be omitted if the current page is the first page.
         schema: 
             type: string
             example: fE9mZnNldHw9MCZsaW1pdD01
-        description: A link to the previous page. Previous-Page header link MAY be omitted if the current page is the first page.
         required: false
     lastPage: 
+        description: A link to the last page. Last-Page header link MAY be omitted if the current page is the last page.
         schema: 
             type: string
             example: fE9mZnNldHw9NTkmbGltaXQ9NQ==
-        description: A link to the last page. Last-Page header link MAY be omitted if the current page is the last page.
         required: false
     firstPage: 
+        description: A link to thefirst page. First-Page header link MAY be omitted if current page is the first page.
         schema: 
             type: string
             example: fE9mZnNldHw9NjAmbGltaXQ9NQ==
-        description: A link to thefirst page. First-Page header link MAY be omitted if current page is the first page.
         required: false
     oiapApiVersion:
+        description: SemVer used to indicate the version of the contract (API version) returned.
         schema: 
             type: string
-            example: 1.0.0
-        description: SemVer used to indicate the version of the contract (API version) returned.
+            example: 0.9.0-oas3
   schemas:
     # Reference components
     id:
@@ -95,9 +95,9 @@ components:
       description: surname
       type: string      
     company:
-      type: object
       description: 
         Company
+      type: object
       properties:
         companyName:
           type: string 
@@ -115,12 +115,21 @@ components:
       maxLength: 2
       example: ca 
     # Location components
+    locode:
+      description: UN/LOCODE of a location as specified in the UN/ECE Recommendation nº16
+      type: string
+      maxLength: 5
     portCode:
       description: |
             Port UN/LOCODE
       type: string
       maxLength: 5
       example: ESBCN 
+    portName:
+      description: |
+            Port name.
+      type: string
+      example: Barcelona 
     lastPortOfCall:
       description: |
             UN/LOCODE of the last POrt of Call
@@ -133,8 +142,8 @@ components:
       maxLength: 5
       example: NLRTM
     placeOfDeparture:
-      type: object
       description: Name of the place of departure. 
+      type: object
       anyOf:
         - type: object
           properties:
@@ -149,8 +158,8 @@ components:
               type: string
               maxLength: 35
     placeOfDestination:
-      type: object
       description: Name of the place of destination. 
+      type: object
       anyOf:
         - type: object
           properties:
@@ -166,15 +175,15 @@ components:
               maxLength: 35
     # Ship components
     shipIMONumber:
+      description: The identifier of ship.
       type: string
       maxLength: 7 
-      description: The identifier of ship.
       example: 9876543 
     shipName:
-      type: string
       description: The ship’s name shown on the IMO ship’s certificates.
+      type: string
       maxLength: 35
-      example: MSC GULSUN 
+      example: AURORA 
     shipType:
       description: >
             The type of the ship. The value is populated using the 2 character code from Annex 2 from UN/ECE Recommendation Nº28 when the means of transport is 1 (maritime).
@@ -223,10 +232,26 @@ components:
       example: "Containers"    
       enum: ["Containers", "Vehicles", "Bulk", "Tanker"]  
     # Partners      
+    companyDetails: # Pendent de definir
+      description: Information about a company.
+      type: string
+
+    governmentalBodyDetails: # Pendent de definir
+      description: Information about a governmental body.
+      type: string
+
+    partnerActivity:
+      description: Main activity of a partner.
+      type: string
+      example: Freight forwarder
+
+    companyName: 
+      description: Name of a company.
+      type: string
     ferryOperator:
-      type: object
       description: 
         Identification of the company that operates a ferry.  
+      type: object
       properties:
         code:
           description: Operator code. Code assigned to a ferry operator.  
@@ -239,9 +264,9 @@ components:
       required:
         - description
     cruiseLine:
-      type: object
       description: 
         Identification of the company that operates the cruise ship.  
+      type: object
       properties:
         code:
           description: Operator code. Code assigned to a cruise line.  
@@ -300,22 +325,71 @@ components:
       type: string
       format: date
       example: 2022-01-20 
+    # Rail transport components
+    railService:      
+      type: string
+      description: Code that identifies a rail service.     
+    railwayStationNearestCity:
+      type: string
+      description: Name of the nearest city to a railway station.
+    railTerminalLocode:
+      type: string
+      description: UN/LOCODE of a rail terminal. 
+    railTerminalCode: 
+      type: string
+      description: Code that identifies a railway terminal. 
+      example: ESCRB
+    railTerminalName: 
+      type: string
+      description: Name of a railway terminal. 
+      example: Zaragoza-Corbera-Alta  
+    railDirection:  
+      type: string
+      enum: [UP, DOWN]
+      example: UP
+      description: > 
+        Direction of a train:
+          * `UP` - Up or inbound is used for trains that are coming to a port.
+          * `DOWN` - Down or outbound is used for trains that are leaving a port. 
     # Infrastructure components
     berth:
       type: object
       description: 
         Identification of a berth from a port.  
       properties:
-        code:
+        berthCode:
           description: Berth code. Code assigned to a berth from a port.  
           type: string
           example: 01B 
-        description:
+        berthName:
           description: Berth name. 
           type: string
           example: ADOSSAT 
+        berthCoordinates:
+          $ref: '#/components/schemas/coordinates'
+        berthDepth:
+          description: Berth depth. 
+          $ref: '#/components/schemas/underwaterDepth' 
       required:
         - code
+    channel:
+      type: object
+      description: 
+        Identification of a port channel.  
+      properties:
+        code:
+          description: Channel code. Code assigned to a port channel.  
+          type: string
+          example: NE 
+        description:
+          description: Channel name. 
+          type: string
+          example: North East entrance 
+        channelCoordinates:
+          $ref: '#/components/schemas/coordinates'
+      required:
+        - code
+
     facility:
       type: object
       description: 
@@ -335,29 +409,31 @@ components:
         - description
     # Notices and news
     noticeLanguage:
+      description: Language used to write a notice. 
       $ref: '#/components/schemas/language'
     newsLanguage:
+      description: Language used to write news. 
       $ref: '#/components/schemas/language'
-    publishingStage:
-      type: string
-      enum: [ACTIVE, EXPIRED]
+    publishingStage:  
       description: > 
         Stages of a publishing process:
           * `ACTIVE` - Element that is active
           * `EXPIRED` - Element that has expired 
+      type: string
+      enum: [ACTIVE, EXPIRED]
     subject:
-      type: string
       description: Subject of a publication.      
+      type: string
     content:
-      type: string
       description: Content of a publication. 
-    noticeCategory:
       type: string
+    noticeCategory:
       description: Category of a publication. 
+      type: string
       example: 'Ship arrival'
     newsCategory:
-      type: string
       description: Category of a publication. 
+      type: string
       example: 'Traffic'
     # Subscriptions
     subscriptionReference:
@@ -396,9 +472,11 @@ components:
       properties:
         code:
           type: string 
+          description: Code that identifies an error.
           example: Error code
         message:
           type: string
+          description: Message describing an error.
           example: Error description
       required:
         - code
@@ -406,18 +484,194 @@ components:
 # https://service.unece.org/trade/uncefact/vocabulary/rec20/
 # https://service.unece.org/trade/uncefact/vocabulary/rec21/
 # https://service.unece.org/trade/uncefact/vocabulary/unlocode-CC/  (CC is 2a ISO3166 country code)
+    linerServiceName: 
+      description: Name of a Liner Service, as it is refered in Alphaliner
+      type: string
+      maxLength: 50 
+      example: New Eurosal / EuroAndes  
+    linerServiceCode: 
+      description: Code of a Liner Service, as it is refered in Alphaliner
+      type: string
+      maxLength: 4 
+      example: 6513
+    linerServiceType: 
+      description: >
+            Type of Liner Service, coded. 
+              * `FC`	Full container - Containership.
+              * `CC`  Car-carrier.
+              * `RR`  Ro-Ro.
+              * `MP`  Multipurpose
+      type: string
+      maxLength: 2 
+      example: FC
+    linerServiceCapacity: 
+      description: Capacity of a liner service, expressed in units according to the typology of the liner service. Units are TEUs for containerships, cars for car-carriers and LIMs (lanes in meters) for ro-ro vessels. 
+      type: string
+      example: 23064 TEU
+    linerCarrier: 
+      description: Liner carrier
+      properties:
+        carrierName:
+          description: Carrier name 
+          type: string
+          example: Mediterranean Shipping Company (MSC)
+        carrierCode:
+          description: Carrier code as Standard Carrier Alpha Code (SCAC) 
+          type: string
+          example: MSCU
+    linerSlot: 
+      description: Code of a Liner Slot
+      type: string
+      example: MSC
+    linerSailingFrequency: 
+      description: Frequency of a liner service, expressed in days
+      type: string
+      example: 7
+    linerDurationOfRotation: 
+      description: Duration of the liner service rotation, expressed in days
+      type: string
+      example: 43   
+    coastalArea: 
+      description: >
+            MARITIME COASTAL AREAS The nomenclature to be used is the Geonomenclature (the nomenclature of countries and territories for the external trade statistics of the Union and statistics of trade between Member States) (1) in force in the year to which the data refer. The code consists of four digits: the ISO alpha 2 standard code for each country from the abovementioned nomenclature, followed by two zeros (e.g. code GR00 for Greece), except for countries which are divided into two or more maritime coastal areas, which are identified by a fourth digit other than zero (from 1 to 7)Name of a geographical area, based on the Nomenclature of Countries and Territories for the European statistics on international trade in goods and on the geographical breakdown for other business statistics.            
+      maxLength: 4
+      example: GR00  
+    countryCode: 
+      description: >
+            Country code as a 2 alpha characters from ISO3166.            
+      maxLength: 2
+      example: GR 
+    linkedPort: 
+      description: 'Port that is served by a direct service of a liner and do not requires a transshipment.'
+      properties:
+        portCode:
+          example: SGSGP
+          $ref: '#/components/schemas/portCode' 
+        portName:
+          type: string 
+          example: Singapore
+    linkedPortCode: 
+      description: 'Port UN/LOCODE served by a liner.'
+      example: SGSGP
+      $ref: '#/components/schemas/portCode'
+    gate: 
+      description: 'Attributes of an access gate.'
+      properties:
+        gateName:
+          description: Name of a gate. 
+          type: string
+        gateCoordinates:
+          description: Coordinates of a gate. 
+          $ref: '#/components/schemas/coordinates'
+    coordinates: 
+      description: >
+        Either of the two lines of latitude and longitude whose intersection determines the geographical point of a place.
+      properties:
+        latitude:
+          description: latitude of a point. 
+          type: number
+          example: 41.35331
+        longitude:
+          description: Longitude of a point 
+          type: number
+          example: 2.175017
 
-    railService:  #Revisar      
+    markRegion: 
+      description: >
+            Mark region, according to the IALA/AISM Maritime Buoyage System nd Other Aids to Navigation. 
+              * In `Region A` red colour is used for port and green colour starboard. 
+              * In `Region B` green colour is used for port and red colour starboard. 
       type: string
-      description: Subject of a publication.  
-    locode: #Revisar
+      enum: [Region A, Region B]
+      example: Region A
+    markType: 
+      description: >
+            Type of marks, according to the IALA/AISM Maritime Buoyage System and Other Aids to Navigation.  
+              * `Lateral Marks`
+              * `Cardinal Marks`
+              * `Isolated Danger Mark`
+              * `Safe Waters Mark`
+              * `Marking New Dangers`
+              * `Other Marks`
       type: string
-      description: Subject of a publication.      
-    railwayStation: #Revisar
+      enum: [Lateral Marks, Cardinal Marks, Isolated Danger Mark, Safe Waters Mark, Marking New Dangers, Other Marks]
+      example: Isolated Danger Mark
+    markTop: 
+      description: Upper part of a mark. It can be one or two spheres, cilinders, cones or crosses.
       type: string
-      description: Subject of a publication.  
-    companyName: #Revisar
+      example: Two black spheres.
+    markColour: 
+      description: Mark colour.
       type: string
-      description: Subject of a publication.  
+      example: Red and white vertical stripes.
+    shapeOfBuoy: 
+      description: Distinctive shape for identification of a mark.
+      type: string
+      example: Conical shape.
+    markLight: 
+      description: Characteristics of a mark light.
+      properties:
+        colour:
+          description: Colour 
+          type: string
+          example: red
+        rhythm:
+          description: Rhythm of the light and dark periodes of a mark light. 
+          type: string
+          example: group flashing (2)
+    underwaterDepth:
+      description: Bathymetric information. Depth expessed in meters. It must be used positive numbers. 
+      type: number
+      example: 12.5
 
-
+    singularPoint:
+      description: A singular point of the port waters. It can be used to specify a point where bathymetric data is vailable. 
+      oneOf:
+        - $ref: '#/components/schemas/berth'
+        - $ref: '#/components/schemas/channel' 
+    freightType:
+      description: >
+            Type of freight.  
+              * `Solid bulk`
+              * `Liquid bulk`
+              * `Roll-on / roll-off`
+              * `Breakbulk`
+              * `Containers`
+      type: string
+      enum: [Solid bulk, Liquid bulk, Roll-on / roll-off, Breakbulk, Containers]
+      example: Containers
+    railBundles:
+      description: Number of rail tracks in a facility. 
+      type: integer
+      example: 8
+    trackMaximumLenght: 
+      description: Maximum lenght of a rail track in a facility, expressed in meters. 
+      type: integer
+      example: 800
+    trackGauge: 
+      description: >
+            Distance between the inside surfaces of the two load-bearing rails of a railway track. 
+              * `Standard gauge - UIC` 1,435 mm
+              * `Iberian gauge` 1,668 mm
+              * `Metre gauge` 1,000 mm
+      type: string
+      enum: [Standard gauge - UIC, Iberian gauge, Metre gauge]
+      example: Iberian gauge    
+    gantryCranes: 
+      description: Number of gantry cranes in a facility. 
+      type: integer
+      example: 3
+    containerNumber:
+      description: Container number as is described in ISO6346
+      type: string
+      maxLength: 11
+      example: ABCU1234567    
+    equipmentTare:
+      description: Tare of a unit of equipment, expressed in Kg.
+      type: integer
+      example: 2340     
+    iso6346:
+      description: Size and type codes of a container, used as a whole. Size codes are determined in accordance with annex D of ISO 6346:1995 and type codes according to annex E of the same international standard.
+      type: string
+      maxLength: 4
+      example: 22G1 
