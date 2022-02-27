@@ -3,7 +3,6 @@ This catalog enumerates a list of APIs with information about ports that can be 
 
 ## Domains
 
-develop
 Use of **Domains**. Many concepts are common in all ports (e.g., port services). It is advisable to use a domain field that would allow better filtering and precise referencing.
 
 ### Ships Calls
@@ -500,102 +499,6 @@ Possible APIs:
   - Data included in the response: Subscription confirmation .
   - [catalog](catalog/catalog-NewsSubscription.md)
   
-=======
-Use of **Enumerations**. Many concepts are common in all port (for instance: port services). Its advisable to use enumeration field that would allow better filtering and precise references
-### Ship Calls
-Introduction to ship calls.
-- **Ship Arrivals Forecast**. Forecast o ships that will arrive to a port. Data: IMO number, ship name, ETA (Estimated time of arrival), etc [catalog](catalog/catalog-ShipsArrivalForecasts.md)
-- **Vessels in port**. Vessels that are moored in the port. Data: IMO number, ship name, ATA (Actual time of arrival), ETD (Estimared Time of Departure), mooring Quay, etc [catalog](catalog/catalog-VesselsInPort.md)
-- **Ship Departures**:
-- **Ship Arrivals**: 
-- **Ship Aproximation Manouvres**: Aproximation manouvres of ships to the port.
-- **Ferries Arrivals**: [catalog](catalog/catalog-FerrysArrivals.md)
-- **Ferries Departures**: [catalog](catalog/catalog-FerryDepartures.md)
-- **Cruise Calls**: [catalog](catalog/catalog-CruisersCalls.md)
-
-### Liner Services
-An important offer of a Port its related to foreland connections. So that, a port must publish a list with which ports have sea conection. This information should contain:
-- Liner Service Name
-- Shipowner
-- Periodicity
-- List of ports
-### Port Infrastructure
-Information about port insfrastructure:
-- Latitude/Longitud
-- Land area
-- Berths (length, depth, loading capacities, contact information)
-- Terrestrial Gates
-- Terminals: 
-  - Ferry terminals
-  - Cruise terminals
-  - Container terminals
-  - Vehicle Terminals
-
-### Port Procedures
-All ports have procedure instructions for certain types of operations. These procedures must be published and accessible to applications. Here sompe examples:
-- Approach instructions
-- VLM,
-- etc
-
-### Statistics
-All the port have statistic information about activity. Usually are published annually, monthly, quarterly. Relevant statistical data of a port are:
-- Number of ship calls
-- Tons loaded/unloaded
-- Number of containers
-- Vehicles loaded/unloaded
-- Passengers embarkded/disembarked
-- Liquid bulk loaded/unloaded
-- Solid bulk loaded/unloaded
-- etc
-
-### Weather
-Introduction to meteo. See [Free Weather APIS to access global weather data](https://rapidapi.com/blog/access-global-weather-data-with-these-weather-apis/), [wheatherapi.com](https://www.weatherapi.com/docs/#apis-realtime)
-
-#### Current weather
-
-- **WeatherTemperature**:
-- **WeatherPressure**:
-- **WeatherWindSpeed**:
-- **WeatherWindDirection**:
-- ...
-#### Weather Forecast
-
-- **WeatherForecast**: 
-- **WeatherTemperatureForecast**:
-#### Weather Alerts
-- ...
-### Sea State
-- Wave height and direction
-- Swell direction
-- Waves forecast
-
-### Contamination
-Contamination (real-time) [wheather api](https://www.weatherapi.com/docs/#intro-aqi)
-
-- Estimation of CO2 emitted
-- Forecast of pollution episodes
-- Bulk unloading 
-
-### Vehicle Traffic
-Vehicle entrance or exit of the zone of the service of the Port
-
-### Railway services
-
-### Train information
-
-- **Train Departures**
-- **Train Arrivals**
-
-### Port Terminals
-- Terminal access time
-- Goods entry or exit
-- Vessel loading/unloading
-
-### Inspections of goods
-- Border Inspection Post
-- Scanner (non intrusive inspection)
-
-
 
 ### Notices
 
