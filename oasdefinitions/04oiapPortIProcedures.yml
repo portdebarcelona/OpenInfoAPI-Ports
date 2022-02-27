@@ -232,9 +232,49 @@ paths:
       tags:
         - Port Procedures
       summary: Returns the tare weight of a given container.
-      description: Returns a list of resources where the verified gross mass (VGM) procedures can be found. 
+      description: Returns the tare weight of a given container.
       parameters:
         - $ref: '#/components/parameters/containerNumber'
+      responses: #status code
+        '200':
+          description: Successful operation
+          headers:
+            oiapApiVersion:
+              $ref: './oiapComponents.yml#/components/headers/oiapApiVersion'
+          content: 
+            application/json:
+              schema:
+                type: object
+                properties:
+                  containerTare:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/containerTare'
+                  requestedParams:
+                    type: object
+                    properties:
+                      portCode:
+                        $ref: './oiapComponents.yml#/components/schemas/containerNumber'
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: './oiapComponents.yml#/components/schemas/error' 
+        '404':
+          description: Not found
+          content:
+            application/json:
+              schema:
+                $ref: './oiapComponents.yml#/components/schemas/error' 
+  /qualityCertificationProcedures:
+    get:
+      tags:
+        - Port Procedures
+      summary: Returns a list of resources where the quality certification procedures from a port can be found.
+      description: Returns a list of resources where the quality certification procedures from a port can be found. 
+      parameters:
+        - $ref: '#/components/parameters/portCode'
       responses: #status code
         '200':
           description: Successful operation
@@ -249,7 +289,167 @@ paths:
                   vgmProcedures:
                     type: array
                     items:
-                      $ref: '#/components/schemas/vgmProcedure'
+                      $ref: '#/components/schemas/qualityCertificationProcedure'
+                  requestedParams:
+                    type: object
+                    properties:
+                      portCode:
+                        $ref: './oiapComponents.yml#/components/schemas/portCode'
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: './oiapComponents.yml#/components/schemas/error' 
+        '404':
+          description: Not found
+          content:
+            application/json:
+              schema:
+                $ref: './oiapComponents.yml#/components/schemas/error' 
+  /qualityCertifiedPartners:
+    get:
+      tags:
+        - Port Procedures
+      summary: List of companies that have been certified by the quality seal managers of a port.
+      description: List of companies that have been certified by the quality seal managers of a port. 
+      parameters:
+        - $ref: '#/components/parameters/portCode'
+      responses: #status code
+        '200':
+          description: Successful operation
+          headers:
+            oiapApiVersion:
+              $ref: './oiapComponents.yml#/components/headers/oiapApiVersion'
+          content: 
+            application/json:
+              schema:
+                type: object
+                properties:
+                  borderInspectionActors:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/qualityCertifiedPartner'
+                  requestedParams:
+                    type: object
+                    properties:
+                      portCode:
+                        $ref: './oiapComponents.yml#/components/schemas/portCode'
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: './oiapComponents.yml#/components/schemas/error' 
+        '404':
+          description: Not found
+          content:
+            application/json:
+              schema:
+                $ref: './oiapComponents.yml#/components/schemas/error'
+  /partnerActivities:
+    get:
+      tags:
+        - Port Procedures
+      summary: List of possible activities of a partner.
+      description: List of possible activities of a partner. 
+      parameters:
+        - $ref: '#/components/parameters/portCode'
+      responses: #status code
+        '200':
+          description: Successful operation
+          headers:
+            oiapApiVersion:
+              $ref: './oiapComponents.yml#/components/headers/oiapApiVersion'
+          content: 
+            application/json:
+              schema:
+                type: object
+                properties:
+                  borderInspectionActors:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/partnerActivity'
+                  requestedParams:
+                    type: object
+                    properties:
+                      portCode:
+                        $ref: './oiapComponents.yml#/components/schemas/portCode'
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: './oiapComponents.yml#/components/schemas/error' 
+        '404':
+          description: Not found
+          content:
+            application/json:
+              schema:
+                $ref: './oiapComponents.yml#/components/schemas/error'
+  /pickupDeliveryProcedures:
+    get:
+      tags:
+        - Port Procedures
+      summary: Returns a list of resources where the procedures for for pick-up or delivery containers from/to the terminal or depot can be found.
+      description: Returns a list of resources where the procedures for for pick-up or delivery containers from/to the terminal or depot can be found. 
+      parameters:
+        - $ref: '#/components/parameters/portCode'
+      responses: #status code
+        '200':
+          description: Successful operation
+          headers:
+            oiapApiVersion:
+              $ref: './oiapComponents.yml#/components/headers/oiapApiVersion'
+          content: 
+            application/json:
+              schema:
+                type: object
+                properties:
+                  borderInspectionProcedures:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/pickupDeliveryProcedure'
+                  requestedParams:
+                    type: object
+                    properties:
+                      portCode:
+                        $ref: './oiapComponents.yml#/components/schemas/portCode'
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: './oiapComponents.yml#/components/schemas/error' 
+        '404':
+          description: Not found
+          content:
+            application/json:
+              schema:
+                $ref: './oiapComponents.yml#/components/schemas/error' 
+  /approachInstructions:
+    get:
+      tags:
+        - Port Procedures
+      summary: Returns a list of resources where basic information for the approach of the vessels to a port can be found.
+      description: Returns a list of resources where basic information for the approach of the vessels to a port can be found.
+      parameters:
+        - $ref: '#/components/parameters/portCode'
+      responses: #status code
+        '200':
+          description: Successful operation
+          headers:
+            oiapApiVersion:
+              $ref: './oiapComponents.yml#/components/headers/oiapApiVersion'
+          content: 
+            application/json:
+              schema:
+                type: object
+                properties:
+                  borderInspectionProcedures:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/approachInstructions'
                   requestedParams:
                     type: object
                     properties:
@@ -295,73 +495,125 @@ components:
         $ref: './oiapComponents.yml#/components/schemas/containerNumber'
 
   schemas:
-    customsClearanceProcedure: # Pendent de definir
+    customsClearanceProcedure: 
       description: 'URI where a customs clearance procedure from a port can be found.'
       type: object
       allOf:
         - type: object 
           properties:
-            portName:  
-              $ref: './oiapComponents.yml#/components/schemas/portName' 
-            portCode: 
-              $ref: './oiapComponents.yml#/components/schemas/portCode'
-            portCoordinates:  
-              $ref: './oiapComponents.yml#/components/schemas/coordinates'
+            customsClearanceUri:  
+              $ref: './oiapComponents.yml#/components/schemas/uri' 
       required:
-        - portName 
-    customsClearanceActor: # Pendent de definir
+        - customsClearanceUri 
+    customsClearanceActor: 
       description: 'Contact information of an actor involved in the customs clearance process.'
       type: object
-      allOf:
+      anyOf:
         - type: object 
           properties:
-            portName:  
-              $ref: './oiapComponents.yml#/components/schemas/portName' 
-            portCode: 
-              $ref: './oiapComponents.yml#/components/schemas/portCode'
-            portCoordinates:  
-              $ref: './oiapComponents.yml#/components/schemas/coordinates'
-      required:
-        - portName 
-    borderInspectionProcedure: # Pendent de definir
+            companyDetails:  
+              $ref: './oiapComponents.yml#/components/schemas/companyDetails' 
+            governmentalBodyDetails: 
+              $ref: './oiapComponents.yml#/components/schemas/governmentalBodyDetails'
+    borderInspectionProcedure: 
       description: 'URI where a border inspection procedure from a port can be found.'
       type: object
       allOf:
         - type: object 
           properties:
-            portName:  
-              $ref: './oiapComponents.yml#/components/schemas/portName' 
-            portCode: 
-              $ref: './oiapComponents.yml#/components/schemas/portCode'
-            portCoordinates:  
-              $ref: './oiapComponents.yml#/components/schemas/coordinates'
+            borderInspectionUri:  
+              $ref: './oiapComponents.yml#/components/schemas/uri' 
       required:
-        - portName 
-    borderInspectionActor: # Pendent de definir
+        - borderInspèctionUri 
+    borderInspectionActor:
       description: 'Contact information of an actor involved in the border inspection services clearance process.'
       type: object
-      allOf:
+      anyOf:
         - type: object 
           properties:
-            portName:  
-              $ref: './oiapComponents.yml#/components/schemas/portName' 
-            portCode: 
-              $ref: './oiapComponents.yml#/components/schemas/portCode'
-            portCoordinates:  
-              $ref: './oiapComponents.yml#/components/schemas/coordinates'
-      required:
-        - portName 
-    vgmProcedure: # Pendent de definir
+            companyDetails:  
+              $ref: './oiapComponents.yml#/components/schemas/companyDetails' 
+            governmentalBodyDetails: 
+              $ref: './oiapComponents.yml#/components/schemas/governmentalBodyDetails'
+    vgmProcedure: 
       description: 'URI where a VGM procedure from a port can be found.'
       type: object
       allOf:
         - type: object 
           properties:
-            portName:  
-              $ref: './oiapComponents.yml#/components/schemas/portName' 
-            portCode: 
-              $ref: './oiapComponents.yml#/components/schemas/portCode'
-            portCoordinates:  
-              $ref: './oiapComponents.yml#/components/schemas/coordinates'
+            vgmProcedureUri:  
+              $ref: './oiapComponents.yml#/components/schemas/uri' 
       required:
-        - portName 
+        - vgmProcedureUri 
+    containerTare: # Pendent de definir
+      description: 'URI where a VGM procedure from a port can be found.'
+      type: object
+      allOf:
+        - type: object 
+          properties:
+            containerNumber:  
+              $ref: './oiapComponents.yml#/components/schemas/containerNumber' 
+            equipmentTare:  
+              $ref: './oiapComponents.yml#/components/schemas/equipmentTare' 
+            iso6346:  
+              $ref: './oiapComponents.yml#/components/schemas/iso6346'
+      required:
+        - equipmentTare 
+    qualityCertificationProcedure: 
+      description: 'URI where the quality certification procedure from a port can be found.'
+      type: object
+      allOf:
+        - type: object 
+          properties:
+            qualityCertificationUri:  
+              $ref: './oiapComponents.yml#/components/schemas/uri' 
+      required:
+        - vgmProcedureUri 
+    qualityCertifiedPartner:
+      description: 'Information about companies and governmental bobies that have been certified with the quality level of a port.'
+      type: object
+      anyOf:
+        - type: object 
+          properties:
+            companyDetails:  
+              $ref: './oiapComponents.yml#/components/schemas/companyDetails' 
+            governmentalBodyDetails: 
+              $ref: './oiapComponents.yml#/components/schemas/governmentalBodyDetails'
+    partnerActivity:
+      description: 'Information about companies and governmental bobies that have been certified with the quality level of a port.'
+      type: object
+      $ref: './oiapComponents.yml#/components/schemas/partnerActivity'
+    pickupDeliveryProcedure: # Pendent !!!!
+      description: 'Information about companies and governmental bobies that have been certified with the quality level of a port.'
+      type: object
+      $ref: './oiapComponents.yml#/components/schemas/partnerActivity'
+    approachInstructions: # Pendent !!!!
+      description: 'Basic information for the approach of the vessels to a port.'
+      type: object
+      allOf:
+        - type: object 
+          properties:
+            portName: 
+              $ref: './oiapComponents.yml#/components/schemas/portName'
+            entrances: #array  
+              $ref: './oiapComponents.yml#/components/schemas/uri' 
+            approachChannels: #array  
+              $ref: './oiapComponents.yml#/components/schemas/uri'
+            precautionaryAreas: #array  
+              $ref: './oiapComponents.yml#/components/schemas/uri'
+            portTraffic: #array  
+              $ref: './oiapComponents.yml#/components/schemas/uri'              
+            emergency: #array  
+              $ref: './oiapComponents.yml#/components/schemas/uri'
+            specialOperations: #array  
+              $ref: './oiapComponents.yml#/components/schemas/uri'
+            pilotage: #array  
+              $ref: './oiapComponents.yml#/components/schemas/uri'
+            tugs: #array  
+              $ref: './oiapComponents.yml#/components/schemas/uri'
+            linesmen: #array  
+              $ref: './oiapComponents.yml#/components/schemas/uri'
+            lastChanges: #array  
+              $ref: './oiapComponents.yml#/components/schemas/uri'
+      required:
+        - portName

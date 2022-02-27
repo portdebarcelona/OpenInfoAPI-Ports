@@ -232,13 +232,26 @@ components:
       example: "Containers"    
       enum: ["Containers", "Vehicles", "Bulk", "Tanker"]  
     # Partners      
-    companyName: #Revisar
+    companyDetails: # Pendent de definir
+      description: Information about a company.
       type: string
+
+    governmentalBodyDetails: # Pendent de definir
+      description: Information about a governmental body.
+      type: string
+
+    partnerActivity:
+      description: Main activity of a partner.
+      type: string
+      example: Freight forwarder
+
+    companyName: 
       description: Name of a company.
+      type: string
     ferryOperator:
-      type: object
       description: 
         Identification of the company that operates a ferry.  
+      type: object
       properties:
         code:
           description: Operator code. Code assigned to a ferry operator.  
@@ -251,9 +264,9 @@ components:
       required:
         - description
     cruiseLine:
-      type: object
       description: 
         Identification of the company that operates the cruise ship.  
+      type: object
       properties:
         code:
           description: Operator code. Code assigned to a cruise line.  
@@ -652,4 +665,13 @@ components:
       description: Container number as is described in ISO6346
       type: string
       maxLength: 11
-      example: ABCU1234567        
+      example: ABCU1234567    
+    equipmentTare:
+      description: Tare of a unit of equipment, expressed in Kg.
+      type: integer
+      example: 2340     
+    iso6346:
+      description: Size and type codes of a container, used as a whole. Size codes are determined in accordance with annex D of ISO 6346:1995 and type codes according to annex E of the same international standard.
+      type: string
+      maxLength: 4
+      example: 22G1 
