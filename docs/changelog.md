@@ -1,6 +1,17 @@
 # Work Tracking log
 Contains tracking of activities in this project.
-## Jaunary 18, 2022
+## February 2022
+- Defined YAML of several domains:
+  - Ship Calls
+  - Liner Services
+  - Notices
+  - News
+  - Rail Transport
+  - Port Infrastructure
+  - Port Procedures
+- Developing test web
+- Presentation for 4YFN (Mobile World Congress 2022)
+## January 18, 2022
 - Sharing OAS definitions
 - Definition of OAS template
 ## January 14, 2022
