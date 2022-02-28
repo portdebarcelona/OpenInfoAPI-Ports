@@ -574,16 +574,6 @@ Possible APIs:
   - [catalog](catalog/catalog-Calendar.md)
 
 
-
-=======
-### Announcements
-Often, Port Authority have to publish some announcements (meteorological alerts, changes in some port procedures, etc ). Normally these announcements are sent by mail and sms, and published in the website. But it is also necessary to publish them as webservices.
-
-Some announcements are intended to port community, and other are intended to general public. Also each announcement is of interest of some subgroups of port community, such as: shipagents, shipping companies, transport companies, stevedors, concessionaire, etc.
-
-### Port companies
-Contact details ans addresses 
-
 ### Port Directory
 ![Office](https://github.githubassets.com/images/icons/emoji/unicode/1f3e2.png?v8)
 
