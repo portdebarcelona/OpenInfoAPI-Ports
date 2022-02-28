@@ -717,3 +717,20 @@ components:
       type: string
       maxLength: 4
       example: 22G1 
+
+
+
+    # Miscelanius
+    activity:
+      description: S.
+      type: string
+
+    targetPeriode: 
+      description: t.
+      type: object
+      properties:
+        unsubscriptionRequestReference:
+          $ref: '#/components/schemas/startDate'
+        unsubscriptionRequestMessage:
+          $ref: '#/components/schemas/dateRange'
+
