@@ -67,46 +67,6 @@ paths:
             application/json:
               schema:
                 $ref: './oiapComponents.yml#/components/schemas/error'  
-  /customsClearanceActors:
-    get:
-      tags:
-        - Port Procedures
-      summary: Contact information of the different actors involved in the customs clearance process.
-      description: Contact information of the different actors involved in the customs clearance process. 
-      parameters:
-        - $ref: '#/components/parameters/portCode'
-      responses: #status code
-        '200':
-          description: Successful operation
-          headers:
-            oiapApiVersion:
-              $ref: './oiapComponents.yml#/components/headers/oiapApiVersion'
-          content: 
-            application/json:
-              schema:
-                type: object
-                properties:
-                  customsClearanceActors:
-                    type: array
-                    items:
-                      $ref: '#/components/schemas/customsClearanceActor'
-                  requestedParams:
-                    type: object
-                    properties:
-                      portCode:
-                        $ref: './oiapComponents.yml#/components/schemas/portCode'
-        '400':
-          description: Bad request
-          content:
-            application/json:
-              schema:
-                $ref: './oiapComponents.yml#/components/schemas/error' 
-        '404':
-          description: Not found
-          content:
-            application/json:
-              schema:
-                $ref: './oiapComponents.yml#/components/schemas/error'  
   /borderInspectionProcedures:
     get:
       tags:
@@ -147,46 +107,7 @@ paths:
             application/json:
               schema:
                 $ref: './oiapComponents.yml#/components/schemas/error' 
-  /borderInspectionActors:
-    get:
-      tags:
-        - Port Procedures
-      summary: Contact information of the different actors involved in the customs clearance process.
-      description: Contact information of the different actors involved in the customs clearance process. 
-      parameters:
-        - $ref: '#/components/parameters/portCode'
-      responses: #status code
-        '200':
-          description: Successful operation
-          headers:
-            oiapApiVersion:
-              $ref: './oiapComponents.yml#/components/headers/oiapApiVersion'
-          content: 
-            application/json:
-              schema:
-                type: object
-                properties:
-                  borderInspectionActors:
-                    type: array
-                    items:
-                      $ref: '#/components/schemas/borderInspectionActor'
-                  requestedParams:
-                    type: object
-                    properties:
-                      portCode:
-                        $ref: './oiapComponents.yml#/components/schemas/portCode'
-        '400':
-          description: Bad request
-          content:
-            application/json:
-              schema:
-                $ref: './oiapComponents.yml#/components/schemas/error' 
-        '404':
-          description: Not found
-          content:
-            application/json:
-              schema:
-                $ref: './oiapComponents.yml#/components/schemas/error' 
+
   /vgmProcedures:
     get:
       tags:
@@ -504,52 +425,43 @@ components:
             customsClearanceDescription:  
               description: 'Procedure description'
               type: string
-              example: 'Procedure description' 
+              enum: ['All shipments of goods entering the European Union from third countries are subject to Customs controls. All goods may be subject to the presentation of several documents and payments, as the payment of Customs duties based on the content of the shipment, payment of national taxes (VAT) or local taxes where applicable, payment of special taxes on tobacco, alcohol, etc., the cost of processing of Single Administrative Document (SAD) for imports, the costs arising from border safety controls, depending on the nature of the shipment (sanitary, pharmaceutical, veterinary, etc.). As a part of the customs clearance process, customs can carry out docummentary or physical inspections, and those can be carried out inside the cargo terminals, at the terminal yard or in a warehouse, but they can also inspect containers, platforms or trucks using a non-intrusive technology as an X-ray scanner. It is the recipient''s responsibility to know the conditions for importing their shipment (prohibitions, restrictions, limitations, etc.) and to find out what documents may be required on arrival, including the commercial invoice, certificate of origin, licences and special authorisations for border controls, etc.'] 
             customsClearanceUri:  
               $ref: './oiapComponents.yml#/components/schemas/uri' 
       required:
         - customsClearanceUri 
-    customsClearanceActor: 
-      description: 'Contact information of an actor involved in the customs clearance process.'
-      type: object
-      anyOf:
-        - type: object 
-          properties:
-            companyDetails:  
-              $ref: './oiapComponents.yml#/components/schemas/companyDetails' 
-            governmentalBodyDetails: 
-              $ref: './oiapComponents.yml#/components/schemas/governmentalBodyDetails'
+
     borderInspectionProcedure: 
       description: 'URI where a border inspection procedure from a port can be found.'
       type: object
       allOf:
         - type: object 
           properties:
+            borderInspectionDescription:  
+              description: 'Procedure description'
+              type: string
+              enum: ['The border inspection post (BIP) is a controlled and authorised station for customs and sanitary controls of goods. Physical and documentary inspections are carried out at these posts as well as analysis of samples. A Border Control Post is an inspection post designated and approved in line with EU legislation for carrying out checks on animals and animal products arriving from third countries at a European Union border. These checks are carried out to protect animal and public health, and animal welfare. As a part of the border clearance process, border inspection services can carry out docummentary or physical inspections, and those can be carried out inside the cargo terminals but usually the physical inspections are carried out at the Border Inspection Posts (BIP), where coexist several specific inspection areas as a designated point of import (DPI), a designated point of entry (DPE) or a border control post (BCP). It is the recipient''s responsibility to know the conditions for importing their shipment (prohibitions, restrictions, limitations, etc.) and to find out what documents may be required on arrival, including the commercial invoice, certificate of origin, licences and special certifications for border controls, etc.'] 
             borderInspectionUri:  
               $ref: './oiapComponents.yml#/components/schemas/uri' 
       required:
         - borderInspèctionUri 
-    borderInspectionActor:
-      description: 'Contact information of an actor involved in the border inspection services clearance process.'
-      type: object
-      anyOf:
-        - type: object 
-          properties:
-            companyDetails:  
-              $ref: './oiapComponents.yml#/components/schemas/companyDetails' 
-            governmentalBodyDetails: 
-              $ref: './oiapComponents.yml#/components/schemas/governmentalBodyDetails'
+
     vgmProcedure: 
       description: 'URI where a VGM procedure from a port can be found.'
       type: object
       allOf:
         - type: object 
           properties:
+            vgmProcedureDescription:  
+              description: 'Procedure description'
+              type: string
+              enum: ['As the International Maritime Organisation (IMO) declare: *"discrepancies between the declared gross mass and the actual gross mass of a packed container could have an adverse impact on the safety of the ship, seafarers and shore-side workers, by leading to incorrect vessel stowage decisions and potentially collapsed container stacks or loss of containers overboard"*. The IMO established a requirement that packed containers must be weighed to obtain their actual gross mass prior to vessel loading.  This requirement is included in the Guidelines regarding the verified gross mass of a container carrying cargo (MSC.1/Circ.1475) and the adoption of amendment to SOLAS regulation VI/2 requires the mandatory verification of the gross mass of packed containers (resolution MSC.380(94)). The aforementioned SOLAS amendments introduce two main new requirements:  1. the shipper is responsible for providing the verified weight by stating it in the shipping document and submitting it to the master or his representative and to the terminal representative sufficiently in advance to be used in the preparation of the ship stowage plan; and  2. the verified gross mass is a condition for loading a packed container onto a ship. A prerequisite for the container to be loaded onto a ship to which the SOLAS regulations apply is the availability of the verified gross mass of a packed container sufficiently in advance to the terminal representative and to the master or his representative to be used in the ship stowage plan.  However, it does not constitute an entitlement for loading, because the master retains ultimate discretion in deciding whether to accept a packed container for loading onto his ship. The verification of the gross mass can be achieved by either of two methods: 1. weighing the packed container; or 2. weighing all packages and cargo items, including the mass of pallets, dunnage and other securing material to be packed in the container and adding the tare mass of the container to the sum of the single masses, using a certified method approved by the competent authority of the State in which packing of the container was completed.'] 
             vgmProcedureUri:  
               $ref: './oiapComponents.yml#/components/schemas/uri' 
       required:
         - vgmProcedureUri 
-    containerTare: # Pendent de definir
+
+    containerTare: 
       description: 'URI where a VGM procedure from a port can be found.'
       type: object
       allOf:
@@ -563,34 +475,43 @@ components:
               $ref: './oiapComponents.yml#/components/schemas/iso6346'
       required:
         - equipmentTare 
+
     qualityCertificationProcedure: 
       description: 'URI where the quality certification procedure from a port can be found.'
       type: object
       allOf:
         - type: object 
           properties:
+            qualityCertificationDescription:  
+              description: 'Procedure description'
+              type: string
+              enum: ['Several ports have developed own brands for their quality label schemas. There are some ports that every day manage the transportation of thousands of shipments. And the job of each port is to treat each one as it was the only one. To ensure that each shipment receives the treatment it deserves, some ports have created a quality brand that identifies the companies operating at that port that had adopted a commitment to efficiency the end customers with the utmost satisfaction. With this quality level the ports recognise and certify organisations involved and commited to the most rigorous standards of reliability.'] 
             qualityCertificationUri:  
               $ref: './oiapComponents.yml#/components/schemas/uri' 
       required:
         - vgmProcedureUri 
+
     qualityCertifiedPartner:
       description: 'Information about companies and governmental bobies that have been certified with the quality level of a port.'
       type: object
-      anyOf:
+      oneOf:
         - type: object 
           properties:
             companyDetails:  
               $ref: './oiapComponents.yml#/components/schemas/companyDetails' 
             governmentalBodyDetails: 
               $ref: './oiapComponents.yml#/components/schemas/governmentalBodyDetails'
+
     partnerActivity:
       description: 'Information about companies and governmental bobies that have been certified with the quality level of a port.'
       type: object
       $ref: './oiapComponents.yml#/components/schemas/partnerActivity'
+
     pickupDeliveryProcedure: # Pendent !!!!
       description: 'Information about companies and governmental bobies that have been certified with the quality level of a port.'
       type: object
       $ref: './oiapComponents.yml#/components/schemas/partnerActivity'
+
     approachInstructions: # Pendent !!!!
       description: 'Basic information for the approach of the vessels to a port.'
       type: object
