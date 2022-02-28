@@ -78,6 +78,7 @@ components:
             The code received to complete a subscription process.
       type: string
       example: '4ZT2'
+
     # Persons
     contactInfo:
       description: email or phone
@@ -114,6 +115,7 @@ components:
       type: string
       maxLength: 2
       example: ca 
+
     # Location components
     locode:
       description: UN/LOCODE of a location as specified in the UN/ECE Recommendation nº16
@@ -130,6 +132,29 @@ components:
             Port name.
       type: string
       example: Barcelona 
+    coastalArea: 
+      description: >
+            MARITIME COASTAL AREAS The nomenclature to be used is the Geonomenclature (the nomenclature of countries and territories for the external trade statistics of the Union and statistics of trade between Member States) (1) in force in the year to which the data refer. The code consists of four digits: the ISO alpha 2 standard code for each country from the abovementioned nomenclature, followed by two zeros (e.g. code GR00 for Greece), except for countries which are divided into two or more maritime coastal areas, which are identified by a fourth digit other than zero (from 1 to 7)Name of a geographical area, based on the Nomenclature of Countries and Territories for the European statistics on international trade in goods and on the geographical breakdown for other business statistics.            
+      maxLength: 4
+      example: GR00  
+    countryCode: 
+      description: >
+            Country code as a 2 alpha characters from ISO3166.            
+      maxLength: 2
+      example: GR 
+    linkedPort: 
+      description: 'Port that is served by a direct service of a liner and do not requires a transshipment.'
+      properties:
+        portCode:
+          example: SGSGP
+          $ref: '#/components/schemas/portCode' 
+        portName:
+          type: string 
+          example: Singapore
+    linkedPortCode: 
+      description: 'Port UN/LOCODE served by a liner.'
+      example: SGSGP
+      $ref: '#/components/schemas/portCode'
     lastPortOfCall:
       description: |
             UN/LOCODE of the last POrt of Call
@@ -173,6 +198,7 @@ components:
               description: Name of the place of destination.  
               type: string
               maxLength: 35
+
     # Ship components
     shipIMONumber:
       description: The identifier of ship.
@@ -219,6 +245,7 @@ components:
       maxLength: 2
       example: 50    
       enum: [50, 51, 52, 53, 54, 55, 57, 59, 60, 70, 72, 73, 74, 75, 76, 77, 78, 80, 81, 82, 83, 84, 85, 89, 90, 91, 92]
+
     # Train components
     trainType:
       description: >
@@ -231,20 +258,20 @@ components:
       maxLength: 35
       example: "Containers"    
       enum: ["Containers", "Vehicles", "Bulk", "Tanker"]  
+
     # Partners      
-    companyDetails: # Pendent de definir
+    companyDetails: # Definition pending. Look at schema.org
       description: Information about a company.
       type: string
-
-    governmentalBodyDetails: # Pendent de definir
+    governmentalBodyDetails: # Definition pending. Look at schema.org Thonk about merging with companyDetails
       description: Information about a governmental body.
       type: string
+
 
     partnerActivity:
       description: Main activity of a partner.
       type: string
       example: Freight forwarder
-
     companyName: 
       description: Name of a company.
       type: string
@@ -278,7 +305,8 @@ components:
           example: COSTA CRUCEROS 
       required:
         - description
-    # Date and time components
+
+    # Date and time
     startDate:  
       description: The start date of a period. The value is populated in ISO 8601 Date format.
       type: string
@@ -325,7 +353,8 @@ components:
       type: string
       format: date
       example: 2022-01-20 
-    # Rail transport components
+
+    # Rail transport
     railService:      
       type: string
       description: Code that identifies a rail service.     
@@ -344,14 +373,27 @@ components:
       description: Name of a railway terminal. 
       example: Zaragoza-Corbera-Alta  
     railDirection:  
-      type: string
-      enum: [UP, DOWN]
-      example: UP
       description: > 
         Direction of a train:
           * `UP` - Up or inbound is used for trains that are coming to a port.
           * `DOWN` - Down or outbound is used for trains that are leaving a port. 
-    # Infrastructure components
+      type: string
+      enum: [UP, DOWN]
+      example: UP
+
+    # Infrastructure
+    coordinates: 
+      description: >
+        Either of the two lines of latitude and longitude whose intersection determines the geographical point of a place.
+      properties:
+        latitude:
+          description: latitude of a point. 
+          type: number
+          example: 41.35331
+        longitude:
+          description: Longitude of a point 
+          type: number
+          example: 2.175017
     berth:
       type: object
       description: 
@@ -408,6 +450,34 @@ components:
           $ref: '#/components/schemas/berth' 
       required:
         - description
+    gate: 
+      description: 'Attributes of an access gate.'
+      properties:
+        gateName:
+          description: Name of a gate. 
+          type: string
+        gateCoordinates:
+          description: Coordinates of a gate. 
+          $ref: '#/components/schemas/coordinates'
+        vehicleFlowDirection:
+          description: > 
+                Direction of the vehicle flow at the gate. 
+                  * `Inward`
+                  * `Outward`
+                  * `Both` - inward and outward
+          type: string
+          enum: [Inward, Outward, Both]
+          example: Both
+        gateTypeOfVehicles:
+          description: >
+                Type of vehicles. 
+                  * `Cars`
+                  * `Trucks`
+                  * `Both` - Trucks and cars
+                  * `Trains`
+          type: string
+          enum: [Cars, Trucks, Both, Trains]
+          example: Trucks
     totalArea: 
       description: Total area expressed in ha.
       type: integer
@@ -418,6 +488,37 @@ components:
     coveredWarehouses: 
       description: Total area of the covered warehouses in sq m.
       type: integer
+    underwaterDepth:
+      description: Bathymetric information. Depth expessed in meters. It must be used positive numbers. 
+      type: number
+      example: 12.5
+    singularPoint:
+      description: A singular point of the port waters. It can be used to specify a point where bathymetric data is vailable. 
+      oneOf:
+        - $ref: '#/components/schemas/berth'
+        - $ref: '#/components/schemas/channel' 
+    railBundles:
+      description: Number of rail tracks in a facility. 
+      type: integer
+      example: 8
+    trackMaximumLength: 
+      description: Maximum length of a rail track in a facility, expressed in meters. 
+      type: integer
+      example: 800
+    trackGauge: 
+      description: >
+            Distance between the inside surfaces of the two load-bearing rails of a railway track. 
+              * `Standard gauge - UIC` 1,435 mm
+              * `Iberian gauge` 1,668 mm
+              * `Metre gauge` 1,000 mm
+      type: string
+      enum: [Standard gauge - UIC, Iberian gauge, Metre gauge]
+      example: Iberian gauge    
+    gantryCranes: 
+      description: Number of gantry cranes in a facility. 
+      type: integer
+      example: 3
+
     # Notices and news
     noticeLanguage:
       description: Language used to write a notice. 
@@ -446,6 +547,7 @@ components:
       description: Category of a publication. 
       type: string
       example: 'Traffic'
+
     # Subscriptions
     subscriptionReference:
       description: Response after a subscription request has been received
@@ -475,6 +577,7 @@ components:
           $ref: '#/components/schemas/unsubscriptionRequestReference'
         unsubscriptionRequestMessage:
           $ref: '#/components/schemas/unsubscriptionRequestMessage'
+
     # Error schemas
     error:
       type: object
@@ -492,9 +595,8 @@ components:
       required:
         - code
         - message
-# https://service.unece.org/trade/uncefact/vocabulary/rec20/
-# https://service.unece.org/trade/uncefact/vocabulary/rec21/
-# https://service.unece.org/trade/uncefact/vocabulary/unlocode-CC/  (CC is 2a ISO3166 country code)
+
+    # Liner services
     linerServiceName: 
       description: Name of a Liner Service, as it is refered in Alphaliner
       type: string
@@ -542,70 +644,9 @@ components:
       description: Duration of the liner service rotation, expressed in days
       type: string
       example: 43   
-    coastalArea: 
-      description: >
-            MARITIME COASTAL AREAS The nomenclature to be used is the Geonomenclature (the nomenclature of countries and territories for the external trade statistics of the Union and statistics of trade between Member States) (1) in force in the year to which the data refer. The code consists of four digits: the ISO alpha 2 standard code for each country from the abovementioned nomenclature, followed by two zeros (e.g. code GR00 for Greece), except for countries which are divided into two or more maritime coastal areas, which are identified by a fourth digit other than zero (from 1 to 7)Name of a geographical area, based on the Nomenclature of Countries and Territories for the European statistics on international trade in goods and on the geographical breakdown for other business statistics.            
-      maxLength: 4
-      example: GR00  
-    countryCode: 
-      description: >
-            Country code as a 2 alpha characters from ISO3166.            
-      maxLength: 2
-      example: GR 
-    linkedPort: 
-      description: 'Port that is served by a direct service of a liner and do not requires a transshipment.'
-      properties:
-        portCode:
-          example: SGSGP
-          $ref: '#/components/schemas/portCode' 
-        portName:
-          type: string 
-          example: Singapore
-    linkedPortCode: 
-      description: 'Port UN/LOCODE served by a liner.'
-      example: SGSGP
-      $ref: '#/components/schemas/portCode'
-    gate: 
-      description: 'Attributes of an access gate.'
-      properties:
-        gateName:
-          description: Name of a gate. 
-          type: string
-        gateCoordinates:
-          description: Coordinates of a gate. 
-          $ref: '#/components/schemas/coordinates'
-        vehicleFlowDirection:
-          description: > 
-                Direction of the vehicle flow at the gate. 
-                  * `Inward`
-                  * `Outward`
-                  * `Both` - inward and outward
-          type: string
-          enum: [Inward, Outward, Both]
-          example: Both
-        gateTypeOfVehicles:
-          description: >
-                Type of vehicles. 
-                  * `Cars`
-                  * `Trucks`
-                  * `Both` - Trucks and cars
-                  * `Trains`
-          type: string
-          enum: [Cars, Trucks, Both, Trains]
-          example: Trucks
-    coordinates: 
-      description: >
-        Either of the two lines of latitude and longitude whose intersection determines the geographical point of a place.
-      properties:
-        latitude:
-          description: latitude of a point. 
-          type: number
-          example: 41.35331
-        longitude:
-          description: Longitude of a point 
-          type: number
-          example: 2.175017
 
+
+    # Port marks
     markRegion: 
       description: >
             Mark region, according to the IALA/AISM Maritime Buoyage System nd Other Aids to Navigation. 
@@ -649,16 +690,8 @@ components:
           description: Rhythm of the light and dark periodes of a mark light. 
           type: string
           example: group flashing (2)
-    underwaterDepth:
-      description: Bathymetric information. Depth expessed in meters. It must be used positive numbers. 
-      type: number
-      example: 12.5
 
-    singularPoint:
-      description: A singular point of the port waters. It can be used to specify a point where bathymetric data is vailable. 
-      oneOf:
-        - $ref: '#/components/schemas/berth'
-        - $ref: '#/components/schemas/channel' 
+    # Equipment
     freightType:
       description: >
             Type of freight.  
@@ -670,27 +703,6 @@ components:
       type: string
       enum: [Solid bulk, Liquid bulk, Roll-on / roll-off, Breakbulk, Containers]
       example: Containers
-    railBundles:
-      description: Number of rail tracks in a facility. 
-      type: integer
-      example: 8
-    trackMaximumLength: 
-      description: Maximum length of a rail track in a facility, expressed in meters. 
-      type: integer
-      example: 800
-    trackGauge: 
-      description: >
-            Distance between the inside surfaces of the two load-bearing rails of a railway track. 
-              * `Standard gauge - UIC` 1,435 mm
-              * `Iberian gauge` 1,668 mm
-              * `Metre gauge` 1,000 mm
-      type: string
-      enum: [Standard gauge - UIC, Iberian gauge, Metre gauge]
-      example: Iberian gauge    
-    gantryCranes: 
-      description: Number of gantry cranes in a facility. 
-      type: integer
-      example: 3
     containerNumber:
       description: Container number as is described in ISO6346
       type: string

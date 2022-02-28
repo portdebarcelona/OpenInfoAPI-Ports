@@ -406,8 +406,10 @@ components:
               $ref: './oiapComponents.yml#/components/schemas/railBundles'
             trackMaximumLength: 
               $ref: './oiapComponents.yml#/components/schemas/trackMaximumLength'
-            trackGauge: 
-              $ref: './oiapComponents.yml#/components/schemas/trackGauge'        
+            trackGauges: 
+              type: array
+              items:
+                $ref: './oiapComponents.yml#/components/schemas/trackGauge'        
             gantryCranes: 
               $ref: './oiapComponents.yml#/components/schemas/gantryCranes'
       required:
