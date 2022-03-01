@@ -22,6 +22,7 @@ tags:
       url: http://swagger.io
 servers:
   - url: https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/
+
 paths:
   # Ships Arrivals Forecasts
   /shipsScheduled:
@@ -73,6 +74,7 @@ paths:
             application/json:
               schema:
                 $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents.yml#/components/schemas/error'
+
   # Ships in Port
   /shipsInPort:
     get:
@@ -114,6 +116,7 @@ paths:
             application/json:
               schema:
                 $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents.yml#/components/schemas/error'
+
   # Ship Arrivals
   /shipsArrivals:
     get:
@@ -155,6 +158,7 @@ paths:
             application/json:
               schema:
                 $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents.yml#/components/schemas/error'
+
   # Ship Departures
   /shipsDepartures:
     get:
@@ -196,6 +200,7 @@ paths:
             application/json:
               schema:
                 $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents.yml#/components/schemas/error'
+
   # Ship Aproximation
   /shipsAproximation:
     get:
@@ -237,6 +242,7 @@ paths:
             application/json:
               schema:
                 $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents.yml#/components/schemas/error'
+
   # Ferries Arrivals
   /ferriesArrivals:
     get:
@@ -278,6 +284,7 @@ paths:
             application/json:
               schema:
                 $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents.yml#/components/schemas/error'
+
   # Ferries Departures
   /ferriesDepartures:
     get:
@@ -319,6 +326,7 @@ paths:
             application/json:
               schema:
                 $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents.yml#/components/schemas/error'     
+
   # Cruise Calls
   /cruiseCalls:
     get:
@@ -351,7 +359,6 @@ paths:
                         $ref: './oiapComponents.yml#/components/schemas/portCode'
                       shipName:
                         $ref: './oiapComponents.yml#/components/schemas/shipName'
-
         '400':
           description: Bad request
           content:
@@ -364,6 +371,7 @@ paths:
             application/json:
               schema:
                 $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents.yml#/components/schemas/error'               
+
 components:
   parameters: 
     portCode:
@@ -419,6 +427,7 @@ components:
       explode: false
       schema:
         $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents.yml#/components/schemas/shipName'
+
   schemas:
     shipArrivalForecast:
       description: list of ships that will arrive on a given period of time
@@ -445,6 +454,7 @@ components:
         - shipName
         - shipType
         - estimatedTimeOfArrival
+
     shipInPort:
       description: list of ships that now are in Port
       type: object
@@ -483,6 +493,7 @@ components:
         - shipType
         - actualTimeOfArrival
         - estimatedTimeOfDeparture 
+
     shipArrivals:
       description: list of ships that have arrived or will arrive today
       type: object
@@ -521,6 +532,7 @@ components:
         - shipType
         - estimatedTimeOfArrival
         - berth  
+
     shipDepartures:
       description: list of ships that have departed or will depart today
       type: object
@@ -559,6 +571,7 @@ components:
         - shipType
         - estimatedTimeOfDeparture
         - berth  
+
     aproximationManouvres:
       description: list of ships that have initiated their aproximation manouvres
       type: object
@@ -587,6 +600,7 @@ components:
         - shipIMONumber
         - shipName
         - estimatedTimeOfArrival   
+
     ferriesArrivals:
       description: list of all the ferries that have arrived or will arrive today
       type: object
@@ -620,6 +634,7 @@ components:
         - ferryOperator
         - estimatedTimeOfArrival
         - berth
+
     ferriesDepartures:
       description: list of ferries that have departed or will depart today
       type: object
@@ -653,6 +668,7 @@ components:
         - ferryOperator
         - estimatedTimeOfDeparture
         - berth
+
     cruiseCall:
       description: information about next cruise ship call. 
       type: object

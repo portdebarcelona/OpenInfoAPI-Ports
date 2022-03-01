@@ -20,11 +20,10 @@ tags:
     description: "APIs related to the Liner Services that are scheduled in a port."
     externalDocs:
       description: Description 
-      url: http://swagger.io/ # https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/docs/CatalogIntroduction.md It must be a link to a GitHub file with a more extensive description like Liner Services are those served by liner ships that regularly sails on a fixed route following a schedule. A shipping schedule can be checked by vessel, by port of call, or by routing. 
+      url: http://swagger.io/ 
 servers:
   - url: https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions
     description: Servidor server 
-# Canvi efectuat: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions a '.
 
 paths:
   /linerServices:
@@ -37,7 +36,6 @@ paths:
         - $ref: '#/components/parameters/portCode'
         - $ref: '#/components/parameters/linkedPortCode'
         - $ref: '#/components/parameters/coastalArea'
-
       responses: #status code
         '200':
           description: Successful operation
@@ -74,6 +72,7 @@ paths:
             application/json:
               schema:
                 $ref: './oiapComponents.yml#/components/schemas/error'  
+
   /linkedPorts:
     get:
       tags:
@@ -121,6 +120,7 @@ paths:
             application/json:
               schema:
                 $ref: './oiapComponents.yml#/components/schemas/error' 
+
   /linerCarriers: 
     get:
       tags:
@@ -170,6 +170,7 @@ paths:
             application/json:
               schema:
                 $ref: './oiapComponents.yml#/components/schemas/error'
+
 components:
   parameters: 
     portCode:
@@ -225,8 +226,9 @@ components:
       explode: false
       schema:
         $ref: './oiapComponents.yml#/components/schemas/linerServiceName'
+
   schemas:
-    linerService: # Important definir aquesta estructura de dades.
+    linerService: 
       description: 'List of attributes that describe a liner service.'
       type: object
       allOf:
@@ -256,21 +258,25 @@ components:
         - coveredGeographicalAreas  
         - linerServiceType
         - linerSailingFrequency  
+
     linerCarriers:
       description: 'Carriers that operate in a liner service.'
       type: array
       items:
         $ref: './oiapComponents.yml#/components/schemas/linerCarrier'
-    linerSlots: # millorar descripcio
+
+    linerSlots: 
       description: 'Shipping lines that have slots of a liner service.'
       type: array
       items:
         $ref: './oiapComponents.yml#/components/schemas/linerSlot'
+
     linkedPorts: 
       description: 'Ports that are served by a liner service.'
       type: array
       items:
         $ref: './oiapComponents.yml#/components/schemas/linkedPort'
+
     coveredGeographicalAreas:
       description: 'Geographical area covered by a liner service.'
       type: array
