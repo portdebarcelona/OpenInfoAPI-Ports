@@ -23,7 +23,7 @@ tags:
 servers:
   - url: https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions
     description: Servidor server 
-# Canvi efectuat: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions a '.
+
 paths:
   /noticesSubscriptionRequest: 
     post:
@@ -48,6 +48,7 @@ paths:
                 $ref: './oiapComponents.yml#/components/schemas/subscriptionReference'
         '400':
           description: Invalid Order
+
   /noticesSubscriptionValidation:
     post:
       tags:
@@ -73,6 +74,7 @@ paths:
                 $ref: '#/components/schemas/validationMessage'
         '400':
           description: Invalid Order
+
   /noticesUnsubscriptionRequest: 
     post:
       tags:
@@ -97,9 +99,9 @@ paths:
             application/json:
               schema: # unsubscription response
                 $ref: './oiapComponents.yml#/components/schemas/unsubscriptionReference'
-
         '400':
           description: Invalid Order
+
   /noticesUnsubscriptionValidation:
     post:
       tags:
@@ -125,6 +127,7 @@ paths:
                 $ref: '#/components/schemas/validationMessage'
         '400':
           description: Invalid Order
+
   /notices:
     get:
       tags:
@@ -171,6 +174,7 @@ paths:
             application/json:
               schema:
                 $ref: './oiapComponents.yml#/components/schemas/error'  
+
   /noticesCategories:
     get:
       tags:
@@ -215,6 +219,7 @@ paths:
             application/json:
               schema:
                 $ref: './oiapComponents.yml#/components/schemas/error' 
+
   /noticesLanguages:
     get:
       tags:
@@ -255,6 +260,7 @@ paths:
             application/json:
               schema:
                 $ref: './oiapComponents.yml#/components/schemas/error'
+
   /notices/{id}:
     get:
       tags:
@@ -300,6 +306,7 @@ paths:
             application/json:
               schema:
                 $ref: './oiapComponents.yml#/components/schemas/error'  
+
 components:
   parameters: 
     portCode:
@@ -344,6 +351,7 @@ components:
       explode: false
       schema:
         $ref: './oiapComponents.yml#/components/schemas/id'
+
   schemas:
     subscriber: # Object with all the information of a service subscriber (useful for News and Notices) 
       description: A subscriber identified by an email or a phone number.
@@ -377,6 +385,7 @@ components:
         - contactInfo
         - categories
         - language
+
     notice: 
       description: A notice from its unique id.
       type: object
@@ -418,18 +427,21 @@ components:
         - language
         - subject
         - startTime
+
     noticesCategories:
       description: A list of notices categories.
       type: array
       items:
         $ref: './oiapComponents.yml#/components/schemas/noticeCategory'
       example: ['Ship arrival', 'Ship departure', 'Sea state', 'Pollution warning', 'Traffic status', 'Terminal notices']
+
     noticesLanguages:
       description: A list of languages available for the notices.
       type: array
       items:
         $ref: './oiapComponents.yml#/components/schemas/noticeLanguage'  
       example: ['ca', 'es', 'en', 'fr']
+
     validationMessage:
       type: string 
       example: 'Your request has been approved'

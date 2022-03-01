@@ -645,7 +645,6 @@ components:
       type: string
       example: 43   
 
-
     # Port marks
     markRegion: 
       description: >
@@ -717,8 +716,6 @@ components:
       type: string
       maxLength: 4
       example: 22G1 
-
-
 
     # Miscelanius
     activity:

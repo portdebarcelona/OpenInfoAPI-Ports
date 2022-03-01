@@ -20,14 +20,11 @@ tags:
     description: "APIs related to the flow of trains and cargo by rail in a port."
     externalDocs:
       description: Description 
-      url: http://swagger.io/ # https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/docs/CatalogIntroduction.md It must be a link to a GitHub file with a more extensive description 
+      url: http://swagger.io/  
 servers:
   - url: https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions
     description: Servidor server 
-# Canvi efectuat: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions a '.
 
-# Afegir un get de terminals ferroviaries del port
-# Amb quines terminals tenim connexions
 paths:
   /railConnections:
     get:
@@ -69,6 +66,7 @@ paths:
             application/json:
               schema:
                 $ref: './oiapComponents.yml#/components/schemas/error'  
+
   /railInlandTerminals:
     get:
       tags:
@@ -110,6 +108,7 @@ paths:
             application/json:
               schema:
                 $ref: './oiapComponents.yml#/components/schemas/error' 
+
   /railwayUndertakings:
     get:
       tags:
@@ -150,6 +149,7 @@ paths:
             application/json:
               schema:
                 $ref: './oiapComponents.yml#/components/schemas/error'
+
   /railLogisticServiceProviders:
     get:
       tags:
@@ -190,6 +190,7 @@ paths:
             application/json:
               schema:
                 $ref: './oiapComponents.yml#/components/schemas/error'
+
   # Train Arrivals
   /trainArrivals:
     get:
@@ -231,6 +232,7 @@ paths:
             application/json:
               schema:
                 $ref: './oiapComponents.yml#/components/schemas/error'
+
   # Train Departures
   /trainDepartures:
     get:
@@ -272,6 +274,7 @@ paths:
             application/json:
               schema:
                 $ref: './oiapComponents.yml#/components/schemas/error' 
+
 components:
   parameters: 
     portCode:
@@ -316,6 +319,7 @@ components:
       explode: false
       schema:
         $ref: './oiapComponents.yml#/components/schemas/id'
+
   schemas:
     railConnection: 
       description: ''
@@ -338,7 +342,8 @@ components:
             railLogisticServiceProvider: 
               type: string
               example: Name of the Rail Logistic Service Provider
-    inlandTerminal: # Important definir aquesta estructura de dades. Mirar Sòstrat !!!
+
+    inlandTerminal: 
       description: ''
       type: object
       allOf:
@@ -348,14 +353,14 @@ components:
               $ref: './oiapComponents.yml#/components/schemas/locode' 
         - type: object
           properties:
-            railTerminalCode:  # Veure si existeix una taula d'estacions
+            railTerminalCode:  # Is there any standard codification for rail terminals?
               $ref: './oiapComponents.yml#/components/schemas/railTerminalCode'  
         - type: object
           properties:
-            railTerminalName:  # Veure si existeix una taula d'estacions
+            railTerminalName:  
               $ref: './oiapComponents.yml#/components/schemas/railTerminalName' 
 
-    railwayUndertaking: # Es tracta d'una empresa estàndard - Veure schema.org
+    railwayUndertaking: # Look at schema.org
       description: ''
       type: object
       allOf:
@@ -365,7 +370,8 @@ components:
               $ref: './oiapComponents.yml#/components/schemas/companyName' 
       required: 
         - companyName
-    railLogisticServiceProvider: # Es tracta d'una empresa estàndard - Veure schema.org
+
+    railLogisticServiceProvider: # Look at schema.org
       description: ''
       type: object
       allOf:
@@ -375,7 +381,8 @@ components:
               $ref: './oiapComponents.yml#/components/schemas/companyName' 
       required: 
         - companyName 
-    trainArrivals: # S'ha de particularitzar per als trens
+
+    trainArrivals: 
       description: list of trains that have arrived or will arrive today
       type: object
       allOf:
@@ -405,7 +412,7 @@ components:
         - placeOfDestination
         - estimatedTimeOfArrival  
 
-    trainDepartures: # S'ha de particularitzar per als trens
+    trainDepartures: 
       description: list of trains that have departed or will depart today
       type: object
       allOf:

@@ -23,7 +23,7 @@ tags:
 servers:
   - url: https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions
     description: Servidor server 
-# Canvi efectuat: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions a '.
+
 paths:
   /newsSubscriptionRequest: 
     post:
@@ -48,6 +48,7 @@ paths:
                 $ref: './oiapComponents.yml#/components/schemas/subscriptionReference'
         '400':
           description: Invalid Order
+
   /newsSubscriptionValidation:
     post:
       tags:
@@ -73,6 +74,7 @@ paths:
                 $ref: '#/components/schemas/validationMessage'
         '400':
           description: Invalid Order
+
   /newsUnsubscriptionRequest: 
     post:
       tags:
@@ -100,6 +102,7 @@ paths:
 
         '400':
           description: Invalid Order
+
   /newsUnsubscriptionValidation:
     post:
       tags:
@@ -125,6 +128,7 @@ paths:
                 $ref: '#/components/schemas/validationMessage'
         '400':
           description: Invalid Order
+
   /news:
     get:
       tags:
@@ -171,6 +175,7 @@ paths:
             application/json:
               schema:
                 $ref: './oiapComponents.yml#/components/schemas/error'  
+
   /newsCategories:
     get:
       tags:
@@ -214,6 +219,7 @@ paths:
             application/json:
               schema:
                 $ref: './oiapComponents.yml#/components/schemas/error' 
+
   /newsLanguages:
     get:
       tags:
@@ -253,6 +259,7 @@ paths:
             application/json:
               schema:
                 $ref: './oiapComponents.yml#/components/schemas/error'
+
   /news/{id}:
     get:
       tags:
@@ -298,6 +305,7 @@ paths:
             application/json:
               schema:
                 $ref: './oiapComponents.yml#/components/schemas/error'  
+
 components:
   parameters: 
     portCode:
@@ -342,6 +350,7 @@ components:
       explode: false
       schema:
         $ref: './oiapComponents.yml#/components/schemas/id'
+
   schemas:
     subscriber: # Object with all the information of a service subscriber (useful for News and Notices) 
       description: A subscriber identified by an email or a phone number.
@@ -375,6 +384,7 @@ components:
         - contactInfo
         - categories
         - language
+
     news: 
       description: News from its unique id.
       type: object
@@ -416,18 +426,21 @@ components:
         - language
         - subject
         - startTime
+
     newsCategories:
       description: A list of news categories.
       type: array
       items:
         $ref: './oiapComponents.yml#/components/schemas/newsCategory'
       example: ['Traffic', 'Environment', 'Economy', 'Stakeholders', 'Infrastructure', 'Presentations']
+
     newsLanguages:
       description: A list of languages available for news.
       type: array
       items:
         $ref: './oiapComponents.yml#/components/schemas/newsLanguage'  
       example: ['ca', 'es', 'en', 'fr']
+
     validationMessage:
       type: string 
       example: 'Your request has been approved'

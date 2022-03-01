@@ -20,11 +20,10 @@ tags:
     description: "APIs related to the docummentary procedures of a port."
     externalDocs:
       description: Description 
-      url: http://swagger.io/ # https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/docs/CatalogIntroduction.md It must be a link to a GitHub file with a more extensive description like Port Procedures are those served by liner ships that regularly sails on a fixed route following a schedule. A shipping schedule can be checked by vessel, by port of call, or by routing. 
+      url: http://swagger.io/ 
 servers:
   - url: https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions
     description: Servidor server 
-# Canvi efectuat: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions a '.
 
 paths:
   /customsClearanceProcedure:
@@ -67,6 +66,7 @@ paths:
             application/json:
               schema:
                 $ref: './oiapComponents.yml#/components/schemas/error'  
+
   /borderInspectionProcedures:
     get:
       tags:
@@ -148,6 +148,7 @@ paths:
             application/json:
               schema:
                 $ref: './oiapComponents.yml#/components/schemas/error' 
+
   /containerTareWeight:
     get:
       tags:
@@ -188,6 +189,7 @@ paths:
             application/json:
               schema:
                 $ref: './oiapComponents.yml#/components/schemas/error' 
+  
   /qualityCertificationProcedures:
     get:
       tags:
@@ -228,6 +230,7 @@ paths:
             application/json:
               schema:
                 $ref: './oiapComponents.yml#/components/schemas/error' 
+
   /qualityCertifiedPartners:
     get:
       tags:
@@ -268,6 +271,7 @@ paths:
             application/json:
               schema:
                 $ref: './oiapComponents.yml#/components/schemas/error'
+
   /partnerActivities:
     get:
       tags:
@@ -308,6 +312,7 @@ paths:
             application/json:
               schema:
                 $ref: './oiapComponents.yml#/components/schemas/error'
+
   /pickupDeliveryProcedures:
     get:
       tags:
@@ -348,6 +353,7 @@ paths:
             application/json:
               schema:
                 $ref: './oiapComponents.yml#/components/schemas/error' 
+
   /approachInstructions:
     get:
       tags:
@@ -512,7 +518,7 @@ components:
       type: object
       $ref: './oiapComponents.yml#/components/schemas/partnerActivity'
 
-    approachInstructions: # Pendent !!!!
+    approachInstructions:
       description: 'Basic information for the approach of the vessels to a port.'
       type: object
       allOf:
