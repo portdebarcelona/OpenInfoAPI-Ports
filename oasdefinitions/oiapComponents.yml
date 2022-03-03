@@ -307,11 +307,16 @@ components:
         - description
 
     # Date and time
-    startDate:  
-      description: The start date of a period. The value is populated in ISO 8601 Date format.
+    fromDate:  
+      description: The initial date of a periode of time. The value is populated in ISO 8601 Date format.
       type: string
       format: date
-      example: 2020-04-06
+      example: 2022-01-20 
+    toDate:  
+      description: The final date of a periode of time. The value is populated in ISO 8601 Date format.
+      type: string
+      format: date
+      example: 2022-01-20 
     dateRange: 
       description: 
             The duration of a time period. It is populated in ISO 8601 duration format. E.g. 4 weeks and 2 days is represented as P4W2D
@@ -338,16 +343,7 @@ components:
       type: string
       format: date-time
       example: 2022-03-16T01:04:00Z      
-    fromDate:  
-      description: The initial date of a periode of time.
-      type: string
-      format: date
-      example: 2022-01-20 
-    toDate:  
-      description: The final date of a periode of time.
-      type: string
-      format: date
-      example: 2022-01-20 
+
 
     # Rail transport
     railService:      

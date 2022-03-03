@@ -33,7 +33,7 @@ paths:
       description: Returns a list of ships that will arrive at a port in a given period of time
       parameters:
         - $ref: '#/components/parameters/portCode'
-        - $ref: '#/components/parameters/startDate'
+        - $ref: '#/components/parameters/fromDate'
         - $ref: '#/components/parameters/dateRange'
         - $ref: '#/components/parameters/shipType'
       responses: #status code
@@ -56,8 +56,8 @@ paths:
                     properties:
                       portCode:
                         $ref: './oiapComponents.yml#/components/schemas/portCode'
-                      startDate:
-                        $ref: './oiapComponents.yml#/components/schemas/startDate'
+                      fromDate:
+                        $ref: './oiapComponents.yml#/components/schemas/fromDate'
                       dateRange:
                         $ref: './oiapComponents.yml#/components/schemas/dateRange'
                       shipType:
@@ -386,15 +386,15 @@ components:
       explode: false
       schema:
         $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents.yml#/components/schemas/portCode'
-    startDate:  
+    fromDate:  
       in: query
-      name: startDate
+      name: fromDate
       description: The start date of the period for which schedule information is requested. The value is populated in ISO 8601 Date format. If not provided, the current date is used by default.
       required: false
       style: form
       explode: false
       schema:
-        $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents.yml#/components/schemas/startDate'
+        $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents.yml#/components/schemas/fromDate'
     dateRange:  
       in: query
       name: dateRange
