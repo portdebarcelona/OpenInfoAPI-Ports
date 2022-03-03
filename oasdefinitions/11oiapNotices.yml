@@ -412,12 +412,12 @@ components:
               $ref: './oiapComponents.yml#/components/schemas/noticeCategory' 
         - type: object
           properties:
-            startTime:
-              $ref: './oiapComponents.yml#/components/schemas/startTime' 
+            fromDate:
+              $ref: './oiapComponents.yml#/components/schemas/fromDate' 
         - type: object
           properties:
-            endTime:
-              $ref: './oiapComponents.yml#/components/schemas/endTime' 
+            toDate:
+              $ref: './oiapComponents.yml#/components/schemas/toDate' 
         - type: object
           properties:
             uri:

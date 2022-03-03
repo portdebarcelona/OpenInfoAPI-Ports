@@ -321,34 +321,29 @@ components:
     estimatedTimeOfArrival:  
       description: The date and time the means of transport is estimated to arrive at a specified location (ETA), in ISO 8601 Date format.
       type: string
-      format: date
-      example: 2022-03-15 11:53
+      format: date-time
+      example: 2022-03-01T11:53:00Z
     actualTimeOfArrival:  
       description: The date and time the means of transport arrives at a specified location (ATA), in ISO 8601 Date format.
       type: string
-      format: date
-      example: 2022-01-24 21:53
+      format: date-time
+      example: 2022-03-03T12:56:00Z
     estimatedTimeOfDeparture:  
       description: The date and time the means of transport is estimated to depart from a specified location (ETD), in ISO 8601 Date format.
       type: string
-      format: date
-      example: 2022-04-08 12:00
+      format: date-time
+      example: 2022-03-15T08:23:00Z
     actualTimeOfDeparture:  
       description: The date and time the means of transport departs from a specified location (ATD), in ISO 8601 Date format.
       type: string
-      format: date
-      example: 2022-01-25 10:06      
+      format: date-time
+      example: 2022-03-16T01:04:00Z      
     fromDate:  
       description: The initial date of a periode of time.
       type: string
       format: date
       example: 2022-01-20 
-    startTime:  
-      description: The initial date of a periode of time.
-      type: string
-      format: date
-      example: 2022-01-20 
-    endTime:  
+    toDate:  
       description: The final date of a periode of time.
       type: string
       format: date
