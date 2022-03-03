@@ -349,7 +349,7 @@ paths:
                 type: object
                 properties:
                   cruiseCall:
-                    type: array  # ha de ser un array?
+                    type: array  
                     items:
                       $ref: '#/components/schemas/cruiseCall'
                   requestedParams:
@@ -437,16 +437,10 @@ components:
           properties:
             shipIMONumber:
               $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents.yml#/components/schemas/shipIMONumber'
-        - type: object
-          properties:
             shipName:
               $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents.yml#/components/schemas/shipName'
-        - type: object
-          properties:
             shipType:
               $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents.yml#/components/schemas/shipType'
-        - type: object
-          properties:
             estimatedTimeOfArrival:
               $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents.yml#/components/schemas/estimatedTimeOfArrival'
       required: 
@@ -463,28 +457,16 @@ components:
           properties:
             shipIMONumber:
               $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents.yml#/components/schemas/shipIMONumber'
-        - type: object
-          properties:
             shipName:
               $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents.yml#/components/schemas/shipName'
-        - type: object
-          properties:
             shipType:
               $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents.yml#/components/schemas/shipType'
-        - type: object
-          properties:
             actualTimeOfArrival:
               $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents.yml#/components/schemas/actualTimeOfArrival'
-        - type: object
-          properties:
             estimatedTimeOfDeparture:
               $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents.yml#/components/schemas/estimatedTimeOfDeparture'
-        - type: object
-          properties:
             berth:
               $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents.yml#/components/schemas/berth'
-        - type: object
-          properties:
             lastPortOfCall:
               $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents.yml#/components/schemas/lastPortOfCall'       
       required: 
@@ -502,28 +484,16 @@ components:
           properties:
             shipIMONumber:
               $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents.yml#/components/schemas/shipIMONumber'
-        - type: object
-          properties:
             shipName:
               $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents.yml#/components/schemas/shipName'
-        - type: object
-          properties:
             shipType:
               $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents.yml#/components/schemas/shipType'
-        - type: object
-          properties:
             actualTimeOfArrival:
               $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents.yml#/components/schemas/actualTimeOfArrival'
-        - type: object
-          properties:
             estimatedTimeOfArrival:
               $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents.yml#/components/schemas/estimatedTimeOfArrival'
-        - type: object
-          properties:
             nextPortOfCall:
               $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents.yml#/components/schemas/lastPortOfCall'
-        - type: object
-          properties:
             berth:
               $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents.yml#/components/schemas/berth'
       required: 
@@ -541,28 +511,16 @@ components:
           properties:
             shipIMONumber:
               $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents.yml#/components/schemas/shipIMONumber'
-        - type: object
-          properties:
             shipName:
               $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents.yml#/components/schemas/shipName'
-        - type: object
-          properties:
             shipType:
               $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents.yml#/components/schemas/shipType'
-        - type: object
-          properties:
             actualTimeOfDeparture:
               $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents.yml#/components/schemas/actualTimeOfDeparture'
-        - type: object
-          properties:
             estimatedTimeOfDeparture:
               $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents.yml#/components/schemas/estimatedTimeOfDeparture'
-        - type: object
-          properties:
             nextPortOfCall:
               $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents.yml#/components/schemas/nextPortOfCall'
-        - type: object
-          properties:
             berth:
               $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents.yml#/components/schemas/berth'
       required: 
@@ -580,20 +538,12 @@ components:
           properties:
             shipIMONumber:
               $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents.yml#/components/schemas/shipIMONumber'
-        - type: object
-          properties:
             shipName:
               $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents.yml#/components/schemas/shipName'
-        - type: object
-          properties:
             estimatedTimeOfArrival:
               $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents.yml#/components/schemas/estimatedTimeOfArrival'
-        - type: object
-          properties:
             shipType:
               $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents.yml#/components/schemas/shipType'
-        - type: object
-          properties:
             lastPortOfCall:
               $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents.yml#/components/schemas/lastPortOfCall'       
       required: 
@@ -609,24 +559,14 @@ components:
           properties:
             shipName:
               $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents.yml#/components/schemas/shipName'
-        - type: object
-          properties:
             ferryOperator:
               $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents.yml#/components/schemas/ferryOperator'
-        - type: object
-          properties:
             actualTimeOfArrival:
               $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents.yml#/components/schemas/actualTimeOfArrival'
-        - type: object
-          properties:
             estimatedTimeOfArrival:
               $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents.yml#/components/schemas/estimatedTimeOfArrival'
-        - type: object
-          properties:
             lastPortOfCall:
               $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents.yml#/components/schemas/lastPortOfCall'
-        - type: object
-          properties:
             berth:
               $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents.yml#/components/schemas/berth'
       required: 
@@ -647,20 +587,12 @@ components:
           properties:
             ferryOperator:
               $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents.yml#/components/schemas/ferryOperator'
-        - type: object
-          properties:
             actualTimeOfDeparture:
               $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents.yml#/components/schemas/actualTimeOfDeparture'
-        - type: object
-          properties:
             estimatedTimeOfDeparture:
               $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents.yml#/components/schemas/estimatedTimeOfDeparture'
-        - type: object
-          properties:
             nextPortOfCall:
               $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents.yml#/components/schemas/nextPortOfCall'
-        - type: object
-          properties:
             berth:
               $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents.yml#/components/schemas/berth'
       required: 
@@ -677,20 +609,12 @@ components:
           properties:
             shipName:
               $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents.yml#/components/schemas/shipName'
-        - type: object
-          properties:
             cruiseLine:
               $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents.yml#/components/schemas/cruiseLine'
-        - type: object
-          properties:
             estimatedTimeOfArrival:
               $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents.yml#/components/schemas/estimatedTimeOfArrival'
-        - type: object
-          properties:
             estimatedTimeOfDeparture:
               $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents.yml#/components/schemas/estimatedTimeOfDeparture'
-        - type: object
-          properties:
             facility:
               $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents.yml#/components/schemas/facility'       
       required: 
