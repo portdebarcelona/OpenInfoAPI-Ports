@@ -6,14 +6,15 @@ This document sumarizes all the decisions addopted during this project with the 
 - The key words "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL NOT", "SHOULD", "SHOULD NOT", "RECOMMENDED", "NOT RECOMMENDED", "MAY", and "OPTIONAL" in this document are to be interpreted as described in BCP 14 RFC2119 RFC8174 when, and only when, they appear in all capitals, as shown here.
 
 ## camelCase
-- Naming convention for fields: camelCase. 
+- Naming convention for fields: MUST be `camelCase`. 
 
-## Open API version 3
+## Open API versioning
+- MUST be `version 3.x`.
 - While we have chosen Open API version 3. 
 - Advantages and disadvantages.
 
 ## YAML
-- OpenAPI is 3.0. OpenAPI definitions can be written in JSON or YAML. We recommend YAML, because it is easier to read and write. 
+- OpenAPI is 3.0. OpenAPI definitions can be written in JSON or YAML. `YAML` is RECOMMENDED, because it is easier to read and write. 
 
 ## Parameter Serialization (from [OpenAPI specification](https://swagger.io/docs/specification/serialization/))
 - Serialization means translating data structures or object state into a format that can be transmitted and reconstructed later. OpenAPI 3.0 supports arrays and objects in operation parameters (path, **query**, header, and cookie) and lets you specify how these parameters should be serialized. 
@@ -23,10 +24,10 @@ style defines how multiple values are delimited.
   - explode (true/false) specifies whether arrays and objects should generate separate parameters for each array item or object property.
 
 - Query Parameters
-  - Query parameters support different style values and WE RECOMMEND:
+  - Query parameters support different style values and the following combination is RECOMMENDED:
     - form – (default) ampersand-separated values, also known as form-style query expansion. Corresponds to the {?param_name} URI template.
 
-- Althoug the default serialization method is *style: form* and *explode: true*, WE RECOMMEND *style: form* and *explode: false* 
+- Althoug the default serialization method is *style: form* and *explode: true*, the combination `style: form` and `explode: false` is RECOMMENDED
 - Some exemples:
   - style: form 
   - explode: false
@@ -36,7 +37,46 @@ style defines how multiple values are delimited.
     -	The object id = {"role": "admin", "firstName": "Alex"} is translated as: /users?id=role,admin,firstName,Alex
 
 ## Grouping Operations With Tags (from [OpenAPI specification](https://swagger.io/docs/specification/grouping-operations-with-tags/))
-- WE RECOMMEND to group operations with tags. 
+- WE RECOMMEND to group operations with `tags.` 
+
+## Responses
+- MUST include information on the parameters included in the request.
+- MAY include some metadata of the API call.
+
+### Errors
+- MAY include the most precise code, from the list of HTML status codes, that identifies the error returned by a server on a client's request. 
+
+## Security Scheme Object
+- Defines a security scheme that can be used by the operations. Supported schemes are:
+  
+  - HTTP authentication, 
+  - an API key (either as a header, a cookie parameter or as a query parameter), 
+  - OAuth2's common flows (implicit, password, client credentials and authorization code) as defined in RFC6749, and 
+  - OpenID Connect Discovery.
+
+- Fields required for the supported schemes:
+  - Common fields
+    - type
+    - description
+  - HTTP authentication
+    - scheme ([values registered in the IANA Authentication Scheme registry](https://www.iana.org/assignments/http-authschemes/http-authschemes.xhtml)]
+    - bearerFormat
+  - API key 
+    - name
+    - in (valid values are: query, header or cookie)
+  - oauth2
+    - flows (supported values are:  implicit, password, clientCredentials, authorizationCode)
+    - These are the configuration details for a supported OAuth Flow:
+      - authorizationUrl string (oauth2 ("implicit", "authorizationCode")) REQUIRED
+      - tokenUrl string (oauth2 ("password", "clientCredentials", "authorizationCode")) REQUIRED 
+      - refreshUrl string (oauth2)
+      - scopes Map[string, string] (oauth2) REQUIRED 
+  - openIdConnect
+    - openIdConnectUrl
+
+
+We recommend _____________ 
+
 
 ## Callbacks (from [OpenAPI specification](https://swagger.io/docs/specification/callbacks/))
 - A callback is an asynchronous, out-of-band, request that a service will send to some other service in response to certain events. 
@@ -96,36 +136,3 @@ style defines how multiple values are delimited.
                 required: true
                 schema:
                   type: string
-
-## Responses must include information on the API called (with their parameters)
-
-## Security Scheme Object
-- Defines a security scheme that can be used by the operations. Supported schemes are:
-  
-  - HTTP authentication, 
-  - an API key (either as a header, a cookie parameter or as a query parameter), 
-  - OAuth2's common flows (implicit, password, client credentials and authorization code) as defined in RFC6749, and 
-  - OpenID Connect Discovery.
-
-- Fields required for the supported schemes:
-  - Common fields
-    - type
-    - description
-  - HTTP authentication
-    - scheme ([values registered in the IANA Authentication Scheme registry](https://www.iana.org/assignments/http-authschemes/http-authschemes.xhtml)]
-    - bearerFormat
-  - API key 
-    - name
-    - in (valid values are: query, header or cookie)
-  - oauth2
-    - flows (supported values are:  implicit, password, clientCredentials, authorizationCode)
-    - These are the configuration details for a supported OAuth Flow:
-      - authorizationUrl string (oauth2 ("implicit", "authorizationCode")) REQUIRED
-      - tokenUrl string (oauth2 ("password", "clientCredentials", "authorizationCode")) REQUIRED 
-      - refreshUrl string (oauth2)
-      - scopes Map[string, string] (oauth2) REQUIRED 
-  - openIdConnect
-    - openIdConnectUrl
-
-
-We recommend _____________ 
