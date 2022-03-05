@@ -518,7 +518,7 @@ components:
       type: object
       $ref: './oiapComponents.yml#/components/schemas/partnerActivity'
 
-    approachInstructions:
+    approachInstructions: # Pendent !!!!
       description: 'Basic information for the approach of the vessels to a port.'
       type: object
       allOf:

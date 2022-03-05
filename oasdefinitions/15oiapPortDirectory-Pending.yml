@@ -47,7 +47,7 @@ paths:
                   companyOverviewData: # Plural, because it is an array
                     type: array
                     items:
-                      $ref: '#/components/schemas/companyOverviewInfo'
+                      $ref: '#/components/schemas/companyOverviewData'
                   requestedParams:
                     type: object
                     properties:
@@ -88,7 +88,7 @@ paths:
                   companyNames:  # Plural, because it is an array
                     type: array
                     items:
-                      $ref: '#/components/schemas/companyInfo'
+                      $ref: '#/components/schemas/companyData'
                   requestedParams:
                     type: object
                     properties:
@@ -130,7 +130,7 @@ paths:
                 type: object
                 properties:
                   companyFromVat:
-                    $ref: '#/components/schemas/companyInfo'
+                    $ref: '#/components/schemas/companyData'
                   requestedParams:
                     type: object
                     properties:
@@ -185,26 +185,28 @@ components:
         $ref: './oiapComponents.yml#/components/schemas/companyVat'
 
   schemas:
-    companyOverviewInfo: 
-      description: ' '  # To do
+    companyOverviewData: 
+      description: 'Basic information about a company.' 
       type: object
       allOf:
         - type: object 
           properties:
             companyName:
               $ref: './oiapComponents.yml#/components/schemas/companyName' 
+            activities:  # array, because they can be more than one
+              type: array
+              items:
+                $ref: './oiapComponents.yml#/components/schemas/activity'
             companyVat:
               $ref: './oiapComponents.yml#/components/schemas/companyVat'
-      required:
-        - companyName 
 
-    companyInfo: 
-      description: ' ' # To do
+    companyData: 
+      description: 'Detailled information about a company or a governmental body.' 
       type: object
       allOf:
         - type: object 
           properties:  
-            activities:  # array because can be more than one
+            activities:  # array, because theycan be more than one
               type: array
               items:
                 $ref: './oiapComponents.yml#/components/schemas/activity'
@@ -224,7 +226,6 @@ components:
               $ref: './oiapComponents.yml#/components/schemas/afterHours' 
             companyVat:  
               $ref: './oiapComponents.yml#/components/schemas/companyVat'
-      required:
-        - companyName 
+
 
 

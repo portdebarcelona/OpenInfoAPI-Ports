@@ -16,7 +16,7 @@ info:
 # servers:
 #  - url: https://github.com/portdebarcelona/OpenInfoAPI-Ports/blob/develop/oasdefinitions/
 paths:
-  /resADir:
+  /dummyPath:
     get:
       summary: Logs out current logged in user session
       description: ''
@@ -96,20 +96,6 @@ components:
       description: surname
       type: string      
 
-    company:
-      description: 
-        Company
-      type: object
-      properties:
-        companyName:
-          type: string 
-          description: Name of the company
-        companyVat:
-          type: string
-          description: VAT code of the company
-      required:
-        - companyName   
-
     openingHours:   # Pending
       description: Opening hours.
       type: object
@@ -170,14 +156,62 @@ components:
       description: Information about a governmental body.
       type: string
 
+    companyOverviewInfo: 
+      description: 'Basic information about a company or a governmental body.'
+      type: object
+      allOf:
+        - type: object 
+          properties:
+            companyName:
+              $ref: '#/components/schemas/companyName' 
+            activities:  # array, because they can be more than one
+              type: array
+              items:
+                $ref: './oiapComponents.yml#/components/schemas/activity'
+            companyVat:
+              $ref: '#/components/schemas/companyVat'
+
+    companyInfo: 
+      description: 'Detailled information about a company or a governmental body.' 
+      type: object
+      allOf:
+        - type: object 
+          properties:  
+            activities:  # array, because theycan be more than one
+              type: array
+              items:
+                $ref: '#/components/schemas/activity'
+            companyName:  
+              $ref: '#/components/schemas/companyName' 
+            email:  
+              $ref: '#/components/schemas/email'
+            phone:  
+              $ref: '#/components/schemas/phone'
+            website:  
+              $ref: '#/components/schemas/uri'
+            companyAddress:  
+              $ref: '#/components/schemas/address'
+            openingHours:
+              $ref: '#/components/schemas/openingHours'             
+            afterHours: # contact info for after hours  
+              $ref: '#/components/schemas/afterHours' 
+            companyVat:  
+              $ref: '#/components/schemas/companyVat'
+
     companyVat:
       description: Vat number of a company.
       type: string
 
-    partnerActivity:
+    partnerActivity:   # Maybe it can be replaced by activity
       description: Main activity of a partner.
       type: string
       example: Freight forwarder
+
+    activity:  # This is an important element that has to be defined
+      description: S.
+      type: string
+
+
     companyName: 
       description: Name of a company.
       type: string
@@ -634,6 +668,9 @@ components:
           type: string
           description: Message describing an error.
           example: Error description
+        identifier:  # Do we really need it?
+          type: string
+          format: date-time
       required:
         - code
         - message
@@ -760,9 +797,7 @@ components:
       example: 22G1 
 
     # Miscelanius
-    activity:
-      description: S.
-      type: string
+
 
     targetPeriode: 
       description: t.
@@ -776,116 +811,22 @@ components:
 
     # PENDING !!!!
 
-
-
-    CertificateDto:
-      properties:
-        category:
-          type: string
-        property:
-          type: string
-      type: object
-
-    Company:
-      properties:
-        activities:
-          items:
-            $ref: '#/components/schemas/activity'
-          type: array
-        address:
-          $ref: '#/components/schemas/address'
-        afterHours:
-          items:
-            $ref: '#/components/schemas/afterHours'
-          type: array
-        certificates:
-          items:
-            $ref: '#/components/schemas/CertificateDto'
-          type: array
-        email:
-          type: string
-        fax:
-          type: string
-        financials:
-          items:
-            $ref: '#/components/schemas/FinancialDto'
-          type: array
-        id:
-          example: 00000000-0000-0000-0000-000000000000
-          format: uuid
-          type: string
-        logistics:
-          items:
-            $ref: '#/components/schemas/LogisticDto'
-          type: array
-        managements:
-          items:
-            $ref: '#/components/schemas/ManagementDto'
-          type: array
-        name:
-          type: string
-        openingHours:
-          items:
-            $ref: '#/components/schemas/openingHours'
-          type: array
-        pcsCode:
-          type: string
-        phone:
-          type: string
-        quayAndWarehouses:
-          items:
-            $ref: '#/components/schemas/QuayAndWarehouseDto'
-          type: array
-        sectors:
-          items:
-            $ref: '#/components/schemas/SectorDto'
-          type: array
-        url:
-          type: string
-        vat:
-          type: string
-        waterClercks:
-          items:
-            $ref: '#/components/schemas/WaterClerckDto'
-          type: array
-      type: object
-
-
-
-    ErrorResult:
-      properties:
-        error:
-          type: string
-        identifier:
-          format: date-time
-          type: string
-      type: object
-
-
-    FinancialDto:
-      properties:
-        bic:
-          type: string
-        iban:
-          type: string
-      type: object
-
-
     LastCheckedResult:
+      type: object
       properties:
         lastChecked:
           type: string
-      type: object
 
-    LogisticDto:
+    Logistics:
+      type: object
       properties:
         category:
           type: string
         property:
           type: string
-      type: object
 
-    ManagementDto:
+    Management:
+      type: object
       properties:
         email:
           type: string
@@ -897,11 +838,9 @@ components:
           type: string
         phone:
           type: string
+
+    QuayAndWarehouse:
       type: object
-
-
-
-    QuayAndWarehouseDto:
       properties:
         address:
           type: string
@@ -921,33 +860,14 @@ components:
           type: string
         warehouse:
           type: string
-      type: object
 
-    SectorDto:
+    Sector:
       properties:
         name:
           type: string
       type: object
 
-    WaterClerckDto:
-      properties:
-        address:
-          type: string
-        email:
-          type: string
-        fax:
-          type: string
-        functionTitle:
-          type: string
-        gsm:
-          type: string
-        name:
-          type: string
-        phone:
-          type: string
-      type: object
-
-    CompanyOverviewData:
+    companyOverviewData:
       items:
         type: string
 

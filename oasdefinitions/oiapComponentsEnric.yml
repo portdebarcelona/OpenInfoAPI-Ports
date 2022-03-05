@@ -72,7 +72,7 @@ components:
     dateTime:  
       description: The datetime (day, hour, minute, second ) of the moment for which Air Quality Observed information is requested. The value is populated in ISO 8601 
       type: string
-      format: date
+      format: date-time
       example: 2022-01-30T17:24:09Z
     WeatherObserved:
       description: 'An observation of weather conditions at a certain place and time. This data model has been developed in cooperation with mobile operators and the GSMA.'
