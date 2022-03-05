@@ -654,26 +654,7 @@ components:
         unsubscriptionRequestMessage:
           $ref: '#/components/schemas/unsubscriptionRequestMessage'
 
-    # Error schemas
-    error:
-      type: object
-      description: 
-        Error body
-      properties:
-        code:
-          type: string 
-          description: Code that identifies an error.
-          example: Error code
-        message:
-          type: string
-          description: Message describing an error.
-          example: Error description
-        identifier:  # Do we really need it?
-          type: string
-          format: date-time
-      required:
-        - code
-        - message
+
 
     # Liner services
     linerServiceName: 
@@ -795,6 +776,35 @@ components:
       type: string
       maxLength: 4
       example: 22G1 
+
+
+    # Error schemas
+    error:
+      type: object
+      description: 
+        Error body
+      properties:
+        code:
+          type: string 
+          description: Code that identifies an error.
+          example: Error code
+        message:
+          type: string
+          description: Message describing an error.
+          example: Error description
+        identifier:  # Do we really need it? Is this the best name?
+          type: string
+          format: date-time
+      required:
+        - code
+        - message
+
+
+
+
+
+
+
 
     # Miscelanius
 
