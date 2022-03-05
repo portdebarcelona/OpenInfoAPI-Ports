@@ -20,22 +20,20 @@ tags:
     description: "APIs related to the docummentary procedures of a port."
     externalDocs:
       description: Description 
-      url: http://swagger.io/ # https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/docs/CatalogIntroduction.md It must be a link to a GitHub file with a more extensive description like Port Directory are those served by liner ships that regularly sails on a fixed route following a schedule. A shipping schedule can be checked by vessel, by port of call, or by routing. 
+      url: http://swagger.io/  
 servers:
   - url: https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions
     description: Servidor server 
-# Canvi efectuat: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions a '.
 
 paths:
-  /basicTrafficEnvironment:
+  /companies:
     get:
+      description: Get some overview data of all the companies from a port.
       tags:
         - Port Directory
-      summary: Returns a list of resources where the procedures for clearing the goods in import can be found.
-      description: Returns a list of resources where the procedures for clearing the goods in import can be found. 
       parameters:
         - $ref: '#/components/parameters/portCode'
-      responses: #status code
+      responses:
         '200':
           description: Successful operation
           headers:
@@ -46,15 +44,58 @@ paths:
               schema:
                 type: object
                 properties:
-                  basicTrafficEnvironment:
+                  companyOverviewData: # Plural, because it is an array
                     type: array
                     items:
-                      $ref: '#/components/schemas/basicTrafficEnvironment'
+                      $ref: '#/components/schemas/companyOverviewInfo'
                   requestedParams:
                     type: object
                     properties:
                       portCode:
                         $ref: './oiapComponents.yml#/components/schemas/portCode'
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: './oiapComponents.yml#/components/schemas/error' 
+        '404':
+          description: Not found
+          content:
+            application/json:
+              schema:
+                $ref: './oiapComponents.yml#/components/schemas/error' 
+
+  /companies/{companyName}:
+    get:
+      description: Get a company by its name or part of it.
+      tags:
+        - Port Directory
+      parameters:
+        - $ref: '#/components/parameters/portCode'
+        - $ref: '#/components/parameters/companyName' # Maybe the parameter name has to be different from companyName because it can be a part of companyName
+      responses:
+        '200':
+          description: Successful operation
+          headers:
+            oiapApiVersion:
+              $ref: './oiapComponents.yml#/components/headers/oiapApiVersion'
+          content: 
+            application/json:
+              schema:
+                type: object
+                properties:
+                  companyNames:  # Plural, because it is an array
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/companyInfo'
+                  requestedParams:
+                    type: object
+                    properties:
+                      portCode:
+                        $ref: './oiapComponents.yml#/components/schemas/portCode'
+                      companyName:
+                        $ref: './oiapComponents.yml#/components/schemas/companyName'
         '400':
           description: Bad request
           content:
@@ -67,15 +108,17 @@ paths:
             application/json:
               schema:
                 $ref: './oiapComponents.yml#/components/schemas/error'  
-  /basicEconomicData:
+
+
+  /companies/{companyVat}:
     get:
+      description: Get a company by its vat number.
       tags:
         - Port Directory
-      summary: Returns a list of resources where the procedures for clearing the goods subject to controls from the border inspection services can be found.
-      description: Returns a list of resources where the procedures for clearing the goods subject to controls from the border inspection services can be found. 
       parameters:
         - $ref: '#/components/parameters/portCode'
-      responses: #status code
+        - $ref: '#/components/parameters/companyVat'
+      responses:
         '200':
           description: Successful operation
           headers:
@@ -86,15 +129,15 @@ paths:
               schema:
                 type: object
                 properties:
-                  basicEconomicData:
-                    type: array
-                    items:
-                      $ref: '#/components/schemas/basicEconomicData'
+                  companyFromVat:
+                    $ref: '#/components/schemas/companyInfo'
                   requestedParams:
                     type: object
                     properties:
                       portCode:
                         $ref: './oiapComponents.yml#/components/schemas/portCode'
+                      companyVat:
+                        $ref: './oiapComponents.yml#/components/schemas/companyVat'
         '400':
           description: Bad request
           content:
@@ -106,9 +149,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: './oiapComponents.yml#/components/schemas/error' 
-
- 
+                $ref: './oiapComponents.yml#/components/schemas/error'  
 
 components:
   parameters: 
@@ -124,36 +165,66 @@ components:
       explode: false
       schema:
         $ref: './oiapComponents.yml#/components/schemas/portCode'
-
+    companyName:
+      in: query
+      name: companyName
+      description: Name of the company
+      required: true
+      style: form
+      explode: false
+      schema:
+        $ref: './oiapComponents.yml#/components/schemas/companyName'
+    companyVat:
+      in: query
+      name: companyName
+      description: Vat number of the company
+      required: true
+      style: form
+      explode: false
+      schema:
+        $ref: './oiapComponents.yml#/components/schemas/companyVat'
 
   schemas:
-    basicTrafficEnvironment: 
-      description: 'URI where a customs clearance procedure from a port can be found.'
+    companyOverviewInfo: 
+      description: ' '  # To do
       type: object
       allOf:
         - type: object 
           properties:
-            customsClearanceDescription:  
-              description: 'Procedure description'
-              type: string
-              enum: ['All .'] 
-            customsClearanceUri:  
-              $ref: './oiapComponents.yml#/components/schemas/uri' 
+            companyName:
+              $ref: './oiapComponents.yml#/components/schemas/companyName' 
+            companyVat:
+              $ref: './oiapComponents.yml#/components/schemas/companyVat'
       required:
-        - customsClearanceUri 
+        - companyName 
 
-    basicEconomicData: 
-      description: 'URI where a border inspection procedure from a port can be found.'
+    companyInfo: 
+      description: ' ' # To do
       type: object
       allOf:
         - type: object 
-          properties:
-            borderInspectionDescription:  
-              description: 'Procedure description'
-              type: string
-              enum: ['The '] 
-            borderInspectionUri:  
-              $ref: './oiapComponents.yml#/components/schemas/uri' 
+          properties:  
+            activities:  # array because can be more than one
+              type: array
+              items:
+                $ref: './oiapComponents.yml#/components/schemas/activity'
+            companyName:  
+              $ref: './oiapComponents.yml#/components/schemas/companyName' 
+            email:  
+              $ref: './oiapComponents.yml#/components/schemas/email'
+            phone:  
+              $ref: './oiapComponents.yml#/components/schemas/phone'
+            website:  
+              $ref: './oiapComponents.yml#/components/schemas/uri'
+            companyAddress:  
+              $ref: './oiapComponents.yml#/components/schemas/address'
+            openingHours:
+              $ref: './oiapComponents.yml#/components/schemas/openingHours'             
+            afterHours: # contact info for after hours  
+              $ref: './oiapComponents.yml#/components/schemas/afterHours' 
+            companyVat:  
+              $ref: './oiapComponents.yml#/components/schemas/companyVat'
       required:
-        - borderInspèctionUri 
+        - companyName 
+
 

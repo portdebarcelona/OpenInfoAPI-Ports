@@ -79,7 +79,7 @@ components:
       type: string
       example: '4ZT2'
 
-    # Persons
+    # Partners and contact info
     contactInfo:
       description: email or phone
       type: string
@@ -95,6 +95,7 @@ components:
     surname:
       description: surname
       type: string      
+
     company:
       description: 
         Company
@@ -103,11 +104,56 @@ components:
         companyName:
           type: string 
           description: Name of the company
-        companyCode:
+        companyVat:
           type: string
           description: VAT code of the company
       required:
         - companyName   
+
+    openingHours:   # Pending
+      description: Opening hours.
+      type: object
+      properties:
+        afternoon:
+          type: string
+        closed:
+          type: boolean
+        day:
+          type: string
+        forenoon:
+          type: string
+
+    afterHours:  # Pending 
+      description: Contact info after hours.
+      type: object
+      properties:
+        email:
+          type: string
+        fax:
+          type: string
+        functionTitle:
+          type: string
+        gsm:
+          type: string
+        name:
+          type: string
+        phone:
+          type: string
+
+
+    address:
+      description: Address.
+      type: object
+      properties:
+        city:
+          type: string
+        country:
+          type: string
+        streetAndNumber:
+          type: string
+        zipCode:
+          type: string
+
     language:
       description: |
             The ISO 639 code of a language. Each language is assigned a two-letter (639-1) lowercase abbreviation.
@@ -115,6 +161,56 @@ components:
       type: string
       maxLength: 2
       example: ca 
+
+    # Partners      
+    companyDetails: # Definition pending. Look at schema.org
+      description: Information about a company.
+      type: string
+    governmentalBodyDetails: # Definition pending. Look at schema.org Thonk about merging with companyDetails
+      description: Information about a governmental body.
+      type: string
+
+    companyVat:
+      description: Vat number of a company.
+      type: string
+
+    partnerActivity:
+      description: Main activity of a partner.
+      type: string
+      example: Freight forwarder
+    companyName: 
+      description: Name of a company.
+      type: string
+    ferryOperator:
+      description: 
+        Identification of the company that operates a ferry.  
+      type: object
+      properties:
+        code:
+          description: Operator code. Code assigned to a ferry operator.  
+          type: string
+          example: GRM
+        description:
+          description: Name of the ferry operator. 
+          type: string
+          example: GRIMALDI 
+      required:
+        - description
+    cruiseLine:
+      description: 
+        Identification of the company that operates the cruise ship.  
+      type: object
+      properties:
+        code:
+          description: Operator code. Code assigned to a cruise line.  
+          type: string
+          example: COSTA
+        description:
+          description: Name of the cruise line. 
+          type: string
+          example: COSTA CRUCEROS 
+      required:
+        - description
 
     # Location components
     locode:
@@ -259,52 +355,7 @@ components:
       example: "Containers"    
       enum: ["Containers", "Vehicles", "Bulk", "Tanker"]  
 
-    # Partners      
-    companyDetails: # Definition pending. Look at schema.org
-      description: Information about a company.
-      type: string
-    governmentalBodyDetails: # Definition pending. Look at schema.org Thonk about merging with companyDetails
-      description: Information about a governmental body.
-      type: string
 
-
-    partnerActivity:
-      description: Main activity of a partner.
-      type: string
-      example: Freight forwarder
-    companyName: 
-      description: Name of a company.
-      type: string
-    ferryOperator:
-      description: 
-        Identification of the company that operates a ferry.  
-      type: object
-      properties:
-        code:
-          description: Operator code. Code assigned to a ferry operator.  
-          type: string
-          example: GRM
-        description:
-          description: Name of the ferry operator. 
-          type: string
-          example: GRIMALDI 
-      required:
-        - description
-    cruiseLine:
-      description: 
-        Identification of the company that operates the cruise ship.  
-      type: object
-      properties:
-        code:
-          description: Operator code. Code assigned to a cruise line.  
-          type: string
-          example: COSTA
-        description:
-          description: Name of the cruise line. 
-          type: string
-          example: COSTA CRUCEROS 
-      required:
-        - description
 
     # Date and time
     fromDate:  
@@ -718,7 +769,185 @@ components:
       type: object
       properties:
         unsubscriptionRequestReference:
-          $ref: '#/components/schemas/startDate'
+          $ref: '#/components/schemas/fromDate'
         unsubscriptionRequestMessage:
           $ref: '#/components/schemas/dateRange'
+
+
+    # PENDING !!!!
+
+
+
+    CertificateDto:
+      properties:
+        category:
+          type: string
+        property:
+          type: string
+      type: object
+
+    Company:
+      properties:
+        activities:
+          items:
+            $ref: '#/components/schemas/activity'
+          type: array
+        address:
+          $ref: '#/components/schemas/address'
+        afterHours:
+          items:
+            $ref: '#/components/schemas/afterHours'
+          type: array
+        certificates:
+          items:
+            $ref: '#/components/schemas/CertificateDto'
+          type: array
+        email:
+          type: string
+        fax:
+          type: string
+        financials:
+          items:
+            $ref: '#/components/schemas/FinancialDto'
+          type: array
+        id:
+          example: 00000000-0000-0000-0000-000000000000
+          format: uuid
+          type: string
+        logistics:
+          items:
+            $ref: '#/components/schemas/LogisticDto'
+          type: array
+        managements:
+          items:
+            $ref: '#/components/schemas/ManagementDto'
+          type: array
+        name:
+          type: string
+        openingHours:
+          items:
+            $ref: '#/components/schemas/openingHours'
+          type: array
+        pcsCode:
+          type: string
+        phone:
+          type: string
+        quayAndWarehouses:
+          items:
+            $ref: '#/components/schemas/QuayAndWarehouseDto'
+          type: array
+        sectors:
+          items:
+            $ref: '#/components/schemas/SectorDto'
+          type: array
+        url:
+          type: string
+        vat:
+          type: string
+        waterClercks:
+          items:
+            $ref: '#/components/schemas/WaterClerckDto'
+          type: array
+      type: object
+
+
+
+    ErrorResult:
+      properties:
+        error:
+          type: string
+        identifier:
+          format: date-time
+          type: string
+      type: object
+
+
+    FinancialDto:
+      properties:
+        bic:
+          type: string
+        iban:
+          type: string
+      type: object
+
+
+    LastCheckedResult:
+      properties:
+        lastChecked:
+          type: string
+      type: object
+
+    LogisticDto:
+      properties:
+        category:
+          type: string
+        property:
+          type: string
+      type: object
+
+    ManagementDto:
+      properties:
+        email:
+          type: string
+        firstName:
+          type: string
+        functionTitle:
+          type: string
+        lastName:
+          type: string
+        phone:
+          type: string
+      type: object
+
+
+
+    QuayAndWarehouseDto:
+      properties:
+        address:
+          type: string
+        email:
+          type: string
+        fax:
+          type: string
+        function:
+          type: string
+        name:
+          type: string
+        phone:
+          type: string
+        quayNr:
+          type: string
+        responsible:
+          type: string
+        warehouse:
+          type: string
+      type: object
+
+    SectorDto:
+      properties:
+        name:
+          type: string
+      type: object
+
+    WaterClerckDto:
+      properties:
+        address:
+          type: string
+        email:
+          type: string
+        fax:
+          type: string
+        functionTitle:
+          type: string
+        gsm:
+          type: string
+        name:
+          type: string
+        phone:
+          type: string
+      type: object
+
+    CompanyOverviewData:
+      items:
+        type: string
 
