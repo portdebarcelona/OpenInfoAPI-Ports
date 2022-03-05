@@ -372,7 +372,7 @@ components:
         - type: object
           properties:
             company: # company is an composite object with a companyName and a companyCode
-              $ref: './oiapComponents.yml#/components/schemas/company' 
+              $ref: './oiapComponents.yml#/components/schemas/companyOverviewInfo' 
         - type: object
           properties:
             categories: # it must be an array of categories Can be the same for News and Notices?
