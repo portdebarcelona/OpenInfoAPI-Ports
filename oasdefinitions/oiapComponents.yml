@@ -89,26 +89,52 @@ components:
             The Uniform Resource Identifier (URI) is a unique sequence of characters that identifies a logical or physical resource used by web technologies.
       type: string
 
-    validationKey:
+    componentInfo:
       description: |
-            The code received to complete a subscription process.
+            Metadata information associated to an API call.
+      type: object
+      properties:
+        uriCall:
+          description: URI of the API call.
+          $ref: '#/components/schemas/uri'           
+        urlOas3:
+          description: URL of the OAS 3.x.
+          $ref: '#/components/schemas/uri'
+        definition:
+          description: Definition.
+          type: string
+      required:
+        - code
+        - message
+
+    validationKey:
+      description: The code received to complete a subscription process.
       type: string
       example: '4ZT2'
 
+    searchTerm:
+      description: String used to search something.
+      type: string
+      minLength: 3
+
     error:
+      description: Error body
       type: object
-      description: 
-        Error body
       properties:
         code:
-          type: string 
-          description: Code that identifies an error.
-          example: Error code
-        message:
+          description: HTML response status code.
           type: string
-          description: Message describing an error.
+          pattern: /([1-5][0-9]{2})/
+        messageCode:
+          description: Code error description.
+          type: string
           example: Error description
-        timestamp:  # Do we really need it? Is this the best name?
+        message:
+          description: Error description.
+          type: string
+          example: Error description
+        timestamp:  
+          description: Timestamp of error ocurrence.
           type: string
           format: date-time
       required:

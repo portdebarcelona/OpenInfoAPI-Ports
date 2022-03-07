@@ -71,12 +71,12 @@ paths:
 
   /companies/{companyName}:
     get:
-      description: Get a company by its name or part of it.
+      description: Get a company by its name or part of it without diacritics. At least three characters have to be included. 
       tags:
         - Port Directory
       parameters:
         - $ref: '#/components/parameters/portCode'
-        - $ref: '#/components/parameters/companyName' # Maybe the parameter name has to be different from companyName because it can be a part of companyName
+        - $ref: '#/components/parameters/searchTerm' 
       responses:
         '200':
           description: Successful operation
@@ -98,7 +98,7 @@ paths:
                       portCode:
                         $ref: './oiapComponents.yml#/components/schemas/portCode'
                       companyName:
-                        $ref: './oiapComponents.yml#/components/schemas/companyName'
+                        $ref: './oiapComponents.yml#/components/schemas/searchTerm'
         '400':
           description: Bad request
           content:
@@ -173,9 +173,7 @@ paths:
                 type: object
                 properties:
                   activities:
-                    type: array
-                    items:
-                      $ref: './oiapComponents.yml#/components/schemas/activity'
+                    $ref: '#/components/schemas/activities'
                   requestedParams:
                     type: object
                     properties:
@@ -217,6 +215,15 @@ components:
       explode: false
       schema:
         $ref: './oiapComponents.yml#/components/schemas/companyName'
+    searchTerm:
+      in: query
+      name: searchTerm
+      description: Part of the name of the company without diacritics
+      required: false
+      style: form
+      explode: false
+      schema:
+        $ref: './oiapComponents.yml#/components/schemas/searchTerm'
     companyVat:
       in: query
       name: companyName
@@ -286,4 +293,10 @@ components:
             - companyName
             - phone
 
+    activities:
+      description: A list of all the possible activities for a company or governmental body..
+      type: array
+      items:
+        $ref: './oiapComponents.yml#/components/schemas/activity'  
+      example: [Port Authority, Harbour Master, Customs, Border Control Post (BCP), Immigration, Container Depot, Container Terminal, Container (CFS), General Cargo Terminal, Multi Purpose Terminal, Liquid Cargo Terminal, Bulk Cargo Terminal, Temperature Controlled Terminal, Dangerous Cargo Warehouse, Passenger Terminal, Inland Container Terminal, Liner Agent - Carrier, Railway Undertaking, Haulier, Barge Carrier, Freight Forwarder, Customs Broker, Stevedoring & Lashing, Tally, Ship Supplier, Nautic-technic, Tug, Mooring, Shipyards & Repair, Shipowner, Pilots, Research, Consulting, Port Community System - PCS, IT-Service, Insurance, Container Leasing, Railway Services, Railway Logistics Operator, Other]
 
