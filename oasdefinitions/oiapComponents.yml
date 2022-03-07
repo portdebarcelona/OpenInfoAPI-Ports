@@ -16,7 +16,7 @@ info:
 # servers:
 #  - url: https://github.com/portdebarcelona/OpenInfoAPI-Ports/blob/develop/oasdefinitions/
 paths:
-  /dummyPath:
+  /dummyPath:   # We don't need a path  --> INDEX
     get:
       summary: Logs out current logged in user session
       description: ''
@@ -108,7 +108,7 @@ components:
           type: string
           description: Message describing an error.
           example: Error description
-        identifier:  # Do we really need it? Is this the best name?
+        timestamp:  # Do we really need it? Is this the best name?
           type: string
           format: date-time
       required:

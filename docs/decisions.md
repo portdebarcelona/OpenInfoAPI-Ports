@@ -40,10 +40,17 @@ style defines how multiple values are delimited.
 - WE RECOMMEND to group operations with `tags.` 
 
 ## Responses
-- MUST include information on the parameters included in the request.
+- MUST include information on the parameters (`requestedParams`).
+- MUST include data results, enveloped by object with the same name of the webservice. E.g. `noticeCategories`, `shipArrivals`
 - MAY include some metadata of the API call.
+- In case of error, read below:
 
 ### Errors
+- MUST include `error` section with these attributes:
+  - `code`: HTML response status code
+  - `messageCode`: Code error description
+  - `message`: Error description
+  - `timestamp`: timestamp of error occurrence
 - MAY include the most precise code, from the list of HTML status codes, that identifies the error returned by a server on a client's request. 
 
 ## Security Scheme Object

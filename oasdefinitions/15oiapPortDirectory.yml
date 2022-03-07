@@ -28,11 +28,12 @@ servers:
 paths:
   /companies:
     get:
-      description: Get some overview data of all the companies from a port.
+      description: Get some overview data of all the companies from a port or all the companies that perform an specific activity.
       tags:
         - Port Directory
       parameters:
         - $ref: '#/components/parameters/portCode'
+        - $ref: '#/components/parameters/activity' 
       responses:
         '200':
           description: Successful operation
@@ -44,7 +45,7 @@ paths:
               schema:
                 type: object
                 properties:
-                  companyOverviewData: # Plural, because it is an array
+                  companiesOverviewData:
                     type: array
                     items:
                       $ref: '#/components/schemas/companyOverviewData'
@@ -53,6 +54,8 @@ paths:
                     properties:
                       portCode:
                         $ref: './oiapComponents.yml#/components/schemas/portCode'
+                      activity:
+                        $ref: './oiapComponents.yml#/components/schemas/activity'
         '400':
           description: Bad request
           content:
@@ -151,6 +154,46 @@ paths:
               schema:
                 $ref: './oiapComponents.yml#/components/schemas/error'  
 
+  /companies/activities:
+    get:
+      description: Get a list of all the possible activities for a company or governmental body.
+      tags:
+        - Port Directory
+      parameters:
+        - $ref: '#/components/parameters/portCode'
+      responses:
+        '200':
+          description: Successful operation
+          headers:
+            oiapApiVersion:
+              $ref: './oiapComponents.yml#/components/headers/oiapApiVersion'
+          content: 
+            application/json:
+              schema:
+                type: object
+                properties:
+                  activities:
+                    type: array
+                    items:
+                      $ref: './oiapComponents.yml#/components/schemas/activity'
+                  requestedParams:
+                    type: object
+                    properties:
+                      portCode:
+                        $ref: './oiapComponents.yml#/components/schemas/portCode'
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: './oiapComponents.yml#/components/schemas/error' 
+        '404':
+          description: Not found
+          content:
+            application/json:
+              schema:
+                $ref: './oiapComponents.yml#/components/schemas/error' 
+
 components:
   parameters: 
     portCode:
@@ -183,6 +226,15 @@ components:
       explode: false
       schema:
         $ref: './oiapComponents.yml#/components/schemas/companyVat'
+    activity:
+      in: query
+      name: activity
+      description: Activity of a company
+      required: false
+      style: form
+      explode: false
+      schema:
+        $ref: './oiapComponents.yml#/components/schemas/activity'
 
   schemas:
     companyOverviewData: 
@@ -199,6 +251,9 @@ components:
                 $ref: './oiapComponents.yml#/components/schemas/activity'
             companyVat:
               $ref: './oiapComponents.yml#/components/schemas/companyVat'
+          required:
+            - activities
+            - companyName
 
     companyData: 
       description: 'Detailled information about a company or a governmental body.' 
@@ -226,6 +281,9 @@ components:
               $ref: './oiapComponents.yml#/components/schemas/afterHours' 
             companyVat:  
               $ref: './oiapComponents.yml#/components/schemas/companyVat'
-
+          required:
+            - activities
+            - companyName
+            - phone
 
 
