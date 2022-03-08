@@ -104,8 +104,8 @@ components:
           description: Definition.
           type: string
       required:
-        - code
-        - message
+        - uriCall
+        - definition
 
     validationKey:
       description: The code received to complete a subscription process.
