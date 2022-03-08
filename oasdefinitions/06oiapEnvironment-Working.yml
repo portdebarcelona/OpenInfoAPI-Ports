@@ -1,0 +1,886 @@
+openapi: '3.0.3'
+info:
+  version: '0.9.0-oas3'
+  title: OIAP
+  description: |
+    **Open Info API para Puertos**
+
+
+    This file contains all the APIs developed for the `Open Info API para Puertos` project for the **Environment Domain** within the initiative Ports 4.0 form Puertos del Estado (ES).
+
+    The environment domain covers weather, sea state and pollution. 
+
+  termsOfService: http://swagger.io/terms/
+  license:
+    name: CC0 1.0 Universal (CC0 1.0)
+    url: https://creativecommons.org/publicdomain/zero/1.0/deed.es
+  contact:
+    name: OpenInfoAPI github
+    url: https://github.com/portdebarcelona/OpenInfoAPI-Ports
+tags:
+  - name: Environment-Weather
+    description: "APIs related to the weather in a port."
+  # externalDocs:
+  #   description: Description 
+  #   url: http://swagger.io/ 
+  - name: Environment-Sea State
+    description: "APIs related to the sea state in the surrounding area of a port."
+  - name: Environment-Pollution
+    description: "APIs related to the pollution levels in a port area."
+
+servers:
+  - url: https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions
+    description: Main server 
+
+paths:
+  /realtimeWeather:
+    get:
+      tags:
+        - Environment-Weather
+      summary: Returns realtime weather information of the default weather station of a port.
+      description: Returns realtime weather information of the default weather station of a port. 
+      parameters:
+        - $ref: '#/components/parameters/portCode'
+      responses: #status code
+        '200':
+          description: Successful operation
+          headers:
+            oiapApiVersion:
+              $ref: './oiapComponents.yml#/components/headers/oiapApiVersion'
+          content: 
+            application/json:
+              schema:
+                type: object
+                properties:
+                  realtimeWeather:
+                    $ref: '#/components/schemas/realtimeWeather'
+                  requestedParams:
+                    type: object
+                    properties:
+                      portCode:
+                        $ref: './oiapComponents.yml#/components/schemas/portCode'
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: './oiapComponents.yml#/components/schemas/error' 
+        '404':
+          description: Not found
+          content:
+            application/json:
+              schema:
+                $ref: './oiapComponents.yml#/components/schemas/error'  
+
+  /weatherForecast:
+    get:
+      tags:
+        - Environment-Weather
+      summary: Returns the 5 days weather forecast for a port.
+      description: Returns the 5 days weather forecast for a port. 
+      parameters:
+        - $ref: '#/components/parameters/portCode'
+      responses: #status code
+        '200':
+          description: Successful operation
+          headers:
+            oiapApiVersion:
+              $ref: './oiapComponents.yml#/components/headers/oiapApiVersion'
+          content: 
+            application/json:
+              schema:
+                type: object
+                properties:
+                  weatherForecast:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/weatherForecast'
+                  requestedParams:
+                    type: object
+                    properties:
+                      portCode:
+                        $ref: './oiapComponents.yml#/components/schemas/portCode'
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: './oiapComponents.yml#/components/schemas/error' 
+        '404':
+          description: Not found
+          content:
+            application/json:
+              schema:
+                $ref: './oiapComponents.yml#/components/schemas/error' 
+
+  /weatherAlerts:
+    get:
+      tags:
+        - Environment-Weather
+      summary: Returns the weather alerts for a port.
+      description: Returns the weather alerts for a port. 
+      parameters:
+        - $ref: '#/components/parameters/portCode'
+      responses: #status code
+        '200':
+          description: Successful operation
+          headers:
+            oiapApiVersion:
+              $ref: './oiapComponents.yml#/components/headers/oiapApiVersion'
+          content: 
+            application/json:
+              schema:
+                type: object
+                properties:
+                  weatherForecast:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/weatherAlert'
+                  requestedParams:
+                    type: object
+                    properties:
+                      portCode:
+                        $ref: './oiapComponents.yml#/components/schemas/portCode'
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: './oiapComponents.yml#/components/schemas/error' 
+        '404':
+          description: Not found
+          content:
+            application/json:
+              schema:
+                $ref: './oiapComponents.yml#/components/schemas/error'
+
+  /weatherAlertsSubscriptionRequest: 
+    post:
+      tags:
+        - Environment-Weather
+      summary: Subscription request to a weather alert information service
+      description: 'Request a subscription to a weather alert information service from a port'
+      operationId: subscriptionRequest
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/subscriber' # El podem aprofitar?
+        description: request placed for subscribing to a weather alert information service
+        required: true
+      responses:
+        '200':
+          description: successful operation
+          content:
+            application/json:
+              schema: # subscription response
+                $ref: './oiapComponents.yml#/components/schemas/subscriptionReference'
+        '400':
+          description: Invalid Order
+
+  /weatherAlertsSubscriptionValidation:
+    post:
+      tags:
+        - Environment-Weather
+      summary: Last step to subscribe to a weather alert information service
+      description: 'Post the validation code received to fulfill the subscription request to a weather alert information service from a port'
+      operationId: subscriptionValidation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              allOf:
+                - $ref: './oiapComponents.yml#/components/schemas/subscriptionRequestReference'
+                - $ref: './oiapComponents.yml#/components/schemas/validationKey'
+        description: request placed for validating the subscription to a weather alert information service
+        required: true
+      responses:
+        '200':
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/validationMessage'
+        '400':
+          description: Invalid Order
+
+  /weatherAlertsUnsubscriptionRequest: 
+    post:
+      tags:
+        - Environment-Weather
+      summary: Request to cancel the subscription to a weather alert information service
+      description: 'Request to cancel a subscription of a weather alert information service from a port'
+      operationId: unsubscriptionRequest
+      requestBody:
+        content:
+          application/json:
+            schema:
+              oneOf:
+                - $ref: './oiapComponents.yml#/components/schemas/email'
+                - $ref: './oiapComponents.yml#/components/schemas/phone'
+              example: {"email": "name@domain.com"} 
+        description: request placed for unsubscribing to a weather alert information service
+        required: true
+      responses:
+        '200':
+          description: successful operation
+          content:
+            application/json:
+              schema: # unsubscription response
+                $ref: './oiapComponents.yml#/components/schemas/unsubscriptionReference'
+
+        '400':
+          description: Invalid Order
+
+  /weatherAlertsUnsubscriptionValidation:
+    post:
+      tags:
+        - Environment-Weather
+      summary: Last step to cancel the subscription to a weather alert information service
+      description: 'Post the validation code received to cancel the subscription to a weather alert information service from a port'
+      operationId: unsubscriptionValidation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              allOf:
+                - $ref: './oiapComponents.yml#/components/schemas/subscriptionRequestReference'
+                - $ref: './oiapComponents.yml#/components/schemas/validationKey'
+        description: request placed for validating the unsubscription to a weather alert information service
+        required: true
+      responses:
+        '200':
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/validationMessage'
+        '400':
+          description: Invalid Order
+
+  /astronomicalData: # Done
+    get:
+      tags:
+        - Environment-Weather
+      summary: Returns astronomical data from a port. 
+      description: Returns astronomical data from a port. Up to date information for sunrise, sunset, moonrise, moonset, moon phase and illumination. 
+      parameters:
+        - $ref: '#/components/parameters/portCode'
+      responses: #status code
+        '200':
+          description: Successful operation
+          headers:
+            oiapApiVersion:
+              $ref: './oiapComponents.yml#/components/headers/oiapApiVersion'
+          content: 
+            application/json:
+              schema:
+                type: object
+                properties:
+                  astronomy:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/astronomy'
+                  requestedParams:
+                    type: object
+                    properties:
+                      portCode:
+                        $ref: './oiapComponents.yml#/components/schemas/portCode'
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: './oiapComponents.yml#/components/schemas/error' 
+        '404':
+          description: Not found
+          content:
+            application/json:
+              schema:
+                $ref: './oiapComponents.yml#/components/schemas/error'
+
+  /wavePrediction:
+    get:
+      tags:
+        - Environment-Sea State
+      summary: Returns the prediction of waves.
+      description: Returns the prediction of waves, including the component of the wind waves plus the swell.
+      parameters:
+        - $ref: '#/components/parameters/portCode'
+      responses: #status code
+        '200':
+          description: Successful operation
+          headers:
+            oiapApiVersion:
+              $ref: './oiapComponents.yml#/components/headers/oiapApiVersion'
+          content: 
+            application/json:
+              schema:
+                type: object
+                properties:
+                  wavePrediction:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/wavePrediction'
+                  requestedParams:
+                    type: object
+                    properties:
+                      portCode:
+                        $ref: './oiapComponents.yml#/components/schemas/portCode'
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: './oiapComponents.yml#/components/schemas/error' 
+        '404':
+          description: Not found
+          content:
+            application/json:
+              schema:
+                $ref: './oiapComponents.yml#/components/schemas/error'
+
+  /currentsAndTides:
+    get:
+      tags:
+        - Environment-Sea State
+      summary: Returns information about the currents and tides of a port.
+      description: Returns information about the currents and tides of a port.
+      parameters:
+        - $ref: '#/components/parameters/portCode'
+      responses: #status code
+        '200':
+          description: Successful operation
+          headers:
+            oiapApiVersion:
+              $ref: './oiapComponents.yml#/components/headers/oiapApiVersion'
+          content: 
+            application/json:
+              schema:
+                type: object
+                properties:
+                  currentsAndTides:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/currentsAndTides'
+                  requestedParams:
+                    type: object
+                    properties:
+                      portCode:
+                        $ref: './oiapComponents.yml#/components/schemas/portCode'
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: './oiapComponents.yml#/components/schemas/error' 
+        '404':
+          description: Not found
+          content:
+            application/json:
+              schema:
+                $ref: './oiapComponents.yml#/components/schemas/error'
+
+  /airQualityObserved:
+    get:
+      tags:
+        - Environment-Pollution
+      summary: Returns the present value of the Air Quality Index and Level.
+      description: Returns the present value of the Air Quality Index and Level.
+      parameters:
+        - $ref: '#/components/parameters/portCode'
+      responses: #status code
+        '200':
+          description: Successful operation
+          headers:
+            apiVersion:
+              $ref: './oiapComponents.yml#/components/headers/oiapApiVersion'
+          content: 
+            application/json:
+              schema:
+                type: object
+                properties:
+                  airQualityObserved:
+                    $ref: '#/components/schemas/airQualityObserved'
+                  requestedParams:
+                    type: object
+                    properties:
+                      portCode:
+                        $ref: './oiapComponents.yml#/components/schemas/portCode'
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: './oiapComponents.yml#/components/schemas/error'  
+        '404':
+          description: Not found
+          content:
+            application/json:
+              schema:
+                $ref: './oiapComponents.yml#/components/schemas/error' 
+
+  /airQualityMonitoring: # Done
+    get:
+      tags:
+        - Environment-Pollution
+      summary: Returns data of Air Quality Pollution
+      description: Returns data of Air Quality Pollution
+      parameters:
+        - $ref: '#/components/parameters/portCode'
+      responses: #status code
+        '200':
+          description: Successful operation
+          headers:
+            apiVersion:
+              $ref: './oiapComponents.yml#/components/headers/oiapApiVersion'
+          content: 
+            application/json:
+              schema:
+                type: object
+                properties:
+                  airQualityPollution:
+                    $ref: '#/components/schemas/airQualityPollution'
+                  requestedParams:
+                    type: object
+                    properties:
+                      portCode:
+                        $ref: './oiapComponents.yml#/components/schemas/portCode'
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: './oiapComponents.yml#/components/schemas/error'  
+        '404':
+          description: Not found
+          content:
+            application/json:
+              schema:
+                $ref: './oiapComponents.yml#/components/schemas/error' 
+
+  /waterQualityObserved:
+    get:
+      tags:
+        - Environment-Pollution
+      summary: Returns data of Water Quality Observed
+      description: Returns data of Water Quality Observed
+      parameters:
+        - $ref: '#/components/parameters/portCode'
+      responses: #status code
+        '200':
+          description: Successful operation
+          headers:
+            apiVersion:
+              $ref: './oiapComponents.yml#/components/headers/oiapApiVersion'
+          content: 
+            application/json:
+              schema:
+                type: object
+                properties:
+                  waterQualityObserved:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/waterQualityObserved'
+                  requestedParams:
+                    type: object
+                    properties:
+                      portCode:
+                        $ref: './oiapComponents.yml#/components/schemas/portCode'
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: './oiapComponents.yml#/components/schemas/error'  
+        '404':
+          description: Not found
+          content:
+            application/json:
+              schema:
+                $ref: './oiapComponents.yml#/components/schemas/error' 
+
+  /waterQualityMonitoring: # Done
+    get:
+      tags:
+        - Environment-Pollution
+      summary: Returns some common water quality parameters.
+      description: Returns some common water quality parameters.
+      parameters:
+        - $ref: '#/components/parameters/portCode'
+      responses: #status code
+        '200':
+          description: Successful operation
+          headers:
+            apiVersion:
+              $ref: './oiapComponents.yml#/components/headers/oiapApiVersion'
+          content: 
+            application/json:
+              schema:
+                type: object
+                properties:
+                  waterQualityParameters:
+                    $ref: '#/components/schemas/waterQualityParameters'
+                  requestedParams:
+                    type: object
+                    properties:
+                      portCode:
+                        $ref: './oiapComponents.yml#/components/schemas/portCode'
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: './oiapComponents.yml#/components/schemas/error'  
+        '404':
+          description: Not found
+          content:
+            application/json:
+              schema:
+                $ref: './oiapComponents.yml#/components/schemas/error' 
+
+  /noiseLevel: # Done
+    get:
+      tags:
+        - Environment-Pollution
+      summary: Returns the level of noise of a port
+      description: Returns the level of noise of a port
+      parameters:
+        - $ref: '#/components/parameters/portCode'
+      responses: #status code
+        '200':
+          description: Successful operation
+          headers:
+            apiVersion:
+              $ref: './oiapComponents.yml#/components/headers/oiapApiVersion'
+          content: 
+            application/json:
+              schema:
+                type: object
+                properties:
+                  noiseLevel:
+                    $ref: '#/components/schemas/noiseLevel'
+                  requestedParams:
+                    type: object
+                    properties:
+                      portCode:
+                        $ref: './oiapComponents.yml#/components/schemas/portCode'
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: './oiapComponents.yml#/components/schemas/error'  
+        '404':
+          description: Not found
+          content:
+            application/json:
+              schema:
+                $ref: './oiapComponents.yml#/components/schemas/error' 
+
+components:
+  parameters: 
+    portCode:
+      in: query
+      name: portCode
+      description: |
+            Port UN/LOCODE
+            Default value is Locode of Port what provides the services
+            example: portCode=ESBCN        
+      required: false
+      style: form
+      explode: false
+      schema:
+        $ref: './oiapComponents.yml#/components/schemas/portCode'
+    dateTime:
+      in: query
+      name: portCode
+      description: |
+            Port UN/LOCODE
+            Default value is Locode of Port what provides the services
+            example: portCode=ESBCN        
+      required: false
+      style: form
+      explode: false
+      schema:
+        $ref: './oiapComponents.yml#/components/schemas/portCode'
+
+  schemas:
+    realtimeWeather: 
+      description: 'Realtime weather information.'
+      type: object
+      allOf:
+        - type: object 
+          properties:
+            c:  
+              description: 'Procedure description'
+              type: string
+              enum: ['All .'] 
+            customsClearanceUri:  
+              $ref: './oiapComponents.yml#/components/schemas/uri' 
+      required:
+        - customsClearanceUri 
+
+    weatherForecast: 
+      description: 'Weather forecast information.'
+      type: object
+      allOf:
+        - type: object 
+          properties:
+            c:  
+              description: 'Procedure description'
+              type: string
+              enum: ['All .'] 
+            customsClearanceUri:  
+              $ref: './oiapComponents.yml#/components/schemas/uri' 
+      required:
+        - customsClearanceUri 
+
+    weatherAlert: 
+      description: 'Weather alert.'
+      type: object
+      allOf:
+        - type: object 
+          properties:
+            c:  
+              description: 'Procedure description'
+              type: string
+              enum: ['All .'] 
+            customsClearanceUri:  
+              $ref: './oiapComponents.yml#/components/schemas/uri' 
+      required:
+        - customsClearanceUri 
+
+    astronomy:   #Done
+      description: 'Astronomical data.'
+      type: object
+      allOf:
+        - type: object 
+          properties:
+            sunrise:  
+              description: 'Sunrise hour.'
+              type: string
+              format: date-time
+            sunset:  
+              description: 'Sunset hour.'
+              type: string
+              format: date-time
+            moonrise:  
+              description: 'Moonrise hour.'
+              type: string
+              format: date-time
+            moonset:  
+              description: 'Moonrise hour.'
+              type: string
+              format: date-time
+            moonPhase:  
+              description: 'Moon phase.'
+              type: string
+              enum: [New Moon, First Quarter, Full Moon, Last Quarter]
+              example: Full Moon
+            illumination:  
+              description: 'Moon percentage illumination.'
+              type: integer
+              minimum: 0
+              maximum: 100
+              Example: 90 
+
+    wavePrediction: 
+      description: 'Wave prediction.'
+      type: object
+      allOf:
+        - type: object 
+          properties:
+            c:  
+              description: 'Procedure description'
+              type: string
+              enum: ['All .'] 
+            customsClearanceUri:  
+              $ref: './oiapComponents.yml#/components/schemas/uri' 
+      required:
+        - customsClearanceUri 
+
+    currentsAndTides: 
+      description: 'Currents and tides.'
+      type: object
+      allOf:
+        - type: object 
+          properties:
+            c:  
+              description: 'Procedure description'
+              type: string
+              enum: ['All .'] 
+            customsClearanceUri:  
+              $ref: './oiapComponents.yml#/components/schemas/uri' 
+      required:
+        - customsClearanceUri 
+
+    airQualityObserved: # Done
+      description: 'Air quality observed.'
+      type: object
+      allOf:
+        - type: object 
+          properties:
+            airQualityIndex:  
+              description: 'Value of the Air Quality Index (AQI).'
+              type: integer
+              example: 65
+            airQualityLevel:  
+              description: 'Air Quality Level. Example values are those defined by the USA EPA Agency: (good, moderate, unhealthyForSensitiveGroups, unhealthy, veryUnhealthy, hazardous).'
+              type: string
+              enum: [good, moderate, unhealthyForSensitiveGroups, unhealthy, veryUnhealthy, hazardous]
+              example: moderate
+
+    airQualityPollution: # Done
+      description: 'Values of several parameters that measure the air quality.'
+      type: object
+      allOf:
+        - type: object 
+          properties:
+            airQualityIndex:  
+              description: 'Value of the Air Quality Index (AQI).'
+              type: integer
+              example: 65
+            CO:  
+              description: 'CO concentration, in milligrams per cubic meter.'
+              type: integer
+              example: 500 
+            NO:  
+              description: 'NO concentration, in milligrams per cubic meter.'
+              type: integer
+              example: 43
+            NO2:  
+              description: 'NO2 concentration, in milligrams per cubic meter.'
+              type: integer
+              example: 70
+            NOx:  
+              description: 'NOx concentration, in milligrams per cubic meter.'
+              type: integer
+              example: 490
+            SO2:  
+              description: 'SO2 concentration, in milligrams per cubic meter.'
+              type: integer
+              example: 12
+      required:
+        - airQualityIndex
+
+    waterQualityObserved: 
+      description: 'Water quality.'
+      type: object
+      allOf:
+        - type: object 
+          properties:
+            c:  
+              description: 'Procedure description'
+              type: string
+              enum: ['All .'] 
+            customsClearanceUri:  
+              $ref: './oiapComponents.yml#/components/schemas/uri' 
+      required:
+        - customsClearanceUri 
+
+    waterQualityParameters: # Done
+      description: 'Water quality parameters and chemical agents.'
+      type: object
+      allOf:
+        - type: object 
+          properties:
+            lastCheckedResult:  
+              $ref: './oiapComponents.yml#/components/schemas/lastCheckedResult' 
+            waterTemperature:  
+              description: 'Water temperature, expressed in Celsius degrees.'
+              type: number
+              example: 22.5
+            conductivity: 
+              description: Electrical Conductivity, measured in Siemens per meter (S/m).
+              type: number
+              example: 0.005
+            conductance: 
+              description: Specific Conductance, measured in Siemens per meter at 25 ºC (S/m).
+              type: number
+              example: 0.007
+            tss: 
+              description: Total suspended solids, measured in milligrams per liter (mg/L).
+              type: number
+              example: 123
+            tds: 
+              description: Total dissolved solids, measured in milligrams per liter (mg/L).
+              type: number
+              example: 100
+            turbidity: 
+              description: Amount of light scattered by particles in the water column, measured in Formazin Turbidity Units (FTU).
+              type: number
+            salinity: 
+              description: Amount of salts dissolved in water, measured in parts per thousand (ppt).
+              type: number
+            pH: 
+              description: Acidity or basicity of an aqueous solution, expressed as the negative of the logarithm to base 10 of the activity of the hydrogen ion. 
+              type: number
+              example: 7.5
+            orp : 
+              description: Oxidation-Reduction potential, measured in millivolts (mV).
+              type: number
+            O2: 
+              description: Level of free, non-compound oxygen present, expressed in milligrams per liter (mg/L).
+              type: number
+            Chla: 
+              description: Concentration of chlorophyll A, expressed in micrograms per liter.
+              type: number
+            PE: 
+              description: Concentration of pigment phycoerythrin which can be measured to estimate cyanobacteria concentrations specifically, expressed in micrograms per liter.
+              type: number
+            PC: 
+              description: Concentration of pigment phycocyanin which can be measured to estimate cyanobacteria concentrations specifically, expressed in micrograms per liter.
+              type: number
+            NH4: 
+              description: Concentration of ammonium, expressed in milligrams per liter (mg/L).
+              type: number
+            NH3: 
+              description: Concentration of ammonia, expressed in milligrams per liter (mg/L).
+              type: number
+            Cl-: 
+              description: Concentration of chlorides, expressed in milligrams per liter (mg/L).
+              type: number
+            NO3: 
+              description: Concentration of nitrates, expressed in milligrams per liter (mg/L).
+              type: number
+              example: 0.01
+
+    noiseLevel: # Done
+      description: 'Noise level, expressed in dB.'
+      type: integer
+      minimum: 0
+      maximum: 140
+      example: 65
+
+    subscriber: # Done
+      description: A subscriber identified by an email or a phone number.
+      type: object
+      allOf:
+        - type: object
+          properties:
+            contactInfo:  # email or phone
+              $ref: './oiapComponents.yml#/components/schemas/contactInfo'  
+        - type: object
+          properties:
+            name:
+              $ref: './oiapComponents.yml#/components/schemas/name' 
+        - type: object
+          properties:
+            surname:
+              $ref: './oiapComponents.yml#/components/schemas/surname' 
+        - type: object
+          properties:
+            company: # company is an composite object with a companyName and a companyCode
+              $ref: './oiapComponents.yml#/components/schemas/companyOverviewInfo' 
+        - type: object
+          properties:
+            language:
+              $ref: './oiapComponents.yml#/components/schemas/language' 
+      required: 
+        - contactInfo
+        - language
+
+    validationMessage: # Done
+      type: string 
+      example: 'Your request has been approved'

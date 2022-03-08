@@ -141,6 +141,12 @@ components:
         - code
         - message
 
+    lastCheckedResult:
+      description: 'Timestamp when the last update of the attribute happened.'
+      type: string
+      format: date-time
+
+
 #   Group 2: Dates, times, periods of time
 
     fromDate:  
@@ -972,78 +978,3 @@ components:
         unsubscriptionRequestMessage:
           $ref: '#/components/schemas/unsubscriptionRequestMessage'
 
-
- 
-    # Miscelanius
-
-    targetPeriode: 
-      description: t.
-      type: object
-      properties:
-        unsubscriptionRequestReference:
-          $ref: '#/components/schemas/fromDate'
-        unsubscriptionRequestMessage:
-          $ref: '#/components/schemas/dateRange'
-
-
-    # PENDING !!!!
-
-    LastCheckedResult:
-      type: object
-      properties:
-        lastChecked:
-          type: string
-
-    Logistics:
-      type: object
-      properties:
-        category:
-          type: string
-        property:
-          type: string
-
-    Management:
-      type: object
-      properties:
-        email:
-          type: string
-        firstName:
-          type: string
-        functionTitle:
-          type: string
-        lastName:
-          type: string
-        phone:
-          type: string
-
-    QuayAndWarehouse:
-      type: object
-      properties:
-        address:
-          type: string
-        email:
-          type: string
-        fax:
-          type: string
-        function:
-          type: string
-        name:
-          type: string
-        phone:
-          type: string
-        quayNr:
-          type: string
-        responsible:
-          type: string
-        warehouse:
-          type: string
-
-    Sector:
-      properties:
-        name:
-          type: string
-      type: object
-
-    companyOverviewData:
-      items:
-        type: string
