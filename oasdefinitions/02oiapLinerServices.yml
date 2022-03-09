@@ -185,6 +185,7 @@ components:
       explode: false
       schema:
         $ref: './oiapComponents.yml#/components/schemas/portCode'
+
     coastalArea:  
       in: query
       name: coastalArea
@@ -195,6 +196,7 @@ components:
       explode: false
       schema:
         $ref: './oiapComponents.yml#/components/schemas/coastalArea'
+
     countryCode:  
       in: query
       name: countryCode
@@ -205,6 +207,7 @@ components:
       explode: false
       schema:
         $ref: './oiapComponents.yml#/components/schemas/countryCode'
+
     linkedPortCode:  
       in: query
       name: linkedPortCode
@@ -216,6 +219,7 @@ components:
       example: HKHKG
       schema:
         $ref: './oiapComponents.yml#/components/schemas/linkedPort'
+
     linerServiceName:  
       in: query
       name: fromDate

@@ -386,6 +386,7 @@ components:
       explode: false
       schema:
         $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents.yml#/components/schemas/portCode'
+
     fromDate:  
       in: query
       name: fromDate
@@ -395,6 +396,7 @@ components:
       explode: false
       schema:
         $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents.yml#/components/schemas/fromDate'
+
     dateRange:  
       in: query
       name: dateRange
@@ -405,6 +407,7 @@ components:
       example: T24H
       schema:
         $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents.yml#/components/schemas/dateRange'
+
     shipType:
       in: query
       name: shipType
@@ -416,6 +419,7 @@ components:
       explode: false
       schema:
         $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents.yml#/components/schemas/shipType'
+
     shipName:
       in: query
       name: shipName
@@ -583,8 +587,6 @@ components:
           properties:
             shipName:
               $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents.yml#/components/schemas/shipName'
-        - type: object
-          properties:
             ferryOperator:
               $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents.yml#/components/schemas/ferryOperator'
             actualTimeOfDeparture:

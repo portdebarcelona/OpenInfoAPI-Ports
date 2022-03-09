@@ -289,36 +289,6 @@ components:
       explode: false
       schema:
         $ref: './oiapComponents.yml#/components/schemas/portCode'
-    publishingStage:  
-      in: query
-      name: publishingStage
-      description: 
-            The stage of the publishing process of a notice. There are only two possible stages, ACTIVE and EXPIRED. This parameter must be used when the publishing process is EXPIRED. If not provided, the ACTIVE stage is used by default.
-      required: false
-      style: form
-      explode: false
-      schema:
-        $ref: './oiapComponents.yml#/components/schemas/publishingStage'
-    fromDate:  
-      in: query
-      name: fromDate
-      description: 
-            The date (day) from the expired notices are requested. The value is populated in ISO 8601 Date format (eg. 2022-01-30). This parameter is only needed to retrieve the expired notices and to limit their number.
-      required: false
-      style: form
-      explode: false
-      schema:
-        $ref: './oiapComponents.yml#/components/schemas/fromDate'
-    id:  
-      in: query
-      name: id
-      description: 
-            The unique identification of a notice.
-      required: false
-      style: form
-      explode: false
-      schema:
-        $ref: './oiapComponents.yml#/components/schemas/id'
 
   schemas:
     railConnection: 
@@ -351,12 +321,8 @@ components:
           properties:
             locode:  # nearest LOCODE
               $ref: './oiapComponents.yml#/components/schemas/locode' 
-        - type: object
-          properties:
             railTerminalCode:  # Is there any standard codification for rail terminals?
               $ref: './oiapComponents.yml#/components/schemas/railTerminalCode'  
-        - type: object
-          properties:
             railTerminalName:  
               $ref: './oiapComponents.yml#/components/schemas/railTerminalName' 
 
@@ -390,20 +356,12 @@ components:
           properties:
             trainType:
               $ref: './oiapComponents.yml#/components/schemas/trainType'
-        - type: object
-          properties:
             placeOfDeparture:  # EDIFACT: Code "5" in DE3227; name and code
               $ref: './oiapComponents.yml#/components/schemas/placeOfDeparture'
-        - type: object
-          properties:
             placeOfDestination:  # EDIFACT: Code "8" in DE3227; name and code
               $ref: './oiapComponents.yml#/components/schemas/placeOfDestination'
-        - type: object
-          properties:
             estimatedTimeOfArrival:
               $ref: './oiapComponents.yml#/components/schemas/estimatedTimeOfArrival'
-        - type: object
-          properties:
             actualTimeOfArrival:
               $ref: './oiapComponents.yml#/components/schemas/actualTimeOfArrival'
       required: 
@@ -420,22 +378,14 @@ components:
           properties:
             trainType:
               $ref: './oiapComponents.yml#/components/schemas/trainType'
-        - type: object
-          properties:
             placeOfDeparture:  # EDIFACT: Code "5" in DE3227; name and code
               $ref: './oiapComponents.yml#/components/schemas/placeOfDeparture'
-        - type: object
-          properties:
             placeOfDestination:  # EDIFACT: Code "8" in DE3227; name and code
               $ref: './oiapComponents.yml#/components/schemas/placeOfDestination'
-        - type: object
-          properties:
             estimatedTimeOfDeparture:
-              $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents.yml#/components/schemas/estimatedTimeOfDeparture'
-        - type: object
-          properties:
+              $ref: './oiapComponents.yml#/components/schemas/estimatedTimeOfDeparture'
             actualTimeOfDeparture:
-              $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents.yml#/components/schemas/actualTimeOfDeparture'
+              $ref: './oiapComponents.yml#/components/schemas/actualTimeOfDeparture'
       required: 
         - trainType
         - placeOfDeparture

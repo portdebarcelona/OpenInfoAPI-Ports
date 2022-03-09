@@ -409,6 +409,7 @@ components:
       explode: false
       schema:
         $ref: './oiapComponents.yml#/components/schemas/portCode'
+
     containerNumber:
       in: query
       name: containerNumber
