@@ -324,6 +324,7 @@ components:
       explode: false
       schema:
         $ref: './oiapComponents.yml#/components/schemas/portCode'
+
     publishingStage:  
       in: query
       name: publishingStage
@@ -334,6 +335,7 @@ components:
       explode: false
       schema:
         $ref: './oiapComponents.yml#/components/schemas/publishingStage'
+
     fromDate:  
       in: query
       name: fromDate
@@ -344,6 +346,7 @@ components:
       explode: false
       schema:
         $ref: './oiapComponents.yml#/components/schemas/fromDate'
+
     id:  
       in: query
       name: id
@@ -363,25 +366,15 @@ components:
         - type: object
           properties:
             contactInfo:  # email or phone
-              $ref: './oiapComponents.yml#/components/schemas/contactInfo'  
-        - type: object
-          properties:
+              $ref: './oiapComponents.yml#/components/schemas/contactInfo'
             name:
               $ref: './oiapComponents.yml#/components/schemas/name' 
-        - type: object
-          properties:
             surname:
               $ref: './oiapComponents.yml#/components/schemas/surname' 
-        - type: object
-          properties:
             company: # company is an composite object with a companyName and a companyCode
               $ref: './oiapComponents.yml#/components/schemas/companyOverviewInfo' 
-        - type: object
-          properties:
             categories: # it must be an array of categories Can be the same for News and Notices?
               $ref: './oiapComponents.yml#/components/schemas/noticeCategory' 
-        - type: object
-          properties:
             language:
               $ref: './oiapComponents.yml#/components/schemas/language' 
       required: 
@@ -397,48 +390,26 @@ components:
           properties:
             id:
                $ref: './oiapComponents.yml#/components/schemas/id' 
-        - type: object
-          properties:
             category:
               $ref: './oiapComponents.yml#/components/schemas/alertCategory' 
-        - type: object
-          properties:
             subCategory:
               $ref: './oiapComponents.yml#/components/schemas/alertSubCategory' 
-        - type: object
-          properties:
             severity:
               $ref: './oiapComponents.yml#/components/schemas/severity' 
-        - type: object
-          properties:
             subject:
               $ref: './oiapComponents.yml#/components/schemas/subject' 
-        - type: object
-          properties:
             content:
               $ref: './oiapComponents.yml#/components/schemas/content' 
-        - type: object
-          properties:
             dateIssued:
               $ref: './oiapComponents.yml#/components/schemas/dateIssued' 
-        - type: object
-          properties:
             fromDate:
               $ref: './oiapComponents.yml#/components/schemas/fromDate' 
-        - type: object
-          properties:
             toDate:
               $ref: './oiapComponents.yml#/components/schemas/toDate' 
-        - type: object
-          properties:
             uri:
               $ref: './oiapComponents.yml#/components/schemas/uri'
-        - type: object
-          properties:
             language:
               $ref: './oiapComponents.yml#/components/schemas/language'
-        - type: object
-          properties:
             alertSource:
               $ref: './oiapComponents.yml#/components/schemas/alertSource'
       required: 

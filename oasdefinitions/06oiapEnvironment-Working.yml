@@ -113,151 +113,6 @@ paths:
               schema:
                 $ref: './oiapComponents.yml#/components/schemas/error' 
 
-  /weatherAlerts:
-    get:
-      tags:
-        - Environment-Weather
-      summary: Returns the weather alerts for a port.
-      description: Returns the weather alerts for a port. 
-      parameters:
-        - $ref: '#/components/parameters/portCode'
-      responses: #status code
-        '200':
-          description: Successful operation
-          headers:
-            oiapApiVersion:
-              $ref: './oiapComponents.yml#/components/headers/oiapApiVersion'
-          content: 
-            application/json:
-              schema:
-                type: object
-                properties:
-                  weatherForecast:
-                    type: array
-                    items:
-                      $ref: '#/components/schemas/weatherAlert'
-                  requestedParams:
-                    type: object
-                    properties:
-                      portCode:
-                        $ref: './oiapComponents.yml#/components/schemas/portCode'
-        '400':
-          description: Bad request
-          content:
-            application/json:
-              schema:
-                $ref: './oiapComponents.yml#/components/schemas/error' 
-        '404':
-          description: Not found
-          content:
-            application/json:
-              schema:
-                $ref: './oiapComponents.yml#/components/schemas/error'
-
-  /weatherAlertsSubscriptionRequest: 
-    post:
-      tags:
-        - Environment-Weather
-      summary: Subscription request to a weather alert information service
-      description: 'Request a subscription to a weather alert information service from a port'
-      operationId: subscriptionRequest
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/subscriber' # El podem aprofitar?
-        description: request placed for subscribing to a weather alert information service
-        required: true
-      responses:
-        '200':
-          description: successful operation
-          content:
-            application/json:
-              schema: # subscription response
-                $ref: './oiapComponents.yml#/components/schemas/subscriptionReference'
-        '400':
-          description: Invalid Order
-
-  /weatherAlertsSubscriptionValidation:
-    post:
-      tags:
-        - Environment-Weather
-      summary: Last step to subscribe to a weather alert information service
-      description: 'Post the validation code received to fulfill the subscription request to a weather alert information service from a port'
-      operationId: subscriptionValidation
-      requestBody:
-        content:
-          application/json:
-            schema:
-              allOf:
-                - $ref: './oiapComponents.yml#/components/schemas/subscriptionRequestReference'
-                - $ref: './oiapComponents.yml#/components/schemas/validationKey'
-        description: request placed for validating the subscription to a weather alert information service
-        required: true
-      responses:
-        '200':
-          description: successful operation
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/validationMessage'
-        '400':
-          description: Invalid Order
-
-  /weatherAlertsUnsubscriptionRequest: 
-    post:
-      tags:
-        - Environment-Weather
-      summary: Request to cancel the subscription to a weather alert information service
-      description: 'Request to cancel a subscription of a weather alert information service from a port'
-      operationId: unsubscriptionRequest
-      requestBody:
-        content:
-          application/json:
-            schema:
-              oneOf:
-                - $ref: './oiapComponents.yml#/components/schemas/email'
-                - $ref: './oiapComponents.yml#/components/schemas/phone'
-              example: {"email": "name@domain.com"} 
-        description: request placed for unsubscribing to a weather alert information service
-        required: true
-      responses:
-        '200':
-          description: successful operation
-          content:
-            application/json:
-              schema: # unsubscription response
-                $ref: './oiapComponents.yml#/components/schemas/unsubscriptionReference'
-
-        '400':
-          description: Invalid Order
-
-  /weatherAlertsUnsubscriptionValidation:
-    post:
-      tags:
-        - Environment-Weather
-      summary: Last step to cancel the subscription to a weather alert information service
-      description: 'Post the validation code received to cancel the subscription to a weather alert information service from a port'
-      operationId: unsubscriptionValidation
-      requestBody:
-        content:
-          application/json:
-            schema:
-              allOf:
-                - $ref: './oiapComponents.yml#/components/schemas/subscriptionRequestReference'
-                - $ref: './oiapComponents.yml#/components/schemas/validationKey'
-        description: request placed for validating the unsubscription to a weather alert information service
-        required: true
-      responses:
-        '200':
-          description: successful operation
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/validationMessage'
-        '400':
-          description: Invalid Order
-
   /astronomicalData: # Done
     get:
       tags:
@@ -424,8 +279,8 @@ paths:
     get:
       tags:
         - Environment-Pollution
-      summary: Returns data of Air Quality Pollution
-      description: Returns data of Air Quality Pollution
+      summary: Returns some common air quality parameters.
+      description: Returns some common air quality parameters.
       parameters:
         - $ref: '#/components/parameters/portCode'
       responses: #status code
@@ -463,8 +318,8 @@ paths:
     get:
       tags:
         - Environment-Pollution
-      summary: Returns data of Water Quality Observed
-      description: Returns data of Water Quality Observed
+      summary: Returns the present value of the Water Quality Index and Level.
+      description: Returns the present value of the Water Quality Index and Level.
       parameters:
         - $ref: '#/components/parameters/portCode'
       responses: #status code
@@ -623,21 +478,6 @@ components:
 
     weatherForecast: 
       description: 'Weather forecast information.'
-      type: object
-      allOf:
-        - type: object 
-          properties:
-            c:  
-              description: 'Procedure description'
-              type: string
-              enum: ['All .'] 
-            customsClearanceUri:  
-              $ref: './oiapComponents.yml#/components/schemas/uri' 
-      required:
-        - customsClearanceUri 
-
-    weatherAlert: 
-      description: 'Weather alert.'
       type: object
       allOf:
         - type: object 
@@ -852,35 +692,3 @@ components:
       minimum: 0
       maximum: 140
       example: 65
-
-    subscriber: # Done
-      description: A subscriber identified by an email or a phone number.
-      type: object
-      allOf:
-        - type: object
-          properties:
-            contactInfo:  # email or phone
-              $ref: './oiapComponents.yml#/components/schemas/contactInfo'  
-        - type: object
-          properties:
-            name:
-              $ref: './oiapComponents.yml#/components/schemas/name' 
-        - type: object
-          properties:
-            surname:
-              $ref: './oiapComponents.yml#/components/schemas/surname' 
-        - type: object
-          properties:
-            company: # company is an composite object with a companyName and a companyCode
-              $ref: './oiapComponents.yml#/components/schemas/companyOverviewInfo' 
-        - type: object
-          properties:
-            language:
-              $ref: './oiapComponents.yml#/components/schemas/language' 
-      required: 
-        - contactInfo
-        - language
-
-    validationMessage: # Done
-      type: string 
-      example: 'Your request has been approved'
