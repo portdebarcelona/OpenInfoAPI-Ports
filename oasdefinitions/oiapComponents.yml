@@ -1015,3 +1015,10 @@ components:
         unsubscriptionRequestMessage:
           $ref: '#/components/schemas/unsubscriptionRequestMessage'
 
+
+    # Environmenet-weather
+    weatherType: 
+      description: The observed weather type. 
+      type: string
+      enum: [clearNight,sunnyDay, slightlyCloudy, partlyCloudy, mist, fog, highClouds, cloudy, veryCloudy, overcast, lightRainShower, drizzle, lightRain, heavyRainShower, heavyRain, sleetShower, sleet, hailShower, hail, shower, lightSnow, snow, heavySnowShower, heavySnow, thunderShower, thunder]
+      example: cloudy

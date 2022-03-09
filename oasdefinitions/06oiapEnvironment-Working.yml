@@ -33,7 +33,7 @@ servers:
     description: Main server 
 
 paths:
-  /realtimeWeather:
+  /realtimeWeather: # Done
     get:
       tags:
         - Environment-Weather
@@ -72,7 +72,7 @@ paths:
               schema:
                 $ref: './oiapComponents.yml#/components/schemas/error'  
 
-  /weatherForecast:
+  /weatherForecast: # Done
     get:
       tags:
         - Environment-Weather
@@ -136,6 +136,45 @@ paths:
                     type: array
                     items:
                       $ref: '#/components/schemas/astronomy'
+                  requestedParams:
+                    type: object
+                    properties:
+                      portCode:
+                        $ref: './oiapComponents.yml#/components/schemas/portCode'
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: './oiapComponents.yml#/components/schemas/error' 
+        '404':
+          description: Not found
+          content:
+            application/json:
+              schema:
+                $ref: './oiapComponents.yml#/components/schemas/error'
+
+  /seaCondition: # Done
+    get:
+      tags:
+        - Environment-Sea State
+      summary: Returns information of the sea condition.
+      description: Returns information of the sea condition.
+      parameters:
+        - $ref: '#/components/parameters/portCode'
+      responses: #status code
+        '200':
+          description: Successful operation
+          headers:
+            oiapApiVersion:
+              $ref: './oiapComponents.yml#/components/headers/oiapApiVersion'
+          content: 
+            application/json:
+              schema:
+                type: object
+                properties:
+                  seaCondition:
+                    $ref: '#/components/schemas/seaCondition'
                   requestedParams:
                     type: object
                     properties:
@@ -236,7 +275,7 @@ paths:
               schema:
                 $ref: './oiapComponents.yml#/components/schemas/error'
 
-  /airQualityObserved:
+  /airQualityIndex: # Done
     get:
       tags:
         - Environment-Pollution
@@ -255,8 +294,8 @@ paths:
               schema:
                 type: object
                 properties:
-                  airQualityObserved:
-                    $ref: '#/components/schemas/airQualityObserved'
+                  airQualityIndex:
+                    $ref: '#/components/schemas/airQualityIndex'
                   requestedParams:
                     type: object
                     properties:
@@ -314,12 +353,15 @@ paths:
               schema:
                 $ref: './oiapComponents.yml#/components/schemas/error' 
 
-  /waterQualityObserved:
+  /waterQualityIndex: # Done
     get:
       tags:
         - Environment-Pollution
       summary: Returns the present value of the Water Quality Index and Level.
-      description: Returns the present value of the Water Quality Index and Level.
+      description: > 
+            Returns the present value of the Water Quality Index and Level.
+            
+            WQI provides a single number that expresses the overall water quality, at a certain location and time, based on several water quality parameters. The objective of WQI is to turn complex water quality data into information that is understandable and usable by the public.
       parameters:
         - $ref: '#/components/parameters/portCode'
       responses: #status code
@@ -333,10 +375,10 @@ paths:
               schema:
                 type: object
                 properties:
-                  waterQualityObserved:
+                  waterQualityIndex:
                     type: array
                     items:
-                      $ref: '#/components/schemas/waterQualityObserved'
+                      $ref: '#/components/schemas/waterQualityIndex'
                   requestedParams:
                     type: object
                     properties:
@@ -461,33 +503,171 @@ components:
         $ref: './oiapComponents.yml#/components/schemas/portCode'
 
   schemas:
-    realtimeWeather: 
+    realtimeWeather:  # Done
       description: 'Realtime weather information.'
       type: object
       allOf:
         - type: object 
           properties:
-            c:  
-              description: 'Procedure description'
-              type: string
-              enum: ['All .'] 
-            customsClearanceUri:  
-              $ref: './oiapComponents.yml#/components/schemas/uri' 
+              dataProvider: 
+                description: Specifies the URL to information about the provider of this information
+                type: string
+              dateModified: 
+                description: Last update timestamp of this entity. Automatically generated.
+                type: string
+                format: date-time
+              dateCreated: 
+                description: Entity's creation timestamp. Automatically generated.
+                type: string
+                format: date-time
+              name: 
+                description: Name given to the weather observed location.
+                type: string
+              location: 
+                description: Location of the weather observation represented by a GeoJSON geometry. https://tools.ietf.org/html/rfc7946. Mandatory if address is not defined.
+                type: string             
+              address: 
+                description: Civic address of the weather observation. Sometimes it corresponds to a weather station address. https://schema.org/address. Mandatory if location is not present.
+                type: string 
+              dateObserved: 
+                description: The date and time of this observation in ISO8601 UTCformat. It can be represented by an specific time instant or by an ISO8601 interval.
+                type: string
+                format: date-time
+              source: 
+                description: A sequence of characters giving the source of the entity data.
+                type: string
+              refDevice: 
+                description: A reference to the device(s) which captured this observation.
+                type: string
+              refPointOfInterest: 
+                description: A reference to a point of interest (usually a weather station) associated to this observation.
+                type: string
+              weatherTypes: 
+                description: The observed weather types. It is represented by a comma separated list of weather statuses, for instance overcast, lightRain.
+                type: array
+                items:
+                      $ref: './oiapComponents.yml#/components/schemas/weatherType'
+              dewPoint: 
+                description: The dew point encoded as a number. Default unit is Celsius degrees. See also https://en.wikipedia.org/wiki/Dew_point
+                type: number
+              visibility: 
+                description: Visibility reported.
+                type: string
+                enum: [veryPoor, poor, moderate, good, veryGood, excellent]
+                example: good
+              temperature: 
+                description: Air's temperature observed. Default unit is degrees centigrades.
+                type: number
+              relativeHumidity: 
+                description: Air's relative humidity observed (percentage, expressed in parts per one).
+                type: number
+                minimum: 0
+                maximum: 1
+                example: 0.4            
+              precipitation: 
+                description: Precipitation level observed. Default unit is liters per square meter.
+                type: number
+              windDirection: 
+                description: The wind direction expressed in decimal degrees compared to geographic North (measured clockwise), encoded as a Number. Range 0 to 360.
+                type: number
+                minimum: 0
+                maximum: 360
+                example: 135  
+              windSpeed: 
+                description: The observed wind speed in m/s.
+                type: number
+              atmosphericPressure: 
+                description: The atmospheric pressure observed measured in Hecto Pascals.
+                type: number
+              pressureTendency: 
+                description: Is the pressure rising or falling. It can be expressed in quantitative terms or qualitative terms.
+                type: string
+                enum: [raising, falling, steady]
+                example: steady
+              solarRadiation: 
+                description: The solar radiation observed measured in Watts per square meter.
+                type: number 
+              illuminance: 
+                description: The illumninance observed measured in lux (lx) or lumens per square metre (cd·sr·m-2).
+                type: number
+                example: 1000
+              streamGauge: 
+                description: The water level surface elevation observed by Hydrometric measurement sensors, namely a Stream Gauge, expressed in centimeters (cm).
+                type: number
+              snowHeight: 
+                description: The snow height observed by generic snow depth measurement sensors, expressed in centimeters (cm).
+                type: number
       required:
-        - customsClearanceUri 
+        - dateObserved 
 
-    weatherForecast: 
+    weatherForecast: # Done
       description: 'Weather forecast information.'
       type: object
       allOf:
         - type: object 
           properties:
-            c:  
-              description: 'Procedure description'
-              type: string
-              enum: ['All .'] 
-            customsClearanceUri:  
-              $ref: './oiapComponents.yml#/components/schemas/uri' 
+            atmosphericPressure:    
+              description: 'The atmospheric pressure observed measured in Hecto Pascals'    
+              minimum: 0    
+              type: number       
+            dataProvider:    
+              description: 'A sequence of characters identifying the provider of the harmonised data entity.'    
+              type: string      
+            dateCreated:    
+              description: 'Entity creation timestamp. This will usually be allocated by the storage platform.'    
+              type: string 
+              format: date-time    
+            dateIssued:    
+              description: 'The date and time the forecast was issued by the meteorological bureau in ISO8601 UTC format.'    
+              type: string 
+              format: date-time    
+            dateModified:    
+              description: 'Timestamp of the last modification of the entity. This will usually be allocated by the storage platform.'    
+              type: string   
+              format: date-time    
+            dateRetrieved:    
+              description: 'The date and time the forecast was retrieved in ISO8601 UTC format.'      
+              type: string    
+              format: date-time     
+            dayMaximum:    
+              description: 'Maximum values for the reported period. Subattributes:- `temperature` : Maximum temperature. See `WeatherForecast.temperature` for description and units. - `feelLikesTemperature`. Maximum feels like temperature. Same semantics and units as `WeatherForecast.feelsLikeTemperature`.-   `relativeHumidity`. Maximum relative humidity. Same semantics and units as `WeatherForecast.relativeHumidity`.'    
+              type: object  
+              properties:    
+                feelLikesTemperature:    
+                  description: 'Property. Temperature appreciation of the item'    
+                  type: number    
+                relativeHumidity:    
+                  description: 'Property. Humidity in the Air. Observed instantaneous relative humidity (water vapour in air)'    
+                  maximum: 1    
+                  minimum: 0    
+                  type: number    
+                temperature:    
+                  description: 'Property. Temperature of the item'    
+                  type: number      
+            dayMinimum:    
+              description: 'Minimum values forecasted for the reported period.  Minimum values for the reported period. Subattributes:- `temperature` : Minimum temperature. See `WeatherForecast.temperature` for description and units. - `feelLikesTemperature`. Minimum feels like temperature. Same semantics and units as `WeatherForecast.feelsLikeTemperature`.- `relativeHumidity`. Minimum relative humidity. Same semantics and units as `WeatherForecast.relativeHumidity`'    
+              type: object   
+              properties:    
+                feelLikesTemperature:    
+                  description: 'Property. Temperature appreciation of the item'    
+                  type: number    
+                relativeHumidity:    
+                  description: 'Property. Humidity in the Air. Observed instantaneous relative humidity (water vapour in air)'    
+                  maximum: 1    
+                  minimum: 0    
+                  type: number    
+                temperature:    
+                  description: 'Property. Temperature of the item'    
+                  type: number     
+            description:    
+              description: 'A description of this item'    
+              type: string      
+            feelLikesTemperature:    
+              description: 'Temperature appreciation of the item'    
+              type: number       
+            gustSpeed:    
+              description: 'A sudden burst of high-speed wind over the observed average wind speed lasting only for a few seconds.'    
+              type: number    
       required:
         - customsClearanceUri 
 
@@ -525,6 +705,36 @@ components:
               maximum: 100
               Example: 90 
 
+    seaCondition: # Done
+      description: 'Sea condition.'
+      type: object
+      allOf:
+        - type: object 
+          properties:
+            lastCheckedResult:  
+              $ref: './oiapComponents.yml#/components/schemas/lastCheckedResult'
+            source: 
+              description: A sequence of characters giving the original source of the entity data as a URL. Recommended to be the fully qualified domain name of the source provider, or the URL to the source object.
+              $ref: './oiapComponents.yml#/components/schemas/uri'
+            surfaceTemperature: 
+              description: Sea surface temperature, expressed in Celsius degrees.
+              type: number
+              example: 18.5
+            waveHeight: 
+              description: Height of the waves, expressed in meters.
+              type: number
+              example: 1.2
+            waveLevel: 
+              description: It indicates the height of the waves and also measures the swell of the sea, expressed in meters.
+              type: number
+              example: 1.7
+            wavePeriod: 
+              description: Indicates the time between the crests of a wave, expressed in seconds.'
+              type: number
+              example: 12
+      required:
+        - lastCheckedResult 
+
     wavePrediction: 
       description: 'Wave prediction.'
       type: object
@@ -555,15 +765,19 @@ components:
       required:
         - customsClearanceUri 
 
-    airQualityObserved: # Done
-      description: 'Air quality observed.'
+    airQualityIndex: # Done
+      description: 'Air Quality Index.'
       type: object
       allOf:
         - type: object 
           properties:
+            lastCheckedResult:  
+              $ref: './oiapComponents.yml#/components/schemas/lastCheckedResult' 
             airQualityIndex:  
               description: 'Value of the Air Quality Index (AQI).'
               type: integer
+              minimum: 0
+              maximum: 100
               example: 65
             airQualityLevel:  
               description: 'Air Quality Level. Example values are those defined by the USA EPA Agency: (good, moderate, unhealthyForSensitiveGroups, unhealthy, veryUnhealthy, hazardous).'
@@ -577,6 +791,8 @@ components:
       allOf:
         - type: object 
           properties:
+            lastCheckedResult:  
+              $ref: './oiapComponents.yml#/components/schemas/lastCheckedResult' 
             airQualityIndex:  
               description: 'Value of the Air Quality Index (AQI).'
               type: integer
@@ -602,22 +818,31 @@ components:
               type: integer
               example: 12
       required:
+        - lastCheckedResult
         - airQualityIndex
 
-    waterQualityObserved: 
-      description: 'Water quality.'
+    waterQualityIndex: # Done
+      description: 'Water Quality Index.'
       type: object
       allOf:
         - type: object 
           properties:
-            c:  
-              description: 'Procedure description'
+            lastCheckedResult:  
+              $ref: './oiapComponents.yml#/components/schemas/lastCheckedResult' 
+            waterQualityIndex:  
+              description: 'Value of the Water Quality Index (WQI).'
+              type: integer
+              minimum: 0
+              maximum: 100
+              example: 83
+            waterQualityLevel:  
+              description: 'Water Quality Level. Example values are excellent quality, good, average, bad.'
               type: string
-              enum: ['All .'] 
-            customsClearanceUri:  
-              $ref: './oiapComponents.yml#/components/schemas/uri' 
+              enum: [excellent quality, good, average, bad]
+              example: moderate
       required:
-        - customsClearanceUri 
+        - lastCheckedResult
+        - waterQualityIndex
 
     waterQualityParameters: # Done
       description: 'Water quality parameters and chemical agents.'
@@ -631,14 +856,22 @@ components:
               description: 'Water temperature, expressed in Celsius degrees.'
               type: number
               example: 22.5
-            conductivity: 
-              description: Electrical Conductivity, measured in Siemens per meter (S/m).
+            salinity: 
+              description: Amount of salts dissolved in water, measured in parts per thousand (ppt).
               type: number
-              example: 0.005
-            conductance: 
-              description: Specific Conductance, measured in Siemens per meter at 25 ºC (S/m).
+              example: 22.15
+            pH: 
+              description: Acidity or basicity of an aqueous solution, expressed as the negative of the logarithm to base 10 of the activity of the hydrogen ion. 
               type: number
-              example: 0.007
+              example: 7.5
+            turbidity: 
+              description: Amount of light scattered by particles in the water column, measured in Formazin Turbidity Units (FTU).
+              type: number
+              example: 18.15
+            O2: 
+              description: Level of free, non-compound oxygen present, expressed in milligrams per liter (mg/L).
+              type: number
+              example: 4.12
             tss: 
               description: Total suspended solids, measured in milligrams per liter (mg/L).
               type: number
@@ -647,48 +880,42 @@ components:
               description: Total dissolved solids, measured in milligrams per liter (mg/L).
               type: number
               example: 100
-            turbidity: 
-              description: Amount of light scattered by particles in the water column, measured in Formazin Turbidity Units (FTU).
-              type: number
-            salinity: 
-              description: Amount of salts dissolved in water, measured in parts per thousand (ppt).
-              type: number
-            pH: 
-              description: Acidity or basicity of an aqueous solution, expressed as the negative of the logarithm to base 10 of the activity of the hydrogen ion. 
-              type: number
-              example: 7.5
-            orp : 
-              description: Oxidation-Reduction potential, measured in millivolts (mV).
-              type: number
-            O2: 
-              description: Level of free, non-compound oxygen present, expressed in milligrams per liter (mg/L).
-              type: number
-            Chla: 
-              description: Concentration of chlorophyll A, expressed in micrograms per liter.
-              type: number
-            PE: 
-              description: Concentration of pigment phycoerythrin which can be measured to estimate cyanobacteria concentrations specifically, expressed in micrograms per liter.
-              type: number
-            PC: 
-              description: Concentration of pigment phycocyanin which can be measured to estimate cyanobacteria concentrations specifically, expressed in micrograms per liter.
-              type: number
-            NH4: 
-              description: Concentration of ammonium, expressed in milligrams per liter (mg/L).
-              type: number
-            NH3: 
-              description: Concentration of ammonia, expressed in milligrams per liter (mg/L).
-              type: number
-            Cl-: 
-              description: Concentration of chlorides, expressed in milligrams per liter (mg/L).
-              type: number
-            NO3: 
+            nitrates: 
               description: Concentration of nitrates, expressed in milligrams per liter (mg/L).
               type: number
               example: 0.01
+            nitrites: 
+              description: Concentration of nitrites, expressed in milligrams per liter (mg/L).
+              type: number
+              example: 0.972
+            ammonia: 
+              description: Concentration of ammonia, expressed in milligrams per liter (mg/L).
+              type: number
+              example: 0.996             
+            silicate: 
+              description: Concentration of silicate, expressed in milligrams per liter (mg/L).
+              type: number
+              example: 0.994
+            phosphate: 
+              description: Concentration of phosphate, expressed in milligrams per liter (mg/L).
+              type: number              
+              example: 0.996
+      required:
+        - lastCheckedResult
 
     noiseLevel: # Done
       description: 'Noise level, expressed in dB.'
-      type: integer
-      minimum: 0
-      maximum: 140
-      example: 65
+      type: object
+      allOf:
+        - type: object 
+          properties:
+            lastCheckedResult:  
+              $ref: './oiapComponents.yml#/components/schemas/lastCheckedResult'
+            noiseLevel:
+              type: integer
+              minimum: 0
+              maximum: 140
+              example: 65
+      required:
+        - lastCheckedResult
+        - noiseLevel
