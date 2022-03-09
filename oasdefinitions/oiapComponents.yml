@@ -79,7 +79,7 @@ components:
 
     id:
       description: |
-            Unique identifier of an element of a dataset.
+            Entity's unique identifier.
       type: string
       maxLength: 35
       example: XAC12345CA
@@ -117,6 +117,37 @@ components:
       type: string
       minLength: 3
 
+    dataProvider:
+      description: Specifies the URL to inform about the provider of this information.
+      type: string
+
+    alertCategory:
+      description: Define the category of alert (Traffic jam, accidents, weather conditions, high level of pollutants)
+      type: string
+      enum: [Traffic jam, accidents, weather conditions, high level of pollutants]
+      example: weather conditions
+
+    alertSubCategory:
+      description: >
+              Define the sub category of alert.
+              (trafficJam, carAccident, carWrongDirection, carStopped, pothole, roadClosed, roadWorks, hazardOnRoad, injuredBiker) (for traffic category)
+              (flood, tsunami, coastalEvent, earthquake) (for naturalDisaster category)
+              (rainfall, highTemperature, lowTemperature, heatWave, coldWave, ice, snow, wind, fog, tornado, tropicalCyclone, hurricane, snow/ice, thunderstorms, fireRisk, avalancheRisk, floodRisk) (for weather category)
+              (airPollution, waterPollution, pollenConcentration) (for environment category)
+      type: string
+      example: wind
+
+    alertSource:
+      description: >
+              Reference to the source of the alert. For example, it could be a user of an application, a device, or a service.
+      type: string
+
+    severity:
+      description: >
+              Define the level of gravity of a given alert.
+      type: string
+      enum: [informational, low, medium, high, critical]
+
     error:
       description: Error body
       type: object
@@ -148,6 +179,12 @@ components:
 
 
 #   Group 2: Dates, times, periods of time
+
+    dateIssued:  
+      description: The date and time the alert was issued by the alert generator. The value is populated in ISO 8601 Date format.
+      type: string
+      format: date
+      example: 2022-01-18 
 
     fromDate:  
       description: The initial date of a periode of time. The value is populated in ISO 8601 Date format.

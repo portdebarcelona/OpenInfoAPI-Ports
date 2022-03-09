@@ -7,6 +7,9 @@ info:
 
 
     This file contains all the APIs developed for the `Open Info API para Puertos` project for the **Notices Domain** within the initiative Ports 4.0 form Puertos del Estado (ES). 
+
+    `Notices Domain` covers informative notices and also alert messages related to weather conditions, high level of pollutants, accidents, terminal congestion and so on. 
+
   termsOfService: http://swagger.io/terms/
   license:
     name: CC0 1.0 Universal (CC0 1.0)
@@ -393,11 +396,19 @@ components:
         - type: object
           properties:
             id:
-              $ref: './oiapComponents.yml#/components/schemas/id' 
+               $ref: './oiapComponents.yml#/components/schemas/id' 
         - type: object
           properties:
-            language:
-              $ref: './oiapComponents.yml#/components/schemas/language' 
+            category:
+              $ref: './oiapComponents.yml#/components/schemas/alertCategory' 
+        - type: object
+          properties:
+            subCategory:
+              $ref: './oiapComponents.yml#/components/schemas/alertSubCategory' 
+        - type: object
+          properties:
+            severity:
+              $ref: './oiapComponents.yml#/components/schemas/severity' 
         - type: object
           properties:
             subject:
@@ -408,8 +419,8 @@ components:
               $ref: './oiapComponents.yml#/components/schemas/content' 
         - type: object
           properties:
-            category:
-              $ref: './oiapComponents.yml#/components/schemas/noticeCategory' 
+            dateIssued:
+              $ref: './oiapComponents.yml#/components/schemas/dateIssued' 
         - type: object
           properties:
             fromDate:
@@ -422,6 +433,14 @@ components:
           properties:
             uri:
               $ref: './oiapComponents.yml#/components/schemas/uri'
+        - type: object
+          properties:
+            language:
+              $ref: './oiapComponents.yml#/components/schemas/language'
+        - type: object
+          properties:
+            alertSource:
+              $ref: './oiapComponents.yml#/components/schemas/alertSource'
       required: 
         - id
         - language
