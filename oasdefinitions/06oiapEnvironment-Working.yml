@@ -703,7 +703,7 @@ components:
               type: integer
               minimum: 0
               maximum: 100
-              Example: 90 
+              example: 90 
 
     seaCondition: # Done
       description: 'Sea condition.'
