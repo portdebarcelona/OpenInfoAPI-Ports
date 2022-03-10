@@ -169,7 +169,7 @@ components:
         - type: object 
           properties:
             startDate:  
-              $ref: './oiapComponents.yml#/components/schemas/startDate' 
+              $ref: './oiapComponents.yml#/components/schemas/fromDate' 
       required:
         - startDate 
 
@@ -180,7 +180,7 @@ components:
         - type: object 
           properties:
             startDate:  
-              $ref: './oiapComponents.yml#/components/schemas/startDate'
+              $ref: './oiapComponents.yml#/components/schemas/fromDate'
             dateRange:
               $ref: './oiapComponents.yml#/components/schemas/dateRange'
       required:

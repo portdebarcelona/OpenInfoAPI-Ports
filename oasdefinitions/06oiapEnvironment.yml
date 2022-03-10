@@ -33,7 +33,7 @@ servers:
     description: Main server 
 
 paths:
-  /realtimeWeather: # Done
+  /realtimeWeather:
     get:
       tags:
         - Environment-Weather
@@ -54,6 +54,8 @@ paths:
                 properties:
                   realtimeWeather:
                     $ref: '#/components/schemas/realtimeWeather'
+                  metadata: 
+                    $ref: './oiapComponents.yml#/components/schemas/metadata'
                   requestedParams:
                     type: object
                     properties:
@@ -72,7 +74,7 @@ paths:
               schema:
                 $ref: './oiapComponents.yml#/components/schemas/error'  
 
-  /weatherForecast: # Done
+  /weatherForecast:
     get:
       tags:
         - Environment-Weather
@@ -95,6 +97,8 @@ paths:
                     type: array
                     items:
                       $ref: '#/components/schemas/weatherForecast'
+                  metadata: 
+                    $ref: './oiapComponents.yml#/components/schemas/metadata'
                   requestedParams:
                     type: object
                     properties:
@@ -113,7 +117,7 @@ paths:
               schema:
                 $ref: './oiapComponents.yml#/components/schemas/error' 
 
-  /astronomicalData: # Done
+  /astronomicalData:
     get:
       tags:
         - Environment-Weather
@@ -136,6 +140,8 @@ paths:
                     type: array
                     items:
                       $ref: '#/components/schemas/astronomy'
+                  metadata: 
+                    $ref: './oiapComponents.yml#/components/schemas/metadata'
                   requestedParams:
                     type: object
                     properties:
@@ -154,7 +160,7 @@ paths:
               schema:
                 $ref: './oiapComponents.yml#/components/schemas/error'
 
-  /seaCondition: # Done
+  /seaCondition:
     get:
       tags:
         - Environment-Sea State
@@ -175,6 +181,8 @@ paths:
                 properties:
                   seaCondition:
                     $ref: '#/components/schemas/seaCondition'
+                  metadata: 
+                    $ref: './oiapComponents.yml#/components/schemas/metadata'
                   requestedParams:
                     type: object
                     properties:
@@ -201,6 +209,7 @@ paths:
       description: Returns the prediction of waves, including the component of the wind waves plus the swell.
       parameters:
         - $ref: '#/components/parameters/portCode'
+        - $ref: '#/components/parameters/forecastedDate'
       responses: #status code
         '200':
           description: Successful operation
@@ -216,11 +225,15 @@ paths:
                     type: array
                     items:
                       $ref: '#/components/schemas/wavePrediction'
+                  metadata: 
+                    $ref: './oiapComponents.yml#/components/schemas/metadata'
                   requestedParams:
                     type: object
                     properties:
                       portCode:
                         $ref: './oiapComponents.yml#/components/schemas/portCode'
+                      forecastedDate:
+                        $ref: './oiapComponents.yml#/components/schemas/forecastedDate'
         '400':
           description: Bad request
           content:
@@ -234,14 +247,15 @@ paths:
               schema:
                 $ref: './oiapComponents.yml#/components/schemas/error'
 
-  /currentsAndTides:
+  /tides:
     get:
       tags:
         - Environment-Sea State
-      summary: Returns information about the currents and tides of a port.
-      description: Returns information about the currents and tides of a port.
+      summary: Returns information about the tides of a port.
+      description: Returns information about the tides of a port.
       parameters:
         - $ref: '#/components/parameters/portCode'
+        - $ref: '#/components/parameters/forecastedDate'
       responses: #status code
         '200':
           description: Successful operation
@@ -253,15 +267,19 @@ paths:
               schema:
                 type: object
                 properties:
-                  currentsAndTides:
+                  tides:
                     type: array
                     items:
-                      $ref: '#/components/schemas/currentsAndTides'
+                      $ref: '#/components/schemas/tides'
+                  metadata: 
+                    $ref: './oiapComponents.yml#/components/schemas/metadata'
                   requestedParams:
                     type: object
                     properties:
                       portCode:
                         $ref: './oiapComponents.yml#/components/schemas/portCode'
+                      forecastedDate:
+                        $ref: './oiapComponents.yml#/components/schemas/forecastedDate'
         '400':
           description: Bad request
           content:
@@ -275,7 +293,7 @@ paths:
               schema:
                 $ref: './oiapComponents.yml#/components/schemas/error'
 
-  /airQualityIndex: # Done
+  /airQualityIndex:
     get:
       tags:
         - Environment-Pollution
@@ -296,6 +314,8 @@ paths:
                 properties:
                   airQualityIndex:
                     $ref: '#/components/schemas/airQualityIndex'
+                  metadata: 
+                    $ref: './oiapComponents.yml#/components/schemas/metadata'
                   requestedParams:
                     type: object
                     properties:
@@ -314,7 +334,7 @@ paths:
               schema:
                 $ref: './oiapComponents.yml#/components/schemas/error' 
 
-  /airQualityMonitoring: # Done
+  /airQualityMonitoring:
     get:
       tags:
         - Environment-Pollution
@@ -335,6 +355,8 @@ paths:
                 properties:
                   airQualityPollution:
                     $ref: '#/components/schemas/airQualityPollution'
+                  metadata: 
+                    $ref: './oiapComponents.yml#/components/schemas/metadata'
                   requestedParams:
                     type: object
                     properties:
@@ -353,7 +375,7 @@ paths:
               schema:
                 $ref: './oiapComponents.yml#/components/schemas/error' 
 
-  /waterQualityIndex: # Done
+  /waterQualityIndex:
     get:
       tags:
         - Environment-Pollution
@@ -379,6 +401,8 @@ paths:
                     type: array
                     items:
                       $ref: '#/components/schemas/waterQualityIndex'
+                  metadata: 
+                    $ref: './oiapComponents.yml#/components/schemas/metadata'
                   requestedParams:
                     type: object
                     properties:
@@ -397,7 +421,7 @@ paths:
               schema:
                 $ref: './oiapComponents.yml#/components/schemas/error' 
 
-  /waterQualityMonitoring: # Done
+  /waterQualityMonitoring:
     get:
       tags:
         - Environment-Pollution
@@ -418,6 +442,8 @@ paths:
                 properties:
                   waterQualityParameters:
                     $ref: '#/components/schemas/waterQualityParameters'
+                  metadata: 
+                    $ref: './oiapComponents.yml#/components/schemas/metadata'
                   requestedParams:
                     type: object
                     properties:
@@ -436,7 +462,7 @@ paths:
               schema:
                 $ref: './oiapComponents.yml#/components/schemas/error' 
 
-  /noiseLevel: # Done
+  /noiseLevel: 
     get:
       tags:
         - Environment-Pollution
@@ -457,6 +483,8 @@ paths:
                 properties:
                   noiseLevel:
                     $ref: '#/components/schemas/noiseLevel'
+                  metadata: 
+                    $ref: './oiapComponents.yml#/components/schemas/metadata'
                   requestedParams:
                     type: object
                     properties:
@@ -475,6 +503,8 @@ paths:
               schema:
                 $ref: './oiapComponents.yml#/components/schemas/error' 
 
+
+
 components:
   parameters: 
     portCode:
@@ -489,21 +519,19 @@ components:
       explode: false
       schema:
         $ref: './oiapComponents.yml#/components/schemas/portCode'
-    dateTime:
+
+    forecastedDate:
       in: query
-      name: portCode
-      description: |
-            Port UN/LOCODE
-            Default value is Locode of Port what provides the services
-            example: portCode=ESBCN        
+      name: forecastedDate
+      description: Date of the forecast.     
       required: false
       style: form
       explode: false
       schema:
-        $ref: './oiapComponents.yml#/components/schemas/portCode'
+        $ref: './oiapComponents.yml#/components/schemas/forecastedDate'
 
   schemas:
-    realtimeWeather:  # Done
+    realtimeWeather: 
       description: 'Realtime weather information.'
       type: object
       allOf:
@@ -558,6 +586,9 @@ components:
               temperature: 
                 description: Air's temperature observed. Default unit is degrees centigrades.
                 type: number
+              feelsLikeTemperature:  
+                description: Wind chill/Feels like Temperature (°C)
+                type: number
               relativeHumidity: 
                 description: Air's relative humidity observed (percentage, expressed in parts per one).
                 type: number
@@ -591,44 +622,23 @@ components:
                 description: The illumninance observed measured in lux (lx) or lumens per square metre (cd·sr·m-2).
                 type: number
                 example: 1000
-              streamGauge: 
-                description: The water level surface elevation observed by Hydrometric measurement sensors, namely a Stream Gauge, expressed in centimeters (cm).
-                type: number
-              snowHeight: 
-                description: The snow height observed by generic snow depth measurement sensors, expressed in centimeters (cm).
-                type: number
       required:
         - dateObserved 
 
-    weatherForecast: # Done
+    weatherForecast: 
       description: 'Weather forecast information.'
       type: object
       allOf:
         - type: object 
-          properties:
+          properties:        
+            forecastedDate:  
+              description: Date of the forecast.      
+              type: string 
+              format: date
             atmosphericPressure:    
-              description: 'The atmospheric pressure observed measured in Hecto Pascals'    
-              minimum: 0    
-              type: number       
-            dataProvider:    
-              description: 'A sequence of characters identifying the provider of the harmonised data entity.'    
-              type: string      
-            dateCreated:    
-              description: 'Entity creation timestamp. This will usually be allocated by the storage platform.'    
-              type: string 
-              format: date-time    
-            dateIssued:    
-              description: 'The date and time the forecast was issued by the meteorological bureau in ISO8601 UTC format.'    
-              type: string 
-              format: date-time    
-            dateModified:    
-              description: 'Timestamp of the last modification of the entity. This will usually be allocated by the storage platform.'    
-              type: string   
-              format: date-time    
-            dateRetrieved:    
-              description: 'The date and time the forecast was retrieved in ISO8601 UTC format.'      
-              type: string    
-              format: date-time     
+              description: 'The atmospheric pressure observed measured in Hecto Pascals'        
+              type: number 
+              minimum: 0
             dayMaximum:    
               description: 'Maximum values for the reported period. Subattributes:- `temperature` : Maximum temperature. See `WeatherForecast.temperature` for description and units. - `feelLikesTemperature`. Maximum feels like temperature. Same semantics and units as `WeatherForecast.feelsLikeTemperature`.-   `relativeHumidity`. Maximum relative humidity. Same semantics and units as `WeatherForecast.relativeHumidity`.'    
               type: object  
@@ -638,9 +648,9 @@ components:
                   type: number    
                 relativeHumidity:    
                   description: 'Property. Humidity in the Air. Observed instantaneous relative humidity (water vapour in air)'    
+                  type: number
                   maximum: 1    
-                  minimum: 0    
-                  type: number    
+                  minimum: 0      
                 temperature:    
                   description: 'Property. Temperature of the item'    
                   type: number      
@@ -658,20 +668,29 @@ components:
                   type: number    
                 temperature:    
                   description: 'Property. Temperature of the item'    
-                  type: number     
-            description:    
-              description: 'A description of this item'    
-              type: string      
-            feelLikesTemperature:    
-              description: 'Temperature appreciation of the item'    
-              type: number       
+                  type: number              
             gustSpeed:    
               description: 'A sudden burst of high-speed wind over the observed average wind speed lasting only for a few seconds.'    
-              type: number    
+              type: number
+            precipitationProbability:
+              description: Rain precipitation probability (%)
+              type: number
+              minimum: 0
+              maximum: 1
+            cloudCover:  
+              description: Cloud cover in percentage (%)
+              type: number
+              minimum: 0
+              maximum: 1
+            dataProvider:    
+              description: 'A sequence of characters identifying the provider of the harmonised data entity.'    
+              type: string      
+            metadata:
+              $ref: './oiapComponents.yml#/components/schemas/metadata'
       required:
-        - customsClearanceUri 
+        - targetData 
 
-    astronomy:   #Done
+    astronomy:  
       description: 'Astronomical data.'
       type: object
       allOf:
@@ -703,9 +722,9 @@ components:
               type: integer
               minimum: 0
               maximum: 100
-              example: 90 
+              example: 90     
 
-    seaCondition: # Done
+    seaCondition: 
       description: 'Sea condition.'
       type: object
       allOf:
@@ -713,9 +732,6 @@ components:
           properties:
             lastCheckedResult:  
               $ref: './oiapComponents.yml#/components/schemas/lastCheckedResult'
-            source: 
-              description: A sequence of characters giving the original source of the entity data as a URL. Recommended to be the fully qualified domain name of the source provider, or the URL to the source object.
-              $ref: './oiapComponents.yml#/components/schemas/uri'
             surfaceTemperature: 
               description: Sea surface temperature, expressed in Celsius degrees.
               type: number
@@ -732,40 +748,79 @@ components:
               description: Indicates the time between the crests of a wave, expressed in seconds.'
               type: number
               example: 12
+            source: 
+              description: A sequence of characters giving the original source of the entity data as a URL. Recommended to be the fully qualified domain name of the source provider, or the URL to the source object.
+              $ref: './oiapComponents.yml#/components/schemas/uri'
       required:
         - lastCheckedResult 
 
     wavePrediction: 
-      description: 'Wave prediction.'
+      description: Wave prediction.       
       type: object
       allOf:
         - type: object 
           properties:
-            c:  
-              description: 'Procedure description'
+            forecastedDate:  
+              description: Date of the forecast.
               type: string
-              enum: ['All .'] 
-            customsClearanceUri:  
-              $ref: './oiapComponents.yml#/components/schemas/uri' 
+              format: date
+            waveHeight:
+              description: Significant wave height in (meter)
+              type: number
+            swellHeight:  
+              description: Swell height in (meter)
+              type: number
+            swellPeriod:  
+              description: Swell period in (secs)
+              type: integer
+            swellDirection:              
+              description: Swell direction
+              type: integer
+              minimum: 0
+              maximum: 360
+            windDirection: 
+              description: The wind direction expressed in decimal degrees compared to geographic North (measured clockwise), encoded as a Number. Range 0 to 360.
+              type: number
+              minimum: 0
+              maximum: 360
+              example: 135  
+            windSpeed: 
+              description: The observed wind speed in m/s.
+              type: number
+            metadata: 
+              $ref: './oiapComponents.yml#/components/schemas/metadata'
       required:
-        - customsClearanceUri 
+        - forecastedData 
+        - waveHeight
 
-    currentsAndTides: 
-      description: 'Currents and tides.'
+    tides: 
+      description: 'Tidal information.'
       type: object
-      allOf:
-        - type: object 
+      properties:
+        forecastedDate:  
+          description: Date for which the tides are forecasted
+        highTide:  
+          description: >
+              The maximum height reached by a rising tide.  High tide is measured in meters.
+          type: object
           properties:
-            c:  
-              description: 'Procedure description'
-              type: string
-              enum: ['All .'] 
-            customsClearanceUri:  
-              $ref: './oiapComponents.yml#/components/schemas/uri' 
+            height:
+              $ref: './oiapComponents.yml#/components/schemas/height'
+            time: 
+              $ref: './oiapComponents.yml#/components/schemas/time' 
+        lowTide:  
+          description: >
+              The minimum height reached by a falling tide.  Low tide is measured in meters.
+          type: object
+          properties:
+            height:
+              $ref: './oiapComponents.yml#/components/schemas/height'
+            time: 
+              $ref: './oiapComponents.yml#/components/schemas/time' 
       required:
-        - customsClearanceUri 
+        - forecastedDates 
 
-    airQualityIndex: # Done
+    airQualityIndex: 
       description: 'Air Quality Index.'
       type: object
       allOf:
@@ -783,9 +838,9 @@ components:
               description: 'Air Quality Level. Example values are those defined by the USA EPA Agency: (good, moderate, unhealthyForSensitiveGroups, unhealthy, veryUnhealthy, hazardous).'
               type: string
               enum: [good, moderate, unhealthyForSensitiveGroups, unhealthy, veryUnhealthy, hazardous]
-              example: moderate
+              example: moderate 
 
-    airQualityPollution: # Done
+    airQualityPollution: 
       description: 'Values of several parameters that measure the air quality.'
       type: object
       allOf:
@@ -821,7 +876,7 @@ components:
         - lastCheckedResult
         - airQualityIndex
 
-    waterQualityIndex: # Done
+    waterQualityIndex: 
       description: 'Water Quality Index.'
       type: object
       allOf:
@@ -844,7 +899,7 @@ components:
         - lastCheckedResult
         - waterQualityIndex
 
-    waterQualityParameters: # Done
+    waterQualityParameters: 
       description: 'Water quality parameters and chemical agents.'
       type: object
       allOf:
@@ -903,7 +958,7 @@ components:
       required:
         - lastCheckedResult
 
-    noiseLevel: # Done
+    noiseLevel: 
       description: 'Noise level, expressed in dB.'
       type: object
       allOf:

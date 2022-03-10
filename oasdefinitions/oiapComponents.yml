@@ -172,6 +172,27 @@ components:
         - code
         - message
 
+    metadata:
+      description: Metadata information.
+      type: object
+      properties:
+        dateCreated:    
+          description: 'Entity creation timestamp. This will usually be allocated by the storage platform.'    
+          type: string 
+          format: date-time    
+        dateIssued:    
+          description: 'The date and time the forecast was issued by the meteorological bureau in ISO8601 UTC format.'    
+          type: string 
+          format: date-time    
+        dateModified:    
+          description: 'Timestamp of the last modification of the entity. This will usually be allocated by the storage platform.'    
+          type: string   
+          format: date-time    
+        dateRetrieved:    
+          description: 'The date and time the forecast was retrieved in ISO8601 UTC format.'      
+          type: string    
+          format: date-time  
+
     lastCheckedResult:
       description: 'Timestamp when the last update of the attribute happened.'
       type: string
@@ -197,6 +218,12 @@ components:
       type: string
       format: date
       example: 2022-01-20 
+
+    forecastedDate:  
+      description: The forecast date.
+      type: string
+      format: date
+      example: 2022-04-12 
 
     dateRange: 
       description: 
@@ -228,6 +255,11 @@ components:
       type: string
       format: date-time
       example: 2022-03-16T01:04:00Z   
+
+    time:  
+      description: Representation of a time, in ISO 8601 Time format.
+      type: string
+      example: 13:04:00 
 
 #   Group 3: Parties, addresses, places, countries
     contactInfo:
@@ -694,6 +726,11 @@ components:
 #   Group 5: Amounts, charges, percentages
   # Statistics
   # Rates and fees
+
+    height:  
+      description: Representation of a height, in meters.
+      type: number
+
 
 
 
