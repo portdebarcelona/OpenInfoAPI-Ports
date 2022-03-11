@@ -2,11 +2,24 @@ openapi: '3.0.3'
 info:
   version: '0.9.0-oas3'
   title: OIAP
-  description: |
-    **Open Info API para Puertos**
+  description: >
+        **Open Info API para Puertos**
 
 
-    This file contains all the APIs developed for the `Open Info API para Puertos` project for the **Terminals Domain** within the initiative Ports 4.0 form Puertos del Estado (ES).
+        This file contains all the APIs developed for the `Open Info API para Puertos` project for the **Terminal Performance Domain** within the initiative Ports 4.0 form Puertos del Estado (ES).
+
+        This domain will include some operational data related to the performance of the terminals, like their actual access time or some other figures like their dayly or hourly gate movements, at the land side, or information about their movements per hour at the sea side of the terminal.
+
+       
+        Goods/Containers entrance/exit of Terminals: Number of units (containers, freight cars,...) that enter or leave a terminal per hour during the present day.
+        Request parameters: port name, port UN/LOCODE, terminal, direction of the flow of the units.
+        Data included in the response: number of units, direction of the flow, hour.
+        
+        Vessel Loading/Unloading: Number of containers loaded or unloaded from a vessel per hour during the present day.
+        Request parameters: port name, port UN/LOCODE, terminal, direction of the flow of the equipments (loading or unloading).
+        Data included in the response: number of units, direction of the flow, hour.
+
+
 
   termsOfService: http://swagger.io/terms/
   license:
@@ -16,25 +29,25 @@ info:
     name: OpenInfoAPI github
     url: https://github.com/portdebarcelona/OpenInfoAPI-Ports
 tags:
-  - name: Terminals
+  - name: Terminal Performance
     description: "APIs related to the docummentary procedures of a port."
     externalDocs:
       description: Description 
       url: http://swagger.io/ # https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/docs/CatalogIntroduction.md It must be a link to a GitHub file with a more extensive description like Terminals are those served by liner ships that regularly sails on a fixed route following a schedule. A shipping schedule can be checked by vessel, by port of call, or by routing. 
 servers:
   - url: https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions
-    description: Servidor server 
-# Canvi efectuat: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions a '.
+    description: Main server 
 
 paths:
-  /basicTrafficEnvironment:
+  /accessWaitTime:
     get:
       tags:
-        - Terminals
-      summary: Returns a list of resources where the procedures for clearing the goods in import can be found.
-      description: Returns a list of resources where the procedures for clearing the goods in import can be found. 
+        - Terminal Performance
+      summary: Returns a list with the estimated waiting time that trucks have to queue before they can enter into a terminal.
+      description: Returns a list with the estimated waiting time that trucks have to queue before they can enter into a terminal.
       parameters:
         - $ref: '#/components/parameters/portCode'
+        - $ref: '#/components/parameters/terminal'
       responses: #status code
         '200':
           description: Successful operation
@@ -46,15 +59,19 @@ paths:
               schema:
                 type: object
                 properties:
-                  basicTrafficEnvironment:
+                  accessTime:
                     type: array
                     items:
-                      $ref: '#/components/schemas/basicTrafficEnvironment'
+                      $ref: '#/components/schemas/accessTime'
+                  metadata: 
+                    $ref: './oiapComponents.yml#/components/schemas/metadata'
                   requestedParams:
                     type: object
                     properties:
                       portCode:
                         $ref: './oiapComponents.yml#/components/schemas/portCode'
+                      terminalCode:
+                        $ref: './oiapComponents.yml#/components/schemas/terminalCode'
         '400':
           description: Bad request
           content:
@@ -67,14 +84,16 @@ paths:
             application/json:
               schema:
                 $ref: './oiapComponents.yml#/components/schemas/error'  
-  /basicEconomicData:
+
+  /landsideThroughput:
     get:
       tags:
-        - Terminals
-      summary: Returns a list of resources where the procedures for clearing the goods subject to controls from the border inspection services can be found.
-      description: Returns a list of resources where the procedures for clearing the goods subject to controls from the border inspection services can be found. 
+        - Terminal Performance
+      summary: Returns a list with the estimated waiting time that trucks have to queue before they can enter into a terminal.
+      description: Returns a list with the estimated waiting time that trucks have to queue before they can enter into a terminal.
       parameters:
         - $ref: '#/components/parameters/portCode'
+        - $ref: '#/components/parameters/terminal'
       responses: #status code
         '200':
           description: Successful operation
@@ -86,15 +105,19 @@ paths:
               schema:
                 type: object
                 properties:
-                  basicEconomicData:
+                  accessTime:
                     type: array
                     items:
-                      $ref: '#/components/schemas/basicEconomicData'
+                      $ref: '#/components/schemas/throughput'
+                  metadata: 
+                    $ref: './oiapComponents.yml#/components/schemas/metadata'
                   requestedParams:
                     type: object
                     properties:
                       portCode:
                         $ref: './oiapComponents.yml#/components/schemas/portCode'
+                      terminalCode:
+                        $ref: './oiapComponents.yml#/components/schemas/terminalCode'
         '400':
           description: Bad request
           content:
@@ -108,6 +131,51 @@ paths:
               schema:
                 $ref: './oiapComponents.yml#/components/schemas/error' 
 
+  /seasideThroughput:
+    get:
+      tags:
+        - Terminal Performance
+      summary: Returns a list with the estimated waiting time that trucks have to queue before they can enter into a terminal.
+      description: Returns a list with the estimated waiting time that trucks have to queue before they can enter into a terminal.
+      parameters:
+        - $ref: '#/components/parameters/portCode'
+        - $ref: '#/components/parameters/terminal'
+      responses: #status code
+        '200':
+          description: Successful operation
+          headers:
+            oiapApiVersion:
+              $ref: './oiapComponents.yml#/components/headers/oiapApiVersion'
+          content: 
+            application/json:
+              schema:
+                type: object
+                properties:
+                  accessTime:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/throughput'
+                  metadata: 
+                    $ref: './oiapComponents.yml#/components/schemas/metadata'
+                  requestedParams:
+                    type: object
+                    properties:
+                      portCode:
+                        $ref: './oiapComponents.yml#/components/schemas/portCode'
+                      terminalCode:
+                        $ref: './oiapComponents.yml#/components/schemas/terminalCode'
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: './oiapComponents.yml#/components/schemas/error' 
+        '404':
+          description: Not found
+          content:
+            application/json:
+              schema:
+                $ref: './oiapComponents.yml#/components/schemas/error' 
  
 
 components:
@@ -125,35 +193,61 @@ components:
       schema:
         $ref: './oiapComponents.yml#/components/schemas/portCode'
 
+    terminal:
+      in: query
+      name: terminal
+      description: Code that identifies a terminal.       
+      required: false
+      style: form
+      explode: false
+      schema:
+        $ref: './oiapComponents.yml#/components/schemas/terminalCode'
+
+
+
+
+
+
+
 
   schemas:
-    basicTrafficEnvironment: 
-      description: 'URI where a customs clearance procedure from a port can be found.'
+    accessTime: 
+      description: 'Estimated period of time, in minites, that trucks have to queue before they can enter into a terminal.'
       type: object
       allOf:
         - type: object 
           properties:
-            customsClearanceDescription:  
-              description: 'Procedure description'
-              type: string
-              enum: ['All .'] 
-            customsClearanceUri:  
-              $ref: './oiapComponents.yml#/components/schemas/uri' 
+            terminalCode:  
+              $ref: './oiapComponents.yml#/components/schemas/terminalCode' 
+            waitTime:
+              description: 'Wait time, expressed in minutes.'
+              type: integer
+              minimum: 0
+              example: 15
       required:
-        - customsClearanceUri 
+        - terminalCode 
 
-    basicEconomicData: 
-      description: 'URI where a border inspection procedure from a port can be found.'
+    throughput: 
+      description: 'Flow of goods or equipment units, expressed as movements per hour.'
       type: object
       allOf:
         - type: object 
           properties:
-            borderInspectionDescription:  
-              description: 'Procedure description'
+            terminalCode:  
+              $ref: './oiapComponents.yml#/components/schemas/terminalCode' 
+            sentit:  
+              description: 'Flow direction, where inbound means that goods or the equipment units enter into the terminal and outbound that they exit the terminal.'
               type: string
-              enum: ['The '] 
-            borderInspectionUri:  
-              $ref: './oiapComponents.yml#/components/schemas/uri' 
+              enum: [inbound, outbound] 
+              example: outbound
+            throughput:
+              description: 'Throughput.'
+              type: integer
+              minimum: 0
+              example: 76
       required:
-        - borderInspèctionUri 
+        - terminalCode 
+
+
+
 

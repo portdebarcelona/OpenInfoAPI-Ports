@@ -639,6 +639,12 @@ components:
       required:
         - description
 
+    terminalCode:
+      description: Port facility number. GISIS code assigned by IMO to a facility from a port.
+      type: string
+      minLength: 10
+      example: ESBCN-0042     
+
     gate: 
       description: 'Attributes of an access gate.'
       properties:
