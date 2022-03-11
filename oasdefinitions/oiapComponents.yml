@@ -263,7 +263,9 @@ components:
 
     hour: 
       description: Hour expressed in a 24 hours format and represents the periode between hh:00:00 and hh:59:59
-      type: string
+      type: integer
+      minimum: 0
+      maximum: 23
       example: 07
 
 #   Group 3: Parties, addresses, places, countries
