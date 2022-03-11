@@ -8,18 +8,8 @@ info:
 
         This file contains all the APIs developed for the `Open Info API para Puertos` project for the **Terminal Performance Domain** within the initiative Ports 4.0 form Puertos del Estado (ES).
 
+
         This domain will include some operational data related to the performance of the terminals, like their actual access time or some other figures like their dayly or hourly gate movements, at the land side, or information about their movements per hour at the sea side of the terminal.
-
-       
-        Goods/Containers entrance/exit of Terminals: Number of units (containers, freight cars,...) that enter or leave a terminal per hour during the present day.
-        Request parameters: port name, port UN/LOCODE, terminal, direction of the flow of the units.
-        Data included in the response: number of units, direction of the flow, hour.
-        
-        Vessel Loading/Unloading: Number of containers loaded or unloaded from a vessel per hour during the present day.
-        Request parameters: port name, port UN/LOCODE, terminal, direction of the flow of the equipments (loading or unloading).
-        Data included in the response: number of units, direction of the flow, hour.
-
-
 
   termsOfService: http://swagger.io/terms/
   license:
@@ -43,7 +33,7 @@ paths:
     get:
       tags:
         - Terminal Performance
-      summary: Returns a list with the estimated waiting time that trucks have to queue before they can enter into a terminal.
+      summary: Estimated waiting time that trucks have to queue before they can enter into a terminal.
       description: Returns a list with the estimated waiting time that trucks have to queue before they can enter into a terminal.
       parameters:
         - $ref: '#/components/parameters/portCode'
@@ -89,8 +79,8 @@ paths:
     get:
       tags:
         - Terminal Performance
-      summary: Returns a list with the estimated waiting time that trucks have to queue before they can enter into a terminal.
-      description: Returns a list with the estimated waiting time that trucks have to queue before they can enter into a terminal.
+      summary: Number of units (containers, freight cars,...) that enter or leave a terminal per hour during the present day.
+      description: Returns a list with the number of units (containers, freight cars,...) that enter or leave a terminal per hour during the present day.
       parameters:
         - $ref: '#/components/parameters/portCode'
         - $ref: '#/components/parameters/terminal'
@@ -135,8 +125,8 @@ paths:
     get:
       tags:
         - Terminal Performance
-      summary: Returns a list with the estimated waiting time that trucks have to queue before they can enter into a terminal.
-      description: Returns a list with the estimated waiting time that trucks have to queue before they can enter into a terminal.
+      summary: Returns the number of containers loaded or unloaded from vessels on a terminal per hour and during the present day.
+      description: eturns the number of containers loaded or unloaded from vessels on a terminal per hour and during the present day.
       parameters:
         - $ref: '#/components/parameters/portCode'
         - $ref: '#/components/parameters/terminal'
@@ -177,7 +167,6 @@ paths:
               schema:
                 $ref: './oiapComponents.yml#/components/schemas/error' 
  
-
 components:
   parameters: 
     portCode:
@@ -202,13 +191,6 @@ components:
       explode: false
       schema:
         $ref: './oiapComponents.yml#/components/schemas/terminalCode'
-
-
-
-
-
-
-
 
   schemas:
     accessTime: 
@@ -235,11 +217,13 @@ components:
           properties:
             terminalCode:  
               $ref: './oiapComponents.yml#/components/schemas/terminalCode' 
-            sentit:  
+            flowDirection:  
               description: 'Flow direction, where inbound means that goods or the equipment units enter into the terminal and outbound that they exit the terminal.'
               type: string
               enum: [inbound, outbound] 
               example: outbound
+            hourReported:
+              $ref: './oiapComponents.yml#/components/schemas/hour'             
             throughput:
               description: 'Throughput.'
               type: integer
