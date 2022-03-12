@@ -1241,10 +1241,232 @@ components:
         unsubscriptionRequestMessage:
           $ref: '#/components/schemas/unsubscriptionRequestMessage'
 
-
     # Environmenet-weather
     weatherType: 
       description: The observed weather type. 
       type: string
       enum: [clearNight,sunnyDay, slightlyCloudy, partlyCloudy, mist, fog, highClouds, cloudy, veryCloudy, overcast, lightRainShower, drizzle, lightRain, heavyRainShower, heavyRain, sleetShower, sleet, hailShower, hail, shower, lightSnow, snow, heavySnowShower, heavySnow, thunderShower, thunder]
       example: cloudy
+
+    dewPoint: 
+      description: The dew point encoded as a number. Default unit is Celsius degrees. See also https://en.wikipedia.org/wiki/Dew_point
+      type: number
+
+    visibility: 
+      description: Visibility reported.
+      type: string
+      enum: [veryPoor, poor, moderate, good, veryGood, excellent]
+      example: good
+
+    temperature: 
+      description: Air's temperature observed. Default unit is degrees centigrades.
+      type: number
+
+    feelsLikeTemperature:  
+      description: Wind chill/Feels like Temperature (°C)
+      type: number
+
+    relativeHumidity: 
+      description: Air's relative humidity observed (percentage, expressed in parts per one).
+      type: number
+      minimum: 0
+      maximum: 1
+      example: 0.4            
+
+    precipitation: 
+      description: Precipitation level observed. Default unit is liters per square meter.
+      type: number
+      example: 13
+
+    precipitationProbability:
+      description: Rain precipitation probability (%)
+      type: number
+      minimum: 0
+      maximum: 1
+
+    windDirection: 
+      description: The wind direction expressed in decimal degrees compared to geographic North (measured clockwise), encoded as a Number. Range 0 to 360.
+      type: number
+      minimum: 0
+      maximum: 360
+      example: 135  
+
+    windSpeed: 
+      description: The observed wind speed in m/s.
+      type: number
+
+    atmosphericPressure: 
+      description: The atmospheric pressure observed measured in Hecto Pascals.
+      type: number
+
+    pressureTendency: 
+      description: Is the pressure rising or falling. It can be expressed in quantitative terms or qualitative terms.
+      type: string
+      enum: [raising, falling, steady]
+      example: steady
+
+    solarRadiation: 
+      description: The solar radiation observed measured in Watts per square meter.
+      type: number 
+
+    illuminance: 
+      description: The illumninance observed measured in lux (lx) or lumens per square metre (cd·sr·m-2).
+      type: number
+      example: 1000
+
+    cloudCover:  
+      description: Cloud cover in percentage (%)
+      type: number
+      minimum: 0
+      maximum: 1
+
+    sunrise:  
+      description: 'Sunrise hour.'
+      type: string
+      format: date-time
+
+    sunset:  
+      description: 'Sunset hour.'
+      type: string
+      format: date-time
+
+    moonrise:  
+      description: 'Moonrise hour.'
+      type: string
+      format: date-time
+
+    moonset:  
+      description: 'Moonrise hour.'
+      type: string
+      format: date-time
+
+    moonPhase:  
+      description: 'Moon phase.'
+      type: string
+      enum: [New Moon, First Quarter, Full Moon, Last Quarter]
+      example: Full Moon
+
+    illumination:  
+      description: 'Moon percentage illumination.'
+      type: integer
+      minimum: 0
+      maximum: 100
+      example: 90   
+
+    surfaceTemperature: 
+      description: Sea surface temperature, expressed in Celsius degrees.
+      type: number
+      example: 18.5
+
+    waveHeight: 
+      description: Height of the waves, expressed in meters.
+      type: number
+      example: 1.2
+
+    waveLevel: 
+      description: It indicates the height of the waves and also measures the swell of the sea, expressed in meters.
+      type: number
+      example: 1.7
+
+    wavePeriod: 
+      description: Indicates the time between the crests of a wave, expressed in seconds.'
+      type: number
+      example: 12
+
+    source: 
+      description: A sequence of characters giving the original source of the entity data as a URL. Recommended to be the fully qualified domain name of the source provider, or the URL to the source object.
+      $ref: './oiapComponents.yml#/components/schemas/uri'
+
+    swellHeight:  
+      description: Swell height in (meter)
+      type: number
+
+    swellPeriod:  
+      description: Swell period in (secs)
+      type: integer
+
+    swellDirection:              
+      description: Swell direction
+      type: integer
+      minimum: 0
+      maximum: 360
+
+    waterQualityIndex:  
+      description: 'Value of the Water Quality Index (WQI).'
+      type: integer
+      minimum: 0
+      maximum: 100
+      example: 83
+
+    waterQualityLevel:  
+      description: 'Water Quality Level. Example values are excellent quality, good, average, bad.'
+      type: string
+      enum: [excellent quality, good, average, bad]
+      example: moderate
+
+    waterTemperature:  
+      description: 'Water temperature, expressed in Celsius degrees.'
+      type: number
+      example: 22.5
+
+    salinity: 
+      description: Amount of salts dissolved in water, measured in parts per thousand (ppt).
+      type: number
+      example: 22.15
+
+    ph: 
+      description: Acidity or basicity of an aqueous solution, expressed as the negative of the logarithm to base 10 of the activity of the hydrogen ion. 
+      type: number
+      example: 7.5
+
+    turbidity: 
+      description: Amount of light scattered by particles in the water column, measured in Formazin Turbidity Units (FTU).
+      type: number
+      example: 18.15
+
+    o2: 
+      description: Level of free, non-compound oxygen present, expressed in milligrams per liter (mg/L).
+      type: number
+      example: 4.12
+
+    tss: 
+      description: Total suspended solids, measured in milligrams per liter (mg/L).
+      type: number
+      example: 123
+
+    tds: 
+      description: Total dissolved solids, measured in milligrams per liter (mg/L).
+      type: number
+      example: 100
+
+    nitrates: 
+      description: Concentration of nitrates, expressed in milligrams per liter (mg/L).
+      type: number
+      example: 0.01
+
+    nitrites: 
+      description: Concentration of nitrites, expressed in milligrams per liter (mg/L).
+      type: number
+      example: 0.972
+
+    ammonia: 
+      description: Concentration of ammonia, expressed in milligrams per liter (mg/L).
+      type: number
+      example: 0.996             
+
+    silicate: 
+      description: Concentration of silicate, expressed in milligrams per liter (mg/L).
+      type: number
+      example: 0.994
+
+    phosphate: 
+      description: Concentration of phosphate, expressed in milligrams per liter (mg/L).
+      type: number              
+      example: 0.996
+
+    noiseLevel:
+      description: Noise level, expressed in dB.
+      type: integer
+      minimum: 0
+      maximum: 140
+      example: 65

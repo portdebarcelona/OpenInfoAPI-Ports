@@ -540,14 +540,6 @@ components:
               dataProvider: 
                 description: Specifies the URL to information about the provider of this information
                 type: string
-              dateModified: 
-                description: Last update timestamp of this entity. Automatically generated.
-                type: string
-                format: date-time
-              dateCreated: 
-                description: Entity's creation timestamp. Automatically generated.
-                type: string
-                format: date-time
               name: 
                 description: Name given to the weather observed location.
                 type: string
@@ -576,52 +568,29 @@ components:
                 items:
                       $ref: './oiapComponents.yml#/components/schemas/weatherType'
               dewPoint: 
-                description: The dew point encoded as a number. Default unit is Celsius degrees. See also https://en.wikipedia.org/wiki/Dew_point
-                type: number
+                 $ref: './oiapComponents.yml#/components/schemas/dewPoint'
               visibility: 
-                description: Visibility reported.
-                type: string
-                enum: [veryPoor, poor, moderate, good, veryGood, excellent]
-                example: good
+                $ref: './oiapComponents.yml#/components/schemas/visibility'
               temperature: 
-                description: Air's temperature observed. Default unit is degrees centigrades.
-                type: number
+                $ref: './oiapComponents.yml#/components/schemas/temperature'
               feelsLikeTemperature:  
-                description: Wind chill/Feels like Temperature (°C)
-                type: number
+                $ref: './oiapComponents.yml#/components/schemas/feelsLikeTemperature'
               relativeHumidity: 
-                description: Air's relative humidity observed (percentage, expressed in parts per one).
-                type: number
-                minimum: 0
-                maximum: 1
-                example: 0.4            
+                $ref: './oiapComponents.yml#/components/schemas/relativeHumidity'           
               precipitation: 
-                description: Precipitation level observed. Default unit is liters per square meter.
-                type: number
+                $ref: './oiapComponents.yml#/components/schemas/precipitation'
               windDirection: 
-                description: The wind direction expressed in decimal degrees compared to geographic North (measured clockwise), encoded as a Number. Range 0 to 360.
-                type: number
-                minimum: 0
-                maximum: 360
-                example: 135  
+                $ref: './oiapComponents.yml#/components/schemas/windDirection'
               windSpeed: 
-                description: The observed wind speed in m/s.
-                type: number
+                $ref: './oiapComponents.yml#/components/schemas/windSpeed'
               atmosphericPressure: 
-                description: The atmospheric pressure observed measured in Hecto Pascals.
-                type: number
+                $ref: './oiapComponents.yml#/components/schemas/atmosphericPressure'
               pressureTendency: 
-                description: Is the pressure rising or falling. It can be expressed in quantitative terms or qualitative terms.
-                type: string
-                enum: [raising, falling, steady]
-                example: steady
+                $ref: './oiapComponents.yml#/components/schemas/pressureTendency'
               solarRadiation: 
-                description: The solar radiation observed measured in Watts per square meter.
-                type: number 
+                $ref: './oiapComponents.yml#/components/schemas/solarRadiation'
               illuminance: 
-                description: The illumninance observed measured in lux (lx) or lumens per square metre (cd·sr·m-2).
-                type: number
-                example: 1000
+                $ref: './oiapComponents.yml#/components/schemas/illuminance'
       required:
         - dateObserved 
 
@@ -632,61 +601,39 @@ components:
         - type: object 
           properties:        
             forecastedDate:  
-              description: Date of the forecast.      
-              type: string 
-              format: date
+              $ref: './oiapComponents.yml#/components/schemas/forecastedDate'
             atmosphericPressure:    
-              description: 'The atmospheric pressure observed measured in Hecto Pascals'        
-              type: number 
-              minimum: 0
+              $ref: './oiapComponents.yml#/components/schemas/atmosphericPressure'
             dayMaximum:    
               description: 'Maximum values for the reported period. Subattributes:- `temperature` : Maximum temperature. See `WeatherForecast.temperature` for description and units. - `feelLikesTemperature`. Maximum feels like temperature. Same semantics and units as `WeatherForecast.feelsLikeTemperature`.-   `relativeHumidity`. Maximum relative humidity. Same semantics and units as `WeatherForecast.relativeHumidity`.'    
               type: object  
               properties:    
-                feelLikesTemperature:    
-                  description: 'Property. Temperature appreciation of the item'    
-                  type: number    
+                feelsLikeTemperature:    
+                  $ref: './oiapComponents.yml#/components/schemas/feelsLikeTemperature'   
                 relativeHumidity:    
-                  description: 'Property. Humidity in the Air. Observed instantaneous relative humidity (water vapour in air)'    
-                  type: number
-                  maximum: 1    
-                  minimum: 0      
+                  $ref: './oiapComponents.yml#/components/schemas/relativeHumidity'    
                 temperature:    
-                  description: 'Property. Temperature of the item'    
-                  type: number      
+                  $ref: './oiapComponents.yml#/components/schemas/temperature'     
             dayMinimum:    
               description: 'Minimum values forecasted for the reported period.  Minimum values for the reported period. Subattributes:- `temperature` : Minimum temperature. See `WeatherForecast.temperature` for description and units. - `feelLikesTemperature`. Minimum feels like temperature. Same semantics and units as `WeatherForecast.feelsLikeTemperature`.- `relativeHumidity`. Minimum relative humidity. Same semantics and units as `WeatherForecast.relativeHumidity`'    
               type: object   
               properties:    
-                feelLikesTemperature:    
-                  description: 'Property. Temperature appreciation of the item'    
-                  type: number    
+                feelsLikeTemperature:    
+                  $ref: './oiapComponents.yml#/components/schemas/feelsLikeTemperature'    
                 relativeHumidity:    
-                  description: 'Property. Humidity in the Air. Observed instantaneous relative humidity (water vapour in air)'    
-                  maximum: 1    
-                  minimum: 0    
-                  type: number    
+                  $ref: './oiapComponents.yml#/components/schemas/relativeHumidity'    
                 temperature:    
-                  description: 'Property. Temperature of the item'    
-                  type: number              
+                  $ref: './oiapComponents.yml#/components/schemas/temperature'             
             gustSpeed:    
               description: 'A sudden burst of high-speed wind over the observed average wind speed lasting only for a few seconds.'    
               type: number
             precipitationProbability:
-              description: Rain precipitation probability (%)
-              type: number
-              minimum: 0
-              maximum: 1
+              $ref: './oiapComponents.yml#/components/schemas/precipitationProbability'
             cloudCover:  
-              description: Cloud cover in percentage (%)
-              type: number
-              minimum: 0
-              maximum: 1
+              $ref: './oiapComponents.yml#/components/schemas/cloudCover'
             dataProvider:    
               description: 'A sequence of characters identifying the provider of the harmonised data entity.'    
               type: string      
-            metadata:
-              $ref: './oiapComponents.yml#/components/schemas/metadata'
       required:
         - targetData 
 
@@ -697,32 +644,17 @@ components:
         - type: object 
           properties:
             sunrise:  
-              description: 'Sunrise hour.'
-              type: string
-              format: date-time
+              $ref: './oiapComponents.yml#/components/schemas/sunrise'
             sunset:  
-              description: 'Sunset hour.'
-              type: string
-              format: date-time
+              $ref: './oiapComponents.yml#/components/schemas/sunset'
             moonrise:  
-              description: 'Moonrise hour.'
-              type: string
-              format: date-time
+              $ref: './oiapComponents.yml#/components/schemas/moonrise'
             moonset:  
-              description: 'Moonrise hour.'
-              type: string
-              format: date-time
+              $ref: './oiapComponents.yml#/components/schemas/moonset'
             moonPhase:  
-              description: 'Moon phase.'
-              type: string
-              enum: [New Moon, First Quarter, Full Moon, Last Quarter]
-              example: Full Moon
+              $ref: './oiapComponents.yml#/components/schemas/moonPhase'
             illumination:  
-              description: 'Moon percentage illumination.'
-              type: integer
-              minimum: 0
-              maximum: 100
-              example: 90     
+              $ref: './oiapComponents.yml#/components/schemas/illumination'   
 
     seaCondition: 
       description: 'Sea condition.'
@@ -733,24 +665,15 @@ components:
             lastCheckedResult:  
               $ref: './oiapComponents.yml#/components/schemas/lastCheckedResult'
             surfaceTemperature: 
-              description: Sea surface temperature, expressed in Celsius degrees.
-              type: number
-              example: 18.5
+              $ref: './oiapComponents.yml#/components/schemas/surfaceTemperature'
             waveHeight: 
-              description: Height of the waves, expressed in meters.
-              type: number
-              example: 1.2
+              $ref: './oiapComponents.yml#/components/schemas/waveHeight'
             waveLevel: 
-              description: It indicates the height of the waves and also measures the swell of the sea, expressed in meters.
-              type: number
-              example: 1.7
+              $ref: './oiapComponents.yml#/components/schemas/waveLevel'
             wavePeriod: 
-              description: Indicates the time between the crests of a wave, expressed in seconds.'
-              type: number
-              example: 12
+              $ref: './oiapComponents.yml#/components/schemas/wavePeriod'
             source: 
-              description: A sequence of characters giving the original source of the entity data as a URL. Recommended to be the fully qualified domain name of the source provider, or the URL to the source object.
-              $ref: './oiapComponents.yml#/components/schemas/uri'
+              $ref: './oiapComponents.yml#/components/schemas/source'
       required:
         - lastCheckedResult 
 
@@ -761,34 +684,19 @@ components:
         - type: object 
           properties:
             forecastedDate:  
-              description: Date of the forecast.
-              type: string
-              format: date
+              $ref: './oiapComponents.yml#/components/schemas/forecastedDate'
             waveHeight:
-              description: Significant wave height in (meter)
-              type: number
+              $ref: './oiapComponents.yml#/components/schemas/waveHeight'
             swellHeight:  
-              description: Swell height in (meter)
-              type: number
+              $ref: './oiapComponents.yml#/components/schemas/swellHeight'
             swellPeriod:  
-              description: Swell period in (secs)
-              type: integer
+              $ref: './oiapComponents.yml#/components/schemas/swellPeriod'
             swellDirection:              
-              description: Swell direction
-              type: integer
-              minimum: 0
-              maximum: 360
+              $ref: './oiapComponents.yml#/components/schemas/swellDirection'
             windDirection: 
-              description: The wind direction expressed in decimal degrees compared to geographic North (measured clockwise), encoded as a Number. Range 0 to 360.
-              type: number
-              minimum: 0
-              maximum: 360
-              example: 135  
+              $ref: './oiapComponents.yml#/components/schemas/windDirection' 
             windSpeed: 
-              description: The observed wind speed in m/s.
-              type: number
-            metadata: 
-              $ref: './oiapComponents.yml#/components/schemas/metadata'
+              $ref: './oiapComponents.yml#/components/schemas/windSpeed'
       required:
         - forecastedData 
         - waveHeight
@@ -885,16 +793,9 @@ components:
             lastCheckedResult:  
               $ref: './oiapComponents.yml#/components/schemas/lastCheckedResult' 
             waterQualityIndex:  
-              description: 'Value of the Water Quality Index (WQI).'
-              type: integer
-              minimum: 0
-              maximum: 100
-              example: 83
+              $ref: './oiapComponents.yml#/components/schemas/waterQualityIndex' 
             waterQualityLevel:  
-              description: 'Water Quality Level. Example values are excellent quality, good, average, bad.'
-              type: string
-              enum: [excellent quality, good, average, bad]
-              example: moderate
+              $ref: './oiapComponents.yml#/components/schemas/waterQualityLevel' 
       required:
         - lastCheckedResult
         - waterQualityIndex
@@ -908,53 +809,29 @@ components:
             lastCheckedResult:  
               $ref: './oiapComponents.yml#/components/schemas/lastCheckedResult' 
             waterTemperature:  
-              description: 'Water temperature, expressed in Celsius degrees.'
-              type: number
-              example: 22.5
+              $ref: './oiapComponents.yml#/components/schemas/waterTemperature'
             salinity: 
-              description: Amount of salts dissolved in water, measured in parts per thousand (ppt).
-              type: number
-              example: 22.15
-            pH: 
-              description: Acidity or basicity of an aqueous solution, expressed as the negative of the logarithm to base 10 of the activity of the hydrogen ion. 
-              type: number
-              example: 7.5
+              $ref: './oiapComponents.yml#/components/schemas/salinity'
+            ph: 
+              $ref: './oiapComponents.yml#/components/schemas/ph'
             turbidity: 
-              description: Amount of light scattered by particles in the water column, measured in Formazin Turbidity Units (FTU).
-              type: number
-              example: 18.15
-            O2: 
-              description: Level of free, non-compound oxygen present, expressed in milligrams per liter (mg/L).
-              type: number
-              example: 4.12
+              $ref: './oiapComponents.yml#/components/schemas/turbidity'
+            o2: 
+              $ref: './oiapComponents.yml#/components/schemas/o2'
             tss: 
-              description: Total suspended solids, measured in milligrams per liter (mg/L).
-              type: number
-              example: 123
+              $ref: './oiapComponents.yml#/components/schemas/tss'
             tds: 
-              description: Total dissolved solids, measured in milligrams per liter (mg/L).
-              type: number
-              example: 100
+              $ref: './oiapComponents.yml#/components/schemas/tds'
             nitrates: 
-              description: Concentration of nitrates, expressed in milligrams per liter (mg/L).
-              type: number
-              example: 0.01
+              $ref: './oiapComponents.yml#/components/schemas/nitrates'
             nitrites: 
-              description: Concentration of nitrites, expressed in milligrams per liter (mg/L).
-              type: number
-              example: 0.972
+              $ref: './oiapComponents.yml#/components/schemas/nitrites'
             ammonia: 
-              description: Concentration of ammonia, expressed in milligrams per liter (mg/L).
-              type: number
-              example: 0.996             
+              $ref: './oiapComponents.yml#/components/schemas/ammonia'             
             silicate: 
-              description: Concentration of silicate, expressed in milligrams per liter (mg/L).
-              type: number
-              example: 0.994
+              $ref: './oiapComponents.yml#/components/schemas/silicate'
             phosphate: 
-              description: Concentration of phosphate, expressed in milligrams per liter (mg/L).
-              type: number              
-              example: 0.996
+              $ref: './oiapComponents.yml#/components/schemas/phosphate'
       required:
         - lastCheckedResult
 
@@ -967,10 +844,7 @@ components:
             lastCheckedResult:  
               $ref: './oiapComponents.yml#/components/schemas/lastCheckedResult'
             noiseLevel:
-              type: integer
-              minimum: 0
-              maximum: 140
-              example: 65
+              $ref: './oiapComponents.yml#/components/schemas/noiseLevel'
       required:
         - lastCheckedResult
         - noiseLevel
