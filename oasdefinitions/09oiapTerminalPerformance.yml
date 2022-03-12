@@ -202,10 +202,7 @@ components:
             terminalCode:  
               $ref: './oiapComponents.yml#/components/schemas/terminalCode' 
             waitTime:
-              description: 'Wait time, expressed in minutes.'
-              type: integer
-              minimum: 0
-              example: 15
+              $ref: './oiapComponents.yml#/components/schemas/waitTime'
       required:
         - terminalCode 
 
@@ -218,17 +215,11 @@ components:
             terminalCode:  
               $ref: './oiapComponents.yml#/components/schemas/terminalCode' 
             flowDirection:  
-              description: 'Flow direction, where inbound means that goods or the equipment units enter into the terminal and outbound that they exit the terminal.'
-              type: string
-              enum: [inbound, outbound] 
-              example: outbound
+              $ref: './oiapComponents.yml#/components/schemas/flowDirection' 
             hourReported:
               $ref: './oiapComponents.yml#/components/schemas/hour'             
             throughput:
-              description: 'Throughput.'
-              type: integer
-              minimum: 0
-              example: 76
+              $ref: './oiapComponents.yml#/components/schemas/throughput'
       required:
         - terminalCode 
 

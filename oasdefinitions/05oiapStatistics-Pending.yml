@@ -20,22 +20,24 @@ tags:
     description: "APIs related to the docummentary procedures of a port."
     externalDocs:
       description: Description 
-      url: http://swagger.io/ # https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/docs/CatalogIntroduction.md It must be a link to a GitHub file with a more extensive description like Statistics are those served by liner ships that regularly sails on a fixed route following a schedule. A shipping schedule can be checked by vessel, by port of call, or by routing. 
+      url: http://swagger.io/ 
 servers:
   - url: https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions
     description: Servidor server 
-# Canvi efectuat: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions a '.
 
 paths:
   /basicTrafficStatistics:
     get:
       tags:
         - Statistics
-      summary: Returns a list of resources where the procedures for clearing the goods in import can be found.
-      description: Returns a list of resources where the procedures for clearing the goods in import can be found. 
+      summary: Statistical information from the carriage of goods and passengers by seagoing vessels calling at ports.
+      description: >
+            Statistical information from the carriage of goods and passengers by seagoing vessels calling at ports.
+
+            It is based on the definitions and classifications as included in the Directive 2009/42/EC of the European Parliament and of the Council of 6 May 2009 on statistical returns in respect of carriage of goods and passenger by sea and later amendments. 
       parameters:
         - $ref: '#/components/parameters/portCode'
-      responses: #status code
+      responses: 
         '200':
           description: Successful operation
           headers:
@@ -50,6 +52,8 @@ paths:
                     type: array
                     items:
                       $ref: '#/components/schemas/basicTrafficStatistics'
+                  metadata: 
+                    $ref: './oiapComponents.yml#/components/schemas/metadata'
                   requestedParams:
                     type: object
                     properties:
@@ -67,12 +71,12 @@ paths:
             application/json:
               schema:
                 $ref: './oiapComponents.yml#/components/schemas/error'  
-  /basicEconomicData:
+  /basicEconomicStatistics:
     get:
       tags:
         - Statistics
-      summary: Returns a list of resources where the procedures for clearing the goods subject to controls from the border inspection services can be found.
-      description: Returns a list of resources where the procedures for clearing the goods subject to controls from the border inspection services can be found. 
+      summary: Statistical information from some economical parameters from a port.
+      description: Statistical information from some economical parameters from a port. 
       parameters:
         - $ref: '#/components/parameters/portCode'
       responses: #status code
@@ -90,6 +94,8 @@ paths:
                     type: array
                     items:
                       $ref: '#/components/schemas/basicEconomicData'
+                  metadata: 
+                    $ref: './oiapComponents.yml#/components/schemas/metadata'
                   requestedParams:
                     type: object
                     properties:
@@ -128,21 +134,44 @@ components:
 
   schemas:
     basicTrafficStatistics: 
-      description: 'URI where a customs clearance procedure from a port can be found.'
+      description: 'Statistical information from the traffic flows from a port.'
       type: object
       allOf:
         - type: object 
           properties:
-            customsClearanceDescription:  
-              description: 'Procedure description'
-              type: string
-              enum: ['All .'] 
-            customsClearanceUri:  
-              $ref: './oiapComponents.yml#/components/schemas/uri' 
+            dataset:
+              $ref: './oiapComponents.yml#/components/schemas/dataset' 
+            year:
+              $ref: './oiapComponents.yml#/components/schemas/year' 
+            quarter:
+              $ref: './oiapComponents.yml#/components/schemas/quarter' 
+            reportingPort:
+              $ref: './oiapComponents.yml#/components/schemas/reportingPort' 
+            flowDirection:  
+              $ref: './oiapComponents.yml#/components/schemas/flowDirection' 
+            portLoadingUnloading:
+              $ref: './oiapComponents.yml#/components/schemas/portLoadingUnloading' 
+            coastalArea:
+              $ref: './oiapComponents.yml#/components/schemas/coastalArea'             
+            typeOfCargo:
+              $ref: './oiapComponents.yml#/components/schemas/typeOfCargo' 
+            grossWeightOfGoods:
+              $ref: './oiapComponents.yml#/components/schemas/grossWeight'
+            unitsTotal:
+              $ref: './oiapComponents.yml#/components/schemas/units'
+            unitsEmpty:
+              $ref: './oiapComponents.yml#/components/schemas/units'
+            ferryPassengers:
+              $ref: './oiapComponents.yml#/components/schemas/passengers'
+            cruisePassengers:
+              $ref: './oiapComponents.yml#/components/schemas/passengers'
       required:
-        - customsClearanceUri 
+        - dataset
+        - year
+        - quarter
+        - reportingPort 
 
-    basicEconomicData: 
+    basicEconomicData: # PENDING
       description: 'URI where a border inspection procedure from a port can be found.'
       type: object
       allOf:

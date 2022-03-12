@@ -501,11 +501,7 @@ components:
       type: string
       example: Barcelona 
 
-    coastalArea: 
-      description: >
-            MARITIME COASTAL AREAS The nomenclature to be used is the Geonomenclature (the nomenclature of countries and territories for the external trade statistics of the Union and statistics of trade between Member States) (1) in force in the year to which the data refer. The code consists of four digits: the ISO alpha 2 standard code for each country from the abovementioned nomenclature, followed by two zeros (e.g. code GR00 for Greece), except for countries which are divided into two or more maritime coastal areas, which are identified by a fourth digit other than zero (from 1 to 7)Name of a geographical area, based on the Nomenclature of Countries and Territories for the European statistics on international trade in goods and on the geographical breakdown for other business statistics.            
-      maxLength: 4
-      example: GR00  
+
 
     countryCode: 
       description: Country code as a 2 alpha characters from ISO3166.            
@@ -744,9 +740,109 @@ components:
       description: Representation of a height, in meters.
       type: number
 
+    flowDirection:  
+      description: 'The variable "flow direction" (inwards, outwards) is determined always by reference to the reporting port/terminal: "inwards" means "arriving at the port/terminal", "outwards" means "leaving the port/terminal".'
+      type: string
+      enum: [inwards, outwards] 
+      example: outwards
 
+    throughput:
+      description: 'Throughput.'
+      type: integer
+      minimum: 0
+      example: 76
 
+    waitTime:
+      description: 'Wait time, expressed in minutes.'
+      type: integer
+      minimum: 0
+      example: 15
 
+    dataset: 
+      description: >
+            M           
+      maxLength: 4
+      example: A2 
+
+    year:
+      description: M            
+      type: integer
+      maxLength: 4
+      example: 2022 
+
+    quarter: # pending
+      description: M          
+      type: integer
+      enum: [1, 2, 3, 4]
+      example: 2               
+
+    reportingPort: # pending
+      description: M. Use UN/LOCODE.           
+      type: string
+      maxLength: 5
+      example: ESBCN 
+
+    portLoadingUnloading: # pending
+      description: M. Use UN/LOCODE.           
+      type: string
+      maxLength: 5
+      example: HKHKG 
+
+    typeOfCargo:
+      description: >
+            M            
+      maxLength: 2
+      example: 12 
+
+    commodity:
+      description: >
+            NST2007 code.
+              * `01`	Products of agriculture, hunting, and forestry; fish and other fishing products
+              * `02`	Coal and lignite; crude petroleum and natural gas
+              * `03`	Metal ores and other mining and quarrying products; peat; uranium and thorium
+              * `04`	Food products, beverages and tobacco
+              * `05`	Textiles and textile products; leather and leather products
+              * `06`	Wood and products of wood and cork (except furniture); articles of straw and plaiting materials; pulp, paper and paper products; printed matter and recorded media
+              * `07`	Coke and refined petroleum products
+              * `08`	Chemicals, chemical products, and man-made fibers; rubber and plastic products; nuclear fuel
+              * `09`	Other non metallic mineral products
+              * `10`  Basic metals; fabricated metal products, except machinery and equipment
+              * `11`	Machinery and equipment n.e.c.; office machinery and computers; electrical machinery and apparatus n.e.c.; radio, television and communication equipment and apparatus; medical, precision and optical instruments; watches and clocks
+              * `12`	Transport equipment
+              * `13`	Furniture; other manufactured goods n.e.c.
+              * `14`	Secondary raw materials; municipal wastes and other wastes
+              * `15`	Mail, parcels
+              * `16`	Equipment and material utilized in the transport of goods
+              * `17`	Goods moved in the course of household and office removals; baggage and articles accompanying travellers; motor vehicles being moved for repair; other non market goods n.e.c.
+              * `18` 	Grouped goods: a mixture of types of goods which are transported together
+              * `19`	Unidentifiable goods: goods which for any reason cannot be identified and therefore cannot be assigned to groups 01-16
+              * `20`	Other goods n.e.c.            
+      type: string
+      maxLength: 2
+      enum: [01, 02, 03, 04, 05, 06, 07, 08, 09, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20]
+      example: 08
+
+    grossWeight: # pending
+      description: Gross weight, expressed in tonnes.      
+      type: integer      
+      example: 875200 
+
+    passengers: # pending
+      description: Number of passengers.      
+      type: integer      
+      example: 24200 
+
+    units: # pending
+      description: Number of units (containers or intermodal transport units -ITU-).      
+      type: integer      
+      example: 43823 
+
+    coastalArea: 
+      description: A maritime coastal area is defined by Eurostat as a contiguous stretch of coastline, together with islands offshore. Annex VI from Directive 2009/42/EC of the European Parliament and of the Council.         
+      type: string  
+      maxLength: 4
+      example: GR00  
+       
 
 
 
