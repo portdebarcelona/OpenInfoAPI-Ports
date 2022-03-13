@@ -657,25 +657,10 @@ components:
         gateCoordinates:
           description: Coordinates of a gate. 
           $ref: '#/components/schemas/coordinates'
-        vehicleFlowDirection:
-          description: > 
-                Direction of the vehicle flow at the gate. 
-                  * `Inward`
-                  * `Outward`
-                  * `Both` - inward and outward
-          type: string
-          enum: [Inward, Outward, Both]
-          example: Both
-        gateTypeOfVehicles:
-          description: >
-                Type of vehicles. 
-                  * `Cars`
-                  * `Trucks`
-                  * `Both` - Trucks and cars
-                  * `Trains`
-          type: string
-          enum: [Cars, Trucks, Both, Trains]
-          example: Trucks
+        flowDirection:
+          $ref: '#/components/schemas/flowDirection'
+        vehicleTypes:
+          $ref: '#/components/schemas/vehicleTypes'
 
     totalArea: 
       description: Total area expressed in ha.
@@ -741,9 +726,9 @@ components:
       type: number
 
     flowDirection:  
-      description: 'The variable "flow direction" (inwards, outwards) is determined always by reference to the reporting port/terminal: "inwards" means "arriving at the port/terminal", "outwards" means "leaving the port/terminal".'
+      description: 'Flow direction (inwards, outwards) is determined by reference to the reporting port/terminal: "inwards" means "arriving at the port/terminal", "outwards" means "leaving the port/terminal". It is also possible to choose "both" directions, inwards and outwards'
       type: string
-      enum: [inwards, outwards] 
+      enum: [inwards, outwards, both] 
       example: outwards
 
     throughput:
@@ -872,7 +857,7 @@ components:
       example: 24200 
 
     units: 
-      description: Number of units (containers, intermodal transport units -ITU-, vessels...).      
+      description: Number of units (containers, intermodal transport units -ITU-, vehicles, vessels...).      
       type: integer      
       example: 4823 
 
@@ -1084,6 +1069,17 @@ components:
       example: UP
 
     # Road transport
+    vehicleTypes:  
+      description: >
+          Type of vehicles from the point of view of their structural characteristics.  
+            * `Car`
+            * `Trucks`
+            * `Both` - Trucks and cars
+            * `Trains`
+      type: string
+      enum: [Cars, Trucks, Both, Trains]
+      example: Trucks
+
 
     # Equipment
     freightType:

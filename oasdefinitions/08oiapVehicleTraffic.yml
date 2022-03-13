@@ -25,21 +25,19 @@ servers:
   - url: https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions
     description: Servidor server 
 
-
-# **Vehicle traffic monitoring**: Vehicles entering or leaving through a certain port gate in one hour.
-#  - Request parameters: port name, port UN/LOCODE, type of vehicles (optional), port gate (optional), direction of vehicle flow (optional).
-#  - Data included in the response: number of vehicles, type of vehicles (optional), port gate (optional), direction of vehicle flow (optional)
-
 paths:
-  /vehicleTrafficMonitoring:
+  /trafficFlowObserved:
     get:
       tags:
         - Vehicle Traffic
-      summary: Number of vehicles entering or leaving a port through a certain port gate and in a given period of time. And segregation of this data by type of vehicles.
-      description: Returns the number of vehicles entering or leaving a port through a certain port gate and in a given period of time. And segregation of this data by type of vehicles. 
+      summary: Number of vehicles entering or leaving a port or a terminal through a certain gate and in a given period of time. And segregation of this data by type of vehicles.
+      description: Returns the number of vehicles entering or leaving a port or a terminal through a certain gate and in a given period of time. And segregation of this data by type of vehicles. 
       parameters:
         - $ref: '#/components/parameters/portCode'
-      responses: #status code
+        - $ref: '#/components/parameters/vehicleTypes'
+        - $ref: '#/components/parameters/portGate'        
+        - $ref: '#/components/parameters/flowDirection'
+      responses: 
         '200':
           description: Successful operation
           headers:
@@ -54,11 +52,19 @@ paths:
                     type: array
                     items:
                       $ref: '#/components/schemas/vehicleTraffic'
+                  metadata: 
+                    $ref: './oiapComponents.yml#/components/schemas/metadata'
                   requestedParams:
                     type: object
                     properties:
                       portCode:
                         $ref: './oiapComponents.yml#/components/schemas/portCode'
+                      vehicleTypes:
+                        $ref: './oiapComponents.yml#/components/schemas/vehicleTypes'
+                      portGate:
+                        $ref: './oiapComponents.yml#/components/schemas/gate'
+                      flowDirection:
+                        $ref: './oiapComponents.yml#/components/schemas/flowDirection'
         '400':
           description: Bad request
           content:
@@ -71,7 +77,6 @@ paths:
             application/json:
               schema:
                 $ref: './oiapComponents.yml#/components/schemas/error'  
-
 
 components:
   parameters: 
@@ -88,22 +93,47 @@ components:
       schema:
         $ref: './oiapComponents.yml#/components/schemas/portCode'
 
+    vehicleTypes:
+      in: query
+      name: vehicleTypes
+      description: Type of vehicle from the point of view of its structural characteristics.       
+      required: false
+      style: form
+      explode: false
+      schema:
+        $ref: './oiapComponents.yml#/components/schemas/vehicleTypes'
+
+    portGate: # Pending
+      in: query
+      name: portGate
+      description: Access gate       
+      required: false
+      style: form
+      explode: false
+      schema:
+        $ref: './oiapComponents.yml#/components/schemas/gate'
+
+    flowDirection:
+      in: query
+      name: flowDirection
+      description: Flow direction.      
+      required: false
+      style: form
+      explode: false
+      schema:
+        $ref: './oiapComponents.yml#/components/schemas/flowDirection'
 
   schemas:
     vehicleTraffic: 
-      description: 'URI where a customs clearance procedure from a port can be found.'
+      description: 'Number of vehicles entering or leaving a port or a terminal.'
       type: object
       allOf:
         - type: object 
           properties:
-            customsClearanceDescription:  
-              description: 'Procedure description'
-              type: string
-              enum: ['All .'] 
-            customsClearanceUri:  
-              $ref: './oiapComponents.yml#/components/schemas/uri' 
+            vehicleTraffic:  
+              $ref: './oiapComponents.yml#/components/schemas/units' 
       required:
-        - c 
+        - vehicleTraffic 
 
 
 
