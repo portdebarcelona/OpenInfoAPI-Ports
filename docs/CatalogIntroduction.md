@@ -464,7 +464,7 @@ Possible APIs:
   - [catalog](catalog/catalog-Vehicle.md)
 
 
-### Terminals
+### Terminal Performance
 ![Bulk](https://github.com/portdebarcelona/OpenInfoAPI-Ports/blob/develop/docs/images/Bulk2.png?raw=true)
 
 This domain will include some operational data related to the performance of the terminals, like their actual access time or some other figures like their dayly or hourly gate movements, at the land side, or information about their movements per hour at the sea side of the terminal. 

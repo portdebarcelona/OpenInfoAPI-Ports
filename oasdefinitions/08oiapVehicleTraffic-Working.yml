@@ -1,0 +1,109 @@
+openapi: '3.0.3'
+info:
+  version: '0.9.0-oas3'
+  title: OIAP
+  description: |
+    **Open Info API para Puertos**
+
+
+    This file contains all the APIs developed for the `Open Info API para Puertos` project for the **Vehicle Traffic Monitoring Domain** within the initiative Ports 4.0 form Puertos del Estado (ES).
+
+  termsOfService: http://swagger.io/terms/
+  license:
+    name: CC0 1.0 Universal (CC0 1.0)
+    url: https://creativecommons.org/publicdomain/zero/1.0/deed.es
+  contact:
+    name: OpenInfoAPI github
+    url: https://github.com/portdebarcelona/OpenInfoAPI-Ports
+tags:
+  - name: Vehicle Traffic
+    description: "APIs related to the docummentary procedures of a port."
+    externalDocs:
+      description: Description 
+      url: http://swagger.io/ 
+servers:
+  - url: https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions
+    description: Servidor server 
+
+
+# **Vehicle traffic monitoring**: Vehicles entering or leaving through a certain port gate in one hour.
+#  - Request parameters: port name, port UN/LOCODE, type of vehicles (optional), port gate (optional), direction of vehicle flow (optional).
+#  - Data included in the response: number of vehicles, type of vehicles (optional), port gate (optional), direction of vehicle flow (optional)
+
+paths:
+  /vehicleTrafficMonitoring:
+    get:
+      tags:
+        - Vehicle Traffic
+      summary: Number of vehicles entering or leaving a port through a certain port gate and in a given period of time. And segregation of this data by type of vehicles.
+      description: Returns the number of vehicles entering or leaving a port through a certain port gate and in a given period of time. And segregation of this data by type of vehicles. 
+      parameters:
+        - $ref: '#/components/parameters/portCode'
+      responses: #status code
+        '200':
+          description: Successful operation
+          headers:
+            oiapApiVersion:
+              $ref: './oiapComponents.yml#/components/headers/oiapApiVersion'
+          content: 
+            application/json:
+              schema:
+                type: object
+                properties:
+                  basicTrafficEnvironment:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/vehicleTraffic'
+                  requestedParams:
+                    type: object
+                    properties:
+                      portCode:
+                        $ref: './oiapComponents.yml#/components/schemas/portCode'
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: './oiapComponents.yml#/components/schemas/error' 
+        '404':
+          description: Not found
+          content:
+            application/json:
+              schema:
+                $ref: './oiapComponents.yml#/components/schemas/error'  
+
+
+components:
+  parameters: 
+    portCode:
+      in: query
+      name: portCode
+      description: |
+            Port UN/LOCODE
+            Default value is Locode of Port what provides the services
+            example: portCode=ESBCN        
+      required: false
+      style: form
+      explode: false
+      schema:
+        $ref: './oiapComponents.yml#/components/schemas/portCode'
+
+
+  schemas:
+    vehicleTraffic: 
+      description: 'URI where a customs clearance procedure from a port can be found.'
+      type: object
+      allOf:
+        - type: object 
+          properties:
+            customsClearanceDescription:  
+              description: 'Procedure description'
+              type: string
+              enum: ['All .'] 
+            customsClearanceUri:  
+              $ref: './oiapComponents.yml#/components/schemas/uri' 
+      required:
+        - c 
+
+
+
