@@ -1,12 +1,12 @@
 # Standardization, Recommendations and Decisions
 
-This document sumarizes all the decisions addopted during this project with the objective to develop a set of recommendations and best practices for the API definition.
+This document summarizes all the decisions adopted during this project to develop a set of recommendations and best practices for the API definition.
    
-## Key words
-- The key words "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL NOT", "SHOULD", "SHOULD NOT", "RECOMMENDED", "NOT RECOMMENDED", "MAY", and "OPTIONAL" in this document are to be interpreted as described in BCP 14 RFC2119 RFC8174 when, and only when, they appear in all capitals, as shown here.
+## Keywords
+- The keywords "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL NOT", "SHOULD", "SHOULD NOT", "RECOMMENDED", "NOT RECOMMENDED", "MAY", and "OPTIONAL" in this document are to be interpreted as described in BCP 14 RFC2119 RFC8174 when, and only when, they appear in all capitals, as shown here.
 
 ## camelCase
-- Naming convention for fields: MUST be `camelCase`. 
+- The naming convention for fields: MUST be `camelCase`. 
 
 ## Open API versioning
 - MUST be `version 3.x`.
@@ -17,7 +17,7 @@ This document sumarizes all the decisions addopted during this project with the 
 - OpenAPI is 3.0. OpenAPI definitions can be written in JSON or YAML. `YAML` is RECOMMENDED, because it is easier to read and write. 
 
 ## Parameter Serialization (from [OpenAPI specification](https://swagger.io/docs/specification/serialization/))
-- Serialization means translating data structures or object state into a format that can be transmitted and reconstructed later. OpenAPI 3.0 supports arrays and objects in operation parameters (path, **query**, header, and cookie) and lets you specify how these parameters should be serialized. 
+- Serialization means translating data structures or object states into a format that can be transmitted and reconstructed later. OpenAPI 3.0 supports arrays and objects in operation parameters (path, **query**, header, and cookie) and lets you specify how these parameters should be serialized. 
 - The serialization method is defined by the **style** and **explode** keywords:
 style defines how multiple values are delimited. 
   - Possible styles depend on the parameter location – path, query, header or cookie.
@@ -28,10 +28,10 @@ style defines how multiple values are delimited.
     - form – (default) ampersand-separated values, also known as form-style query expansion. Corresponds to the {?param_name} URI template.
 
 - Althoug the default serialization method is *style: form* and *explode: true*, the combination `style: form` and `explode: false` is RECOMMENDED
-- Some exemples:
+- Some examples:
   - style: form 
   - explode: false
-  -	If the URI template in these exemples is: /users{?id}, then: 
+  -	If the URI template in these examples is: /users{?id}, then: 
     - The primitive value id = 5 is translated as: /users?id=5
     -	The array id = [3, 4, 5] is translated as: /users?id=3,4,5	
     -	The object id = {"role": "admin", "firstName": "Alex"} is translated as: /users?id=role,admin,firstName,Alex
@@ -40,9 +40,9 @@ style defines how multiple values are delimited.
 - WE RECOMMEND to group operations with `tags.` 
 
 ## Responses
+- MUST include data results, enveloped by object with the same name as the web service. E.g. `noticeCategories`, `shipArrivals`
+- MAY include some metadata of the API call (`metadata`).
 - MUST include information on the parameters (`requestedParams`).
-- MUST include data results, enveloped by object with the same name of the webservice. E.g. `noticeCategories`, `shipArrivals`
-- MAY include some metadata of the API call.
 - In case of error, read below:
 
 ### Errors
@@ -80,9 +80,6 @@ style defines how multiple values are delimited.
       - scopes Map[string, string] (oauth2) REQUIRED 
   - openIdConnect
     - openIdConnectUrl
-
-
-We recommend _____________ 
 
 
 ## Callbacks (from [OpenAPI specification](https://swagger.io/docs/specification/callbacks/))
@@ -143,3 +140,5 @@ We recommend _____________
                 required: true
                 schema:
                   type: string
+
+## Marketplace
