@@ -130,6 +130,12 @@ components:
       allOf:
         - type: object 
           properties:
+            portCode:  
+              $ref: './oiapComponents.yml#/components/schemas/portCode' 
+            vehicleTypes:  
+              $ref: './oiapComponents.yml#/components/schemas/vehicleTypes' 
+            portGate:  
+              $ref: './oiapComponents.yml#/components/schemas/gate' 
             vehicleTraffic:  
               $ref: './oiapComponents.yml#/components/schemas/units' 
       required:
