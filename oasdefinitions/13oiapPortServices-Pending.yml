@@ -8,6 +8,15 @@ info:
 
     This file contains all the APIs developed for the `Open Info API para Puertos` project for the **Port Services Domain** within the initiative Ports 4.0 form Puertos del Estado (ES).
 
+
+    Information about services that are offered by a port and which vessels can order those services. Eg: bunkering, marpol, mooring, pilots, tugs,...
+
+    Possible APIs:
+    Port services: Characteristics of the port services offered by a port.
+    Request parameters: port name, port UN/LOCODE.
+    Data included in the response: name of the port service, mname of the company that offers that service, phone number, website, vessels that can order the service, main characteristics of that service.
+
+
   termsOfService: http://swagger.io/terms/
   license:
     name: CC0 1.0 Universal (CC0 1.0)
@@ -20,11 +29,10 @@ tags:
     description: "APIs related to the docummentary procedures of a port."
     externalDocs:
       description: Description 
-      url: http://swagger.io/ # https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/docs/CatalogIntroduction.md It must be a link to a GitHub file with a more extensive description like Port Services are those served by liner ships that regularly sails on a fixed route following a schedule. A shipping schedule can be checked by vessel, by port of call, or by routing. 
+      url: http://swagger.io/ 
 servers:
   - url: https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions
     description: Servidor server 
-# Canvi efectuat: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions a '.
 
 paths:
   /basicTrafficEnvironment:
@@ -35,7 +43,7 @@ paths:
       description: Returns a list of resources where the procedures for clearing the goods in import can be found. 
       parameters:
         - $ref: '#/components/parameters/portCode'
-      responses: #status code
+      responses: 
         '200':
           description: Successful operation
           headers:
@@ -75,7 +83,7 @@ paths:
       description: Returns a list of resources where the procedures for clearing the goods subject to controls from the border inspection services can be found. 
       parameters:
         - $ref: '#/components/parameters/portCode'
-      responses: #status code
+      responses: 
         '200':
           description: Successful operation
           headers:

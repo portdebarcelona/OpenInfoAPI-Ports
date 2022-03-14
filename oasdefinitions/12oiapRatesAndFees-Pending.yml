@@ -20,11 +20,32 @@ tags:
     description: "APIs related to the docummentary procedures of a port."
     externalDocs:
       description: Description 
-      url: http://swagger.io/ # https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/docs/CatalogIntroduction.md It must be a link to a GitHub file with a more extensive description like Rates and Fees are those served by liner ships that regularly sails on a fixed route following a schedule. A shipping schedule can be checked by vessel, by port of call, or by routing. 
+      url: http://swagger.io/ 
 servers:
   - url: https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions
-    description: Servidor server 
-# Canvi efectuat: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions a '.
+    description: >
+        Servidor server 
+
+
+        The costs associated to the ship calls and  the flow of goods through ports must be published as part of a transparency policy of those ports.
+
+        Bellow there is a summary of the rates applicable by a Spanish Port Authority:
+        - Navigation Support Rate (T0)
+        - Vessel Rate (T1)
+        - Passenger Rate (T2)
+        - Cargo Rate (T3)
+        - Fresh fish Rate (T4)
+        - Pleasure and Sports Craft Rate (T5)
+        - Special Use of the Transit Zone Rate (T6)
+        - Vessel-Generated Waste Collection Service Fee
+
+        Possible APIs:
+        - **Ship calls fees**: List of the port rates and fees associated to a ship call at a specific port.
+          - Request parameters: port name, port UN/LOCODE.
+          - Data included in the response: link to the port website where this information is published.
+        - **Cargo fees**: List of the port rates and fees associated to the flow of goods at a specific port.
+          - Request parameters: port name, port UN/LOCODE, email.
+          - Data included in the response: link to the port website where this information is published.
 
 paths:
   /basicTrafficEnvironment:
@@ -35,7 +56,7 @@ paths:
       description: Returns a list of resources where the procedures for clearing the goods in import can be found. 
       parameters:
         - $ref: '#/components/parameters/portCode'
-      responses: #status code
+      responses: 
         '200':
           description: Successful operation
           headers:
@@ -75,7 +96,7 @@ paths:
       description: Returns a list of resources where the procedures for clearing the goods subject to controls from the border inspection services can be found. 
       parameters:
         - $ref: '#/components/parameters/portCode'
-      responses: #status code
+      responses: 
         '200':
           description: Successful operation
           headers:
