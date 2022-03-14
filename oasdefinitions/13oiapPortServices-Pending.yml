@@ -58,7 +58,7 @@ paths:
                     type: array
                     items:
                       $ref: '#/components/schemas/basicTrafficEnvironment'
-                  requestedParams:
+                  queryParams:
                     type: object
                     properties:
                       portCode:
@@ -98,7 +98,7 @@ paths:
                     type: array
                     items:
                       $ref: '#/components/schemas/basicEconomicData'
-                  requestedParams:
+                  queryParams:
                     type: object
                     properties:
                       portCode:

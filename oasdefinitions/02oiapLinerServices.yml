@@ -51,7 +51,7 @@ paths:
                     type: array
                     items:
                       $ref: '#/components/schemas/linerService'
-                  requestedParams:
+                  queryParams:
                     type: object
                     properties:
                       portCode:
@@ -99,7 +99,7 @@ paths:
                     type: array
                     items:
                       $ref: './oiapComponents.yml#/components/schemas/linkedPort'
-                  requestedParams:
+                  queryParams:
                     type: object
                     properties:
                       portCode:
@@ -147,7 +147,7 @@ paths:
                     type: array
                     items:
                       $ref: './oiapComponents.yml#/components/schemas/linerCarrier'
-                  requestedParams:
+                  queryParams:
                     type: object
                     properties:
                       portCode:

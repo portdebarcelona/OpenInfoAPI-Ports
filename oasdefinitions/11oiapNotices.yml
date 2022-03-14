@@ -156,7 +156,7 @@ paths:
                     type: array
                     items:
                       $ref: '#/components/schemas/notice'
-                  requestedParams:
+                  queryParams:
                     type: object
                     properties:
                       portCode:
@@ -203,7 +203,7 @@ paths:
                 properties:
                   noticeCategories:
                     $ref: '#/components/schemas/noticesCategories'
-                  requestedParams:
+                  queryParams:
                     type: object
                     properties:
                       portCode:
@@ -246,7 +246,7 @@ paths:
                     type: array
                     items:
                       $ref: '#/components/schemas/noticesLanguages'
-                  requestedParams:
+                  queryParams:
                     type: object
                     properties:
                       portCode:
@@ -292,7 +292,7 @@ paths:
                   news:
                     type: object
                     $ref: '#/components/schemas/notice'
-                  requestedParams:
+                  queryParams:
                     type: object
                     properties:
                       portCode:

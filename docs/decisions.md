@@ -42,7 +42,7 @@ style defines how multiple values are delimited.
 ## Responses
 - MUST include data results, enveloped by object with the same name as the web service. E.g. `noticeCategories`, `shipArrivals`
 - MAY include some metadata of the API call (`metadata`).
-- MUST include information on the parameters (`requestedParams`).
+- MUST include information on the parameters (`queryParams`).
 - In case of error, read below:
 
 ### Errors

@@ -55,7 +55,7 @@ paths:
                       $ref: '#/components/schemas/accessTime'
                   metadata: 
                     $ref: './oiapComponents.yml#/components/schemas/metadata'
-                  requestedParams:
+                  queryParams:
                     type: object
                     properties:
                       portCode:
@@ -101,7 +101,7 @@ paths:
                       $ref: '#/components/schemas/throughput'
                   metadata: 
                     $ref: './oiapComponents.yml#/components/schemas/metadata'
-                  requestedParams:
+                  queryParams:
                     type: object
                     properties:
                       portCode:
@@ -147,7 +147,7 @@ paths:
                       $ref: '#/components/schemas/throughput'
                   metadata: 
                     $ref: './oiapComponents.yml#/components/schemas/metadata'
-                  requestedParams:
+                  queryParams:
                     type: object
                     properties:
                       portCode:

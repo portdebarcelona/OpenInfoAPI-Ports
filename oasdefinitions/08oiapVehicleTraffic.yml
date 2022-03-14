@@ -54,7 +54,7 @@ paths:
                       $ref: '#/components/schemas/vehicleTraffic'
                   metadata: 
                     $ref: './oiapComponents.yml#/components/schemas/metadata'
-                  requestedParams:
+                  queryParams:
                     type: object
                     properties:
                       portCode:

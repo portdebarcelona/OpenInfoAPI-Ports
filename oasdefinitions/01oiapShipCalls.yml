@@ -51,7 +51,7 @@ paths:
                     type: array
                     items:
                       $ref: '#/components/schemas/shipArrivalForecast'
-                  requestedParams:
+                  queryParams:
                     type: object
                     properties:
                       portCode:
@@ -99,7 +99,7 @@ paths:
                     type: array
                     items:
                       $ref: '#/components/schemas/shipInPort'
-                  requestedParams:
+                  queryParams:
                     type: object
                     properties:
                       portCode:
@@ -141,7 +141,7 @@ paths:
                     type: array
                     items:
                       $ref: '#/components/schemas/shipArrivals'
-                  requestedParams:
+                  queryParams:
                     type: object
                     properties:
                       portCode:
@@ -183,7 +183,7 @@ paths:
                     type: array
                     items:
                       $ref: '#/components/schemas/shipDepartures'
-                  requestedParams:
+                  queryParams:
                     type: object
                     properties:
                       portCode:
@@ -225,7 +225,7 @@ paths:
                     type: array
                     items:
                       $ref: '#/components/schemas/aproximationManouvres'
-                  requestedParams:
+                  queryParams:
                     type: object
                     properties:
                       portCode:
@@ -267,7 +267,7 @@ paths:
                     type: array
                     items:
                       $ref: '#/components/schemas/ferriesArrivals'
-                  requestedParams:
+                  queryParams:
                     type: object
                     properties:
                       portCode:
@@ -309,7 +309,7 @@ paths:
                     type: array
                     items:
                       $ref: '#/components/schemas/ferriesDepartures'
-                  requestedParams:
+                  queryParams:
                     type: object
                     properties:
                       portCode:
@@ -352,7 +352,7 @@ paths:
                     type: array  
                     items:
                       $ref: '#/components/schemas/cruiseCall'
-                  requestedParams:
+                  queryParams:
                     type: object
                     properties:
                       portCode:

@@ -49,7 +49,7 @@ paths:
                     type: array
                     items:
                       $ref: '#/components/schemas/railConnection'
-                  requestedParams:
+                  queryParams:
                     type: object
                     properties:
                       portCode:
@@ -91,7 +91,7 @@ paths:
                     type: array
                     items:
                       $ref: '#/components/schemas/inlandTerminal'
-                  requestedParams:
+                  queryParams:
                     type: object
                     properties:
                       portCode:
@@ -132,7 +132,7 @@ paths:
                     type: array
                     items:
                       $ref: '#/components/schemas/railwayUndertaking'
-                  requestedParams:
+                  queryParams:
                     type: object
                     properties:
                       portCode:
@@ -173,7 +173,7 @@ paths:
                     type: array
                     items:
                       $ref: '#/components/schemas/railLogisticServiceProvider'
-                  requestedParams:
+                  queryParams:
                     type: object
                     properties:
                       portCode:
@@ -215,7 +215,7 @@ paths:
                     type: array
                     items:
                       $ref: '#/components/schemas/trainArrivals'
-                  requestedParams:
+                  queryParams:
                     type: object
                     properties:
                       portCode:
@@ -257,7 +257,7 @@ paths:
                     type: array
                     items:
                       $ref: '#/components/schemas/trainDepartures'
-                  requestedParams:
+                  queryParams:
                     type: object
                     properties:
                       portCode:

@@ -49,7 +49,7 @@ paths:
                     type: array
                     items:
                       $ref: '#/components/schemas/portInfrastructure'
-                  requestedParams:
+                  queryParams:
                     type: object
                     properties:
                       portCode:
@@ -90,7 +90,7 @@ paths:
                     type: array
                     items:
                       $ref: '#/components/schemas/portGate'
-                  requestedParams:
+                  queryParams:
                     type: object
                     properties:
                       portCode:
@@ -130,7 +130,7 @@ paths:
                     type: array
                     items:
                       $ref: './oiapComponents.yml#/components/schemas/berth'
-                  requestedParams:
+                  queryParams:
                     type: object
                     properties:
                       portCode:
@@ -170,7 +170,7 @@ paths:
                     type: array
                     items:
                       $ref: '#/components/schemas/portTerminal'
-                  requestedParams:
+                  queryParams:
                     type: object
                     properties:
                       portCode:
@@ -212,7 +212,7 @@ paths:
                     type: array
                     items:
                       $ref: '#/components/schemas/railTerminal' 
-                  requestedParams:
+                  queryParams:
                     type: object
                     properties:
                       portCode:
@@ -252,7 +252,7 @@ paths:
                     type: array
                     items:
                       $ref: '#/components/schemas/portMark' 
-                  requestedParams:
+                  queryParams:
                     type: object
                     properties:
                       portCode:
@@ -292,7 +292,7 @@ paths:
                     type: array
                     items:
                       $ref: '#/components/schemas/bathymetry' 
-                  requestedParams:
+                  queryParams:
                     type: object
                     properties:
                       portCode:

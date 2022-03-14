@@ -56,7 +56,7 @@ paths:
                     $ref: '#/components/schemas/realtimeWeather'
                   metadata: 
                     $ref: './oiapComponents.yml#/components/schemas/metadata'
-                  requestedParams:
+                  queryParams:
                     type: object
                     properties:
                       portCode:
@@ -99,7 +99,7 @@ paths:
                       $ref: '#/components/schemas/weatherForecast'
                   metadata: 
                     $ref: './oiapComponents.yml#/components/schemas/metadata'
-                  requestedParams:
+                  queryParams:
                     type: object
                     properties:
                       portCode:
@@ -142,7 +142,7 @@ paths:
                       $ref: '#/components/schemas/astronomy'
                   metadata: 
                     $ref: './oiapComponents.yml#/components/schemas/metadata'
-                  requestedParams:
+                  queryParams:
                     type: object
                     properties:
                       portCode:
@@ -183,7 +183,7 @@ paths:
                     $ref: '#/components/schemas/seaCondition'
                   metadata: 
                     $ref: './oiapComponents.yml#/components/schemas/metadata'
-                  requestedParams:
+                  queryParams:
                     type: object
                     properties:
                       portCode:
@@ -227,7 +227,7 @@ paths:
                       $ref: '#/components/schemas/wavePrediction'
                   metadata: 
                     $ref: './oiapComponents.yml#/components/schemas/metadata'
-                  requestedParams:
+                  queryParams:
                     type: object
                     properties:
                       portCode:
@@ -273,7 +273,7 @@ paths:
                       $ref: '#/components/schemas/tides'
                   metadata: 
                     $ref: './oiapComponents.yml#/components/schemas/metadata'
-                  requestedParams:
+                  queryParams:
                     type: object
                     properties:
                       portCode:
@@ -316,7 +316,7 @@ paths:
                     $ref: '#/components/schemas/airQualityIndex'
                   metadata: 
                     $ref: './oiapComponents.yml#/components/schemas/metadata'
-                  requestedParams:
+                  queryParams:
                     type: object
                     properties:
                       portCode:
@@ -357,7 +357,7 @@ paths:
                     $ref: '#/components/schemas/airQualityPollution'
                   metadata: 
                     $ref: './oiapComponents.yml#/components/schemas/metadata'
-                  requestedParams:
+                  queryParams:
                     type: object
                     properties:
                       portCode:
@@ -403,7 +403,7 @@ paths:
                       $ref: '#/components/schemas/waterQualityIndex'
                   metadata: 
                     $ref: './oiapComponents.yml#/components/schemas/metadata'
-                  requestedParams:
+                  queryParams:
                     type: object
                     properties:
                       portCode:
@@ -444,7 +444,7 @@ paths:
                     $ref: '#/components/schemas/waterQualityParameters'
                   metadata: 
                     $ref: './oiapComponents.yml#/components/schemas/metadata'
-                  requestedParams:
+                  queryParams:
                     type: object
                     properties:
                       portCode:
@@ -485,7 +485,7 @@ paths:
                     $ref: '#/components/schemas/noiseLevel'
                   metadata: 
                     $ref: './oiapComponents.yml#/components/schemas/metadata'
-                  requestedParams:
+                  queryParams:
                     type: object
                     properties:
                       portCode:

@@ -54,7 +54,7 @@ paths:
                       $ref: '#/components/schemas/basicTrafficStatistics'
                   metadata: 
                     $ref: './oiapComponents.yml#/components/schemas/metadata'
-                  requestedParams:
+                  queryParams:
                     type: object
                     properties:
                       portCode:
@@ -96,7 +96,7 @@ paths:
                       $ref: '#/components/schemas/basicEconomicData'
                   metadata: 
                     $ref: './oiapComponents.yml#/components/schemas/metadata'
-                  requestedParams:
+                  queryParams:
                     type: object
                     properties:
                       portCode:
