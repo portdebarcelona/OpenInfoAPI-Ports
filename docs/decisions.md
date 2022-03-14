@@ -53,6 +53,12 @@ style defines how multiple values are delimited.
   - `timestamp`: timestamp of error occurrence
 - MAY include the most precise code, from the list of HTML status codes, that identifies the error returned by a server on a client's request. 
 
+
+
+
+
+# To do
+
 ## Security Scheme Object
 - Defines a security scheme that can be used by the operations. Supported schemes are:
   
