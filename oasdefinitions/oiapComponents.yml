@@ -271,6 +271,20 @@ components:
       maximum: 23
       example: 07
 
+    holidayDate:  
+      description: Holiday date.
+      type: string
+      format: date
+      example: 2022-06-24 
+
+    holidayType: 
+      description: Type of holiday.
+      type: string
+      enum: [national holiday, other secular holiday, religious holiday, regional holiday local holiday]
+      example: local holiday
+
+
+
 #   Group 3: Parties, addresses, places, countries
     contactInfo:
       description: email or phone
@@ -507,9 +521,16 @@ components:
 
 
     countryCode: 
-      description: Country code as a 2 alpha characters from ISO3166.            
+      description: Alpha-2 code from ISO 3166 — Codes for the representation of names of countries and their subdivisions.            
       maxLength: 2
-      example: GR 
+      example: ES 
+
+    subdivisionCode: 
+      description: Subdivision code from ISO 3166 — Codes for the representation of names of countries and their subdivisions.             
+      maxLength: 5
+      example: ES-CT 
+
+
 
     linkedPort: 
       description: 'Port that is served by a direct service of a liner and do not requires a transshipment.'

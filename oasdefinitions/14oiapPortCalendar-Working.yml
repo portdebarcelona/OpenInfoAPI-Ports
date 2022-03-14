@@ -24,76 +24,59 @@ tags:
 servers:
   - url: https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions
     description: >
-        Servidor server 
-        
-   
-        https://docs.getfestivo.com/docs/products/public-holidays-api/list-holidays 
-        Parameters
-          country	  yes	ISO 3166-1 alpha-2 country code from Countries section.	string	US
-          year	    yes	4-digit year	int	2020
-          month	    no	1 or 2 digit month identifier (MM or M)	int	06
-          day	      no	1 or 2 digit day identifier (DD or D)	int	23
-          language	no	ISO 639-1 language code (default: en). Please be notified not all countries have their holiday names available in different languages.	string	en
-          before	  no	Return only holidays before given date (default: 0)	bool	1
-          after	    no	Return only holidays after given date (default: 0)	bool	1
-          between	  no	Return only holidays between dates (NOTE: for this option to work, please pass month, and day if desired, as array of values, months and days, e.g. &month=1&month=5 to get holidays between January and May)	bool	1
-          public	  no	Return only public holidays	bool	1
-          format	  no	Define return data format (available: json, xml)	string	json
-          timezone	no	Convert start and end date and time according to passed timezone	string	Europe/London
-
-
-        Response: 
-          status	                    int	Status code for the response.
-          query	                      object	Object containing passed query details
-          requestId	                  string	Unique identifier of the request. Include this as reference when reporting issues.
-          holidays.id	                string	Unique identifier for the holiday.
-          holidays.name	              string	Name of the holiday or observance. Format: YYYY-MM-DD
-          holidays.date	              date	Date that the holiday actually occurs. Format: YYYY-MM-DD
-          holidays.observed	          date	Date that the holiday is observed on. Example, some countries move holidays that land on a weekend to the following Monday. Often times, this value may be the same as date.
-          holidays.substitute	        bool	Substitute holiday is another working day off work that is designated to replace a public holiday.
-          holidays.start	            datetime	Start date and time in specified timezone of the holiday. Alterable by timezone parameter. Format: YYYY-MM-DD HH:ii:ss
-          holidays.end	              datetime	End date and time in specified timezone of the holiday. Alterable by timezone parameter. Format: YYYY-MM-DD HH:ii:ss
-          holidays.type	              string	Specific holiday type that this holiday has been recognised as.
-          holidays.public	            bool	Whether or not the holiday or observance is a public holiday.
-          holidays.country	          string	ISO 3166-1 alpha-2 code for the country that the holiday is for.
-          holidays.subdivisions	      array	Table containing ISO 3166-2 codes for states or provinces that the holiday is for.
-          availableFilters.language	  array	Table containing 639-1 codes for supported holiday name translations.
-
-          {
-            "holidays": [
-              {
-                "id": "20200101_7b8288babc5dd6fa3dd6520884b3ae9c",
-                "name": "New Year's Day",
-                "date": "2020-01-01",
-                "observed": "2020-01-01",
-                "substitute": false,
-                "start": "2020-01-01T00:00:00Z",
-                "end": "2020-01-01T23:59:59Z",
-                "type": "public",
-                "public": false,
-                "country": "US",
-                "subdivisions": []
-              },
-              {
-                "id: "20200104_57b934051701087f56f65a304638b6b7",
-                "name": "World Braille Day",
-                "date": "2020-01-04",
-                "observed": "2020-01-04",
-                "substitute": false,
-                "start": "2020-01-04T00:00:00Z",
-                "end": "2020-01-04T23:59:59Z",
-                "type": "observance",
-                "public": false,
-                "country": "US",
-                "subdivisions": []
-              },
-              ...
-            ]
-          }
-
-
-
+        Main server 
 paths:
+  /holidays:
+    get:
+      tags:
+        - Port Calendar
+      summary: Returns a list of holidays in a given period of time of a year and for a given place.
+      description: Information about list of public holidays from a requested period of time of a year and a place (country and subdivision).
+      parameters:
+        - $ref: '#/components/parameters/country'
+        - $ref: '#/components/parameters/subdivision'
+        - $ref: '#/components/parameters/fromDate' 
+        - $ref: '#/components/parameters/toDate'       
+      responses: #status code
+        '200':
+          description: Successful operation
+          headers:
+            oiapApiVersion:
+              $ref: './oiapComponents.yml#/components/headers/oiapApiVersion'
+          content: 
+            application/json:
+              schema:
+                type: object
+                properties:
+                  holidays:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/holiday'
+                  queryParams:
+                    type: object
+                    properties:
+                      country:
+                        $ref: './oiapComponents.yml#/components/schemas/countryCode'
+                      subdivision:
+                        $ref: './oiapComponents.yml#/components/schemas/subdivisionCode'
+                      fromDate:
+                        $ref: './oiapComponents.yml#/components/schemas/fromDate'
+                      toDate:
+                        $ref: './oiapComponents.yml#/components/schemas/toDate'
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: './oiapComponents.yml#/components/schemas/error' 
+        '404':
+          description: Not found
+          content:
+            application/json:
+              schema:
+                $ref: './oiapComponents.yml#/components/schemas/error' 
+
+# Still not used
   /portCalendar:
     get:
       tags:
@@ -237,9 +220,55 @@ paths:
             application/json:
               schema:
                 $ref: './oiapComponents.yml#/components/schemas/error'  
+# End of not used
 
 components:
   parameters: 
+
+    country:
+      in: query
+      name: country
+      description: ISO3166 2 characters country code.        
+      required: false
+      style: form
+      explode: false
+      schema:
+        $ref: './oiapComponents.yml#/components/schemas/countryCode'
+
+    subdivision:
+      in: query
+      name: subdivision
+      description: ubdivision code from ISO 3166 — Codes for the representation of names of countries and their subdivisions.         
+      required: false
+      style: form
+      explode: false
+      schema:
+        $ref: './oiapComponents.yml#/components/schemas/subdivisionCode'
+
+    fromDate:
+      in: query
+      name: fromDate
+      description: First day of a period, expressed as YYYY-MM-DD.        
+      required: false
+      style: form
+      explode: false
+      schema:
+        $ref: './oiapComponents.yml#/components/schemas/fromDate'
+
+    toDate:
+      in: query
+      name: toDate
+      description: Last day of a period, expressed as YYYY-MM-DD.        
+      required: false
+      style: form
+      explode: false
+      schema:
+        $ref: './oiapComponents.yml#/components/schemas/toDate'
+
+
+
+
+# Still not used
     portCode:
       in: query
       name: portCode
@@ -263,9 +292,27 @@ components:
       explode: false
       schema:
         $ref: './oiapComponents.yml#/components/schemas/activity'
-
+# End of not used
 
   schemas:
+    holiday:
+      description: 'A day on which normal activities, especially business or work including school, are suspended or reduced.'
+      type: object
+      allOf:
+        - type: object 
+          properties:
+            holidayDate:  
+              $ref: './oiapComponents.yml#/components/schemas/holidayDate'
+            holidayType: 
+              $ref: './oiapComponents.yml#/components/schemas/holidayType'
+            holidayCountry:
+              $ref: './oiapComponents.yml#/components/schemas/countryCode'
+            holidaySubdivision:
+              $ref: './oiapComponents.yml#/components/schemas/subdivisionCode'
+      required:
+        - holidayDate
+
+# Still not used
     portCalendar: 
       description: ' '
       type: object
@@ -289,8 +336,10 @@ components:
       required:
         - startDate
         - dateRange 
+
     isWorkingDay: 
       description: 'Boolean indicating that is a working day or not.'
       type: boolean
       enum: [Yes, Not]
       example: Yes
+# End of not used
