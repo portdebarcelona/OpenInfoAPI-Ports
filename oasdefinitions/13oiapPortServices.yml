@@ -83,6 +83,8 @@ paths:
       description: Returns a list of different service types that are offered in a port.
       parameters:
         - $ref: '#/components/parameters/portCode'
+        - $ref: '#/components/parameters/skip'
+        - $ref: '#/components/parameters/take'        
       responses: 
         '200':
           description: Successful operation
@@ -97,7 +99,7 @@ paths:
                   serviceTypes:
                     type: array
                     items:
-                      $ref: '#/components/schemas/serviceType'
+                      $ref: '#/components/schemas/serviceTypeSearchResult'
                   metadata:
                         $ref: './oiapComponents.yml#/components/schemas/metadata'                  
                   queryParams:
@@ -143,6 +145,26 @@ components:
       schema:
         $ref: './oiapComponents.yml#/components/schemas/serviceType'
 
+    skip:
+      in: query
+      name: skip
+      description: Number of records that have to be skipped.        
+      required: false
+      style: form
+      explode: false
+      schema:
+        $ref: './oiapComponents.yml#/components/schemas/skip'
+
+    take:
+      in: query
+      name: take
+      description: Number of records that must be choosen.        
+      required: false
+      style: form
+      explode: false
+      schema:
+        $ref: './oiapComponents.yml#/components/schemas/take'
+
   schemas:
     PortService: 
       description: 'Information about a port service that can be ordered for a ship.'
@@ -163,15 +185,15 @@ components:
       required:
         - serviceType
 
-    serviceType: 
+    serviceTypeSearchResult: 
       description: 'Service type that is offered in a port.'
       type: object
-      allOf:
-        - type: object 
-          properties: # How to point to an attribute of an entity 
-            serviceTypeShortName:  
-              $ref: './oiapComponents.yml#/components/schemas/serviceType' 
-            serviceTypeLongName:  
-              $ref: './oiapComponents.yml#/components/schemas/serviceType' 
-      required:
-        - serviceTypeShortName        
+      properties: 
+        serviceType:  
+          $ref: './oiapComponents.yml#/components/schemas/serviceType' 
+        itemsPerPage:
+          format: int32
+          type: integer
+        totalResults:
+          format: int32
+          type: integer

@@ -201,6 +201,15 @@ components:
       type: string
       format: date-time
 
+    skip:
+      description: 'Number of records that must be skipped.'
+      type: integer
+      format: int32
+
+    take:
+      description: 'Number of records that must be taken.'
+      type: integer
+      format: int32
 
 #   Group 2: Dates, times, periods of time
 
