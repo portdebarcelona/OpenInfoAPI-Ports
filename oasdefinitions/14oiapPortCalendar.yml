@@ -71,13 +71,13 @@ paths:
           content:
             application/json:
               schema:
-                $ref: './oiapComponents.yml#/components/schemas/Error' 
+                $ref: './oiapComponents.yml#/components/schemas/error' 
         '404':
           description: Not found
           content:
             application/json:
               schema:
-                $ref: './oiapComponents.yml#/components/schemas/Error' 
+                $ref: './oiapComponents.yml#/components/schemas/error' 
 
 components:
   parameters: 

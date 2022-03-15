@@ -37,7 +37,7 @@ paths:
         '400':
           description: BadRequest
           schema:
-            $ref: '#/definitions/ErrorResult'
+            $ref: '#/definitions/errorResult'
       produces:
         - application/json
         - text/json
@@ -65,7 +65,7 @@ paths:
         '400':
           description: BadRequest
           schema:
-            $ref: '#/definitions/ErrorResult'
+            $ref: '#/definitions/errorResult'
       produces:
         - application/json
         - text/json
@@ -89,7 +89,7 @@ paths:
         '400':
           description: BadRequest
           schema:
-            $ref: '#/definitions/ErrorResult'
+            $ref: '#/definitions/errorResult'
       produces:
         - application/json
         - text/json
@@ -117,7 +117,7 @@ paths:
         '400':
           description: BadRequest
           schema:
-            $ref: '#/definitions/ErrorResult'
+            $ref: '#/definitions/errorResult'
       produces:
         - application/json
         - text/json
@@ -145,7 +145,7 @@ paths:
         '400':
           description: BadRequest
           schema:
-            $ref: '#/definitions/ErrorResult'
+            $ref: '#/definitions/errorResult'
       produces:
         - application/json
         - text/json

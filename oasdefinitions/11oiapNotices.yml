@@ -170,13 +170,13 @@ paths:
           content:
             application/json:
               schema:
-                $ref: './oiapComponents.yml#/components/schemas/Error' 
+                $ref: './oiapComponents.yml#/components/schemas/error' 
         '404':
           description: Not found
           content:
             application/json:
               schema:
-                $ref: './oiapComponents.yml#/components/schemas/Error'  
+                $ref: './oiapComponents.yml#/components/schemas/error'  
 
   /noticesCategories:
     get:
@@ -215,13 +215,13 @@ paths:
           content:
             application/json:
               schema:
-                $ref: './oiapComponents.yml#/components/schemas/Error' 
+                $ref: './oiapComponents.yml#/components/schemas/error' 
         '404':
           description: Not found
           content:
             application/json:
               schema:
-                $ref: './oiapComponents.yml#/components/schemas/Error' 
+                $ref: './oiapComponents.yml#/components/schemas/error' 
 
   /noticesLanguages:
     get:
@@ -256,13 +256,13 @@ paths:
           content:
             application/json:
               schema:
-                $ref: './oiapComponents.yml#/components/schemas/Error' 
+                $ref: './oiapComponents.yml#/components/schemas/error' 
         '404':
           description: Not found
           content:
             application/json:
               schema:
-                $ref: './oiapComponents.yml#/components/schemas/Error'
+                $ref: './oiapComponents.yml#/components/schemas/error'
 
   /notices/{id}:
     get:
@@ -302,13 +302,13 @@ paths:
           content:
             application/json:
               schema:
-                $ref: './oiapComponents.yml#/components/schemas/Error' 
+                $ref: './oiapComponents.yml#/components/schemas/error' 
         '404':
           description: Not found
           content:
             application/json:
               schema:
-                $ref: './oiapComponents.yml#/components/schemas/Error'  
+                $ref: './oiapComponents.yml#/components/schemas/error'  
 
 components:
   parameters: 

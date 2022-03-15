@@ -148,7 +148,7 @@ components:
       type: string
       enum: [informational, low, medium, high, critical]
 
-    Error:
+    error:
       description: Error body
       type: object
       properties:

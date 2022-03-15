@@ -59,13 +59,13 @@ paths:
           content:
             application/json:
               schema:
-                $ref: './oiapComponents.yml#/components/schemas/Error' 
+                $ref: './oiapComponents.yml#/components/schemas/error' 
         '404':
           description: Not found
           content:
             application/json:
               schema:
-                $ref: './oiapComponents.yml#/components/schemas/Error'  
+                $ref: './oiapComponents.yml#/components/schemas/error'  
 
   /borderInspectionProcedures:
     get:
@@ -100,13 +100,13 @@ paths:
           content:
             application/json:
               schema:
-                $ref: './oiapComponents.yml#/components/schemas/Error' 
+                $ref: './oiapComponents.yml#/components/schemas/error' 
         '404':
           description: Not found
           content:
             application/json:
               schema:
-                $ref: './oiapComponents.yml#/components/schemas/Error' 
+                $ref: './oiapComponents.yml#/components/schemas/error' 
 
   /vgmProcedures:
     get:
@@ -141,13 +141,13 @@ paths:
           content:
             application/json:
               schema:
-                $ref: './oiapComponents.yml#/components/schemas/Error' 
+                $ref: './oiapComponents.yml#/components/schemas/error' 
         '404':
           description: Not found
           content:
             application/json:
               schema:
-                $ref: './oiapComponents.yml#/components/schemas/Error' 
+                $ref: './oiapComponents.yml#/components/schemas/error' 
 
   /containerTareWeight:
     get:
@@ -182,13 +182,13 @@ paths:
           content:
             application/json:
               schema:
-                $ref: './oiapComponents.yml#/components/schemas/Error' 
+                $ref: './oiapComponents.yml#/components/schemas/error' 
         '404':
           description: Not found
           content:
             application/json:
               schema:
-                $ref: './oiapComponents.yml#/components/schemas/Error' 
+                $ref: './oiapComponents.yml#/components/schemas/error' 
   
   /qualityCertificationProcedures:
     get:
@@ -223,13 +223,13 @@ paths:
           content:
             application/json:
               schema:
-                $ref: './oiapComponents.yml#/components/schemas/Error' 
+                $ref: './oiapComponents.yml#/components/schemas/error' 
         '404':
           description: Not found
           content:
             application/json:
               schema:
-                $ref: './oiapComponents.yml#/components/schemas/Error' 
+                $ref: './oiapComponents.yml#/components/schemas/error' 
 
   /qualityCertifiedPartners:
     get:
@@ -264,13 +264,13 @@ paths:
           content:
             application/json:
               schema:
-                $ref: './oiapComponents.yml#/components/schemas/Error' 
+                $ref: './oiapComponents.yml#/components/schemas/error' 
         '404':
           description: Not found
           content:
             application/json:
               schema:
-                $ref: './oiapComponents.yml#/components/schemas/Error'
+                $ref: './oiapComponents.yml#/components/schemas/error'
 
   /partnerActivities:
     get:
@@ -305,13 +305,13 @@ paths:
           content:
             application/json:
               schema:
-                $ref: './oiapComponents.yml#/components/schemas/Error' 
+                $ref: './oiapComponents.yml#/components/schemas/error' 
         '404':
           description: Not found
           content:
             application/json:
               schema:
-                $ref: './oiapComponents.yml#/components/schemas/Error'
+                $ref: './oiapComponents.yml#/components/schemas/error'
 
   /pickupDeliveryProcedures:
     get:
@@ -346,13 +346,13 @@ paths:
           content:
             application/json:
               schema:
-                $ref: './oiapComponents.yml#/components/schemas/Error' 
+                $ref: './oiapComponents.yml#/components/schemas/error' 
         '404':
           description: Not found
           content:
             application/json:
               schema:
-                $ref: './oiapComponents.yml#/components/schemas/Error' 
+                $ref: './oiapComponents.yml#/components/schemas/error' 
 
   /approachInstructions:
     get:
@@ -387,13 +387,13 @@ paths:
           content:
             application/json:
               schema:
-                $ref: './oiapComponents.yml#/components/schemas/Error' 
+                $ref: './oiapComponents.yml#/components/schemas/error' 
         '404':
           description: Not found
           content:
             application/json:
               schema:
-                $ref: './oiapComponents.yml#/components/schemas/Error' 
+                $ref: './oiapComponents.yml#/components/schemas/error' 
 
 components:
   parameters: 

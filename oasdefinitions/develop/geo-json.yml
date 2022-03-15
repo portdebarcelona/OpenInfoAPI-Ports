@@ -284,27 +284,27 @@ responses:
   Standard500ErrorResponse:
     description: An unexpected error occured.
     schema:
-      $ref: "#/definitions/Error"
+      $ref: "#/definitions/error"
 
   BadRequest400ErrorResponse:
     description: The JSON is not valid
     schema:
-      $ref: "#/definitions/Error"
+      $ref: "#/definitions/error"
 
   Unauthorized401ErrorResponse:
     description: The request requires an user authentication
     schema:
-      $ref: "#/definitions/Error"
+      $ref: "#/definitions/error"
 
   Forbidden403ErrorResponse:
     description: the access is not allowed
     schema:
-      $ref: "#/definitions/Error"
+      $ref: "#/definitions/error"
 
   # NotFound404ErrorResponse:
   #   description: not found check the path or the query
   #   schema:
-  #     $ref: "#/definitions/Error"
+  #     $ref: "#/definitions/error"
 
   # Ok200Response:
   #   description: Eyerything is working

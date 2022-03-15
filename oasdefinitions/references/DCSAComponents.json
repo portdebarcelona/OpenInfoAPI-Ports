@@ -1053,7 +1053,7 @@
                         "example": "https://dcsa.org/dcsa/tnt/v1/events"
                     },
                     "errors": {
-                        "$ref": "#/components/schemas/Errors"
+                        "$ref": "#/components/schemas/errors"
                     },
                     "statusCode": {
                         "description": "The HTTP status code",

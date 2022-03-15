@@ -66,13 +66,13 @@ paths:
           content:
             application/json:
               schema:
-                $ref: './oiapComponents.yml#/components/schemas/Error' 
+                $ref: './oiapComponents.yml#/components/schemas/error' 
         '404':
           description: Not found
           content:
             application/json:
               schema:
-                $ref: './oiapComponents.yml#/components/schemas/Error'  
+                $ref: './oiapComponents.yml#/components/schemas/error'  
 
   /weatherForecast:
     get:
@@ -109,13 +109,13 @@ paths:
           content:
             application/json:
               schema:
-                $ref: './oiapComponents.yml#/components/schemas/Error' 
+                $ref: './oiapComponents.yml#/components/schemas/error' 
         '404':
           description: Not found
           content:
             application/json:
               schema:
-                $ref: './oiapComponents.yml#/components/schemas/Error' 
+                $ref: './oiapComponents.yml#/components/schemas/error' 
 
   /astronomicalData:
     get:
@@ -152,13 +152,13 @@ paths:
           content:
             application/json:
               schema:
-                $ref: './oiapComponents.yml#/components/schemas/Error' 
+                $ref: './oiapComponents.yml#/components/schemas/error' 
         '404':
           description: Not found
           content:
             application/json:
               schema:
-                $ref: './oiapComponents.yml#/components/schemas/Error'
+                $ref: './oiapComponents.yml#/components/schemas/error'
 
   /seaCondition:
     get:
@@ -193,13 +193,13 @@ paths:
           content:
             application/json:
               schema:
-                $ref: './oiapComponents.yml#/components/schemas/Error' 
+                $ref: './oiapComponents.yml#/components/schemas/error' 
         '404':
           description: Not found
           content:
             application/json:
               schema:
-                $ref: './oiapComponents.yml#/components/schemas/Error'
+                $ref: './oiapComponents.yml#/components/schemas/error'
 
   /wavePrediction:
     get:
@@ -239,13 +239,13 @@ paths:
           content:
             application/json:
               schema:
-                $ref: './oiapComponents.yml#/components/schemas/Error' 
+                $ref: './oiapComponents.yml#/components/schemas/error' 
         '404':
           description: Not found
           content:
             application/json:
               schema:
-                $ref: './oiapComponents.yml#/components/schemas/Error'
+                $ref: './oiapComponents.yml#/components/schemas/error'
 
   /tides:
     get:
@@ -285,13 +285,13 @@ paths:
           content:
             application/json:
               schema:
-                $ref: './oiapComponents.yml#/components/schemas/Error' 
+                $ref: './oiapComponents.yml#/components/schemas/error' 
         '404':
           description: Not found
           content:
             application/json:
               schema:
-                $ref: './oiapComponents.yml#/components/schemas/Error'
+                $ref: './oiapComponents.yml#/components/schemas/error'
 
   /airQualityIndex:
     get:
@@ -326,13 +326,13 @@ paths:
           content:
             application/json:
               schema:
-                $ref: './oiapComponents.yml#/components/schemas/Error'  
+                $ref: './oiapComponents.yml#/components/schemas/error'  
         '404':
           description: Not found
           content:
             application/json:
               schema:
-                $ref: './oiapComponents.yml#/components/schemas/Error' 
+                $ref: './oiapComponents.yml#/components/schemas/error' 
 
   /airQualityMonitoring:
     get:
@@ -367,13 +367,13 @@ paths:
           content:
             application/json:
               schema:
-                $ref: './oiapComponents.yml#/components/schemas/Error'  
+                $ref: './oiapComponents.yml#/components/schemas/error'  
         '404':
           description: Not found
           content:
             application/json:
               schema:
-                $ref: './oiapComponents.yml#/components/schemas/Error' 
+                $ref: './oiapComponents.yml#/components/schemas/error' 
 
   /waterQualityIndex:
     get:
@@ -413,13 +413,13 @@ paths:
           content:
             application/json:
               schema:
-                $ref: './oiapComponents.yml#/components/schemas/Error'  
+                $ref: './oiapComponents.yml#/components/schemas/error'  
         '404':
           description: Not found
           content:
             application/json:
               schema:
-                $ref: './oiapComponents.yml#/components/schemas/Error' 
+                $ref: './oiapComponents.yml#/components/schemas/error' 
 
   /waterQualityMonitoring:
     get:
@@ -454,13 +454,13 @@ paths:
           content:
             application/json:
               schema:
-                $ref: './oiapComponents.yml#/components/schemas/Error'  
+                $ref: './oiapComponents.yml#/components/schemas/error'  
         '404':
           description: Not found
           content:
             application/json:
               schema:
-                $ref: './oiapComponents.yml#/components/schemas/Error' 
+                $ref: './oiapComponents.yml#/components/schemas/error' 
 
   /noiseLevel: 
     get:
@@ -495,13 +495,13 @@ paths:
           content:
             application/json:
               schema:
-                $ref: './oiapComponents.yml#/components/schemas/Error'  
+                $ref: './oiapComponents.yml#/components/schemas/error'  
         '404':
           description: Not found
           content:
             application/json:
               schema:
-                $ref: './oiapComponents.yml#/components/schemas/Error' 
+                $ref: './oiapComponents.yml#/components/schemas/error' 
 
 
 
