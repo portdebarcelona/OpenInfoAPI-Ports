@@ -40,7 +40,7 @@ style defines how multiple values are delimited.
 - WE RECOMMEND to group operations with `tags.` 
 
 ## Use nouns instead of verbs in endpoints
-- Because HTTP methods such as GET, POST, PUT or DELETE are verbs for performing basic CRUD operations, in the endpoints paths we SHOULD use nouns, meaning what the endpoint does.
+- Because HTTP methods such as GET, POST, PUT, PATCH or DELETE are verbs for performing basic CRUD operations (Create with POST/PUT, read with GET, update with PUT/POST/PATCH and delete with DELETE), in the endpoints paths we SHOULD use nouns, signifying what the endpoint does.
 
 ## Responses
 - MUST include data results, enveloped by object with the same name as the web service. E.g. `noticeCategories`, `shipArrivals`
@@ -62,12 +62,15 @@ style defines how multiple values are delimited.
 ### Entities and attributes
   - `Entities` represent a thing. Entities include a semantic type that describes the type of thing represented by the entity.
   - Some examples of entities are: Person, Company, Building, Ship, Container... 
+  - The naming convention for entities MUST be `upper camel case` (initial uppercase letter). 
   - `Attributes` are properties of entities, where a property is a combination of an attribute and its value.
   - Attributes describe the current state of the entity they belong to.
-  - The naming convention for attibutes MUST be `camelCase`. 
+  - The naming convention for attibutes MUST be `lower camel case` (initial lowercase letter), also known as dromedary case.  
 
 ### Collections
 - Collections MUST be identified with plural nouns. E.g. `portGates` is a collection with several entities named `portGate`.  
+
+
 
 
 
