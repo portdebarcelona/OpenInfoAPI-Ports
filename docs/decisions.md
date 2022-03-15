@@ -5,9 +5,6 @@ This document summarizes all the decisions adopted during this project to develo
 ## Keywords
 - The keywords "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL NOT", "SHOULD", "SHOULD NOT", "RECOMMENDED", "NOT RECOMMENDED", "MAY", and "OPTIONAL" in this document are to be interpreted as described in BCP 14 RFC2119 RFC8174 when, and only when, they appear in all capitals, as shown here.
 
-## camelCase
-- The naming convention for fields: MUST be `camelCase`. 
-
 ## Open API versioning
 - MUST be `version 3.x`.
 - While we have chosen Open API version 3. 
@@ -15,6 +12,9 @@ This document summarizes all the decisions adopted during this project to develo
 
 ## YAML
 - OpenAPI is 3.0. OpenAPI definitions can be written in JSON or YAML. `YAML` is RECOMMENDED, because it is easier to read and write. 
+
+## JSON
+- JSON (JavaScrip Object Notation) MUST be the format for accepting and responding API requests. It is NOT RECOMMENDED to use HTML or XML. 
 
 ## Parameter Serialization (from [OpenAPI specification](https://swagger.io/docs/specification/serialization/))
 - Serialization means translating data structures or object states into a format that can be transmitted and reconstructed later. OpenAPI 3.0 supports arrays and objects in operation parameters (path, **query**, header, and cookie) and lets you specify how these parameters should be serialized. 
@@ -39,6 +39,9 @@ style defines how multiple values are delimited.
 ## Grouping Operations With Tags (from [OpenAPI specification](https://swagger.io/docs/specification/grouping-operations-with-tags/))
 - WE RECOMMEND to group operations with `tags.` 
 
+## Use nouns instead of verbs in endpoints
+- Because HTTP methods such as GET, POST, PUT or DELETE are verbs for performing basic CRUD operations, in the endpoints paths we SHOULD use nouns, meaning what the endpoint does.
+
 ## Responses
 - MUST include data results, enveloped by object with the same name as the web service. E.g. `noticeCategories`, `shipArrivals`
 - MAY include some metadata of the API call (`metadata`).
@@ -51,9 +54,20 @@ style defines how multiple values are delimited.
   - `messageCode`: Code error description
   - `message`: Error description
   - `timestamp`: timestamp of error occurrence
-- MAY include the most precise code, from the list of HTML status codes, that identifies the error returned by a server on a client's request. 
+- MAY include the most precise code, from the list of HTML status codes, that identifies the error returned by a server on a client's request and will help users to know what is going on – whether the request is successful, or if it fails, or something else. 
 
+## Data types
+  - MUST reuse schema.org data types when possible.
 
+### Entities and attributes
+  - `Entities` represent a thing. Entities include a semantic type that describes the type of thing represented by the entity.
+  - Some examples of entities are: Person, Company, Building, Ship, Container... 
+  - `Attributes` are properties of entities, where a property is a combination of an attribute and its value.
+  - Attributes describe the current state of the entity they belong to.
+  - The naming convention for attibutes MUST be `camelCase`. 
+
+### Collections
+- Collections MUST be identified with plural nouns. E.g. `portGates` is a collection with several entities named `portGate`.  
 
 
 
