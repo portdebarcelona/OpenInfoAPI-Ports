@@ -1,0 +1,122 @@
+openapi: '3.0.3'
+info:
+  version: '0.9.0-oas3'
+  title: OIAP
+  description: |
+    **Open Info API para Puertos**
+
+
+    This file contains all the APIs developed for the `Open Info API para Puertos` project for the **Port Services Domain** within the initiative Ports 4.0 form Puertos del Estado (ES).
+
+   
+  termsOfService: http://swagger.io/terms/
+  license:
+    name: CC0 1.0 Universal (CC0 1.0)
+    url: https://creativecommons.org/publicdomain/zero/1.0/deed.es
+  contact:
+    name: OpenInfoAPI github
+    url: https://github.com/portdebarcelona/OpenInfoAPI-Ports
+tags:
+  - name: Port Services
+    description: "APIs related to the docummentary procedures of a port."
+    externalDocs:
+      description: Description 
+      url: http://swagger.io/ 
+servers:
+  - url: https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions
+    description: Servidor server 
+
+paths:
+  /portServices:
+    get:
+      tags:
+        - Port Services
+      summary: Returns a list of port services that can be ordered for a ship. Eg. bunkering, marpol, mooring, pilots, tugs,...
+
+      description: Returns a list of port services that can be ordered for a ship. Eg. bunkering, marpol, mooring, pilots, tugs,...
+      parameters:
+        - $ref: '#/components/parameters/portCode'
+        - $ref: '#/components/parameters/serviceType'
+      responses: 
+        '200':
+          description: Successful operation
+          headers:
+            oiapApiVersion:
+              $ref: './oiapComponents.yml#/components/headers/oiapApiVersion'
+          content: 
+            application/json:
+              schema:
+                type: object
+                properties:
+                  portServices:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/portService'
+                  metadata:
+                        $ref: './oiapComponents.yml#/components/schemas/metadata'                  
+                  queryParams:
+                    type: object
+                    properties:
+                      portCode:
+                        $ref: './oiapComponents.yml#/components/schemas/portCode'
+                      serviceType:
+                        $ref: './oiapComponents.yml#/components/schemas/serviceType'
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: './oiapComponents.yml#/components/schemas/error' 
+        '404':
+          description: Not found
+          content:
+            application/json:
+              schema:
+                $ref: './oiapComponents.yml#/components/schemas/error'  
+
+components:
+  parameters: 
+    portCode:
+      in: query
+      name: portCode
+      description: |
+            Port UN/LOCODE
+            Default value is Locode of Port what provides the services
+            example: portCode=ESBCN        
+      required: false
+      style: form
+      explode: false
+      schema:
+        $ref: './oiapComponents.yml#/components/schemas/portCode'
+
+    serviceType:
+      in: query
+      name: serviceType
+      description: Service type.        
+      required: false
+      style: form
+      explode: false
+      schema:
+        $ref: './oiapComponents.yml#/components/schemas/serviceType'
+
+  schemas:
+    portService: 
+      description: 'Information about a port service that can be ordered for a ship.'
+      type: object
+      allOf:
+        - type: object 
+          properties:
+            serviceType:  
+              $ref: './oiapComponents.yml#/components/schemas/serviceType' 
+            companyName:  
+              $ref: './oiapComponents.yml#/components/schemas/companyName' 
+            contactInfo:
+              $ref: './oiapComponents.yml#/components/schemas/contactInfo'
+            shipTypes:
+              type: array
+              items:
+                $ref: './oiapComponents.yml#/components/schemas/shipType'
+      required:
+        - serviceType
+        
+  # GET service types

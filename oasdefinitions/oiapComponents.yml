@@ -466,6 +466,11 @@ components:
       enum: [Port Authority, Harbour Master, Customs, Border Control Post (BCP), Immigration, Container Depot, Container Terminal, Container (CFS), General Cargo Terminal, Multi Purpose Terminal, Liquid Cargo Terminal, Bulk Cargo Terminal, Temperature Controlled Terminal, Dangerous Cargo Warehouse, Passenger Terminal, Inland Container Terminal, Liner Agent - Carrier, Railway Undertaking, Haulier, Barge Carrier, Freight Forwarder, Customs Broker, Stevedoring & Lashing, Tally, Ship Supplier, Nautic-technic, Tug, Mooring, Shipyards & Repair, Shipowner, Pilots, Research, Consulting, Port Community System - PCS, IT-Service, Insurance, Container Leasing, Railway Services, Railway Logistics Operator, Other]
       example: Port Authority
 
+    serviceType: # Pending
+      description: Type of port service.
+      type: string
+      enum: [Stevedoring & Lashing, Tally, Ship Supplier, Nautic-technic, Tug, Mooring]
+
     companyName: 
       description: Name of a company.
       type: string
