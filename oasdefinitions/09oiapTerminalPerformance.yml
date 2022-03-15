@@ -67,13 +67,13 @@ paths:
           content:
             application/json:
               schema:
-                $ref: './oiapComponents.yml#/components/schemas/error' 
+                $ref: './oiapComponents.yml#/components/schemas/Error' 
         '404':
           description: Not found
           content:
             application/json:
               schema:
-                $ref: './oiapComponents.yml#/components/schemas/error'  
+                $ref: './oiapComponents.yml#/components/schemas/Error'  
 
   /landsideThroughput:
     get:
@@ -113,13 +113,13 @@ paths:
           content:
             application/json:
               schema:
-                $ref: './oiapComponents.yml#/components/schemas/error' 
+                $ref: './oiapComponents.yml#/components/schemas/Error' 
         '404':
           description: Not found
           content:
             application/json:
               schema:
-                $ref: './oiapComponents.yml#/components/schemas/error' 
+                $ref: './oiapComponents.yml#/components/schemas/Error' 
 
   /seasideThroughput:
     get:
@@ -159,13 +159,13 @@ paths:
           content:
             application/json:
               schema:
-                $ref: './oiapComponents.yml#/components/schemas/error' 
+                $ref: './oiapComponents.yml#/components/schemas/Error' 
         '404':
           description: Not found
           content:
             application/json:
               schema:
-                $ref: './oiapComponents.yml#/components/schemas/error' 
+                $ref: './oiapComponents.yml#/components/schemas/Error' 
  
 components:
   parameters: 

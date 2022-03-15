@@ -51,7 +51,7 @@ paths:
                   portServices:
                     type: array
                     items:
-                      $ref: '#/components/schemas/portService'
+                      $ref: '#/components/schemas/PortService'
                   metadata:
                         $ref: './oiapComponents.yml#/components/schemas/metadata'                  
                   queryParams:
@@ -66,13 +66,13 @@ paths:
           content:
             application/json:
               schema:
-                $ref: './oiapComponents.yml#/components/schemas/error' 
+                $ref: './oiapComponents.yml#/components/schemas/Error' 
         '404':
           description: Not found
           content:
             application/json:
               schema:
-                $ref: './oiapComponents.yml#/components/schemas/error'  
+                $ref: './oiapComponents.yml#/components/schemas/Error'  
 
 components:
   parameters: 
@@ -100,7 +100,7 @@ components:
         $ref: './oiapComponents.yml#/components/schemas/serviceType'
 
   schemas:
-    portService: 
+    PortService: 
       description: 'Information about a port service that can be ordered for a ship.'
       type: object
       allOf:
@@ -112,7 +112,7 @@ components:
               $ref: './oiapComponents.yml#/components/schemas/companyName' 
             contactInfo:
               $ref: './oiapComponents.yml#/components/schemas/contactInfo'
-            shipTypes:
+            servedShipTypes:
               type: array
               items:
                 $ref: './oiapComponents.yml#/components/schemas/shipType'

@@ -58,7 +58,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: 'https://api.swaggerhub.com/domains/dcsaorg/ERROR_DOMAIN/1.0.0#/components/schemas/error'
+                $ref: 'https://api.swaggerhub.com/domains/dcsaorg/Error_DOMAIN/1.0.0#/components/schemas/Error'
 
 
   /v2/events:
@@ -207,7 +207,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: 'https://api.swaggerhub.com/domains/dcsaorg/ERROR_DOMAIN/1.0.0#/components/schemas/error'
+                $ref: 'https://api.swaggerhub.com/domains/dcsaorg/Error_DOMAIN/1.0.0#/components/schemas/Error'
 
 
 components:

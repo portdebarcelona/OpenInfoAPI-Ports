@@ -59,13 +59,13 @@ paths:
           content:
             application/json:
               schema:
-                $ref: './oiapComponents.yml#/components/schemas/error' 
+                $ref: './oiapComponents.yml#/components/schemas/Error' 
         '404':
           description: Not found
           content:
             application/json:
               schema:
-                $ref: './oiapComponents.yml#/components/schemas/error'  
+                $ref: './oiapComponents.yml#/components/schemas/Error'  
   /portGates:
     get:
       tags:
@@ -100,13 +100,13 @@ paths:
           content:
             application/json:
               schema:
-                $ref: './oiapComponents.yml#/components/schemas/error' 
+                $ref: './oiapComponents.yml#/components/schemas/Error' 
         '404':
           description: Not found
           content:
             application/json:
               schema:
-                $ref: './oiapComponents.yml#/components/schemas/error' 
+                $ref: './oiapComponents.yml#/components/schemas/Error' 
   /berths: 
     get:
       tags:
@@ -140,13 +140,13 @@ paths:
           content:
             application/json:
               schema:
-                $ref: './oiapComponents.yml#/components/schemas/error' 
+                $ref: './oiapComponents.yml#/components/schemas/Error' 
         '404':
           description: Not found
           content:
             application/json:
               schema:
-                $ref: './oiapComponents.yml#/components/schemas/error'
+                $ref: './oiapComponents.yml#/components/schemas/Error'
   /portTerminals: 
     get:
       tags:
@@ -180,13 +180,13 @@ paths:
           content:
             application/json:
               schema:
-                $ref: './oiapComponents.yml#/components/schemas/error' 
+                $ref: './oiapComponents.yml#/components/schemas/Error' 
         '404':
           description: Not found
           content:
             application/json:
               schema:
-                $ref: './oiapComponents.yml#/components/schemas/error' 
+                $ref: './oiapComponents.yml#/components/schemas/Error' 
   /railTerminals: 
     get:
       tags:
@@ -222,13 +222,13 @@ paths:
           content:
             application/json:
               schema:
-                $ref: './oiapComponents.yml#/components/schemas/error' 
+                $ref: './oiapComponents.yml#/components/schemas/Error' 
         '404':
           description: Not found
           content:
             application/json:
               schema:
-                $ref: './oiapComponents.yml#/components/schemas/error'               
+                $ref: './oiapComponents.yml#/components/schemas/Error'               
   /marineAids: 
     get:
       tags:
@@ -262,13 +262,13 @@ paths:
           content:
             application/json:
               schema:
-                $ref: './oiapComponents.yml#/components/schemas/error' 
+                $ref: './oiapComponents.yml#/components/schemas/Error' 
         '404':
           description: Not found
           content:
             application/json:
               schema:
-                $ref: './oiapComponents.yml#/components/schemas/error'     
+                $ref: './oiapComponents.yml#/components/schemas/Error'     
   /bathymetry: 
     get:
       tags:
@@ -302,13 +302,13 @@ paths:
           content:
             application/json:
               schema:
-                $ref: './oiapComponents.yml#/components/schemas/error' 
+                $ref: './oiapComponents.yml#/components/schemas/Error' 
         '404':
           description: Not found
           content:
             application/json:
               schema:
-                $ref: './oiapComponents.yml#/components/schemas/error'     
+                $ref: './oiapComponents.yml#/components/schemas/Error'     
 components:
   parameters: 
     portCode:
