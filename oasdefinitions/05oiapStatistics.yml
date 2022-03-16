@@ -71,6 +71,7 @@ paths:
             application/json:
               schema:
                 $ref: './oiapComponents.yml#/components/schemas/error'  
+
   /basicEconomicStatistics:
     get:
       tags:
@@ -113,6 +114,92 @@ paths:
             application/json:
               schema:
                 $ref: './oiapComponents.yml#/components/schemas/error' 
+
+  /typesOfCargoList:
+    get:
+      tags:
+        - Statistics
+      summary: Returns a list of types of cargo.
+      description: Returns a list of types of cargo. 
+      parameters:
+        - $ref: '#/components/parameters/portCode'
+      responses: 
+        '200':
+          description: Successful operation
+          headers:
+            oiapApiVersion:
+              $ref: './oiapComponents.yml#/components/headers/oiapApiVersion'
+          content: 
+            application/json:
+              schema:
+                type: object
+                properties:
+                  typesOfCargo:
+                    type: array
+                    items:
+                      $ref: './oiapComponents.yml#/components/schemas/typeOfCargo'
+                  metadata: 
+                    $ref: './oiapComponents.yml#/components/schemas/metadata'
+                  queryParams:
+                    type: object
+                    properties:
+                      portCode:
+                        $ref: './oiapComponents.yml#/components/schemas/portCode'
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: './oiapComponents.yml#/components/schemas/error' 
+        '404':
+          description: Not found
+          content:
+            application/json:
+              schema:
+                $ref: './oiapComponents.yml#/components/schemas/error' 
+
+  /commoditiesList:
+    get:
+      tags:
+        - Statistics
+      summary: Returns a list of types of commodities.
+      description: Returns a list of types of commodities. 
+      parameters:
+        - $ref: '#/components/parameters/portCode'
+      responses: 
+        '200':
+          description: Successful operation
+          headers:
+            oiapApiVersion:
+              $ref: './oiapComponents.yml#/components/headers/oiapApiVersion'
+          content: 
+            application/json:
+              schema:
+                type: object
+                properties:
+                  commodities:
+                    type: array
+                    items:
+                      $ref: './oiapComponents.yml#/components/schemas/commodity'
+                  metadata: 
+                    $ref: './oiapComponents.yml#/components/schemas/metadata'
+                  queryParams:
+                    type: object
+                    properties:
+                      portCode:
+                        $ref: './oiapComponents.yml#/components/schemas/portCode'
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: './oiapComponents.yml#/components/schemas/error' 
+        '404':
+          description: Not found
+          content:
+            application/json:
+              schema:
+                $ref: './oiapComponents.yml#/components/schemas/error'
 
 components:
   parameters: 

@@ -76,6 +76,11 @@ style defines how multiple values are delimited.
 
 # To do
 
+## Subscription management
+
+## Pagination
+
+
 ## Security Scheme Object
 - Defines a security scheme that can be used by the operations. Supported schemes are:
   
@@ -164,4 +169,4 @@ style defines how multiple values are delimited.
                 schema:
                   type: string
 
-## Marketplace
+## Marketplace design
