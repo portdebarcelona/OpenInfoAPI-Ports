@@ -1,0 +1,3310 @@
+openapi: '3.0.3'
+info:
+  version: '0.9.0-oas3'
+  title: OIAP
+  description: >-
+    **Open Info API para Puertos** 
+
+
+    This file contains all the APIs developed for the `Open Info API para Puertos` project within the initiative Ports 4.0 form Puertos del Estado (ES).   
+  termsOfService: http://swagger.io/terms/
+  license:
+    name: CC0 1.0 Universal (CC0 1.0)
+    url: https://creativecommons.org/publicdomain/zero/1.0/deed.es
+  contact:
+    name: OpenInfoAPI github
+    url: https://github.com/portdebarcelona/OpenInfoAPI-Ports
+
+# DE MOMENT NOMÉS FINS AL 8
+
+tags:
+  - name: Port Calls
+    description: Port Calls Domain. APIs related to the ships arrival or departure from a port. 
+  - name: Liner Services
+    description: "APIs related to the Liner Services that are scheduled in a port."
+  - name: Port Infrastructure
+    description: "APIs related to the infrastructures of a port."
+  - name: Port Procedures
+    description: "APIs related to the docummentary procedures of a port."
+  - name: Statistics
+    description: "APIs related to the docummentary procedures of a port."
+  - name: Environment-Weather
+    description: "APIs related to the weather in a port."
+  - name: Environment-Sea State
+    description: "APIs related to the sea state in the surrounding area of a port."
+  - name: Environment-Pollution
+    description: "APIs related to the pollution levels in a port area."
+  - name: Rail Transport
+    description: "APIs related to the flow of trains and cargo by rail in a port."
+  - name: Vehicle Traffic
+    description: "APIs related to the docummentary procedures of a port."
+
+servers:
+  - url: https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/
+
+paths:
+  # Ships Arrivals Forecasts
+  /shipsScheduled:
+    get:
+      tags:
+        - Port Calls
+      summary: Returns a list of ships that will arrive at a port in a given period of time
+      description: Returns a list of ships that will arrive at a port in a given period of time
+      parameters:
+        - $ref: '#/components/parameters/portCode'
+        - $ref: '#/components/parameters/fromDate'
+        - $ref: '#/components/parameters/dateRange'
+        - $ref: '#/components/parameters/shipType'
+      responses: #status code
+        '200':
+          description: Successful operation
+          headers:
+            oiapApiVersion:
+              $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents.yml#/components/headers/oiapApiVersion'
+          content: 
+            application/json:
+              schema:
+                type: object
+                properties:
+                  shipArrivalForecast:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/shipArrivalForecast'
+                  queryParams:
+                    type: object
+                    properties:
+                      portCode:
+                        $ref: './oiapComponents.yml#/components/schemas/portCode'
+                      fromDate:
+                        $ref: './oiapComponents.yml#/components/schemas/fromDate'
+                      dateRange:
+                        $ref: './oiapComponents.yml#/components/schemas/dateRange'
+                      shipType:
+                        $ref: './oiapComponents.yml#/components/schemas/shipType'
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents.yml#/components/schemas/error' 
+        '404':
+          description: Not found
+          content:
+            application/json:
+              schema:
+                $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents.yml#/components/schemas/error'
+
+  # Ships in Port
+  /shipsInPort:
+    get:
+      tags:
+        - Port Calls
+      summary: Returns a list of ships that are anchored or moored now in a Port.
+      description: Returns a list of ships that are anchored or moored now in a Port.
+      parameters:
+        - $ref: '#/components/parameters/portCode'
+      responses: #status code
+        '200':
+          description: Successful operation
+          headers:
+            oiapApiVersion:
+              $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents.yml#/components/headers/oiapApiVersion'
+          content: 
+            application/json:
+              schema:
+                type: object
+                properties:
+                  shipInPort:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/shipInPort'
+                  queryParams:
+                    type: object
+                    properties:
+                      portCode:
+                        $ref: './oiapComponents.yml#/components/schemas/portCode'
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents.yml#/components/schemas/error' 
+        '404':
+          description: Not found
+          content:
+            application/json:
+              schema:
+                $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents.yml#/components/schemas/error'
+
+  # Ship Arrivals
+  /shipsArrivals:
+    get:
+      tags:
+        - Port Calls
+      summary: Returns a list of ships that have arrived or will arrive today at a port. 
+      description: Returns a list of ships that have arrived or will arrive today at a port.
+      parameters:
+        - $ref: '#/components/parameters/portCode'
+      responses: #status code
+        '200':
+          description: Successful operation
+          headers:
+            oiapApiVersion:
+              $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents.yml#/components/headers/oiapApiVersion'
+          content: 
+            application/json:
+              schema:
+                type: object
+                properties:
+                  shipArrivals:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/shipArrivals'
+                  queryParams:
+                    type: object
+                    properties:
+                      portCode:
+                        $ref: './oiapComponents.yml#/components/schemas/portCode'
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents.yml#/components/schemas/error' 
+        '404':
+          description: Not found
+          content:
+            application/json:
+              schema:
+                $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents.yml#/components/schemas/error'
+
+  # Ship Departures
+  /shipsDepartures:
+    get:
+      tags:
+        - Port Calls
+      summary: Returns a list of ships that have departed or will depart today from a port. 
+      description: Returns a list of ships that have departed or will depart today from a port.
+      parameters:
+        - $ref: '#/components/parameters/portCode'
+      responses: #status code
+        '200':
+          description: Successful operation
+          headers:
+            oiapApiVersion:
+              $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents.yml#/components/headers/oiapApiVersion'
+          content: 
+            application/json:
+              schema:
+                type: object
+                properties:
+                  shipDepartures:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/shipDepartures'
+                  queryParams:
+                    type: object
+                    properties:
+                      portCode:
+                        $ref: './oiapComponents.yml#/components/schemas/portCode'
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents.yml#/components/schemas/error' 
+        '404':
+          description: Not found
+          content:
+            application/json:
+              schema:
+                $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents.yml#/components/schemas/error'
+
+  # Ship Aproximation
+  /shipsAproximation:
+    get:
+      tags:
+        - Port Calls
+      summary: Returns a list of ships that have initiated their aproximation manouvres to a port.
+      description: Returns a list of ships that have initiated their aproximation manouvres to a port.
+      parameters:
+        - $ref: '#/components/parameters/portCode'
+      responses: #status code
+        '200':
+          description: Successful operation
+          headers:
+            oiapApiVersion:
+              $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents.yml#/components/headers/oiapApiVersion'
+          content: 
+            application/json:
+              schema:
+                type: object
+                properties:
+                  aproximationManouvres:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/aproximationManouvres'
+                  queryParams:
+                    type: object
+                    properties:
+                      portCode:
+                        $ref: './oiapComponents.yml#/components/schemas/portCode'
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents.yml#/components/schemas/error' 
+        '404':
+          description: Not found
+          content:
+            application/json:
+              schema:
+                $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents.yml#/components/schemas/error'
+
+  # Ferries Arrivals
+  /ferriesArrivals:
+    get:
+      tags:
+        - Port Calls
+      summary: Returns a list of all the ferries that have arrived or will arrive today at a port. 
+      description: Returns a list of all the ferries that have arrived or will arrive today at a port.
+      parameters:
+        - $ref: '#/components/parameters/portCode'
+      responses: #status code
+        '200':
+          description: Successful operation
+          headers:
+            oiapApiVersion:
+              $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents.yml#/components/headers/oiapApiVersion'
+          content: 
+            application/json:
+              schema:
+                type: object
+                properties:
+                  ferriesArrivals:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/ferriesArrivals'
+                  queryParams:
+                    type: object
+                    properties:
+                      portCode:
+                        $ref: './oiapComponents.yml#/components/schemas/portCode'
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents.yml#/components/schemas/error' 
+        '404':
+          description: Not found
+          content:
+            application/json:
+              schema:
+                $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents.yml#/components/schemas/error'
+
+  # Ferries Departures
+  /ferriesDepartures:
+    get:
+      tags:
+        - Port Calls
+      summary: Returns a list of ferries that have departed or will depart today from a port. 
+      description: Returns a list of ferries that have departed or will depart today from a port.
+      parameters:
+        - $ref: '#/components/parameters/portCode'
+      responses: #status code
+        '200':
+          description: Successful operation
+          headers:
+            oiapApiVersion:
+              $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents.yml#/components/headers/oiapApiVersion'
+          content: 
+            application/json:
+              schema:
+                type: object
+                properties:
+                  ferriesDepartures:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/ferriesDepartures'
+                  queryParams:
+                    type: object
+                    properties:
+                      portCode:
+                        $ref: './oiapComponents.yml#/components/schemas/portCode'
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents.yml#/components/schemas/error' 
+        '404':
+          description: Not found
+          content:
+            application/json:
+              schema:
+                $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents.yml#/components/schemas/error'     
+
+  # Cruise Calls
+  /cruiseCalls:
+    get:
+      tags:
+        - Port Calls
+      summary: Returns information about next arrival and departure of a cruise ship.
+      description: Returns information about next arrival and departure of a cruise ship.
+      parameters:
+        - $ref: '#/components/parameters/portCode'
+        - $ref: '#/components/parameters/shipName'
+      responses: #status code
+        '200':
+          description: Successful operation
+          headers:
+            oiapApiVersion:
+              $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents.yml#/components/headers/oiapApiVersion'
+          content: 
+            application/json:
+              schema:
+                type: object
+                properties:
+                  cruiseCall:
+                    type: array  
+                    items:
+                      $ref: '#/components/schemas/cruiseCall'
+                  queryParams:
+                    type: object
+                    properties:
+                      portCode:
+                        $ref: './oiapComponents.yml#/components/schemas/portCode'
+                      shipName:
+                        $ref: './oiapComponents.yml#/components/schemas/shipName'
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents.yml#/components/schemas/error' 
+        '404':
+          description: Not found
+          content:
+            application/json:
+              schema:
+                $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents.yml#/components/schemas/error'               
+
+  /linerServices:
+    get:
+      tags:
+        - Liner Services
+      summary: Returns a list of liner services of a port.
+      description: Returns a list of liner services of a port. 
+      parameters:
+        - $ref: '#/components/parameters/portCode'
+        - $ref: '#/components/parameters/linkedPortCode'
+        - $ref: '#/components/parameters/coastalArea'
+      responses: #status code
+        '200':
+          description: Successful operation
+          headers:
+            oiapApiVersion:
+              $ref: './oiapComponents.yml#/components/headers/oiapApiVersion'
+          content: 
+            application/json:
+              schema:
+                type: object
+                properties:
+                  linerServices:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/linerService'
+                  queryParams:
+                    type: object
+                    properties:
+                      portCode:
+                        $ref: './oiapComponents.yml#/components/schemas/portCode'
+                      linkedPortCode:
+                        $ref: './oiapComponents.yml#/components/schemas/linkedPortCode'
+                      coastalArea:
+                        $ref: './oiapComponents.yml#/components/schemas/coastalArea'
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: './oiapComponents.yml#/components/schemas/error' 
+        '404':
+          description: Not found
+          content:
+            application/json:
+              schema:
+                $ref: './oiapComponents.yml#/components/schemas/error'  
+
+  /linkedPorts:
+    get:
+      tags:
+        - Liner Services
+      summary: Returns the list of linked ports served by liner services from a port. 
+      description: >-
+        This GET API returns the list of linked ports served by liner services from a port. 
+      parameters:
+        - $ref: '#/components/parameters/portCode'
+        - $ref: '#/components/parameters/coastalArea'
+        - $ref: '#/components/parameters/countryCode'
+      responses: #status code
+        '200':
+          description: Successful operation
+          headers:
+            oiapApiVersion:
+              $ref: './oiapComponents.yml#/components/headers/oiapApiVersion'
+          content: 
+            application/json:
+              schema:
+                type: object
+                properties:
+                  linkedPorts:
+                    type: array
+                    items:
+                      $ref: './oiapComponents.yml#/components/schemas/linkedPort'
+                  queryParams:
+                    type: object
+                    properties:
+                      portCode:
+                        $ref: './oiapComponents.yml#/components/schemas/portCode'
+                      coastalArea:
+                        $ref: './oiapComponents.yml#/components/schemas/coastalArea'                        
+                      countryCode:
+                        $ref: './oiapComponents.yml#/components/schemas/countryCode'
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: './oiapComponents.yml#/components/schemas/error' 
+        '404':
+          description: Not found
+          content:
+            application/json:
+              schema:
+                $ref: './oiapComponents.yml#/components/schemas/error' 
+
+  /linerCarriers: 
+    get:
+      tags:
+        - Liner Services
+      summary: List of the carriers that serve a port, a maritime coastal area or a country.
+      description: List of the carriers that serve a port, a maritime coastal area or a country.
+      parameters:
+        - $ref: '#/components/parameters/portCode'
+        - $ref: '#/components/parameters/coastalArea'        
+        - $ref: '#/components/parameters/countryCode'
+        - $ref: '#/components/parameters/linkedPortCode'
+      responses: #status code
+        '200':
+          description: Successful operation
+          headers:
+            oiapApiVersion:
+              $ref: './oiapComponents.yml#/components/headers/oiapApiVersion'
+          content: 
+            application/json:
+              schema:
+                type: object
+                properties:
+                  linerCarriers:
+                    type: array
+                    items:
+                      $ref: './oiapComponents.yml#/components/schemas/linerCarrier'
+                  queryParams:
+                    type: object
+                    properties:
+                      portCode:
+                        $ref: './oiapComponents.yml#/components/schemas/portCode'
+                      coastalArea:
+                        $ref: './oiapComponents.yml#/components/schemas/coastalArea'
+                      countryCode:
+                        $ref: './oiapComponents.yml#/components/schemas/countryCode'
+                      linkedPortCode:
+                        $ref: './oiapComponents.yml#/components/schemas/linkedPortCode'
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: './oiapComponents.yml#/components/schemas/error' 
+        '404':
+          description: Not found
+          content:
+            application/json:
+              schema:
+                $ref: './oiapComponents.yml#/components/schemas/error'
+
+  /portInfrastructure:
+    get:
+      tags:
+        - Port Infrastructure
+      summary: Returns a list of basic data of the infrastructure of a port.
+      description: Returns a list of basic data of the infrastructure of a port. 
+      parameters:
+        - $ref: '#/components/parameters/portCode'
+      responses: #status code
+        '200':
+          description: Successful operation
+          headers:
+            oiapApiVersion:
+              $ref: './oiapComponents.yml#/components/headers/oiapApiVersion'
+          content: 
+            application/json:
+              schema:
+                type: object
+                properties:
+                  portInfrastructure:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/portInfrastructure'
+                  queryParams:
+                    type: object
+                    properties:
+                      portCode:
+                        $ref: './oiapComponents.yml#/components/schemas/portCode'
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: './oiapComponents.yml#/components/schemas/error' 
+        '404':
+          description: Not found
+          content:
+            application/json:
+              schema:
+                $ref: './oiapComponents.yml#/components/schemas/error'  
+  /portGates:
+    get:
+      tags:
+        - Port Infrastructure
+      summary: Information about the main land port accesses. 
+      description: >-
+        This GET API returns the list of port gates from a port. 
+      parameters:
+        - $ref: '#/components/parameters/portCode'
+      responses: #status code
+        '200':
+          description: Successful operation
+          headers:
+            oiapApiVersion:
+              $ref: './oiapComponents.yml#/components/headers/oiapApiVersion'
+          content: 
+            application/json:
+              schema:
+                type: object
+                properties:
+                  portGates:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/portGate'
+                  queryParams:
+                    type: object
+                    properties:
+                      portCode:
+                        $ref: './oiapComponents.yml#/components/schemas/portCode'
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: './oiapComponents.yml#/components/schemas/error' 
+        '404':
+          description: Not found
+          content:
+            application/json:
+              schema:
+                $ref: './oiapComponents.yml#/components/schemas/error' 
+  /berths: 
+    get:
+      tags:
+        - Port Infrastructure
+      summary: Information about the berths of a port
+      description: List of the berths from a port.
+      parameters:
+        - $ref: '#/components/parameters/portCode'
+      responses: #status code
+        '200':
+          description: Successful operation
+          headers:
+            oiapApiVersion:
+              $ref: './oiapComponents.yml#/components/headers/oiapApiVersion'
+          content: 
+            application/json:
+              schema:
+                type: object
+                properties:
+                  berths:
+                    type: array
+                    items:
+                      $ref: './oiapComponents.yml#/components/schemas/berth'
+                  queryParams:
+                    type: object
+                    properties:
+                      portCode:
+                        $ref: './oiapComponents.yml#/components/schemas/portCode'
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: './oiapComponents.yml#/components/schemas/error' 
+        '404':
+          description: Not found
+          content:
+            application/json:
+              schema:
+                $ref: './oiapComponents.yml#/components/schemas/error'
+  /portTerminals: 
+    get:
+      tags:
+        - Port Infrastructure
+      summary: Information about the maritime terminals of a port
+      description: List of the maritime terminals from a port.
+      parameters:
+        - $ref: '#/components/parameters/portCode'
+      responses: #status code
+        '200':
+          description: Successful operation
+          headers:
+            oiapApiVersion:
+              $ref: './oiapComponents.yml#/components/headers/oiapApiVersion'
+          content: 
+            application/json:
+              schema:
+                type: object
+                properties:
+                  portTerminals:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/portTerminal'
+                  queryParams:
+                    type: object
+                    properties:
+                      portCode:
+                        $ref: './oiapComponents.yml#/components/schemas/portCode'
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: './oiapComponents.yml#/components/schemas/error' 
+        '404':
+          description: Not found
+          content:
+            application/json:
+              schema:
+                $ref: './oiapComponents.yml#/components/schemas/error' 
+  /railTerminals: 
+    get:
+      tags:
+        - Port Infrastructure
+      summary: Information of all the rail terminals and loading tracks of a port
+      description: >
+          List of the rail terminals and loading tracks from a port.
+          Rail facilities are caracterized because they have rail bundles of up to 10 rail tracks with lengths of a maximum of 800 meters per track. They are equipped to allow simultaneous batch exchanges (direct transshipment) through the use of rail-mounted gantry cranes that stretch over the rail bundles.
+      parameters:
+        - $ref: '#/components/parameters/portCode'
+      responses: #status code
+        '200':
+          description: Successful operation
+          headers:
+            oiapApiVersion:
+              $ref: './oiapComponents.yml#/components/headers/oiapApiVersion'
+          content: 
+            application/json:
+              schema:
+                type: object
+                properties:
+                  railTerminals:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/railTerminal' 
+                  queryParams:
+                    type: object
+                    properties:
+                      portCode:
+                        $ref: './oiapComponents.yml#/components/schemas/portCode'
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: './oiapComponents.yml#/components/schemas/error' 
+        '404':
+          description: Not found
+          content:
+            application/json:
+              schema:
+                $ref: './oiapComponents.yml#/components/schemas/error'               
+  /marineAids: 
+    get:
+      tags:
+        - Port Infrastructure
+      summary: Marine aids to navigation
+      description: List of port marks in a specific port.
+      parameters:
+        - $ref: '#/components/parameters/portCode'
+      responses: #status code
+        '200':
+          description: Successful operation
+          headers:
+            oiapApiVersion:
+              $ref: './oiapComponents.yml#/components/headers/oiapApiVersion'
+          content: 
+            application/json:
+              schema:
+                type: object
+                properties:
+                  portMarks:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/portMark' 
+                  queryParams:
+                    type: object
+                    properties:
+                      portCode:
+                        $ref: './oiapComponents.yml#/components/schemas/portCode'
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: './oiapComponents.yml#/components/schemas/error' 
+        '404':
+          description: Not found
+          content:
+            application/json:
+              schema:
+                $ref: './oiapComponents.yml#/components/schemas/error'     
+  /bathymetry: 
+    get:
+      tags:
+        - Port Infrastructure
+      summary: Bathymetric data from channel and berths.
+      description: Data from the regular hydrographic surveis that are being performed at ports.
+      parameters:
+        - $ref: '#/components/parameters/portCode'
+      responses: #status code
+        '200':
+          description: Successful operation
+          headers:
+            oiapApiVersion:
+              $ref: './oiapComponents.yml#/components/headers/oiapApiVersion'
+          content: 
+            application/json:
+              schema:
+                type: object
+                properties:
+                  batymetry:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/bathymetry' 
+                  queryParams:
+                    type: object
+                    properties:
+                      portCode:
+                        $ref: './oiapComponents.yml#/components/schemas/portCode'
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: './oiapComponents.yml#/components/schemas/error' 
+        '404':
+          description: Not found
+          content:
+            application/json:
+              schema:
+                $ref: './oiapComponents.yml#/components/schemas/error' 
+
+  /customsClearanceProcedure:
+    get:
+      tags:
+        - Port Procedures
+      summary: Returns a list of resources where the procedures for clearing the goods in import can be found.
+      description: Returns a list of resources where the procedures for clearing the goods in import can be found. 
+      parameters:
+        - $ref: '#/components/parameters/portCode'
+      responses: #status code
+        '200':
+          description: Successful operation
+          headers:
+            oiapApiVersion:
+              $ref: './oiapComponents.yml#/components/headers/oiapApiVersion'
+          content: 
+            application/json:
+              schema:
+                type: object
+                properties:
+                  customsClearanceProcedures:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/customsClearanceProcedure'
+                  queryParams:
+                    type: object
+                    properties:
+                      portCode:
+                        $ref: './oiapComponents.yml#/components/schemas/portCode'
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: './oiapComponents.yml#/components/schemas/error' 
+        '404':
+          description: Not found
+          content:
+            application/json:
+              schema:
+                $ref: './oiapComponents.yml#/components/schemas/error'  
+
+  /borderInspectionProcedures:
+    get:
+      tags:
+        - Port Procedures
+      summary: Returns a list of resources where the procedures for clearing the goods subject to controls from the border inspection services can be found.
+      description: Returns a list of resources where the procedures for clearing the goods subject to controls from the border inspection services can be found. 
+      parameters:
+        - $ref: '#/components/parameters/portCode'
+      responses: #status code
+        '200':
+          description: Successful operation
+          headers:
+            oiapApiVersion:
+              $ref: './oiapComponents.yml#/components/headers/oiapApiVersion'
+          content: 
+            application/json:
+              schema:
+                type: object
+                properties:
+                  borderInspectionProcedures:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/borderInspectionProcedure'
+                  queryParams:
+                    type: object
+                    properties:
+                      portCode:
+                        $ref: './oiapComponents.yml#/components/schemas/portCode'
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: './oiapComponents.yml#/components/schemas/error' 
+        '404':
+          description: Not found
+          content:
+            application/json:
+              schema:
+                $ref: './oiapComponents.yml#/components/schemas/error' 
+
+  /vgmProcedures:
+    get:
+      tags:
+        - Port Procedures
+      summary: Returns a list of resources where the verified gross mass (VGM) procedures can be found.
+      description: Returns a list of resources where the verified gross mass (VGM) procedures can be found. 
+      parameters:
+        - $ref: '#/components/parameters/portCode'
+      responses: #status code
+        '200':
+          description: Successful operation
+          headers:
+            oiapApiVersion:
+              $ref: './oiapComponents.yml#/components/headers/oiapApiVersion'
+          content: 
+            application/json:
+              schema:
+                type: object
+                properties:
+                  vgmProcedures:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/vgmProcedure'
+                  queryParams:
+                    type: object
+                    properties:
+                      portCode:
+                        $ref: './oiapComponents.yml#/components/schemas/portCode'
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: './oiapComponents.yml#/components/schemas/error' 
+        '404':
+          description: Not found
+          content:
+            application/json:
+              schema:
+                $ref: './oiapComponents.yml#/components/schemas/error' 
+
+  /containerTareWeight:
+    get:
+      tags:
+        - Port Procedures
+      summary: Returns the tare weight of a given container.
+      description: Returns the tare weight of a given container.
+      parameters:
+        - $ref: '#/components/parameters/containerNumber'
+      responses: #status code
+        '200':
+          description: Successful operation
+          headers:
+            oiapApiVersion:
+              $ref: './oiapComponents.yml#/components/headers/oiapApiVersion'
+          content: 
+            application/json:
+              schema:
+                type: object
+                properties:
+                  containerTare:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/containerTare'
+                  queryParams:
+                    type: object
+                    properties:
+                      portCode:
+                        $ref: './oiapComponents.yml#/components/schemas/containerNumber'
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: './oiapComponents.yml#/components/schemas/error' 
+        '404':
+          description: Not found
+          content:
+            application/json:
+              schema:
+                $ref: './oiapComponents.yml#/components/schemas/error' 
+  
+  /qualityCertificationProcedures:
+    get:
+      tags:
+        - Port Procedures
+      summary: Returns a list of resources where the quality certification procedures from a port can be found.
+      description: Returns a list of resources where the quality certification procedures from a port can be found. 
+      parameters:
+        - $ref: '#/components/parameters/portCode'
+      responses: #status code
+        '200':
+          description: Successful operation
+          headers:
+            oiapApiVersion:
+              $ref: './oiapComponents.yml#/components/headers/oiapApiVersion'
+          content: 
+            application/json:
+              schema:
+                type: object
+                properties:
+                  vgmProcedures:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/qualityCertificationProcedure'
+                  queryParams:
+                    type: object
+                    properties:
+                      portCode:
+                        $ref: './oiapComponents.yml#/components/schemas/portCode'
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: './oiapComponents.yml#/components/schemas/error' 
+        '404':
+          description: Not found
+          content:
+            application/json:
+              schema:
+                $ref: './oiapComponents.yml#/components/schemas/error' 
+
+  /qualityCertifiedPartners:
+    get:
+      tags:
+        - Port Procedures
+      summary: List of companies that have been certified by the quality seal managers of a port.
+      description: List of companies that have been certified by the quality seal managers of a port. 
+      parameters:
+        - $ref: '#/components/parameters/portCode'
+      responses: #status code
+        '200':
+          description: Successful operation
+          headers:
+            oiapApiVersion:
+              $ref: './oiapComponents.yml#/components/headers/oiapApiVersion'
+          content: 
+            application/json:
+              schema:
+                type: object
+                properties:
+                  borderInspectionActors:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/qualityCertifiedPartner'
+                  queryParams:
+                    type: object
+                    properties:
+                      portCode:
+                        $ref: './oiapComponents.yml#/components/schemas/portCode'
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: './oiapComponents.yml#/components/schemas/error' 
+        '404':
+          description: Not found
+          content:
+            application/json:
+              schema:
+                $ref: './oiapComponents.yml#/components/schemas/error'
+
+  /partnerActivities:
+    get:
+      tags:
+        - Port Procedures
+      summary: List of possible activities of a partner.
+      description: List of possible activities of a partner. 
+      parameters:
+        - $ref: '#/components/parameters/portCode'
+      responses: #status code
+        '200':
+          description: Successful operation
+          headers:
+            oiapApiVersion:
+              $ref: './oiapComponents.yml#/components/headers/oiapApiVersion'
+          content: 
+            application/json:
+              schema:
+                type: object
+                properties:
+                  borderInspectionActors:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/partnerActivity'
+                  queryParams:
+                    type: object
+                    properties:
+                      portCode:
+                        $ref: './oiapComponents.yml#/components/schemas/portCode'
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: './oiapComponents.yml#/components/schemas/error' 
+        '404':
+          description: Not found
+          content:
+            application/json:
+              schema:
+                $ref: './oiapComponents.yml#/components/schemas/error'
+
+  /pickupDeliveryProcedures:
+    get:
+      tags:
+        - Port Procedures
+      summary: Returns a list of resources where the procedures for for pick-up or delivery containers from/to the terminal or depot can be found.
+      description: Returns a list of resources where the procedures for for pick-up or delivery containers from/to the terminal or depot can be found. 
+      parameters:
+        - $ref: '#/components/parameters/portCode'
+      responses: #status code
+        '200':
+          description: Successful operation
+          headers:
+            oiapApiVersion:
+              $ref: './oiapComponents.yml#/components/headers/oiapApiVersion'
+          content: 
+            application/json:
+              schema:
+                type: object
+                properties:
+                  borderInspectionProcedures:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/pickupDeliveryProcedure'
+                  queryParams:
+                    type: object
+                    properties:
+                      portCode:
+                        $ref: './oiapComponents.yml#/components/schemas/portCode'
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: './oiapComponents.yml#/components/schemas/error' 
+        '404':
+          description: Not found
+          content:
+            application/json:
+              schema:
+                $ref: './oiapComponents.yml#/components/schemas/error' 
+
+  /approachInstructions:
+    get:
+      tags:
+        - Port Procedures
+      summary: Returns a list of resources where basic information for the approach of the vessels to a port can be found.
+      description: Returns a list of resources where basic information for the approach of the vessels to a port can be found.
+      parameters:
+        - $ref: '#/components/parameters/portCode'
+      responses: #status code
+        '200':
+          description: Successful operation
+          headers:
+            oiapApiVersion:
+              $ref: './oiapComponents.yml#/components/headers/oiapApiVersion'
+          content: 
+            application/json:
+              schema:
+                type: object
+                properties:
+                  borderInspectionProcedures:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/approachInstructions'
+                  queryParams:
+                    type: object
+                    properties:
+                      portCode:
+                        $ref: './oiapComponents.yml#/components/schemas/portCode'
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: './oiapComponents.yml#/components/schemas/error' 
+        '404':
+          description: Not found
+          content:
+            application/json:
+              schema:
+                $ref: './oiapComponents.yml#/components/schemas/error' 
+
+  /basicTrafficStatistics:
+    get:
+      tags:
+        - Statistics
+      summary: Statistical information from the carriage of goods and passengers by seagoing vessels calling at ports.
+      description: >
+            Statistical information from the carriage of goods and passengers by seagoing vessels calling at ports.
+
+            It is based on the definitions and classifications as included in the Directive 2009/42/EC of the European Parliament and of the Council of 6 May 2009 on statistical returns in respect of carriage of goods and passenger by sea and later amendments. 
+      parameters:
+        - $ref: '#/components/parameters/portCode'
+      responses: 
+        '200':
+          description: Successful operation
+          headers:
+            oiapApiVersion:
+              $ref: './oiapComponents.yml#/components/headers/oiapApiVersion'
+          content: 
+            application/json:
+              schema:
+                type: object
+                properties:
+                  basicTrafficStatistics:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/basicTrafficStatistics'
+                  metadata: 
+                    $ref: './oiapComponents.yml#/components/schemas/metadata'
+                  queryParams:
+                    type: object
+                    properties:
+                      portCode:
+                        $ref: './oiapComponents.yml#/components/schemas/portCode'
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: './oiapComponents.yml#/components/schemas/error' 
+        '404':
+          description: Not found
+          content:
+            application/json:
+              schema:
+                $ref: './oiapComponents.yml#/components/schemas/error'  
+
+  /basicEconomicStatistics:
+    get:
+      tags:
+        - Statistics
+      summary: Statistical information from some economical parameters from a port.
+      description: Statistical information from some economical parameters from a port. 
+      parameters:
+        - $ref: '#/components/parameters/portCode'
+      responses: 
+        '200':
+          description: Successful operation
+          headers:
+            oiapApiVersion:
+              $ref: './oiapComponents.yml#/components/headers/oiapApiVersion'
+          content: 
+            application/json:
+              schema:
+                type: object
+                properties:
+                  basicEconomicData:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/basicEconomicData'
+                  metadata: 
+                    $ref: './oiapComponents.yml#/components/schemas/metadata'
+                  queryParams:
+                    type: object
+                    properties:
+                      portCode:
+                        $ref: './oiapComponents.yml#/components/schemas/portCode'
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: './oiapComponents.yml#/components/schemas/error' 
+        '404':
+          description: Not found
+          content:
+            application/json:
+              schema:
+                $ref: './oiapComponents.yml#/components/schemas/error' 
+
+  /typesOfCargoList:
+    get:
+      tags:
+        - Statistics
+      summary: Returns a list of types of cargo.
+      description: Returns a list of types of cargo. 
+      parameters:
+        - $ref: '#/components/parameters/portCode'
+      responses: 
+        '200':
+          description: Successful operation
+          headers:
+            oiapApiVersion:
+              $ref: './oiapComponents.yml#/components/headers/oiapApiVersion'
+          content: 
+            application/json:
+              schema:
+                type: object
+                properties:
+                  typesOfCargo:
+                    type: array
+                    items:
+                      $ref: './oiapComponents.yml#/components/schemas/typeOfCargo'
+                  metadata: 
+                    $ref: './oiapComponents.yml#/components/schemas/metadata'
+                  queryParams:
+                    type: object
+                    properties:
+                      portCode:
+                        $ref: './oiapComponents.yml#/components/schemas/portCode'
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: './oiapComponents.yml#/components/schemas/error' 
+        '404':
+          description: Not found
+          content:
+            application/json:
+              schema:
+                $ref: './oiapComponents.yml#/components/schemas/error' 
+
+  /commoditiesList:
+    get:
+      tags:
+        - Statistics
+      summary: Returns a list of types of commodities.
+      description: Returns a list of types of commodities. 
+      parameters:
+        - $ref: '#/components/parameters/portCode'
+      responses: 
+        '200':
+          description: Successful operation
+          headers:
+            oiapApiVersion:
+              $ref: './oiapComponents.yml#/components/headers/oiapApiVersion'
+          content: 
+            application/json:
+              schema:
+                type: object
+                properties:
+                  commodities:
+                    type: array
+                    items:
+                      $ref: './oiapComponents.yml#/components/schemas/commodity'
+                  metadata: 
+                    $ref: './oiapComponents.yml#/components/schemas/metadata'
+                  queryParams:
+                    type: object
+                    properties:
+                      portCode:
+                        $ref: './oiapComponents.yml#/components/schemas/portCode'
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: './oiapComponents.yml#/components/schemas/error' 
+        '404':
+          description: Not found
+          content:
+            application/json:
+              schema:
+                $ref: './oiapComponents.yml#/components/schemas/error'
+
+  /realtimeWeather:
+    get:
+      tags:
+        - Environment-Weather
+      summary: Returns realtime weather information of the default weather station of a port.
+      description: Returns realtime weather information of the default weather station of a port. 
+      parameters:
+        - $ref: '#/components/parameters/portCode'
+      responses: #status code
+        '200':
+          description: Successful operation
+          headers:
+            oiapApiVersion:
+              $ref: './oiapComponents.yml#/components/headers/oiapApiVersion'
+          content: 
+            application/json:
+              schema:
+                type: object
+                properties:
+                  realtimeWeather:
+                    $ref: '#/components/schemas/realtimeWeather'
+                  metadata: 
+                    $ref: './oiapComponents.yml#/components/schemas/metadata'
+                  queryParams:
+                    type: object
+                    properties:
+                      portCode:
+                        $ref: './oiapComponents.yml#/components/schemas/portCode'
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: './oiapComponents.yml#/components/schemas/error' 
+        '404':
+          description: Not found
+          content:
+            application/json:
+              schema:
+                $ref: './oiapComponents.yml#/components/schemas/error'  
+
+  /weatherForecast:
+    get:
+      tags:
+        - Environment-Weather
+      summary: Returns the 5 days weather forecast for a port.
+      description: Returns the 5 days weather forecast for a port. 
+      parameters:
+        - $ref: '#/components/parameters/portCode'
+      responses: #status code
+        '200':
+          description: Successful operation
+          headers:
+            oiapApiVersion:
+              $ref: './oiapComponents.yml#/components/headers/oiapApiVersion'
+          content: 
+            application/json:
+              schema:
+                type: object
+                properties:
+                  weatherForecast:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/weatherForecast'
+                  metadata: 
+                    $ref: './oiapComponents.yml#/components/schemas/metadata'
+                  queryParams:
+                    type: object
+                    properties:
+                      portCode:
+                        $ref: './oiapComponents.yml#/components/schemas/portCode'
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: './oiapComponents.yml#/components/schemas/error' 
+        '404':
+          description: Not found
+          content:
+            application/json:
+              schema:
+                $ref: './oiapComponents.yml#/components/schemas/error' 
+
+  /astronomicalData:
+    get:
+      tags:
+        - Environment-Weather
+      summary: Returns astronomical data from a port. 
+      description: Returns astronomical data from a port. Up to date information for sunrise, sunset, moonrise, moonset, moon phase and illumination. 
+      parameters:
+        - $ref: '#/components/parameters/portCode'
+      responses: #status code
+        '200':
+          description: Successful operation
+          headers:
+            oiapApiVersion:
+              $ref: './oiapComponents.yml#/components/headers/oiapApiVersion'
+          content: 
+            application/json:
+              schema:
+                type: object
+                properties:
+                  astronomy:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/astronomy'
+                  metadata: 
+                    $ref: './oiapComponents.yml#/components/schemas/metadata'
+                  queryParams:
+                    type: object
+                    properties:
+                      portCode:
+                        $ref: './oiapComponents.yml#/components/schemas/portCode'
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: './oiapComponents.yml#/components/schemas/error' 
+        '404':
+          description: Not found
+          content:
+            application/json:
+              schema:
+                $ref: './oiapComponents.yml#/components/schemas/error'
+
+  /seaCondition:
+    get:
+      tags:
+        - Environment-Sea State
+      summary: Returns information of the sea condition.
+      description: Returns information of the sea condition.
+      parameters:
+        - $ref: '#/components/parameters/portCode'
+      responses: #status code
+        '200':
+          description: Successful operation
+          headers:
+            oiapApiVersion:
+              $ref: './oiapComponents.yml#/components/headers/oiapApiVersion'
+          content: 
+            application/json:
+              schema:
+                type: object
+                properties:
+                  seaCondition:
+                    $ref: '#/components/schemas/seaCondition'
+                  metadata: 
+                    $ref: './oiapComponents.yml#/components/schemas/metadata'
+                  queryParams:
+                    type: object
+                    properties:
+                      portCode:
+                        $ref: './oiapComponents.yml#/components/schemas/portCode'
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: './oiapComponents.yml#/components/schemas/error' 
+        '404':
+          description: Not found
+          content:
+            application/json:
+              schema:
+                $ref: './oiapComponents.yml#/components/schemas/error'
+
+  /wavePrediction:
+    get:
+      tags:
+        - Environment-Sea State
+      summary: Returns the prediction of waves.
+      description: Returns the prediction of waves, including the component of the wind waves plus the swell.
+      parameters:
+        - $ref: '#/components/parameters/portCode'
+        - $ref: '#/components/parameters/forecastedDate'
+      responses: #status code
+        '200':
+          description: Successful operation
+          headers:
+            oiapApiVersion:
+              $ref: './oiapComponents.yml#/components/headers/oiapApiVersion'
+          content: 
+            application/json:
+              schema:
+                type: object
+                properties:
+                  wavePrediction:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/wavePrediction'
+                  metadata: 
+                    $ref: './oiapComponents.yml#/components/schemas/metadata'
+                  queryParams:
+                    type: object
+                    properties:
+                      portCode:
+                        $ref: './oiapComponents.yml#/components/schemas/portCode'
+                      forecastedDate:
+                        $ref: './oiapComponents.yml#/components/schemas/forecastedDate'
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: './oiapComponents.yml#/components/schemas/error' 
+        '404':
+          description: Not found
+          content:
+            application/json:
+              schema:
+                $ref: './oiapComponents.yml#/components/schemas/error'
+
+  /tides:
+    get:
+      tags:
+        - Environment-Sea State
+      summary: Returns information about the tides of a port.
+      description: Returns information about the tides of a port.
+      parameters:
+        - $ref: '#/components/parameters/portCode'
+        - $ref: '#/components/parameters/forecastedDate'
+      responses: #status code
+        '200':
+          description: Successful operation
+          headers:
+            oiapApiVersion:
+              $ref: './oiapComponents.yml#/components/headers/oiapApiVersion'
+          content: 
+            application/json:
+              schema:
+                type: object
+                properties:
+                  tides:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/tides'
+                  metadata: 
+                    $ref: './oiapComponents.yml#/components/schemas/metadata'
+                  queryParams:
+                    type: object
+                    properties:
+                      portCode:
+                        $ref: './oiapComponents.yml#/components/schemas/portCode'
+                      forecastedDate:
+                        $ref: './oiapComponents.yml#/components/schemas/forecastedDate'
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: './oiapComponents.yml#/components/schemas/error' 
+        '404':
+          description: Not found
+          content:
+            application/json:
+              schema:
+                $ref: './oiapComponents.yml#/components/schemas/error'
+
+  /airQualityIndex:
+    get:
+      tags:
+        - Environment-Pollution
+      summary: Returns the present value of the Air Quality Index and Level.
+      description: Returns the present value of the Air Quality Index and Level.
+      parameters:
+        - $ref: '#/components/parameters/portCode'
+      responses: #status code
+        '200':
+          description: Successful operation
+          headers:
+            apiVersion:
+              $ref: './oiapComponents.yml#/components/headers/oiapApiVersion'
+          content: 
+            application/json:
+              schema:
+                type: object
+                properties:
+                  airQualityIndex:
+                    $ref: '#/components/schemas/airQualityIndex'
+                  metadata: 
+                    $ref: './oiapComponents.yml#/components/schemas/metadata'
+                  queryParams:
+                    type: object
+                    properties:
+                      portCode:
+                        $ref: './oiapComponents.yml#/components/schemas/portCode'
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: './oiapComponents.yml#/components/schemas/error'  
+        '404':
+          description: Not found
+          content:
+            application/json:
+              schema:
+                $ref: './oiapComponents.yml#/components/schemas/error' 
+
+  /airQualityMonitoring:
+    get:
+      tags:
+        - Environment-Pollution
+      summary: Returns some common air quality parameters.
+      description: Returns some common air quality parameters.
+      parameters:
+        - $ref: '#/components/parameters/portCode'
+      responses: #status code
+        '200':
+          description: Successful operation
+          headers:
+            apiVersion:
+              $ref: './oiapComponents.yml#/components/headers/oiapApiVersion'
+          content: 
+            application/json:
+              schema:
+                type: object
+                properties:
+                  airQualityPollution:
+                    $ref: '#/components/schemas/airQualityPollution'
+                  metadata: 
+                    $ref: './oiapComponents.yml#/components/schemas/metadata'
+                  queryParams:
+                    type: object
+                    properties:
+                      portCode:
+                        $ref: './oiapComponents.yml#/components/schemas/portCode'
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: './oiapComponents.yml#/components/schemas/error'  
+        '404':
+          description: Not found
+          content:
+            application/json:
+              schema:
+                $ref: './oiapComponents.yml#/components/schemas/error' 
+
+  /waterQualityIndex:
+    get:
+      tags:
+        - Environment-Pollution
+      summary: Returns the present value of the Water Quality Index and Level.
+      description: > 
+            Returns the present value of the Water Quality Index and Level.
+            
+            WQI provides a single number that expresses the overall water quality, at a certain location and time, based on several water quality parameters. The objective of WQI is to turn complex water quality data into information that is understandable and usable by the public.
+      parameters:
+        - $ref: '#/components/parameters/portCode'
+      responses: #status code
+        '200':
+          description: Successful operation
+          headers:
+            apiVersion:
+              $ref: './oiapComponents.yml#/components/headers/oiapApiVersion'
+          content: 
+            application/json:
+              schema:
+                type: object
+                properties:
+                  waterQualityIndex:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/waterQualityIndex'
+                  metadata: 
+                    $ref: './oiapComponents.yml#/components/schemas/metadata'
+                  queryParams:
+                    type: object
+                    properties:
+                      portCode:
+                        $ref: './oiapComponents.yml#/components/schemas/portCode'
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: './oiapComponents.yml#/components/schemas/error'  
+        '404':
+          description: Not found
+          content:
+            application/json:
+              schema:
+                $ref: './oiapComponents.yml#/components/schemas/error' 
+
+  /waterQualityMonitoring:
+    get:
+      tags:
+        - Environment-Pollution
+      summary: Returns some common water quality parameters.
+      description: Returns some common water quality parameters.
+      parameters:
+        - $ref: '#/components/parameters/portCode'
+      responses: #status code
+        '200':
+          description: Successful operation
+          headers:
+            apiVersion:
+              $ref: './oiapComponents.yml#/components/headers/oiapApiVersion'
+          content: 
+            application/json:
+              schema:
+                type: object
+                properties:
+                  waterQualityParameters:
+                    $ref: '#/components/schemas/waterQualityParameters'
+                  metadata: 
+                    $ref: './oiapComponents.yml#/components/schemas/metadata'
+                  queryParams:
+                    type: object
+                    properties:
+                      portCode:
+                        $ref: './oiapComponents.yml#/components/schemas/portCode'
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: './oiapComponents.yml#/components/schemas/error'  
+        '404':
+          description: Not found
+          content:
+            application/json:
+              schema:
+                $ref: './oiapComponents.yml#/components/schemas/error' 
+
+  /noiseLevel: 
+    get:
+      tags:
+        - Environment-Pollution
+      summary: Returns the level of noise of a port
+      description: Returns the level of noise of a port
+      parameters:
+        - $ref: '#/components/parameters/portCode'
+      responses: #status code
+        '200':
+          description: Successful operation
+          headers:
+            apiVersion:
+              $ref: './oiapComponents.yml#/components/headers/oiapApiVersion'
+          content: 
+            application/json:
+              schema:
+                type: object
+                properties:
+                  noiseLevel:
+                    $ref: '#/components/schemas/noiseLevel'
+                  metadata: 
+                    $ref: './oiapComponents.yml#/components/schemas/metadata'
+                  queryParams:
+                    type: object
+                    properties:
+                      portCode:
+                        $ref: './oiapComponents.yml#/components/schemas/portCode'
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: './oiapComponents.yml#/components/schemas/error'  
+        '404':
+          description: Not found
+          content:
+            application/json:
+              schema:
+                $ref: './oiapComponents.yml#/components/schemas/error' 
+
+  /railConnections:
+    get:
+      tags:
+        - Rail Transport
+      summary: Returns a list of rail connections from a port.
+      description: Returns a list of rail connections from a port. 
+      parameters:
+        - $ref: '#/components/parameters/portCode'
+      responses: #status code
+        '200':
+          description: Successful operation
+          headers:
+            oiapApiVersion:
+              $ref: './oiapComponents.yml#/components/headers/oiapApiVersion'
+          content: 
+            application/json:
+              schema:
+                type: object
+                properties:
+                  railConnections:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/railConnection'
+                  queryParams:
+                    type: object
+                    properties:
+                      portCode:
+                        $ref: './oiapComponents.yml#/components/schemas/portCode'
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: './oiapComponents.yml#/components/schemas/error' 
+        '404':
+          description: Not found
+          content:
+            application/json:
+              schema:
+                $ref: './oiapComponents.yml#/components/schemas/error'  
+
+  /railInlandTerminals:
+    get:
+      tags:
+        - Rail Transport
+      summary: Returns the list of the inland terminals served by rail from a port. 
+      description: >-
+        This GET API returns the list of the inland terminals served by rail from a port.
+      parameters:
+        - $ref: '#/components/parameters/portCode'
+      responses: #status code
+        '200':
+          description: Successful operation
+          headers:
+            oiapApiVersion:
+              $ref: './oiapComponents.yml#/components/headers/oiapApiVersion'
+          content: 
+            application/json:
+              schema:
+                type: object
+                properties:
+                  inlandTerminals:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/inlandTerminal'
+                  queryParams:
+                    type: object
+                    properties:
+                      portCode:
+                        $ref: './oiapComponents.yml#/components/schemas/portCode'
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: './oiapComponents.yml#/components/schemas/error' 
+        '404':
+          description: Not found
+          content:
+            application/json:
+              schema:
+                $ref: './oiapComponents.yml#/components/schemas/error' 
+
+  /railwayUndertakings:
+    get:
+      tags:
+        - Rail Transport
+      summary: List of the railway undertaking companies that operate in one port.
+      description: Returns a list of the rail undertaking companies that operate in a port.
+      parameters:
+        - $ref: '#/components/parameters/portCode'
+      responses: #status code
+        '200':
+          description: Successful operation
+          headers:
+            oiapApiVersion:
+              $ref: './oiapComponents.yml#/components/headers/oiapApiVersion'
+          content: 
+            application/json:
+              schema:
+                type: object
+                properties:
+                  railUndertakings:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/railwayUndertaking'
+                  queryParams:
+                    type: object
+                    properties:
+                      portCode:
+                        $ref: './oiapComponents.yml#/components/schemas/portCode'
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: './oiapComponents.yml#/components/schemas/error' 
+        '404':
+          description: Not found
+          content:
+            application/json:
+              schema:
+                $ref: './oiapComponents.yml#/components/schemas/error'
+
+  /railLogisticServiceProviders:
+    get:
+      tags:
+        - Rail Transport
+      summary: List of the rail logistic service providers that operate in one port.
+      description: Returns a list of the rail logistic service providers that operate in a port.
+      parameters:
+        - $ref: '#/components/parameters/portCode'
+      responses: #status code
+        '200':
+          description: Successful operation
+          headers:
+            oiapApiVersion:
+              $ref: './oiapComponents.yml#/components/headers/oiapApiVersion'
+          content: 
+            application/json:
+              schema:
+                type: object
+                properties:
+                  railLogisticServiceProviders:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/railLogisticServiceProvider'
+                  queryParams:
+                    type: object
+                    properties:
+                      portCode:
+                        $ref: './oiapComponents.yml#/components/schemas/portCode'
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: './oiapComponents.yml#/components/schemas/error' 
+        '404':
+          description: Not found
+          content:
+            application/json:
+              schema:
+                $ref: './oiapComponents.yml#/components/schemas/error'
+
+  # Train Arrivals
+  /trainArrivals:
+    get:
+      tags:
+        - Rail Transport
+      summary: Returns a list of trains that have arrived or will arrive today at a port. 
+      description: Returns a list of trains that have arrived or will arrive today at a port.
+      parameters:
+        - $ref: '#/components/parameters/portCode'
+      responses: #status code
+        '200':
+          description: Successful operation
+          headers:
+            oiapApiVersion:
+              $ref: './oiapComponents.yml#/components/headers/oiapApiVersion'
+          content: 
+            application/json:
+              schema:
+                type: object
+                properties:
+                  trainArrivals:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/trainArrivals'
+                  queryParams:
+                    type: object
+                    properties:
+                      portCode:
+                        $ref: './oiapComponents.yml#/components/schemas/portCode'
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: './oiapComponents.yml#/components/schemas/error' 
+        '404':
+          description: Not found
+          content:
+            application/json:
+              schema:
+                $ref: './oiapComponents.yml#/components/schemas/error'
+
+  # Train Departures
+  /trainDepartures:
+    get:
+      tags:
+        - Rail Transport
+      summary: Returns a list of trains that have departed or will depart today from a port. 
+      description: Returns a list of trains that have departed or will depart today from a port.
+      parameters:
+        - $ref: '#/components/parameters/portCode'
+      responses: #status code
+        '200':
+          description: Successful operation
+          headers:
+            oiapApiVersion:
+              $ref: './oiapComponents.yml#/components/headers/oiapApiVersion'
+          content: 
+            application/json:
+              schema:
+                type: object
+                properties:
+                  trainDepartures:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/trainDepartures'
+                  queryParams:
+                    type: object
+                    properties:
+                      portCode:
+                        $ref: './oiapComponents.yml#/components/schemas/portCode'
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: './oiapComponents.yml#/components/schemas/error' 
+        '404':
+          description: Not found
+          content:
+            application/json:
+              schema:
+                $ref: './oiapComponents.yml#/components/schemas/error' 
+
+  /trafficFlowObserved:
+    get:
+      tags:
+        - Vehicle Traffic
+      summary: Number of vehicles entering or leaving a port or a terminal through a certain gate and in a given period of time. And segregation of this data by type of vehicles.
+      description: Returns the number of vehicles entering or leaving a port or a terminal through a certain gate and in a given period of time. And segregation of this data by type of vehicles. 
+      parameters:
+        - $ref: '#/components/parameters/portCode'
+        - $ref: '#/components/parameters/vehicleTypes'
+        - $ref: '#/components/parameters/portGate'        
+        - $ref: '#/components/parameters/flowDirection'
+      responses: 
+        '200':
+          description: Successful operation
+          headers:
+            oiapApiVersion:
+              $ref: './oiapComponents.yml#/components/headers/oiapApiVersion'
+          content: 
+            application/json:
+              schema:
+                type: object
+                properties:
+                  basicTrafficEnvironment:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/vehicleTraffic'
+                  metadata: 
+                    $ref: './oiapComponents.yml#/components/schemas/metadata'
+                  queryParams:
+                    type: object
+                    properties:
+                      portCode:
+                        $ref: './oiapComponents.yml#/components/schemas/portCode'
+                      vehicleTypes:
+                        $ref: './oiapComponents.yml#/components/schemas/vehicleTypes'
+                      portGate:
+                        $ref: './oiapComponents.yml#/components/schemas/gate'
+                      flowDirection:
+                        $ref: './oiapComponents.yml#/components/schemas/flowDirection'
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: './oiapComponents.yml#/components/schemas/error' 
+        '404':
+          description: Not found
+          content:
+            application/json:
+              schema:
+                $ref: './oiapComponents.yml#/components/schemas/error'  
+
+
+
+components:
+  parameters: 
+    portCode:
+      in: query
+      name: portCode
+      description: |
+            Port UN/LOCODE
+            Default value is Locode of Port what provides the services
+            example: portCode=ESBCN        
+      required: false
+      style: form
+      explode: false
+      schema:
+        $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents.yml#/components/schemas/portCode'
+
+    fromDate:  
+      in: query
+      name: fromDate
+      description: The start date of the period for which schedule information is requested. The value is populated in ISO 8601 Date format. If not provided, the current date is used by default.
+      required: false
+      style: form
+      explode: false
+      schema:
+        $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents.yml#/components/schemas/fromDate'
+
+    dateRange:  
+      in: query
+      name: dateRange
+      description: The time period for which schedule information is sent. The duration is populated in ISO 8601 Duration format. If not provided, 24 hours is used by default.
+      required: false
+      style: form
+      explode: false
+      example: T24H
+      schema:
+        $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents.yml#/components/schemas/dateRange'
+
+    shipType:
+      in: query
+      name: shipType
+      description:
+            Type of ship 
+            Default value are all types
+      required: false
+      style: form
+      explode: false
+      schema:
+        $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents.yml#/components/schemas/shipType'
+
+    shipName:
+      in: query
+      name: shipName
+      description: |
+            Name of the cruise ship.  
+            Example: shipName=NORWEGIAN EPIC        
+      required: false
+      style: form
+      explode: false
+      schema:
+        $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents.yml#/components/schemas/shipName'
+
+    coastalArea:  
+      in: query
+      name: coastalArea
+      description: 
+            MARITIME COASTAL AREAS 
+      required: false
+      style: form
+      explode: false
+      schema:
+        $ref: './oiapComponents.yml#/components/schemas/coastalArea'
+
+    countryCode:  
+      in: query
+      name: countryCode
+      description: 
+            Country code as in ISO3166 2 alpha characters. 
+      required: false
+      style: form
+      explode: false
+      schema:
+        $ref: './oiapComponents.yml#/components/schemas/countryCode'
+
+    linkedPortCode:  
+      in: query
+      name: linkedPortCode
+      description: 
+            Port that is served by a direct service of a liner and do not requires a transshipment.
+      required: false
+      style: form
+      explode: false
+      example: HKHKG
+      schema:
+        $ref: './oiapComponents.yml#/components/schemas/linkedPort'
+
+    linerServiceName:  
+      in: query
+      name: fromDate
+      description: 
+            The name of a Liner Service as it is in Alphaliner.
+      required: false
+      style: form
+      explode: false
+      schema:
+        $ref: './oiapComponents.yml#/components/schemas/linerServiceName'
+
+    containerNumber:
+      in: query
+      name: containerNumber
+      description: |
+            Container number as is described in ISO6346
+            example: ABCU1234567        
+      required: false
+      style: form
+      explode: false
+      schema:
+        $ref: './oiapComponents.yml#/components/schemas/containerNumber'
+
+    forecastedDate:
+      in: query
+      name: forecastedDate
+      description: Date of the forecast.     
+      required: false
+      style: form
+      explode: false
+      schema:
+        $ref: './oiapComponents.yml#/components/schemas/forecastedDate'
+
+    vehicleTypes:
+      in: query
+      name: vehicleTypes
+      description: Type of vehicle from the point of view of its structural characteristics.       
+      required: false
+      style: form
+      explode: false
+      schema:
+        $ref: './oiapComponents.yml#/components/schemas/vehicleTypes'
+
+    portGate: # Pending
+      in: query
+      name: portGate
+      description: Access gate       
+      required: false
+      style: form
+      explode: false
+      schema:
+        $ref: './oiapComponents.yml#/components/schemas/gate'
+
+    flowDirection:
+      in: query
+      name: flowDirection
+      description: Flow direction.      
+      required: false
+      style: form
+      explode: false
+      schema:
+        $ref: './oiapComponents.yml#/components/schemas/flowDirection'
+
+
+
+  schemas:
+    shipArrivalForecast:
+      description: list of ships that will arrive on a given period of time
+      type: object
+      allOf:
+        - type: object
+          properties:
+            shipIMONumber:
+              $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents.yml#/components/schemas/shipIMONumber'
+            shipName:
+              $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents.yml#/components/schemas/shipName'
+            shipType:
+              $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents.yml#/components/schemas/shipType'
+            estimatedTimeOfArrival:
+              $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents.yml#/components/schemas/estimatedTimeOfArrival'
+      required: 
+        - shipIMONumber
+        - shipName
+        - shipType
+        - estimatedTimeOfArrival
+
+    shipInPort:
+      description: list of ships that now are in Port
+      type: object
+      allOf:
+        - type: object
+          properties:
+            shipIMONumber:
+              $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents.yml#/components/schemas/shipIMONumber'
+            shipName:
+              $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents.yml#/components/schemas/shipName'
+            shipType:
+              $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents.yml#/components/schemas/shipType'
+            actualTimeOfArrival:
+              $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents.yml#/components/schemas/actualTimeOfArrival'
+            estimatedTimeOfDeparture:
+              $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents.yml#/components/schemas/estimatedTimeOfDeparture'
+            berth:
+              $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents.yml#/components/schemas/berth'
+            lastPortOfCall:
+              $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents.yml#/components/schemas/lastPortOfCall'       
+      required: 
+        - shipIMONumber
+        - shipName
+        - shipType
+        - actualTimeOfArrival
+        - estimatedTimeOfDeparture 
+
+    shipArrivals:
+      description: list of ships that have arrived or will arrive today
+      type: object
+      allOf:
+        - type: object
+          properties:
+            shipIMONumber:
+              $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents.yml#/components/schemas/shipIMONumber'
+            shipName:
+              $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents.yml#/components/schemas/shipName'
+            shipType:
+              $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents.yml#/components/schemas/shipType'
+            actualTimeOfArrival:
+              $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents.yml#/components/schemas/actualTimeOfArrival'
+            estimatedTimeOfArrival:
+              $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents.yml#/components/schemas/estimatedTimeOfArrival'
+            nextPortOfCall:
+              $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents.yml#/components/schemas/lastPortOfCall'
+            berth:
+              $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents.yml#/components/schemas/berth'
+      required: 
+        - shipIMONumber
+        - shipName
+        - shipType
+        - estimatedTimeOfArrival
+        - berth  
+
+    shipDepartures:
+      description: list of ships that have departed or will depart today
+      type: object
+      allOf:
+        - type: object
+          properties:
+            shipIMONumber:
+              $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents.yml#/components/schemas/shipIMONumber'
+            shipName:
+              $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents.yml#/components/schemas/shipName'
+            shipType:
+              $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents.yml#/components/schemas/shipType'
+            actualTimeOfDeparture:
+              $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents.yml#/components/schemas/actualTimeOfDeparture'
+            estimatedTimeOfDeparture:
+              $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents.yml#/components/schemas/estimatedTimeOfDeparture'
+            nextPortOfCall:
+              $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents.yml#/components/schemas/nextPortOfCall'
+            berth:
+              $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents.yml#/components/schemas/berth'
+      required: 
+        - shipIMONumber
+        - shipName
+        - shipType
+        - estimatedTimeOfDeparture
+        - berth  
+
+    aproximationManouvres:
+      description: list of ships that have initiated their aproximation manouvres
+      type: object
+      allOf:
+        - type: object
+          properties:
+            shipIMONumber:
+              $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents.yml#/components/schemas/shipIMONumber'
+            shipName:
+              $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents.yml#/components/schemas/shipName'
+            estimatedTimeOfArrival:
+              $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents.yml#/components/schemas/estimatedTimeOfArrival'
+            shipType:
+              $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents.yml#/components/schemas/shipType'
+            lastPortOfCall:
+              $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents.yml#/components/schemas/lastPortOfCall'       
+      required: 
+        - shipIMONumber
+        - shipName
+        - estimatedTimeOfArrival   
+
+    ferriesArrivals:
+      description: list of all the ferries that have arrived or will arrive today
+      type: object
+      allOf:
+        - type: object
+          properties:
+            shipName:
+              $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents.yml#/components/schemas/shipName'
+            ferryOperator:
+              $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents.yml#/components/schemas/ferryOperator'
+            actualTimeOfArrival:
+              $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents.yml#/components/schemas/actualTimeOfArrival'
+            estimatedTimeOfArrival:
+              $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents.yml#/components/schemas/estimatedTimeOfArrival'
+            lastPortOfCall:
+              $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents.yml#/components/schemas/lastPortOfCall'
+            berth:
+              $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents.yml#/components/schemas/berth'
+      required: 
+        - shipName
+        - ferryOperator
+        - estimatedTimeOfArrival
+        - berth
+
+    ferriesDepartures:
+      description: list of ferries that have departed or will depart today
+      type: object
+      allOf:
+        - type: object
+          properties:
+            shipName:
+              $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents.yml#/components/schemas/shipName'
+            ferryOperator:
+              $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents.yml#/components/schemas/ferryOperator'
+            actualTimeOfDeparture:
+              $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents.yml#/components/schemas/actualTimeOfDeparture'
+            estimatedTimeOfDeparture:
+              $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents.yml#/components/schemas/estimatedTimeOfDeparture'
+            nextPortOfCall:
+              $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents.yml#/components/schemas/nextPortOfCall'
+            berth:
+              $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents.yml#/components/schemas/berth'
+      required: 
+        - shipName
+        - ferryOperator
+        - estimatedTimeOfDeparture
+        - berth
+
+    cruiseCall:
+      description: information about next cruise ship call. 
+      type: object
+      allOf:
+        - type: object
+          properties:
+            shipName:
+              $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents.yml#/components/schemas/shipName'
+            cruiseLine:
+              $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents.yml#/components/schemas/cruiseLine'
+            estimatedTimeOfArrival:
+              $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents.yml#/components/schemas/estimatedTimeOfArrival'
+            estimatedTimeOfDeparture:
+              $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents.yml#/components/schemas/estimatedTimeOfDeparture'
+            facility:
+              $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents.yml#/components/schemas/facility'       
+      required: 
+        - shipName
+        - cruiseLine
+        - estimatedTimeOfArrival
+        - estimatedTimeOfDeparture
+        - facility   
+
+    linerService: 
+      description: 'List of attributes that describe a liner service.'
+      type: object
+      allOf:
+        - type: object
+          properties:
+            linerServiceName:  
+              $ref: './oiapComponents.yml#/components/schemas/linerServiceName' 
+            linerServiceCode: 
+              $ref: './oiapComponents.yml#/components/schemas/linerServiceCode'
+            linerCarriers: 
+              $ref: '#/components/schemas/linerCarriers'        
+            linkedPorts:  
+              $ref: '#/components/schemas/linkedPorts'
+            coveredGeographicalAreas:  
+              $ref: '#/components/schemas/coveredGeographicalAreas' 
+            linerServiceType:  
+              $ref: './oiapComponents.yml#/components/schemas/linerServiceType'
+            linerServiceCapacity:  
+              $ref: './oiapComponents.yml#/components/schemas/linerServiceCapacity'
+            linerSailingFrequency:  
+              $ref: './oiapComponents.yml#/components/schemas/linerSailingFrequency' 
+            linerDurationOfRotation:  
+              $ref: './oiapComponents.yml#/components/schemas/linerDurationOfRotation'
+      required:
+        - linerServiceName
+        - linerCarriers
+        - coveredGeographicalAreas  
+        - linerServiceType
+        - linerSailingFrequency  
+
+    linerCarriers:
+      description: 'Carriers that operate in a liner service.'
+      type: array
+      items:
+        $ref: './oiapComponents.yml#/components/schemas/linerCarrier'
+
+    linerSlots: 
+      description: 'Shipping lines that have slots of a liner service.'
+      type: array
+      items:
+        $ref: './oiapComponents.yml#/components/schemas/linerSlot'
+
+    linkedPorts: 
+      description: 'Ports that are served by a liner service.'
+      type: array
+      items:
+        $ref: './oiapComponents.yml#/components/schemas/linkedPort'
+
+    coveredGeographicalAreas:
+      description: 'Geographical area covered by a liner service.'
+      type: array
+      items:
+        $ref: './oiapComponents.yml#/components/schemas/coastalArea' 
+
+    portInfrastructure:
+      description: 'List of main attibutes from the infrastructure of a port.'
+      type: object
+      allOf:
+        - type: object 
+          properties:
+            portName:  
+              $ref: './oiapComponents.yml#/components/schemas/portName' 
+            portCode: 
+              $ref: './oiapComponents.yml#/components/schemas/portCode'
+            portCoordinates:  
+              $ref: './oiapComponents.yml#/components/schemas/coordinates'
+            totalPortArea:
+              $ref: './oiapComponents.yml#/components/schemas/totalArea'
+            totalBerthLength:
+              $ref: './oiapComponents.yml#/components/schemas/berthLength'
+            totalCoveredWarehouses:
+              $ref: './oiapComponents.yml#/components/schemas/coveredWarehouses'
+      required:
+        - portName 
+
+    portGate: 
+      description: 'Land access gates from a port.'
+      type: object
+      $ref: './oiapComponents.yml#/components/schemas/gate' 
+
+    portTerminal: 
+      description: 'Multifunctional logistics complex providing a full range of services for handling cargo.' 
+      type: object
+      allOf:
+        - type: object
+          properties:
+            terminalName:  
+              description: Terminal name.
+              type: string
+              example: Terminal Port Nou
+            terminalCode:  
+              description: 'IMO Port Facility Number. It consists of a five-character LOCODE corresponding to a port and a 4-digit code separated with a dash. Those codes can be retrieved in www.portcode.com' 
+              type: string
+              maxLength: 10 
+              example: ESBCN-0036              
+            totalArea: 
+              $ref: './oiapComponents.yml#/components/schemas/totalArea'
+            coveredWarehouses: 
+              $ref: './oiapComponents.yml#/components/schemas/coveredWarehouses'
+            terminalGates: 
+              type: array
+              items:
+                $ref: './oiapComponents.yml#/components/schemas/gate'
+            berths: 
+              type: array
+              items:
+                $ref: './oiapComponents.yml#/components/schemas/berth'
+      required:
+        - terminalName 
+
+    railTerminal: 
+      description: >
+          Attributes of a rail terminal facility.
+      type: object
+      allOf:
+        - type: object
+          properties:
+            railTerminalName:  
+              $ref: './oiapComponents.yml#/components/schemas/railTerminalName' 
+            railTerminalCode:  
+              $ref: './oiapComponents.yml#/components/schemas/railTerminalCode' 
+            freightType: 
+              $ref: './oiapComponents.yml#/components/schemas/freightType'
+            coordinates: 
+              $ref: './oiapComponents.yml#/components/schemas/coordinates'
+            railBundles: 
+              $ref: './oiapComponents.yml#/components/schemas/railBundles'
+            trackMaximumLength: 
+              $ref: './oiapComponents.yml#/components/schemas/trackMaximumLength'
+            trackGauges: 
+              type: array
+              items:
+                $ref: './oiapComponents.yml#/components/schemas/trackGauge'        
+            gantryCranes: 
+              $ref: './oiapComponents.yml#/components/schemas/gantryCranes'
+      required:
+        - railTerminalName 
+
+    portMark: 
+      description: 'Buoys, Beacons and Marks, according to the IALA Buoyage System that includes five buoy types: cardinal, lateral, isolated danger, special and safe water marks.' 
+      type: object
+      allOf:
+        - type: object
+          properties:
+            markRegion:  
+              $ref: './oiapComponents.yml#/components/schemas/markRegion'
+            markType:  
+              $ref: './oiapComponents.yml#/components/schemas/markType' 
+            markTop: 
+              $ref: './oiapComponents.yml#/components/schemas/markTop'
+            markColour: 
+              $ref: './oiapComponents.yml#/components/schemas/markColour'
+            shapeOfBuoy: 
+              $ref: './oiapComponents.yml#/components/schemas/shapeOfBuoy'
+            markLight: 
+              $ref: './oiapComponents.yml#/components/schemas/markLight'
+            coordinates:
+              $ref: './oiapComponents.yml#/components/schemas/coordinates'
+      required:
+        - markType
+        - coordinates 
+
+    bathymetry: 
+      description: 'Depth in a singular point of the port waters.' 
+      type: object
+      allOf:
+        - type: object
+          properties:
+            singularPoint:
+              $ref: './oiapComponents.yml#/components/schemas/singularPoint'                  
+            underwaterDepth: 
+              $ref: './oiapComponents.yml#/components/schemas/underwaterDepth'
+      required:
+        - underwaterDepth 
+
+    customsClearanceProcedure: 
+      description: 'URI where a customs clearance procedure from a port can be found.'
+      type: object
+      allOf:
+        - type: object 
+          properties:
+            customsClearanceDescription:  
+              description: 'Procedure description'
+              type: string
+              enum: ['All shipments of goods entering the European Union from third countries are subject to Customs controls. All goods may be subject to the presentation of several documents and payments, as the payment of Customs duties based on the content of the shipment, payment of national taxes (VAT) or local taxes where applicable, payment of special taxes on tobacco, alcohol, etc., the cost of processing of Single Administrative Document (SAD) for imports, the costs arising from border safety controls, depending on the nature of the shipment (sanitary, pharmaceutical, veterinary, etc.). As a part of the customs clearance process, customs can carry out docummentary or physical inspections, and those can be carried out inside the cargo terminals, at the terminal yard or in a warehouse, but they can also inspect containers, platforms or trucks using a non-intrusive technology as an X-ray scanner. It is the recipient''s responsibility to know the conditions for importing their shipment (prohibitions, restrictions, limitations, etc.) and to find out what documents may be required on arrival, including the commercial invoice, certificate of origin, licences and special authorisations for border controls, etc.'] 
+            customsClearanceUri:  
+              $ref: './oiapComponents.yml#/components/schemas/uri' 
+      required:
+        - customsClearanceUri 
+
+    borderInspectionProcedure: 
+      description: 'URI where a border inspection procedure from a port can be found.'
+      type: object
+      allOf:
+        - type: object 
+          properties:
+            borderInspectionDescription:  
+              description: 'Procedure description'
+              type: string
+              enum: ['The border inspection post (BIP) is a controlled and authorised station for customs and sanitary controls of goods. Physical and documentary inspections are carried out at these posts as well as analysis of samples. A Border Control Post is an inspection post designated and approved in line with EU legislation for carrying out checks on animals and animal products arriving from third countries at a European Union border. These checks are carried out to protect animal and public health, and animal welfare. As a part of the border clearance process, border inspection services can carry out docummentary or physical inspections, and those can be carried out inside the cargo terminals but usually the physical inspections are carried out at the Border Inspection Posts (BIP), where coexist several specific inspection areas as a designated point of import (DPI), a designated point of entry (DPE) or a border control post (BCP). It is the recipient''s responsibility to know the conditions for importing their shipment (prohibitions, restrictions, limitations, etc.) and to find out what documents may be required on arrival, including the commercial invoice, certificate of origin, licences and special certifications for border controls, etc.'] 
+            borderInspectionUri:  
+              $ref: './oiapComponents.yml#/components/schemas/uri' 
+      required:
+        - borderInspèctionUri 
+
+    vgmProcedure: 
+      description: 'URI where a VGM procedure from a port can be found.'
+      type: object
+      allOf:
+        - type: object 
+          properties:
+            vgmProcedureDescription:  
+              description: 'Procedure description'
+              type: string
+              enum: ['As the International Maritime Organisation (IMO) declare: *"discrepancies between the declared gross mass and the actual gross mass of a packed container could have an adverse impact on the safety of the ship, seafarers and shore-side workers, by leading to incorrect vessel stowage decisions and potentially collapsed container stacks or loss of containers overboard"*. The IMO established a requirement that packed containers must be weighed to obtain their actual gross mass prior to vessel loading.  This requirement is included in the Guidelines regarding the verified gross mass of a container carrying cargo (MSC.1/Circ.1475) and the adoption of amendment to SOLAS regulation VI/2 requires the mandatory verification of the gross mass of packed containers (resolution MSC.380(94)). The aforementioned SOLAS amendments introduce two main new requirements:  1. the shipper is responsible for providing the verified weight by stating it in the shipping document and submitting it to the master or his representative and to the terminal representative sufficiently in advance to be used in the preparation of the ship stowage plan; and  2. the verified gross mass is a condition for loading a packed container onto a ship. A prerequisite for the container to be loaded onto a ship to which the SOLAS regulations apply is the availability of the verified gross mass of a packed container sufficiently in advance to the terminal representative and to the master or his representative to be used in the ship stowage plan.  However, it does not constitute an entitlement for loading, because the master retains ultimate discretion in deciding whether to accept a packed container for loading onto his ship. The verification of the gross mass can be achieved by either of two methods: 1. weighing the packed container; or 2. weighing all packages and cargo items, including the mass of pallets, dunnage and other securing material to be packed in the container and adding the tare mass of the container to the sum of the single masses, using a certified method approved by the competent authority of the State in which packing of the container was completed.'] 
+            vgmProcedureUri:  
+              $ref: './oiapComponents.yml#/components/schemas/uri' 
+      required:
+        - vgmProcedureUri 
+
+    containerTare: 
+      description: 'URI where a VGM procedure from a port can be found.'
+      type: object
+      allOf:
+        - type: object 
+          properties:
+            containerNumber:  
+              $ref: './oiapComponents.yml#/components/schemas/containerNumber' 
+            equipmentTare:  
+              $ref: './oiapComponents.yml#/components/schemas/equipmentTare' 
+            iso6346:  
+              $ref: './oiapComponents.yml#/components/schemas/iso6346'
+      required:
+        - equipmentTare 
+
+    qualityCertificationProcedure: 
+      description: 'URI where the quality certification procedure from a port can be found.'
+      type: object
+      allOf:
+        - type: object 
+          properties:
+            qualityCertificationDescription:  
+              description: 'Procedure description'
+              type: string
+              enum: ['Several ports have developed own brands for their quality label schemas. There are some ports that every day manage the transportation of thousands of shipments. And the job of each port is to treat each one as it was the only one. To ensure that each shipment receives the treatment it deserves, some ports have created a quality brand that identifies the companies operating at that port that had adopted a commitment to efficiency the end customers with the utmost satisfaction. With this quality level the ports recognise and certify organisations involved and commited to the most rigorous standards of reliability.'] 
+            qualityCertificationUri:  
+              $ref: './oiapComponents.yml#/components/schemas/uri' 
+      required:
+        - vgmProcedureUri 
+
+    qualityCertifiedPartner:
+      description: 'Information about companies and governmental bobies that have been certified with the quality level of a port.'
+      type: object
+      oneOf:
+        - type: object 
+          properties:
+            companyDetails:  
+              $ref: './oiapComponents.yml#/components/schemas/companyDetails' 
+            governmentalBodyDetails: 
+              $ref: './oiapComponents.yml#/components/schemas/governmentalBodyDetails'
+
+    partnerActivity:
+      description: 'Information about companies and governmental bobies that have been certified with the quality level of a port.'
+      type: object
+      $ref: './oiapComponents.yml#/components/schemas/partnerActivity'
+
+    pickupDeliveryProcedure: # Pendent !!!!
+      description: 'Information about companies and governmental bobies that have been certified with the quality level of a port.'
+      type: object
+      $ref: './oiapComponents.yml#/components/schemas/partnerActivity'
+
+    approachInstructions: # Pendent !!!!
+      description: 'Basic information for the approach of the vessels to a port.'
+      type: object
+      allOf:
+        - type: object 
+          properties:
+            portName: 
+              $ref: './oiapComponents.yml#/components/schemas/portName'
+            entrances: #array  
+              $ref: './oiapComponents.yml#/components/schemas/uri' 
+            approachChannels: #array  
+              $ref: './oiapComponents.yml#/components/schemas/uri'
+            precautionaryAreas: #array  
+              $ref: './oiapComponents.yml#/components/schemas/uri'
+            portTraffic: #array  
+              $ref: './oiapComponents.yml#/components/schemas/uri'              
+            emergency: #array  
+              $ref: './oiapComponents.yml#/components/schemas/uri'
+            specialOperations: #array  
+              $ref: './oiapComponents.yml#/components/schemas/uri'
+            pilotage: #array  
+              $ref: './oiapComponents.yml#/components/schemas/uri'
+            tugs: #array  
+              $ref: './oiapComponents.yml#/components/schemas/uri'
+            linesmen: #array  
+              $ref: './oiapComponents.yml#/components/schemas/uri'
+            lastChanges: #array  
+              $ref: './oiapComponents.yml#/components/schemas/uri'
+      required: # nota
+        - portName  
+
+    basicTrafficStatistics: 
+      description: 'Statistical information from the traffic flows from a port.'
+      type: object
+      allOf:
+        - type: object 
+          properties:
+            dataset:
+              $ref: './oiapComponents.yml#/components/schemas/dataset' 
+            year:
+              $ref: './oiapComponents.yml#/components/schemas/year' 
+            quarter:
+              $ref: './oiapComponents.yml#/components/schemas/quarter' 
+            reportingPort:
+              $ref: './oiapComponents.yml#/components/schemas/reportingPort' 
+            flowDirection:  
+              $ref: './oiapComponents.yml#/components/schemas/flowDirection' 
+            portLoadingUnloading:
+              $ref: './oiapComponents.yml#/components/schemas/portLoadingUnloading' 
+            coastalArea:
+              $ref: './oiapComponents.yml#/components/schemas/coastalArea'             
+            typeOfCargo:
+              $ref: './oiapComponents.yml#/components/schemas/typeOfCargo' 
+            commodity:
+              $ref: './oiapComponents.yml#/components/schemas/commodity' 
+            grossWeightOfGoods:
+              $ref: './oiapComponents.yml#/components/schemas/grossWeight'
+            unitsTotal:
+              $ref: './oiapComponents.yml#/components/schemas/units'
+            unitsEmpty:
+              $ref: './oiapComponents.yml#/components/schemas/units'
+            ferryPassengers:
+              $ref: './oiapComponents.yml#/components/schemas/passengers'
+            cruisePassengers:
+              $ref: './oiapComponents.yml#/components/schemas/passengers'
+            vesselType:
+              $ref: './oiapComponents.yml#/components/schemas/shipType'
+            vesselNationality:
+              $ref: './oiapComponents.yml#/components/schemas/vesselNationality'
+            vessels:
+              $ref: './oiapComponents.yml#/components/schemas/units'
+            vesselDwt:
+              $ref: './oiapComponents.yml#/components/schemas/vesselDwt'
+            vesselGt:
+              $ref: './oiapComponents.yml#/components/schemas/vesselGt'           
+      required:
+        - dataset
+        - year
+        - quarter
+        - reportingPort 
+
+    basicEconomicData: 
+      description: 'URI where a border inspection procedure from a port can be found.'
+      type: object
+      allOf:
+        - type: object 
+          properties:
+            year:
+              $ref: './oiapComponents.yml#/components/schemas/year' 
+            reportingPort:
+              $ref: './oiapComponents.yml#/components/schemas/reportingPort' 
+            currency:
+              $ref: './oiapComponents.yml#/components/schemas/currency'            
+            netProffit:
+              $ref: './oiapComponents.yml#/components/schemas/netProffit' 
+            operatingProffit:
+              $ref: './oiapComponents.yml#/components/schemas/operatingProffit' 
+            financialResult:
+              $ref: './oiapComponents.yml#/components/schemas/financialResult'
+            netTurnover:
+              $ref: './oiapComponents.yml#/components/schemas/netTurnover'
+            ebitda:
+              $ref: './oiapComponents.yml#/components/schemas/ebitda'
+            cashFlow:
+              $ref: './oiapComponents.yml#/components/schemas/cashFlow'
+            investments:
+              $ref: './oiapComponents.yml#/components/schemas/investments'
+      required:
+        - year
+        - reportingPort 
+
+    realtimeWeather: 
+      description: 'Realtime weather information.'
+      type: object
+      allOf:
+        - type: object 
+          properties:
+              dataProvider: 
+                description: Specifies the URL to information about the provider of this information
+                type: string
+              name: 
+                description: Name given to the weather observed location.
+                type: string
+              location: 
+                description: Location of the weather observation represented by a GeoJSON geometry. https://tools.ietf.org/html/rfc7946. Mandatory if address is not defined.
+                type: string             
+              address: 
+                description: Civic address of the weather observation. Sometimes it corresponds to a weather station address. https://schema.org/address. Mandatory if location is not present.
+                type: string 
+              dateObserved: 
+                description: The date and time of this observation in ISO8601 UTCformat. It can be represented by an specific time instant or by an ISO8601 interval.
+                type: string
+                format: date-time
+              source: 
+                description: A sequence of characters giving the source of the entity data.
+                type: string
+              refDevice: 
+                description: A reference to the device(s) which captured this observation.
+                type: string
+              refPointOfInterest: 
+                description: A reference to a point of interest (usually a weather station) associated to this observation.
+                type: string
+              weatherTypes: 
+                description: The observed weather types. It is represented by a comma separated list of weather statuses, for instance overcast, lightRain.
+                type: array
+                items:
+                      $ref: './oiapComponents.yml#/components/schemas/weatherType'
+              dewPoint: 
+                 $ref: './oiapComponents.yml#/components/schemas/dewPoint'
+              visibility: 
+                $ref: './oiapComponents.yml#/components/schemas/visibility'
+              temperature: 
+                $ref: './oiapComponents.yml#/components/schemas/temperature'
+              feelsLikeTemperature:  
+                $ref: './oiapComponents.yml#/components/schemas/feelsLikeTemperature'
+              relativeHumidity: 
+                $ref: './oiapComponents.yml#/components/schemas/relativeHumidity'           
+              precipitation: 
+                $ref: './oiapComponents.yml#/components/schemas/precipitation'
+              windDirection: 
+                $ref: './oiapComponents.yml#/components/schemas/windDirection'
+              windSpeed: 
+                $ref: './oiapComponents.yml#/components/schemas/windSpeed'
+              atmosphericPressure: 
+                $ref: './oiapComponents.yml#/components/schemas/atmosphericPressure'
+              pressureTendency: 
+                $ref: './oiapComponents.yml#/components/schemas/pressureTendency'
+              solarRadiation: 
+                $ref: './oiapComponents.yml#/components/schemas/solarRadiation'
+              illuminance: 
+                $ref: './oiapComponents.yml#/components/schemas/illuminance'
+      required:
+        - dateObserved 
+
+    weatherForecast: 
+      description: 'Weather forecast information.'
+      type: object
+      allOf:
+        - type: object 
+          properties:        
+            forecastedDate:  
+              $ref: './oiapComponents.yml#/components/schemas/forecastedDate'
+            atmosphericPressure:    
+              $ref: './oiapComponents.yml#/components/schemas/atmosphericPressure'
+            dayMaximum:    
+              description: 'Maximum values for the reported period. Subattributes:- `temperature` : Maximum temperature. See `WeatherForecast.temperature` for description and units. - `feelLikesTemperature`. Maximum feels like temperature. Same semantics and units as `WeatherForecast.feelsLikeTemperature`.-   `relativeHumidity`. Maximum relative humidity. Same semantics and units as `WeatherForecast.relativeHumidity`.'    
+              type: object  
+              properties:    
+                feelsLikeTemperature:    
+                  $ref: './oiapComponents.yml#/components/schemas/feelsLikeTemperature'   
+                relativeHumidity:    
+                  $ref: './oiapComponents.yml#/components/schemas/relativeHumidity'    
+                temperature:    
+                  $ref: './oiapComponents.yml#/components/schemas/temperature'     
+            dayMinimum:    
+              description: 'Minimum values forecasted for the reported period.  Minimum values for the reported period. Subattributes:- `temperature` : Minimum temperature. See `WeatherForecast.temperature` for description and units. - `feelLikesTemperature`. Minimum feels like temperature. Same semantics and units as `WeatherForecast.feelsLikeTemperature`.- `relativeHumidity`. Minimum relative humidity. Same semantics and units as `WeatherForecast.relativeHumidity`'    
+              type: object   
+              properties:    
+                feelsLikeTemperature:    
+                  $ref: './oiapComponents.yml#/components/schemas/feelsLikeTemperature'    
+                relativeHumidity:    
+                  $ref: './oiapComponents.yml#/components/schemas/relativeHumidity'    
+                temperature:    
+                  $ref: './oiapComponents.yml#/components/schemas/temperature'             
+            gustSpeed:    
+              description: 'A sudden burst of high-speed wind over the observed average wind speed lasting only for a few seconds.'    
+              type: number
+            precipitationProbability:
+              $ref: './oiapComponents.yml#/components/schemas/precipitationProbability'
+            cloudCover:  
+              $ref: './oiapComponents.yml#/components/schemas/cloudCover'
+            dataProvider:    
+              description: 'A sequence of characters identifying the provider of the harmonised data entity.'    
+              type: string      
+      required:
+        - targetData 
+
+    astronomy:  
+      description: 'Astronomical data.'
+      type: object
+      allOf:
+        - type: object 
+          properties:
+            sunrise:  
+              $ref: './oiapComponents.yml#/components/schemas/sunrise'
+            sunset:  
+              $ref: './oiapComponents.yml#/components/schemas/sunset'
+            moonrise:  
+              $ref: './oiapComponents.yml#/components/schemas/moonrise'
+            moonset:  
+              $ref: './oiapComponents.yml#/components/schemas/moonset'
+            moonPhase:  
+              $ref: './oiapComponents.yml#/components/schemas/moonPhase'
+            illumination:  
+              $ref: './oiapComponents.yml#/components/schemas/illumination'   
+
+    seaCondition: 
+      description: 'Sea condition.'
+      type: object
+      allOf:
+        - type: object 
+          properties:
+            lastCheckedResult:  
+              $ref: './oiapComponents.yml#/components/schemas/lastCheckedResult'
+            surfaceTemperature: 
+              $ref: './oiapComponents.yml#/components/schemas/surfaceTemperature'
+            waveHeight: 
+              $ref: './oiapComponents.yml#/components/schemas/waveHeight'
+            waveLevel: 
+              $ref: './oiapComponents.yml#/components/schemas/waveLevel'
+            wavePeriod: 
+              $ref: './oiapComponents.yml#/components/schemas/wavePeriod'
+            source: 
+              $ref: './oiapComponents.yml#/components/schemas/source'
+      required:
+        - lastCheckedResult 
+
+    wavePrediction: 
+      description: Wave prediction.       
+      type: object
+      allOf:
+        - type: object 
+          properties:
+            forecastedDate:  
+              $ref: './oiapComponents.yml#/components/schemas/forecastedDate'
+            waveHeight:
+              $ref: './oiapComponents.yml#/components/schemas/waveHeight'
+            swellHeight:  
+              $ref: './oiapComponents.yml#/components/schemas/swellHeight'
+            swellPeriod:  
+              $ref: './oiapComponents.yml#/components/schemas/swellPeriod'
+            swellDirection:              
+              $ref: './oiapComponents.yml#/components/schemas/swellDirection'
+            windDirection: 
+              $ref: './oiapComponents.yml#/components/schemas/windDirection' 
+            windSpeed: 
+              $ref: './oiapComponents.yml#/components/schemas/windSpeed'
+      required:
+        - forecastedData 
+        - waveHeight
+
+    tides: 
+      description: 'Tidal information.'
+      type: object
+      properties:
+        forecastedDate:  
+          description: Date for which the tides are forecasted
+        highTide:  
+          description: >
+              The maximum height reached by a rising tide.  High tide is measured in meters.
+          type: object
+          properties:
+            height:
+              $ref: './oiapComponents.yml#/components/schemas/height'
+            time: 
+              $ref: './oiapComponents.yml#/components/schemas/time' 
+        lowTide:  
+          description: >
+              The minimum height reached by a falling tide.  Low tide is measured in meters.
+          type: object
+          properties:
+            height:
+              $ref: './oiapComponents.yml#/components/schemas/height'
+            time: 
+              $ref: './oiapComponents.yml#/components/schemas/time' 
+      required:
+        - forecastedDates 
+
+    airQualityIndex: 
+      description: 'Air Quality Index.'
+      type: object
+      allOf:
+        - type: object 
+          properties:
+            lastCheckedResult:  
+              $ref: './oiapComponents.yml#/components/schemas/lastCheckedResult' 
+            airQualityIndex:  
+              description: 'Value of the Air Quality Index (AQI).'
+              type: integer
+              minimum: 0
+              maximum: 100
+              example: 65
+            airQualityLevel:  
+              description: 'Air Quality Level. Example values are those defined by the USA EPA Agency: (good, moderate, unhealthyForSensitiveGroups, unhealthy, veryUnhealthy, hazardous).'
+              type: string
+              enum: [good, moderate, unhealthyForSensitiveGroups, unhealthy, veryUnhealthy, hazardous]
+              example: moderate 
+
+    airQualityPollution: 
+      description: 'Values of several parameters that measure the air quality.'
+      type: object
+      allOf:
+        - type: object 
+          properties:
+            lastCheckedResult:  
+              $ref: './oiapComponents.yml#/components/schemas/lastCheckedResult' 
+            airQualityIndex:  
+              description: 'Value of the Air Quality Index (AQI).'
+              type: integer
+              example: 65
+            CO:  
+              description: 'CO concentration, in milligrams per cubic meter.'
+              type: integer
+              example: 500 
+            NO:  
+              description: 'NO concentration, in milligrams per cubic meter.'
+              type: integer
+              example: 43
+            NO2:  
+              description: 'NO2 concentration, in milligrams per cubic meter.'
+              type: integer
+              example: 70
+            NOx:  
+              description: 'NOx concentration, in milligrams per cubic meter.'
+              type: integer
+              example: 490
+            SO2:  
+              description: 'SO2 concentration, in milligrams per cubic meter.'
+              type: integer
+              example: 12
+      required:
+        - lastCheckedResult
+        - airQualityIndex
+
+    waterQualityIndex: 
+      description: 'Water Quality Index.'
+      type: object
+      allOf:
+        - type: object 
+          properties:
+            lastCheckedResult:  
+              $ref: './oiapComponents.yml#/components/schemas/lastCheckedResult' 
+            waterQualityIndex:  
+              $ref: './oiapComponents.yml#/components/schemas/waterQualityIndex' 
+            waterQualityLevel:  
+              $ref: './oiapComponents.yml#/components/schemas/waterQualityLevel' 
+      required:
+        - lastCheckedResult
+        - waterQualityIndex
+
+    waterQualityParameters: 
+      description: 'Water quality parameters and chemical agents.'
+      type: object
+      allOf:
+        - type: object 
+          properties:
+            lastCheckedResult:  
+              $ref: './oiapComponents.yml#/components/schemas/lastCheckedResult' 
+            waterTemperature:  
+              $ref: './oiapComponents.yml#/components/schemas/waterTemperature'
+            salinity: 
+              $ref: './oiapComponents.yml#/components/schemas/salinity'
+            ph: 
+              $ref: './oiapComponents.yml#/components/schemas/ph'
+            turbidity: 
+              $ref: './oiapComponents.yml#/components/schemas/turbidity'
+            o2: 
+              $ref: './oiapComponents.yml#/components/schemas/o2'
+            tss: 
+              $ref: './oiapComponents.yml#/components/schemas/tss'
+            tds: 
+              $ref: './oiapComponents.yml#/components/schemas/tds'
+            nitrates: 
+              $ref: './oiapComponents.yml#/components/schemas/nitrates'
+            nitrites: 
+              $ref: './oiapComponents.yml#/components/schemas/nitrites'
+            ammonia: 
+              $ref: './oiapComponents.yml#/components/schemas/ammonia'             
+            silicate: 
+              $ref: './oiapComponents.yml#/components/schemas/silicate'
+            phosphate: 
+              $ref: './oiapComponents.yml#/components/schemas/phosphate'
+      required:
+        - lastCheckedResult
+
+    noiseLevel: 
+      description: 'Noise level, expressed in dB.'
+      type: object
+      allOf:
+        - type: object 
+          properties:
+            lastCheckedResult:  
+              $ref: './oiapComponents.yml#/components/schemas/lastCheckedResult'
+            noiseLevel:
+              $ref: './oiapComponents.yml#/components/schemas/noiseLevel'
+      required:
+        - lastCheckedResult
+        - noiseLevel
+
+    railConnection: 
+      description: ''
+      type: object
+      allOf:
+        - type: object
+          properties:
+            railService:  
+              $ref: './oiapComponents.yml#/components/schemas/railService' 
+            railwayStationNearestCity:  
+              $ref: './oiapComponents.yml#/components/schemas/railwayStationNearestCity'
+            railTerminalLocode: 
+              $ref: './oiapComponents.yml#/components/schemas/railTerminalLocode'        
+            railTerminalCode:
+              $ref: './oiapComponents.yml#/components/schemas/railTerminalCode' 
+            railTerminalName:  
+              $ref: './oiapComponents.yml#/components/schemas/railTerminalName' 
+            railDirection:  
+              $ref: './oiapComponents.yml#/components/schemas/railDirection'
+            railLogisticServiceProvider: 
+              type: string
+              example: Name of the Rail Logistic Service Provider
+
+    inlandTerminal: 
+      description: ''
+      type: object
+      allOf:
+        - type: object
+          properties:
+            locode:  # nearest LOCODE
+              $ref: './oiapComponents.yml#/components/schemas/locode' 
+            railTerminalCode:  # Is there any standard codification for rail terminals?
+              $ref: './oiapComponents.yml#/components/schemas/railTerminalCode'  
+            railTerminalName:  
+              $ref: './oiapComponents.yml#/components/schemas/railTerminalName' 
+
+    railwayUndertaking: # Look at schema.org
+      description: ''
+      type: object
+      allOf:
+        - type: object
+          properties:
+            companyName:  
+              $ref: './oiapComponents.yml#/components/schemas/companyName' 
+      required: 
+        - companyName
+
+    railLogisticServiceProvider: # Look at schema.org
+      description: ''
+      type: object
+      allOf:
+        - type: object
+          properties:
+            companyName:  
+              $ref: './oiapComponents.yml#/components/schemas/companyName' 
+      required: 
+        - companyName 
+
+    trainArrivals: 
+      description: list of trains that have arrived or will arrive today
+      type: object
+      allOf:
+        - type: object
+          properties:
+            trainType:
+              $ref: './oiapComponents.yml#/components/schemas/trainType'
+            placeOfDeparture:  # EDIFACT: Code "5" in DE3227; name and code
+              $ref: './oiapComponents.yml#/components/schemas/placeOfDeparture'
+            placeOfDestination:  # EDIFACT: Code "8" in DE3227; name and code
+              $ref: './oiapComponents.yml#/components/schemas/placeOfDestination'
+            estimatedTimeOfArrival:
+              $ref: './oiapComponents.yml#/components/schemas/estimatedTimeOfArrival'
+            actualTimeOfArrival:
+              $ref: './oiapComponents.yml#/components/schemas/actualTimeOfArrival'
+      required: 
+        - trainType
+        - placeOfDeparture
+        - placeOfDestination
+        - estimatedTimeOfArrival  
+
+    trainDepartures: 
+      description: list of trains that have departed or will depart today
+      type: object
+      allOf:
+        - type: object
+          properties:
+            trainType:
+              $ref: './oiapComponents.yml#/components/schemas/trainType'
+            placeOfDeparture:  # EDIFACT: Code "5" in DE3227; name and code
+              $ref: './oiapComponents.yml#/components/schemas/placeOfDeparture'
+            placeOfDestination:  # EDIFACT: Code "8" in DE3227; name and code
+              $ref: './oiapComponents.yml#/components/schemas/placeOfDestination'
+            estimatedTimeOfDeparture:
+              $ref: './oiapComponents.yml#/components/schemas/estimatedTimeOfDeparture'
+            actualTimeOfDeparture:
+              $ref: './oiapComponents.yml#/components/schemas/actualTimeOfDeparture'
+      required: 
+        - trainType
+        - placeOfDeparture
+        - placeOfDestination
+        - estimatedTimeOfDeparture 
+
+    vehicleTraffic: 
+      description: 'Number of vehicles entering or leaving a port or a terminal.'
+      type: object
+      allOf:
+        - type: object 
+          properties:
+            portCode:  
+              $ref: './oiapComponents.yml#/components/schemas/portCode' 
+            vehicleTypes:  
+              $ref: './oiapComponents.yml#/components/schemas/vehicleTypes' 
+            portGate:  
+              $ref: './oiapComponents.yml#/components/schemas/gate' 
+            vehicleTraffic:  
+              $ref: './oiapComponents.yml#/components/schemas/units' 
+      required:
+        - vehicleTraffic 
