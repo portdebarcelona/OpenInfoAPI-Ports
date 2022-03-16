@@ -15,7 +15,6 @@ info:
     name: OpenInfoAPI github
     url: https://github.com/portdebarcelona/OpenInfoAPI-Ports
 
-# DE MOMENT NOMÉS FINS AL 8
 
 tags:
   - name: Port Calls
@@ -70,6 +69,8 @@ paths:
                     type: array
                     items:
                       $ref: '#/components/schemas/shipArrivalForecast'
+                  metadata: 
+                    $ref: './oiapComponents.yml#/components/schemas/metadata'
                   queryParams:
                     type: object
                     properties:
@@ -118,6 +119,8 @@ paths:
                     type: array
                     items:
                       $ref: '#/components/schemas/shipInPort'
+                  metadata: 
+                    $ref: './oiapComponents.yml#/components/schemas/metadata'
                   queryParams:
                     type: object
                     properties:
@@ -160,6 +163,8 @@ paths:
                     type: array
                     items:
                       $ref: '#/components/schemas/shipArrivals'
+                  metadata: 
+                    $ref: './oiapComponents.yml#/components/schemas/metadata'
                   queryParams:
                     type: object
                     properties:
@@ -202,6 +207,8 @@ paths:
                     type: array
                     items:
                       $ref: '#/components/schemas/shipDepartures'
+                  metadata: 
+                    $ref: './oiapComponents.yml#/components/schemas/metadata'
                   queryParams:
                     type: object
                     properties:
@@ -244,6 +251,8 @@ paths:
                     type: array
                     items:
                       $ref: '#/components/schemas/aproximationManouvres'
+                  metadata: 
+                    $ref: './oiapComponents.yml#/components/schemas/metadata'
                   queryParams:
                     type: object
                     properties:
@@ -286,6 +295,8 @@ paths:
                     type: array
                     items:
                       $ref: '#/components/schemas/ferriesArrivals'
+                  metadata: 
+                    $ref: './oiapComponents.yml#/components/schemas/metadata'
                   queryParams:
                     type: object
                     properties:
@@ -328,6 +339,8 @@ paths:
                     type: array
                     items:
                       $ref: '#/components/schemas/ferriesDepartures'
+                  metadata: 
+                    $ref: './oiapComponents.yml#/components/schemas/metadata'
                   queryParams:
                     type: object
                     properties:
@@ -371,6 +384,8 @@ paths:
                     type: array  
                     items:
                       $ref: '#/components/schemas/cruiseCall'
+                  metadata: 
+                    $ref: './oiapComponents.yml#/components/schemas/metadata'
                   queryParams:
                     type: object
                     properties:
@@ -391,6 +406,7 @@ paths:
               schema:
                 $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents.yml#/components/schemas/error'               
 
+  # Liner services
   /linerServices:
     get:
       tags:
@@ -416,6 +432,8 @@ paths:
                     type: array
                     items:
                       $ref: '#/components/schemas/linerService'
+                  metadata: 
+                    $ref: './oiapComponents.yml#/components/schemas/metadata'
                   queryParams:
                     type: object
                     properties:
@@ -438,6 +456,7 @@ paths:
               schema:
                 $ref: './oiapComponents.yml#/components/schemas/error'  
 
+  # Linked ports
   /linkedPorts:
     get:
       tags:
@@ -464,6 +483,8 @@ paths:
                     type: array
                     items:
                       $ref: './oiapComponents.yml#/components/schemas/linkedPort'
+                  metadata: 
+                    $ref: './oiapComponents.yml#/components/schemas/metadata'
                   queryParams:
                     type: object
                     properties:
@@ -486,6 +507,7 @@ paths:
               schema:
                 $ref: './oiapComponents.yml#/components/schemas/error' 
 
+  # Liner carriers
   /linerCarriers: 
     get:
       tags:
@@ -512,6 +534,8 @@ paths:
                     type: array
                     items:
                       $ref: './oiapComponents.yml#/components/schemas/linerCarrier'
+                  metadata: 
+                    $ref: './oiapComponents.yml#/components/schemas/metadata'
                   queryParams:
                     type: object
                     properties:
@@ -536,6 +560,7 @@ paths:
               schema:
                 $ref: './oiapComponents.yml#/components/schemas/error'
 
+  # Port Infrastructure
   /portInfrastructure:
     get:
       tags:
@@ -559,6 +584,8 @@ paths:
                     type: array
                     items:
                       $ref: '#/components/schemas/portInfrastructure'
+                  metadata: 
+                    $ref: './oiapComponents.yml#/components/schemas/metadata'
                   queryParams:
                     type: object
                     properties:
@@ -576,6 +603,8 @@ paths:
             application/json:
               schema:
                 $ref: './oiapComponents.yml#/components/schemas/error'  
+
+  # Port gates
   /portGates:
     get:
       tags:
@@ -600,6 +629,8 @@ paths:
                     type: array
                     items:
                       $ref: '#/components/schemas/portGate'
+                  metadata: 
+                    $ref: './oiapComponents.yml#/components/schemas/metadata'
                   queryParams:
                     type: object
                     properties:
@@ -617,6 +648,8 @@ paths:
             application/json:
               schema:
                 $ref: './oiapComponents.yml#/components/schemas/error' 
+
+  # Berths
   /berths: 
     get:
       tags:
@@ -640,6 +673,8 @@ paths:
                     type: array
                     items:
                       $ref: './oiapComponents.yml#/components/schemas/berth'
+                  metadata: 
+                    $ref: './oiapComponents.yml#/components/schemas/metadata'
                   queryParams:
                     type: object
                     properties:
@@ -657,6 +692,8 @@ paths:
             application/json:
               schema:
                 $ref: './oiapComponents.yml#/components/schemas/error'
+
+  # Port terminals
   /portTerminals: 
     get:
       tags:
@@ -680,6 +717,8 @@ paths:
                     type: array
                     items:
                       $ref: '#/components/schemas/portTerminal'
+                  metadata: 
+                    $ref: './oiapComponents.yml#/components/schemas/metadata'
                   queryParams:
                     type: object
                     properties:
@@ -697,6 +736,8 @@ paths:
             application/json:
               schema:
                 $ref: './oiapComponents.yml#/components/schemas/error' 
+
+  # Rail terminals
   /railTerminals: 
     get:
       tags:
@@ -722,6 +763,8 @@ paths:
                     type: array
                     items:
                       $ref: '#/components/schemas/railTerminal' 
+                  metadata: 
+                    $ref: './oiapComponents.yml#/components/schemas/metadata'
                   queryParams:
                     type: object
                     properties:
@@ -739,6 +782,8 @@ paths:
             application/json:
               schema:
                 $ref: './oiapComponents.yml#/components/schemas/error'               
+
+  # Marine aids
   /marineAids: 
     get:
       tags:
@@ -762,6 +807,8 @@ paths:
                     type: array
                     items:
                       $ref: '#/components/schemas/portMark' 
+                  metadata: 
+                    $ref: './oiapComponents.yml#/components/schemas/metadata'
                   queryParams:
                     type: object
                     properties:
@@ -779,6 +826,8 @@ paths:
             application/json:
               schema:
                 $ref: './oiapComponents.yml#/components/schemas/error'     
+
+  # Bathymetry
   /bathymetry: 
     get:
       tags:
@@ -802,6 +851,8 @@ paths:
                     type: array
                     items:
                       $ref: '#/components/schemas/bathymetry' 
+                  metadata: 
+                    $ref: './oiapComponents.yml#/components/schemas/metadata'
                   queryParams:
                     type: object
                     properties:
@@ -820,6 +871,7 @@ paths:
               schema:
                 $ref: './oiapComponents.yml#/components/schemas/error' 
 
+  # Customs clearance procedure
   /customsClearanceProcedure:
     get:
       tags:
@@ -843,6 +895,8 @@ paths:
                     type: array
                     items:
                       $ref: '#/components/schemas/customsClearanceProcedure'
+                  metadata: 
+                    $ref: './oiapComponents.yml#/components/schemas/metadata'
                   queryParams:
                     type: object
                     properties:
@@ -861,6 +915,7 @@ paths:
               schema:
                 $ref: './oiapComponents.yml#/components/schemas/error'  
 
+  # Border inspection procedure
   /borderInspectionProcedures:
     get:
       tags:
@@ -884,6 +939,8 @@ paths:
                     type: array
                     items:
                       $ref: '#/components/schemas/borderInspectionProcedure'
+                  metadata: 
+                    $ref: './oiapComponents.yml#/components/schemas/metadata'
                   queryParams:
                     type: object
                     properties:
@@ -902,6 +959,7 @@ paths:
               schema:
                 $ref: './oiapComponents.yml#/components/schemas/error' 
 
+  # Verified Gross Mass procedure
   /vgmProcedures:
     get:
       tags:
@@ -925,6 +983,8 @@ paths:
                     type: array
                     items:
                       $ref: '#/components/schemas/vgmProcedure'
+                  metadata: 
+                    $ref: './oiapComponents.yml#/components/schemas/metadata'
                   queryParams:
                     type: object
                     properties:
@@ -943,6 +1003,7 @@ paths:
               schema:
                 $ref: './oiapComponents.yml#/components/schemas/error' 
 
+  # Container tare weight
   /containerTareWeight:
     get:
       tags:
@@ -966,6 +1027,8 @@ paths:
                     type: array
                     items:
                       $ref: '#/components/schemas/containerTare'
+                  metadata: 
+                    $ref: './oiapComponents.yml#/components/schemas/metadata'
                   queryParams:
                     type: object
                     properties:
@@ -984,6 +1047,7 @@ paths:
               schema:
                 $ref: './oiapComponents.yml#/components/schemas/error' 
   
+  # Quality certification procedures
   /qualityCertificationProcedures:
     get:
       tags:
@@ -1007,6 +1071,8 @@ paths:
                     type: array
                     items:
                       $ref: '#/components/schemas/qualityCertificationProcedure'
+                  metadata: 
+                    $ref: './oiapComponents.yml#/components/schemas/metadata'
                   queryParams:
                     type: object
                     properties:
@@ -1025,6 +1091,7 @@ paths:
               schema:
                 $ref: './oiapComponents.yml#/components/schemas/error' 
 
+  # Quality certificated partners
   /qualityCertifiedPartners:
     get:
       tags:
@@ -1048,6 +1115,8 @@ paths:
                     type: array
                     items:
                       $ref: '#/components/schemas/qualityCertifiedPartner'
+                  metadata: 
+                    $ref: './oiapComponents.yml#/components/schemas/metadata'
                   queryParams:
                     type: object
                     properties:
@@ -1066,6 +1135,7 @@ paths:
               schema:
                 $ref: './oiapComponents.yml#/components/schemas/error'
 
+  # Partner activities
   /partnerActivities:
     get:
       tags:
@@ -1089,6 +1159,8 @@ paths:
                     type: array
                     items:
                       $ref: '#/components/schemas/partnerActivity'
+                  metadata: 
+                    $ref: './oiapComponents.yml#/components/schemas/metadata'
                   queryParams:
                     type: object
                     properties:
@@ -1107,6 +1179,7 @@ paths:
               schema:
                 $ref: './oiapComponents.yml#/components/schemas/error'
 
+  # Pick up and delivery procedures
   /pickupDeliveryProcedures:
     get:
       tags:
@@ -1130,6 +1203,8 @@ paths:
                     type: array
                     items:
                       $ref: '#/components/schemas/pickupDeliveryProcedure'
+                  metadata: 
+                    $ref: './oiapComponents.yml#/components/schemas/metadata'
                   queryParams:
                     type: object
                     properties:
@@ -1148,6 +1223,7 @@ paths:
               schema:
                 $ref: './oiapComponents.yml#/components/schemas/error' 
 
+  # Approach instructions
   /approachInstructions:
     get:
       tags:
@@ -1171,6 +1247,8 @@ paths:
                     type: array
                     items:
                       $ref: '#/components/schemas/approachInstructions'
+                  metadata: 
+                    $ref: './oiapComponents.yml#/components/schemas/metadata'
                   queryParams:
                     type: object
                     properties:
@@ -1189,6 +1267,7 @@ paths:
               schema:
                 $ref: './oiapComponents.yml#/components/schemas/error' 
 
+  # Basic traffic statistics (according to the Directive 2009/42/EC)
   /basicTrafficStatistics:
     get:
       tags:
@@ -1235,6 +1314,7 @@ paths:
               schema:
                 $ref: './oiapComponents.yml#/components/schemas/error'  
 
+  # Basic economics statistics
   /basicEconomicStatistics:
     get:
       tags:
@@ -1278,6 +1358,7 @@ paths:
               schema:
                 $ref: './oiapComponents.yml#/components/schemas/error' 
 
+  # List of types of cargo
   /typesOfCargoList:
     get:
       tags:
@@ -1321,6 +1402,7 @@ paths:
               schema:
                 $ref: './oiapComponents.yml#/components/schemas/error' 
 
+  # List of types of commodities
   /commoditiesList:
     get:
       tags:
@@ -1364,6 +1446,7 @@ paths:
               schema:
                 $ref: './oiapComponents.yml#/components/schemas/error'
 
+  # Realtime weather
   /realtimeWeather:
     get:
       tags:
@@ -1405,6 +1488,7 @@ paths:
               schema:
                 $ref: './oiapComponents.yml#/components/schemas/error'  
 
+  # Weather forecast
   /weatherForecast:
     get:
       tags:
@@ -1857,6 +1941,8 @@ paths:
                     type: array
                     items:
                       $ref: '#/components/schemas/railConnection'
+                  metadata: 
+                    $ref: './oiapComponents.yml#/components/schemas/metadata'                 
                   queryParams:
                     type: object
                     properties:
@@ -1899,6 +1985,8 @@ paths:
                     type: array
                     items:
                       $ref: '#/components/schemas/inlandTerminal'
+                  metadata: 
+                    $ref: './oiapComponents.yml#/components/schemas/metadata'
                   queryParams:
                     type: object
                     properties:
@@ -1940,6 +2028,8 @@ paths:
                     type: array
                     items:
                       $ref: '#/components/schemas/railwayUndertaking'
+                  metadata: 
+                    $ref: './oiapComponents.yml#/components/schemas/metadata'
                   queryParams:
                     type: object
                     properties:
@@ -1981,6 +2071,8 @@ paths:
                     type: array
                     items:
                       $ref: '#/components/schemas/railLogisticServiceProvider'
+                  metadata: 
+                    $ref: './oiapComponents.yml#/components/schemas/metadata'
                   queryParams:
                     type: object
                     properties:
@@ -2023,6 +2115,8 @@ paths:
                     type: array
                     items:
                       $ref: '#/components/schemas/trainArrivals'
+                  metadata: 
+                    $ref: './oiapComponents.yml#/components/schemas/metadata'
                   queryParams:
                     type: object
                     properties:
@@ -2065,6 +2159,8 @@ paths:
                     type: array
                     items:
                       $ref: '#/components/schemas/trainDepartures'
+                  metadata: 
+                    $ref: './oiapComponents.yml#/components/schemas/metadata'
                   queryParams:
                     type: object
                     properties:
