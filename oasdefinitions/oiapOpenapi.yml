@@ -26,7 +26,7 @@ tags:
   - name: Port Procedures
     description: "APIs related to the docummentary procedures of a port."
   - name: Statistics
-    description: "APIs related to the docummentary procedures of a port."
+    description: "APIs related to statistics from a port."
   - name: Environment-Weather
     description: "APIs related to the weather in a port."
   - name: Environment-Sea State
@@ -37,6 +37,8 @@ tags:
     description: "APIs related to the flow of trains and cargo by rail in a port."
   - name: Vehicle Traffic
     description: "APIs related to the docummentary procedures of a port."
+  - name: Terminal Performance
+    description: "APIs related to the terminal performance of a port."
 
 servers:
   - url: https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/
@@ -2231,6 +2233,148 @@ paths:
               schema:
                 $ref: './oiapComponents.yml#/components/schemas/error'  
 
+  /accessWaitTime:
+    get:
+      tags:
+        - Terminal Performance
+      summary: Estimated waiting time that trucks have to queue before they can enter into a terminal.
+      description: Returns a list with the estimated waiting time that trucks have to queue before they can enter into a terminal.
+      parameters:
+        - $ref: '#/components/parameters/portCode'
+        - $ref: '#/components/parameters/terminal'
+      responses: #status code
+        '200':
+          description: Successful operation
+          headers:
+            oiapApiVersion:
+              $ref: './oiapComponents.yml#/components/headers/oiapApiVersion'
+          content: 
+            application/json:
+              schema:
+                type: object
+                properties:
+                  accessTime:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/accessTime'
+                  metadata: 
+                    $ref: './oiapComponents.yml#/components/schemas/metadata'
+                  queryParams:
+                    type: object
+                    properties:
+                      portCode:
+                        $ref: './oiapComponents.yml#/components/schemas/portCode'
+                      terminalCode:
+                        $ref: './oiapComponents.yml#/components/schemas/terminalCode'
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: './oiapComponents.yml#/components/schemas/error' 
+        '404':
+          description: Not found
+          content:
+            application/json:
+              schema:
+                $ref: './oiapComponents.yml#/components/schemas/error'  
+
+  /landsideThroughput:
+    get:
+      tags:
+        - Terminal Performance
+      summary: Number of units (containers, freight cars,...) that enter or leave a terminal per hour during the present day.
+      description: Returns a list with the number of units (containers, freight cars,...) that enter or leave a terminal per hour during the present day.
+      parameters:
+        - $ref: '#/components/parameters/portCode'
+        - $ref: '#/components/parameters/terminal'
+      responses: #status code
+        '200':
+          description: Successful operation
+          headers:
+            oiapApiVersion:
+              $ref: './oiapComponents.yml#/components/headers/oiapApiVersion'
+          content: 
+            application/json:
+              schema:
+                type: object
+                properties:
+                  accessTime:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/throughput'
+                  metadata: 
+                    $ref: './oiapComponents.yml#/components/schemas/metadata'
+                  queryParams:
+                    type: object
+                    properties:
+                      portCode:
+                        $ref: './oiapComponents.yml#/components/schemas/portCode'
+                      terminalCode:
+                        $ref: './oiapComponents.yml#/components/schemas/terminalCode'
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: './oiapComponents.yml#/components/schemas/error' 
+        '404':
+          description: Not found
+          content:
+            application/json:
+              schema:
+                $ref: './oiapComponents.yml#/components/schemas/error' 
+
+  /seasideThroughput:
+    get:
+      tags:
+        - Terminal Performance
+      summary: Returns the number of containers loaded or unloaded from vessels on a terminal per hour and during the present day.
+      description: eturns the number of containers loaded or unloaded from vessels on a terminal per hour and during the present day.
+      parameters:
+        - $ref: '#/components/parameters/portCode'
+        - $ref: '#/components/parameters/terminal'
+      responses: #status code
+        '200':
+          description: Successful operation
+          headers:
+            oiapApiVersion:
+              $ref: './oiapComponents.yml#/components/headers/oiapApiVersion'
+          content: 
+            application/json:
+              schema:
+                type: object
+                properties:
+                  accessTime:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/throughput'
+                  metadata: 
+                    $ref: './oiapComponents.yml#/components/schemas/metadata'
+                  queryParams:
+                    type: object
+                    properties:
+                      portCode:
+                        $ref: './oiapComponents.yml#/components/schemas/portCode'
+                      terminalCode:
+                        $ref: './oiapComponents.yml#/components/schemas/terminalCode'
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: './oiapComponents.yml#/components/schemas/error' 
+        '404':
+          description: Not found
+          content:
+            application/json:
+              schema:
+                $ref: './oiapComponents.yml#/components/schemas/error' 
+
+
+
+
+
 
 
 components:
@@ -2390,6 +2534,15 @@ components:
       schema:
         $ref: './oiapComponents.yml#/components/schemas/flowDirection'
 
+    terminal:
+      in: query
+      name: terminal
+      description: Code that identifies a terminal.       
+      required: false
+      style: form
+      explode: false
+      schema:
+        $ref: './oiapComponents.yml#/components/schemas/terminalCode'
 
 
   schemas:
@@ -2662,7 +2815,7 @@ components:
       required:
         - portName 
 
-    portGate: 
+    portGate:  # Siblings!!
       description: 'Land access gates from a port.'
       type: object
       $ref: './oiapComponents.yml#/components/schemas/gate' 
@@ -2673,11 +2826,11 @@ components:
       allOf:
         - type: object
           properties:
-            terminalName:  
+            terminalName:  # To include in oiapComponents
               description: Terminal name.
               type: string
               example: Terminal Port Nou
-            terminalCode:  
+            terminalCode:  # To include in oiapComponents
               description: 'IMO Port Facility Number. It consists of a five-character LOCODE corresponding to a port and a 4-digit code separated with a dash. Those codes can be retrieved in www.portcode.com' 
               type: string
               maxLength: 10 
@@ -2975,13 +3128,13 @@ components:
       allOf:
         - type: object 
           properties:
-              dataProvider: 
+              dataProvider: # To include in oiapComponents
                 description: Specifies the URL to information about the provider of this information
                 type: string
-              name: 
+              name: # To include in oiapComponents
                 description: Name given to the weather observed location.
                 type: string
-              location: 
+              location: # To include in oiapComponents
                 description: Location of the weather observation represented by a GeoJSON geometry. https://tools.ietf.org/html/rfc7946. Mandatory if address is not defined.
                 type: string             
               address: 
@@ -3062,7 +3215,7 @@ components:
                   $ref: './oiapComponents.yml#/components/schemas/relativeHumidity'    
                 temperature:    
                   $ref: './oiapComponents.yml#/components/schemas/temperature'             
-            gustSpeed:    
+            gustSpeed:   # To include in oiapComponents 
               description: 'A sudden burst of high-speed wind over the observed average wind speed lasting only for a few seconds.'    
               type: number
             precipitationProbability:
@@ -3174,13 +3327,13 @@ components:
           properties:
             lastCheckedResult:  
               $ref: './oiapComponents.yml#/components/schemas/lastCheckedResult' 
-            airQualityIndex:  
+            airQualityIndex:  # To include in oiapComponents
               description: 'Value of the Air Quality Index (AQI).'
               type: integer
               minimum: 0
               maximum: 100
               example: 65
-            airQualityLevel:  
+            airQualityLevel:  # To include in oiapComponents
               description: 'Air Quality Level. Example values are those defined by the USA EPA Agency: (good, moderate, unhealthyForSensitiveGroups, unhealthy, veryUnhealthy, hazardous).'
               type: string
               enum: [good, moderate, unhealthyForSensitiveGroups, unhealthy, veryUnhealthy, hazardous]
@@ -3194,7 +3347,7 @@ components:
           properties:
             lastCheckedResult:  
               $ref: './oiapComponents.yml#/components/schemas/lastCheckedResult' 
-            airQualityIndex:  
+            airQualityIndex:  # To include in oiapComponents
               description: 'Value of the Air Quality Index (AQI).'
               type: integer
               example: 65
@@ -3404,3 +3557,34 @@ components:
               $ref: './oiapComponents.yml#/components/schemas/units' 
       required:
         - vehicleTraffic 
+
+    accessTime: 
+      description: 'Estimated period of time, in minites, that trucks have to queue before they can enter into a terminal.'
+      type: object
+      allOf:
+        - type: object 
+          properties:
+            terminalCode:  
+              $ref: './oiapComponents.yml#/components/schemas/terminalCode' 
+            waitTime:
+              $ref: './oiapComponents.yml#/components/schemas/waitTime'
+      required:
+        - terminalCode 
+
+    throughput: 
+      description: 'Flow of goods or equipment units, expressed as movements per hour.'
+      type: object
+      allOf:
+        - type: object 
+          properties:
+            terminalCode:  
+              $ref: './oiapComponents.yml#/components/schemas/terminalCode' 
+            flowDirection:  
+              $ref: './oiapComponents.yml#/components/schemas/flowDirection' 
+            hourReported:
+              $ref: './oiapComponents.yml#/components/schemas/hour'             
+            throughput:
+              $ref: './oiapComponents.yml#/components/schemas/throughput'
+      required:
+        - terminalCode 
+
