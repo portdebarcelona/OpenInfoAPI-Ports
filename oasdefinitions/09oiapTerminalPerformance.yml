@@ -215,7 +215,7 @@ components:
             terminalCode:  
               $ref: './oiapComponents.yml#/components/schemas/terminalCode' 
             flowDirection:  
-              $ref: './oiapComponents.yml#/components/schemas/flowDirection' 
+              $ref: './oiapComponents.yml#/components/schemas/flowDirection'
             hourReported:
               $ref: './oiapComponents.yml#/components/schemas/hour'             
             throughput:

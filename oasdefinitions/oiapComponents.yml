@@ -686,6 +686,11 @@ components:
       minLength: 10
       example: ESBCN-0042     
 
+    terminalName:
+      description: Terminal name.
+      type: string
+      example: Terminal Port Nou
+
     gate: 
       description: 'Attributes of an access gate.'
       properties:
@@ -766,14 +771,14 @@ components:
     flowDirection:  
       description: 'Flow direction (inwards, outwards) is determined by reference to the reporting port/terminal: "inwards" means "arriving at the port/terminal", "outwards" means "leaving the port/terminal". It is also possible to choose "both" directions, inwards and outwards'
       type: string
-      enum: [inwards, outwards, both] 
-      example: outwards
+      enum: [outwards, inwards, both] 
+      example: inwards
 
     throughput:
       description: 'Throughput.'
       type: integer
       minimum: 0
-      example: 76
+
 
     waitTime:
       description: 'Wait time, expressed in minutes.'
@@ -1425,6 +1430,19 @@ components:
       minimum: 0
       maximum: 360
 
+    airQualityIndex:  
+      description: 'Value of the Air Quality Index (AQI).'
+      type: integer
+      minimum: 0
+      maximum: 100
+      example: 65
+
+    airQualityLevel:  
+      description: 'Air Quality Level. Example values are those defined by the USA EPA Agency: (good, moderate, unhealthyForSensitiveGroups, unhealthy, veryUnhealthy, hazardous).'
+      type: string
+      enum: [good, moderate, unhealthyForSensitiveGroups, unhealthy, veryUnhealthy, hazardous]
+      example: moderate 
+
     waterQualityIndex:  
       description: 'Value of the Water Quality Index (WQI).'
       type: integer
@@ -1497,6 +1515,33 @@ components:
       description: Concentration of phosphate, expressed in milligrams per liter (mg/L).
       type: number              
       example: 0.996
+
+    co:  
+      description: 'CO concentration, in milligrams per cubic meter.'
+      type: integer
+      example: 500 
+
+    no:  
+      description: 'NO concentration, in milligrams per cubic meter.'
+      type: integer
+      example: 43
+
+    no2:  
+      description: 'NO2 concentration, in milligrams per cubic meter.'
+      type: integer
+      example: 70
+
+    nox:  
+      description: 'NOx concentration, in milligrams per cubic meter.'
+      type: integer
+      example: 490
+
+    so2:  
+      description: 'SO2 concentration, in milligrams per cubic meter.'
+      type: integer
+      example: 12
+
+
 
     noiseLevel:
       description: Noise level, expressed in dB.
