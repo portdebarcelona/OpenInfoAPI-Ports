@@ -516,6 +516,10 @@ components:
       required:
         - description
 
+    railLogisticServiceProvider: 
+      type: string
+      example: Name of the Rail Logistic Service Provider
+
     locode:
       description: UN/LOCODE of a location as specified in the UN/ECE Recommendation nº16
       type: string
@@ -646,8 +650,7 @@ components:
 
     channel:
       type: object
-      description: 
-        Identification of a port channel.  
+      description: Identification of a port channel.  
       properties:
         code:
           description: Channel code. Code assigned to a port channel.  
@@ -661,6 +664,58 @@ components:
           $ref: '#/components/schemas/coordinates'
       required:
         - code
+  
+
+  # Singular places should share the same schema
+
+    entrance:
+      description: Identification of a port entrance.  
+      type: string
+
+    approachChannel:   
+      description: Identification of an approach channel.  
+      type: string
+
+    precautionaryArea:
+      description: Identification of a precautionary area.  
+      type: string
+
+    portTraffic:
+      description: Identification of a port traffic service.  
+      type: string             
+
+    emergency: 
+      description: Identification of an emergency contact.  
+      type: string
+
+    specialOperations:  
+      description: Identification of a special operations service.  
+      type: string
+
+    pilotage:  
+      description: Information about pilotage service.  
+      type: string
+
+    tugs:
+      description: Information about tugs service.    
+      type: string
+
+    linesmen:
+      description: Information about linesmen service.   
+      type: string
+
+    lastChanges:
+      description: Details about the last changes.  
+      type: string
+
+
+
+
+
+
+
+
+
 
     facility:
       type: object
@@ -1541,11 +1596,26 @@ components:
       type: integer
       example: 12
 
-
-
     noiseLevel:
       description: Noise level, expressed in dB.
       type: integer
       minimum: 0
       maximum: 140
       example: 65
+
+    location:
+      description: Location of the weather observation represented by a GeoJSON geometry. https://tools.ietf.org/html/rfc7946. Mandatory if address is not defined.
+      type: string             
+
+    dateObserved:
+      description: The date and time of this observation in ISO8601 UTCformat. It can be represented by an specific time instant or by an ISO8601 interval.
+      type: string
+      format: date-time
+
+    refDevice: 
+      description: A reference to the device(s) which captured this observation.
+      type: string
+
+    refPointOfInterest: 
+      description: A reference to a point of interest (usually a weather station) associated to this observation.
+      type: string
