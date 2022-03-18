@@ -17,7 +17,7 @@ info:
     url: https://github.com/portdebarcelona/OpenInfoAPI-Ports
 tags:
   - name: Port Directory
-    description: "APIs related to the docummentary procedures of a port."
+    description: "APIs related to the a port directory."
     externalDocs:
       description: Description 
       url: http://swagger.io/  

@@ -17,7 +17,7 @@ info:
     url: https://github.com/portdebarcelona/OpenInfoAPI-Ports
 tags:
   - name: Port Calendar
-    description: "APIs related to the docummentary procedures of a port."
+    description: "APIs related to the calendar in a port."
     externalDocs:
       description: Description 
       url: http://swagger.io/ 

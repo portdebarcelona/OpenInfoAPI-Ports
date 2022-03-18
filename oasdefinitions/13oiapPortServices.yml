@@ -18,7 +18,7 @@ info:
     url: https://github.com/portdebarcelona/OpenInfoAPI-Ports
 tags:
   - name: Port Services
-    description: "APIs related to the docummentary procedures of a port."
+    description: "APIs related to the port services from a port."
     externalDocs:
       description: Description 
       url: http://swagger.io/ 
@@ -51,7 +51,7 @@ paths:
                   portServices:
                     type: array
                     items:
-                      $ref: '#/components/schemas/PortService'
+                      $ref: '#/components/schemas/portService'
                   metadata:
                         $ref: './oiapComponents.yml#/components/schemas/metadata'                  
                   queryParams:
@@ -166,7 +166,7 @@ components:
         $ref: './oiapComponents.yml#/components/schemas/take'
 
   schemas:
-    PortService: 
+    portService: 
       description: 'Information about a port service that can be ordered for a ship.'
       type: object
       allOf:
