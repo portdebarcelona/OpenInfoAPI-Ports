@@ -688,11 +688,11 @@ components:
       description: Identification of an emergency contact.  
       type: string
 
-    specialOperations:  
+    specialOperation:  
       description: Identification of a special operations service.  
       type: string
 
-    pilotage:  
+    pilots:  
       description: Information about pilotage service.  
       type: string
 
