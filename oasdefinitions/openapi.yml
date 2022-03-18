@@ -2650,12 +2650,7 @@ paths:
       summary: Returns particular news identified by its unique id.
       description: Returns particular news identified by its unique id.
       parameters:  
-        - name: id
-          in: path
-          description: News ID
-          required: true
-          schema:
-            type: string
+        - $ref: '#/components/parameters/id'
         - $ref: '#/components/parameters/portCode' 
       responses:
         '200':
@@ -2696,7 +2691,7 @@ paths:
         - Notices
       summary: Subscription request to a notices service
       description: 'Request a subscription to a notices service from a port'
-      operationId: subscriptionRequest
+      operationId: noticesSubscriptionRequest       
       requestBody:
         content:
           application/json:
@@ -2721,7 +2716,7 @@ paths:
         - Notices
       summary: Last step to subscribe to a notices service
       description: 'Post the validation code received to fulfill the subscription request to a notices service from a port'
-      operationId: subscriptionValidation
+      operationId: noticesSubscriptionValidation  
       requestBody:
         content:
           application/json:
@@ -2748,7 +2743,7 @@ paths:
         - Notices
       summary: Request to cancel the subscription to a notices service
       description: 'Request to cancel a subscription of a notices service from a port'
-      operationId: unsubscriptionRequest
+      operationId: noticesUnsubscriptionRequest   
       requestBody:
         content:
           application/json:
@@ -2776,7 +2771,7 @@ paths:
         - Notices
       summary: Last step to cancel the subscription to a notices service
       description: 'Post the validation code received to cancel the subscription to a notices service from a port'
-      operationId: unsubscriptionValidation
+      operationId: noticesUnsubscriptionValidation    
       requestBody:
         content:
           application/json:
@@ -2940,12 +2935,7 @@ paths:
       summary: Returns a particular notice identified by its unique id.
       description: Returns a notice identified by its unique id.
       parameters:  
-        - name: id
-          in: path
-          description: ID of a notice
-          required: true
-          schema:
-            type: string
+        - $ref: '#/components/parameters/id'
         - $ref: '#/components/parameters/portCode' 
       responses:
         '200':
@@ -3173,14 +3163,15 @@ paths:
                 $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents.yml#/components/schemas/error' 
 
   # Specific selection of a company.
-  /companies/{companyName}:
+  /companies/{companyName}:     
     get:
       description: Get a company by its name or part of it without diacritics. At least three characters have to be included. 
       tags:
         - Port Directory
       parameters:
         - $ref: '#/components/parameters/portCode'
-        - $ref: '#/components/parameters/searchTerm' 
+        - companyName:
+          $ref: '#/components/parameters/searchTerm' 
       responses:
         '200':
           description: Successful operation
@@ -3217,14 +3208,15 @@ paths:
                 $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents.yml#/components/schemas/error'  
 
   # Selection of a company from its VAT number.
-  /companies/{companyVat}:
+  /companies/{companyVat}:   
     get:
       description: Get a company by its VAT number.
       tags:
         - Port Directory
       parameters:
         - $ref: '#/components/parameters/portCode'
-        - $ref: '#/components/parameters/companyVat'
+        - companyVat:
+          $ref: '#/components/parameters/companyVat'
       responses:
         '200':
           description: Successful operation
