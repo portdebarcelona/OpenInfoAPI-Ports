@@ -182,17 +182,13 @@ components:
         dateCreated:    
           description: 'Entity creation timestamp. This will usually be allocated by the storage platform.'    
           type: string 
-          format: date-time    
-        dateIssued:    
-          description: 'The date and time the forecast was issued by the meteorological bureau in ISO8601 UTC format.'    
-          type: string 
-          format: date-time    
+          format: date-time      
         dateModified:    
           description: 'Timestamp of the last modification of the entity. This will usually be allocated by the storage platform.'    
           type: string   
           format: date-time    
         dateRetrieved:    
-          description: 'The date and time the forecast was retrieved in ISO8601 UTC format.'      
+          description: 'The date and time the information was retrieved in ISO8601 UTC format.'      
           type: string    
           format: date-time  
 

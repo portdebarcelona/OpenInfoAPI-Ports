@@ -1,29 +1,29 @@
-openapi: '3.0.3'
-info:
-  version: '0.9.0-oas3'
-  title: OIAP Components
-  description: |
-    **Open Info API para Puertos**
+# openapi: '3.0.3'
+# info:
+#  version: '0.9.0-oas3'
+#  title: OIAP Components
+#  description: |
+#    **Open Info API para Puertos**
 
 
-    List of components that are used in the APIs developed for the Open Info API para Puertos project.
-  license:
-    name: CC0 1.0 Universal (CC0 1.0)
-    url: https://creativecommons.org/publicdomain/zero/1.0/deed.es
-  contact:
-    name: OpenInfoAPI github
-    url: https://github.com/portdebarcelona/OpenInfoAPI-Ports
+ #   List of components that are used in the APIs developed for the Open Info API para Puertos project.
+ # license:
+ #   name: CC0 1.0 Universal (CC0 1.0)
+ #   url: https://creativecommons.org/publicdomain/zero/1.0/deed.es
+ # contact:
+ #   name: OpenInfoAPI github
+ #   url: https://github.com/portdebarcelona/OpenInfoAPI-Ports
 # servers:
 #  - url: https://github.com/portdebarcelona/OpenInfoAPI-Ports/blob/develop/oasdefinitions/
-paths:
-  /dummyPath:   # We don't need a path  --> INDEX
-    get:
-      summary: Logs out current logged in user session
-      description: ''
-      operationId: logoutUser
-      responses:
-        default:
-          description: successful operation 
+# paths:
+#  /dummyPath:   # We don't need a path  --> INDEX
+#    get:
+#      summary: Logs out current logged in user session
+#      description: ''
+#      operationId: logoutUser
+#      responses:
+#        default:
+#          description: successful operation 
 
 components:
 
@@ -68,17 +68,13 @@ components:
         dateCreated:    
           description: 'Entity creation timestamp. This will usually be allocated by the storage platform.'    
           type: string 
-          format: date-time    
-        dateIssued:    
-          description: 'The date and time the forecast was issued by the meteorological bureau in ISO8601 UTC format.'    
-          type: string 
-          format: date-time    
+          format: date-time       
         dateModified:    
           description: 'Timestamp of the last modification of the entity. This will usually be allocated by the storage platform.'    
           type: string   
           format: date-time    
         dateRetrieved:    
-          description: 'The date and time the forecast was retrieved in ISO8601 UTC format.'      
+          description: 'The date and time the information was retrieved in ISO8601 UTC format.'    
           type: string    
           format: date-time  
 
