@@ -17,14 +17,14 @@ info:
     url: https://github.com/portdebarcelona/OpenInfoAPI-Ports
 tags:
   - name: Rates and Fees
-    description: "APIs related to the docummentary procedures of a port."
+    description: "APIs related to the port rates and fees."
     externalDocs:
       description: Description 
       url: http://swagger.io/ 
 servers:
   - url: https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions
     description: >
-        Servidor server 
+        Main server. 
 
 
         The costs associated to the ship calls and  the flow of goods through ports must be published as part of a transparency policy of those ports.
@@ -39,21 +39,13 @@ servers:
         - Special Use of the Transit Zone Rate (T6)
         - Vessel-Generated Waste Collection Service Fee
 
-        Possible APIs:
-        - **Ship calls fees**: List of the port rates and fees associated to a ship call at a specific port.
-          - Request parameters: port name, port UN/LOCODE.
-          - Data included in the response: link to the port website where this information is published.
-        - **Cargo fees**: List of the port rates and fees associated to the flow of goods at a specific port.
-          - Request parameters: port name, port UN/LOCODE, email.
-          - Data included in the response: link to the port website where this information is published.
-
 paths:
-  /basicTrafficEnvironment:
+  /portRatesAndFees:
     get:
       tags:
         - Rates and Fees
-      summary: Returns a list of resources where the procedures for clearing the goods in import can be found.
-      description: Returns a list of resources where the procedures for clearing the goods in import can be found. 
+      summary: Returns the URL of the website where rates and fees from a port are published. 
+      description: Returns the URL of the website where rates and fees from a port are published.  
       parameters:
         - $ref: '#/components/parameters/portCode'
       responses: 
@@ -67,10 +59,10 @@ paths:
               schema:
                 type: object
                 properties:
-                  basicTrafficEnvironment:
+                  ratesAndFeesUrl:
                     type: array
                     items:
-                      $ref: '#/components/schemas/basicTrafficEnvironment'
+                      $ref: '#/components/schemas/ratesAndFeesUrl'
                   queryParams:
                     type: object
                     properties:
@@ -105,17 +97,12 @@ components:
         $ref: './oiapComponents.yml#/components/schemas/portCode'
 
   schemas:
-    basicTrafficEnvironment: 
+    ratesAndFeesUrl: 
       description: 'URI where a customs clearance procedure from a port can be found.'
       type: object
       allOf:
         - type: object 
           properties:
-            customsClearanceDescription:  
-              description: 'Procedure description'
-              type: string
-              enum: ['All .'] 
-            customsClearanceUri:  
+            ratesAndFeesUrl:  
               $ref: './oiapComponents.yml#/components/schemas/uri' 
-      required:
-        - customsClearanceUri 
+
