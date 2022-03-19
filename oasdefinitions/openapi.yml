@@ -3341,7 +3341,7 @@ paths:
                 $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents.yml#/error'
 
 components:
-  parameters: 
+  parameters:  # PARAMETERS
     portCode:
       in: query
       name: portCode

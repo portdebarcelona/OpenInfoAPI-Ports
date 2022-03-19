@@ -291,7 +291,7 @@
     enum: [national holiday, other secular holiday, religious holiday, regional holiday local holiday]
     example: local holiday
 
-#   Group 3: Parties, addresses, places, countries
+#   Group 3: Parties, addresses, places, countries.
   contactInfo:
     description: email or phone
     type: string
