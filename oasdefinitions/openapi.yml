@@ -2535,6 +2535,8 @@ paths:
                     type: array
                     items:
                       $ref: '#/components/schemas/news'
+                  metadata:
+                    $ref:  'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents.yml#/components/schemas/metadata' 
                   queryParams:
                     type: object
                     properties:
@@ -2584,6 +2586,8 @@ paths:
                   newsCategories:
                     type: object
                     $ref: '#/components/schemas/newsCategories'
+                  metadata:
+                    $ref:  'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents.yml#/components/schemas/metadata' 
                   queryParams:
                     type: object
                     properties:
@@ -2625,6 +2629,8 @@ paths:
                   newsLanguages:
                     type: object
                     $ref: '#/components/schemas/newsLanguages'
+                  metadata:
+                    $ref:  'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents.yml#/components/schemas/metadata' 
                   queryParams:
                     type: object
                     properties:
@@ -2644,15 +2650,15 @@ paths:
                 $ref:  'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents.yml#/components/schemas/error'
 
   # Query for particular news from a news service.
-  /news/{id}:
+  /newsById:
     get:
       tags:
         - News
       summary: Returns particular news identified by its unique id.
       description: Returns particular news identified by its unique id.
       parameters:  
-        - $ref: '#/components/parameters/id'
         - $ref: '#/components/parameters/portCode' 
+        - $ref: '#/components/parameters/id'
       responses:
         '200':
           description: Successful operation
@@ -2667,6 +2673,8 @@ paths:
                   news:
                     type: object
                     $ref: '#/components/schemas/news'
+                  metadata:
+                    $ref:  'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents.yml#/components/schemas/metadata'                  
                   queryParams:
                     type: object
                     properties:
@@ -2929,15 +2937,15 @@ paths:
                 $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents.yml#/components/schemas/error'
 
   # Query for particular notice from a notice service.
-  /notices/{id}:
+  /noticesById:
     get:
       tags:
         - Notices
       summary: Returns a particular notice identified by its unique id.
       description: Returns a notice identified by its unique id.
       parameters:  
-        - $ref: '#/components/parameters/id'
         - $ref: '#/components/parameters/portCode' 
+        - $ref: '#/components/parameters/id'
       responses:
         '200':
           description: Successful operation
@@ -2952,11 +2960,15 @@ paths:
                   news:
                     type: object
                     $ref: '#/components/schemas/notice'
+                  metadata:
+                    $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents.yml#/components/schemas/metadata'
                   queryParams:
                     type: object
                     properties:
                       portCode:
                         $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents.yml#/components/schemas/portCode'
+                      id:
+                        $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents.yml#/components/schemas/id'
         '400':
           description: Bad request
           content:
@@ -2994,6 +3006,8 @@ paths:
                     type: array
                     items:
                       $ref: '#/components/schemas/ratesAndFeesUrl'
+                  metadata:
+                    $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents.yml#/components/schemas/metadata'
                   queryParams:
                     type: object
                     properties:
@@ -3206,15 +3220,14 @@ paths:
                 $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents.yml#/components/schemas/error' 
 
   # Specific selection of a company.
-  /companies/{companyName}:     
+  /companiesByName:    
     get:
       description: Get a company by its name or part of it without diacritics. At least three characters have to be included. 
       tags:
         - Port Directory
       parameters:
         - $ref: '#/components/parameters/portCode'
-        - companyName:
-          $ref: '#/components/parameters/searchTerm' 
+        - $ref: '#/components/parameters/companiesByName'
       responses:
         '200':
           description: Successful operation
@@ -3235,8 +3248,8 @@ paths:
                     properties:
                       portCode:
                         $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents.yml#/components/schemas/portCode'
-                      companyName:
-                        $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents.yml#/components/schemas/searchTerm'
+                      companyName:   
+                        $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents.yml#/components/schemas/companiesByName'
         '400':
           description: Bad request
           content:
@@ -3251,15 +3264,14 @@ paths:
                 $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents.yml#/components/schemas/error'  
 
   # Selection of a company from its VAT number.
-  /companies/{companyVat}:   
+  /companyByVat:   
     get:
       description: Get a company by its VAT number.
       tags:
         - Port Directory
       parameters:
         - $ref: '#/components/parameters/portCode'
-        - companyVat:
-          $ref: '#/components/parameters/companyVat'
+        - $ref: '#/components/parameters/companyByVat'
       responses:
         '200':
           description: Successful operation
@@ -3279,7 +3291,7 @@ paths:
                       portCode:
                         $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents.yml#/components/schemas/portCode'
                       companyVat:
-                        $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents.yml#/components/schemas/companyVat'
+                        $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents.yml#/components/schemas/companyByVat'
         '400':
           description: Bad request
           content:
@@ -3331,9 +3343,6 @@ paths:
             application/json:
               schema:
                 $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents.yml#/components/schemas/error'
-
-
-
 
 components:
   parameters: 
@@ -3535,7 +3544,7 @@ components:
       in: query
       name: id
       description: 
-            The unique identification of a notice or news.
+            The unique identification of a database register.
       required: false
       style: form
       explode: false
@@ -3582,7 +3591,7 @@ components:
       schema:
         $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents.yml#/components/schemas/companyName'
 
-    searchTerm:
+    companiesByName:
       in: query
       name: searchTerm
       description: Part of the name of the company without diacritics
@@ -3592,7 +3601,7 @@ components:
       schema:
         $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents.yml#/components/schemas/searchTerm'
 
-    companyVat:
+    companyByVat:
       in: query
       name: companyName
       description: Vat number of the company
