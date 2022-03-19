@@ -1,32 +1,10 @@
-openapi: '3.0.3'
-info:
-  version: '0.9.0-oas3'
-  title: OIAP Components
-  description: |
-    **Open Info API para Puertos**
+# OPEN INFO API PARA PUERTOS
+# (This is an awarded IDEA from the initiative Ports 4.0 form Puertos del Estado) 
+#
+# In this file, there are:
+#     Entities and attributes schemas 
 
-
-    List of components that are used in the APIs developed for the Open Info API para Puertos project.
-  license:
-    name: CC0 1.0 Universal (CC0 1.0)
-    url: https://creativecommons.org/publicdomain/zero/1.0/deed.es
-  contact:
-    name: OpenInfoAPI github
-    url: https://github.com/portdebarcelona/OpenInfoAPI-Ports
-# servers:
-#  - url: https://github.com/portdebarcelona/OpenInfoAPI-Ports/blob/develop/oasdefinitions/
-paths:
-  /dummyPath:   # We don't need a path  --> INDEX
-    get:
-      summary: Logs out current logged in user session
-      description: ''
-      operationId: logoutUser
-      responses:
-        default:
-          description: successful operation 
-
-components:
-# This section include all the headers and schemas that are reused in the project Info Open API para Puertos (OIAP).
+# This section include all the components that are reused in the project Info Open API para Puertos (OIAP).
 # They are grouped according to the groups established by the United Nations in the Trade Data Element Directory (UNTDED, ISO 7372) that is developed and published by UN/CEFACT, where: 
 #   Group 1 is for documentation and references.
 #   Group 2 is for dates, times, periods of time
@@ -38,1575 +16,1547 @@ components:
 #   Group 8 is for transport modes, means and equipments
 #   Group 9 is for other data elements 
 
-  headers: 
-    currentPage: 
-        description: A link to the current page.
-        schema: 
-            type: string
-            example: CZs+aW-1pdD01
-        required: true
-    nextPage: 
-        description: A link to the next page. Next-Page header link MAY be omitted if the current page is the last page.
-        schema:
-            type: string
-            example: 3+fE9mZnNldHw
-        required: false
-    prevPage:
-        description: A link to the previous page. Previous-Page header link MAY be omitted if the current page is the first page.
-        schema: 
-            type: string
-            example: ZnNl=dHw9MCZs
-        required: false
-    lastPage: 
-        description: A link to the last page. Last-Page header link MAY be omitted if the current page is the last page.
-        schema: 
-            type: string
-            example: ldHw9NTkm-bGlt
-        required: false
-    firstPage: 
-        description: A link to thefirst page. First-Page header link MAY be omitted if current page is the first page.
-        schema: 
-            type: string
-            example: aXttva7+dWZ42i
-        required: false
-    oiapApiVersion:
-        description: SemVer used to indicate the version of the contract (API version) returned.
-        schema: 
-            type: string
-            example: 0.9.0-oas3
-  schemas:
+
+
+
 #   Group 1: Documentation and references.
+  id:
+    description: |
+          Entity's unique identifier.
+    type: string
+    maxLength: 35
+    example: XAC12345CA
 
-    id:
-      description: |
-            Entity's unique identifier.
-      type: string
-      maxLength: 35
-      example: XAC12345CA
+  uri:
+    description: |
+          The Uniform Resource Identifier (URI) is a unique sequence of characters that identifies a logical or physical resource used by web technologies.
+    type: string
 
-    uri:
-      description: |
-            The Uniform Resource Identifier (URI) is a unique sequence of characters that identifies a logical or physical resource used by web technologies.
-      type: string
+  componentInfo:
+    description: |
+          Metadata information associated to an API call.
+    type: object
+    properties:
+      uriCall:
+        description: URI of the API call.
+        $ref: '#/uri'           
+      urlOas3:
+        description: URL of the OAS 3.x.
+        $ref: '#/uri'
+      definition:
+        description: Definition.
+        type: string
+    required:
+      - uriCall
+      - definition
 
-    componentInfo:
-      description: |
-            Metadata information associated to an API call.
-      type: object
-      properties:
-        uriCall:
-          description: URI of the API call.
-          $ref: '#/components/schemas/uri'           
-        urlOas3:
-          description: URL of the OAS 3.x.
-          $ref: '#/components/schemas/uri'
-        definition:
-          description: Definition.
+  validationKey:
+    description: The code received to complete a subscription process.
+    type: string
+    example: '4ZT2'
+
+  searchTerm:
+    description: String used to search something.
+    type: string
+    minLength: 3
+
+  dataProvider:
+    description: Specifies the URL to inform about the provider of this information.
+    type: string
+
+  alertCategory:
+    description: Define the category of alert (Traffic jam, accidents, weather conditions, high level of pollutants)
+    type: string
+    enum: [Traffic jam, accidents, weather conditions, high level of pollutants]
+    example: weather conditions
+
+  alertSubCategory:
+    description: >
+            Define the sub category of alert.
+            (trafficJam, carAccident, carWrongDirection, carStopped, pothole, roadClosed, roadWorks, hazardOnRoad, injuredBiker) (for traffic category)
+            (flood, tsunami, coastalEvent, earthquake) (for naturalDisaster category)
+            (rainfall, highTemperature, lowTemperature, heatWave, coldWave, ice, snow, wind, fog, tornado, tropicalCyclone, hurricane, snow/ice, thunderstorms, fireRisk, avalancheRisk, floodRisk) (for weather category)
+            (airPollution, waterPollution, pollenConcentration) (for environment category)
+    type: string
+    example: wind
+
+  alertSource:
+    description: >
+            Reference to the source of the alert. For example, it could be a user of an application, a device, or a service.
+    type: string
+
+  severity:
+    description: >
+            Define the level of gravity of a given alert.
+    type: string
+    enum: [informational, low, medium, high, critical]
+
+  error:
+    description: Error body
+    type: object
+    properties:
+      code:
+        description: HTML response status code.
+        type: string
+        pattern: /([1-5][0-9]{2})/
+      messageCode:
+        description: Code error description.
+        type: string
+        example: Error description
+      message:
+        description: Error description.
+        type: string
+        example: Error description
+      timestamp:  
+        description: Timestamp of error ocurrence.
+        type: string
+        format: date-time
+    required:
+      - code
+      - message
+
+  metadata:
+    description: Metadata information.
+    type: object
+    properties:
+      requestId:
+        description: 'Unique identifier of the request. Include this as reference when reporting issues.'    
+        type: string         
+      dateCreated:    
+        description: 'Entity creation timestamp. This will usually be allocated by the storage platform.'    
+        type: string 
+        format: date-time      
+      dateModified:    
+        description: 'Timestamp of the last modification of the entity. This will usually be allocated by the storage platform.'    
+        type: string   
+        format: date-time    
+      dateRetrieved:    
+        description: 'The date and time the information was retrieved in ISO8601 UTC format.'      
+        type: string    
+        format: date-time  
+
+  lastCheckedResult:
+    description: 'Timestamp when the last update of the attribute happened.'
+    type: string
+    format: date-time
+
+  lastChanges:
+    description: Details about the last changes.  
+    type: string
+
+  currentPage: 
+      description: A link to the current page.
+      schema: 
           type: string
-      required:
-        - uriCall
-        - definition
+          example: CZs+aW-1pdD01
+      required: true
 
-    validationKey:
-      description: The code received to complete a subscription process.
-      type: string
-      example: '4ZT2'
-
-    searchTerm:
-      description: String used to search something.
-      type: string
-      minLength: 3
-
-    dataProvider:
-      description: Specifies the URL to inform about the provider of this information.
-      type: string
-
-    alertCategory:
-      description: Define the category of alert (Traffic jam, accidents, weather conditions, high level of pollutants)
-      type: string
-      enum: [Traffic jam, accidents, weather conditions, high level of pollutants]
-      example: weather conditions
-
-    alertSubCategory:
-      description: >
-              Define the sub category of alert.
-              (trafficJam, carAccident, carWrongDirection, carStopped, pothole, roadClosed, roadWorks, hazardOnRoad, injuredBiker) (for traffic category)
-              (flood, tsunami, coastalEvent, earthquake) (for naturalDisaster category)
-              (rainfall, highTemperature, lowTemperature, heatWave, coldWave, ice, snow, wind, fog, tornado, tropicalCyclone, hurricane, snow/ice, thunderstorms, fireRisk, avalancheRisk, floodRisk) (for weather category)
-              (airPollution, waterPollution, pollenConcentration) (for environment category)
-      type: string
-      example: wind
-
-    alertSource:
-      description: >
-              Reference to the source of the alert. For example, it could be a user of an application, a device, or a service.
-      type: string
-
-    severity:
-      description: >
-              Define the level of gravity of a given alert.
-      type: string
-      enum: [informational, low, medium, high, critical]
-
-    error:
-      description: Error body
-      type: object
-      properties:
-        code:
-          description: HTML response status code.
+  nextPage: 
+      description: A link to the next page. Next-Page header link MAY be omitted if the current page is the last page.
+      schema:
           type: string
-          pattern: /([1-5][0-9]{2})/
-        messageCode:
-          description: Code error description.
+          example: 3+fE9mZnNldHw
+      required: false
+
+  prevPage:
+      description: A link to the previous page. Previous-Page header link MAY be omitted if the current page is the first page.
+      schema: 
           type: string
-          example: Error description
-        message:
-          description: Error description.
+          example: ZnNl=dHw9MCZs
+      required: false
+
+  lastPage: 
+      description: A link to the last page. Last-Page header link MAY be omitted if the current page is the last page.
+      schema: 
           type: string
-          example: Error description
-        timestamp:  
-          description: Timestamp of error ocurrence.
+          example: ldHw9NTkm-bGlt
+      required: false
+
+  firstPage: 
+      description: A link to thefirst page. First-Page header link MAY be omitted if current page is the first page.
+      schema: 
           type: string
-          format: date-time
-      required:
-        - code
-        - message
+          example: aXttva7+dWZ42i
+      required: false
 
-    metadata:
-      description: Metadata information.
-      type: object
-      properties:
-        requestId:
-          description: 'Unique identifier of the request. Include this as reference when reporting issues.'    
-          type: string         
-        dateCreated:    
-          description: 'Entity creation timestamp. This will usually be allocated by the storage platform.'    
-          type: string 
-          format: date-time      
-        dateModified:    
-          description: 'Timestamp of the last modification of the entity. This will usually be allocated by the storage platform.'    
-          type: string   
-          format: date-time    
-        dateRetrieved:    
-          description: 'The date and time the information was retrieved in ISO8601 UTC format.'      
-          type: string    
-          format: date-time  
+  oiapApiVersion:
+      description: SemVer used to indicate the version of the contract (API version) returned.
+      schema: 
+          type: string
+          example: 0.9.0-oas3
 
-    lastCheckedResult:
-      description: 'Timestamp when the last update of the attribute happened.'
-      type: string
-      format: date-time
+  skip:
+    description: 'Number of records that must be skipped.'
+    type: integer
+    format: int32
 
-    skip:
-      description: 'Number of records that must be skipped.'
-      type: integer
-      format: int32
-
-    take:
-      description: 'Number of records that must be taken.'
-      type: integer
-      format: int32
+  take:
+    description: 'Number of records that must be taken.'
+    type: integer
+    format: int32
 
 #   Group 2: Dates, times, periods of time
+  dateIssued:  
+    description: The date and time the alert was issued by the alert generator. The value is populated in ISO 8601 Date format.
+    type: string
+    format: date
+    example: 2022-01-18 
 
-    dateIssued:  
-      description: The date and time the alert was issued by the alert generator. The value is populated in ISO 8601 Date format.
-      type: string
-      format: date
-      example: 2022-01-18 
+  fromDate:  
+    description: The initial date of a periode of time. The value is populated in ISO 8601 Date format.
+    type: string
+    format: date
+    example: 2022-01-20 
 
-    fromDate:  
-      description: The initial date of a periode of time. The value is populated in ISO 8601 Date format.
-      type: string
-      format: date
-      example: 2022-01-20 
+  toDate:  
+    description: The final date of a periode of time. The value is populated in ISO 8601 Date format.
+    type: string
+    format: date
+    example: 2022-01-20 
 
-    toDate:  
-      description: The final date of a periode of time. The value is populated in ISO 8601 Date format.
-      type: string
-      format: date
-      example: 2022-01-20 
+  forecastedDate:  
+    description: The forecast date.
+    type: string
+    format: date
+    example: 2022-04-12 
 
-    forecastedDate:  
-      description: The forecast date.
-      type: string
-      format: date
-      example: 2022-04-12 
+  dateRange: 
+    description: 
+          The duration of a time period. It is populated in ISO 8601 duration format. E.g. 4 weeks and 2 days is represented as P4W2D
+    type: string
+    format: iso8601
+    example: P4W  
 
-    dateRange: 
-      description: 
-            The duration of a time period. It is populated in ISO 8601 duration format. E.g. 4 weeks and 2 days is represented as P4W2D
-      type: string
-      format: iso8601
-      example: P4W  
+  estimatedTimeOfArrival:  
+    description: The date and time the means of transport is estimated to arrive at a specified location (ETA), in ISO 8601 Date format.
+    type: string
+    format: date-time
+    example: 2022-03-01T11:53:00Z
 
-    estimatedTimeOfArrival:  
-      description: The date and time the means of transport is estimated to arrive at a specified location (ETA), in ISO 8601 Date format.
-      type: string
-      format: date-time
-      example: 2022-03-01T11:53:00Z
+  actualTimeOfArrival:  
+    description: The date and time the means of transport arrives at a specified location (ATA), in ISO 8601 Date format.
+    type: string
+    format: date-time
+    example: 2022-03-03T12:56:00Z
 
-    actualTimeOfArrival:  
-      description: The date and time the means of transport arrives at a specified location (ATA), in ISO 8601 Date format.
-      type: string
-      format: date-time
-      example: 2022-03-03T12:56:00Z
+  estimatedTimeOfDeparture:  
+    description: The date and time the means of transport is estimated to depart from a specified location (ETD), in ISO 8601 Date format.
+    type: string
+    format: date-time
+    example: 2022-03-15T08:23:00Z
 
-    estimatedTimeOfDeparture:  
-      description: The date and time the means of transport is estimated to depart from a specified location (ETD), in ISO 8601 Date format.
-      type: string
-      format: date-time
-      example: 2022-03-15T08:23:00Z
+  actualTimeOfDeparture:  
+    description: The date and time the means of transport departs from a specified location (ATD), in ISO 8601 Date format.
+    type: string
+    format: date-time
+    example: 2022-03-16T01:04:00Z   
 
-    actualTimeOfDeparture:  
-      description: The date and time the means of transport departs from a specified location (ATD), in ISO 8601 Date format.
-      type: string
-      format: date-time
-      example: 2022-03-16T01:04:00Z   
+  time:  
+    description: Representation of a time, in ISO 8601 Time format.
+    type: string
+    example: 13:04:00 
 
-    time:  
-      description: Representation of a time, in ISO 8601 Time format.
-      type: string
-      example: 13:04:00 
+  year:
+    description: Year.            
+    type: integer
+    maxLength: 4
+    example: 2022 
 
-    hour: 
-      description: Hour expressed in a 24 hours format and represents the periode between hh:00:00 and hh:59:59
-      type: integer
-      minimum: 0
-      maximum: 23
-      example: 07
+  quarter:
+    description: Quarter.          
+    type: integer
+    enum: [1, 2, 3, 4]
+    example: 2 
 
-    holidayDate:  
-      description: Holiday date.
-      type: string
-      format: date
-      example: 2022-06-24 
+  hour: 
+    description: Hour expressed in a 24 hours format and represents the periode between hh:00:00 and hh:59:59
+    type: integer
+    minimum: 0
+    maximum: 23
+    example: 07
 
-    holidayType: 
-      description: Type of holiday.
-      type: string
-      enum: [national holiday, other secular holiday, religious holiday, regional holiday local holiday]
-      example: local holiday
+  waitTime:
+    description: 'Wait time, expressed in minutes.'
+    type: integer
+    minimum: 0
+    example: 15
 
+  holidayDate:  
+    description: Holiday date.
+    type: string
+    format: date
+    example: 2022-06-24 
 
+  holidayType: 
+    description: Type of holiday.
+    type: string
+    enum: [national holiday, other secular holiday, religious holiday, regional holiday local holiday]
+    example: local holiday
 
 #   Group 3: Parties, addresses, places, countries
-    contactInfo:
-      description: email or phone
-      type: string
+  contactInfo:
+    description: email or phone
+    type: string
 
-    email:
-      description: email
-      type: string
+  email:
+    description: email
+    type: string
 
-    phone:
-      description: phone number 
-      type: string
+  phone:
+    description: phone number 
+    type: string
 
-    name:
-      description: name
-      type: string
+  name:
+    description: name
+    type: string
 
-    surname:
-      description: surname
-      type: string      
+  surname:
+    description: surname
+    type: string      
 
-    openingHours:   # Pending
-      description: Opening hours.
-      type: object
-      properties:
-        afternoon:
-          type: string
-        closed:
-          type: boolean
-        day:
-          type: string
-        forenoon:
-          type: string
+  openingHours:   # Pending
+    description: Opening hours.
+    type: object
+    properties:
+      afternoon:
+        type: string
+      closed:
+        type: boolean
+      day:
+        type: string
+      forenoon:
+        type: string
 
-    afterHours:  # Pending 
-      description: Contact info after hours.
-      type: object
-      properties:
-        email:
-          type: string
-        fax:
-          type: string
-        functionTitle:
-          type: string
-        gsm:
-          type: string
-        name:
-          type: string
-        phone:
-          type: string
+  afterHours:  # Pending 
+    description: Contact info after hours.
+    type: object
+    properties:
+      email:
+        type: string
+      fax:
+        type: string
+      functionTitle:
+        type: string
+      gsm:
+        type: string
+      name:
+        type: string
+      phone:
+        type: string
 
-    address:
-      description: Address.
-      type: object
-      properties:
-        city:
-          type: string
-        country:
-          type: string
-        streetAndNumber:
-          type: string
-        zipCode:
-          type: string
+  address:
+    description: Address.
+    type: object
+    properties:
+      city:
+        type: string
+      country:
+        type: string
+      streetAndNumber:
+        type: string
+      zipCode:
+        type: string
 
-    language:
-      description: |
-            The ISO 639 code of a language. Each language is assigned a two-letter (639-1) lowercase abbreviation.
-            E.g. `ca` Catalan.
-      type: string
-      maxLength: 2
-      example: ca 
+  language:
+    description: |
+          The ISO 639 code of a language. Each language is assigned a two-letter (639-1) lowercase abbreviation.
+          E.g. `ca` Catalan.
+    type: string
+    maxLength: 2
+    example: ca 
 
-    companyDetails: # Definition pending. Look at schema.org
-      description: Information about a company.
-      type: string
+  companyDetails: # Definition pending. Look at schema.org
+    description: Information about a company.
+    type: string
 
-    governmentalBodyDetails: # Definition pending. Look at schema.org Thonk about merging with companyDetails
-      description: Information about a governmental body.
-      type: string
+  governmentalBodyDetails: # Definition pending. Look at schema.org Thonk about merging with companyDetails
+    description: Information about a governmental body.
+    type: string
 
-    companyOverviewInfo: 
-      description: 'Basic information about a company or a governmental body.'
-      type: object
-      allOf:
-        - type: object 
-          properties:
-            companyName:
-              $ref: '#/components/schemas/companyName' 
-            activities:  # array, because they can be more than one
-              type: array
-              items:
-                $ref: './oiapComponents.yml#/components/schemas/activity'
-            companyVat:
-              $ref: '#/components/schemas/companyVat'
+  companyOverviewInfo: 
+    description: 'Basic information about a company or a governmental body.'
+    type: object
+    allOf:
+      - type: object 
+        properties:
+          companyName:
+            $ref: '#/companyName' 
+          activities: 
+            type: array
+            items:
+              $ref: './oiapComponents.yml#/activity'
+          companyVat:
+            $ref: '#/companyVat'
 
-    companyInfo: 
-      description: 'Detailled information about a company or a governmental body.' 
-      type: object
-      allOf:
-        - type: object 
-          properties:  
-            activities:  # array, because theycan be more than one
-              type: array
-              items:
-                $ref: '#/components/schemas/activity'
-            companyName:  
-              $ref: '#/components/schemas/companyName' 
-            email:  
-              $ref: '#/components/schemas/email'
-            phone:  
-              $ref: '#/components/schemas/phone'
-            website:  
-              $ref: '#/components/schemas/uri'
-            companyAddress:  
-              $ref: '#/components/schemas/address'
-            openingHours:
-              $ref: '#/components/schemas/openingHours'             
-            afterHours: # contact info for after hours  
-              $ref: '#/components/schemas/afterHours' 
-            companyVat:  
-              $ref: '#/components/schemas/companyVat'
+  companyInfo: 
+    description: 'Detailled information about a company or a governmental body.' 
+    type: object
+    allOf:
+      - type: object 
+        properties:  
+          activities:
+            type: array
+            items:
+              $ref: '#/activity'
+          companyName:  
+            $ref: '#/companyName' 
+          email:  
+            $ref: '#/email'
+          phone:  
+            $ref: '#/phone'
+          website:  
+            $ref: '#/uri'
+          companyAddress:  
+            $ref: '#/address'
+          openingHours:
+            $ref: '#/openingHours'             
+          afterHours: # contact info for after hours  
+            $ref: '#/afterHours' 
+          companyVat:  
+            $ref: '#/companyVat'
 
-    companyVat:
-      description: Vat number of a company.
-      type: string
+  companyVat:
+    description: Vat number of a company.
+    type: string
 
-    partnerActivity:   # Maybe it can be replaced by activity
-      description: Main activity of a partner.
-      type: string
-      example: Freight forwarder
+  partnerActivity:   # Maybe it can be replaced by activity
+    description: Main activity of a partner.
+    type: string
+    example: Freight forwarder
 
-    activity:  
-      description: >
-            Activity performed by a company or a governmental body.
-
-
-            The following list include most of the activities and, if it is not included, `Other` must be selected: 
-              * `Port Authority`
-              * `Harbour Master`
-              * `Customs`
-              * `Border Control Post (BCP)`
-              * `Immigration`
-              * `Container Depot`
-              * `Container Terminal`
-              * `Container (CFS)`
-              * `General Cargo Terminal`
-              * `Multi Purpose Terminal`              
-              * `Liquid Cargo Terminal`
-              * `Bulk Cargo Terminal`
-              * `Temperature Controlled Terminal`
-              * `Dangerous Cargo Warehouse`
-              * `Passenger Terminal`
-              * `Inland Container Terminal`
-              * `Liner Agent - Carrier`
-              * `Railway Undertaking`
-              * `Haulier`
-              * `Barge Carrier`
-              * `Freight Forwarder`
-              * `Customs Broker`
-              * `Stevedoring & Lashing`
-              * `Tally`
-              * `Ship Supplier`
-              * `Nautic-technic`
-              * `Tug`
-              * `Mooring`
-              * `Shipyards & Repair`
-              * `Shipowner`
-              * `Pilots`
-              * `Research`
-              * `Consulting`
-              * `Port Community System - PCS`
-              * `IT-Service`
-              * `Insurance`
-              * `Container Leasing`
-              * `Railway Services`
-              * `Railway Logistics Operator`
-              * `Other`
-      type: string
-      enum: [Port Authority, Harbour Master, Customs, Border Control Post (BCP), Immigration, Container Depot, Container Terminal, Container (CFS), General Cargo Terminal, Multi Purpose Terminal, Liquid Cargo Terminal, Bulk Cargo Terminal, Temperature Controlled Terminal, Dangerous Cargo Warehouse, Passenger Terminal, Inland Container Terminal, Liner Agent - Carrier, Railway Undertaking, Haulier, Barge Carrier, Freight Forwarder, Customs Broker, Stevedoring & Lashing, Tally, Ship Supplier, Nautic-technic, Tug, Mooring, Shipyards & Repair, Shipowner, Pilots, Research, Consulting, Port Community System - PCS, IT-Service, Insurance, Container Leasing, Railway Services, Railway Logistics Operator, Other]
-      example: Port Authority
-
-    serviceType: # Pending
-      description: Type of port service.
-      type: string
-      enum: [Stevedoring & Lashing, Tally, Ship Supplier, Nautic-technic, Tug, Mooring]
-
-    companyName: 
-      description: Name of a company.
-      type: string
-
-    ferryOperator:
-      description: 
-        Identification of the company that operates a ferry.  
-      type: object
-      properties:
-        code:
-          description: Operator code. Code assigned to a ferry operator.  
-          type: string
-          example: GRM
-        description:
-          description: Name of the ferry operator. 
-          type: string
-          example: GRIMALDI 
-      required:
-        - description
-
-    cruiseLine:
-      description: 
-        Identification of the company that operates the cruise ship.  
-      type: object
-      properties:
-        code:
-          description: Operator code. Code assigned to a cruise line.  
-          type: string
-          example: COSTA
-        description:
-          description: Name of the cruise line. 
-          type: string
-          example: COSTA CRUCEROS 
-      required:
-        - description
-
-    railLogisticServiceProvider: 
-      type: string
-      example: Name of the Rail Logistic Service Provider
-
-    locode:
-      description: UN/LOCODE of a location as specified in the UN/ECE Recommendation nº16
-      type: string
-      maxLength: 5
-
-    portCode:
-      description: Port UN/LOCODE
-      type: string
-      maxLength: 5
-      example: ESBCN 
-
-    portName:
-      description: Port name.
-      type: string
-      example: Barcelona 
+  activity:  
+    description: >
+          Activity performed by a company or a governmental body.
 
 
+          The following list include most of the activities and, if it is not included, `Other` must be selected: 
+            * `Port Authority`
+            * `Harbour Master`
+            * `Customs`
+            * `Border Control Post (BCP)`
+            * `Immigration`
+            * `Container Depot`
+            * `Container Terminal`
+            * `Container (CFS)`
+            * `General Cargo Terminal`
+            * `Multi Purpose Terminal`              
+            * `Liquid Cargo Terminal`
+            * `Bulk Cargo Terminal`
+            * `Temperature Controlled Terminal`
+            * `Dangerous Cargo Warehouse`
+            * `Passenger Terminal`
+            * `Inland Container Terminal`
+            * `Liner Agent - Carrier`
+            * `Railway Undertaking`
+            * `Haulier`
+            * `Barge Carrier`
+            * `Freight Forwarder`
+            * `Customs Broker`
+            * `Stevedoring & Lashing`
+            * `Tally`
+            * `Ship Supplier`
+            * `Nautic-technic`
+            * `Tug`
+            * `Mooring`
+            * `Shipyards & Repair`
+            * `Shipowner`
+            * `Pilots`
+            * `Research`
+            * `Consulting`
+            * `Port Community System - PCS`
+            * `IT-Service`
+            * `Insurance`
+            * `Container Leasing`
+            * `Railway Services`
+            * `Railway Logistics Operator`
+            * `Other`
+    type: string
+    enum: [Port Authority, Harbour Master, Customs, Border Control Post (BCP), Immigration, Container Depot, Container Terminal, Container (CFS), General Cargo Terminal, Multi Purpose Terminal, Liquid Cargo Terminal, Bulk Cargo Terminal, Temperature Controlled Terminal, Dangerous Cargo Warehouse, Passenger Terminal, Inland Container Terminal, Liner Agent - Carrier, Railway Undertaking, Haulier, Barge Carrier, Freight Forwarder, Customs Broker, Stevedoring & Lashing, Tally, Ship Supplier, Nautic-technic, Tug, Mooring, Shipyards & Repair, Shipowner, Pilots, Research, Consulting, Port Community System - PCS, IT-Service, Insurance, Container Leasing, Railway Services, Railway Logistics Operator, Other]
+    example: Port Authority
 
-    countryCode: 
-      description: Alpha-2 code from ISO 3166 — Codes for the representation of names of countries and their subdivisions.            
-      maxLength: 2
-      example: ES 
+  serviceType: # Pending
+    description: Type of port service.
+    type: string
+    enum: [Stevedoring & Lashing, Tally, Ship Supplier, Nautic-technic, Tug, Mooring]
 
-    subdivisionCode: 
-      description: Subdivision code from ISO 3166 — Codes for the representation of names of countries and their subdivisions.             
-      maxLength: 5
-      example: ES-CT 
+  companyName: 
+    description: Name of a company.
+    type: string
 
+  ferryOperator:
+    description: 
+      Identification of the company that operates a ferry.  
+    type: object
+    properties:
+      code:
+        description: Operator code. Code assigned to a ferry operator.  
+        type: string
+        example: GRM
+      description:
+        description: Name of the ferry operator. 
+        type: string
+        example: GRIMALDI 
+    required:
+      - description
 
+  cruiseLine:
+    description: 
+      Identification of the company that operates the cruise ship.  
+    type: object
+    properties:
+      code:
+        description: Operator code. Code assigned to a cruise line.  
+        type: string
+        example: COSTA
+      description:
+        description: Name of the cruise line. 
+        type: string
+        example: COSTA CRUCEROS 
+    required:
+      - description
 
-    linkedPort: 
-      description: 'Port that is served by a direct service of a liner and do not requires a transshipment.'
-      properties:
-        portCode:
-          example: SGSGP
-          $ref: '#/components/schemas/portCode' 
-        portName:
-          type: string 
-          example: Singapore
+  railLogisticServiceProvider: 
+    type: string
+    example: Name of the Rail Logistic Service Provider
 
-    linkedPortCode: 
-      description: 'Port UN/LOCODE served by a liner.'
-      example: SGSGP
-      $ref: '#/components/schemas/portCode'
+  locode:
+    description: UN/LOCODE of a location as specified in the UN/ECE Recommendation nº16
+    type: string
+    maxLength: 5
 
-    lastPortOfCall:
-      description: |
-            UN/LOCODE of the last POrt of Call
-      type: string
-      maxLength: 5
-      example: HKHKG 
+  portCode:
+    description: Port UN/LOCODE
+    type: string
+    maxLength: 5
+    example: ESBCN 
 
-    nextPortOfCall:
-      description: UN/LOCODE from next port of call. 
-      type: string
-      maxLength: 5
-      example: NLRTM
+  portName:
+    description: Port name.
+    type: string
+    example: Barcelona 
 
-    placeOfDeparture:
-      description: Name of the place of departure. 
-      type: object
-      anyOf:
-        - type: object
-          properties:
-            code:
-              description: Code of the place of departure.  
-              type: string
-              maxLength: 5
-        - type: object
-          properties:
-            description:
-              description: Name of the place of departure.  
-              type: string
-              maxLength: 35
+  countryCode: 
+    description: Alpha-2 code from ISO 3166 — Codes for the representation of names of countries and their subdivisions.            
+    maxLength: 2
+    example: ES 
 
-    placeOfDestination:
-      description: Name of the place of destination. 
-      type: object
-      anyOf:
-        - type: object
-          properties:
-            code:
-              description: Code of the place of destination.  
-              type: string
-              maxLength: 5
-        - type: object
-          properties:
-            description:
-              description: Name of the place of destination.  
-              type: string
-              maxLength: 35
+  subdivisionCode: 
+    description: Subdivision code from ISO 3166 — Codes for the representation of names of countries and their subdivisions.             
+    maxLength: 5
+    example: ES-CT 
 
-    coordinates: 
-      description: >
-        Either of the two lines of latitude and longitude whose intersection determines the geographical point of a place.
-      properties:
-        latitude:
-          description: latitude of a point. 
-          type: number
-          example: 41.35331
-        longitude:
-          description: Longitude of a point 
-          type: number
-          example: 2.175017
+  coastalArea: 
+    description: A maritime coastal area is defined by Eurostat as a contiguous stretch of coastline, together with islands offshore. Annex VI from Directive 2009/42/EC of the European Parliament and of the Council.         
+    type: string  
+    maxLength: 4
+    example: GR00 
 
-    berth:
-      type: object
-      description: 
-        Identification of a berth from a port.  
-      properties:
-        berthCode:
-          description: Berth code. Code assigned to a berth from a port.  
-          type: string
-          example: 01B 
-        berthName:
-          description: Berth name. 
-          type: string
-          example: ADOSSAT 
-        berthCoordinates:
-          $ref: '#/components/schemas/coordinates'
-        berthLength:
-          $ref: '#/components/schemas/berthLength'
-        berthDepth:
-          description: Berth depth. 
-          $ref: '#/components/schemas/underwaterDepth' 
-      required:
-        - code
+  linkedPort: 
+    description: 'Port that is served by a direct service of a liner and do not requires a transshipment.'
+    properties:
+      portCode:
+        example: SGSGP
+        $ref: '#/portCode' 
+      portName:
+        type: string 
+        example: Singapore
 
-    channel:
-      type: object
-      description: Identification of a port channel.  
-      properties:
-        code:
-          description: Channel code. Code assigned to a port channel.  
-          type: string
-          example: NE 
-        description:
-          description: Channel name. 
-          type: string
-          example: North East entrance 
-        channelCoordinates:
-          $ref: '#/components/schemas/coordinates'
-      required:
-        - code
-  
+  linkedPortCode: 
+    description: 'Port UN/LOCODE served by a liner.'
+    example: SGSGP
+    $ref: '#/portCode'
+
+  lastPortOfCall:
+    description: |
+          UN/LOCODE of the last POrt of Call
+    type: string
+    maxLength: 5
+    example: HKHKG 
+
+  nextPortOfCall:
+    description: UN/LOCODE from next port of call. 
+    type: string
+    maxLength: 5
+    example: NLRTM
+
+  reportingPort: 
+    description: Port that provides some information. Use UN/LOCODE.           
+    type: string
+    maxLength: 5
+    example: ESBCN 
+
+  portLoadingUnloading:
+    description: For a vessel that operates in a port, port where cargo was loaded (port of loading) or where it will be unloades (port of unloading). Use UN/LOCODE.           
+    type: string
+    maxLength: 5
+    example: HKHKG 
+
+  placeOfDeparture:
+    description: Name of the place of departure. 
+    type: object
+    anyOf:
+      - type: object
+        properties:
+          code:
+            description: Code of the place of departure.  
+            type: string
+            maxLength: 5
+      - type: object
+        properties:
+          description:
+            description: Name of the place of departure.  
+            type: string
+            maxLength: 35
+
+  placeOfDestination:
+    description: Name of the place of destination. 
+    type: object
+    anyOf:
+      - type: object
+        properties:
+          code:
+            description: Code of the place of destination.  
+            type: string
+            maxLength: 5
+      - type: object
+        properties:
+          description:
+            description: Name of the place of destination.  
+            type: string
+            maxLength: 35
+
+  coordinates: 
+    description: >
+      Either of the two lines of latitude and longitude whose intersection determines the geographical point of a place.
+    properties:
+      latitude:
+        description: latitude of a point. 
+        type: number
+        example: 41.35331
+      longitude:
+        description: Longitude of a point 
+        type: number
+        example: 2.175017
+
+  berth:
+    type: object
+    description: 
+      Identification of a berth from a port.  
+    properties:
+      berthCode:
+        description: Berth code. Code assigned to a berth from a port.  
+        type: string
+        example: 01B 
+      berthName:
+        description: Berth name. 
+        type: string
+        example: ADOSSAT 
+      berthCoordinates:
+        $ref: '#/coordinates'
+      berthLength:
+        $ref: '#/berthLength'
+      berthDepth:
+        description: Berth depth. 
+        $ref: '#/underwaterDepth' 
+    required:
+      - code
+
+  channel:
+    type: object
+    description: Identification of a port channel.  
+    properties:
+      code:
+        description: Channel code. Code assigned to a port channel.  
+        type: string
+        example: NE 
+      description:
+        description: Channel name. 
+        type: string
+        example: North East entrance 
+      channelCoordinates:
+        $ref: '#/coordinates'
+    required:
+      - code
 
   # Singular places should share the same schema
+  singularPoint:
+    description: A singular point of the port waters. It can be used to specify a point where bathymetric data is vailable. 
+    oneOf:
+      - $ref: '#/berth'
+      - $ref: '#/channel' 
 
-    entrance:
-      description: Identification of a port entrance.  
-      type: string
+  refPointOfInterest: 
+    description: A reference to a point of interest (usually a weather station) associated to this observation.
+    type: string
 
-    approachChannel:   
-      description: Identification of an approach channel.  
-      type: string
+  entrance:
+    description: Identification of a port entrance.  
+    type: string
 
-    precautionaryArea:
-      description: Identification of a precautionary area.  
-      type: string
+  approachChannel:   
+    description: Identification of an approach channel.  
+    type: string
 
-    portTraffic:
-      description: Identification of a port traffic service.  
-      type: string             
+  precautionaryArea:
+    description: Identification of a precautionary area.  
+    type: string
 
-    emergency: 
-      description: Identification of an emergency contact.  
-      type: string
+  portTraffic:
+    description: Identification of a port traffic service.  
+    type: string             
 
-    specialOperation:  
-      description: Identification of a special operations service.  
-      type: string
+  emergency: 
+    description: Identification of an emergency contact.  
+    type: string
 
-    pilots:  
-      description: Information about pilotage service.  
-      type: string
+  specialOperation:  
+    description: Identification of a special operations service.  
+    type: string
 
-    tugs:
-      description: Information about tugs service.    
-      type: string
+  pilots:  
+    description: Information about pilotage service.  
+    type: string
 
-    linesmen:
-      description: Information about linesmen service.   
-      type: string
+  tugs:
+    description: Information about tugs service.    
+    type: string
 
-    lastChanges:
-      description: Details about the last changes.  
-      type: string
+  linesmen:
+    description: Information about linesmen service.   
+    type: string
 
+  facility:
+    type: object
+    description: 
+      Identification of a port facility.  
+    properties:
+      code:
+        description: Facility code. Code assigned to a facility from a port.  
+        type: string
+        example: 08MBCN
+      description:
+        description: Facility name. 
+        type: string
+        example: TERMINAL CREUERS
+      berth:
+        $ref: '#/berth' 
+    required:
+      - description
 
+  terminalCode:
+    description: Port facility number. GISIS code assigned by IMO to a facility from a port.
+    type: string
+    minLength: 10
+    example: ESBCN-0042     
 
+  terminalName:
+    description: Terminal name.
+    type: string
+    example: Terminal Port Nou
 
+  gate: 
+    description: 'Attributes of an access gate.'
+    properties:
+      gateName:
+        description: Name of a gate. 
+        type: string
+      gateCoordinates:
+        description: Coordinates of a gate. 
+        $ref: '#/coordinates'
+      flowDirection:
+        $ref: '#/flowDirection'
+      vehicleTypes:
+        $ref: '#/vehicleTypes'
 
+  totalArea: 
+    description: Total area expressed in ha.
+    type: integer
 
+  berthLength:
+    description: Berth length, expresed in meters. 
+    type: integer
+    example: 635  
 
+  coveredWarehouses: 
+    description: Total area of the covered warehouses in sq m.
+    type: integer
 
+  underwaterDepth:
+    description: Bathymetric information. Depth expessed in meters. It must be used positive numbers. 
+    type: number
+    example: 12.5
 
+  railBundles:
+    description: Number of rail tracks in a facility. 
+    type: integer
+    example: 8
 
-    facility:
-      type: object
-      description: 
-        Identification of a port facility.  
-      properties:
-        code:
-          description: Facility code. Code assigned to a facility from a port.  
-          type: string
-          example: 08MBCN
-        description:
-          description: Facility name. 
-          type: string
-          example: TERMINAL CREUERS
-        berth:
-          $ref: '#/components/schemas/berth' 
-      required:
-        - description
+  trackMaximumLength: 
+    description: Maximum length of a rail track in a facility, expressed in meters. 
+    type: integer
+    example: 800
 
-    terminalCode:
-      description: Port facility number. GISIS code assigned by IMO to a facility from a port.
-      type: string
-      minLength: 10
-      example: ESBCN-0042     
+  trackGauge: 
+    description: >
+          Distance between the inside surfaces of the two load-bearing rails of a railway track. 
+            * `Standard gauge - UIC` 1,435 mm
+            * `Iberian gauge` 1,668 mm
+            * `Metre gauge` 1,000 mm
+    type: string
+    enum: [Standard gauge - UIC, Iberian gauge, Metre gauge]
+    example: Iberian gauge    
 
-    terminalName:
-      description: Terminal name.
-      type: string
-      example: Terminal Port Nou
-
-    gate: 
-      description: 'Attributes of an access gate.'
-      properties:
-        gateName:
-          description: Name of a gate. 
-          type: string
-        gateCoordinates:
-          description: Coordinates of a gate. 
-          $ref: '#/components/schemas/coordinates'
-        flowDirection:
-          $ref: '#/components/schemas/flowDirection'
-        vehicleTypes:
-          $ref: '#/components/schemas/vehicleTypes'
-
-    totalArea: 
-      description: Total area expressed in ha.
-      type: integer
-
-    berthLength:
-      description: Berth length, expresed in meters. 
-      type: integer
-      example: 635  
-
-    coveredWarehouses: 
-      description: Total area of the covered warehouses in sq m.
-      type: integer
-
-    underwaterDepth:
-      description: Bathymetric information. Depth expessed in meters. It must be used positive numbers. 
-      type: number
-      example: 12.5
-
-    singularPoint:
-      description: A singular point of the port waters. It can be used to specify a point where bathymetric data is vailable. 
-      oneOf:
-        - $ref: '#/components/schemas/berth'
-        - $ref: '#/components/schemas/channel' 
-
-    railBundles:
-      description: Number of rail tracks in a facility. 
-      type: integer
-      example: 8
-
-    trackMaximumLength: 
-      description: Maximum length of a rail track in a facility, expressed in meters. 
-      type: integer
-      example: 800
-
-    trackGauge: 
-      description: >
-            Distance between the inside surfaces of the two load-bearing rails of a railway track. 
-              * `Standard gauge - UIC` 1,435 mm
-              * `Iberian gauge` 1,668 mm
-              * `Metre gauge` 1,000 mm
-      type: string
-      enum: [Standard gauge - UIC, Iberian gauge, Metre gauge]
-      example: Iberian gauge    
-
-    gantryCranes: 
-      description: Number of gantry cranes in a facility. 
-      type: integer
-      example: 3
-
-
+  gantryCranes: 
+    description: Number of gantry cranes in a facility. 
+    type: integer
+    example: 3
 
 #   Group 4: Clauses, conditions, terms, instructions
 
 
 
 #   Group 5: Amounts, charges, percentages
-  # Statistics
-  # Rates and fees
+  height:  
+    description: Representation of a height, in meters.
+    type: number
 
-    height:  
-      description: Representation of a height, in meters.
-      type: number
+  flowDirection:  
+    description: 'Flow direction (inwards, outwards) is determined by reference to the reporting port/terminal: "inwards" means "arriving at the port/terminal", "outwards" means "leaving the port/terminal". It is also possible to choose "both" directions, inwards and outwards'
+    type: string
+    enum: [outwards, inwards, both] 
+    example: inwards
 
-    flowDirection:  
-      description: 'Flow direction (inwards, outwards) is determined by reference to the reporting port/terminal: "inwards" means "arriving at the port/terminal", "outwards" means "leaving the port/terminal". It is also possible to choose "both" directions, inwards and outwards'
-      type: string
-      enum: [outwards, inwards, both] 
-      example: inwards
+  throughput:
+    description: 'Throughput.'
+    type: integer
+    minimum: 0
 
-    throughput:
-      description: 'Throughput.'
-      type: integer
-      minimum: 0
+  dataset:
+    description: 2 character code, as defined in annex VIII from Directive 2009/42/EC of the European Parliament and of the Council. Dataset           
+    type: string
+    enum: [A1, A2, A3, B1, C1, C2, D1, E1, F1, F2]
+    example: A2 
+         
+  currency:
+    description:  3 character ISO4217 alpha code for the representation of currencies.      
+    type: string      
+    example: EUR 
 
+  netProffit: 
+    description: Net proffit. The value is expressed in thousands of a given currency.      
+    type: integer      
+    example: 24200 
 
-    waitTime:
-      description: 'Wait time, expressed in minutes.'
-      type: integer
-      minimum: 0
-      example: 15
+  operatingProffit: 
+    description: Operating proffit. The value is expressed in thousands of a given currency.      
+    type: integer      
+    example: 26100 
 
-    dataset:
-      description: 2 character code, as defined in annex VIII from Directive 2009/42/EC of the European Parliament and of the Council. Dataset           
-      type: string
-      enum: [A1, A2, A3, B1, C1, C2, D1, E1, F1, F2]
-      example: A2 
+  financialResult: 
+    description: Financial result. The value is expressed in thousands of a given currency.      
+    type: integer      
+    example: 970 
 
-    year:
-      description: Year.            
-      type: integer
-      maxLength: 4
-      example: 2022 
+  netTurnover:
+    description: Net turnover. The value is expressed in thousands of a given currency.       
+    type: integer      
+    example: 113650 
 
-    quarter:
-      description: Quarter.          
-      type: integer
-      enum: [1, 2, 3, 4]
-      example: 2               
+  ebitda:
+    description: Earnings before interest, tax, depreciation and amortisation. The value is expressed in thousands of a given currency.       
+    type: integer      
+    example: 24200 
 
-    reportingPort: 
-      description: Port that provides some information. Use UN/LOCODE.           
-      type: string
-      maxLength: 5
-      example: ESBCN 
+  cashFlow: 
+    description: Cash flow. The value is expressed in thousands of a given currency.       
+    type: integer      
+    example: 13800 
 
-    portLoadingUnloading:
-      description: For a vessel that operates in a port, port where cargo was loaded (port of loading) or where it will be unloades (port of unloading). Use UN/LOCODE.           
-      type: string
-      maxLength: 5
-      example: HKHKG 
-
-    typeOfCargo: 
-      description: 2 character code of type of cargo, as defined in annex II from Directive 2009/42/EC of the European Parliament and of the Council. 
-              * `1X`  Liquid bulk goods (no cargo unit)
-              * `11`  Liquefied gas 
-              * `12`	Crude oil 
-              * `13`	Oil products 
-              * `19`	Other liquid bulk goods 
-              * `2X`	Dry bulk goods (no cargo unit) 
-              * `21`	Ores 
-              * `22`	Coal 
-              * `23`	Agricultural products (e.g. grain, soya, tapioca)
-              * `29`	Other dry bulk goods
-              * `3X`	Large containers
-              * `31`	20 ft freight units
-              * `32`	40 ft freight units
-              * `33`	Freight units > 20 ft and < 40 ft
-              * `34`	Freight units > 40 ft 
-              * `5X`	Mobile self-propelled units
-              * `51`	Road goods vehicles and accompanying trailers 
-              * `52`	Passenger cars, motorcycles and accompanying trailers/caravans
-              * `53`	Passenger buses
-              * `54`	Trade vehicles (including import/export motor vehicles)
-              * `56`	Live animals on the hoof
-              * `59`	Other mobile self-propelled units
-              * `6X`	Mobile non-self-propelled units
-              * `61`	Unaccompanied road goods trailers and semitrailers
-              * `62`	Unaccompanied caravans and other road, agricultural and industrial vehicles
-              * `64`	Rail wagons engaged in goods transport
-              * `65`	Shipborne port-to-port trailers engaged in goods transport
-              * `66`	Shipborne barges engaged in goods transport
-              * `69`	Other mobile non-self-propelled units
-              * `9X`	Other cargo, not elsewhere specified 
-              * `91`	Forestry products
-              * `92`	Iron and steel products
-              * `99`	Other general cargo
-              * `RX`	Large Ro-Ro containers 
-              * `R1`	20 ft freight units 
-              * `R2`	40 ft freight units X
-              * `R3`	Freight units > 20 ft and < 40 ft 
-              * `R4`	Freight units > 40 ft 
-      type: string
-      enum: [1X, 11,12, 13, 19, 2X, 21, 22, 23, 29, 3X, 31, 32, 33, 34, 5X, 51, 52, 53, 54, 56, 59, 6X, 61, 62, 64, 65, 66, 69, 9X, 91, 92, 99, RX, R1, R2, R3, R4] 
-      maxLength: 2
-      example: 34 
-
-    commodity:
-      description: >
-            NST2007 code.
-              * `01`	Products of agriculture, hunting, and forestry; fish and other fishing products
-              * `02`	Coal and lignite; crude petroleum and natural gas
-              * `03`	Metal ores and other mining and quarrying products; peat; uranium and thorium
-              * `04`	Food products, beverages and tobacco
-              * `05`	Textiles and textile products; leather and leather products
-              * `06`	Wood and products of wood and cork (except furniture); articles of straw and plaiting materials; pulp, paper and paper products; printed matter and recorded media
-              * `07`	Coke and refined petroleum products
-              * `08`	Chemicals, chemical products, and man-made fibers; rubber and plastic products; nuclear fuel
-              * `09`	Other non metallic mineral products
-              * `10`  Basic metals; fabricated metal products, except machinery and equipment
-              * `11`	Machinery and equipment n.e.c.; office machinery and computers; electrical machinery and apparatus n.e.c.; radio, television and communication equipment and apparatus; medical, precision and optical instruments; watches and clocks
-              * `12`	Transport equipment
-              * `13`	Furniture; other manufactured goods n.e.c.
-              * `14`	Secondary raw materials; municipal wastes and other wastes
-              * `15`	Mail, parcels
-              * `16`	Equipment and material utilized in the transport of goods
-              * `17`	Goods moved in the course of household and office removals; baggage and articles accompanying travellers; motor vehicles being moved for repair; other non market goods n.e.c.
-              * `18` 	Grouped goods: a mixture of types of goods which are transported together
-              * `19`	Unidentifiable goods: goods which for any reason cannot be identified and therefore cannot be assigned to groups 01-16
-              * `20`	Other goods n.e.c.            
-      type: string
-      maxLength: 2
-      enum: [01, 02, 03, 04, 05, 06, 07, 08, 09, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20]
-      example: 08
-
-    grossWeight: 
-      description: Gross weight, expressed in tonnes.      
-      type: integer      
-      example: 875200 
-
-    passengers: 
-      description: Number of passengers.      
-      type: integer      
-      example: 24200 
-
-    units: 
-      description: Number of units (containers, intermodal transport units -ITU-, vehicles, vessels...).      
-      type: integer      
-      example: 4823 
-
-    coastalArea: 
-      description: A maritime coastal area is defined by Eurostat as a contiguous stretch of coastline, together with islands offshore. Annex VI from Directive 2009/42/EC of the European Parliament and of the Council.         
-      type: string  
-      maxLength: 4
-      example: GR00  
-       
-    currency:
-      description:  3 character ISO4217 alpha code for the representation of currencies.      
-      type: string      
-      example: EUR 
-
-    netProffit: 
-      description: Net proffit. The value is expressed in thousands of a given currency.      
-      type: integer      
-      example: 24200 
-
-    operatingProffit: 
-      description: Operating proffit. The value is expressed in thousands of a given currency.      
-      type: integer      
-      example: 26100 
-
-    financialResult: 
-      description: Financial result. The value is expressed in thousands of a given currency.      
-      type: integer      
-      example: 970 
-
-    netTurnover:
-      description: Net turnover. The value is expressed in thousands of a given currency.       
-      type: integer      
-      example: 113650 
-
-    ebitda:
-      description: Earnings before interest, tax, depreciation and amortisation. The value is expressed in thousands of a given currency.       
-      type: integer      
-      example: 24200 
-
-    cashFlow: 
-      description: Cash flow. The value is expressed in thousands of a given currency.       
-      type: integer      
-      example: 13800 
-
-    investments: 
-      description: Investments. The value is expressed in thousands of a given currency.       
-      type: integer      
-      example: 54300 
-
-
+  investments: 
+    description: Investments. The value is expressed in thousands of a given currency.       
+    type: integer      
+    example: 54300 
 
 #   Group 6: Measure identifiers, quantities (other than monetary)
+  grossWeight: 
+    description: Gross weight, expressed in tonnes.      
+    type: integer      
+    example: 875200 
+
+  passengers: 
+    description: Number of passengers.      
+    type: integer      
+    example: 24200 
+
+  units: 
+    description: Number of units (containers, intermodal transport units -ITU-, vehicles, vessels...).      
+    type: integer      
+    example: 4823 
 
 #   Group 7: Goods and articles: descriptions and identifiers
+  typeOfCargo: 
+    description: 2 character code of type of cargo, as defined in annex II from Directive 2009/42/EC of the European Parliament and of the Council. 
+            * `1X`  Liquid bulk goods (no cargo unit)
+            * `11`  Liquefied gas 
+            * `12`	Crude oil 
+            * `13`	Oil products 
+            * `19`	Other liquid bulk goods 
+            * `2X`	Dry bulk goods (no cargo unit) 
+            * `21`	Ores 
+            * `22`	Coal 
+            * `23`	Agricultural products (e.g. grain, soya, tapioca)
+            * `29`	Other dry bulk goods
+            * `3X`	Large containers
+            * `31`	20 ft freight units
+            * `32`	40 ft freight units
+            * `33`	Freight units > 20 ft and < 40 ft
+            * `34`	Freight units > 40 ft 
+            * `5X`	Mobile self-propelled units
+            * `51`	Road goods vehicles and accompanying trailers 
+            * `52`	Passenger cars, motorcycles and accompanying trailers/caravans
+            * `53`	Passenger buses
+            * `54`	Trade vehicles (including import/export motor vehicles)
+            * `56`	Live animals on the hoof
+            * `59`	Other mobile self-propelled units
+            * `6X`	Mobile non-self-propelled units
+            * `61`	Unaccompanied road goods trailers and semitrailers
+            * `62`	Unaccompanied caravans and other road, agricultural and industrial vehicles
+            * `64`	Rail wagons engaged in goods transport
+            * `65`	Shipborne port-to-port trailers engaged in goods transport
+            * `66`	Shipborne barges engaged in goods transport
+            * `69`	Other mobile non-self-propelled units
+            * `9X`	Other cargo, not elsewhere specified 
+            * `91`	Forestry products
+            * `92`	Iron and steel products
+            * `99`	Other general cargo
+            * `RX`	Large Ro-Ro containers 
+            * `R1`	20 ft freight units 
+            * `R2`	40 ft freight units X
+            * `R3`	Freight units > 20 ft and < 40 ft 
+            * `R4`	Freight units > 40 ft 
+    type: string
+    enum: [1X, 11,12, 13, 19, 2X, 21, 22, 23, 29, 3X, 31, 32, 33, 34, 5X, 51, 52, 53, 54, 56, 59, 6X, 61, 62, 64, 65, 66, 69, 9X, 91, 92, 99, RX, R1, R2, R3, R4] 
+    maxLength: 2
+    example: 34 
 
-
-
-
-#   Group 8 is for transport modes, means and equipments
-  # Maritime transport
-    shipIMONumber:
-      description: The identifier of ship.
-      type: string
-      maxLength: 7 
-      example: 9876543 
-
-    shipName:
-      description: The ship’s name shown on the IMO ship’s certificates.
-      type: string
-      maxLength: 35
-      example: AURORA 
-
-    shipType:
-      description: >
-            The type of the ship. The value is populated using the 2 character code from Annex VI from DIRECTIVE 2009/42/EC OF THE EUROPEAN PARLIAMENT AND OF THE COUNCIL of 6 May 2009 on statistical returns in respect of carriage of goods and passengers by sea.
-
-              * `10` Liquid bulk (Oil tanker, Chemical tanker, LG tanker, Tanker barge, Other tanker)
-              * `20` Dry bulk (Bulk/oil carrier, Bulk carrier)
-              * `31` Container (Full container)
-              * `32` Specialised (Barge carrier, Chemical carrier, Irradiated fuel, Livestock carrier, Vehicle carrier, Other specialised)
-              * `33` General cargo, non-specialised (Reefer, Ro-ro passenger, Ro-ro container, Other ro-ro cargo,Combination carrier general cargo/passenger, Combination carrier general cargo/container, Single-decker, Multi-decker)
-              * `34` Dry cargo barge (Deck barge, Hopper barge, Lash-seabee barge, Open dry cargo barge, Covered dry cargo barge, Other dry cargo barge nes)
-              * `35` Passenger (Passenger, excluding cruise passengers)
-              * `36` Cruise Passenger (Cruise ships only)
-              * `41` Fishing (Fish catching, Fish processing)
-              * `42` Offshore activities (Drilling and exploration, Offshore support)
-              * `43` Tugs (Tugs, Pusher craft)
-              * `49` Miscellaneous Dredgers (Research/survey, Other vessel nes)
-              * `XX` Unknown Unknown type of vessel
-   
-      type: string
-      maxLength: 2
-      example: 31    
-      enum: [10, 20, 31, 32, 33, 34, 35, 36, 41, 42, 43, 49, XX]
-
-    vesselNationality:
-      description: The code used for the Nationality of registration consists of four digit, the ISO3166 alpha 2 code for each country, followed by 2 zeros except for countries with more than one register exists, which are identified by a fourth digit other than zero (from 1 to 4). Codes are in annex V from Directive 2009/42/EC of the European Parliament and of the Council.
-      type: string
-      maxLength: 4 
-      example: GB04     
+  commodity:
+    description: >
+          NST2007 code.
+            * `01`	Products of agriculture, hunting, and forestry; fish and other fishing products
+            * `02`	Coal and lignite; crude petroleum and natural gas
+            * `03`	Metal ores and other mining and quarrying products; peat; uranium and thorium
+            * `04`	Food products, beverages and tobacco
+            * `05`	Textiles and textile products; leather and leather products
+            * `06`	Wood and products of wood and cork (except furniture); articles of straw and plaiting materials; pulp, paper and paper products; printed matter and recorded media
+            * `07`	Coke and refined petroleum products
+            * `08`	Chemicals, chemical products, and man-made fibers; rubber and plastic products; nuclear fuel
+            * `09`	Other non metallic mineral products
+            * `10`  Basic metals; fabricated metal products, except machinery and equipment
+            * `11`	Machinery and equipment n.e.c.; office machinery and computers; electrical machinery and apparatus n.e.c.; radio, television and communication equipment and apparatus; medical, precision and optical instruments; watches and clocks
+            * `12`	Transport equipment
+            * `13`	Furniture; other manufactured goods n.e.c.
+            * `14`	Secondary raw materials; municipal wastes and other wastes
+            * `15`	Mail, parcels
+            * `16`	Equipment and material utilized in the transport of goods
+            * `17`	Goods moved in the course of household and office removals; baggage and articles accompanying travellers; motor vehicles being moved for repair; other non market goods n.e.c.
+            * `18` 	Grouped goods: a mixture of types of goods which are transported together
+            * `19`	Unidentifiable goods: goods which for any reason cannot be identified and therefore cannot be assigned to groups 01-16
+            * `20`	Other goods n.e.c.            
+    type: string
+    maxLength: 2
+    enum: [01, 02, 03, 04, 05, 06, 07, 08, 09, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20]
+    example: 08
     
-    vesselDwt:
-      description: The deadweight (DWT) of a ship is the difference in tonnes between the displacement of a ship on the summer load line in water with a specific gravity of 1.025 and the total weight of the ship.
-      type: integer 
-      example: 174300 
-      
-    vesselGt:
-      description: gross tonnage (GT) is a measure of the overall size of a ship determined in accordance with the provisions of the International Convention on Tonnage Measurement of Ships (1969). It is calculated as a function of the moulded volume of all enclosed spaces of the ship.
-      type: integer
-      example: 235400 
+#   Group 8 is for transport modes, means and equipments
+# Maritime transport
+  shipIMONumber:
+    description: The identifier of ship.
+    type: string
+    maxLength: 7 
+    example: 9876543 
 
-    linerServiceName: 
-      description: Name of a Liner Service, as it is refered in Alphaliner
-      type: string
-      maxLength: 50 
-      example: New Eurosal / EuroAndes  
+  shipName:
+    description: The ship’s name shown on the IMO ship’s certificates.
+    type: string
+    maxLength: 35
+    example: AURORA 
 
-    linerServiceCode: 
-      description: Code of a Liner Service, as it is refered in Alphaliner
-      type: string
-      maxLength: 4 
-      example: 6513
+  shipType:
+    description: >
+          The type of the ship. The value is populated using the 2 character code from Annex VI from DIRECTIVE 2009/42/EC OF THE EUROPEAN PARLIAMENT AND OF THE COUNCIL of 6 May 2009 on statistical returns in respect of carriage of goods and passengers by sea.
 
-    linerServiceType: 
-      description: >
-            Type of Liner Service, coded. 
-              * `FC`	Full container - Containership.
-              * `CC`  Car-carrier.
-              * `RR`  Ro-Ro.
-              * `MP`  Multipurpose
-      type: string
-      maxLength: 2 
-      example: FC
+            * `10` Liquid bulk (Oil tanker, Chemical tanker, LG tanker, Tanker barge, Other tanker)
+            * `20` Dry bulk (Bulk/oil carrier, Bulk carrier)
+            * `31` Container (Full container)
+            * `32` Specialised (Barge carrier, Chemical carrier, Irradiated fuel, Livestock carrier, Vehicle carrier, Other specialised)
+            * `33` General cargo, non-specialised (Reefer, Ro-ro passenger, Ro-ro container, Other ro-ro cargo,Combination carrier general cargo/passenger, Combination carrier general cargo/container, Single-decker, Multi-decker)
+            * `34` Dry cargo barge (Deck barge, Hopper barge, Lash-seabee barge, Open dry cargo barge, Covered dry cargo barge, Other dry cargo barge nes)
+            * `35` Passenger (Passenger, excluding cruise passengers)
+            * `36` Cruise Passenger (Cruise ships only)
+            * `41` Fishing (Fish catching, Fish processing)
+            * `42` Offshore activities (Drilling and exploration, Offshore support)
+            * `43` Tugs (Tugs, Pusher craft)
+            * `49` Miscellaneous Dredgers (Research/survey, Other vessel nes)
+            * `XX` Unknown Unknown type of vessel
+  
+    type: string
+    maxLength: 2
+    example: 31    
+    enum: [10, 20, 31, 32, 33, 34, 35, 36, 41, 42, 43, 49, XX]
 
-    linerServiceCapacity: 
-      description: Capacity of a liner service, expressed in units according to the typology of the liner service. Units are TEUs for containerships, cars for car-carriers and LIMs (lanes in meters) for ro-ro vessels. 
-      type: string
-      example: 23064 TEU
+  vesselNationality:
+    description: The code used for the Nationality of registration consists of four digit, the ISO3166 alpha 2 code for each country, followed by 2 zeros except for countries with more than one register exists, which are identified by a fourth digit other than zero (from 1 to 4). Codes are in annex V from Directive 2009/42/EC of the European Parliament and of the Council.
+    type: string
+    maxLength: 4 
+    example: GB04     
+  
+  vesselDwt:
+    description: The deadweight (DWT) of a ship is the difference in tonnes between the displacement of a ship on the summer load line in water with a specific gravity of 1.025 and the total weight of the ship.
+    type: integer 
+    example: 174300 
+    
+  vesselGt:
+    description: gross tonnage (GT) is a measure of the overall size of a ship determined in accordance with the provisions of the International Convention on Tonnage Measurement of Ships (1969). It is calculated as a function of the moulded volume of all enclosed spaces of the ship.
+    type: integer
+    example: 235400 
 
-    linerCarrier: 
-      description: Liner carrier
-      properties:
-        carrierName:
-          description: Carrier name 
-          type: string
-          example: Mediterranean Shipping Company (MSC)
-        carrierCode:
-          description: Carrier code as Standard Carrier Alpha Code (SCAC) 
-          type: string
-          example: MSCU
+  linerServiceName: 
+    description: Name of a Liner Service, as it is refered in Alphaliner
+    type: string
+    maxLength: 50 
+    example: New Eurosal / EuroAndes  
 
-    linerSailingFrequency: 
-      description: Frequency of a liner service, expressed in days
-      type: string
-      example: 7
+  linerServiceCode: 
+    description: Code of a Liner Service, as it is refered in Alphaliner
+    type: string
+    maxLength: 4 
+    example: 6513
 
-    linerDurationOfRotation: 
-      description: Duration of the liner service rotation, expressed in days
-      type: string
-      example: 43  
-      
-  # Rail transport
-    trainType:
-      description: >
-            The type of the train. The value is populated using the following enumeration:
-              * `Containers`	General cargo vessel	Vessel designed to carry general cargo.
-              * `Vehicles`	Unit carrier	Vessel designed to carry unit loads
-              * `Bulk`	Bulk carrier	Vessel designed to carry bulk cargo.
-              * `Tanker`	Tanker	Vessel solely equipped with tanks to carry cargo. 
-      type: string
-      maxLength: 35
-      example: "Containers"    
-      enum: ["Containers", "Vehicles", "Bulk", "Tanker"]  
+  linerServiceType: 
+    description: >
+          Type of Liner Service, coded. 
+            * `FC`	Full container - Containership.
+            * `CC`  Car-carrier.
+            * `RR`  Ro-Ro.
+            * `MP`  Multipurpose
+    type: string
+    maxLength: 2 
+    example: FC
 
-    railService:      
-      type: string
-      description: Code that identifies a rail service.     
+  linerServiceCapacity: 
+    description: Capacity of a liner service, expressed in units according to the typology of the liner service. Units are TEUs for containerships, cars for car-carriers and LIMs (lanes in meters) for ro-ro vessels. 
+    type: string
+    example: 23064 TEU
 
-    railwayStationNearestCity:
-      type: string
-      description: Name of the nearest city to a railway station.
+  linerCarrier: 
+    description: Liner carrier
+    properties:
+      carrierName:
+        description: Carrier name 
+        type: string
+        example: Mediterranean Shipping Company (MSC)
+      carrierCode:
+        description: Carrier code as Standard Carrier Alpha Code (SCAC) 
+        type: string
+        example: MSCU
 
-    railTerminalLocode:
-      type: string
-      description: UN/LOCODE of a rail terminal. 
+  linerSailingFrequency: 
+    description: Frequency of a liner service, expressed in days
+    type: string
+    example: 7
 
-    railTerminalCode: 
-      type: string
-      description: Code that identifies a railway terminal. 
-      example: ESCRB
+  linerDurationOfRotation: 
+    description: Duration of the liner service rotation, expressed in days
+    type: string
+    example: 43  
+    
+# Rail transport
+  trainType:
+    description: >
+          The type of the train. The value is populated using the following enumeration:
+            * `Containers`	General cargo vessel	Vessel designed to carry general cargo.
+            * `Vehicles`	Unit carrier	Vessel designed to carry unit loads
+            * `Bulk`	Bulk carrier	Vessel designed to carry bulk cargo.
+            * `Tanker`	Tanker	Vessel solely equipped with tanks to carry cargo. 
+    type: string
+    maxLength: 35
+    example: "Containers"    
+    enum: ["Containers", "Vehicles", "Bulk", "Tanker"]  
 
-    railTerminalName: 
-      type: string
-      description: Name of a railway terminal. 
-      example: Zaragoza-Corbera-Alta  
+  railService:      
+    type: string
+    description: Code that identifies a rail service.     
 
-    railDirection:  
-      description: > 
-        Direction of a train:
-          * `UP` - Up or inbound is used for trains that are coming to a port.
-          * `DOWN` - Down or outbound is used for trains that are leaving a port. 
-      type: string
-      enum: [UP, DOWN]
-      example: UP
+  railwayStationNearestCity:
+    type: string
+    description: Name of the nearest city to a railway station.
 
-    # Road transport
-    vehicleTypes:  
-      description: >
-          Type of vehicles from the point of view of their structural characteristics.  
-            * `Car`
-            * `Trucks`
-            * `Both` - Trucks and cars
-            * `Trains`
-      type: string
-      enum: [Cars, Trucks, Both, Trains]
-      example: Trucks
+  railTerminalLocode:
+    type: string
+    description: UN/LOCODE of a rail terminal. 
+
+  railTerminalCode: 
+    type: string
+    description: Code that identifies a railway terminal. 
+    example: ESCRB
+
+  railTerminalName: 
+    type: string
+    description: Name of a railway terminal. 
+    example: Zaragoza-Corbera-Alta  
+
+  railDirection:  
+    description: > 
+      Direction of a train:
+        * `UP` - Up or inbound is used for trains that are coming to a port.
+        * `DOWN` - Down or outbound is used for trains that are leaving a port. 
+    type: string
+    enum: [UP, DOWN]
+    example: UP
+
+  # Road transport
+  vehicleTypes:  
+    description: >
+        Type of vehicles from the point of view of their structural characteristics.  
+          * `Car`
+          * `Trucks`
+          * `Both` - Trucks and cars
+          * `Trains`
+    type: string
+    enum: [Cars, Trucks, Both, Trains]
+    example: Trucks
 
 
-    # Equipment
-    freightType:
-      description: >
-            Type of freight.  
-              * `Solid bulk`
-              * `Liquid bulk`
-              * `Roll-on / roll-off`
-              * `Breakbulk`
-              * `Containers`
-      type: string
-      enum: [Solid bulk, Liquid bulk, Roll-on / roll-off, Breakbulk, Containers]
-      example: Containers
+  # Equipment
+  freightType:
+    description: >
+          Type of freight.  
+            * `Solid bulk`
+            * `Liquid bulk`
+            * `Roll-on / roll-off`
+            * `Breakbulk`
+            * `Containers`
+    type: string
+    enum: [Solid bulk, Liquid bulk, Roll-on / roll-off, Breakbulk, Containers]
+    example: Containers
 
-    containerNumber:
-      description: Container number as is described in ISO6346
-      type: string
-      maxLength: 11
-      example: ABCU1234567    
+  containerNumber:
+    description: Container number as is described in ISO6346
+    type: string
+    maxLength: 11
+    example: ABCU1234567    
 
-    equipmentTare:
-      description: Tare of a unit of equipment, expressed in Kg.
-      type: integer
-      example: 2340     
+  equipmentTare:
+    description: Tare of a unit of equipment, expressed in Kg.
+    type: integer
+    example: 2340     
 
-    iso6346:
-      description: Size and type codes of a container, used as a whole. Size codes are determined in accordance with annex D of ISO 6346:1995 and type codes according to annex E of the same international standard.
-      type: string
-      maxLength: 4
-      example: 22G1 
+  iso6346:
+    description: Size and type codes of a container, used as a whole. Size codes are determined in accordance with annex D of ISO 6346:1995 and type codes according to annex E of the same international standard.
+    type: string
+    maxLength: 4
+    example: 22G1 
 
 
 #   Group 9 is for other data elements 
-    # Environment
-
-
-
-    # Port marks
-    markRegion: 
-      description: >
-            Mark region, according to the IALA/AISM Maritime Buoyage System nd Other Aids to Navigation. 
-              * In `Region A` red colour is used for port and green colour starboard. 
-              * In `Region B` green colour is used for port and red colour starboard. 
-      type: string
-      enum: [Region A, Region B]
-      example: Region A
-
-    markType: 
-      description: >
-            Type of marks, according to the IALA/AISM Maritime Buoyage System and Other Aids to Navigation.  
-              * `Lateral Marks`
-              * `Cardinal Marks`
-              * `Isolated Danger Mark`
-              * `Safe Waters Mark`
-              * `Marking New Dangers`
-              * `Other Marks`
-      type: string
-      enum: [Lateral Marks, Cardinal Marks, Isolated Danger Mark, Safe Waters Mark, Marking New Dangers, Other Marks]
-      example: Isolated Danger Mark
-
-    markTop: 
-      description: Upper part of a mark. It can be one or two spheres, cilinders, cones or crosses.
-      type: string
-      example: Two black spheres.
-
-    markColour: 
-      description: Mark colour.
-      type: string
-      example: Red and white vertical stripes.
-
-    shapeOfBuoy: 
-      description: Distinctive shape for identification of a mark.
-      type: string
-      example: Conical shape.
-
-    markLight: 
-      description: Characteristics of a mark light.
-      properties:
-        colour:
-          description: Colour 
-          type: string
-          example: red
-        rhythm:
-          description: Rhythm of the light and dark periodes of a mark light. 
-          type: string
-          example: group flashing (2)
-
-    # Notices and news
-    noticeLanguage:
-      description: Language used to write a notice. 
-      $ref: '#/components/schemas/language'
-
-    newsLanguage:
-      description: Language used to write news. 
-      $ref: '#/components/schemas/language'
-
-    publishingStage:  
-      description: > 
-        Stages of a publishing process:
-          * `ACTIVE` - Element that is active
-          * `EXPIRED` - Element that has expired 
-      type: string
-      enum: [ACTIVE, EXPIRED]
-
-    subject:
-      description: Subject of a publication.      
-      type: string
-
-    content:
-      description: Content of a publication. 
-      type: string
-
-    noticeCategory:
-      description: Category of a publication. 
-      type: string
-      example: 'Ship arrival'
-
-    newsCategory:
-      description: Category of a publication. 
-      type: string
-      example: 'Traffic'
-
-    # Subscriptions
-    subscriptionReference:
-      description: Response after a subscription request has been received
-      type: object
-      properties:
-        subscriptionRequestReference:
-          $ref: '#/components/schemas/subscriptionRequestReference'
-        subscriptionRequestMessage:
-          $ref: '#/components/schemas/subscriptionRequestMessage'
-
-    subscriptionRequestReference: 
-      type: string
-      example: '2022-02-07T17:05:12_REF001'
-
-    subscriptionRequestMessage:
-      type: string 
-      example: 'Your subscription request has been received and soon you will receive a validation code (email/sms)'
-
-    unsubscriptionRequestReference: 
-      type: string
-      example: '2022-02-10T17:05:12_UNS056'
-
-    unsubscriptionRequestMessage:
-      type: string 
-      example: 'Your unsubscription request has been received and soon you will receive a validation code (email/sms)'
-
-    unsubscriptionReference:
-      description: Response after an unsubscription request has been received
-      type: object
-      properties:
-        unsubscriptionRequestReference:
-          $ref: '#/components/schemas/unsubscriptionRequestReference'
-        unsubscriptionRequestMessage:
-          $ref: '#/components/schemas/unsubscriptionRequestMessage'
-
-    # Environmenet-weather
-    weatherType: 
-      description: The observed weather type. 
-      type: string
-      enum: [clearNight,sunnyDay, slightlyCloudy, partlyCloudy, mist, fog, highClouds, cloudy, veryCloudy, overcast, lightRainShower, drizzle, lightRain, heavyRainShower, heavyRain, sleetShower, sleet, hailShower, hail, shower, lightSnow, snow, heavySnowShower, heavySnow, thunderShower, thunder]
-      example: cloudy
-
-    dewPoint: 
-      description: The dew point encoded as a number. Default unit is Celsius degrees. See also https://en.wikipedia.org/wiki/Dew_point
-      type: number
-
-    visibility: 
-      description: Visibility reported.
-      type: string
-      enum: [veryPoor, poor, moderate, good, veryGood, excellent]
-      example: good
-
-    temperature: 
-      description: Air's temperature observed. Default unit is degrees centigrades.
-      type: number
-
-    feelsLikeTemperature:  
-      description: Wind chill/Feels like Temperature (°C)
-      type: number
-
-    relativeHumidity: 
-      description: Air's relative humidity observed (percentage, expressed in parts per one).
-      type: number
-      minimum: 0
-      maximum: 1
-      example: 0.4            
-
-    precipitation: 
-      description: Precipitation level observed. Default unit is liters per square meter.
-      type: number
-      example: 13
-
-    precipitationProbability:
-      description: Rain precipitation probability (%)
-      type: number
-      minimum: 0
-      maximum: 1
-
-    windDirection: 
-      description: The wind direction expressed in decimal degrees compared to geographic North (measured clockwise), encoded as a Number. Range 0 to 360.
-      type: number
-      minimum: 0
-      maximum: 360
-      example: 135  
-
-    windSpeed: 
-      description: The observed wind speed in m/s.
-      type: number
-
-    atmosphericPressure: 
-      description: The atmospheric pressure observed measured in Hecto Pascals.
-      type: number
-
-    pressureTendency: 
-      description: Is the pressure rising or falling. It can be expressed in quantitative terms or qualitative terms.
-      type: string
-      enum: [raising, falling, steady]
-      example: steady
-
-    solarRadiation: 
-      description: The solar radiation observed measured in Watts per square meter.
-      type: number 
-
-    illuminance: 
-      description: The illumninance observed measured in lux (lx) or lumens per square metre (cd·sr·m-2).
-      type: number
-      example: 1000
-
-    cloudCover:  
-      description: Cloud cover in percentage (%)
-      type: number
-      minimum: 0
-      maximum: 1
-
-    sunrise:  
-      description: 'Sunrise hour.'
-      type: string
-      format: date-time
-
-    sunset:  
-      description: 'Sunset hour.'
-      type: string
-      format: date-time
-
-    moonrise:  
-      description: 'Moonrise hour.'
-      type: string
-      format: date-time
-
-    moonset:  
-      description: 'Moonrise hour.'
-      type: string
-      format: date-time
-
-    moonPhase:  
-      description: 'Moon phase.'
-      type: string
-      enum: [New Moon, First Quarter, Full Moon, Last Quarter]
-      example: Full Moon
-
-    illumination:  
-      description: 'Moon percentage illumination.'
-      type: integer
-      minimum: 0
-      maximum: 100
-      example: 90   
-
-    surfaceTemperature: 
-      description: Sea surface temperature, expressed in Celsius degrees.
-      type: number
-      example: 18.5
-
-    waveHeight: 
-      description: Height of the waves, expressed in meters.
-      type: number
-      example: 1.2
-
-    waveLevel: 
-      description: It indicates the height of the waves and also measures the swell of the sea, expressed in meters.
-      type: number
-      example: 1.7
-
-    wavePeriod: 
-      description: Indicates the time between the crests of a wave, expressed in seconds.'
-      type: number
-      example: 12
-
-    source: 
-      description: A sequence of characters giving the original source of the entity data as a URL. Recommended to be the fully qualified domain name of the source provider, or the URL to the source object.
-      $ref: './oiapComponents.yml#/components/schemas/uri'
-
-    swellHeight:  
-      description: Swell height in (meter)
-      type: number
-
-    swellPeriod:  
-      description: Swell period in (secs)
-      type: integer
-
-    swellDirection:              
-      description: Swell direction
-      type: integer
-      minimum: 0
-      maximum: 360
-
-    airQualityIndex:  
-      description: 'Value of the Air Quality Index (AQI).'
-      type: integer
-      minimum: 0
-      maximum: 100
-      example: 65
-
-    airQualityLevel:  
-      description: 'Air Quality Level. Example values are those defined by the USA EPA Agency: (good, moderate, unhealthyForSensitiveGroups, unhealthy, veryUnhealthy, hazardous).'
-      type: string
-      enum: [good, moderate, unhealthyForSensitiveGroups, unhealthy, veryUnhealthy, hazardous]
-      example: moderate 
-
-    waterQualityIndex:  
-      description: 'Value of the Water Quality Index (WQI).'
-      type: integer
-      minimum: 0
-      maximum: 100
-      example: 83
-
-    waterQualityLevel:  
-      description: 'Water Quality Level. Example values are excellent quality, good, average, bad.'
-      type: string
-      enum: [excellent quality, good, average, bad]
-      example: moderate
-
-    waterTemperature:  
-      description: 'Water temperature, expressed in Celsius degrees.'
-      type: number
-      example: 22.5
-
-    salinity: 
-      description: Amount of salts dissolved in water, measured in parts per thousand (ppt).
-      type: number
-      example: 22.15
-
-    ph: 
-      description: Acidity or basicity of an aqueous solution, expressed as the negative of the logarithm to base 10 of the activity of the hydrogen ion. 
-      type: number
-      example: 7.5
-
-    turbidity: 
-      description: Amount of light scattered by particles in the water column, measured in Formazin Turbidity Units (FTU).
-      type: number
-      example: 18.15
-
-    o2: 
-      description: Level of free, non-compound oxygen present, expressed in milligrams per liter (mg/L).
-      type: number
-      example: 4.12
-
-    tss: 
-      description: Total suspended solids, measured in milligrams per liter (mg/L).
-      type: number
-      example: 123
-
-    tds: 
-      description: Total dissolved solids, measured in milligrams per liter (mg/L).
-      type: number
-      example: 100
-
-    nitrates: 
-      description: Concentration of nitrates, expressed in milligrams per liter (mg/L).
-      type: number
-      example: 0.01
-
-    nitrites: 
-      description: Concentration of nitrites, expressed in milligrams per liter (mg/L).
-      type: number
-      example: 0.972
-
-    ammonia: 
-      description: Concentration of ammonia, expressed in milligrams per liter (mg/L).
-      type: number
-      example: 0.996             
-
-    silicate: 
-      description: Concentration of silicate, expressed in milligrams per liter (mg/L).
-      type: number
-      example: 0.994
-
-    phosphate: 
-      description: Concentration of phosphate, expressed in milligrams per liter (mg/L).
-      type: number              
-      example: 0.996
-
-    co:  
-      description: 'CO concentration, in milligrams per cubic meter.'
-      type: integer
-      example: 500 
-
-    no:  
-      description: 'NO concentration, in milligrams per cubic meter.'
-      type: integer
-      example: 43
-
-    no2:  
-      description: 'NO2 concentration, in milligrams per cubic meter.'
-      type: integer
-      example: 70
-
-    nox:  
-      description: 'NOx concentration, in milligrams per cubic meter.'
-      type: integer
-      example: 490
-
-    so2:  
-      description: 'SO2 concentration, in milligrams per cubic meter.'
-      type: integer
-      example: 12
-
-    noiseLevel:
-      description: Noise level, expressed in dB.
-      type: integer
-      minimum: 0
-      maximum: 140
-      example: 65
-
-    location:
-      description: Location of the weather observation represented by a GeoJSON geometry. https://tools.ietf.org/html/rfc7946. Mandatory if address is not defined.
-      type: string             
-
-    dateObserved:
-      description: The date and time of this observation in ISO8601 UTCformat. It can be represented by an specific time instant or by an ISO8601 interval.
-      type: string
-      format: date-time
-
-    refDevice: 
-      description: A reference to the device(s) which captured this observation.
-      type: string
-
-    refPointOfInterest: 
-      description: A reference to a point of interest (usually a weather station) associated to this observation.
-      type: string
+  # Port marks
+  markRegion: 
+    description: >
+          Mark region, according to the IALA/AISM Maritime Buoyage System nd Other Aids to Navigation. 
+            * In `Region A` red colour is used for port and green colour starboard. 
+            * In `Region B` green colour is used for port and red colour starboard. 
+    type: string
+    enum: [Region A, Region B]
+    example: Region A
+
+  markType: 
+    description: >
+          Type of marks, according to the IALA/AISM Maritime Buoyage System and Other Aids to Navigation.  
+            * `Lateral Marks`
+            * `Cardinal Marks`
+            * `Isolated Danger Mark`
+            * `Safe Waters Mark`
+            * `Marking New Dangers`
+            * `Other Marks`
+    type: string
+    enum: [Lateral Marks, Cardinal Marks, Isolated Danger Mark, Safe Waters Mark, Marking New Dangers, Other Marks]
+    example: Isolated Danger Mark
+
+  markTop: 
+    description: Upper part of a mark. It can be one or two spheres, cilinders, cones or crosses.
+    type: string
+    example: Two black spheres.
+
+  markColour: 
+    description: Mark colour.
+    type: string
+    example: Red and white vertical stripes.
+
+  shapeOfBuoy: 
+    description: Distinctive shape for identification of a mark.
+    type: string
+    example: Conical shape.
+
+  markLight: 
+    description: Characteristics of a mark light.
+    properties:
+      colour:
+        description: Colour 
+        type: string
+        example: red
+      rhythm:
+        description: Rhythm of the light and dark periodes of a mark light. 
+        type: string
+        example: group flashing (2)
+
+  # Notices and news
+  noticeLanguage:
+    description: Language used to write a notice. 
+    $ref: '#/language'
+
+  newsLanguage:
+    description: Language used to write news. 
+    $ref: '#/language'
+
+  publishingStage:  
+    description: > 
+      Stages of a publishing process:
+        * `ACTIVE` - Element that is active
+        * `EXPIRED` - Element that has expired 
+    type: string
+    enum: [ACTIVE, EXPIRED]
+
+  subject:
+    description: Subject of a publication.      
+    type: string
+
+  content:
+    description: Content of a publication. 
+    type: string
+
+  noticeCategory:
+    description: Category of a publication. 
+    type: string
+    example: 'Ship arrival'
+
+  newsCategory:
+    description: Category of a publication. 
+    type: string
+    example: 'Traffic'
+
+  # Subscriptions
+  subscriptionReference:
+    description: Response after a subscription request has been received
+    type: object
+    properties:
+      subscriptionRequestReference:
+        $ref: '#/subscriptionRequestReference'
+      subscriptionRequestMessage:
+        $ref: '#/subscriptionRequestMessage'
+
+  subscriptionRequestReference: 
+    type: string
+    example: '2022-02-07T17:05:12_REF001'
+
+  subscriptionRequestMessage:
+    type: string 
+    example: 'Your subscription request has been received and soon you will receive a validation code (email/sms)'
+
+  unsubscriptionRequestReference: 
+    type: string
+    example: '2022-02-10T17:05:12_UNS056'
+
+  unsubscriptionRequestMessage:
+    type: string 
+    example: 'Your unsubscription request has been received and soon you will receive a validation code (email/sms)'
+
+  unsubscriptionReference:
+    description: Response after an unsubscription request has been received
+    type: object
+    properties:
+      unsubscriptionRequestReference:
+        $ref: '#/unsubscriptionRequestReference'
+      unsubscriptionRequestMessage:
+        $ref: '#/unsubscriptionRequestMessage'
+
+  # Environmenet-weather
+  weatherType: 
+    description: The observed weather type. 
+    type: string
+    enum: [clearNight,sunnyDay, slightlyCloudy, partlyCloudy, mist, fog, highClouds, cloudy, veryCloudy, overcast, lightRainShower, drizzle, lightRain, heavyRainShower, heavyRain, sleetShower, sleet, hailShower, hail, shower, lightSnow, snow, heavySnowShower, heavySnow, thunderShower, thunder]
+    example: cloudy
+
+  dewPoint: 
+    description: The dew point encoded as a number. Default unit is Celsius degrees. See also https://en.wikipedia.org/wiki/Dew_point
+    type: number
+
+  visibility: 
+    description: Visibility reported.
+    type: string
+    enum: [veryPoor, poor, moderate, good, veryGood, excellent]
+    example: good
+
+  temperature: 
+    description: Air's temperature observed. Default unit is degrees centigrades.
+    type: number
+
+  feelsLikeTemperature:  
+    description: Wind chill/Feels like Temperature (°C)
+    type: number
+
+  relativeHumidity: 
+    description: Air's relative humidity observed (percentage, expressed in parts per one).
+    type: number
+    minimum: 0
+    maximum: 1
+    example: 0.4            
+
+  precipitation: 
+    description: Precipitation level observed. Default unit is liters per square meter.
+    type: number
+    example: 13
+
+  precipitationProbability:
+    description: Rain precipitation probability (%)
+    type: number
+    minimum: 0
+    maximum: 1
+
+  windDirection: 
+    description: The wind direction expressed in decimal degrees compared to geographic North (measured clockwise), encoded as a Number. Range 0 to 360.
+    type: number
+    minimum: 0
+    maximum: 360
+    example: 135  
+
+  windSpeed: 
+    description: The observed wind speed in m/s.
+    type: number
+
+  atmosphericPressure: 
+    description: The atmospheric pressure observed measured in Hecto Pascals.
+    type: number
+
+  pressureTendency: 
+    description: Is the pressure rising or falling. It can be expressed in quantitative terms or qualitative terms.
+    type: string
+    enum: [raising, falling, steady]
+    example: steady
+
+  solarRadiation: 
+    description: The solar radiation observed measured in Watts per square meter.
+    type: number 
+
+  illuminance: 
+    description: The illumninance observed measured in lux (lx) or lumens per square metre (cd·sr·m-2).
+    type: number
+    example: 1000
+
+  cloudCover:  
+    description: Cloud cover in percentage (%)
+    type: number
+    minimum: 0
+    maximum: 1
+
+  sunrise:  
+    description: 'Sunrise hour.'
+    type: string
+    format: date-time
+
+  sunset:  
+    description: 'Sunset hour.'
+    type: string
+    format: date-time
+
+  moonrise:  
+    description: 'Moonrise hour.'
+    type: string
+    format: date-time
+
+  moonset:  
+    description: 'Moonrise hour.'
+    type: string
+    format: date-time
+
+  moonPhase:  
+    description: 'Moon phase.'
+    type: string
+    enum: [New Moon, First Quarter, Full Moon, Last Quarter]
+    example: Full Moon
+
+  illumination:  
+    description: 'Moon percentage illumination.'
+    type: integer
+    minimum: 0
+    maximum: 100
+    example: 90   
+
+  surfaceTemperature: 
+    description: Sea surface temperature, expressed in Celsius degrees.
+    type: number
+    example: 18.5
+
+  waveHeight: 
+    description: Height of the waves, expressed in meters.
+    type: number
+    example: 1.2
+
+  waveLevel: 
+    description: It indicates the height of the waves and also measures the swell of the sea, expressed in meters.
+    type: number
+    example: 1.7
+
+  wavePeriod: 
+    description: Indicates the time between the crests of a wave, expressed in seconds.'
+    type: number
+    example: 12
+
+  source: 
+    description: A sequence of characters giving the original source of the entity data as a URL. Recommended to be the fully qualified domain name of the source provider, or the URL to the source object.
+    $ref: './oiapComponents.yml#/uri'
+
+  swellHeight:  
+    description: Swell height in (meter)
+    type: number
+
+  swellPeriod:  
+    description: Swell period in (secs)
+    type: integer
+
+  swellDirection:              
+    description: Swell direction
+    type: integer
+    minimum: 0
+    maximum: 360
+
+  airQualityIndex:  
+    description: 'Value of the Air Quality Index (AQI).'
+    type: integer
+    minimum: 0
+    maximum: 100
+    example: 65
+
+  airQualityLevel:  
+    description: 'Air Quality Level. Example values are those defined by the USA EPA Agency: (good, moderate, unhealthyForSensitiveGroups, unhealthy, veryUnhealthy, hazardous).'
+    type: string
+    enum: [good, moderate, unhealthyForSensitiveGroups, unhealthy, veryUnhealthy, hazardous]
+    example: moderate 
+
+  waterQualityIndex:  
+    description: 'Value of the Water Quality Index (WQI).'
+    type: integer
+    minimum: 0
+    maximum: 100
+    example: 83
+
+  waterQualityLevel:  
+    description: 'Water Quality Level. Example values are excellent quality, good, average, bad.'
+    type: string
+    enum: [excellent quality, good, average, bad]
+    example: moderate
+
+  waterTemperature:  
+    description: 'Water temperature, expressed in Celsius degrees.'
+    type: number
+    example: 22.5
+
+  salinity: 
+    description: Amount of salts dissolved in water, measured in parts per thousand (ppt).
+    type: number
+    example: 22.15
+
+  ph: 
+    description: Acidity or basicity of an aqueous solution, expressed as the negative of the logarithm to base 10 of the activity of the hydrogen ion. 
+    type: number
+    example: 7.5
+
+  turbidity: 
+    description: Amount of light scattered by particles in the water column, measured in Formazin Turbidity Units (FTU).
+    type: number
+    example: 18.15
+
+  o2: 
+    description: Level of free, non-compound oxygen present, expressed in milligrams per liter (mg/L).
+    type: number
+    example: 4.12
+
+  tss: 
+    description: Total suspended solids, measured in milligrams per liter (mg/L).
+    type: number
+    example: 123
+
+  tds: 
+    description: Total dissolved solids, measured in milligrams per liter (mg/L).
+    type: number
+    example: 100
+
+  nitrates: 
+    description: Concentration of nitrates, expressed in milligrams per liter (mg/L).
+    type: number
+    example: 0.01
+
+  nitrites: 
+    description: Concentration of nitrites, expressed in milligrams per liter (mg/L).
+    type: number
+    example: 0.972
+
+  ammonia: 
+    description: Concentration of ammonia, expressed in milligrams per liter (mg/L).
+    type: number
+    example: 0.996             
+
+  silicate: 
+    description: Concentration of silicate, expressed in milligrams per liter (mg/L).
+    type: number
+    example: 0.994
+
+  phosphate: 
+    description: Concentration of phosphate, expressed in milligrams per liter (mg/L).
+    type: number              
+    example: 0.996
+
+  co:  
+    description: 'CO concentration, in milligrams per cubic meter.'
+    type: integer
+    example: 500 
+
+  no:  
+    description: 'NO concentration, in milligrams per cubic meter.'
+    type: integer
+    example: 43
+
+  no2:  
+    description: 'NO2 concentration, in milligrams per cubic meter.'
+    type: integer
+    example: 70
+
+  nox:  
+    description: 'NOx concentration, in milligrams per cubic meter.'
+    type: integer
+    example: 490
+
+  so2:  
+    description: 'SO2 concentration, in milligrams per cubic meter.'
+    type: integer
+    example: 12
+
+  noiseLevel:
+    description: Noise level, expressed in dB.
+    type: integer
+    minimum: 0
+    maximum: 140
+    example: 65
+
+  location:
+    description: Location of the weather observation represented by a GeoJSON geometry. https://tools.ietf.org/html/rfc7946. Mandatory if address is not defined.
+    type: string             
+
+  dateObserved:
+    description: The date and time of this observation in ISO8601 UTCformat. It can be represented by an specific time instant or by an ISO8601 interval.
+    type: string
+    format: date-time
+
+  refDevice: 
+    description: A reference to the device(s) which captured this observation.
+    type: string
+
