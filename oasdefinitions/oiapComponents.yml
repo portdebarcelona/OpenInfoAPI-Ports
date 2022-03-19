@@ -419,11 +419,6 @@
     description: Vat number of a company.
     type: string
 
-  partnerActivity:   # Maybe it can be replaced by activity
-    description: Main activity of a partner.
-    type: string
-    example: Freight forwarder
-
   activity:  
     description: >
           Activity performed by a company or a governmental body.

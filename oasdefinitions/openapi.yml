@@ -1170,10 +1170,10 @@ paths:
               schema:
                 type: object
                 properties:
-                  borderInspectionActors:
+                  activities:
                     type: array
                     items:
-                      $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents.yml#/partnerActivity'
+                      $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents.yml#/activity'
                   metadata: 
                     $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents.yml#/metadata'
                   queryParams:
