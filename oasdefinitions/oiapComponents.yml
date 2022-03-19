@@ -52,37 +52,40 @@ components:
             type: string
             example: CZs+aW-1pdD01
         required: true
+
     nextPage: 
         description: A link to the next page. Next-Page header link MAY be omitted if the current page is the last page.
         schema:
             type: string
             example: 3+fE9mZnNldHw
         required: false
+
     prevPage:
         description: A link to the previous page. Previous-Page header link MAY be omitted if the current page is the first page.
         schema: 
             type: string
             example: ZnNl=dHw9MCZs
         required: false
+
     lastPage: 
         description: A link to the last page. Last-Page header link MAY be omitted if the current page is the last page.
         schema: 
             type: string
             example: ldHw9NTkm-bGlt
         required: false
+
     firstPage: 
         description: A link to thefirst page. First-Page header link MAY be omitted if current page is the first page.
         schema: 
             type: string
             example: aXttva7+dWZ42i
         required: false
+
     oiapApiVersion:
         description: SemVer used to indicate the version of the contract (API version) returned.
         schema: 
             type: string
             example: 0.9.0-oas3
-
-
 
   schemas:
   #   Group 1: Documentation and references.
