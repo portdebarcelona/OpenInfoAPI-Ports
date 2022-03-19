@@ -371,21 +371,6 @@
     description: Information about a governmental body.
     type: string
 
-  companyOverviewInfo: 
-    description: 'Basic information about a company or a governmental body.'
-    type: object
-    allOf:
-      - type: object 
-        properties:
-          companyName:
-            $ref: '#/companyName' 
-          activities: 
-            type: array
-            items:
-              $ref: '#/activity'
-          companyVat:
-            $ref: '#/companyVat'
-
   companyData: 
     description: 'Detailled information about a company or a governmental body.' 
     type: object
@@ -416,6 +401,21 @@
           - activities
           - companyName
           - phone
+
+  companyOverviewInfo: 
+    description: 'Basic information about a company or a governmental body.'
+    type: object
+    allOf:
+      - type: object 
+        properties:
+          companyName:
+            $ref: '#/companyName' 
+          activities: 
+            type: array
+            items:
+              $ref: '#/activity'
+          companyVat:
+            $ref: '#/companyVat'
 
   companyVat:
     description: Vat number of a company.
