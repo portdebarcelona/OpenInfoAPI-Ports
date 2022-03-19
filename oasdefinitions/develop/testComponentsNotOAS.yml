@@ -5,6 +5,7 @@ info:
   description: |
     **Open Info API para Puertos**
 
+    This file is a copy of 14oiapPortCalendar.yml for testing the use of $ref to retrieve schemas with files that are not openapi compliant. 
 
     This file contains all the APIs developed for the `Open Info API para Puertos` project for the **Port Calendar Domain** within the initiative Ports 4.0 form Puertos del Estado (ES).
 
@@ -43,7 +44,7 @@ paths:
           description: Successful operation
           headers:
             oiapApiVersion:
-              $ref: './oiapComponents.yml#/components/headers/oiapApiVersion'
+              $ref: './testOiapComponents.yml#/components/headers/oiapApiVersion'
           content: 
             application/json:
               schema:
@@ -54,32 +55,32 @@ paths:
                     items:
                       $ref: '#/components/schemas/holiday'
                   metadata:
-                        $ref: './oiapComponents.yml#/components/schemas/metadata'                  
+                        $ref: './testOiapComponents.yml#/components/schemas/metadata'                  
                   queryParams:
                     type: object
                     properties:
                       country:
-                        $ref: './oiapComponents.yml#/components/schemas/countryCode'
+                        $ref: './testOiapComponents.yml#/components/schemas/countryCode'
                       subdivision:
-                        $ref: './oiapComponents.yml#/components/schemas/subdivisionCode'
+                        $ref: './testOiapComponents.yml#/components/schemas/subdivisionCode'
                       portCode:
-                        $ref: './oiapComponents.yml#/components/schemas/portCode'
+                        $ref: './testOiapComponents.yml#/components/schemas/portCode'
                       fromDate:
-                        $ref: './oiapComponents.yml#/components/schemas/fromDate'
+                        $ref: './testOiapComponents.yml#/components/schemas/fromDate'
                       toDate:
-                        $ref: './oiapComponents.yml#/components/schemas/toDate'
+                        $ref: './testOiapComponents.yml#/components/schemas/toDate'
         '400':
           description: Bad request
           content:
             application/json:
               schema:
-                $ref: './oiapComponents.yml#/components/schemas/error' 
+                $ref: './testOiapComponents.yml#/components/schemas/error' 
         '404':
           description: Not found
           content:
             application/json:
               schema:
-                $ref: './oiapComponents.yml#/components/schemas/error' 
+                $ref: './testOiapComponents.yml#/components/schemas/error' 
 
 components:
   parameters: 
@@ -92,7 +93,7 @@ components:
       style: form
       explode: false
       schema:
-        $ref: './oiapComponents.yml#/components/schemas/countryCode'
+        $ref: './testOiapComponents.yml#/components/schemas/countryCode'
 
     subdivision:
       in: query
@@ -102,7 +103,7 @@ components:
       style: form
       explode: false
       schema:
-        $ref: './oiapComponents.yml#/components/schemas/subdivisionCode'
+        $ref: './testOiapComponents.yml#/components/schemas/subdivisionCode'
 
     portCode:
       in: query
@@ -115,7 +116,7 @@ components:
       style: form
       explode: false
       schema:
-        $ref: './oiapComponents.yml#/components/schemas/portCode'
+        $ref: './testOiapComponents.yml#/components/schemas/portCode'
 
     fromDate:
       in: query
@@ -125,7 +126,7 @@ components:
       style: form
       explode: false
       schema:
-        $ref: './oiapComponents.yml#/components/schemas/fromDate'
+        $ref: './testOiapComponents.yml#/components/schemas/fromDate'
 
     toDate:
       in: query
@@ -135,7 +136,7 @@ components:
       style: form
       explode: false
       schema:
-        $ref: './oiapComponents.yml#/components/schemas/toDate'
+        $ref: './testOiapComponents.yml#/components/schemas/toDate'
 
   schemas:
     holiday:
@@ -145,15 +146,15 @@ components:
         - type: object 
           properties:
             holidayDate:  
-              $ref: './oiapComponents.yml#/components/schemas/holidayDate'
+              $ref: './testOiapComponents.yml#/components/schemas/holidayDate'
             holidayType: 
-              $ref: './oiapComponents.yml#/components/schemas/holidayType'
+              $ref: './testOiapComponents.yml#/components/schemas/holidayType'
             holidayCountry:
-              $ref: './oiapComponents.yml#/components/schemas/countryCode'
+              $ref: './testOiapComponents.yml#/components/schemas/countryCode'
             holidaySubdivision:
-              $ref: './oiapComponents.yml#/components/schemas/subdivisionCode'
+              $ref: './testOiapComponents.yml#/components/schemas/subdivisionCode'
             holidayPort:
-              $ref: './oiapComponents.yml#/components/schemas/portCode'
+              $ref: './testOiapComponents.yml#/components/schemas/portCode'
       required:
         - holidayDate
 
