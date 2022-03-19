@@ -210,16 +210,6 @@ components:
       description: Details about the last changes.  
       type: string
 
-    skip:
-      description: 'Number of records that must be skipped.'
-      type: integer
-      format: int32
-
-    take:
-      description: 'Number of records that must be taken.'
-      type: integer
-      format: int32
-
   #   Group 2: Dates, times, periods of time
     dateIssued:  
       description: The date and time the alert was issued by the alert generator. The value is populated in ISO 8601 Date format.

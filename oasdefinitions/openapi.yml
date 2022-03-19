@@ -3082,12 +3082,9 @@ paths:
       tags:
         - Port Services
       summary: Returns a list of different service types that are offered in a port.
-
       description: Returns a list of different service types that are offered in a port.
       parameters:
-        - $ref: '#/components/parameters/portCode'
-        - $ref: '#/components/parameters/skip'
-        - $ref: '#/components/parameters/take'        
+        - $ref: '#/components/parameters/portCode'       
       responses: 
         '200':
           description: Successful operation
@@ -3572,26 +3569,6 @@ components:
       explode: false
       schema:
         $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents.yml#/components/schemas/serviceType'
-
-    skip:
-      in: query
-      name: skip
-      description: Number of records that have to be skipped.        
-      required: false
-      style: form
-      explode: false
-      schema:
-        $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents.yml#/components/schemas/skip'
-
-    take:
-      in: query
-      name: take
-      description: Number of records that must be choosen.        
-      required: false
-      style: form
-      explode: false
-      schema:
-        $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents.yml#/components/schemas/take'
 
     companyName:
       in: query
