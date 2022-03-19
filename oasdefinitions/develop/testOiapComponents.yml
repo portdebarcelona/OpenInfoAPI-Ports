@@ -1,29 +1,14 @@
-# openapi: '3.0.3'
-# info:
-#  version: '0.9.0-oas3'
-#  title: OIAP Components
-#  description: |
-#    **Open Info API para Puertos**
+#
+# OPEN INFO API PARA PUERTOS
+# (This is an awarded IDEA from the initiative Ports 4.0 form Puertos del Estado) 
+#
+# In this file, there are:
+#     Entities and attributes schemas 
+# All of them are 
+#
 
 
- #   List of components that are used in the APIs developed for the Open Info API para Puertos project.
- # license:
- #   name: CC0 1.0 Universal (CC0 1.0)
- #   url: https://creativecommons.org/publicdomain/zero/1.0/deed.es
- # contact:
- #   name: OpenInfoAPI github
- #   url: https://github.com/portdebarcelona/OpenInfoAPI-Ports
-# servers:
-#  - url: https://github.com/portdebarcelona/OpenInfoAPI-Ports/blob/develop/oasdefinitions/
-# paths:
-#  /dummyPath:   # We don't need a path  --> INDEX
-#    get:
-#      summary: Logs out current logged in user session
-#      description: ''
-#      operationId: logoutUser
-#      responses:
-#        default:
-#          description: successful operation 
+
 
 components:
 

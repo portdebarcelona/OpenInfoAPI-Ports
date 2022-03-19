@@ -373,6 +373,7 @@ components:
       explode: false
       schema:
         $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents.yml#/portCode'
+
     startDate:  
       in: query
       name: startDate
@@ -382,6 +383,7 @@ components:
       explode: false
       schema:
         $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents.yml#/startDate'
+
     dateRange:  
       in: query
       name: dateRange
@@ -392,6 +394,7 @@ components:
       example: T24H
       schema:
         $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents.yml#/dateRange'
+
     shipType:
       in: query
       name: shipType
@@ -403,6 +406,7 @@ components:
       explode: false
       schema:
         $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents.yml#/shipType'
+
     shipName:
       in: query
       name: shipName
@@ -414,6 +418,7 @@ components:
       explode: false
       schema:
         $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents.yml#/shipName'
+
   schemas:
     shipArrivalForecast:
       description: list of ships that will arrive on a given period of time
