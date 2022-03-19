@@ -3245,7 +3245,7 @@ paths:
                   companyNames:  
                     type: array
                     items:
-                      $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents.yml#/components/schemas/companyData'
+                      $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents.yml#/components/schemas/companyDetails'
                   metadata:
                     $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents.yml#/components/schemas/metadata'
                   queryParams:
@@ -3289,7 +3289,7 @@ paths:
                 type: object
                 properties:
                   companyFromVat:
-                    $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents.yml#/components/schemas/companyData'
+                    $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents.yml#/components/schemas/companyDetails'
                   metadata:
                     $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents.yml#/components/schemas/metadata'
                   queryParams:
