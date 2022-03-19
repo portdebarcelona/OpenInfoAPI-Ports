@@ -3597,7 +3597,7 @@ components:
       in: query
       name: companyName
       description: Name of the company
-      required: true
+      required: false
       style: form
       explode: false
       schema:
@@ -3617,7 +3617,7 @@ components:
       in: query
       name: companyName
       description: Vat number of the company
-      required: true
+      required: false
       style: form
       explode: false
       schema:
@@ -3632,11 +3632,6 @@ components:
       explode: false
       schema:
         $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents.yml#/components/schemas/activity'
-
-
-
-
-
 
   schemas:
     shipArrivalForecast:
