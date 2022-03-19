@@ -43,7 +43,8 @@ tags:
     description: "APIs related to some news of interest from a port."
   - name: Notices
     description: "APIs related to some notices of interest from a port."
-
+  - name: Rates and Fees
+    description: "APIs related to the port rates and fees."
   - name: Port Services
     description: "APIs related to the port services from a port."
   - name: Port Calendar
@@ -2969,6 +2970,48 @@ paths:
               schema:
                 $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents.yml#/components/schemas/error'
 
+  # Port rates and fees
+  /portRatesAndFees:
+    get:
+      tags:
+        - Rates and Fees
+      summary: Returns the URL of the website where rates and fees from a port are published. 
+      description: Returns the URL of the website where rates and fees from a port are published.  
+      parameters:
+        - $ref: '#/components/parameters/portCode'
+      responses: 
+        '200':
+          description: Successful operation
+          headers:
+            oiapApiVersion:
+              $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents.yml#/components/headers/oiapApiVersion'
+          content: 
+            application/json:
+              schema:
+                type: object
+                properties:
+                  ratesAndFeesUrl:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/ratesAndFeesUrl'
+                  queryParams:
+                    type: object
+                    properties:
+                      portCode:
+                        $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents.yml#/components/schemas/portCode'
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents.yml#/components/schemas/error' 
+        '404':
+          description: Not found
+          content:
+            application/json:
+              schema:
+                $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents.yml#/components/schemas/error'
+
   # Port services.
   /portServices:
     get:
@@ -4725,6 +4768,15 @@ components:
       items:
         $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents.yml#/components/schemas/noticeLanguage'  
       example: ['ca', 'es', 'en', 'fr']
+
+    ratesAndFeesUrl: 
+      description: 'URI where a customs clearance procedure from a port can be found.'
+      type: object
+      allOf:
+        - type: object 
+          properties:
+            ratesAndFeesUrl:  
+              $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents.yml#/components/schemas/uri' 
 
     portService: 
       description: 'Information about a port service that can be ordered for a ship.'
