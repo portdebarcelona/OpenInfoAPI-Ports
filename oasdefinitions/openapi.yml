@@ -3238,7 +3238,7 @@ paths:
                   companyNames:  
                     type: array
                     items:
-                      $ref: '#/components/schemas/companyData'
+                      $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents.yml#/companyData'
                   queryParams:
                     type: object
                     properties:
@@ -3280,7 +3280,7 @@ paths:
                 type: object
                 properties:
                   companyFromVat:
-                    $ref: '#/components/schemas/companyData'
+                    $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents.yml#/companyData'
                   queryParams:
                     type: object
                     properties:
@@ -4651,7 +4651,7 @@ components:
               $ref:  'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents.yml#/name' 
             surname:
               $ref:  'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents.yml#/surname' 
-            company: # company is an composite object with a companyName and a companyCode
+            company: 
               $ref:  'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents.yml#/companyOverviewInfo' 
             categories: 
               $ref:  'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents.yml#/newsCategory' 
@@ -4835,37 +4835,6 @@ components:
           required:
             - activities
             - companyName
-
-    companyData: 
-      description: 'Detailled information about a company or a governmental body.' 
-      type: object
-      allOf:
-        - type: object 
-          properties:  
-            activities:  
-              type: array
-              items:
-                $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents.yml#/activity'
-            companyName:  
-              $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents.yml#/companyName' 
-            email:  
-              $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents.yml#/email'
-            phone:  
-              $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents.yml#/phone'
-            website:  
-              $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents.yml#/uri'
-            companyAddress:  
-              $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents.yml#/address'
-            openingHours:
-              $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents.yml#/openingHours'             
-            afterHours:  
-              $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents.yml#/afterHours' 
-            companyVat:  
-              $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents.yml#/companyVat'
-          required:
-            - activities
-            - companyName
-            - phone
 
     activities:
       description: A list of all the possible activities for a company or governmental body..

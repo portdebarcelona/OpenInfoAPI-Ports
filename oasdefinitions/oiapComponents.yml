@@ -17,8 +17,6 @@
 #   Group 9 is for other data elements 
 
 
-
-
 #   Group 1: Documentation and references.
   id:
     description: |
@@ -384,36 +382,40 @@
           activities: 
             type: array
             items:
-              $ref: './oiapComponents.yml#/activity'
+              $ref: '#/activity'
           companyVat:
             $ref: '#/companyVat'
 
-  companyInfo: 
-    description: 'Detailled information about a company or a governmental body.' 
-    type: object
-    allOf:
-      - type: object 
-        properties:  
-          activities:
-            type: array
-            items:
-              $ref: '#/activity'
-          companyName:  
-            $ref: '#/companyName' 
-          email:  
-            $ref: '#/email'
-          phone:  
-            $ref: '#/phone'
-          website:  
-            $ref: '#/uri'
-          companyAddress:  
-            $ref: '#/address'
-          openingHours:
-            $ref: '#/openingHours'             
-          afterHours: # contact info for after hours  
-            $ref: '#/afterHours' 
-          companyVat:  
-            $ref: '#/companyVat'
+    companyData: 
+      description: 'Detailled information about a company or a governmental body.' 
+      type: object
+      allOf:
+        - type: object 
+          properties:  
+            activities:  
+              type: array
+              items:
+                $ref: '#/activity'
+            companyName:  
+              $ref: '#/companyName' 
+            email:  
+              $ref: '#/email'
+            phone:  
+              $ref: '#/phone'
+            website:  
+              $ref: '#/uri'
+            companyAddress:  
+              $ref: '#/address'
+            openingHours:
+              $ref: '#/openingHours'             
+            afterHours:  
+              $ref: '#/afterHours' 
+            companyVat:  
+              $ref: '#/companyVat'
+          required:
+            - activities
+            - companyName
+            - phone
 
   companyVat:
     description: Vat number of a company.
