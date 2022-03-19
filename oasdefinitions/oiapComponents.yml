@@ -1107,11 +1107,6 @@ components:
           type: string
           example: MSCU
 
-    linerSlot: 
-      description: Code of a Liner Slot
-      type: string
-      example: MSC
-
     linerSailingFrequency: 
       description: Frequency of a liner service, expressed in days
       type: string

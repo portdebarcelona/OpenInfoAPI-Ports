@@ -643,7 +643,7 @@ paths:
                   portGates:
                     type: array
                     items:
-                      $ref: '#/components/schemas/portGate'
+                      $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents.yml#/components/schemas/gate'
                   metadata: 
                     $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents.yml#/components/schemas/metadata'
                   queryParams:
@@ -1173,7 +1173,7 @@ paths:
                   borderInspectionActors:
                     type: array
                     items:
-                      $ref: '#/components/schemas/partnerActivity'
+                      $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents.yml#/components/schemas/partnerActivity'
                   metadata: 
                     $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents.yml#/components/schemas/metadata'
                   queryParams:
@@ -2584,7 +2584,6 @@ paths:
                 type: object
                 properties:
                   newsCategories:
-                    type: object
                     $ref: '#/components/schemas/newsCategories'
                   metadata:
                     $ref:  'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents.yml#/components/schemas/metadata' 
@@ -2627,7 +2626,6 @@ paths:
                 type: object
                 properties:
                   newsLanguages:
-                    type: object
                     $ref: '#/components/schemas/newsLanguages'
                   metadata:
                     $ref:  'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents.yml#/components/schemas/metadata' 
@@ -2671,7 +2669,6 @@ paths:
                 type: object
                 properties:
                   news:
-                    type: object
                     $ref: '#/components/schemas/news'
                   metadata:
                     $ref:  'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents.yml#/components/schemas/metadata'                  
@@ -2957,8 +2954,7 @@ paths:
               schema:
                 type: object
                 properties:
-                  news:
-                    type: object
+                  notice:
                     $ref: '#/components/schemas/notice'
                   metadata:
                     $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents.yml#/components/schemas/metadata'
@@ -3857,12 +3853,6 @@ components:
       items:
         $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents.yml#/components/schemas/linerCarrier'
 
-    linerSlots: 
-      description: Shipping lines that have slots of a liner service.
-      type: array
-      items:
-        $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents.yml#/components/schemas/linerSlot'
-
     linkedPorts: 
       description: Ports that are served by a liner service.
       type: array
@@ -3895,11 +3885,6 @@ components:
               $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents.yml#/components/schemas/coveredWarehouses'
       required:
         - portName 
-
-    portGate:  # Siblings!!
-      description: Land access gates from a port.
-      type: object
-      $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents.yml#/components/schemas/gate' 
 
     portTerminal: 
       description: Multifunctional logistics complex providing a full range of services for handling cargo. 
@@ -4075,11 +4060,6 @@ components:
               $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents.yml#/components/schemas/companyDetails' 
             governmentalBodyDetails: 
               $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents.yml#/components/schemas/governmentalBodyDetails'
-
-    partnerActivity:
-      description: 'Information about companies and governmental bobies that have been certified with the quality level of a port.'
-      type: object
-      $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents.yml#/components/schemas/partnerActivity'
 
     pickupDeliveryProcedure: 
       description: 'URI where the pick up and delivery procedure from a port can be found.'
