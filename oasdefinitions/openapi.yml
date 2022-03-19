@@ -2823,6 +2823,8 @@ paths:
                     type: array
                     items:
                       $ref: '#/components/schemas/notice'
+                  metadata:
+                    $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents.yml#/components/schemas/portCode'                  
                   queryParams:
                     type: object
                     properties:
@@ -2871,6 +2873,8 @@ paths:
                 properties:
                   noticeCategories:
                     $ref: '#/components/schemas/noticesCategories'
+                  metadata:
+                    $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents.yml#/components/schemas/metadata'
                   queryParams:
                     type: object
                     properties:
@@ -2915,6 +2919,8 @@ paths:
                     type: array
                     items:
                       $ref: '#/components/schemas/noticesLanguages'
+                  metadata:
+                    $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents.yml#/components/schemas/metadata'
                   queryParams:
                     type: object
                     properties:
@@ -3145,6 +3151,8 @@ paths:
                     type: array
                     items:
                       $ref: '#/components/schemas/holiday'
+                  metadata:
+                    $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents.yml#/components/schemas/metadata'
                   queryParams:
                     type: object
                     properties:
@@ -3195,6 +3203,8 @@ paths:
                     type: array
                     items:
                       $ref: '#/components/schemas/companyOverviewData'
+                  metadata:
+                    $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents.yml#/components/schemas/metadata'
                   queryParams:
                     type: object
                     properties:
@@ -3239,6 +3249,8 @@ paths:
                     type: array
                     items:
                       $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents.yml#/components/schemas/companyData'
+                  metadata:
+                    $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents.yml#/components/schemas/metadata'
                   queryParams:
                     type: object
                     properties:
@@ -3281,6 +3293,8 @@ paths:
                 properties:
                   companyFromVat:
                     $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents.yml#/components/schemas/companyData'
+                  metadata:
+                    $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents.yml#/components/schemas/metadata'
                   queryParams:
                     type: object
                     properties:
@@ -3322,6 +3336,8 @@ paths:
                 properties:
                   activities:
                     $ref: '#/components/schemas/activities'
+                  metadata:
+                    $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents.yml#/components/schemas/metadata'
                   queryParams:
                     type: object
                     properties:
