@@ -386,36 +386,36 @@
           companyVat:
             $ref: '#/companyVat'
 
-    companyData: 
-      description: 'Detailled information about a company or a governmental body.' 
-      type: object
-      allOf:
-        - type: object 
-          properties:  
-            activities:  
-              type: array
-              items:
-                $ref: '#/activity'
-            companyName:  
-              $ref: '#/companyName' 
-            email:  
-              $ref: '#/email'
-            phone:  
-              $ref: '#/phone'
-            website:  
-              $ref: '#/uri'
-            companyAddress:  
-              $ref: '#/address'
-            openingHours:
-              $ref: '#/openingHours'             
-            afterHours:  
-              $ref: '#/afterHours' 
-            companyVat:  
-              $ref: '#/companyVat'
-          required:
-            - activities
-            - companyName
-            - phone
+  companyData: 
+    description: 'Detailled information about a company or a governmental body.' 
+    type: object
+    allOf:
+      - type: object 
+        properties:  
+          activities:  
+            type: array
+            items:
+              $ref: '#/activity'
+          companyName:  
+            $ref: '#/companyName' 
+          email:  
+            $ref: '#/email'
+          phone:  
+            $ref: '#/phone'
+          website:  
+            $ref: '#/uri'
+          companyAddress:  
+            $ref: '#/address'
+          openingHours:
+            $ref: '#/openingHours'             
+          afterHours:  
+            $ref: '#/afterHours' 
+          companyVat:  
+            $ref: '#/companyVat'
+        required:
+          - activities
+          - companyName
+          - phone
 
   companyVat:
     description: Vat number of a company.
