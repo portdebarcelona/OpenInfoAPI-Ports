@@ -67,6 +67,9 @@ style defines how multiple values are delimited.
   - Attributes describe the current state of the entity they belong to.
   - The naming convention for attibutes MUST be `lower camel case` (initial lowercase letter), also known as dromedary case.  
 
+### Language
+- `English` SHOULD be the language to identify entities and attributes.  
+
 ### Collections
 - Collections MUST be identified with plural nouns. E.g. `portGates` is a collection with several entities named `portGate`.  
 
