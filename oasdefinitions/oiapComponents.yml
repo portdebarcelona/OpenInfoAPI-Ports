@@ -288,8 +288,6 @@ components:
       enum: [national holiday, other secular holiday, religious holiday, regional holiday local holiday]
       example: local holiday
 
-
-
 #   Group 3: Parties, addresses, places, countries
     contactInfo:
       description: email or phone
@@ -311,7 +309,7 @@ components:
       description: surname
       type: string      
 
-    openingHours:   # Pending
+    openingHours:   
       description: Opening hours.
       type: object
       properties:
@@ -324,7 +322,7 @@ components:
         forenoon:
           type: string
 
-    afterHours:  # Pending 
+    afterHours:  
       description: Contact info after hours.
       type: object
       properties:
@@ -362,14 +360,6 @@ components:
       maxLength: 2
       example: ca 
 
-    companyDetails: # Definition pending. Look at schema.org
-      description: Information about a company.
-      type: string
-
-    governmentalBodyDetails: # Definition pending. Look at schema.org Thonk about merging with companyDetails
-      description: Information about a governmental body.
-      type: string
-
     companyOverviewInfo: 
       description: 'Basic information about a company or a governmental body.'
       type: object
@@ -378,7 +368,7 @@ components:
           properties:
             companyName:
               $ref: '#/components/schemas/companyName' 
-            activities:  # array, because they can be more than one
+            activities: 
               type: array
               items:
                 $ref: '#/components/schemas/activity'
@@ -391,7 +381,7 @@ components:
       allOf:
         - type: object 
           properties:  
-            activities:  # array, because theycan be more than one
+            activities: 
               type: array
               items:
                 $ref: '#/components/schemas/activity'
@@ -407,7 +397,7 @@ components:
               $ref: '#/components/schemas/address'
             openingHours:
               $ref: '#/components/schemas/openingHours'             
-            afterHours: # contact info for after hours  
+            afterHours: 
               $ref: '#/components/schemas/afterHours' 
             companyVat:  
               $ref: '#/components/schemas/companyVat'
@@ -415,11 +405,6 @@ components:
     companyVat:
       description: Vat number of a company.
       type: string
-
-    partnerActivity:   # Maybe it can be replaced by activity
-      description: Main activity of a partner.
-      type: string
-      example: Freight forwarder
 
     activity:  
       description: >
@@ -471,7 +456,7 @@ components:
       enum: [Port Authority, Harbour Master, Customs, Border Control Post (BCP), Immigration, Container Depot, Container Terminal, Container (CFS), General Cargo Terminal, Multi Purpose Terminal, Liquid Cargo Terminal, Bulk Cargo Terminal, Temperature Controlled Terminal, Dangerous Cargo Warehouse, Passenger Terminal, Inland Container Terminal, Liner Agent - Carrier, Railway Undertaking, Haulier, Barge Carrier, Freight Forwarder, Customs Broker, Stevedoring & Lashing, Tally, Ship Supplier, Nautic-technic, Tug, Mooring, Shipyards & Repair, Shipowner, Pilots, Research, Consulting, Port Community System - PCS, IT-Service, Insurance, Container Leasing, Railway Services, Railway Logistics Operator, Other]
       example: Port Authority
 
-    serviceType: # Pending
+    serviceType: 
       description: Type of port service.
       type: string
       enum: [Stevedoring & Lashing, Tally, Ship Supplier, Nautic-technic, Tug, Mooring]
@@ -516,6 +501,16 @@ components:
       type: string
       example: Name of the Rail Logistic Service Provider
 
+    countryCode: 
+      description: Alpha-2 code from ISO 3166 — Codes for the representation of names of countries and their subdivisions.            
+      maxLength: 2
+      example: ES 
+
+    subdivisionCode: 
+      description: Subdivision code from ISO 3166 — Codes for the representation of names of countries and their subdivisions.             
+      maxLength: 5
+      example: ES-CT 
+
     locode:
       description: UN/LOCODE of a location as specified in the UN/ECE Recommendation nº16
       type: string
@@ -531,20 +526,6 @@ components:
       description: Port name.
       type: string
       example: Barcelona 
-
-
-
-    countryCode: 
-      description: Alpha-2 code from ISO 3166 — Codes for the representation of names of countries and their subdivisions.            
-      maxLength: 2
-      example: ES 
-
-    subdivisionCode: 
-      description: Subdivision code from ISO 3166 — Codes for the representation of names of countries and their subdivisions.             
-      maxLength: 5
-      example: ES-CT 
-
-
 
     linkedPort: 
       description: 'Port that is served by a direct service of a liner and do not requires a transshipment.'
@@ -661,9 +642,7 @@ components:
       required:
         - code
   
-
   # Singular places should share the same schema
-
     entrance:
       description: Identification of a port entrance.  
       type: string
@@ -703,15 +682,6 @@ components:
     lastChanges:
       description: Details about the last changes.  
       type: string
-
-
-
-
-
-
-
-
-
 
     facility:
       type: object
@@ -780,6 +750,10 @@ components:
         - $ref: '#/components/schemas/berth'
         - $ref: '#/components/schemas/channel' 
 
+    refPointOfInterest: 
+      description: A reference to a point of interest (usually a weather station) associated to this observation.
+      type: string
+
     railBundles:
       description: Number of rail tracks in a facility. 
       type: integer
@@ -812,9 +786,6 @@ components:
 
 
 #   Group 5: Amounts, charges, percentages
-  # Statistics
-  # Rates and fees
-
     height:  
       description: Representation of a height, in meters.
       type: number
@@ -829,7 +800,6 @@ components:
       description: 'Throughput.'
       type: integer
       minimum: 0
-
 
     waitTime:
       description: 'Wait time, expressed in minutes.'
@@ -1438,6 +1408,7 @@ components:
       maximum: 100
       example: 90   
 
+    # Environmenet-sea state
     surfaceTemperature: 
       description: Sea surface temperature, expressed in Celsius degrees.
       type: number
@@ -1476,6 +1447,7 @@ components:
       minimum: 0
       maximum: 360
 
+    # Environmenet-pollution
     airQualityIndex:  
       description: 'Value of the Air Quality Index (AQI).'
       type: integer
@@ -1607,6 +1579,3 @@ components:
       description: A reference to the device(s) which captured this observation.
       type: string
 
-    refPointOfInterest: 
-      description: A reference to a point of interest (usually a weather station) associated to this observation.
-      type: string

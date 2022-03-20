@@ -141,16 +141,6 @@
     type: string
     format: date-time
 
-  skip:
-    description: 'Number of records that must be skipped.'
-    type: integer
-    format: int32
-
-  take:
-    description: 'Number of records that must be taken.'
-    type: integer
-    format: int32
-
 #   Group 2: Dates, times, periods of time
 
   dateIssued:  
@@ -255,7 +245,7 @@
     description: surname
     type: string      
 
-  openingHours:   # Pending
+  openingHours:  
     description: Opening hours.
     type: object
     properties:
@@ -268,7 +258,7 @@
       forenoon:
         type: string
 
-  afterHours:  # Pending 
+  afterHours: 
     description: Contact info after hours.
     type: object
     properties:
@@ -314,7 +304,7 @@
         properties:
           companyName:
             $ref: '#/companyName' 
-          activities:  # array, because they can be more than one
+          activities: 
             type: array
             items:
               $ref: '#/activity'
@@ -327,7 +317,7 @@
     allOf:
       - type: object 
         properties:  
-          activities:  # array, because theycan be more than one
+          activities:  
             type: array
             items:
               $ref: '#/activity'
@@ -343,7 +333,7 @@
             $ref: '#/address'
           openingHours:
             $ref: '#/openingHours'             
-          afterHours: # contact info for after hours  
+          afterHours:   
             $ref: '#/afterHours' 
           companyVat:  
             $ref: '#/companyVat'
@@ -351,11 +341,6 @@
   companyVat:
     description: Vat number of a company.
     type: string
-
-  partnerActivity:   # Maybe it can be replaced by activity
-    description: Main activity of a partner.
-    type: string
-    example: Freight forwarder
 
   activity:  
     description: >
@@ -407,7 +392,7 @@
     enum: [Port Authority, Harbour Master, Customs, Border Control Post (BCP), Immigration, Container Depot, Container Terminal, Container (CFS), General Cargo Terminal, Multi Purpose Terminal, Liquid Cargo Terminal, Bulk Cargo Terminal, Temperature Controlled Terminal, Dangerous Cargo Warehouse, Passenger Terminal, Inland Container Terminal, Liner Agent - Carrier, Railway Undertaking, Haulier, Barge Carrier, Freight Forwarder, Customs Broker, Stevedoring & Lashing, Tally, Ship Supplier, Nautic-technic, Tug, Mooring, Shipyards & Repair, Shipowner, Pilots, Research, Consulting, Port Community System - PCS, IT-Service, Insurance, Container Leasing, Railway Services, Railway Logistics Operator, Other]
     example: Port Authority
 
-  serviceType: # Pending
+  serviceType: 
     description: Type of port service.
     type: string
     enum: [Stevedoring & Lashing, Tally, Ship Supplier, Nautic-technic, Tug, Mooring]
@@ -452,6 +437,16 @@
     type: string
     example: Name of the Rail Logistic Service Provider
 
+  countryCode: 
+    description: Alpha-2 code from ISO 3166 — Codes for the representation of names of countries and their subdivisions.            
+    maxLength: 2
+    example: ES 
+
+  subdivisionCode: 
+    description: Subdivision code from ISO 3166 — Codes for the representation of names of countries and their subdivisions.             
+    maxLength: 5
+    example: ES-CT 
+
   locode:
     description: UN/LOCODE of a location as specified in the UN/ECE Recommendation nº16
     type: string
@@ -467,20 +462,6 @@
     description: Port name.
     type: string
     example: Barcelona 
-
-
-
-  countryCode: 
-    description: Alpha-2 code from ISO 3166 — Codes for the representation of names of countries and their subdivisions.            
-    maxLength: 2
-    example: ES 
-
-  subdivisionCode: 
-    description: Subdivision code from ISO 3166 — Codes for the representation of names of countries and their subdivisions.             
-    maxLength: 5
-    example: ES-CT 
-
-
 
   linkedPort: 
     description: 'Port that is served by a direct service of a liner and do not requires a transshipment.'
@@ -597,9 +578,6 @@
     required:
       - code
 
-
-# Singular places should share the same schema
-
   entrance:
     description: Identification of a port entrance.  
     type: string
@@ -639,15 +617,6 @@
   lastChanges:
     description: Details about the last changes.  
     type: string
-
-
-
-
-
-
-
-
-
 
   facility:
     type: object
@@ -715,6 +684,10 @@
     oneOf:
       - $ref: '#/berth'
       - $ref: '#/channel' 
+
+  refPointOfInterest: 
+    description: A reference to a point of interest.
+    type: string
 
   railBundles:
     description: Number of rail tracks in a facility. 
@@ -1138,10 +1111,6 @@
 
 
 #   Group 9 is for other data elements 
-  # Environment
-
-
-
   # Port marks
   markRegion: 
     description: >
@@ -1374,6 +1343,7 @@
     maximum: 100
     example: 90   
 
+# Environmenet-sea state
   surfaceTemperature: 
     description: Sea surface temperature, expressed in Celsius degrees.
     type: number
@@ -1412,6 +1382,7 @@
     minimum: 0
     maximum: 360
 
+# Environmenet-pollution
   airQualityIndex:  
     description: 'Value of the Air Quality Index (AQI).'
     type: integer
@@ -1543,6 +1514,3 @@
     description: A reference to the device(s) which captured this observation.
     type: string
 
-  refPointOfInterest: 
-    description: A reference to a point of interest (usually a weather station) associated to this observation.
-    type: string

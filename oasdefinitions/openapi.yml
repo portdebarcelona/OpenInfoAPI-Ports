@@ -4780,12 +4780,6 @@ components:
       properties: 
         serviceType:  
           $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents.yml#/components/schemas/serviceType' 
-        itemsPerPage:
-          format: int32
-          type: integer
-        totalResults:
-          format: int32
-          type: integer
 
     holiday:
       description: 'A day on which normal activities, especially business or work including school, are suspended or reduced.'
@@ -4825,7 +4819,7 @@ components:
             - companyName
 
     activities:
-      description: A list of all the possible activities for a company or governmental body..
+      description: A list of all the possible activities for a company or governmental body.
       type: array
       items:
         $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents.yml#/components/schemas/activity'  
