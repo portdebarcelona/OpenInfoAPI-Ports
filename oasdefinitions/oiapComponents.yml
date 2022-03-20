@@ -381,7 +381,7 @@ components:
             activities:  # array, because they can be more than one
               type: array
               items:
-                $ref: './oiapComponents.yml#/components/schemas/activity'
+                $ref: '#/components/schemas/activity'
             companyVat:
               $ref: '#/components/schemas/companyVat'
 
@@ -1460,7 +1460,7 @@ components:
 
     source: 
       description: A sequence of characters giving the original source of the entity data as a URL. Recommended to be the fully qualified domain name of the source provider, or the URL to the source object.
-      $ref: './oiapComponents.yml#/components/schemas/uri'
+      $ref: '#/components/schemas/uri'
 
     swellHeight:  
       description: Swell height in (meter)
