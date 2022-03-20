@@ -192,11 +192,6 @@ components:
           type: string    
           format: date-time  
 
-    lastCheckedResult:
-      description: 'Timestamp when the last update of the attribute happened.'
-      type: string
-      format: date-time
-
     skip:
       description: 'Number of records that must be skipped.'
       type: integer

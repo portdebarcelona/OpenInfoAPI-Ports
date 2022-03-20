@@ -136,11 +136,6 @@
         type: string    
         format: date-time  
 
-  lastCheckedResult:
-    description: 'Timestamp when the last update of the attribute happened.'
-    type: string
-    format: date-time
-
 #   Group 2: Dates, times, periods of time
 
   dateIssued:  

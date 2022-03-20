@@ -4314,8 +4314,6 @@ components:
       allOf:
         - type: object 
           properties:
-            lastCheckedResult:  
-              $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents3.yml#/lastCheckedResult'
             surfaceTemperature: 
               $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents3.yml#/surfaceTemperature'
             waveHeight: 
@@ -4326,8 +4324,6 @@ components:
               $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents3.yml#/wavePeriod'
             source: 
               $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents3.yml#/source'
-      required:
-        - lastCheckedResult 
 
     wavePrediction: 
       description: Wave prediction.       
@@ -4383,9 +4379,7 @@ components:
       type: object
       allOf:
         - type: object 
-          properties:
-            lastCheckedResult:  
-              $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents3.yml#/lastCheckedResult' 
+          properties: 
             airQualityIndex:  
               $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents3.yml#/airQualityIndex'
             airQualityLevel: 
@@ -4397,8 +4391,6 @@ components:
       allOf:
         - type: object 
           properties:
-            lastCheckedResult:  
-              $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents3.yml#/lastCheckedResult' 
             airQualityIndex: 
               $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents3.yml#/airQualityIndex'
             CO:  
@@ -4412,7 +4404,6 @@ components:
             SO2:  
               $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents3.yml#/so2'
       required:
-        - lastCheckedResult
         - airQualityIndex
 
     waterQualityIndex: 
@@ -4420,15 +4411,12 @@ components:
       type: object
       allOf:
         - type: object 
-          properties:
-            lastCheckedResult:  
-              $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents3.yml#/lastCheckedResult' 
+          properties: 
             waterQualityIndex:  
               $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents3.yml#/waterQualityIndex' 
             waterQualityLevel:  
               $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents3.yml#/waterQualityLevel' 
       required:
-        - lastCheckedResult
         - waterQualityIndex
 
     waterQualityParameters: 
@@ -4437,8 +4425,6 @@ components:
       allOf:
         - type: object 
           properties:
-            lastCheckedResult:  
-              $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents3.yml#/lastCheckedResult' 
             waterTemperature:  
               $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents3.yml#/waterTemperature'
             salinity: 
@@ -4463,8 +4449,6 @@ components:
               $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents3.yml#/silicate'
             phosphate: 
               $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents3.yml#/phosphate'
-      required:
-        - lastCheckedResult
 
     noiseLevel: 
       description: 'Noise level, expressed in dB.'
@@ -4472,12 +4456,9 @@ components:
       allOf:
         - type: object 
           properties:
-            lastCheckedResult:  
-              $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents3.yml#/lastCheckedResult'
             noiseLevel:
               $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents3.yml#/noiseLevel'
       required:
-        - lastCheckedResult
         - noiseLevel
 
     railConnection: 
