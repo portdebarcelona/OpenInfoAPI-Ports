@@ -6,7 +6,7 @@ info:
     **Open Info API para Puertos** 
 
 
-    This file contains all the APIs developed for the `Open Info API para Puertos` project within the initiative Ports 4.0 form Puertos del Estado (ES).   
+    This file contains all the APIs developed for the `Open Info API para Puertos` project within the initiative Ports 4.0 from Puertos del Estado (ES).   
   termsOfService: http://swagger.io/terms/
   license:
     name: CC0 1.0 Universal (CC0 1.0)
@@ -3245,7 +3245,7 @@ paths:
                   companyNames:  
                     type: array
                     items:
-                      $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents3.yml#/companyDetails'
+                      $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents3.yml#/companyInfo'
                   metadata:
                     $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents3.yml#/metadata'
                   queryParams:
@@ -3289,7 +3289,7 @@ paths:
                 type: object
                 properties:
                   companyFromVat:
-                    $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents3.yml#/companyDetails'
+                    $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents3.yml#/companyInfo'
                   metadata:
                     $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents3.yml#/metadata'
                   queryParams:
@@ -4044,10 +4044,10 @@ components:
       oneOf:
         - type: object 
           properties:
-            companyDetails:  
-              $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents3.yml#/companyDetails' 
+            companyInfo:  
+              $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents3.yml#/companyInfo' 
             governmentalBodyDetails: 
-              $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents3.yml#/governmentalBodyDetails'
+              $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents3.yml#/companyInfo'
 
     pickupDeliveryProcedure: 
       description: 'URI where the pick up and delivery procedure from a port can be found.'

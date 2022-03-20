@@ -306,14 +306,6 @@
     maxLength: 2
     example: ca 
 
-  companyDetails: # Definition pending. Look at schema.org
-    description: Information about a company.
-    type: string
-
-  governmentalBodyDetails: # Definition pending. Look at schema.org Thonk about merging with companyDetails
-    description: Information about a governmental body.
-    type: string
-
   companyOverviewInfo: 
     description: 'Basic information about a company or a governmental body.'
     type: object
