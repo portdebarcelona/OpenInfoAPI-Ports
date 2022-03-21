@@ -919,7 +919,7 @@
 #   Group 8 is for transport modes, means and equipments
 # Maritime transport
   shipIMONumber:
-    description: The identifier of ship.
+    description: The ship identifier.
     type: string
     maxLength: 7 
     example: 9876543 
@@ -1357,7 +1357,7 @@
     example: 1.7
 
   wavePeriod: 
-    description: Indicates the time between the crests of a wave, expressed in seconds.'
+    description: Indicates the time between the crests of a wave, expressed in seconds.
     type: number
     example: 12
 

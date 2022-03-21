@@ -53,7 +53,7 @@ tags:
     description: "APIs related to the a port directory."
 
 
-servers:  # PENDENT DE REVISAR
+servers:  # DEVELOP URL
   - url: https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/
 
 paths:
@@ -130,7 +130,7 @@ paths:
               schema:
                 type: object
                 properties:
-                  shipInPort:
+                  shipsInPort:
                     type: array
                     items:
                       $ref: '#/components/schemas/shipInPort'
@@ -177,7 +177,7 @@ paths:
                   shipArrivals:
                     type: array
                     items:
-                      $ref: '#/components/schemas/shipArrivals'
+                      $ref: '#/components/schemas/shipArrival'
                   metadata: 
                     $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents.yml#/metadata'
                   queryParams:
@@ -221,7 +221,7 @@ paths:
                   shipDepartures:
                     type: array
                     items:
-                      $ref: '#/components/schemas/shipDepartures'
+                      $ref: '#/components/schemas/shipDeparture'
                   metadata: 
                     $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents.yml#/metadata'
                   queryParams:
@@ -262,10 +262,10 @@ paths:
               schema:
                 type: object
                 properties:
-                  aproximationManouvres:
+                  shipsAproximation:
                     type: array
                     items:
-                      $ref: '#/components/schemas/aproximationManouvres'
+                      $ref: '#/components/schemas/shipAproximation'
                   metadata: 
                     $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents.yml#/metadata'
                   queryParams:
@@ -309,7 +309,7 @@ paths:
                   ferriesArrivals:
                     type: array
                     items:
-                      $ref: '#/components/schemas/ferriesArrivals'
+                      $ref: '#/components/schemas/ferryArrival'
                   metadata: 
                     $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents.yml#/metadata'
                   queryParams:
@@ -353,7 +353,7 @@ paths:
                   ferriesDepartures:
                     type: array
                     items:
-                      $ref: '#/components/schemas/ferriesDepartures'
+                      $ref: '#/components/schemas/ferryDeparture'
                   metadata: 
                     $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents.yml#/metadata'
                   queryParams:
@@ -395,7 +395,7 @@ paths:
               schema:
                 type: object
                 properties:
-                  cruiseCall:
+                  cruiseCalls:
                     type: array  
                     items:
                       $ref: '#/components/schemas/cruiseCall'
@@ -3617,7 +3617,7 @@ components:
 
   schemas:
     shipArrivalForecast:
-      description: List of ships that will arrive on a given period of time.
+      description: Ship that will arrive on a given period of time.
       type: object
       allOf:
         - type: object
@@ -3637,7 +3637,7 @@ components:
         - estimatedTimeOfArrival
 
     shipInPort:
-      description: List of ships that now are in Port.
+      description: Ship that is in port.
       type: object
       allOf:
         - type: object
@@ -3663,8 +3663,8 @@ components:
         - actualTimeOfArrival
         - estimatedTimeOfDeparture 
 
-    shipArrivals:
-      description: List of ships that have arrived or will arrive today.
+    shipArrival:
+      description: Ship that has arrived or will arrive today.
       type: object
       allOf:
         - type: object
@@ -3690,8 +3690,8 @@ components:
         - estimatedTimeOfArrival
         - berth  
 
-    shipDepartures:
-      description: List of ships that have departed or will depart today.
+    shipDeparture:
+      description: Ship that has departed or will depart today.
       type: object
       allOf:
         - type: object
@@ -3717,8 +3717,8 @@ components:
         - estimatedTimeOfDeparture
         - berth  
 
-    aproximationManouvres:
-      description: List of ships that have initiated their aproximation manouvres.
+    shipAproximation:
+      description: Ship that has initiated their aproximation manouvres.
       type: object
       allOf:
         - type: object
@@ -3738,8 +3738,8 @@ components:
         - shipName
         - estimatedTimeOfArrival   
 
-    ferriesArrivals:
-      description: List of all the ferries that have arrived or will arrive today.
+    ferryArrival:
+      description: Ferry that has arrived or will arrive today.
       type: object
       allOf:
         - type: object
@@ -3762,8 +3762,8 @@ components:
         - estimatedTimeOfArrival
         - berth
 
-    ferriesDepartures:
-      description: List of ferries that have departed or will depart today.
+    ferryDeparture:
+      description: Ferry that has departed or will depart today.
       type: object
       allOf:
         - type: object
