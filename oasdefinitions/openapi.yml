@@ -1728,7 +1728,7 @@ paths:
                 $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents.yml#/error'
 
   # Air quality index
-  /airQualityIndex:
+  /airQuality:
     get:
       tags:
         - Environment-Pollution
@@ -1747,8 +1747,8 @@ paths:
               schema:
                 type: object
                 properties:
-                  airQualityIndex:
-                    $ref: '#/components/schemas/airQualityIndex'
+                  airQuality:
+                    $ref: '#/components/schemas/airQuality'
                   metadata: 
                     $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents.yml#/metadata'
                   queryParams:
@@ -1770,7 +1770,7 @@ paths:
                 $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents.yml#/error' 
 
   # Monitoring some air quality parameters
-  /airQualityMonitoring:
+  /airPollution:
     get:
       tags:
         - Environment-Pollution
@@ -1789,8 +1789,8 @@ paths:
               schema:
                 type: object
                 properties:
-                  airQualityPollution:
-                    $ref: '#/components/schemas/airQualityPollution'
+                  airParameters:
+                    $ref: '#/components/schemas/airParameters'
                   metadata: 
                     $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents.yml#/metadata'
                   queryParams:
@@ -1812,7 +1812,7 @@ paths:
                 $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents.yml#/error' 
 
   # Water quality index
-  /waterQualityIndex:
+  /waterQuality:
     get:
       tags:
         - Environment-Pollution
@@ -1834,10 +1834,10 @@ paths:
               schema:
                 type: object
                 properties:
-                  waterQualityIndexes:
+                  waterQuality:
                     type: array
                     items:
-                      $ref: '#/components/schemas/waterQualityIndex'
+                      $ref: '#/components/schemas/waterQuality'
                   metadata: 
                     $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents.yml#/metadata'
                   queryParams:
@@ -1859,7 +1859,7 @@ paths:
                 $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents.yml#/error' 
 
   # Monitoring some water quality parameters
-  /waterQualityMonitoring:
+  /waterPollution:
     get:
       tags:
         - Environment-Pollution
@@ -1878,8 +1878,8 @@ paths:
               schema:
                 type: object
                 properties:
-                  waterQualityParameters:
-                    $ref: '#/components/schemas/waterQualityParameters'
+                  waterParameters:
+                    $ref: '#/components/schemas/waterParameters'
                   metadata: 
                     $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents.yml#/metadata'
                   queryParams:
@@ -4374,8 +4374,8 @@ components:
       required:
         - forecastedDate 
 
-    airQualityIndex: 
-      description: 'Air Quality Index.'
+    airQuality: 
+      description: 'Air Quality Index (AQI) and level.'
       type: object
       allOf:
         - type: object 
@@ -4385,7 +4385,7 @@ components:
             airQualityLevel: 
               $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents.yml#/airQualityLevel'
 
-    airQualityPollution: 
+    airParameters: 
       description: 'Values of several parameters that measure the air quality.'
       type: object
       allOf:
@@ -4406,8 +4406,8 @@ components:
       required:
         - airQualityIndex
 
-    waterQualityIndex: 
-      description: 'Water Quality Index.'
+    waterQuality: 
+      description: 'Water Quality Index (WQI) and level.'
       type: object
       allOf:
         - type: object 
@@ -4419,7 +4419,7 @@ components:
       required:
         - waterQualityIndex
 
-    waterQualityParameters: 
+    waterParameters: 
       description: 'Water quality parameters and chemical agents.'
       type: object
       allOf:
