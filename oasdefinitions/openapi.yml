@@ -4403,8 +4403,7 @@ components:
               $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents.yml#/nox'
             SO2:  
               $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents.yml#/so2'
-      required:
-        - airQualityIndex
+
 
     waterQuality: 
       description: 'Water Quality Index (WQI) and level.'
