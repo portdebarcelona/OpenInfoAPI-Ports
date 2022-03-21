@@ -177,8 +177,8 @@
   estimatedTimeOfArrival:  
     description: The date and time the means of transport is estimated to arrive at a specified location (ETA), in ISO 8601 Date format.
     type: string
-    format: date-time
-    example: 2022-03-01T11:53:00.000Z
+    pattern: date-time
+    example: 2022-03-01T11:53:00Z
 
   actualTimeOfArrival:  
     description: The date and time the means of transport arrives at a specified location (ATA), in ISO 8601 Date format.
