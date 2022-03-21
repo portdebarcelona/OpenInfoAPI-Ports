@@ -1,7 +1,7 @@
 openapi: '3.0.3'
 info:
   version: '0.9.0-oas3'
-  title: OIAP (version 3)
+  title: OIAP 
   description: >-
     **Open Info API para Puertos** 
 
@@ -1834,7 +1834,7 @@ paths:
               schema:
                 type: object
                 properties:
-                  waterQualityIndex:
+                  waterQualityIndexes:
                     type: array
                     items:
                       $ref: '#/components/schemas/waterQualityIndex'
