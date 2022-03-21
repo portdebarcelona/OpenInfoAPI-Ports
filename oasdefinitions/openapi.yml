@@ -2266,7 +2266,12 @@ paths:
       tags:
         - Terminal Performance
       summary: Estimated waiting time that trucks have to queue before they can enter into a terminal.
-      description: Returns a list with the estimated waiting time that trucks have to queue before they can enter into a terminal.
+      description: | 
+        Returns a list with the estimated waiting time that trucks have to queue before they can enter into a terminal.
+
+        `Parameters`: Port Code and Terminal identifier
+
+        `Returns`: Wait time of gtrucks to get intro terminals
       parameters:
         - $ref: '#/components/parameters/portCode'
         - $ref: '#/components/parameters/terminal'
