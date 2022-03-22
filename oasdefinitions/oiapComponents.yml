@@ -734,11 +734,20 @@
     enum: [outwards, inwards, both] 
     example: inwards
 
-  dataset:
+  dataset: # It does nor work !!!!!!!  This is not a dictionary
     description: 2 character code, as defined in annex VIII from Directive 2009/42/EC of the European Parliament and of the Council. Dataset           
-    type: string
-    enum: [A1, A2, A3, B1, C1, C2, D1, E1, F1, F2]
-    example: A2 
+    type: object
+    additionalProperties:
+      type: object
+      properties:
+        code:
+          type: string
+          enum: [A1, A2, A3, B1, C1, C2, D1, E1, F1, F2]
+          example: A2 
+        text: 
+          type: string
+          enum: ["Seaborne transport in the main European ports, by port, type of cargo and counterpart", "Non-unit-load seaborne transport in the main European ports, by port, type of cargo and counterpart", "Data required both for selected ports and ports for which detailed statistics are not required", "Seaborne transport in the main European ports, by port, type of cargo, goods and counterpart", "Unit-load seaborne transport in the main European ports, by port, type of cargo, counterpart and loaded status", "Ro-Ro container seaborne transport in the main European ports, by port, type of cargo, counterpart and loaded status", "Passenger transport in the main European ports, by port, counterpart and nationality of registration of vessel", "Seaborne transport in the main European ports, by port, type of cargo, counterpart and nationality of registration of vessels", "Vessel traffic in the main European ports, by port, type and size of vessels loading or unloading cargo, embarking or disembarking passengers (including cruise passengers on a cruise passenger excursion)", "Vessel traffic in the main European ports, by port, type and size of vessels loading or unloading cargo, embarking or disembarking passengers (including cruise passengers on a cruise passenger excursion)"]
+          example: "Non-unit-load seaborne transport in the main European ports, by port, type of cargo and counterpart" 
 
 #   Group 5: Amounts, charges, percentages
   height:  
