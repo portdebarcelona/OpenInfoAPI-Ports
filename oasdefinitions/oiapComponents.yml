@@ -86,15 +86,14 @@
     example: wind
 
   alertSource:
-    description: >
-            Reference to the source of the alert. For example, it could be a user of an application, a device, or a service.
+    description: Reference to the source of the alert. For example, it could be a user of an application, a device, or a service.
     type: string
 
   severity:
-    description: >
-            Define the level of gravity of a given alert.
+    description: Define the level of gravity of a given alert.
     type: string
     enum: [informational, low, medium, high, critical]
+    example: medium
 
   error:
     description: Error body
@@ -1230,10 +1229,12 @@
   temperature: 
     description: Air's temperature observed. Default unit is degrees centigrades.
     type: number
+    example: 2
 
   feelsLikeTemperature:  
     description: Wind chill/Feels like Temperature (°C)
     type: number
+    example: -4
 
   relativeHumidity: 
     description: Air's relative humidity observed (percentage, expressed in parts per one).
@@ -1263,10 +1264,12 @@
   windSpeed: 
     description: The observed wind speed in m/s.
     type: number
+    example: 4.5
 
   atmosphericPressure: 
     description: The atmospheric pressure observed measured in Hecto Pascals.
     type: number
+    example: 1013
 
   pressureTendency: 
     description: Is the pressure rising or falling. It can be expressed in quantitative terms or qualitative terms.
@@ -1288,6 +1291,7 @@
     type: number
     minimum: 0
     maximum: 1
+    example: 0.25
 
   sunrise:  
     description: 'Sunrise hour.'
