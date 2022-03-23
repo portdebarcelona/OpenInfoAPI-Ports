@@ -1835,9 +1835,7 @@ paths:
                 type: object
                 properties:
                   waterQuality:
-                    type: array
-                    items:
-                      $ref: '#/components/schemas/waterQuality'
+                    $ref: '#/components/schemas/waterQuality'
                   metadata: 
                     $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents.yml#/metadata'
                   queryParams:
