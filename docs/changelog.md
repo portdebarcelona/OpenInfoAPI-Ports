@@ -1,5 +1,11 @@
 # Work Tracking log
 Contains tracking of activities in this project.
+## March 2022
+- Finished first version of OIAP services (version 0.9)
+  - https://app.swaggerhub.com/apis/openinfoapiports/oiap/0.9.0-oas3
+- Housekeeping Github repository
+- Programming examples
+- Fullfilment of Ports 4.0 forms
 ## February 2022
 - Defined YAML of several domains:
   - Ship Calls
