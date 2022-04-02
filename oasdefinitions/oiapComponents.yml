@@ -1002,7 +1002,7 @@
 # Rail transport       FINS AQUÍ
   trainType:
     description: >
-          The type of the train. The value is populated using the following enumeration:
+          Train type. The value is one of the following enumeration:
             * `Containers`	General cargo vessel	Vessel designed to carry general cargo.
             * `Vehicles`	Unit carrier	Vessel designed to carry unit loads
             * `Bulk`	Bulk carrier	Vessel designed to carry bulk cargo.
@@ -1013,25 +1013,26 @@
     enum: ["Containers", "Vehicles", "Bulk", "Tanker"]  
 
   railService:      
-    type: string
     description: Code that identifies a rail service.     
+    type: string
 
   railwayStationNearestCity:
-    type: string
     description: Name of the nearest city to a railway station.
+    type: string
 
   railTerminalLocode:
+    description: UN/LOCODE code of a rail terminal. 
     type: string
-    description: UN/LOCODE of a rail terminal. 
+    example: ESZAZ
 
   railTerminalCode: 
-    type: string
     description: Code that identifies a railway terminal. 
+    type: string
     example: ESCRB
 
   railTerminalName: 
-    type: string
     description: Name of a railway terminal. 
+    type: string
     example: Zaragoza-Corbera-Alta  
 
   railDirection:  
@@ -1047,7 +1048,7 @@
   vehicleTypes:  
     description: >
         Type of vehicles from the point of view of their structural characteristics.  
-          * `Car`
+          * `Cars`
           * `Trucks`
           * `Both` - Trucks and cars
           * `Trains`
@@ -1070,13 +1071,13 @@
     example: Containers
 
   containerNumber:
-    description: Container number as is described in ISO6346
+    description: Container number following the identification system described in clause 3 of the ISO6346:1995 standard.
     type: string
     maxLength: 11
     example: ABCU1234567    
 
   equipmentTare:
-    description: Tare of a unit of equipment, expressed in Kg.
+    description: Tare of a unit of equipment, expressed in kilograms (kg).
     type: integer
     example: 2340     
 
@@ -1090,7 +1091,7 @@
   # Port marks
   markRegion: 
     description: >
-          Mark region, according to the IALA/AISM Maritime Buoyage System nd Other Aids to Navigation. 
+          Mark region, according to the IALA/AISM Maritime Buoyage System and Other Aids to Navigation. 
             * In `Region A` red colour is used for port and green colour starboard. 
             * In `Region B` green colour is used for port and red colour starboard. 
     type: string
@@ -1121,7 +1122,7 @@
     example: Red and white vertical stripes.
 
   shapeOfBuoy: 
-    description: Distinctive shape for identification of a mark.
+    description: Distinctive shape for a mark identification.
     type: string
     example: Conical shape.
 
@@ -1131,6 +1132,7 @@
       colour:
         description: Colour 
         type: string
+        enum: [white, red, green, yellow, yellow/blue]
         example: red
       rhythm:
         description: Rhythm of the light and dark periodes of a mark light. 
@@ -1215,7 +1217,7 @@
     example: cloudy
 
   dewPoint: 
-    description: The dew point encoded as a number. Default unit is Celsius degrees. See also https://en.wikipedia.org/wiki/Dew_point
+    description: The dew point encoded as a number. Default unit is Celsius degrees. 
     type: number
 
   visibility: 
@@ -1265,12 +1267,12 @@
     example: 4.5
 
   atmosphericPressure: 
-    description: The atmospheric pressure observed measured in Hecto Pascals.
+    description: The atmospheric pressure observed measured in Hecto Pascals (hPa).
     type: number
     example: 1013
 
   pressureTendency: 
-    description: Is the pressure rising or falling. It can be expressed in quantitative terms or qualitative terms.
+    description: Is the pressure rising or falling. It is expressed in qualitative terms.
     type: string
     enum: [raising, falling, steady]
     example: steady
@@ -1292,37 +1294,37 @@
     example: 0.25
 
   sunrise:  
-    description: 'Sunrise hour.'
+    description: Time for sunrise in a certain date and place.
     type: string
     format: date-time
     example: "2022-06-14T06:01:00Z"
 
   sunset:  
-    description: 'Sunset hour.'
+    description: Time for sunset in a certain date and place.
     type: string
     format: date-time
     example: "2022-06-14T20:52:00Z"
 
   moonrise:  
-    description: 'Moonrise hour.'
+    description: Time for moonrise in a certain date and place.
     type: string
     format: date-time
     example: "2022-06-14T01:22:00Z"
 
   moonset:  
-    description: 'Moonset hour.'
+    description: Time for moonset in a certain date and place.
     type: string
     format: date-time
     example: "2022-06-14T05:37:00Z"
 
   moonPhase:  
-    description: 'Moon phase.'
+    description: Moon phase.
     type: string
     enum: [New Moon, First Quarter, Full Moon, Last Quarter]
     example: Full Moon
 
   illumination:  
-    description: 'Moon percentage illumination.'
+    description: Moon percentage illumination.
     type: integer
     minimum: 0
     maximum: 100
@@ -1354,11 +1356,11 @@
     $ref: '#/uri'
 
   swellHeight:  
-    description: Swell height in (meter)
+    description: Swell height in meters (m)
     type: number
 
   swellPeriod:  
-    description: Swell period in (secs)
+    description: Swell period in seconds (s)
     type: integer
 
   swellDirection:              
@@ -1369,7 +1371,7 @@
 
 # Environmenet-pollution
   airQualityIndex:  
-    description: 'Value of the Air Quality Index (AQI).'
+    description: Value of the Air Quality Index (AQI).
     type: integer
     minimum: 0
     maximum: 100
@@ -1382,7 +1384,7 @@
     example: moderate 
 
   waterQualityIndex:  
-    description: 'Value of the Water Quality Index (WQI).'
+    description: Value of the Water Quality Index (WQI).
     type: integer
     minimum: 0
     maximum: 100
@@ -1480,7 +1482,7 @@
     example: 12
 
   noiseLevel:
-    description: Noise level, expressed in dB.
+    description: Noise level, expressed in decibels (dB).
     type: integer
     minimum: 0
     maximum: 140
