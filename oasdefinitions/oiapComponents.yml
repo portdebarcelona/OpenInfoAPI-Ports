@@ -298,8 +298,7 @@
         type: string
 
   language:
-    description: The ISO 639 code of a language. Each language is assigned a two-letter (639-1) lowercase abbreviation.
-          E.g. `ca` Catalan.
+    description: The ISO 639 code of a language. Each language is assigned a two-letter (639-1) lowercase abbreviation. E.g. `ca` Catalan.
     type: string
     maxLength: 2
     example: ca 
@@ -1185,18 +1184,22 @@
         $ref: '#/subscriptionRequestMessage'
 
   subscriptionRequestReference: 
+    description: Reference assigned to a subscription request.
     type: string
     example: '2022-02-07T17:05:12_REF001'
 
   subscriptionRequestMessage:
+    description: Response message to a subscription request. 
     type: string 
     example: 'Your subscription request has been received and soon you will receive a validation code (email/sms)'
 
   unsubscriptionRequestReference: 
+    description: Reference assigned to an unsubscription request.
     type: string
     example: '2022-02-10T17:05:12_UNS056'
 
   unsubscriptionRequestMessage:
+    description: Response message to an unsubscription request. 
     type: string 
     example: 'Your unsubscription request has been received and soon you will receive a validation code (email/sms)'
 
