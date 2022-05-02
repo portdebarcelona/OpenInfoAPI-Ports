@@ -1,0 +1,68 @@
+<!doctype html>
+<html>
+<head>
+  <script src="https://unpkg.com/rapipdf/dist/rapipdf-min.js"></script>
+</head>
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1, user-scalable=yes">
+    <meta name="description" content="RapiPdf is Web Component based Swagger & OpenAPI Spec to PDF generator">
+    <meta name="keywords" content="RapiPdf, RapiDoc, ReDoc, Swagger, SwaggerUI, Custom Element, Web Component, OpenAPI, REST">
+    <!-- 
+    <script src="https://unpkg.com/rapipdf/dist/rapipdf-min.js"></script>
+    -->
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Mono:400,700" rel="stylesheet">
+    <link href
+    <script type="text/javascript" src="https://unpkg.com/rapipdf/dist/rapipdf-min.js" defer></script>
+  
+    <link rel="stylesheet" href="index.css">
+  
+    <title>RapiPDF - Web Component based Swagger & OpenAPI PDF Generator</title>
+  </head>
+
+
+
+
+<body>
+    <h1>Procedure to generate a pdf from json definitions (resolved) got from Swagger API</h1>
+    <p> Example of JSON file:  </p>
+    <code>    https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/openinfoapiports-oiap-0.9.0-oas3-resolved.json
+    </code>
+
+    <p> <b>Alternativaly, we could execute: https://mrin9.github.io/RapiPdf/ </b><br>
+    More style options, see: https://mrin9.github.io/RapiPdf/api.html</p>
+
+    <div style="margin-top:16px; font-weight: bold;">PDF with attributes showed as JSON:</div>
+    <rapi-pdf id='rapipdf' 
+       style="width:1200px; height:40px; font-size:18px;"
+       spec-url = "https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/openinfoapiports-oiap-0.9.0-oas3-resolved.json"
+       button-bg="#b44646"
+       pdf-title="API Reference"
+      > </rapi-pdf>
+
+  <div style="margin-top:16px; font-weight: bold;"> PDF with attributes inside TABLES: </div>
+   <rapi-pdf id='rapipdf' 
+     style="width:1200px; height:40px; font-size:18px;"
+     spec-url = "https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/openinfoapiports-oiap-0.9.0-oas3-resolved.json"
+     pdf-schema-style="table"
+     button-bg="#b44646"
+     pdf-primary-color="teal",
+     pdf-alternate-color="darkred"
+     pdf-title="API Reference"
+  > </rapi-pdf>
+
+ <div style="margin-top:16px; font-weight: bold;"> PDF with attributes inside TABLES( With an alternate request/response model represenation style): </div>
+  <rapi-pdf id='rapipdf' 
+     style="width:1200px; height:40px; font-size:18px;"
+     spec-url = "https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/openinfoapiports-oiap-0.9.0-oas3-resolved.json"
+     pdf-schema-style="table"
+     button-bg="#b44646"
+     pdf-title="API Reference"
+  > </rapi-pdf>
+
+</body> 
+</html>
+
