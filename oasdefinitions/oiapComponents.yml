@@ -1462,9 +1462,9 @@
   co:  
     description: 'CO concentration, in milligrams per cubic meter.'
     type: integer
-    example: 500 
+    example: 500
 
-  no:  
+  nono:
     description: 'NO concentration, in milligrams per cubic meter.'
     type: integer
     example: 43
