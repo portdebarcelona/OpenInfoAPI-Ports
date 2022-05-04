@@ -9,11 +9,7 @@
   - [About Ports 4.0](#about-ports-40)
     
 ## About OpenInfoAPI-Ports
-<<<<<<< HEAD
 ![.](https://github.com/portdebarcelona/OpenInfoAPI-Ports/blob/develop/docs/images/banner.png?raw=true)
-=======
-![.](https://github.com/portdebarcelona/OpenInfoAPI-Ports/blob/main/docs/images/banner.png?raw=true)
->>>>>>> 749d0bf6538e84d75b442f64a196f001e062621f
 - IDEA awarded at [Ports 4.0 call](https://ports40.es/static/program_idea) on April 9, 2021.
 - [Ports 4.0 decision](docs/annexes/IDEAS-RESOLUCION-PROVISIONAL-CONCESION-DE-AYUDAS_signed.pdf)
 - [More detailed presentation](docs/Presentation.md)
