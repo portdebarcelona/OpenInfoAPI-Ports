@@ -2,8 +2,8 @@
 Contains tracking of activities in this project.
 
 ## April 2022
-- Preparing Final Reporting for Puertos
-- Cleaning github space
+- Preparing Final Report for Puertos
+- Housekeeping github space
 - Generate pdf API documentation
 
 ## March 2022
