@@ -3,7 +3,6 @@ This catalogue enumerates a list of APIs with information about ports that can b
 
 ## Domains
 
-develop
 Use of **Domains**. Many concepts are common in all ports (e.g., port services). It is advisable to use a domain field that would allow better filtering and precise referencing.
 
 ### Ships Calls
