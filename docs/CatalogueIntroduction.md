@@ -1,5 +1,5 @@
-# Catalog of APIs
-This catalog enumerates a list of APIs with information about ports that can be useful for the logistic activities and also for the citiens that want to know more about what is happening in a port.
+# Catalogue of APIs
+This catalogue enumerates a list of APIs with information about ports that can be useful for the logistic activities and also for the citiens that want to know more about what is happening in a port.
 
 ## Domains
 
@@ -17,35 +17,35 @@ Possible APIs:
 - **Ships Arrival Forecasts**. Forecast of ships that will arrive at a port in a given period of time. 
   - Request parameters: period of time, type of vessel,... 
   - Data included in the response: IMO number, ship name, ETA (Estimated time of arrival), previous port of call,... 
-  - [catalog](catalog/catalog-ShipsArrivalForecasts.md)
+  - [catalogue](catalogue/catalogue-ShipsArrivalForecasts.md)
 - **Vessels in port**. Vessels that are anchored/moored in the port. 
   - Request parameters: none. 
   - Data included in the response: IMO number, ship name, ATA (Actual time of arrival), ETD (Estimated Time of Departure), mooring quay, previous port of call,... 
-  - [catalog](catalog/catalog-VesselsInPort.md)
+  - [catalogue](catalogue/catalogue-VesselsInPort.md)
 - **Ships Departures** Vessels that have sailed up or are sailing up today. 
   - Request parameters: none. 
   - Data included in the response: IMO number, ship name, ATD (Actual Time of Departure) or ETD (Estimated Time of Departure), mooring quay, next port of call,... 
-  - [catalog](catalog/catalog-ShipDepartures.md)
+  - [catalogue](catalogue/catalogue-ShipDepartures.md)
 - **Ships Arrivals** Vessels that has arrived or will arrive at a port today. 
   - Request parameters: none. 
   - Data included in the response: IMO number, ship name, ATA (Actual Time of Arrival) or ETA (Estimated time of arrival), previous port of call,... 
-  - [catalog](catalog/catalog-ShipArrivals.md) 
+  - [catalogue](catalogue/catalogue-ShipArrivals.md) 
 - **Ships Aproximation Manouvres**: Aproximation manouvres of ships to the port. Vessels that have initiated their approximation manouvres. 
   - Request parameters: none. 
   - Data included in the response: IMO number, ship name, ETA (Estimated time of arrival), type of vessel, previous port of call,... 
-  - [catalog](catalog/catalog-ShipsAproximationManouvres.md)
+  - [catalogue](catalogue/catalogue-ShipsAproximationManouvres.md)
 - **Ferries Arrivals**: Ferries that has arrived or will arrive at a port today. 
   - Request parameters: none. 
   - Data included in the response: ship name, ferry operator, ATA (Actual Time of Arrival) or ETA (Estimated time of arrival), previous port of call,...
-  - [catalog](catalog/catalog-FerriesArrivals.md)
+  - [catalogue](catalogue/catalogue-FerriesArrivals.md)
 - **Ferries Departures**: Ferries that have sailed up or are sailing up today. 
   - Request parameters: none. 
   - Data included in the response: ship name, ferry operator, ATD (Actual Time of Departure) or ETD (Estimated Time of Departure), mooring quay, next port of call,...
-  - [catalog](catalog/catalog-FerriesDepartures.md)
+  - [catalogue](catalogue/catalogue-FerriesDepartures.md)
 - **Cruises Calls**: Cruise schedules. 
   - Request parameters: ship name. 
   - Data included in the response: ship name, cruise line, ETA (Estimated Time of Arrival), ETD (Estimated Time of Departure), cruise terminal,...
-  - [catalog](catalog/catalog-CruisesCalls.md)
+  - [catalogue](catalogue/catalogue-CruisesCalls.md)
 
 
 ### Liner Services
@@ -58,17 +58,17 @@ Possible APIs:
 - **Liner services**: Detailed information about some or all the liner services.
   - Some of the possible request parameters: name of port, port UN/LOCODE, liner service name, shipowners/carriers, type of cargo (container, ro-ro),... 
   - Data included in the response:liner service name, shipowners/carriers, type of cargo (container, ro-ro), periodicity, list of linked ports, capacity (TEU weekly),...
-  - [catalog](catalog/catalog-LinerServices.md)
+  - [catalogue](catalogue/catalogue-LinerServices.md)
 
 - **Linked ports**: Ports with which the port of reference has liner services (direct connections).
   - Some of the possible request parameters: none, filter by geographical area,...
   - Data included in the response: port name, port code, list of liners,...  
-  - [catalog](catalog/catalog-LinkedPorts.md)
+  - [catalogue](catalogue/catalogue-LinkedPorts.md)
 
 - **Carriers/Alliance partners**: Carriers and alliance partners that serve a particular liner service or a geographical area.
   - Some of the possible request parameters: carrier name, carrier code (SCAC), geographical area,...
   - Data included in the response: type of service, frequenct, capacity, duration of service,... 
-  - [catalog](catalog/catalog-Carriers.md)
+  - [catalogue](catalogue/catalogue-Carriers.md)
 
 ### Port Infrastructure
 
@@ -80,33 +80,33 @@ Possible APIs:
 - **Port infrastructure**: Basic data of the infrastructure of a port.
   - Request parameters: port name,port UN/LOCODE.
   - Data included in the response: latitude/longitud, land area, berths (length, depth, loading capacities, contact information), port entrance mouths (width, depth and orientation)...
-  - [catalog](catalog/catalog-PortInfrastructure.md)
+  - [catalogue](catalogue/catalogue-PortInfrastructure.md)
 - **Port gates**: Information about the main land port accesses. 
   - Request parameters: none. 
   - Data included in the response: gate name, latitude/longitud, allowed vehicles, maximun width, maximum height, opening hours,...
-  - [catalog](catalog/catalog-PortGates.md)
+  - [catalogue](catalogue/catalogue-PortGates.md)
 - **Berths**: Information about the berths of a port. 
   - Request parameters: none. 
   - Data included in the response: berth name, berth code, lenght, depth,...
-  - [catalog](catalog/catalog-Berths.md) 
+  - [catalogue](catalogue/catalogue-Berths.md) 
 -**Maritime terminals**: Information about the maritime terminals of a port.
   - Request parameters: none. 
   - Data included in the response: terminal name, type of terminal (ferry, cruise, container, multipurpose, vehicle, Bulk cargo,...), address, gate latitude/longitud, allowed vehicles, maximun width, maximum height, opening hours,...
-  - [catalog](catalog/catalog-PortTerminals.md)
+  - [catalogue](catalogue/catalogue-PortTerminals.md)
 - **Rail terminals and loading tracks**: Information of all the rail terminals and loading tracks of a port.
   - Request parameters: none
   - Data included in the response: list of rail terminals, latitude/longitude, address, type of cargo...
-  - [catalog](catalog/catalog-RailwayTerminals.md)
+  - [catalogue](catalogue/catalogue-RailwayTerminals.md)
 - **Marine aids to navigation** Port marks in a specific port. 
   - Request parameters: none. 
   - Data included in the response: mark, mark number, coordenates situation, apparience during the day, day mark, light phases, comments,...
 Observations,...
-  - [catalog](catalog/catalog-MarineAids.md)
+  - [catalogue](catalogue/catalogue-MarineAids.md)
 - **Bathymetric data** Data from the regular hydrographic surveis that are being performed at ports. 
   - Request parameters: situation (name of the situation -mouth, quay-, coordenates of the situation) 
   - Data included in the response: coordinates, water depth...
 Observations,...
-  - [catalog](catalog/catalog-Bathymetry.md)
+  - [catalogue](catalogue/catalogue-Bathymetry.md)
 
 ### Port Procedures
 
@@ -133,17 +133,17 @@ Here are examples of some procedures and possible APIs that can help operators w
   - **Customs clearance procedure**: Resources where the procedures for clearing the goods in import can be found. 
     - Request parameters: none. 
     - Data included in the response: Resources where information can be found,...
-    - [catalog](catalog/catalog-CustomsClearance.md) 
+    - [catalogue](catalogue/catalogue-CustomsClearance.md) 
 
   - **Customs clearance actors**: Contact information of the different actors involved in the customs clearance process.
     - Request parameters: none. 
     - Data included in the response: contact information about Customs, contact information of the operators involved,...
-    - [catalog](catalog/catalog-CustomsClearanceContacts.md) 
+    - [catalogue](catalogue/catalogue-CustomsClearanceContacts.md) 
 
   - **Customs Inspections** (2n phase of this project) Status of a customs inspection.
     - Request parameters: equipment id. 
     - Data included in the response: unit of cargo selected for inspection (true/false), type of inspection (intrusive/non-intrusive), place of the inspection (container yard, bonded warehouse,..), status (pending/carried out/cleared,...),...
-    - [catalog](catalog/catalog-CustomsInspections.md)   
+    - [catalogue](catalogue/catalogue-CustomsInspections.md)   
 
 - **Border Controls**
 
@@ -161,17 +161,17 @@ Here are examples of some procedures and possible APIs that can help operators w
   - **Procedures for border inspection**: Resources where the procedures for clearing the goods subject to controls from the border inspection services can be found. 
     - Request parameters: none. 
     - Data included in the response: Resources where information can be found,...
-    - [catalog](catalog/catalog-BISClearance.md) 
+    - [catalogue](catalogue/catalogue-BISClearance.md) 
 
   - **Border inspection services clearance actors**: Contact information of the different actors involved in the border inspection services clearance process.
     - Request parameters: none. 
     - Data included in the response: contact information about the different border inspection services, contact information of the operators involved,...
-    - [catalog](catalog/catalog-BISContacts.md) 
+    - [catalogue](catalogue/catalogue-BISContacts.md) 
     
   - **Border Control Posts** (2n phase of this project) Status of an inspection from the border inspection services.
     - Request parameters: equipment id. 
     - Data included in the response: unit of cargo selected for inspection (true/false), border inspection service (phytosanitary, veterinary, pharmacy, health, quality and industrial regulations,...), type of inspection (container emptying, container emptying and classification, identity, inspection, opening but not inspected, "passadís", resealing, resealed but not openned, thermodesinfection, transfer of goods, ventilation, fumigation, fumigation check...), place of the inspection (container yard, border inspection post, designated point of import (DPI), designated point of entry (DPE)), positioning reasons (inspection, customer requirements, others), status (pending/carried out/cleared,...),...
-    - [catalog](catalog/catalog-BorderInspections.md)   
+    - [catalogue](catalogue/catalogue-BorderInspections.md)   
 
 - **VGM (Verified Gross Mass)**
 
@@ -196,17 +196,17 @@ Here are examples of some procedures and possible APIs that can help operators w
   - **VGM procedures**: Resources where the VGM procedures can be found.
     - Request parameters: none. 
     - Data included in the response: Resources where the VGM procedures can be found,...
-    - [catalog](catalog/catalog-VgmProcedures.md) 
+    - [catalogue](catalogue/catalogue-VgmProcedures.md) 
 
   - **Container tare weight**: The BIC (Bureau International des Containers et du Transport Intermodal) has developed the BoxTech Global Container Database that provides a platform to easily exchange container fleet technical details. BoxTech provides an easy-to-access source of container characteristics like the container number, the size-type code, the tare weight, the maximum gross mass, the maximum payload or the maximum stacking weight.
     - Request parameters: equipment id 
     - Data included in the response: equipment id, tare weight
-    - [catalog](catalog/catalog-Tare.md) 
+    - [catalogue](catalogue/catalogue-Tare.md) 
 
   - **VGM**: (2n phase of this project)
     - Request parameters: equipment id, request of weighting or VGM communication,... 
     - Data included in the response: method of weighting, VGM,...
-    - [catalog](catalog/catalog-VGM.md)  
+    - [catalogue](catalogue/catalogue-VGM.md)  
 
 - **Quality Level Certifications**  
  ![Quality](https://github.com/portdebarcelona/OpenInfoAPI-Ports/blob/develop/docs/images/Quality.png?raw=true)
@@ -220,17 +220,17 @@ Here are examples of some procedures and possible APIs that can help operators w
   - **Procedures for being certified with the quality level of a port**.
     - Request parameters: name of the port, UN/LOCODE of the port.
     - Data included in the response: Resources where the certification procedure can be found.
-    - [catalog](catalog/catalog-ENProcedures.md) 
+    - [catalogue](catalogue/catalogue-ENProcedures.md) 
     
   - **Certified companies**: List of companies that have been certified by the quality seal managers of a port.
     - Request parameters: name of a port, activity, name of the company,... 
     - Data included in the response: name of the company, activities, company certified (true or false),...
-    - [catalog](catalog/catalog-EfficiencyNetwork.md) 
+    - [catalogue](catalogue/catalogue-EfficiencyNetwork.md) 
 
   - **Activities/categories**: List of possible activities, i.e. freight-forwarder, shipping agent, custom broker,...
     - Request parameters: none 
     - Data included in the response: activity name, activity description.
-    - [catalog](catalog/catalog-Activity.md)   
+    - [catalogue](catalogue/catalogue-Activity.md)   
 
 - **Container release or acceptance (Container pick-up or delivery from/to the terminal or depot)**
 
@@ -247,17 +247,17 @@ Here are examples of some procedures and possible APIs that can help operators w
   - **Procedures for pick-up or delivery containers from/to the terminal or depot**.
     - Request parameters: name of the port, UN/LOCODE of the port.
     - Data included in the response: Resources where the procedures can be found.
-    - [catalog](catalog/catalog-ESMTProcedures.md) 
+    - [catalogue](catalogue/catalogue-ESMTProcedures.md) 
 
   - **Container release information (container pick-up from the terminal or depot)**
     - Request parameters: container number, full/empty indicator 
     - Data included in the response: container number, full/empty indicator, name of the container terminal or depot, status (pending, authorised, exited,...)...
-    - [catalog](catalog/catalog-ContainerRelease.md) 
+    - [catalogue](catalogue/catalogue-ContainerRelease.md) 
 
   - **Container acceptance information (container delivery from the terminal or depot)**
     - Request parameters: container number, full/empty indicator  
     - Data included in the response: container number, full/empty indicator, name of the container terminal or depot, status (pending, authorised, entered,...)...
-    - [catalog](catalog/catalog-ContainerAcceptance.md) 
+    - [catalogue](catalogue/catalogue-ContainerAcceptance.md) 
 
 - **Approach instructions** 
  
@@ -270,7 +270,7 @@ Here are examples of some procedures and possible APIs that can help operators w
     - **Approach instructions**: Basic information for the approach of the vessels to a port
       - Request parameters: name of the port, port code (UN/LOCODE).
       - Data included in the response: Entrances, approach channels, precautionary areas, port traffic (inbound vessels-reporting points, outbound or shifting vessels-reporting points and radio watch), emergency, special operations (like launching lifeboats, cleaning, rinsing or painting of the hull, diving operations, main engine immobilisation, hot works and others), pilotage, tugs, linesmen and last changes in this information.
-      - [catalog](catalog/catalog-ApproachInstructions.md) 
+      - [catalogue](catalogue/catalogue-ApproachInstructions.md) 
 
 
 ### Statistics 
@@ -317,12 +317,12 @@ Possible APIs:
   - **Traffic statistics**: Statistics of traffic from a port.
     - Request parameters: port name, port UN/LOCODE, period of time, dimension, level of aggregation.   
     - Data included in the response: data requested as json.
-    - [catalog](catalog/catalog-Statistics.md) 
+    - [catalogue](catalogue/catalogue-Statistics.md) 
 
   - **Economic data**: Economic data of a port. 
     - Request parameters: port name, port UN/LOCODE, period of time, dimension, level of aggregation.    
     - Data included in the response: data requested as json.
-    - [catalog](catalog/catalog-EconomicData.md) 
+    - [catalogue](catalogue/catalogue-EconomicData.md) 
  
 
 ### Environment: Weather
@@ -338,22 +338,22 @@ Several activities at ports, such as berthing, dredging or construction typicall
   - **Realtime weather**: Realtime weather of the default weather station of a port. 
     - Request parameters: name of the port, port code (UN/LOCODE), parameter (all, temperature, air pressure, wind speed, wind direction, humidity, raifall, illuminance, all), weather station id,... 
     - Data included in the response: Parameter, value, port name, port code (UN/LOCODE), weather station id, latitude and longitude of the sensor, date and time of the data offered.
-    - [catalog](catalog/catalog-RealtimeWeather.md) 
+    - [catalogue](catalogue/catalogue-RealtimeWeather.md) 
 
 - **Weather Forecast**: 5 days weather forecast for a port
     - Request parameters: name of the port, port code (UN/LOCODE) 
     - Data included in the response: It returns upto next 5 day weather forecast as json. It contains name of the port, port code (UN/LOCODE), minimum temperature, maximum temperature, rainfall probability,...
-    - [catalog](catalog/catalog-WeatherForecast.md) 
+    - [catalogue](catalogue/catalogue-WeatherForecast.md) 
 
 - **Weather Alerts**: Weather alerts for a port.
     - Request parameters: name of the port, port code (UN/LOCODE)  
     - Data included in the response: name of the port, port code (UN/LOCODE), active weather alert (true/false), type of weather alert (rainfall, low temperatures, high temperatures, lightning, snow, high winds,...)
-    - [catalog](catalog/catalog-WeatherAlerts.md) 
+    - [catalogue](catalogue/catalogue-WeatherAlerts.md) 
 
 - **Astronomy**: Up to date information for sunrise, sunset, moonrise, moonset, moon phase and illumination.
     - Request parameters: name of the port, port code (UN/LOCODE)  
     - Data included in the response: name of the port, port code (UN/LOCODE), sunrise, sunset, moonrise, moonset, moon phase and illumination.
-    - [catalog](catalog/catalog-Astronomy.md) 
+    - [catalogue](catalogue/catalogue-Astronomy.md) 
 
 
 
@@ -367,12 +367,12 @@ Possible APIs:
   - **Wave Prediction**: Prediction of waves, including the component of the wind waves plus the swell.
     - Request parameters: port name, port UN/LOCODE.
     - Data included in the response: port, mouth coordinates, date and time, wind speed, wind direction, waves -total-(wave height Hs(m), direction, wave period Tp(s), wave period Tz(s)), wind waves (wave height Hs(m), direction), swell (wave height Hs(m), direction, period Tz(s)),... 
-    - [catalog](catalog/catalog-WavePrediction.md) 
+    - [catalogue](catalogue/catalogue-WavePrediction.md) 
 
   - **Currents and tides**: Information about the currents and tides at the entrance mouths.
     - Request parameters: port name, port UN/LOCODE.
     - Data included in the response: maximum tide, hour of the maximum tide, minimum tide, hour of the minimum tide, current at the entrance mouth (m/s), direction of the current at the entrance mouth (degrees). 
-    - [catalog](catalog/catalog-Currents.md) 
+    - [catalogue](catalogue/catalogue-Currents.md) 
 
 
 
@@ -394,12 +394,12 @@ Possible APIs:
 - **Pollution**: Current air and water quality of a port. 
   - Request parameters: parameter requested (all, air, water, carbon dioxide CO2, carbon monoxide CO, volatile organic compounds (VOCs), nitrogen oxides (NOx), sulfur oxides (SOx), particulate matter (PM), water parameters (Ammonia, Biochemical Oxygen Demand - BOD-, Blue Green Algae, CDOM-fDOM, Chloride, Chlorophyll, Colorimetry & Photometry Parameters, Conductivity, Dissolved Oxygen, Nitrate,Oil-Hydrocarbon, ORP-Redox, pH, Phosphorus, Photosynthetic Active Radiation (PAR), Rhodamine, Turbidity)), and noise parameters (dB).
   - Data included in the response: value of the parameter requested (carbon dioxide CO2, carbon monoxide CO, volatile organic compounds (VOCs), nitrogen oxides (NOx), sulfur oxides (SOx), particulate matter (PM), include water parameters), noise (dB) date and time.
-  - [catalog](catalog/catalog-Pollution.md)
+  - [catalogue](catalogue/catalogue-Pollution.md)
 
 - **Noise**: Level of noise of a port. 
   - Request parameters: noise parameters (dB).
   - Data included in the response: noise (dB) date and time.
-  - [catalog](catalog/catalog-Noise.md)
+  - [catalogue](catalogue/catalogue-Noise.md)
 
 
 ### Rail transport
@@ -420,32 +420,32 @@ Possible APIs:
 - **Rail transport connections**: Rail connections from a port. 
   - Request parameters: port name, port UN/LOCODE.
   - Data included in the response: origin/destination, rail lenght, rail undertaking, type of cargo, frequency, capacity,...
-  - [catalog](catalog/catalog-RailConnections.md)
+  - [catalogue](catalogue/catalogue-RailConnections.md)
 
 - **Linked railway terminals**: Rail destinations served by one port. 
   - Request parameters: port name, port UN/LOCODE.
   - Data included in the response: destination, rail undertaking, type of cargo, frequency, capacity,..
-  - [catalog](catalog/catalog-InlandTerminals.md)
+  - [catalogue](catalogue/catalogue-InlandTerminals.md)
 
 - **Rail undertaking**: The rail undertaking is the entity responsible for running the trains and must have a valid license that shows that is authorized to run the train. 
   - Request parameters: port name, port UN/LOCODE.
   - Data included in the response: rail undertaking, contact information,...
-  - [catalog](catalog/catalog-Undertaking.md)
+  - [catalogue](catalogue/catalogue-Undertaking.md)
 
 - **Logistic service provider**: A Logistic Service Provider (LSP) is a provider of logistic services who provides the goods for transport (not necessarily the owner of the goods). The LSP can be a freight forwarder, a shipping agent or a company dedicated exclussivelly to the rail transport of goods.
   - Request parameters: port name, port UN/LOCODE.
   - Data included in the response: logistic service provider, contact information,...
-  - [catalog](catalog/catalog-LSP.md)
+  - [catalogue](catalogue/catalogue-LSP.md)
 
 - **Train Arrivals**: Train arrivals for today.
   - Request parameters: port name, port UN/LOCODE.
   - Data included in the response: Estimated time of arrival (ETA), origin, logistic service provider, rail undertaking, type of cargo,...
-  - [catalog](catalog/catalog-TrainArrivals.md)
+  - [catalogue](catalogue/catalogue-TrainArrivals.md)
 
 - **Train Departures**: Train departures for today.
   - Request parameters: port name, port UN/LOCODE.
   - Data included in the response: Estimated time of departure (ETD), destination, logistic service provider, rail undertaking, type of cargo,...
-  - [catalog](catalog/catalog-TrainDepartures.md)
+  - [catalogue](catalogue/catalogue-TrainDepartures.md)
 
 
 
@@ -460,10 +460,10 @@ Possible APIs:
 - **Vehicle traffic monitoring**: Vehicles entering or leaving through a certain port gate in one hour.
   - Request parameters: port name, port UN/LOCODE, type of vehicles (optional), port gate (optional), direction of vehicle flow (optional).
   - Data included in the response: number of vehicles, type of vehicles (optional), port gate (optional), direction of vehicle flow (optional)
-  - [catalog](catalog/catalog-Vehicle.md)
+  - [catalogue](catalogue/catalogue-Vehicle.md)
 
 
-### Terminals
+### Terminal Performance
 ![Bulk](https://github.com/portdebarcelona/OpenInfoAPI-Ports/blob/develop/docs/images/Bulk2.png?raw=true)
 
 This domain will include some operational data related to the performance of the terminals, like their actual access time or some other figures like their dayly or hourly gate movements, at the land side, or information about their movements per hour at the sea side of the terminal. 
@@ -473,15 +473,15 @@ Possible APIs:
 - **Access/Wait time**: Estimated period of time that trucks have to queue before they can enter into a terminal.
   - Request parameters: port name, port UN/LOCODE, terminal.
   - Data included in the response: number of minutes.
-  - [catalog](catalog/catalog-AccessTime.md)
+  - [catalogue](catalogue/catalogue-AccessTime.md)
 - **Goods/Containers entrance/exit of Terminals**: Number of units (containers, freight cars,...) that enter or leave a terminal per hour during the present day.
   - Request parameters: port name, port UN/LOCODE, terminal, direction of the flow of the units.
   - Data included in the response: number of units, direction of the flow, hour.
-  - [catalog](catalog/catalog-GateMovements.md)
+  - [catalogue](catalogue/catalogue-GateMovements.md)
 - **Vessel Loading/Unloading**: Number of containers loaded or unloaded from a vessel per hour during the present day.
   - Request parameters: port name, port UN/LOCODE, terminal, direction of the flow of the equipments (loading or unloading).
   - Data included in the response: number of units, direction of the flow, hour.
-  - [catalog](catalog/catalog-LadingUnloading.md)
+  - [catalogue](catalogue/catalogue-LadingUnloading.md)
 
 ### News 
 ![Newspaper](https://github.githubassets.com/images/icons/emoji/unicode/1f4f0.png?v8)
@@ -493,11 +493,11 @@ Possible APIs:
 - **Latest news**: Request of the latest news related to certain port.
   - Request parameters: port name, port UN/LOCODE.
   - Data included in the response: Text of the news.
-  - [catalog](catalog/catalog-News.md)
+  - [catalogue](catalogue/catalogue-News.md)
 - **Latest news subscription**: Subscription to receive the latest news related to certain port.
   - Request parameters: port name, port UN/LOCODE, email.
   - Data included in the response: Subscription confirmation .
-  - [catalog](catalog/catalog-NewsSubscription.md)
+  - [catalogue](catalogue/catalogue-NewsSubscription.md)
   
 
 ### Notices
@@ -513,11 +513,11 @@ Possible APIs:
 - **Current notices**: List of alerts and notices that are active for a certain port.
   - Request parameters: port name, port UN/LOCODE.
   - Data included in the response: list of notices, including their subject and their content.
-  - [catalog](catalog/catalog-Notices.md)
+  - [catalogue](catalogue/catalogue-Notices.md)
 - **Port notices subscription**: Subscription to receive the notices published by a certain port.
   - Request parameters: port name, port UN/LOCODE, email.
   - Data included in the response: Subscription confirmation .
-  - [catalog](catalog/catalog-NoticesSubscription.md)
+  - [catalogue](catalogue/catalogue-NoticesSubscription.md)
 
 
 ### Port rates and fees Info 
@@ -541,11 +541,11 @@ Possible APIs:
 - **Ship calls fees**: List of the port rates and fees associated to a ship call at a specific port.
   - Request parameters: port name, port UN/LOCODE.
   - Data included in the response: link to the port website where this information is published.
-  - [catalog](catalog/catalog-ShipFees.md)
+  - [catalogue](catalogue/catalogue-ShipFees.md)
 - **Cargo fees**: List of the port rates and fees associated to the flow of goods at a specific port.
   - Request parameters: port name, port UN/LOCODE, email.
   - Data included in the response: link to the port website where this information is published.
-  - [catalog](catalog/catalog-GoodsFees.md)
+  - [catalogue](catalogue/catalogue-GoodsFees.md)
 
 ### Port Services Info
 
@@ -556,7 +556,7 @@ Possible APIs:
 - **Port services**: Characteristics of the port services offered by a port.
   - Request parameters: port name, port UN/LOCODE.
   - Data included in the response: name of the port service, mname of the company that offers that service, phone number, website, vessels that can order the service, main characteristics of that service.
-  - [catalog](catalog/catalog-Services.md)
+  - [catalogue](catalogue/catalogue-Services.md)
 
 
 ### Port Calendar
@@ -571,7 +571,7 @@ Possible APIs:
 - **Port calendar**: Query about the companies that will work on a specific period of time.
   - Request parameters: port name, port UN/LOCODE, name of the company, activity, selected period of time.
   - Data included in the response: json with the name of the company, day of the selected period, opening hours on that day.
-  - [catalog](catalog/catalog-Calendar.md)
+  - [catalogue](catalogue/catalogue-Calendar.md)
 
 
 ### Port Directory
@@ -649,11 +649,11 @@ Possible APIs:
 - **Create and update the Directory**: Incorporating companies or governmental bodies in the Directory or updating its information.
   - Request parameters: port name, port UN/LOCODE, name of the company, activity, address, phone number, contact e-mail, website.
   - Data included in the response: confirmation of the update and transcription of all the data of that record.
-  - [catalog](catalog/catalog-DirectoryUpdate.md)
+  - [catalogue](catalogue/catalogue-DirectoryUpdate.md)
 
 - **Query the Directory**: Query about a specific company or governmental body.
   - Request parameters: port name, port UN/LOCODE, name of the company/governmental body, file format of the response (json or XML)
   - Data included in the response: json/XML file of all the data of the record of the company selected.
-  - [catalog](catalog/catalog-DirectoryQuery.md)
+  - [catalogue](catalogue/catalogue-DirectoryQuery.md)
 
 
