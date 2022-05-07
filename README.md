@@ -13,6 +13,7 @@
 - IDEA awarded at [Ports 4.0 call](https://ports40.es/static/program_idea) on April 9, 2021.
 - [Ports 4.0 decision](docs/annexes/IDEAS-RESOLUCION-PROVISIONAL-CONCESION-DE-AYUDAS_signed.pdf)
 - [More detailed presentation](docs/Presentation.md)
+
 ## Introduction to idea Open Info API for Ports
 All the large commercial ports manage a logistics area where goods change their mode of transport, from the seaside (vessels) to the land side (trucks or trains) and vice versa. This activity is specified as:
 - Vessels that arrive at port, load and unload their cargo (usually in containers/UTIs or as a bulk cargo),
@@ -69,6 +70,17 @@ This project has an agenda that begins on April 9 and ends on October 9, 2021. M
 ## Changelog
 Work progress is registered on own page:
 - [Work tracking](docs/changelog.md)
+
+## License
+
+All the work done in this project is under licence [CC0 1.0 Universal (CC0 1.0) Public Domain Dedication](https://creativecommons.org/publicdomain/zero/1.0/deed.en). Briefly:
+
+```
+The person who associated a work with this deed has dedicated the work to the public domain by waiving all of his or her rights to the work worldwide under copyright law, including all related and neighboring rights, to the extent allowed by law.
+
+You can copy, modify, distribute and perform the work, even for commercial purposes, all without asking permission.
+```
+
 
 ## Web Page
 Web of this project is built with gitpages: https://portdebarcelona.github.io/OpenInfoAPI-Ports/
