@@ -45,7 +45,7 @@ The deliverables of this idea will be a **catalog of information** that the port
 In this six months plan, deliverables will be:
 
 - Creation of **Github repository** or similar: [this repository](https://github.com/org/portdebarcelona/InfoOpenAPI-Ports)
-- Creation of **Swagger repository** or similar
+- Creation of **Swagger repository** or similar [see](https://app.swaggerhub.com/apis/openinfoapiports/oiap)
 - Definition of the **types of information**: [see](docs/CatalogIntroduction.md)
 - **Attributes** of each type of information
 - Selection of a **style guide** for API/JSON: [see](docs/OASdefinitionsBestPractices.md)
