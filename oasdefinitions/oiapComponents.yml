@@ -1459,27 +1459,27 @@
     example: 0.996
 
   co:  
-    description: CO concentration, in milligrams per cubic meter.
+    description: Carbon monoxide (CO) concentration, in milligrams per cubic meter.
     type: integer
     example: 500
 
   nono:
-    description: NO concentration, in milligrams per cubic meter.
+    description: Nitric oxide (NO) concentration, in milligrams per cubic meter.
     type: integer
     example: 43
 
   no2:  
-    description: NO2 concentration, in milligrams per cubic meter.
+    description: Nitrogen dioxide (NO2) concentration, in milligrams per cubic meter.
     type: integer
     example: 70
 
   nox:  
-    description: NOx concentration, in milligrams per cubic meter.
+    description: Mono-nitrogen oxides (NOx) concentration, in milligrams per cubic meter.
     type: integer
     example: 490
 
   so2:  
-    description: SO2 concentration, in milligrams per cubic meter.
+    description: Sulfur dioxide (SO2) concentration, in milligrams per cubic meter.
     type: integer
     example: 12
 
