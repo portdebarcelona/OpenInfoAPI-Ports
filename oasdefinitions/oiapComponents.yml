@@ -21,7 +21,7 @@
 
 #   Group 1: Documentation and references.
   oiapApiVersion:
-    description: String used to identify the version implemented of the Open Info Api for Ports.
+    description: String used to identify the version implemented of the Open Info API for Ports.
     type: string
     example: 0.9.0-oas3
 
@@ -144,25 +144,25 @@
     example: "2022-01-18" 
 
   fromDate:  
-    description: The initial date of a periode of time. 
+    description: The initial date of a period. 
     type: string
     format: date
     example: "2022-01-20" 
 
   toDate:  
-    description: The final date of a periode of time. 
+    description: The final date of a period. 
     type: string
     format: date
     example: "2022-01-20" 
 
   forecastedDate:  
-    description: The forecast date.
+    description: The forecasted date.
     type: string
     format: date
     example: "2022-04-12" 
 
   dateRange: 
-    description: The duration of a time period, expressed as an ISO 8601 code. E.g. 4 weeks and 2 days is represented as P4W2D.
+    description: The duration of a period, expressed as an ISO 8601 code. E.g. 4 weeks and 2 days is represented as P4W2D.
     type: string
     format: iso8601
     example: P4W  
@@ -209,7 +209,7 @@
     example: 2               
 
   hour: 
-    description: Hour expressed in a 24 hours format and represents the periode between hh:00:00 and hh:59:59
+    description: Hour expressed in a 24 hours format and represents the period between hh:00:00 and hh:59:59
     type: integer
     minimum: 0
     maximum: 23
@@ -243,7 +243,7 @@
     type: string
 
   phone:
-    description: phone number 
+    description: Phone number 
     type: string
 
   name:
@@ -409,8 +409,7 @@
     type: string
 
   ferryOperator:
-    description: 
-      Identification of the company that operates a ferry.  
+    description: Identification of the company that operates a ferry.  
     type: object
     properties:
       code:
@@ -472,7 +471,7 @@
     example: Barcelona 
 
   linkedPort: 
-    description: A port that is served by a direct service of a liner and that does not require a transshipment.
+    description: A port that is served by a direct service of a liner and that does not require a transhipment.
     properties:
       portCode:
         description: UN/LOCODE code for a port.
@@ -492,7 +491,7 @@
     example: HKHKG 
 
   nextPortOfCall:
-    description:  Next port of call UN/LOCODE. 
+    description: Next port of call UN/LOCODE. 
     type: string
     maxLength: 5
     example: NLRTM
@@ -533,6 +532,7 @@
 
   coordinates: 
     description: Either of the two lines of latitude and longitude whose intersection determines the geographical point of a place.
+    type: object
     properties:
       latitude:
         description: Latitude of a point. 
@@ -544,8 +544,8 @@
         example: 2.175017
 
   berth:
-    type: object
     description: Identification of a berth from a port.  
+    type: object
     properties:
       berthCode:
         description: Code assigned to a berth of a port.  
@@ -566,8 +566,8 @@
       - code
 
   channel:
-    type: object
     description: Channel identification of a port.  
+    type: object
     properties:
       code:
         description: Code assigned to a port channel.  
@@ -669,7 +669,7 @@
     type: integer
 
   berthLength:
-    description: Berth length expresed in meters (m). 
+    description: Berth length expressed in meters (m). 
     type: integer
     example: 635  
 
@@ -725,7 +725,7 @@
     example: inwards
 
   dataset: 
-    description: 2 character code, as defined in annex VIII from Directive 2009/42/EC of the European Parliament and of the Council. Dataset           
+    description: 2-character code, as defined in annex VIII from Directive 2009/42/EC of the European Parliament and of the Council. Dataset           
     type: object
     enum: ["A1.Seaborne transport in the main European ports, by port, type of cargo and counterpart", "A2. Non-unit-load seaborne transport in the main European ports, by port, type of cargo and counterpart", "A3. Data required both for selected ports and ports for which detailed statistics are not required", "B1. Seaborne transport in the main European ports, by port, type of cargo, goods and counterpart", "C1. Unit-load seaborne transport in the main European ports, by port, type of cargo, counterpart and loaded status", "C2. Ro-Ro container seaborne transport in the main European ports, by port, type of cargo, counterpart and loaded status", "D1. Passenger transport in the main European ports, by port, counterpart and nationality of registration of vessel", "E1. Seaborne transport in the main European ports, by port, type of cargo, counterpart and nationality of registration of vessels", "F1. Vessel traffic in the main European ports, by port, type and size of vessels loading or unloading cargo, embarking or disembarking passengers (including cruise passengers on a cruise passenger excursion)", "F2. Vessel traffic in the main European ports, by port, type and size of vessels loading or unloading cargo, embarking or disembarking passengers (including cruise passengers on a cruise passenger excursion)"]
     example: "A2. Non-unit-load seaborne transport in the main European ports, by port, type of cargo and counterpart" 
@@ -759,7 +759,7 @@
     example: GR00 
  
   currency:
-    description:  3 character ISO4217 alpha code for the representation of currencies.      
+    description:  3-character ISO4217 alpha code for the representation of currencies.      
     type: string      
     example: EUR 
 
@@ -816,7 +816,7 @@
 
 #   Group 7: Goods and articles: descriptions and identifiers
   typeOfCargo: 
-    description: 2 character code of type of cargo, as defined in annex II from Directive 2009/42/EC of the European Parliament and of the Council. 
+    description: 2-character code of type of cargo, as defined in annex II from Directive 2009/42/EC of the European Parliament and of the Council. 
             * `1X`  Liquid bulk goods (no cargo unit)
             * `11`  Liquefied gas 
             * `12`	Crude oil 
@@ -904,7 +904,7 @@
 
   shipType:
     description: >
-          The type of the ship. The value is populated using the 2 character code from Annex VI from DIRECTIVE 2009/42/EC OF THE EUROPEAN PARLIAMENT AND OF THE COUNCIL of 6 May 2009 on statistical returns in respect of carriage of goods and passengers by sea.
+          The type of the ship. The value is populated using the 2-character code from Annex VI from DIRECTIVE 2009/42/EC OF THE EUROPEAN PARLIAMENT AND OF THE COUNCIL of 6 May 2009 on statistical returns in respect of carriage of goods and passengers by sea.
 
             * `10` Liquid bulk (Oil tanker, Chemical tanker, LG tanker, Tanker barge, Other tanker)
             * `20` Dry bulk (Bulk/oil carrier, Bulk carrier)
@@ -919,7 +919,6 @@
             * `43` Tugs (Tugs, Pusher craft)
             * `49` Miscellaneous Dredgers (Research/survey, Other vessel nes)
             * `XX` Unknown Unknown type of vessel
-  
     type: string
     maxLength: 2
     example: 31    
@@ -1214,7 +1213,7 @@
 
   # Environmenet-weather
   weatherType: 
-    description: The observed weather type. 
+    description: The observed weather types. 
     type: string
     enum: [clearNight,sunnyDay, slightlyCloudy, partlyCloudy, mist, fog, highClouds, cloudy, veryCloudy, overcast, lightRainShower, drizzle, lightRain, heavyRainShower, heavyRain, sleetShower, sleet, hailShower, hail, shower, lightSnow, snow, heavySnowShower, heavySnow, thunderShower, thunder]
     example: cloudy
@@ -1285,7 +1284,7 @@
     type: number 
 
   illuminance: 
-    description: The illumninance observed measured in lux (lx) or lumens per square metre (cd·sr·m-2).
+    description: The illuminance observed measured in lux (lx) or lumens per square metre (cd·sr·m-2).
     type: number
     example: 1000
 
@@ -1345,7 +1344,7 @@
     example: 1.2
 
   waveLevel: 
-    description: It indicates the height of the waves and also measures the swell of the sea, expressed in meters.
+    description: Indicates the height of the waves and measures the swell of the sea, expressed in meters.
     type: number
     example: 1.7
 
@@ -1400,7 +1399,7 @@
     example: moderate
 
   waterTemperature:  
-    description: 'Water temperature, expressed in Celsius degrees.'
+    description: Water temperature, expressed in Celsius degrees.
     type: number
     example: 22.5
 
@@ -1460,27 +1459,27 @@
     example: 0.996
 
   co:  
-    description: 'CO concentration, in milligrams per cubic meter.'
+    description: CO concentration, in milligrams per cubic meter.
     type: integer
     example: 500
 
   nono:
-    description: 'NO concentration, in milligrams per cubic meter.'
+    description: NO concentration, in milligrams per cubic meter.
     type: integer
     example: 43
 
   no2:  
-    description: 'NO2 concentration, in milligrams per cubic meter.'
+    description: NO2 concentration, in milligrams per cubic meter.
     type: integer
     example: 70
 
   nox:  
-    description: 'NOx concentration, in milligrams per cubic meter.'
+    description: NOx concentration, in milligrams per cubic meter.
     type: integer
     example: 490
 
   so2:  
-    description: 'SO2 concentration, in milligrams per cubic meter.'
+    description: SO2 concentration, in milligrams per cubic meter.
     type: integer
     example: 12
 
@@ -1492,7 +1491,7 @@
     example: 65
 
   location:
-    description: Location of the weather observation represented by a GeoJSON geometry. https://tools.ietf.org/html/rfc7946. Mandatory if address is not defined.
+    description: Location of the weather observation represented by a GeoJSON geometry. Mandatory if address is not defined.
     type: string             
 
   dateObserved:

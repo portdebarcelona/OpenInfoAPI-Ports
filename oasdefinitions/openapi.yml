@@ -62,7 +62,7 @@ paths:
     get:
       tags:
         - Port Calls
-      summary: Returns a list of ships that will arrive at a port in a given period of time
+      summary: Returns a list of ships that will arrive at a port in each period of time
       description: Returns a list of ships that will arrive at a port in a given period of time
       parameters:
         - $ref: '#/components/parameters/portCode'
@@ -247,7 +247,7 @@ paths:
     get:
       tags:
         - Port Calls
-      summary: Returns a list of ships that have initiated their aproximation manouvres to a port.
+      summary: Returns a list of ships that have initiated their aproximation manoeuvres to a port.
       description: Returns a list of ships that have initiated their aproximation manouvres to a port.
       parameters:
         - $ref: '#/components/parameters/portCode'
@@ -1466,7 +1466,7 @@ paths:
     get:
       tags:
         - Environment-Weather
-      summary: Returns realtime weather information of the default weather station of a port.
+      summary: Returns real-time weather information of the default weather station of a port.
       description: Returns realtime weather information of the default weather station of a port. 
       parameters:
         - $ref: '#/components/parameters/portCode'
@@ -2210,7 +2210,7 @@ paths:
     get:
       tags:
         - Vehicle Traffic
-      summary: Number of vehicles entering or leaving a port or a terminal through a certain gate and in a given period of time. And segregation of this data by type of vehicles.
+      summary: Number of vehicles entering or leaving a port or a terminal through a certain gate and in each period. And segregation of this data by type of vehicles.
       description: Returns the number of vehicles entering or leaving a port or a terminal through a certain gate and in a given period of time. And segregation of this data by type of vehicles. 
       parameters:
         - $ref: '#/components/parameters/portCode'
@@ -2655,8 +2655,8 @@ paths:
     get:
       tags:
         - News
-      summary: Returns particular news identified by its unique id.
-      description: Returns particular news identified by its unique id.
+      summary: Returns news identified by its unique id.
+      description: Returns news identified by its unique id.
       parameters:
         - $ref: '#/components/parameters/portCode' 
         - $ref: '#/components/parameters/id'
@@ -3037,7 +3037,6 @@ paths:
       tags:
         - Port Services
       summary: Returns a list of port services that can be ordered for a ship. Eg. bunkering, marpol, mooring, pilots, tugs,...
-
       description: Returns a list of port services that can be ordered for a ship. Eg. bunkering, marpol, mooring, pilots, tugs,...
       parameters:
         - $ref: '#/components/parameters/portCode'
