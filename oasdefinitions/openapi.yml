@@ -1082,7 +1082,7 @@ paths:
               schema:
                 type: object
                 properties:
-                  vgmProcedures:
+                  qualityCertificationProcedures:
                     type: array
                     items:
                       $ref: '#/components/schemas/qualityCertificationProcedure'
@@ -1170,7 +1170,7 @@ paths:
               schema:
                 type: object
                 properties:
-                  activities:
+                  partnerActivities:
                     type: array
                     items:
                       $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/main/oasdefinitions/oiapComponents.yml#/activity'
@@ -1214,7 +1214,7 @@ paths:
               schema:
                 type: object
                 properties:
-                  borderInspectionProcedures:
+                  pickupDeliveryProcedures:
                     type: array
                     items:
                       $ref: '#/components/schemas/pickupDeliveryProcedure'
@@ -3318,7 +3318,7 @@ paths:
                 $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/main/oasdefinitions/oiapComponents.yml#/error'  
 
   # Activities of a company.
-  /companies/activities:
+  /companyActivities:
     get:
       summary: Get a list of all the possible activities for a company or governmental body.
       description: Get a list of all the possible activities for a company or governmental body.
@@ -3337,7 +3337,7 @@ paths:
               schema:
                 type: object
                 properties:
-                  activities:
+                  companyActivities:
                     $ref: '#/components/schemas/activities'
                   metadata:
                     $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/main/oasdefinitions/oiapComponents.yml#/metadata'
