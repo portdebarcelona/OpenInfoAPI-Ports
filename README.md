@@ -82,8 +82,11 @@ You can copy, modify, distribute and perform the work, even for commercial purpo
 ```
 
 
-## Web Page
-Web of this project is built with gitpages: https://portdebarcelona.github.io/OpenInfoAPI-Ports/
+## More info
+
+More detailed info and media presentation is available in [this document](./docs/Presentation.md).
+
+~~Web of this project is built with gitpages: https://portdebarcelona.github.io/OpenInfoAPI-Ports/~~
 
 ## About [Ports 4.0](https://ports40.es/static/ports_40)
 

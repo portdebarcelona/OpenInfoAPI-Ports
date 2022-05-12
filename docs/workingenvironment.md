@@ -44,14 +44,14 @@ Definition of APIs will follow [Open API Specification 3.x](https://github.com/O
 Because github.com facilitates Gitpages processes with Jekyll.
 
 ## Blueprint for APIs
-It's needed to expose APIs in web format to facilitate comprehension of API definitions, as Swagger do. We evaluate several options and choose
-(Redoc)[https://github.com/Redocly/redoc] because is a very light way to publish Open API 3.0 directly from definition (yaml or json). Other products and services evaluated were:
-- [Swagger-UI](https://swagger.io/tools/swagger-ui/)
+It's needed to expose APIs in web format to facilitate comprehension of API definitions. We evaluate several options and choose [Swagger-UI](https://swagger.io/tools/swagger-ui/)  because is a very light way to publish Open API 3.0 directly from definition (yaml or json). Other products and services evaluated were:
+- [Redoc](https://github.com/Redocly/redoc)
 - [APIDOC](https://apidocjs.com/). Pre-processing comments of programming code.
 - [ReadME](https://readme.com/documentation)
   
 ## PDF printing of APIs
 To get a pdf of OAS definitions: https://mrin9.github.io/RapiPdf/
+
 ## Name of Code repository
 **OpenInfoAPI-Ports**, then https://github.com/portdebarcelona/OpenInfoAPI-Ports. In an initial phase is under domain 'portofbarcelona'. In a future we will see.
 
