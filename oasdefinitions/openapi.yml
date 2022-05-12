@@ -3199,7 +3199,7 @@ paths:
               schema:
                 type: object
                 properties:
-                  companiesOverviewData:
+                  companies:
                     type: array
                     items:
                       $ref: '#/components/schemas/companyOverviewData'
@@ -3246,7 +3246,7 @@ paths:
               schema:
                 type: object
                 properties:
-                  companyNames:
+                  companyByName:
                     type: array
                     items:
                       $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/main/oasdefinitions/oiapComponents.yml#/companyInfo'
