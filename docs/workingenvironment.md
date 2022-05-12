@@ -1,9 +1,9 @@
 # Working environment
-To work in this project we have chosen and setup a set of tools. Here we explain which tools we use. Each decision is a balance between functionalities and ease of use. Questions like:
+To work in this project, we have chosen and setup a set of tools. Here we explain which tools we use. Each decision is a balance between functionalities and ease of use. Questions like:
 - Repository of code
 - Editor
 - Web site
-- Other tools related of OAS ( publishing, printing)
+- Other tools related of OAS (publishing, printing)
 
 Also, we consider aspects such as:
 - Best practices to define APIs
@@ -14,7 +14,7 @@ Also, we have included in our [toolbox](./toolbox.md) the steps that we have to 
 Goal is define Info Port webservices with (OAS 2.x)[https://github.com/OAI/OpenAPI-Specification/]
 
 ## API Led Connectivity
-Main goal is publish info that has meaning to humans. For that reason we'll try to follow guidelines of API led connectivity, centered in **Experience APIs**:
+The main goal is to publish info that has meaning to humans. For that reason, we'll try to follow guidelines of API led connectivity, centred in **Experience APIs**:
 - https://blogs.mulesoft.com/learn-apis/api-led-connectivity/what-is-api-led-connectivity/
 
 ## Best Practices to define APIs
@@ -33,7 +33,7 @@ Here some places where give ideas about best practices defining APIS:
 Better tools for editing markdown: https://marketplace.visualstudio.com/items?itemName=yzhang.markdown-all-in-one
 
 ## Open API editor
-Main goal is define and publish webservices wiht OAS3.x specification. We chose [Open API (swagger) extension](https://marketplace.visualstudio.com/items?itemName=42Crunch.vscode-openapi).
+The main goal is to define and publish webservices with OAS3.x specification. We chose [Open API (swagger) extension](https://marketplace.visualstudio.com/items?itemName=42Crunch.vscode-openapi).
 
 We could need other tools: [Open API tools](https://openapi.tools/)
 
@@ -44,16 +44,16 @@ Definition of APIs will follow [Open API Specification 3.x](https://github.com/O
 Because github.com facilitates Gitpages processes with Jekyll.
 
 ## Blueprint for APIs
-It's needed to expose APIs in web format to facilitate comprehension of API definisitons, as swagger do. We evaluate several options and choose
+It's needed to expose APIs in web format to facilitate comprehension of API definitions, as Swagger do. We evaluate several options and choose
 (Redoc)[https://github.com/Redocly/redoc] because is a very light way to publish Open API 3.0 directly from definition (yaml or json). Other products and services evaluated were:
 - [Swagger-UI](https://swagger.io/tools/swagger-ui/)
-- [APIDOC](https://apidocjs.com/). Preprocessing comments of programming code.
+- [APIDOC](https://apidocjs.com/). Pre-processing comments of programming code.
 - [ReadME](https://readme.com/documentation)
   
 ## PDF printing of APIs
 To get a pdf of OAS definitions: https://mrin9.github.io/RapiPdf/
 ## Name of Code repository
-**OpenInfoAPI-Ports**, then https://github.com/portdebarcelona/OpenInfoAPI-Ports. In a initial phase is under domain 'portofbarcelona'. In a future we will see.
+**OpenInfoAPI-Ports**, then https://github.com/portdebarcelona/OpenInfoAPI-Ports. In an initial phase is under domain 'portofbarcelona'. In a future we will see.
 
 ## Code repository
 Because our company (portofbarcelona) uses **Github.com**, this will be our code and documentation repository.

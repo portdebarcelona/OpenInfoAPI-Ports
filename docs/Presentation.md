@@ -39,17 +39,17 @@ This proposal is based on the FAIR and RISP principles.
 To execute the project, we will use open and standard technologies such as:
 
 - **HTTP** for data transport,
-- **OpenAPI** for the definition of the catalog,
+- **OpenAPI** for the definition of the catalogue,
 - **JSON** as the exchange format and
 - **REST** (Representational State Transfer) as the protocol between the applications.
 
 ### Deliverables
 
-The deliverables of this idea will be: a **catalog of information** that the ports can use and that will contain the definition of information types and their attributes. All this defined in OpenAPI with its description and examples published on GitHub.
+The deliverables of this idea will be a **catalogue of information** that the ports can use and that will contain the definition of information types and their attributes. All this defined in OpenAPI with its description and examples published on GitHub.
 
 We plan to focus in a first phase on the information that can be provided by the port authorities, although the idea is scalable and the possibility of creating a Marketplace at a later stage is envisaged to give entry to other actors.
 
-In this six month phase, deliverables will be:
+In this six-month phase, deliverables will be:
 
 - Definition of the **types of information**
 - **Attributes** of each type of information
@@ -66,7 +66,7 @@ We are talking about valuable information for the sector such as:
 
 - Time of access to terminals, useful for planning by traffic managers
 - The weather forecast, of interest for maritime operations and terminal operations
-- Approach maneuvers to support port services operations
+- Approach manoeuvres to support port services operations
 - Ship calls, interesting to the ship agents, freight forwarders and customs agents.
 
 ## Added value

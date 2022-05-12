@@ -6,9 +6,9 @@
 - Setup initial directory structure
 - Create repository: https://github.com/portdebarcelona/OpenInfoAPI-Ports
 - Identify information types
-- Define attibutes
+- Define attributes
 - Define in OpenApi 3.0
 - Develop examples
-- Document in Github
+- Document in GitHub
 - Set up naming conventions
 - POC: www.portdebarcelona.cat/openapi ¿?¿?

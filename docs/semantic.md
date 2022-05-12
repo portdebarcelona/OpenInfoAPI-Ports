@@ -3,23 +3,23 @@
 ## Semantics is key for the API standardization
 - Semantics, in the context of electronic data exchange, is the unambiguous meaning of
 each of the pieces of information to be shared between sender, receiver and any stakeholder
-who views or uses the information (CEFACT, documment ECE/TRADE/C/CEFACT/2019/27).
+who views or uses the information (CEFACT, document ECE/TRADE/C/CEFACT/2019/27).
 ## Some semantic concepts:
 ### Vocabularies
-- A vocabulary define the concepts and relationships used to describe and represent a specific domain.
+- A vocabulary defines the concepts and relationships used to describe and represent a specific domain.
 - Vocabularies are used to classify the terms (entities) that can be used in a particular application, characterize possible relationships, and define possible constraints on using those terms.
 - Their role is to help data integration when ambiguities may exist on the terms used.
 - Vocabularies can also be used to organize knowledge. 
 - W3C offers a large palette of techniques to describe and define different forms of vocabularies in a standard format. These include RDF and RDF Schemas, Simple Knowledge Organization System (SKOS), Web Ontology Language (OWL), and the Rule Interchange Format (RIF). 
 - JSON-LD is also suitable for publishing vocabularies because it is useful for both humans and machines.
-- There are multiple vocabularies, some of them well established, such as schema.org and the UN/CEFACT vocabulary is valid for trade, transport and administration.
+- There are multiple vocabularies, some of them well established, such as schema.org and the UN/CEFACT vocabulary is valid for trade, transport, and administration.
 - Schema.org provides the most widely used JSON-LD vocabulary in use today and so is a good guide for what other vocabularies should look like.
 - A vocabulary can be published as a file with the reference data models and several files with code lists.
 ### Code lists
-- Some vocabularies are called “codelists”.
-- The recommended format for publishing codelists is to use rdf (resource description framework) and a JSON-LD data model.
+- Some vocabularies are called “code lists”.
+- The recommended format for publishing code lists is to use rdf (resource description framework) and a JSON-LD data model.
 ### Data model / Reference data model / Common Data Models
-- A Data Model is an abstract model that organizes information entities and standardizes how they relate to one another and to the real world. The model provides a standard means by which data may be described, categorized and also shared.
+- A Data Model is an abstract model that organizes information entities and standardizes how they relate to one another and to the real world. The model provides a standard means by which data may be described, categorized, and also shared.
 - Data Model contains relationships between tables that which addresses cardinality and nullability of the relationships. 
 - The main constructs of a Data Model are Entities (terms or instances) and Attributes.
   - Attributes can represent Properties and Relationships. 
@@ -28,7 +28,7 @@ who views or uses the information (CEFACT, documment ECE/TRADE/C/CEFACT/2019/27)
   - **Entities**:
     - Entities represent a thing. 
     - Entities include a semantic type that describes the type of thing represented by the entity.
-    - Some examples of entities are: person, company, building, ship, container... 
+    - Some examples of entities are person, company, building, ship, container... 
   - **Attributes**: 
     - Attributes are properties of entities.
     - A property is a combination of an attribute and its value.
@@ -39,11 +39,11 @@ who views or uses the information (CEFACT, documment ECE/TRADE/C/CEFACT/2019/27)
     - In some implementations, a relationship is expressed by means of a special attribute with a special value (relationship’s object), that is a URI which points to another entity.  
     - Each implementation defines its minimal set of attributes.
     - Some examples of attributes are for specify:
-      - properties, like address, type of ship, temperature,... 
-      - metadata, like date created, accuracy,...
-      - relationships, like a container ship carries several containers and and several packages are stuffed on a container.  
+      - properties, like address, type of ship, temperature, ... 
+      - metadata, like date created, accuracy, ...
+      - relationships, like a container ship carries several containers and several packages are stuffed on a container.  
 
-- There are several data models and each one establishes the minimun information for defining their entities and attributes, for example:
+- There are several data models and each one establishes the minimum information for defining their entities and attributes, for example:
   1. The Dublin Core Metadata Initiative (DCMI).
       - The DCMI define their "terms" (entities) with a minimal set of attributes like a:
         - Name
