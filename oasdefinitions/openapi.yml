@@ -1437,7 +1437,7 @@ paths:
               schema:
                 type: object
                 properties:
-                  commodities:
+                  commoditiesList:
                     type: array
                     items:
                       $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/main/oasdefinitions/oiapComponents.yml#/commodity'
@@ -3007,7 +3007,7 @@ paths:
               schema:
                 type: object
                 properties:
-                  ratesAndFeesUrl:
+                  portRatesAndFees:
                     type: array
                     items:
                       $ref: '#/components/schemas/ratesAndFeesUrl'
@@ -3246,7 +3246,7 @@ paths:
               schema:
                 type: object
                 properties:
-                  companyByName:
+                  companiesByName:
                     type: array
                     items:
                       $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/main/oasdefinitions/oiapComponents.yml#/companyInfo'
