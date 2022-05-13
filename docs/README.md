@@ -3,13 +3,12 @@
 This directory contains documentation about the project.
 
 - [Presentation](./Presentation.md)
-- [Semantics 1](./approach.md)
--    [Semantics 2](./semantic.md)
-- [Catalogue Introduction](./CatalogueIntroduction.md)
--    [Working Environment](./workingenvironment.md) S'ha redistribuir i eliminar 
-- [Benchmarking](./Benchmarking.md) Afegir part de [Backstage](./BackStage.md)
-- [Best Practices 1](./OASdefinitionsBestPractices.md)
--    [Best Practices 2](./bestpractices.md)
-- [Toolbox](./toolbox.md) Afegir part de [Backstage](./BackStage.md)
-- [Changelog](./changelog.md)
+- [Semantics - Pending](./Semantics.md)
+- [Catalogue Introduction - Pending](./CatalogueIntroduction.md)
+-    [Working Environment - Pending](./workingenvironment.md) S'ha redistribuir i eliminar 
+- [Benchmarking - Pending](./Benchmarking.md) Afegir part de [Backstage - Pending](./BackStage.md)
+- [Best Practices 1 - Pending](./OASdefinitionsBestPractices.md)
+-    [Best Practices 2 - Pending](./bestpractices.md)
+- [Toolbox](./toolbox.md) Afegir part de [Backstage - Pending](./BackStage.md)
+- [Changelog - Pending](./changelog.md)
 

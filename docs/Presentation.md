@@ -1,7 +1,8 @@
 # Project presentation
 
-Here follows a short presentation about goals and execution path of the project
-Also powerpoint presentation and youtube presentations used in initial steps.
+This document is a brief introduction to the "Open Info API para Puertos" project, developed under the Ports 4.0 from Ports of Spain Tradetech Fund.
+
+Below, is a powerpoint presentation and a youtube video made in the initial stages of the project.
 
 ### Powerpoint
 
@@ -11,19 +12,19 @@ Also powerpoint presentation and youtube presentations used in initial steps.
 
 - [Youtube presentacion 9min](https://youtu.be/EXYsjfSUBBE)
 
-## Presentation ( january 2021)
+## Presentation
 
 ### Open Info API
 
-**Open Info API** for ports is the brainchild of Enric Rodellas and Jaume Bagot, both employees of the Port of Barcelona.
+**Open Info API** for ports is an Idea developed by Enric Rodellas and Jaume Bagot, both employees of the Port of Barcelona.
 
 ### Purpose
 
-The idea is to develop a set of open and standardized APIs, in order to provide **information on the status of the port** in real time.
+The purpouse of the Idea is to develop a set of open and standardized APIs, to provide **information on the status of the port** in real time.
 
 Port information, because we believe that there is a great demand and high use of information services by the Logistics Community. And, in addition, citizens demand more transparency and ease of access to the data of the administrations.
 
-Open and standardized, as part of a strategy aimed at its general use and that it can be replicated in other ports.
+Open and standardized, as part of a strategy aimed at the generalisation of its use and that it can be replicated in other ports.
 
 ### Examples
 
@@ -41,7 +42,7 @@ To execute the project, we will use open and standard technologies such as:
 - **HTTP** for data transport,
 - **OpenAPI** for the definition of the catalogue,
 - **JSON** as the exchange format and
-- **REST** (Representational State Transfer) as the protocol between the applications.
+- **REST** (REpresentational State Transfer) as the protocol between the applications.
 
 ### Deliverables
 
@@ -60,7 +61,7 @@ In this six-month phase, deliverables will be:
 
 Regarding the impact on the sector, we understand that it will manifest itself in three aspects such as transparency, port operations and the improvement of forecast management.
 
-The ease of integration into the operators' applications will be achieved through the development of a standardized catalog, the definition of standard APIs and an offer of information through PCS and other platforms, such as SIMPLE, for example.
+The ease of integration into the operators' applications will be achieved through the development of a standardized catalogue, the definition of standard APIs and an offer of information through PCS and other platforms, such as SIMPLE, for example.
 
 We are talking about valuable information for the sector such as:
 
