@@ -15,48 +15,6 @@ The EDIFACT messages mentioned include much more information on the scales of th
 Introduir el paràgraf per enviar-lo al [CatalogIntroduction/Shipcalls](CatalogIntroduction.md)
 
 
-
-#### Content
-Resum del contingut principl i link catalog/....
-#### Implementation
-Resum ... link al catalog/...
-
-===
-
-## Realtime weather
-adfa
-## Weather Forecast--- 
-
-## Sea state
-asdfa
-...
-
-## Pollution
-asdf
-## Traffic Status 
-asdf
-## Rail Transport Calls
-asdf
-## Rail Transport Services (o liners)
-adsf
-## Liner Services
-asdf
-
-## Terminal Trailer Queues (Gate Congestion)
-Tiempos de acceso
-
-## Container Gate In/Out
-ref a Codeocos
-
-## Container Ship (un)loading operations
-ref Coarris
-## Inspecciones sobre la mercancía- PIF- escáner
-## News
-
-## Notices
-
-# Benchmarking of services by Port
-
 ## Port of Antwerp (NxtPort)
 
 Antwerp port facilitate services through NxtPort plataform. See at https://www.nxtport.com/en/market/our-marketplace/marketplace#live
@@ -196,3 +154,28 @@ Benchmarking:
 
 ## Port Calendar Benchmarking:
 - https://rapidapi.com/SergeG/api/working-days/
+
+
+## About some specific APIs
+
+### Weather
+
+[Guide to marine meteorological services](https://library.wmo.int/index.php?lvl=notice_display&id=7469#.YHGO8uhpEWh)
+
+[Open Weather API](https://openweathermap.org/api) there are examples on how to documment APIs [example](https://openweathermap.org/current)
+
+### Track and trace
+
+[DCSA Track and trace](https://dcsa.org/standards/track-trace/)
+
+
+
+[DCSA Track and trace](https://dcsa.org/standards/track-trace/)
+
+### Antwerp API marketplace
+- https://www.nxtport.com/market/our-marketplace/marketplace
+- https://github.com/NxtPort/API/blob/master/README.md
+
+
+
+https://www.youtube.com/watch?v=NzgFdEGI8sI
