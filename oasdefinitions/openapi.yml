@@ -3293,7 +3293,7 @@ paths:
               schema:
                 type: object
                 properties:
-                  companyFromVat:
+                  companyByVat:
                     $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/main/oasdefinitions/oiapComponents.yml#/companyInfo'
                   metadata:
                     $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/main/oasdefinitions/oiapComponents.yml#/metadata'
