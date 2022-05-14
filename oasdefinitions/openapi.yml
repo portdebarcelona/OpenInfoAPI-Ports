@@ -3384,7 +3384,7 @@ components:
     subdivision:
       in: query
       name: subdivision
-      description: ubdivision code from ISO 3166 — Codes for the representation of names of countries and their subdivisions.         
+      description: ubdivision code from ISO 3166 - Codes for the representation of names of countries and their subdivisions.         
       required: false
       style: form
       explode: false

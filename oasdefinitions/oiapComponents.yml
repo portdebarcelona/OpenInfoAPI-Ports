@@ -1234,7 +1234,7 @@
     example: 2
 
   feelsLikeTemperature:  
-    description: Wind chill/Feels like Temperature (°C)
+    description: Wind chill/Feels like Temperature (C)
     type: number
     example: -4
 
@@ -1284,7 +1284,7 @@
     type: number 
 
   illuminance: 
-    description: The illuminance observed measured in lux (lx) or lumens per square metre (cd·sr·m-2).
+    description: The illuminance observed measured in lux (lx) or lumens per square metre (cd * sr * m-2).
     type: number
     example: 1000
 
