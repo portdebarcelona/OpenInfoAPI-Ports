@@ -44,9 +44,25 @@ Antwerp port facilitate services through NxtPort plataform. See at https://www.n
 
 Port of Busan explain their services at https://www.data.go.kr/en/bbs/ntc/selectNotice.do?originId=NOTICE_0000000002021
 
-We will inform you of the disposal of API related to Busan Port Authority. 1) Provider: Busan Port Authority 2) Target service (15 types of API)-Busan Port RFID vehicle access data-Pier information-Terminal code-Integrated cargo report information (disembarkation report)- Ship specification information-Ship control information-Ship entry/departure information-Loading list prior report container weight information inquiry-Terminal shipping code-
-
-Terminal bus code-Terminal container device information-Terminal loading and unloading plan information-Container status information-Unloaded container list-Overseas Port code 3) Reason for disposal: System maintenance has been steadily performed since 2011 to provide public data, but it is decided to dispose of the existing system due to the fact that it is impossible to maintain the existing system such as the end of the flash service 4) Person in charge: Information system manager of Busan Port Corporation 3145
+We will inform you of the disposal of API related to Busan Port Authority. 
+1) Provider: Busan Port Authority 
+2) Target service (15 types of API):
+    - Busan Port RFID vehicle access data
+    - Pier information
+    - Terminal code
+    - Integrated cargo report information (disembarkation report)
+    - Ship specification information
+    - Ship control information
+    - Ship entry/departure information
+    - Loading list prior report container weight information inquiry
+    - Terminal shipping code
+    - Terminal bus code
+    - Terminal container device information
+    - Terminal loading and unloading plan information
+    - Container status information
+    - Unloaded container list
+    - Overseas Port code 
+  3) Reason for disposal: System maintenance has been steadily performed since 2011 to provide public data, but it is decided to dispose of the existing system due to the fact that it is impossible to maintain the existing system such as the end of the flash service 4) Person in charge: Information system manager of Busan Port Corporation 3145
 
 ## The Maritime and Port Authority of Singapore (MPA)
 
