@@ -2228,7 +2228,7 @@ paths:
               schema:
                 type: object
                 properties:
-                  basicTrafficEnvironment:
+                  trafficFlowObserved:
                     type: array
                     items:
                       $ref: '#/components/schemas/vehicleTraffic'
@@ -2284,7 +2284,7 @@ paths:
               schema:
                 type: object
                 properties:
-                  accessTime:
+                  accessWaitTime:
                     type: array
                     items:
                       $ref: '#/components/schemas/accessTime'
@@ -2331,7 +2331,7 @@ paths:
               schema:
                 type: object
                 properties:
-                  accessTime:
+                  landsideThroughput:
                     type: array
                     items:
                       $ref: '#/components/schemas/throughput'
