@@ -14,41 +14,47 @@ This document summarizes all the decisions adopted during this project to develo
 
 
 ## Open API versioning
-- SHOULD be `version 3.x`.
-- While we have chosen Open API version 3. 
-- Advantages and disadvantages.
+- SHOULD be `version 3.0` or higher.
+
 
 ## YAML
-- OpenAPI definitions can be written in JSON or YAML. `YAML` is RECOMMENDED, because it is easier to read and write. 
+- OpenAPI definitions can be written in JSON or YAML. 
+- `YAML` is RECOMMENDED, because it is easier to read and write. 
 
 ## JSON
 - JSON (JavaScrip Object Notation) SHOULD be the format for accepting and responding API requests. It is NOT RECOMMENDED to use HTML or XML. 
 
-## Parameter Serialization (from [OpenAPI specification](https://swagger.io/docs/specification/serialization/))
+## Use nouns instead of verbs in endpoints
+- Because HTTP methods such as GET, POST, PUT, PATCH or DELETE are verbs for performing basic CRUD operations (Create with POST/PUT, read with GET, update with PUT/POST/PATCH and delete with DELETE), in the endpoints paths it is RECOMMENDED to use nouns, signifying what the endpoint does.
+
+## Grouping Operations With Tags (from [OpenAPI specification](https://swagger.io/docs/specification/grouping-operations-with-tags/))
+- We SHOULD group operations with `tags.` 
+
+## Parameters
+### Parameter Serialization (from [OpenAPI specification](https://swagger.io/docs/specification/serialization/))
 - Serialization means translating data structures or object states into a format that can be transmitted and reconstructed later. OpenAPI 3.0 supports arrays and objects in operation parameters (path, **query**, header, and cookie) and lets you specify how these parameters should be serialized. 
 - The serialization method is defined by the **style** and **explode** keywords:
 style defines how multiple values are delimited. 
   - Possible styles depend on the parameter location – path, query, header or cookie.
   - explode (true/false) specifies whether arrays and objects should generate separate parameters for each array item or object property.
 
-- Query Parameters
+- `Query Parameters`
   - Query parameters support different style values and the following combination is RECOMMENDED:
     - form – (default) ampersand-separated values, also known as form-style query expansion. Corresponds to the {?param_name} URI template.
 
-- Althoug the default serialization method is *style: form* and *explode: true*, the combination `style: form` and `explode: false` is RECOMMENDED
-- Some examples:
+- The default serialization method is `style: form` and `explode: true`, and this is the combination is RECOMMENDED
+- Some examples of the RECOMMENDED combination:
   - style: form 
-  - explode: false
+  - explode: true
   -	If the URI template in these examples is: /users{?id}, then: 
-    - The primitive value id = 5 is translated as: /users?id=5
-    -	The array id = [3, 4, 5] is translated as: /users?id=3,4,5	
-    -	The object id = {"role": "admin", "firstName": "Alex"} is translated as: /users?id=role,admin,firstName,Alex
+    - The `primitive` value id = 5 is translated as: /users?id=5
+    -	The `array` id = [3, 4, 5] is translated as: /users?id=3&id=4&id=5	
+    -	The `object` id = {"role": "admin", "firstName": "Alex"} is translated as: /users?id=role=admin&firstName=Alex
 
-## Grouping Operations With Tags (from [OpenAPI specification](https://swagger.io/docs/specification/grouping-operations-with-tags/))
-- We SHOULD group operations with `tags.` 
 
-## Use nouns instead of verbs in endpoints
-- Because HTTP methods such as GET, POST, PUT, PATCH or DELETE are verbs for performing basic CRUD operations (Create with POST/PUT, read with GET, update with PUT/POST/PATCH and delete with DELETE), in the endpoints paths it is RECOMMENDED to use nouns, signifying what the endpoint does.
+## Request body (from [OpenAPI specification](https://swagger.io/docs/specification/describing-request-body/))
+- With “create” and “update” operations (POST, PUT, PATCH) it is RECOMMENDED to use `equest bodies`. For example, when creating a resource using POST or PUT, the request body usually contains the representation of the resource to be created.
+- When updating a record on a database, the parameters will be used to identify the record whereas the message body will provide its new content. 
 
 ## Responses
 - SHOULD include data results, enveloped by object with the same name as the web service. E.g. `noticeCategories`, `shipArrivals`
@@ -56,24 +62,24 @@ style defines how multiple values are delimited.
 - SHOULD include information on the parameters (`queryParams`).
 - In case of error, read below:
 
-### Errors
-- SHOULD include `error` section with these attributes:
-  - `code`: HTML response status code
-  - `messageCode`: Code error description
-  - `message`: Error description
-  - `timestamp`: timestamp of error occurrence
-- MAY include the most precise code, from the list of HTML status codes, that identifies the error returned by a server on a client's request and will help users to know what is going on – whether the request is successful, or if it fails, or something else. 
+  ### Errors
+  - SHOULD include `error` section with these attributes:
+    - `code`: HTML response status code
+    - `messageCode`: Code error description
+    - `message`: Error description
+    - `timestamp`: timestamp of error occurrence
+  - MAY include the most precise code, from the list of HTML status codes, that identifies the error returned by a server on a client's request and will help users to know what is going on – whether the request is successful, or if it fails, or something else. 
 
 ## Data types
   - MAY reuse schema.org data types when possible.
 
 ### Entities and attributes
   - `Entities` represent a thing. Entities include a semantic type that describes the type of thing represented by the entity.
-  - Some examples of entities are: Person, Company, Building, Ship, Container... 
-  - The naming convention for entities SHOULD be `upper camel case` (initial uppercase letter). 
+    - Some examples of entities are: Person, Company, Building, Ship, Container... 
+    - The naming convention for entities SHOULD be `upper camel case` (initial uppercase letter). 
   - `Attributes` are properties of entities, where a property is a combination of an attribute and its value.
-  - Attributes describe the current state of the entity they belong to.
-  - The naming convention for attibutes MUST be `lower camel case` (initial lowercase letter), also known as dromedary case.  
+    - Attributes describe the current state of the entity they belong to.
+    - The naming convention for attibutes MUST be `lower camel case` (initial lowercase letter), also known as dromedary case.  
 
 ### Language
 - `English` SHOULD be the language to identify entities and attributes.  
@@ -85,22 +91,18 @@ style defines how multiple values are delimited.
 ## Subscription or unsubscription management
 ### Two steps 
 - Subscriptions and unsubscriptions MAY be managed in two steps:
-  - A first step, the subscription/unsubscription request and
-  - a second step, the subscription/unsubscription validation.
+  - A first step, the subscription/unsubscription `request` and
+  - a second step, the subscription/unsubscription `validation`.
 - After the first request, a validation key will be received and it should be incorporated as a parameter into the validation step.
 
 
-## Pagination
+
 
 
 
 
 
 # To do
-
-
-
-
 
 
 ## Security Scheme Object
@@ -192,7 +194,7 @@ style defines how multiple values are delimited.
                   type: string
 
 ## Marketplace design
-
+- WSO2 API Marketplace
 
 
 
