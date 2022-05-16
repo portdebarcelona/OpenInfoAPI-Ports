@@ -1258,7 +1258,7 @@ paths:
               schema:
                 type: object
                 properties:
-                  borderInspectionProcedures:
+                  approachInstructions:
                     type: array
                     items:
                       $ref: '#/components/schemas/approachInstructions'
