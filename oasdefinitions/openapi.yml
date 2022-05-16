@@ -1789,7 +1789,7 @@ paths:
               schema:
                 type: object
                 properties:
-                  airParameters:
+                  airPollution:
                     $ref: '#/components/schemas/airParameters'
                   metadata:
                     $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/main/oasdefinitions/oiapComponents.yml#/metadata'
