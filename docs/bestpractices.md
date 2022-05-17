@@ -1,5 +1,5 @@
 # Best practices
-# Standardization, Recommendations and Decisions
+# Recommendations 
 
 This document summarizes all the decisions adopted during this project to develop a set of recommendations and best practices for the API definition.
    
@@ -112,11 +112,11 @@ style defines how multiple values are delimited.
 
 
 
-# To do
+# To do list
 
 
-## Security Scheme Object
-- Defines a security scheme that can be used by the operations. Supported schemes are:
+## Security Scheme
+- The OPen API Security Scheme Object defines a security scheme that can be used by the operations. Supported schemes are:
   
   - HTTP authentication, 
   - an API key (either as a header, a cookie parameter or as a query parameter), 
@@ -144,27 +144,35 @@ style defines how multiple values are delimited.
     - openIdConnectUrl
 
 ## Filtering
-- tbd
+- Basic filtering can be added with URL parameters.
+- Filters are composed of three components:
+  - The property (field name)
+  - The operator
+  - The filter value
+- There are several alternatives:
+  - Books which price is greater or equal to 15 and lower or equal to 35. 
+    - GET /books?price[gte]=15&price[lte]=35  
+    - GET /books?price=gte:15&price=lte:35
+  - Books that their title contain the terms white flag and the price is greater or equal to 15 and lower or equal to 35.   
+    - GET /books?q=title:white flag AND price:[15 TO 35]   
 
 ## Sorting
-- tbd
+- Sorting is an important feature for any API endpoint that returns a lot of data. 
+  - E.g. GET /users?sort_by=desc(last_modified),asc(email)
 
-## Searching
-- tbd
 
 ## Pagination of the results
-- tbd
+- To avoid that an endpoint returns a large list of hits pagination is needed. 
+- There are several alternatives:
+  - `Offset pagination`
+  - `Keyset pagination`
+  - `Seek pagination`
 
 
+## Application Rate Limiting
+- If a user sends too many requests, API rate limiting can throttle client connections instead of disconnecting them immediately. 
+- It will have to define the API Rate Limiting HTTP Response headers
 
-## `To be distributed along the document`
-- Provide a way to limit which fields are returned from the API
-- HATEOAS isn't practical just yet
-- Provide a way to autoload related resource representations
-- Provide a way to override the HTTP method
-- Provide useful response headers for rate limiting
-- Provide a way to return errors
-- Effectively use HTTP Status codes
 
 
 ## Callbacks (from [OpenAPI specification](https://swagger.io/docs/specification/callbacks/))
@@ -227,9 +235,7 @@ style defines how multiple values are delimited.
                   type: string
 
 ## Marketplace design
-- WSO2 API Marketplace
-
-
+- There are several solutions to build a marketplace from scratch to marketplace software, through various intermediate solutions. 
 
 
 
@@ -237,7 +243,6 @@ style defines how multiple values are delimited.
 Here some places where give ideas about best practices defining APIS:
 - https://github.com/RestCheatSheet/api-cheat-sheet
 - https://www.vinaysahni.com/best-practices-for-a-pragmatic-restful-api
-- https://github.com/darrin/yaras/blob/master/restful-standards.md
 - https://docs.python-eve.org/en/stable/rest_api_for_humans.html
 - **https://www.merixstudio.com/blog/best-practices-rest-api-development/**
 - https://www.merixstudio.com/blog/api-documentation-few-tips-will-help-you-write-it-well/
@@ -245,12 +250,4 @@ Here some places where give ideas about best practices defining APIS:
 - https://cloud.google.com/apis/design
 
 
-## API for requests
-- Look at DSCA API design principles 1.0 
-
-## API for responses
-- Formats de JSON per respondre (veure jsonapi.org,la de Google )
-- jsonapi.org https://www.youtube.com/watch?v=RSv-Yv3cgPg 
-- https://www.youtube.com/watch?v=LLe7Fi-wM3Q
-- https://discuss.jsonapi.org/t/pragmatic-design-with-json-api-at-fitbit/1143
   
