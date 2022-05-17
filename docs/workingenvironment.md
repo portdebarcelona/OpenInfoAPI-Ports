@@ -74,3 +74,12 @@ Because our company (portofbarcelona) uses **Github.com**, this will be our code
 
 
 
+
+
+# `Best practices in defining API`
+
+We need to stablish some rules in defining APIs. For this reason we have been inspired in preceding efforts. Being that this openapi will be based in Restful services where JSON will be the data format of communications, we have been looking for some standard or best practices. Really doesn't exist a standard, but every webservice have solved this questions the best he could. 
+
+
+
+
