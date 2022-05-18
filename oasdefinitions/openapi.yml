@@ -379,8 +379,8 @@ paths:
     get:
       tags:
         - Port Calls
-      summary: Returns information about next arrival and departure of a cruise ship.
-      description: Returns information about next arrival and departure of a cruise ship.
+      summary: Returns information about the next arrival and departure of a cruise ship.
+      description: Returns information about the next arrival and departure of a cruise ship.
       parameters:
         - $ref: '#/components/parameters/portCode'
         - $ref: '#/components/parameters/shipName'
@@ -624,7 +624,7 @@ paths:
     get:
       tags:
         - Port Infrastructure
-      summary: Information about the main land port accesses. 
+      summary: Information about the mainland port accesses. 
       description: >-
         This GET API returns the list of port gates from a port. 
       parameters:
@@ -757,7 +757,7 @@ paths:
     get:
       tags:
         - Port Infrastructure
-      summary: Information of all the rail terminals and loading tracks of a port
+      summary: Information on all the rail terminals and loading tracks of a port
       description: >
           List of the rail terminals and loading tracks from a port.
           Rail facilities are caracterized because they have rail bundles of up to 10 rail tracks with lengths of a maximum of 800 meters per track. They are equipped to allow simultaneous batch exchanges (direct transshipment) through the use of rail-mounted gantry cranes that stretch over the rail bundles.
@@ -847,7 +847,7 @@ paths:
     get:
       tags:
         - Port Infrastructure
-      summary: Bathymetric data from channel and berths.
+      summary: Bathymetric data from channels and berths.
       description: Data from the regular hydrographic surveis that are being performed at ports.
       parameters:
         - $ref: '#/components/parameters/portCode'
@@ -1466,8 +1466,8 @@ paths:
     get:
       tags:
         - Environment-Weather
-      summary: Returns real-time weather information of the default weather station of a port.
-      description: Returns realtime weather information of the default weather station of a port. 
+      summary: Returns real-time weather information on the default weather station of a port.
+      description: Returns realtime weather information on the default weather station of a port. 
       parameters:
         - $ref: '#/components/parameters/portCode'
       responses:
@@ -1596,8 +1596,8 @@ paths:
     get:
       tags:
         - Environment-Sea State
-      summary: Returns information of the sea condition.
-      description: Returns information of the sea condition.
+      summary: Returns information on the sea condition.
+      description: Returns information on the sea condition.
       parameters:
         - $ref: '#/components/parameters/portCode'
       responses:
@@ -2210,7 +2210,7 @@ paths:
     get:
       tags:
         - Vehicle Traffic
-      summary: Number of vehicles entering or leaving a port or a terminal through a certain gate and in each period. And segregation of this data by type of vehicles.
+      summary: The number of vehicles entering or leaving a port or a terminal through a certain gate and in each period. And segregation of this data by type of vehicles.
       description: Returns the number of vehicles entering or leaving a port or a terminal through a certain gate and in a given period of time. And segregation of this data by type of vehicles. 
       parameters:
         - $ref: '#/components/parameters/portCode'
@@ -2263,9 +2263,9 @@ paths:
     get:
       tags:
         - Terminal Performance
-      summary: Estimated waiting time that trucks have to queue before they can enter into a terminal.
+      summary: Estimated waiting time that trucks have to queue before they can enter a terminal.
       description: | 
-        Returns a list with the estimated waiting time that trucks have to queue before they can enter into a terminal.
+        Returns a list with the estimated waiting time that trucks have to queue before they can enter a terminal.
 
         `Parameters`: Port Code and Terminal identifier
 
@@ -2315,7 +2315,7 @@ paths:
     get:
       tags:
         - Terminal Performance
-      summary: Number of units (containers, freight cars,...) that enter or leave a terminal per hour during the present day.
+      summary: The number of units (containers, freight cars,...) that enter or leave a terminal per hour during the present day.
       description: Returns a list with the number of units (containers, freight cars,...) that enter or leave a terminal per hour during the present day.
       parameters:
         - $ref: '#/components/parameters/portCode'
@@ -2434,8 +2434,8 @@ paths:
     post:
       tags:
         - News
-      summary: Last step to subscribe to a news service
-      description: 'Post the validation code received to fulfill the subscription request to a news service from a port'
+      summary: Last step for subscribing to a news service
+      description: 'Post the validation code is received to fulfill the subscription request to a news service from a port'
       operationId: subscriptionValidation
       requestBody:
         content:
@@ -2490,8 +2490,8 @@ paths:
     post:
       tags:
         - News
-      summary: Last step to cancel the subscription to a news service
-      description: 'Post the validation code received to cancel the subscription to a news service from a port'
+      summary: Last step for cancelling the subscription to a news service
+      description: 'Post the validation code is received to cancel the subscription to a news service from a port'
       operationId: unsubscriptionValidation
       requestBody:
         content:
@@ -2723,8 +2723,8 @@ paths:
     post:
       tags:
         - Notices
-      summary: Last step to subscribe to a notices service
-      description: 'Post the validation code received to fulfill the subscription request to a notices service from a port'
+      summary: Last step for subscribing to a notices service
+      description: 'Post the validation code is received to fulfill the subscription request to a notices service from a port'
       operationId: noticesSubscriptionValidation  
       requestBody:
         content:
@@ -2761,7 +2761,7 @@ paths:
                 - $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/main/oasdefinitions/oiapComponents.yml#/email'
                 - $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/main/oasdefinitions/oiapComponents.yml#/phone'
               example: {"email": "name@domain.com"} 
-        description: request placed for unsubscribing to a notices service
+        description: Request placed for unsubscribing to a notices service
         required: true
       responses:
         '200':
@@ -2778,8 +2778,8 @@ paths:
     post:
       tags:
         - Notices
-      summary: Last step to cancel the subscription to a notices service
-      description: 'Post the validation code received to cancel the subscription to a notices service from a port'
+      summary: Last step for cancelling the subscription to a notices service
+      description: 'Post the validation code is received to cancel the subscription to a notices service from a port'
       operationId: noticesUnsubscriptionValidation    
       requestBody:
         content:
@@ -4567,7 +4567,7 @@ components:
         - estimatedTimeOfDeparture 
 
     vehicleTraffic:
-      description: 'Number of vehicles entering or leaving a port or a terminal.'
+      description: 'The number of vehicles entering or leaving a port or a terminal.'
       type: object
       allOf:
         - type: object 
@@ -4584,7 +4584,7 @@ components:
         - vehicleTraffic 
 
     accessTime:
-      description: 'Estimated period of time, in minites, that trucks have to queue before they can enter into a terminal.'
+      description: 'Estimated period of time, in minites, that trucks have to queue before they can enter a terminal.'
       type: object
       allOf:
         - type: object 

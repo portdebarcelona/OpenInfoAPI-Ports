@@ -21,7 +21,7 @@
 
 #   Group 1: Documentation and references.
   oiapApiVersion:
-    description: String used to identify the version implemented of the Open Info API for Ports.
+    description: string that is usedto identify the version implemented of the Open Info API for Ports.
     type: string
     example: 0.9.0-oas3
 
@@ -58,7 +58,7 @@
     example: '4ZT2'
 
   searchTerm:
-    description: String used to search something.
+    description: string that is used to search for something.
     type: string
     minLength: 3
 
