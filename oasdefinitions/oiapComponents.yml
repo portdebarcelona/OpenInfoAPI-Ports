@@ -21,7 +21,7 @@
 
 #   Group 1: Documentation and references.
   oiapApiVersion:
-    description: String used to identify the version implemented of the Open Info API for Ports.
+    description: string that is usedto identify the version implemented of the Open Info API for Ports.
     type: string
     example: 0.9.0-oas3
 
@@ -58,12 +58,12 @@
     example: '4ZT2'
 
   searchTerm:
-    description: String used to search something.
+    description: string that is used to search for something.
     type: string
     minLength: 3
 
   dataProvider:
-    description: Specifies the URL to inform about the provider of this information.
+    description: Specifies the URL to inform the provider of this information.
     type: string
 
   alertCategory:
@@ -121,7 +121,7 @@
     type: object
     properties:
       requestId:
-        description: Unique identifier of the request. Include this as reference when reporting issues.    
+        description: The unique identifier of the request. Include this as a reference when reporting issues.    
         type: string         
       dateCreated:    
         description: Entity creation timestamp. This will usually be allocated by the storage platform.    
@@ -162,7 +162,7 @@
     example: "2022-04-12" 
 
   dateRange: 
-    description: The duration of a period, expressed as an ISO 8601 code. E.g. 4 weeks and 2 days is represented as P4W2D.
+    description: The duration of a period is expressed as an ISO 8601 code. E.g. 4 weeks and 2 days are represented as P4W2D.
     type: string
     format: iso8601
     example: P4W  
@@ -192,7 +192,7 @@
     example: "2022-03-16T01:04:00Z"   
 
   time: 
-    description: Representation of Time, expressed in hours, minutes and seconds using ISO 8601 Time format.
+    description: Representation of Time, expressed in hours, minutes, and seconds using ISO 8601 Time format.
     type: string
     example: "13:04:00" 
 
@@ -665,7 +665,7 @@
         $ref: '#/vehicleTypes'
 
   totalArea: 
-    description: Total area expressed in hectares (ha).
+    description: The total area expressed in hectares (ha).
     type: integer
 
   berthLength:
@@ -674,7 +674,7 @@
     example: 635  
 
   coveredWarehouses: 
-    description: Total area of the covered warehouses in square meters.
+    description: The total area of the covered warehouses in square meters.
     type: integer
 
   underwaterDepth:
@@ -693,12 +693,12 @@
     type: string
 
   railBundles:
-    description: Number of rail tracks in a facility. 
+    description: The number of rail tracks in a facility. 
     type: integer
     example: 8
 
   trackMaximumLength: 
-    description: Maximum length of a rail track of a facility, expressed in meters. 
+    description: The maximum length of a rail track of a facility, expressed in meters. 
     type: integer
     example: 800
 
@@ -713,7 +713,7 @@
     example: Iberian gauge    
 
   gantryCranes: 
-    description: Number of gantry cranes of a facility. 
+    description: THe number of gantry cranes of a facility. 
     type: integer
     example: 3
 
@@ -747,7 +747,7 @@
     example: ESBCN 
 
   portLoadingUnloading:
-    description: For a vessel that operates in a port, port where cargo was loaded (port of loading) or where it will be unloaded (port of unloading). Use port UN/LOCODE.           
+    description: For a vessel that operates in a port, port where the cargo was loaded (port of loading) or where it will be unloaded (port of unloading). Use port UN/LOCODE.           
     type: string
     maxLength: 5
     example: HKHKG 
@@ -805,12 +805,12 @@
     example: 875200 
 
   passengers: 
-    description: Number of passengers.      
+    description: The number of passengers.      
     type: integer      
     example: 24200 
 
   units: 
-    description: Number of units (containers, intermodal transport units -ITU-, vehicles, vessels...).      
+    description: The number of units (containers, intermodal transport units -ITU-, vehicles, vessels...).      
     type: integer      
     example: 4823 
 
@@ -891,20 +891,20 @@
 #   Group 8 is for transport modes, means and equipments
   # Maritime transport
   shipIMONumber:
-    description: The ship identifier. Unique seven-digit number which remains unchanged through a vessel's lifetime and is linked to its hull.
+    description: The ship identifier. The unique seven-digit number which remains unchanged through a vessel's lifetime and is linked to its hull.
     type: string
     maxLength: 7 
     example: 9876543 
 
   shipName:
-    description: The ship's name shown on the IMO ship's certificates.
+    description: The ship's name is shown on the IMO ship's certificates.
     type: string
     maxLength: 35
     example: AURORA 
 
   shipType:
     description: >
-          The type of the ship. The value is populated using the 2-character code from Annex VI from DIRECTIVE 2009/42/EC OF THE EUROPEAN PARLIAMENT AND OF THE COUNCIL of 6 May 2009 on statistical returns in respect of carriage of goods and passengers by sea.
+          The type of the ship. The value is populated using the 2-character code from Annex VI from DIRECTIVE 2009/42/EC OF THE EUROPEAN PARLIAMENT AND OF THE COUNCIL of 6 May 2009 on statistical returns in respect of the carriage of goods and passengers by sea.
 
             * `10` Liquid bulk (Oil tanker, Chemical tanker, LG tanker, Tanker barge, Other tanker)
             * `20` Dry bulk (Bulk/oil carrier, Bulk carrier)
@@ -931,12 +931,12 @@
     example: GB04     
   
   vesselDwt:
-    description: The deadweight (DWT) of a ship is the difference in tonnes between the displacement of a ship on the summer load line in water with a specific gravity of 1.025 and the total weight of the ship.
+    description: The deadweight (DWT) of a ship is the difference in tonnes between the displacement of a ship on the summer load line in the water with a specific gravity of 1.025 and the total weight of the ship.
     type: integer 
     example: 174300 
     
   vesselGt:
-    description: Gross tonnage (GT) is a measure of the overall size of a ship determined in accordance with the provisions of the International Convention on Tonnage Measurement of Ships (1969). It is calculated as a function of the moulded volume of all enclosed spaces of the ship.
+    description: Gross tonnage (GT) is a measure of the overall size of a ship determined by the provisions of the International Convention on Tonnage Measurement of Ships (1969). It is calculated as a function of the moulded volume of all enclosed spaces of the ship.
     type: integer
     example: 235400 
 
@@ -964,7 +964,7 @@
     example: FC
 
   linerServiceCapacity: 
-    description: Capacity of a liner service, expressed in units according to the typology of the liner service. Units are TEUs for containerships, cars for car-carriers and LIMs (lanes in meters) for ro-ro vessels. 
+    description: The capacity of a liner service, expressed in units according to the typology of the liner service. Units are TEUs for containerships, cars for car-carriers and LIMs (lanes in meters) for ro-ro vessels. 
     properties:
       capacity:
         description: Capacity. 
@@ -1035,7 +1035,7 @@
 
   railDirection:  
     description: > 
-      Direction of a train:
+      The direction of a train:
         * `UP` - Up or inbound is used for trains that are coming to a port.
         * `DOWN` - Down or outbound is used for trains that are leaving a port. 
     type: string
@@ -1080,7 +1080,7 @@
     example: 2340     
 
   iso6346:
-    description: Size and type codes of a container, used as a whole. Size codes are determined in accordance with annex D of ISO 6346:1995 and type codes according to annex E of the same international standard.
+    description: Size and type codes of a container, used as a whole. Size codes are determined by annex D of ISO 6346:1995 and type codes according to annex E of the same international standard.
     type: string
     maxLength: 4
     example: 22G1 
@@ -1110,7 +1110,7 @@
     example: Isolated Danger Mark
 
   markTop: 
-    description: Upper part of a mark. It can be one or two spheres, cilinders, cones or crosses.
+    description: The upper part of a mark. It can be one or two spheres, cilinders, cones or crosses.
     type: string
     example: Two black spheres.
 
@@ -1139,11 +1139,11 @@
 
   # Notices and news
   noticeLanguage:
-    description: Language used to write a notice. 
+    description: The language used to write a notice. 
     $ref: '#/language'
 
   newsLanguage:
-    description: Language used to write news. 
+    description: The language used to write news. 
     $ref: '#/language'
 
   publishingStage:  
@@ -1155,11 +1155,11 @@
     enum: [ACTIVE, EXPIRED]
 
   subject:
-    description: Subject of a publication.      
+    description: The subject of a publication.      
     type: string
 
   content:
-    description: Content of a publication. 
+    description: The content of a publication. 
     type: string
 
   noticeCategory:
@@ -1200,7 +1200,7 @@
   unsubscriptionRequestMessage:
     description: Response message to an unsubscription request. 
     type: string 
-    example: 'Your unsubscription request has been received and soon you will receive a validation code (email/sms)'
+    example: 'Your unsubscription request has been received and soon you will repoint encodedceive a validation code (email/sms)'
 
   unsubscriptionReference:
     description: Response after an unsubscription request has been received
@@ -1219,7 +1219,7 @@
     example: cloudy
 
   dewPoint: 
-    description: The dew point encoded as a number. Default unit is Celsius degrees. 
+    description: The dew point is encoded as a number. The default unit is Celsius degrees. 
     type: number
 
   visibility: 
@@ -1229,7 +1229,7 @@
     example: good
 
   temperature: 
-    description: Air's temperature observed. Default unit is degrees centigrades.
+    description: Air temperature observed. The default unit is degrees centigrades.
     type: number
     example: 2
 
@@ -1239,14 +1239,14 @@
     example: -4
 
   relativeHumidity: 
-    description: Air's relative humidity observed (percentage, expressed in parts per one).
+    description: Air relative humidity observed (percentage, expressed in parts per one).
     type: number
     minimum: 0
     maximum: 1
     example: 0.4            
 
   precipitation: 
-    description: Precipitation level observed. Default unit is liters per square meter.
+    description: Precipitation level observed. The default unit is liters per square meter.
     type: number
     example: 13
 
@@ -1257,7 +1257,7 @@
     maximum: 1
 
   windDirection: 
-    description: The wind direction expressed in decimal degrees compared to geographic North (measured clockwise), encoded as a Number. Range 0 to 360.
+    description: The wind direction is expressed in decimal degrees compared to geographic North (measured clockwise), encoded as a Number. Range 0 to 360.
     type: number
     minimum: 0
     maximum: 360
@@ -1269,22 +1269,22 @@
     example: 4.5
 
   atmosphericPressure: 
-    description: The atmospheric pressure observed measured in Hecto Pascals (hPa).
+    description: The atmospheric pressure observed, measured in Hecto Pascals (hPa).
     type: number
     example: 1013
 
   pressureTendency: 
-    description: Is the pressure rising or falling. It is expressed in qualitative terms.
+    description: Is the pressure rising or falling? It is expressed in qualitative terms.
     type: string
     enum: [raising, falling, steady]
     example: steady
 
   solarRadiation: 
-    description: The solar radiation observed measured in Watts per square meter.
+    description: The solar radiation observed, measured in Watts per square meter.
     type: number 
 
   illuminance: 
-    description: The illuminance observed measured in lux (lx) or lumens per square metre (cd * sr * m-2).
+    description: The illuminance observed, measured in lux (lx) or lumens per square metre (cd * sr * m-2).
     type: number
     example: 1000
 
@@ -1296,25 +1296,25 @@
     example: 0.25
 
   sunrise:  
-    description: Time for sunrise in a certain date and place.
+    description: Time for sunrise on a certain date and place.
     type: string
     format: date-time
     example: "2022-06-14T06:01:00Z"
 
   sunset:  
-    description: Time for sunset in a certain date and place.
+    description: Time for sunset on a certain date and place.
     type: string
     format: date-time
     example: "2022-06-14T20:52:00Z"
 
   moonrise:  
-    description: Time for moonrise in a certain date and place.
+    description: Time for moonrise on a certain date and place.
     type: string
     format: date-time
     example: "2022-06-14T01:22:00Z"
 
   moonset:  
-    description: Time for moonset in a certain date and place.
+    description: Time for moonset on a certain date and place.
     type: string
     format: date-time
     example: "2022-06-14T05:37:00Z"
@@ -1354,7 +1354,7 @@
     example: 12
 
   source: 
-    description: A sequence of characters giving the original source of the entity data as a URL. Recommended to be the fully qualified domain name of the source provider, or the URL to the source object.
+    description: A sequence of characters giving the source of the entity data as a URL. Recommended to be the fully qualified domain name of the source provider, or the URL to the source object.
     $ref: '#/uri'
 
   swellHeight:  
@@ -1424,37 +1424,37 @@
     example: 4.12
 
   tss: 
-    description: Total suspended solids, measured in milligrams per liter (mg/L).
+    description: The total suspended solids, measured in milligrams per liter (mg/L).
     type: number
     example: 123
 
   tds: 
-    description: Total dissolved solids, measured in milligrams per liter (mg/L).
+    description: The total dissolved solids, measured in milligrams per liter (mg/L).
     type: number
     example: 100
 
   nitrates: 
-    description: Concentration of nitrates, expressed in milligrams per liter (mg/L).
+    description: The concentration of nitrates, expressed in milligrams per liter (mg/L).
     type: number
     example: 0.01
 
   nitrites: 
-    description: Concentration of nitrites, expressed in milligrams per liter (mg/L).
+    description: The concentration of nitrites, expressed in milligrams per liter (mg/L).
     type: number
     example: 0.972
 
   ammonia: 
-    description: Concentration of ammonia, expressed in milligrams per liter (mg/L).
+    description: The concentration of ammonia, expressed in milligrams per liter (mg/L).
     type: number
     example: 0.996             
 
   silicate: 
-    description: Concentration of silicate, expressed in milligrams per liter (mg/L).
+    description: The concentration of silicate, expressed in milligrams per liter (mg/L).
     type: number
     example: 0.994
 
   phosphate: 
-    description: Concentration of phosphate, expressed in milligrams per liter (mg/L).
+    description: The concentration of phosphate, expressed in milligrams per liter (mg/L).
     type: number              
     example: 0.996
 
@@ -1491,11 +1491,11 @@
     example: 65
 
   location:
-    description: Location of the weather observation represented by a GeoJSON geometry. Mandatory if address is not defined.
+    description: Location of the weather observation is represented by a GeoJSON geometry. Mandatory if the address is not defined.
     type: string             
 
   dateObserved:
-    description: The date and time of this observation in ISO8601 UTCformat. It can be represented by an specific time instant or by an ISO8601 interval.
+    description: The date and time of this observation are in ISO8601 UTC format. It can be represented by a specific time instant or by an ISO8601 interval.
     type: string
     format: date-time
     example: "2022-05-09T09:14:00Z"
