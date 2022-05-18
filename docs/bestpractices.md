@@ -127,20 +127,20 @@ style defines how multiple values are delimited.
   - Common fields
     - type
     - description
-  - HTTP authentication
+  - **HTTP authentication**
     - scheme ([values registered in the IANA Authentication Scheme registry](https://www.iana.org/assignments/http-authschemes/http-authschemes.xhtml)]
     - bearerFormat
-  - API key 
+  - **API key** 
     - name
     - in (valid values are: query, header or cookie)
-  - oauth2
+  - **oauth2**
     - flows (supported values are:  implicit, password, clientCredentials, authorizationCode)
     - These are the configuration details for a supported OAuth Flow:
       - authorizationUrl string (oauth2 ("implicit", "authorizationCode")) REQUIRED
       - tokenUrl string (oauth2 ("password", "clientCredentials", "authorizationCode")) REQUIRED 
       - refreshUrl string (oauth2)
       - scopes Map[string, string] (oauth2) REQUIRED 
-  - openIdConnect
+  - **openIdConnect**
     - openIdConnectUrl
 
 ## Filtering

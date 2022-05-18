@@ -1038,16 +1038,14 @@ paths:
               schema:
                 type: object
                 properties:
-                  containerTare:
-                    type: array
-                    items:
-                      $ref: '#/components/schemas/containerTare'
+                  containerTareWeight:
+                    $ref: '#/components/schemas/containerTare'
                   metadata:
                     $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/main/oasdefinitions/oiapComponents.yml#/metadata'
                   queryParams:
                     type: object
                     properties:
-                      portCode:
+                      containerNumber:
                         $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/main/oasdefinitions/oiapComponents.yml#/containerNumber'
         '400':
           description: Bad request
@@ -1126,7 +1124,7 @@ paths:
               schema:
                 type: object
                 properties:
-                  borderInspectionActors:
+                  qualityCertifiedPartners:
                     type: array
                     items:
                       $ref: '#/components/schemas/qualityCertifiedPartner'
