@@ -887,7 +887,7 @@ paths:
                 $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/main/oasdefinitions/oiapComponents.yml#/error' 
 
   # Customs clearance procedure
-  /customsClearanceProcedure:
+  /customsClearanceProcedures:
     get:
       tags:
         - Port Procedures
@@ -907,9 +907,7 @@ paths:
                 type: object
                 properties:
                   customsClearanceProcedures:
-                    type: array
-                    items:
-                      $ref: '#/components/schemas/customsClearanceProcedure'
+                    $ref: '#/components/schemas/customsClearanceProcedure'
                   metadata:
                     $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/main/oasdefinitions/oiapComponents.yml#/metadata'
                   queryParams:
@@ -951,9 +949,7 @@ paths:
                 type: object
                 properties:
                   borderInspectionProcedures:
-                    type: array
-                    items:
-                      $ref: '#/components/schemas/borderInspectionProcedure'
+                    $ref: '#/components/schemas/borderInspectionProcedure'
                   metadata:
                     $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/main/oasdefinitions/oiapComponents.yml#/metadata'
                   queryParams:
@@ -995,9 +991,7 @@ paths:
                 type: object
                 properties:
                   vgmProcedures:
-                    type: array
-                    items:
-                      $ref: '#/components/schemas/vgmProcedure'
+                    $ref: '#/components/schemas/vgmProcedure'
                   metadata:
                     $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/main/oasdefinitions/oiapComponents.yml#/metadata'
                   queryParams:
@@ -1081,9 +1075,7 @@ paths:
                 type: object
                 properties:
                   qualityCertificationProcedures:
-                    type: array
-                    items:
-                      $ref: '#/components/schemas/qualityCertificationProcedure'
+                    $ref: '#/components/schemas/qualityCertificationProcedure'
                   metadata:
                     $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/main/oasdefinitions/oiapComponents.yml#/metadata'
                   queryParams:
@@ -1213,9 +1205,7 @@ paths:
                 type: object
                 properties:
                   pickupDeliveryProcedures:
-                    type: array
-                    items:
-                      $ref: '#/components/schemas/pickupDeliveryProcedure'
+                    $ref: '#/components/schemas/pickupDeliveryProcedure'
                   metadata:
                     $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/main/oasdefinitions/oiapComponents.yml#/metadata'
                   queryParams:
@@ -1257,9 +1247,7 @@ paths:
                 type: object
                 properties:
                   approachInstructions:
-                    type: array
-                    items:
-                      $ref: '#/components/schemas/approachInstructions'
+                    $ref: '#/components/schemas/approachInstructions'
                   metadata:
                     $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/main/oasdefinitions/oiapComponents.yml#/metadata'
                   queryParams:
