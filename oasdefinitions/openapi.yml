@@ -3181,8 +3181,8 @@ paths:
   # Companies.
   /companies:
     get:
-      summary: Get some overview data of all the companies from a port or all the companies that perform an specific activity.
-      description: Get some overview data of all the companies from a port or all the companies that perform an specific activity.
+      summary: Get some overview data of all the companies from a port or all the companies that perform a specific activity.
+      description: Get some overview data of all the companies from a port or all the companies that perform a specific activity.
       tags:
         - Port Directory
       parameters:
@@ -3404,7 +3404,7 @@ components:
     toDate:
       in: query
       name: toDate
-      description: Last day of a period, expressed as YYYY-MM-DD.        
+      description: Last day of a period is expressed as YYYY-MM-DD.        
       required: false
       style: form
       explode: false
@@ -4266,7 +4266,7 @@ components:
             atmosphericPressure:
               $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/main/oasdefinitions/oiapComponents.yml#/atmosphericPressure'
             dayMaximum:
-              description: 'Maximum values for the reported period. Subattributes:- `temperature` : Maximum temperature. See `WeatherForecast.temperature` for description and units. - `feelLikesTemperature`. Maximum feels like temperature. Same semantics and units as `WeatherForecast.feelsLikeTemperature`.-   `relativeHumidity`. Maximum relative humidity. Same semantics and units as `WeatherForecast.relativeHumidity`.'    
+              description: 'The maximum values for the reported period. Subattributes:- `temperature` : The maximum temperature. See `WeatherForecast.temperature` for description and units. - `feelLikesTemperature`. The maximum feels like temperature. Same semantics and units as `WeatherForecast.feelsLikeTemperature`.-   `relativeHumidity`. The maximum relative humidity. Same semantics and units as `WeatherForecast.relativeHumidity`.'    
               type: object  
               properties:
                 feelsLikeTemperature:
