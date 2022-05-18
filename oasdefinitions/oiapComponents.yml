@@ -121,7 +121,7 @@
     type: object
     properties:
       requestId:
-        description: Unique identifier of the request. Include this as reference when reporting issues.    
+        description: Unique identifier of the request. Include this as a reference when reporting issues.    
         type: string         
       dateCreated:    
         description: Entity creation timestamp. This will usually be allocated by the storage platform.    
