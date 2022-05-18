@@ -891,8 +891,8 @@ paths:
     get:
       tags:
         - Port Procedures
-      summary: Returns a list of resources where the procedures for clearing the goods in import can be found.
-      description: Returns a list of resources where the procedures for clearing the goods in import can be found. 
+      summary: Returns a resource where the procedures for clearing the goods in import can be found.
+      description: Returns a resource where the procedures for clearing the goods in import can be found. 
       parameters:
         - $ref: '#/components/parameters/portCode'
       responses:
@@ -933,8 +933,8 @@ paths:
     get:
       tags:
         - Port Procedures
-      summary: Returns a list of resources where the procedures for clearing the goods subject to controls from the border inspection services can be found.
-      description: Returns a list of resources where the procedures for clearing the goods subject to controls from the border inspection services can be found. 
+      summary: Returns a resource where the procedures for clearing the goods subject to controls from the border inspection services can be found.
+      description: Returns a resource where the procedures for clearing the goods subject to controls from the border inspection services can be found. 
       parameters:
         - $ref: '#/components/parameters/portCode'
       responses:
@@ -975,8 +975,8 @@ paths:
     get:
       tags:
         - Port Procedures
-      summary: Returns a list of resources where the verified gross mass (VGM) procedures can be found.
-      description: Returns a list of resources where the verified gross mass (VGM) procedures can be found. 
+      summary: Returns a resource where the verified gross mass (VGM) procedures can be found.
+      description: Returns a resource where the verified gross mass (VGM) procedures can be found. 
       parameters:
         - $ref: '#/components/parameters/portCode'
       responses:
@@ -1059,8 +1059,8 @@ paths:
     get:
       tags:
         - Port Procedures
-      summary: Returns a list of resources where the quality certification procedures from a port can be found.
-      description: Returns a list of resources where the quality certification procedures from a port can be found. 
+      summary: Returns a resource where the quality certification procedures from a port can be found.
+      description: Returns a resource where the quality certification procedures from a port can be found. 
       parameters:
         - $ref: '#/components/parameters/portCode'
       responses:
@@ -1189,8 +1189,8 @@ paths:
     get:
       tags:
         - Port Procedures
-      summary: Returns a list of resources where the procedures for for pick-up or delivery containers from/to the terminal or depot can be found.
-      description: Returns a list of resources where the procedures for for pick-up or delivery containers from/to the terminal or depot can be found. 
+      summary: Returns a resource where the procedures for for pick-up or delivery containers from/to the terminal or depot can be found.
+      description: Returns a resource where the procedures for for pick-up or delivery containers from/to the terminal or depot can be found. 
       parameters:
         - $ref: '#/components/parameters/portCode'
       responses:
@@ -1231,8 +1231,8 @@ paths:
     get:
       tags:
         - Port Procedures
-      summary: Returns a list of resources where basic information for the approach of the vessels to a port can be found.
-      description: Returns a list of resources where basic information for the approach of the vessels to a port can be found.
+      summary: Returns a resource where basic information for the approach of the vessels to a port can be found.
+      description: Returns a resource where basic information for the approach of the vessels to a port can be found.
       parameters:
         - $ref: '#/components/parameters/portCode'
       responses:
