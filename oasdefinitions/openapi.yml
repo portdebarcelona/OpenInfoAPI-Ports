@@ -3189,7 +3189,7 @@ paths:
                       $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/main/oasdefinitions/oiapComponents.yml#/holidayType'
                   metadata:
                     $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/main/oasdefinitions/oiapComponents.yml#/metadata'
-                  queryParams: # Què s'ha de posar si no s'han passat paràmetres?
+                  queryParams: 
                     type: object
                     properties:
                       portCode:
