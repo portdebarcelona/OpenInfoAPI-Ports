@@ -2,7 +2,7 @@
 
 Proposals of changes, extensions, improvements, corrections.
 
-# About OpenAPI specification
+## Modificacions of OpenAPI specification
 
 - In Liner Services, add types of Cargo Services (containers, roro, bulk, ...)
 - holidays:
@@ -21,8 +21,14 @@ Proposals of changes, extensions, improvements, corrections.
 - **customsClearanceProcedures**, **borderInspectionProcedures**, **qualityCertificationProcedures** must to be a list of dicts or a unique dict?
 - **containerTare** must to be a list of dicts or a unique dict?
   - queryParams": {  "portCode": "ABCU1234567" } must be { "containerNumber" : "ABCU1234567" }
+- **typesOfCargoList** // **typesOfCargo**
 
-# Diffusion
+## News OIAP services
+
+- **Notify me when arrives a ship**
+
+
+## Diffusion
 
 - Publish web with gitpages
 - Open Twitter account
