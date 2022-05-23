@@ -26,6 +26,7 @@ Proposals of changes, extensions, improvements, corrections.
 ## News OIAP services
 
 - **Notify me when arrives a ship**
+- **TerminalCode** is used in accessWaitTime. Where we provide a list of TerminalCodes?
 
 
 ## Diffusion
