@@ -8,7 +8,7 @@ Proposals of changes, extensions, improvements, corrections.
 - holidays:
   - which reference we use?
   - add holidayName in yml
-- add holidayTypes = [ national holiday, other secular holiday, religious holiday, regional holiday local holiday ]
+- add holidayTypes = [ national holiday, other secular holiday, religious holiday, regional holiday local holiday ] --> DONE!
 - Time is in utc? always? we have to publish localdatetime?
 - **Berths**
   - Flatten? "berthCoordinates": { "latitude": 41.299813, "longitude": 2.156614 }
@@ -16,7 +16,7 @@ Proposals of changes, extensions, improvements, corrections.
 - **serviceTypes**: Change:
   - [ "serviceType": "Stevedoring & Lashing"  }, ... ]  to:
   - [ "Stevedoring & Lashing",  ]
-- **portServices** maybe must be **shipServices** ??
+- **portServices** maybe must be **shipServices** ??  --> DONE!
 - Add **shipTypes**, list of codes and descriptions o ship types (see Annex VI from DIRECTIVE 2009/42/EC OF THE EUROPEAN PARLIAMENT AND OF THE COUNCIL of 6 May 2009)
 - **customsClearanceProcedures**, **borderInspectionProcedures**, **qualityCertificationProcedures** must to be a list of dicts or a unique dict?
 - **containerTare** must to be a list of dicts or a unique dict?

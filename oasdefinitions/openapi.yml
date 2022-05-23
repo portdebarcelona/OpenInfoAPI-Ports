@@ -891,8 +891,8 @@ paths:
     get:
       tags:
         - Port Procedures
-      summary: Returns a list of resources where the procedures for clearing the goods in import can be found.
-      description: Returns a list of resources where the procedures for clearing the goods in import can be found. 
+      summary: Returns a resource where the procedures for clearing the goods in import can be found.
+      description: Returns a resource where the procedures for clearing the goods in import can be found. 
       parameters:
         - $ref: '#/components/parameters/portCode'
       responses:
@@ -933,8 +933,8 @@ paths:
     get:
       tags:
         - Port Procedures
-      summary: Returns a list of resources where the procedures for clearing the goods subject to controls from the border inspection services can be found.
-      description: Returns a list of resources where the procedures for clearing the goods subject to controls from the border inspection services can be found. 
+      summary: Returns a resource where the procedures for clearing the goods subject to controls from the border inspection services can be found.
+      description: Returns a resource where the procedures for clearing the goods subject to controls from the border inspection services can be found. 
       parameters:
         - $ref: '#/components/parameters/portCode'
       responses:
@@ -975,8 +975,8 @@ paths:
     get:
       tags:
         - Port Procedures
-      summary: Returns a list of resources where the verified gross mass (VGM) procedures can be found.
-      description: Returns a list of resources where the verified gross mass (VGM) procedures can be found. 
+      summary: Returns a resource where the verified gross mass (VGM) procedures can be found.
+      description: Returns a resource where the verified gross mass (VGM) procedures can be found. 
       parameters:
         - $ref: '#/components/parameters/portCode'
       responses:
@@ -1059,8 +1059,8 @@ paths:
     get:
       tags:
         - Port Procedures
-      summary: Returns a list of resources where the quality certification procedures from a port can be found.
-      description: Returns a list of resources where the quality certification procedures from a port can be found. 
+      summary: Returns a resource where the quality certification procedures from a port can be found.
+      description: Returns a resource where the quality certification procedures from a port can be found. 
       parameters:
         - $ref: '#/components/parameters/portCode'
       responses:
@@ -1189,8 +1189,8 @@ paths:
     get:
       tags:
         - Port Procedures
-      summary: Returns a list of resources where the procedures for for pick-up or delivery containers from/to the terminal or depot can be found.
-      description: Returns a list of resources where the procedures for for pick-up or delivery containers from/to the terminal or depot can be found. 
+      summary: Returns a resource where the procedures for for pick-up or delivery containers from/to the terminal or depot can be found.
+      description: Returns a resource where the procedures for for pick-up or delivery containers from/to the terminal or depot can be found. 
       parameters:
         - $ref: '#/components/parameters/portCode'
       responses:
@@ -1231,8 +1231,8 @@ paths:
     get:
       tags:
         - Port Procedures
-      summary: Returns a list of resources where basic information for the approach of the vessels to a port can be found.
-      description: Returns a list of resources where basic information for the approach of the vessels to a port can be found.
+      summary: Returns a resource where basic information for the approach of the vessels to a port can be found.
+      description: Returns a resource where basic information for the approach of the vessels to a port can be found.
       parameters:
         - $ref: '#/components/parameters/portCode'
       responses:
@@ -3170,8 +3170,8 @@ paths:
         - Port Calendar
       summary: Returns the list of all the holiday types.
       description: Information about all the holiday types.
-      parameters: # S'ha de posar algun paràmetre?
-        - $ref: '#/components/parameters/country' # No facis cas, havia de posar alguna cosa real, però crec que no hi ha paràmetres!!!   
+      parameters:
+        - $ref: '#/components/parameters/portCode'    
       responses: #status code
         '200':
           description: Successful operation
@@ -3189,11 +3189,11 @@ paths:
                       $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/main/oasdefinitions/oiapComponents.yml#/holidayType'
                   metadata:
                     $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/main/oasdefinitions/oiapComponents.yml#/metadata'
-                  queryParams: # Què s'ha de posar si no s'han passat paràmetres?
+                  queryParams: 
                     type: object
                     properties:
-                      country:
-                        $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/main/oasdefinitions/oiapComponents.yml#/countryCode'
+                      portCode:
+                        $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/main/oasdefinitions/oiapComponents.yml#/portCode'
         '400':
           description: Bad request
           content:
