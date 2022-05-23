@@ -3026,7 +3026,7 @@ paths:
       description: Returns a list of port services that can be ordered for a ship. Eg. bunkering, marpol, mooring, pilots, tugs,...
       parameters:
         - $ref: '#/components/parameters/portCode'
-        - $ref: '#/components/parameters/shipServicesType'
+        - $ref: '#/components/parameters/shipServiceType'
       responses:
         '200':
           description: Successful operation
@@ -3049,8 +3049,8 @@ paths:
                     properties:
                       portCode:
                         $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents.yml#/portCode'
-                      shipServicesType:
-                        $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents.yml#/shipServicesType'
+                      shipServiceType:
+                        $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents.yml#/shipServiceType'
         '400':
           description: Bad request
           content:
@@ -3471,6 +3471,16 @@ components:
       schema:
         $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents.yml#/shipName'
 
+    shipServiceType:
+      in: query
+      name: shipServiceType
+      description: Type of ship service. 
+      required: false
+      style: form
+      explode: false
+      schema:
+        $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents.yml#/shipServiceType'
+
     coastalArea:
       in: query
       name: coastalArea
@@ -3594,16 +3604,6 @@ components:
       explode: false
       schema:
         $ref:  'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents.yml#/id'
-
-    serviceType:
-      in: query
-      name: serviceType
-      description: Service type.        
-      required: false
-      style: form
-      explode: false
-      schema:
-        $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents.yml#/serviceType'
 
     companyName:
       in: query
