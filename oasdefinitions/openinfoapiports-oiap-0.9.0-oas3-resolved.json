@@ -95,7 +95,7 @@
         "tags": [
           "Port Calls"
         ],
-        "summary": "Returns a list of ships that will arrive at a port in a given period of time",
+        "summary": "Returns a list of ships that will arrive at a port in each period of time",
         "description": "Returns a list of ships that will arrive at a port in a given period of time",
         "parameters": [
           {
@@ -365,7 +365,7 @@
         "tags": [
           "Port Calls"
         ],
-        "summary": "Returns a list of ships that have initiated their aproximation manouvres to a port.",
+        "summary": "Returns a list of ships that have initiated their aproximation manoeuvres to a port.",
         "description": "Returns a list of ships that have initiated their aproximation manouvres to a port.",
         "parameters": [
           {
@@ -542,8 +542,8 @@
         "tags": [
           "Port Calls"
         ],
-        "summary": "Returns information about next arrival and departure of a cruise ship.",
-        "description": "Returns information about next arrival and departure of a cruise ship.",
+        "summary": "Returns information about the next arrival and departure of a cruise ship.",
+        "description": "Returns information about the next arrival and departure of a cruise ship.",
         "parameters": [
           {
             "name": "portCode",
@@ -927,7 +927,7 @@
         "tags": [
           "Port Infrastructure"
         ],
-        "summary": "Information about the main land port accesses.",
+        "summary": "Information about the mainland port accesses.",
         "description": "This GET API returns the list of port gates from a port. ",
         "parameters": [
           {
@@ -1104,7 +1104,7 @@
         "tags": [
           "Port Infrastructure"
         ],
-        "summary": "Information of all the rail terminals and loading tracks of a port",
+        "summary": "Information on all the rail terminals and loading tracks of a port",
         "description": "List of the rail terminals and loading tracks from a port. Rail facilities are caracterized because they have rail bundles of up to 10 rail tracks with lengths of a maximum of 800 meters per track. They are equipped to allow simultaneous batch exchanges (direct transshipment) through the use of rail-mounted gantry cranes that stretch over the rail bundles.\n",
         "parameters": [
           {
@@ -1222,7 +1222,7 @@
         "tags": [
           "Port Infrastructure"
         ],
-        "summary": "Bathymetric data from channel and berths.",
+        "summary": "Bathymetric data from channels and berths.",
         "description": "Data from the regular hydrographic surveis that are being performed at ports.",
         "parameters": [
           {
@@ -1276,13 +1276,13 @@
         }
       }
     },
-    "/customsClearanceProcedure": {
+    "/customsClearanceProcedures": {
       "get": {
         "tags": [
           "Port Procedures"
         ],
-        "summary": "Returns a list of resources where the procedures for clearing the goods in import can be found.",
-        "description": "Returns a list of resources where the procedures for clearing the goods in import can be found.",
+        "summary": "Returns a resource where the procedures for clearing the goods in import can be found.",
+        "description": "Returns a resource where the procedures for clearing the goods in import can be found.",
         "parameters": [
           {
             "name": "portCode",
@@ -1340,8 +1340,8 @@
         "tags": [
           "Port Procedures"
         ],
-        "summary": "Returns a list of resources where the procedures for clearing the goods subject to controls from the border inspection services can be found.",
-        "description": "Returns a list of resources where the procedures for clearing the goods subject to controls from the border inspection services can be found.",
+        "summary": "Returns a resource where the procedures for clearing the goods subject to controls from the border inspection services can be found.",
+        "description": "Returns a resource where the procedures for clearing the goods subject to controls from the border inspection services can be found.",
         "parameters": [
           {
             "name": "portCode",
@@ -1399,8 +1399,8 @@
         "tags": [
           "Port Procedures"
         ],
-        "summary": "Returns a list of resources where the verified gross mass (VGM) procedures can be found.",
-        "description": "Returns a list of resources where the verified gross mass (VGM) procedures can be found.",
+        "summary": "Returns a resource where the verified gross mass (VGM) procedures can be found.",
+        "description": "Returns a resource where the verified gross mass (VGM) procedures can be found.",
         "parameters": [
           {
             "name": "portCode",
@@ -1518,8 +1518,8 @@
         "tags": [
           "Port Procedures"
         ],
-        "summary": "Returns a list of resources where the quality certification procedures from a port can be found.",
-        "description": "Returns a list of resources where the quality certification procedures from a port can be found.",
+        "summary": "Returns a resource where the quality certification procedures from a port can be found.",
+        "description": "Returns a resource where the quality certification procedures from a port can be found.",
         "parameters": [
           {
             "name": "portCode",
@@ -1695,8 +1695,8 @@
         "tags": [
           "Port Procedures"
         ],
-        "summary": "Returns a list of resources where the procedures for for pick-up or delivery containers from/to the terminal or depot can be found.",
-        "description": "Returns a list of resources where the procedures for for pick-up or delivery containers from/to the terminal or depot can be found.",
+        "summary": "Returns a resource where the procedures for for pick-up or delivery containers from/to the terminal or depot can be found.",
+        "description": "Returns a resource where the procedures for for pick-up or delivery containers from/to the terminal or depot can be found.",
         "parameters": [
           {
             "name": "portCode",
@@ -1754,8 +1754,8 @@
         "tags": [
           "Port Procedures"
         ],
-        "summary": "Returns a list of resources where basic information for the approach of the vessels to a port can be found.",
-        "description": "Returns a list of resources where basic information for the approach of the vessels to a port can be found.",
+        "summary": "Returns a resource where basic information for the approach of the vessels to a port can be found.",
+        "description": "Returns a resource where basic information for the approach of the vessels to a port can be found.",
         "parameters": [
           {
             "name": "portCode",
@@ -1926,7 +1926,7 @@
         }
       }
     },
-    "/typesOfCargoList": {
+    "/typesOfCargo": {
       "get": {
         "tags": [
           "Statistics"
@@ -2049,8 +2049,8 @@
         "tags": [
           "Environment-Weather"
         ],
-        "summary": "Returns realtime weather information of the default weather station of a port.",
-        "description": "Returns realtime weather information of the default weather station of a port.",
+        "summary": "Returns real-time weather information on the default weather station of a port.",
+        "description": "Returns realtime weather information on the default weather station of a port.",
         "parameters": [
           {
             "name": "portCode",
@@ -2226,8 +2226,8 @@
         "tags": [
           "Environment-Sea State"
         ],
-        "summary": "Returns information of the sea condition.",
-        "description": "Returns information of the sea condition.",
+        "summary": "Returns information on the sea condition.",
+        "description": "Returns information on the sea condition.",
         "parameters": [
           {
             "name": "portCode",
@@ -3074,7 +3074,7 @@
         "tags": [
           "Vehicle Traffic"
         ],
-        "summary": "Number of vehicles entering or leaving a port or a terminal through a certain gate and in a given period of time. And segregation of this data by type of vehicles.",
+        "summary": "The number of vehicles entering or leaving a port or a terminal through a certain gate and in each period. And segregation of this data by type of vehicles.",
         "description": "Returns the number of vehicles entering or leaving a port or a terminal through a certain gate and in a given period of time. And segregation of this data by type of vehicles.",
         "parameters": [
           {
@@ -3166,8 +3166,8 @@
         "tags": [
           "Terminal Performance"
         ],
-        "summary": "Estimated waiting time that trucks have to queue before they can enter into a terminal.",
-        "description": "Returns a list with the estimated waiting time that trucks have to queue before they can enter into a terminal.\n\n`Parameters`: Port Code and Terminal identifier\n\n`Returns`: Wait time of gtrucks to get intro terminals\n",
+        "summary": "Estimated waiting time that trucks have to queue before they can enter a terminal.",
+        "description": "Returns a list with the estimated waiting time that trucks have to queue before they can enter a terminal.\n\n`Parameters`: Port Code and Terminal identifier\n\n`Returns`: Wait time of gtrucks to get intro terminals\n",
         "parameters": [
           {
             "name": "portCode",
@@ -3236,7 +3236,7 @@
         "tags": [
           "Terminal Performance"
         ],
-        "summary": "Number of units (containers, freight cars,...) that enter or leave a terminal per hour during the present day.",
+        "summary": "The number of units (containers, freight cars,...) that enter or leave a terminal per hour during the present day.",
         "description": "Returns a list with the number of units (containers, freight cars,...) that enter or leave a terminal per hour during the present day.",
         "parameters": [
           {
@@ -3343,7 +3343,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/inline_response_200_50"
+                  "$ref": "#/components/schemas/inline_response_200_51"
                 }
               }
             }
@@ -3412,8 +3412,8 @@
         "tags": [
           "News"
         ],
-        "summary": "Last step to subscribe to a news service",
-        "description": "Post the validation code received to fulfill the subscription request to a news service from a port",
+        "summary": "Last step for subscribing to a news service",
+        "description": "Post the validation code is received to fulfill the subscription request to a news service from a port",
         "operationId": "subscriptionValidation",
         "requestBody": {
           "description": "request placed for validating the subscription to a news service",
@@ -3484,8 +3484,8 @@
         "tags": [
           "News"
         ],
-        "summary": "Last step to cancel the subscription to a news service",
-        "description": "Post the validation code received to cancel the subscription to a news service from a port",
+        "summary": "Last step for cancelling the subscription to a news service",
+        "description": "Post the validation code is received to cancel the subscription to a news service from a port",
         "operationId": "unsubscriptionValidation",
         "requestBody": {
           "description": "request placed for validating the unsubscription to a news service",
@@ -3568,7 +3568,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/inline_response_200_51"
+                  "$ref": "#/components/schemas/inline_response_200_52"
                 }
               }
             }
@@ -3627,7 +3627,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/inline_response_200_52"
+                  "$ref": "#/components/schemas/inline_response_200_53"
                 }
               }
             }
@@ -3686,7 +3686,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/inline_response_200_53"
+                  "$ref": "#/components/schemas/inline_response_200_54"
                 }
               }
             }
@@ -3719,8 +3719,8 @@
         "tags": [
           "News"
         ],
-        "summary": "Returns particular news identified by its unique id.",
-        "description": "Returns particular news identified by its unique id.",
+        "summary": "Returns news identified by its unique id.",
+        "description": "Returns news identified by its unique id.",
         "parameters": [
           {
             "name": "portCode",
@@ -3756,7 +3756,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/inline_response_200_54"
+                  "$ref": "#/components/schemas/inline_response_200_55"
                 }
               }
             }
@@ -3825,8 +3825,8 @@
         "tags": [
           "Notices"
         ],
-        "summary": "Last step to subscribe to a notices service",
-        "description": "Post the validation code received to fulfill the subscription request to a notices service from a port",
+        "summary": "Last step for subscribing to a notices service",
+        "description": "Post the validation code is received to fulfill the subscription request to a notices service from a port",
         "operationId": "noticesSubscriptionValidation",
         "requestBody": {
           "description": "request placed for validating the subscription to a notices service",
@@ -3865,7 +3865,7 @@
         "description": "Request to cancel a subscription of a notices service from a port",
         "operationId": "noticesUnsubscriptionRequest",
         "requestBody": {
-          "description": "request placed for unsubscribing to a notices service",
+          "description": "Request placed for unsubscribing to a notices service",
           "content": {
             "application/json": {
               "schema": {
@@ -3897,8 +3897,8 @@
         "tags": [
           "Notices"
         ],
-        "summary": "Last step to cancel the subscription to a notices service",
-        "description": "Post the validation code received to cancel the subscription to a notices service from a port",
+        "summary": "Last step for cancelling the subscription to a notices service",
+        "description": "Post the validation code is received to cancel the subscription to a notices service from a port",
         "operationId": "noticesUnsubscriptionValidation",
         "requestBody": {
           "description": "request placed for validating the unsubscription to a notices service",
@@ -3981,7 +3981,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/inline_response_200_55"
+                  "$ref": "#/components/schemas/inline_response_200_56"
                 }
               }
             }
@@ -4040,7 +4040,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/inline_response_200_56"
+                  "$ref": "#/components/schemas/inline_response_200_57"
                 }
               }
             }
@@ -4099,7 +4099,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/inline_response_200_57"
+                  "$ref": "#/components/schemas/inline_response_200_58"
                 }
               }
             }
@@ -4169,7 +4169,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/inline_response_200_58"
+                  "$ref": "#/components/schemas/inline_response_200_59"
                 }
               }
             }
@@ -4228,7 +4228,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/inline_response_200_59"
+                  "$ref": "#/components/schemas/inline_response_200_60"
                 }
               }
             }
@@ -4256,7 +4256,7 @@
         }
       }
     },
-    "/portServices": {
+    "/shipServices": {
       "get": {
         "tags": [
           "Port Services"
@@ -4276,14 +4276,14 @@
             }
           },
           {
-            "name": "serviceType",
+            "name": "shipServiceType",
             "in": "query",
-            "description": "Service type.",
+            "description": "Type of ship service.",
             "required": false,
             "style": "form",
             "explode": false,
             "schema": {
-              "$ref": "#/components/schemas/serviceType"
+              "$ref": "#/components/schemas/shipServiceType"
             }
           }
         ],
@@ -4298,7 +4298,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/inline_response_200_60"
+                  "$ref": "#/components/schemas/inline_response_200_61"
                 }
               }
             }
@@ -4357,7 +4357,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/inline_response_200_61"
+                  "$ref": "#/components/schemas/inline_response_200_62"
                 }
               }
             }
@@ -4407,7 +4407,7 @@
           {
             "name": "subdivision",
             "in": "query",
-            "description": "ubdivision code from ISO 3166 — Codes for the representation of names of countries and their subdivisions.",
+            "description": "ubdivision code from ISO 3166 - Codes for the representation of names of countries and their subdivisions.",
             "required": false,
             "style": "form",
             "explode": false,
@@ -4440,81 +4440,12 @@
           {
             "name": "toDate",
             "in": "query",
-            "description": "Last day of a period, expressed as YYYY-MM-DD.",
+            "description": "Last day of a period is expressed as YYYY-MM-DD.",
             "required": false,
             "style": "form",
             "explode": false,
             "schema": {
               "$ref": "#/components/schemas/toDate"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Successful operation",
-            "headers": {
-              "oiapApiVersion": {
-                "$ref": "#/components/headers/oiapApiVersion"
-              }
-            },
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/inline_response_200_62"
-                }
-              }
-            }
-          },
-          "400": {
-            "description": "Bad request",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/error"
-                }
-              }
-            }
-          },
-          "404": {
-            "description": "Not found",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/error"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/companies": {
-      "get": {
-        "tags": [
-          "Port Directory"
-        ],
-        "description": "Get some overview data of all the companies from a port or all the companies that perform an specific activity.",
-        "parameters": [
-          {
-            "name": "portCode",
-            "in": "query",
-            "description": "Port UN/LOCODE. Default value is Locode of Port what provides the services.",
-            "required": false,
-            "style": "form",
-            "explode": false,
-            "schema": {
-              "$ref": "#/components/schemas/portCode"
-            }
-          },
-          {
-            "name": "activity",
-            "in": "query",
-            "description": "Activity of a company",
-            "required": false,
-            "style": "form",
-            "explode": false,
-            "schema": {
-              "$ref": "#/components/schemas/activity"
             }
           }
         ],
@@ -4557,12 +4488,13 @@
         }
       }
     },
-    "/companiesByName": {
+    "/holidayTypes": {
       "get": {
         "tags": [
-          "Port Directory"
+          "Port Calendar"
         ],
-        "description": "Get a company by its name or part of it without diacritics. At least three characters have to be included.",
+        "summary": "Returns the list of all the holiday types.",
+        "description": "Information about all the holiday types.",
         "parameters": [
           {
             "name": "portCode",
@@ -4573,17 +4505,6 @@
             "explode": false,
             "schema": {
               "$ref": "#/components/schemas/portCode"
-            }
-          },
-          {
-            "name": "searchTerm",
-            "in": "query",
-            "description": "Part of the name of the company without diacritics",
-            "required": false,
-            "style": "form",
-            "explode": false,
-            "schema": {
-              "$ref": "#/components/schemas/searchTerm"
             }
           }
         ],
@@ -4626,12 +4547,13 @@
         }
       }
     },
-    "/companyByVat": {
+    "/companies": {
       "get": {
         "tags": [
           "Port Directory"
         ],
-        "description": "Get a company by its VAT number.",
+        "summary": "Get some overview data of all the companies from a port or all the companies that perform a specific activity.",
+        "description": "Get some overview data of all the companies from a port or all the companies that perform a specific activity.",
         "parameters": [
           {
             "name": "portCode",
@@ -4645,14 +4567,14 @@
             }
           },
           {
-            "name": "companyName",
+            "name": "activity",
             "in": "query",
-            "description": "Vat number of the company",
+            "description": "Activity of a company",
             "required": false,
             "style": "form",
             "explode": false,
             "schema": {
-              "$ref": "#/components/schemas/companyVat"
+              "$ref": "#/components/schemas/activity"
             }
           }
         ],
@@ -4695,11 +4617,152 @@
         }
       }
     },
-    "/companies/activities": {
+    "/companiesByName": {
       "get": {
         "tags": [
           "Port Directory"
         ],
+        "summary": "Get a company by its name or part of it without diacritics. At least three characters have to be included.",
+        "description": "Get a company by its name or part of it without diacritics. At least three characters have to be included.",
+        "parameters": [
+          {
+            "name": "portCode",
+            "in": "query",
+            "description": "Port UN/LOCODE. Default value is Locode of Port what provides the services.",
+            "required": false,
+            "style": "form",
+            "explode": false,
+            "schema": {
+              "$ref": "#/components/schemas/portCode"
+            }
+          },
+          {
+            "name": "searchTerm",
+            "in": "query",
+            "description": "Part of the name of the company without diacritics",
+            "required": false,
+            "style": "form",
+            "explode": false,
+            "schema": {
+              "$ref": "#/components/schemas/searchTerm"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful operation",
+            "headers": {
+              "oiapApiVersion": {
+                "$ref": "#/components/headers/oiapApiVersion"
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/inline_response_200_66"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/error"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/companyByVat": {
+      "get": {
+        "tags": [
+          "Port Directory"
+        ],
+        "summary": "Get a company by its VAT number.",
+        "description": "Get a company by its VAT number.",
+        "parameters": [
+          {
+            "name": "portCode",
+            "in": "query",
+            "description": "Port UN/LOCODE. Default value is Locode of Port what provides the services.",
+            "required": false,
+            "style": "form",
+            "explode": false,
+            "schema": {
+              "$ref": "#/components/schemas/portCode"
+            }
+          },
+          {
+            "name": "companyName",
+            "in": "query",
+            "description": "Vat number of the company",
+            "required": false,
+            "style": "form",
+            "explode": false,
+            "schema": {
+              "$ref": "#/components/schemas/companyVat"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful operation",
+            "headers": {
+              "oiapApiVersion": {
+                "$ref": "#/components/headers/oiapApiVersion"
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/inline_response_200_67"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/error"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/companyActivities": {
+      "get": {
+        "tags": [
+          "Port Directory"
+        ],
+        "summary": "Get a list of all the possible activities for a company or governmental body.",
         "description": "Get a list of all the possible activities for a company or governmental body.",
         "parameters": [
           {
@@ -4725,7 +4788,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/inline_response_200_66"
+                  "$ref": "#/components/schemas/inline_response_200_68"
                 }
               }
             }
@@ -6136,7 +6199,7 @@
           "vehicleTraffic"
         ],
         "type": "object",
-        "description": "Number of vehicles entering or leaving a port or a terminal.",
+        "description": "The number of vehicles entering or leaving a port or a terminal.",
         "allOf": [
           {
             "type": "object",
@@ -6162,7 +6225,7 @@
           "terminalCode"
         ],
         "type": "object",
-        "description": "Estimated period of time, in minites, that trucks have to queue before they can enter into a terminal.",
+        "description": "Estimated period of time, in minites, that trucks have to queue before they can enter a terminal.",
         "allOf": [
           {
             "type": "object",
@@ -6405,9 +6468,9 @@
           }
         ]
       },
-      "portService": {
+      "shipService": {
         "required": [
-          "serviceType"
+          "shipService"
         ],
         "type": "object",
         "description": "Information about a port service that can be ordered for a ship.",
@@ -6415,8 +6478,8 @@
           {
             "type": "object",
             "properties": {
-              "serviceType": {
-                "$ref": "#/components/schemas/serviceType"
+              "shipService": {
+                "$ref": "#/components/schemas/shipServiceType"
               },
               "companyName": {
                 "$ref": "#/components/schemas/companyName"
@@ -6433,15 +6496,6 @@
             }
           }
         ]
-      },
-      "serviceTypeSearchResult": {
-        "type": "object",
-        "properties": {
-          "serviceType": {
-            "$ref": "#/components/schemas/serviceType"
-          }
-        },
-        "description": "Service type that is offered in a port."
       },
       "holiday": {
         "required": [
@@ -6556,20 +6610,20 @@
       },
       "fromDate": {
         "type": "string",
-        "description": "The initial date of a periode of time.",
+        "description": "The initial date of a period.",
         "format": "date",
         "example": "2022-01-20"
       },
       "dateRange": {
         "type": "string",
-        "description": "The duration of a time period, expressed as an ISO 8601 code. E.g. 4 weeks and 2 days is represented as P4W2D.",
+        "description": "The duration of a period is expressed as an ISO 8601 code. E.g. 4 weeks and 2 days are represented as P4W2D.",
         "format": "iso8601",
         "example": "P4W"
       },
       "shipType": {
         "maxLength": 2,
         "type": "string",
-        "description": "The type of the ship. The value is populated using the 2 character code from Annex VI from DIRECTIVE 2009/42/EC OF THE EUROPEAN PARLIAMENT AND OF THE COUNCIL of 6 May 2009 on statistical returns in respect of carriage of goods and passengers by sea.\n\n  * `10` Liquid bulk (Oil tanker, Chemical tanker, LG tanker, Tanker barge, Other tanker)\n  * `20` Dry bulk (Bulk/oil carrier, Bulk carrier)\n  * `31` Container (Full container)\n  * `32` Specialised (Barge carrier, Chemical carrier, Irradiated fuel, Livestock carrier, Vehicle carrier, Other specialised)\n  * `33` General cargo, non-specialised (Reefer, Ro-ro passenger, Ro-ro container, Other ro-ro cargo,Combination carrier general cargo/passenger, Combination carrier general cargo/container, Single-decker, Multi-decker)\n  * `34` Dry cargo barge (Deck barge, Hopper barge, Lash-seabee barge, Open dry cargo barge, Covered dry cargo barge, Other dry cargo barge nes)\n  * `35` Passenger (Passenger, excluding cruise passengers)\n  * `36` Cruise Passenger (Cruise ships only)\n  * `41` Fishing (Fish catching, Fish processing)\n  * `42` Offshore activities (Drilling and exploration, Offshore support)\n  * `43` Tugs (Tugs, Pusher craft)\n  * `49` Miscellaneous Dredgers (Research/survey, Other vessel nes)\n  * `XX` Unknown Unknown type of vessel\n",
+        "description": "The type of the ship. The value is populated using the 2-character code from Annex VI from DIRECTIVE 2009/42/EC OF THE EUROPEAN PARLIAMENT AND OF THE COUNCIL of 6 May 2009 on statistical returns in respect of the carriage of goods and passengers by sea.\n\n  * `10` Liquid bulk (Oil tanker, Chemical tanker, LG tanker, Tanker barge, Other tanker)\n  * `20` Dry bulk (Bulk/oil carrier, Bulk carrier)\n  * `31` Container (Full container)\n  * `32` Specialised (Barge carrier, Chemical carrier, Irradiated fuel, Livestock carrier, Vehicle carrier, Other specialised)\n  * `33` General cargo, non-specialised (Reefer, Ro-ro passenger, Ro-ro container, Other ro-ro cargo,Combination carrier general cargo/passenger, Combination carrier general cargo/container, Single-decker, Multi-decker)\n  * `34` Dry cargo barge (Deck barge, Hopper barge, Lash-seabee barge, Open dry cargo barge, Covered dry cargo barge, Other dry cargo barge nes)\n  * `35` Passenger (Passenger, excluding cruise passengers)\n  * `36` Cruise Passenger (Cruise ships only)\n  * `41` Fishing (Fish catching, Fish processing)\n  * `42` Offshore activities (Drilling and exploration, Offshore support)\n  * `43` Tugs (Tugs, Pusher craft)\n  * `49` Miscellaneous Dredgers (Research/survey, Other vessel nes)\n  * `XX` Unknown Unknown type of vessel\n",
         "example": "31",
         "enum": [
           "10",
@@ -6592,7 +6646,7 @@
         "properties": {
           "requestId": {
             "type": "string",
-            "description": "Unique identifier of the request. Include this as reference when reporting issues."
+            "description": "The unique identifier of the request. Include this as a reference when reporting issues."
           },
           "dateCreated": {
             "type": "string",
@@ -6645,7 +6699,7 @@
       "shipName": {
         "maxLength": 35,
         "type": "string",
-        "description": "The ship's name shown on the IMO ship's certificates.",
+        "description": "The ship's name is shown on the IMO ship's certificates.",
         "example": "AURORA"
       },
       "coastalArea": {
@@ -6674,7 +6728,7 @@
             "example": "Singapore"
           }
         },
-        "description": "A port that is served by a direct service of a liner and that does not require a transshipment."
+        "description": "A port that is served by a direct service of a liner and that does not require a transhipment."
       },
       "linerCarrier": {
         "properties": {
@@ -6710,6 +6764,7 @@
         "description": "Attributes of an access gate."
       },
       "coordinates": {
+        "type": "object",
         "properties": {
           "latitude": {
             "type": "number",
@@ -6775,7 +6830,7 @@
       },
       "berthLength": {
         "type": "integer",
-        "description": "Berth length expresed in meters (m).",
+        "description": "Berth length expressed in meters (m).",
         "example": 635
       },
       "underwaterDepth": {
@@ -6839,7 +6894,7 @@
       "typeOfCargo": {
         "maxLength": 2,
         "type": "string",
-        "description": "2 character code of type of cargo, as defined in annex II from Directive 2009/42/EC of the European Parliament and of the Council. * `1X`  Liquid bulk goods (no cargo unit) * `11`  Liquefied gas * `12`Crude oil * `13`Oil products * `19`Other liquid bulk goods * `2X`Dry bulk goods (no cargo unit) * `21`Ores * `22`Coal * `23`Agricultural products (e.g. grain, soya, tapioca) * `29`Other dry bulk goods * `3X`Large containers * `31`20 ft freight units * `32`40 ft freight units * `33`Freight units > 20 ft and < 40 ft * `34`Freight units > 40 ft * `5X`Mobile self-propelled units * `51`Road goods vehicles and accompanying trailers * `52`Passenger cars, motorcycles and accompanying trailers/caravans * `53`Passenger buses * `54`Trade vehicles (including import/export motor vehicles) * `56`Live animals on the hoof * `59`Other mobile self-propelled units * `6X`Mobile non-self-propelled units * `61`Unaccompanied road goods trailers and semitrailers * `62`Unaccompanied caravans and other road, agricultural and industrial vehicles * `64`Rail wagons engaged in goods transport * `65`Shipborne port-to-port trailers engaged in goods transport * `66`Shipborne barges engaged in goods transport * `69`Other mobile non-self-propelled units * `9X`Other cargo, not elsewhere specified * `91`Forestry products * `92`Iron and steel products * `99`Other general cargo * `RX`Large Ro-Ro containers * `R1`20 ft freight units * `R2`40 ft freight units X * `R3`Freight units > 20 ft and < 40 ft * `R4`Freight units > 40 ft",
+        "description": "2-character code of type of cargo, as defined in annex II from Directive 2009/42/EC of the European Parliament and of the Council. * `1X`  Liquid bulk goods (no cargo unit) * `11`  Liquefied gas * `12`Crude oil * `13`Oil products * `19`Other liquid bulk goods * `2X`Dry bulk goods (no cargo unit) * `21`Ores * `22`Coal * `23`Agricultural products (e.g. grain, soya, tapioca) * `29`Other dry bulk goods * `3X`Large containers * `31`20 ft freight units * `32`40 ft freight units * `33`Freight units > 20 ft and < 40 ft * `34`Freight units > 40 ft * `5X`Mobile self-propelled units * `51`Road goods vehicles and accompanying trailers * `52`Passenger cars, motorcycles and accompanying trailers/caravans * `53`Passenger buses * `54`Trade vehicles (including import/export motor vehicles) * `56`Live animals on the hoof * `59`Other mobile self-propelled units * `6X`Mobile non-self-propelled units * `61`Unaccompanied road goods trailers and semitrailers * `62`Unaccompanied caravans and other road, agricultural and industrial vehicles * `64`Rail wagons engaged in goods transport * `65`Shipborne port-to-port trailers engaged in goods transport * `66`Shipborne barges engaged in goods transport * `69`Other mobile non-self-propelled units * `9X`Other cargo, not elsewhere specified * `91`Forestry products * `92`Iron and steel products * `99`Other general cargo * `RX`Large Ro-Ro containers * `R1`20 ft freight units * `R2`40 ft freight units X * `R3`Freight units > 20 ft and < 40 ft * `R4`Freight units > 40 ft",
         "example": "34",
         "enum": [
           "1X",
@@ -6888,15 +6943,15 @@
         "description": "NST2007 code.\n  * `01`Products of agriculture, hunting, and forestry; fish and other fishing products\n  * `02`Coal and lignite; crude petroleum and natural gas\n  * `03`Metal ores and other mining and quarrying products; peat; uranium and thorium\n  * `04`Food products, beverages and tobacco\n  * `05`Textiles and textile products; leather and leather products\n  * `06`Wood and products of wood and cork (except furniture); articles of straw and plaiting materials; pulp, paper and paper products; printed matter and recorded media\n  * `07`Coke and refined petroleum products\n  * `08`Chemicals, chemical products, and man-made fibers; rubber and plastic products; nuclear fuel\n  * `09`Other non metallic mineral products\n  * `10`  Basic metals; fabricated metal products, except machinery and equipment\n  * `11`Machinery and equipment n.e.c.; office machinery and computers; electrical machinery and apparatus n.e.c.; radio, television and communication equipment and apparatus; medical, precision and optical instruments; watches and clocks\n  * `12`Transport equipment\n  * `13`Furniture; other manufactured goods n.e.c.\n  * `14`Secondary raw materials; municipal wastes and other wastes\n  * `15`Mail, parcels\n  * `16`Equipment and material utilized in the transport of goods\n  * `17`Goods moved in the course of household and office removals; baggage and articles accompanying travellers; motor vehicles being moved for repair; other non market goods n.e.c.\n  * `18` Grouped goods: a mixture of types of goods which are transported together\n  * `19`Unidentifiable goods: goods which for any reason cannot be identified and therefore cannot be assigned to groups 01-16\n  * `20`Other goods n.e.c.            \n",
         "example": "8.0",
         "enum": [
-          "1",
-          "2",
-          "3",
-          "4",
-          "5",
-          "6",
-          "7",
-          "8.0",
-          "9.0",
+          "01",
+          "02",
+          "03",
+          "04",
+          "05",
+          "06",
+          "07",
+          "08",
+          "09",
           "10",
           "11",
           "12",
@@ -6912,7 +6967,7 @@
       },
       "forecastedDate": {
         "type": "string",
-        "description": "The forecast date.",
+        "description": "The forecasted date.",
         "format": "date",
         "example": "2022-04-12"
       },
@@ -6955,7 +7010,7 @@
       },
       "phone": {
         "type": "string",
-        "description": "phone number"
+        "description": "Phone number"
       },
       "unsubscriptionReference": {
         "type": "object",
@@ -6977,7 +7032,7 @@
       "unsubscriptionRequestMessage": {
         "type": "string",
         "description": "Response message to an unsubscription request.",
-        "example": "Your unsubscription request has been received and soon you will receive a validation code (email/sms)"
+        "example": "Your unsubscription request has been received and soon you will repoint encodedceive a validation code (email/sms)"
       },
       "publishingStage": {
         "type": "string",
@@ -6999,9 +7054,9 @@
         "description": "The ISO 639 code of a language. Each language is assigned a two-letter (639-1) lowercase abbreviation. E.g. `ca` Catalan.",
         "example": "ca"
       },
-      "serviceType": {
+      "shipServiceType": {
         "type": "string",
-        "description": "Type of port service.",
+        "description": "Type of ship service.",
         "enum": [
           "Stevedoring & Lashing",
           "Tally",
@@ -7018,14 +7073,25 @@
       },
       "toDate": {
         "type": "string",
-        "description": "The final date of a periode of time.",
+        "description": "The final date of a period.",
         "format": "date",
         "example": "2022-01-20"
+      },
+      "holidayType": {
+        "type": "string",
+        "description": "Type of holiday.",
+        "example": "local holiday",
+        "enum": [
+          "national holiday",
+          "other secular holiday",
+          "religious holiday",
+          "regional holiday local holiday"
+        ]
       },
       "searchTerm": {
         "minLength": 3,
         "type": "string",
-        "description": "String used to search something."
+        "description": "string that is used to search for something."
       },
       "companyInfo": {
         "type": "object",
@@ -7149,7 +7215,7 @@
       "shipIMONumber": {
         "maxLength": 7,
         "type": "string",
-        "description": "The ship identifier. Unique seven-digit number which remains unchanged through a vessel's lifetime and is linked to its hull.",
+        "description": "The ship identifier. The unique seven-digit number which remains unchanged through a vessel's lifetime and is linked to its hull.",
         "example": "9876543"
       },
       "estimatedTimeOfArrival": {
@@ -7273,7 +7339,7 @@
             "example": "TEU"
           }
         },
-        "description": "Capacity of a liner service, expressed in units according to the typology of the liner service. Units are TEUs for containerships, cars for car-carriers and LIMs (lanes in meters) for ro-ro vessels."
+        "description": "The capacity of a liner service, expressed in units according to the typology of the liner service. Units are TEUs for containerships, cars for car-carriers and LIMs (lanes in meters) for ro-ro vessels."
       },
       "linerSailingFrequency": {
         "type": "string",
@@ -7293,11 +7359,11 @@
       },
       "totalArea": {
         "type": "integer",
-        "description": "Total area expressed in hectares (ha)."
+        "description": "The total area expressed in hectares (ha)."
       },
       "coveredWarehouses": {
         "type": "integer",
-        "description": "Total area of the covered warehouses in square meters."
+        "description": "The total area of the covered warehouses in square meters."
       },
       "terminalName": {
         "type": "string",
@@ -7328,12 +7394,12 @@
       },
       "railBundles": {
         "type": "integer",
-        "description": "Number of rail tracks in a facility.",
+        "description": "The number of rail tracks in a facility.",
         "example": 8
       },
       "trackMaximumLength": {
         "type": "integer",
-        "description": "Maximum length of a rail track of a facility, expressed in meters.",
+        "description": "The maximum length of a rail track of a facility, expressed in meters.",
         "example": 800
       },
       "trackGauge": {
@@ -7348,7 +7414,7 @@
       },
       "gantryCranes": {
         "type": "integer",
-        "description": "Number of gantry cranes of a facility.",
+        "description": "THe number of gantry cranes of a facility.",
         "example": 3
       },
       "markRegion": {
@@ -7375,7 +7441,7 @@
       },
       "markTop": {
         "type": "string",
-        "description": "Upper part of a mark. It can be one or two spheres, cilinders, cones or crosses.",
+        "description": "The upper part of a mark. It can be one or two spheres, cilinders, cones or crosses.",
         "example": "Two black spheres."
       },
       "markColour": {
@@ -7451,7 +7517,7 @@
       "iso6346": {
         "maxLength": 4,
         "type": "string",
-        "description": "Size and type codes of a container, used as a whole. Size codes are determined in accordance with annex D of ISO 6346:1995 and type codes according to annex E of the same international standard.",
+        "description": "Size and type codes of a container, used as a whole. Size codes are determined by annex D of ISO 6346:1995 and type codes according to annex E of the same international standard.",
         "example": "22G1"
       },
       "entrance": {
@@ -7496,7 +7562,7 @@
       },
       "dataset": {
         "type": "object",
-        "description": "2 character code, as defined in annex VIII from Directive 2009/42/EC of the European Parliament and of the Council. Dataset",
+        "description": "2-character code, as defined in annex VIII from Directive 2009/42/EC of the European Parliament and of the Council. Dataset",
         "example": "A2. Non-unit-load seaborne transport in the main European ports, by port, type of cargo and counterpart",
         "enum": [
           "A1.Seaborne transport in the main European ports, by port, type of cargo and counterpart",
@@ -7537,7 +7603,7 @@
       "portLoadingUnloading": {
         "maxLength": 5,
         "type": "string",
-        "description": "For a vessel that operates in a port, port where cargo was loaded (port of loading) or where it will be unloaded (port of unloading). Use port UN/LOCODE.",
+        "description": "For a vessel that operates in a port, port where the cargo was loaded (port of loading) or where it will be unloaded (port of unloading). Use port UN/LOCODE.",
         "example": "HKHKG"
       },
       "grossWeight": {
@@ -7547,12 +7613,12 @@
       },
       "units": {
         "type": "integer",
-        "description": "Number of units (containers, intermodal transport units -ITU-, vehicles, vessels...).",
+        "description": "The number of units (containers, intermodal transport units -ITU-, vehicles, vessels...).",
         "example": 4823
       },
       "passengers": {
         "type": "integer",
-        "description": "Number of passengers.",
+        "description": "The number of passengers.",
         "example": 24200
       },
       "vesselNationality": {
@@ -7563,17 +7629,17 @@
       },
       "vesselDwt": {
         "type": "integer",
-        "description": "The deadweight (DWT) of a ship is the difference in tonnes between the displacement of a ship on the summer load line in water with a specific gravity of 1.025 and the total weight of the ship.",
+        "description": "The deadweight (DWT) of a ship is the difference in tonnes between the displacement of a ship on the summer load line in the water with a specific gravity of 1.025 and the total weight of the ship.",
         "example": 174300
       },
       "vesselGt": {
         "type": "integer",
-        "description": "Gross tonnage (GT) is a measure of the overall size of a ship determined in accordance with the provisions of the International Convention on Tonnage Measurement of Ships (1969). It is calculated as a function of the moulded volume of all enclosed spaces of the ship.",
+        "description": "Gross tonnage (GT) is a measure of the overall size of a ship determined by the provisions of the International Convention on Tonnage Measurement of Ships (1969). It is calculated as a function of the moulded volume of all enclosed spaces of the ship.",
         "example": 235400
       },
       "currency": {
         "type": "string",
-        "description": "3 character ISO4217 alpha code for the representation of currencies.",
+        "description": "3-character ISO4217 alpha code for the representation of currencies.",
         "example": "EUR"
       },
       "netProffit": {
@@ -7613,7 +7679,7 @@
       },
       "dataProvider": {
         "type": "string",
-        "description": "Specifies the URL to inform about the provider of this information."
+        "description": "Specifies the URL to inform the provider of this information."
       },
       "name": {
         "type": "string",
@@ -7621,11 +7687,11 @@
       },
       "location": {
         "type": "string",
-        "description": "Location of the weather observation represented by a GeoJSON geometry. https://tools.ietf.org/html/rfc7946. Mandatory if address is not defined."
+        "description": "Location of the weather observation is represented by a GeoJSON geometry. Mandatory if the address is not defined."
       },
       "dateObserved": {
         "type": "string",
-        "description": "The date and time of this observation in ISO8601 UTCformat. It can be represented by an specific time instant or by an ISO8601 interval.",
+        "description": "The date and time of this observation are in ISO8601 UTC format. It can be represented by a specific time instant or by an ISO8601 interval.",
         "format": "date-time",
         "example": "2022-05-09T09:14:00Z"
       },
@@ -7643,7 +7709,7 @@
       },
       "weatherType": {
         "type": "string",
-        "description": "The observed weather type.",
+        "description": "The observed weather types.",
         "example": "cloudy",
         "enum": [
           "clearNight",
@@ -7676,7 +7742,7 @@
       },
       "dewPoint": {
         "type": "number",
-        "description": "The dew point encoded as a number. Default unit is Celsius degrees."
+        "description": "The dew point is encoded as a number. The default unit is Celsius degrees."
       },
       "visibility": {
         "type": "string",
@@ -7693,31 +7759,31 @@
       },
       "temperature": {
         "type": "number",
-        "description": "Air's temperature observed. Default unit is degrees centigrades.",
+        "description": "Air temperature observed. The default unit is degrees centigrades.",
         "example": 2
       },
       "feelsLikeTemperature": {
         "type": "number",
-        "description": "Wind chill/Feels like Temperature (°C)",
+        "description": "Wind chill/Feels like Temperature (C)",
         "example": -4
       },
       "relativeHumidity": {
         "maximum": 1,
         "minimum": 0,
         "type": "number",
-        "description": "Air's relative humidity observed (percentage, expressed in parts per one).",
+        "description": "Air relative humidity observed (percentage, expressed in parts per one).",
         "example": 0.4
       },
       "precipitation": {
         "type": "number",
-        "description": "Precipitation level observed. Default unit is liters per square meter.",
+        "description": "Precipitation level observed. The default unit is liters per square meter.",
         "example": 13
       },
       "windDirection": {
         "maximum": 360,
         "minimum": 0,
         "type": "number",
-        "description": "The wind direction expressed in decimal degrees compared to geographic North (measured clockwise), encoded as a Number. Range 0 to 360.",
+        "description": "The wind direction is expressed in decimal degrees compared to geographic North (measured clockwise), encoded as a Number. Range 0 to 360.",
         "example": 135
       },
       "windSpeed": {
@@ -7727,12 +7793,12 @@
       },
       "atmosphericPressure": {
         "type": "number",
-        "description": "The atmospheric pressure observed measured in Hecto Pascals (hPa).",
+        "description": "The atmospheric pressure observed, measured in Hecto Pascals (hPa).",
         "example": 1013
       },
       "pressureTendency": {
         "type": "string",
-        "description": "Is the pressure rising or falling. It is expressed in qualitative terms.",
+        "description": "Is the pressure rising or falling? It is expressed in qualitative terms.",
         "example": "steady",
         "enum": [
           "raising",
@@ -7742,11 +7808,11 @@
       },
       "solarRadiation": {
         "type": "number",
-        "description": "The solar radiation observed measured in Watts per square meter."
+        "description": "The solar radiation observed, measured in Watts per square meter."
       },
       "illuminance": {
         "type": "number",
-        "description": "The illumninance observed measured in lux (lx) or lumens per square metre (cd·sr·m-2).",
+        "description": "The illuminance observed, measured in lux (lx) or lumens per square metre (cd * sr * m-2).",
         "example": 1000
       },
       "precipitationProbability": {
@@ -7764,25 +7830,25 @@
       },
       "sunrise": {
         "type": "string",
-        "description": "Time for sunrise in a certain date and place.",
+        "description": "Time for sunrise on a certain date and place.",
         "format": "date-time",
         "example": "2022-06-14T06:01:00Z"
       },
       "sunset": {
         "type": "string",
-        "description": "Time for sunset in a certain date and place.",
+        "description": "Time for sunset on a certain date and place.",
         "format": "date-time",
         "example": "2022-06-14T20:52:00Z"
       },
       "moonrise": {
         "type": "string",
-        "description": "Time for moonrise in a certain date and place.",
+        "description": "Time for moonrise on a certain date and place.",
         "format": "date-time",
         "example": "2022-06-14T01:22:00Z"
       },
       "moonset": {
         "type": "string",
-        "description": "Time for moonset in a certain date and place.",
+        "description": "Time for moonset on a certain date and place.",
         "format": "date-time",
         "example": "2022-06-14T05:37:00Z"
       },
@@ -7816,7 +7882,7 @@
       },
       "waveLevel": {
         "type": "number",
-        "description": "It indicates the height of the waves and also measures the swell of the sea, expressed in meters.",
+        "description": "Indicates the height of the waves and measures the swell of the sea, expressed in meters.",
         "example": 1.7
       },
       "wavePeriod": {
@@ -7844,7 +7910,7 @@
       },
       "time": {
         "type": "string",
-        "description": "Representation of Time, expressed in hours, minutes and seconds using ISO 8601 Time format.",
+        "description": "Representation of Time, expressed in hours, minutes, and seconds using ISO 8601 Time format.",
         "example": "13:04:00"
       },
       "airQualityIndex": {
@@ -7869,27 +7935,27 @@
       },
       "co": {
         "type": "integer",
-        "description": "CO concentration, in milligrams per cubic meter.",
+        "description": "Carbon monoxide (CO) concentration, in milligrams per cubic meter.",
         "example": 500
       },
       "nono": {
         "type": "integer",
-        "description": "NO concentration, in milligrams per cubic meter.",
+        "description": "Nitric oxide (NO) concentration, in milligrams per cubic meter.",
         "example": 43
       },
       "no2": {
         "type": "integer",
-        "description": "NO2 concentration, in milligrams per cubic meter.",
+        "description": "Nitrogen dioxide (NO2) concentration, in milligrams per cubic meter.",
         "example": 70
       },
       "nox": {
         "type": "integer",
-        "description": "NOx concentration, in milligrams per cubic meter.",
+        "description": "Mono-nitrogen oxides (NOx) concentration, in milligrams per cubic meter.",
         "example": 490
       },
       "so2": {
         "type": "integer",
-        "description": "SO2 concentration, in milligrams per cubic meter.",
+        "description": "Sulfur dioxide (SO2) concentration, in milligrams per cubic meter.",
         "example": 12
       },
       "waterQualityIndex": {
@@ -7937,37 +8003,37 @@
       },
       "tss": {
         "type": "number",
-        "description": "Total suspended solids, measured in milligrams per liter (mg/L).",
+        "description": "The total suspended solids, measured in milligrams per liter (mg/L).",
         "example": 123
       },
       "tds": {
         "type": "number",
-        "description": "Total dissolved solids, measured in milligrams per liter (mg/L).",
+        "description": "The total dissolved solids, measured in milligrams per liter (mg/L).",
         "example": 100
       },
       "nitrates": {
         "type": "number",
-        "description": "Concentration of nitrates, expressed in milligrams per liter (mg/L).",
+        "description": "The concentration of nitrates, expressed in milligrams per liter (mg/L).",
         "example": 0.01
       },
       "nitrites": {
         "type": "number",
-        "description": "Concentration of nitrites, expressed in milligrams per liter (mg/L).",
+        "description": "The concentration of nitrites, expressed in milligrams per liter (mg/L).",
         "example": 0.972
       },
       "ammonia": {
         "type": "number",
-        "description": "Concentration of ammonia, expressed in milligrams per liter (mg/L).",
+        "description": "The concentration of ammonia, expressed in milligrams per liter (mg/L).",
         "example": 0.996
       },
       "silicate": {
         "type": "number",
-        "description": "Concentration of silicate, expressed in milligrams per liter (mg/L).",
+        "description": "The concentration of silicate, expressed in milligrams per liter (mg/L).",
         "example": 0.994
       },
       "phosphate": {
         "type": "number",
-        "description": "Concentration of phosphate, expressed in milligrams per liter (mg/L).",
+        "description": "The concentration of phosphate, expressed in milligrams per liter (mg/L).",
         "example": 0.996
       },
       "noiseLevel_1": {
@@ -7992,7 +8058,7 @@
       },
       "railDirection": {
         "type": "string",
-        "description": "Direction of a train:\n  * `UP` - Up or inbound is used for trains that are coming to a port.\n  * `DOWN` - Down or outbound is used for trains that are leaving a port. \n",
+        "description": "The direction of a train:\n  * `UP` - Up or inbound is used for trains that are coming to a port.\n  * `DOWN` - Down or outbound is used for trains that are leaving a port. \n",
         "example": "UP",
         "enum": [
           "UP",
@@ -8083,7 +8149,7 @@
         "maximum": 23,
         "minimum": 0,
         "type": "integer",
-        "description": "Hour expressed in a 24 hours format and represents the periode between hh:00:00 and hh:59:59",
+        "description": "Hour expressed in a 24 hours format and represents the period between hh:00:00 and hh:59:59",
         "example": 7
       },
       "throughput_1": {
@@ -8135,11 +8201,11 @@
       },
       "subject": {
         "type": "string",
-        "description": "Subject of a publication."
+        "description": "The subject of a publication."
       },
       "content": {
         "type": "string",
-        "description": "Content of a publication."
+        "description": "The content of a publication."
       },
       "noticeCategory": {
         "type": "string",
@@ -8195,17 +8261,6 @@
         "description": "Holiday date.",
         "format": "date",
         "example": "2022-06-24"
-      },
-      "holidayType": {
-        "type": "string",
-        "description": "Type of holiday.",
-        "example": "local holiday",
-        "enum": [
-          "national holiday",
-          "other secular holiday",
-          "religious holiday",
-          "regional holiday local holiday"
-        ]
       },
       "inline_response_200": {
         "type": "object",
@@ -8517,10 +8572,7 @@
         "type": "object",
         "properties": {
           "customsClearanceProcedures": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/customsClearanceProcedure"
-            }
+            "$ref": "#/components/schemas/customsClearanceProcedure"
           },
           "metadata": {
             "$ref": "#/components/schemas/metadata"
@@ -8534,10 +8586,7 @@
         "type": "object",
         "properties": {
           "borderInspectionProcedures": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/borderInspectionProcedure"
-            }
+            "$ref": "#/components/schemas/borderInspectionProcedure"
           },
           "metadata": {
             "$ref": "#/components/schemas/metadata"
@@ -8551,10 +8600,7 @@
         "type": "object",
         "properties": {
           "vgmProcedures": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/vgmProcedure"
-            }
+            "$ref": "#/components/schemas/vgmProcedure"
           },
           "metadata": {
             "$ref": "#/components/schemas/metadata"
@@ -8567,11 +8613,8 @@
       "inline_response_200_21": {
         "type": "object",
         "properties": {
-          "containerTare": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/containerTare"
-            }
+          "containerTareWeight": {
+            "$ref": "#/components/schemas/containerTare"
           },
           "metadata": {
             "$ref": "#/components/schemas/metadata"
@@ -8584,11 +8627,8 @@
       "inline_response_200_22": {
         "type": "object",
         "properties": {
-          "vgmProcedures": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/qualityCertificationProcedure"
-            }
+          "qualityCertificationProcedures": {
+            "$ref": "#/components/schemas/qualityCertificationProcedure"
           },
           "metadata": {
             "$ref": "#/components/schemas/metadata"
@@ -8601,7 +8641,7 @@
       "inline_response_200_23": {
         "type": "object",
         "properties": {
-          "borderInspectionActors": {
+          "qualityCertifiedPartners": {
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/qualityCertifiedPartner"
@@ -8618,7 +8658,7 @@
       "inline_response_200_24": {
         "type": "object",
         "properties": {
-          "activities": {
+          "partnerActivities": {
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/activity"
@@ -8635,11 +8675,8 @@
       "inline_response_200_25": {
         "type": "object",
         "properties": {
-          "borderInspectionProcedures": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/pickupDeliveryProcedure"
-            }
+          "pickupDeliveryProcedures": {
+            "$ref": "#/components/schemas/pickupDeliveryProcedure"
           },
           "metadata": {
             "$ref": "#/components/schemas/metadata"
@@ -8652,11 +8689,8 @@
       "inline_response_200_26": {
         "type": "object",
         "properties": {
-          "borderInspectionProcedures": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/approachInstructions"
-            }
+          "approachInstructions": {
+            "$ref": "#/components/schemas/approachInstructions"
           },
           "metadata": {
             "$ref": "#/components/schemas/metadata"
@@ -8720,7 +8754,7 @@
       "inline_response_200_30": {
         "type": "object",
         "properties": {
-          "commodities": {
+          "commoditiesList": {
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/commodity"
@@ -8847,7 +8881,7 @@
       "inline_response_200_38": {
         "type": "object",
         "properties": {
-          "airParameters": {
+          "airPollution": {
             "$ref": "#/components/schemas/airParameters"
           },
           "metadata": {
@@ -9005,7 +9039,7 @@
       "inline_response_200_48": {
         "type": "object",
         "properties": {
-          "basicTrafficEnvironment": {
+          "trafficFlowObserved": {
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/vehicleTraffic"
@@ -9022,7 +9056,7 @@
       "inline_response_200_49": {
         "type": "object",
         "properties": {
-          "accessTime": {
+          "accessWaitTime": {
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/accessTime"
@@ -9037,6 +9071,23 @@
         }
       },
       "inline_response_200_50": {
+        "type": "object",
+        "properties": {
+          "landsideThroughput": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/throughput"
+            }
+          },
+          "metadata": {
+            "$ref": "#/components/schemas/metadata"
+          },
+          "queryParams": {
+            "$ref": "#/components/schemas/inline_response_200_49_queryParams"
+          }
+        }
+      },
+      "inline_response_200_51": {
         "type": "object",
         "properties": {
           "accessTime": {
@@ -9086,7 +9137,7 @@
           }
         ]
       },
-      "inline_response_200_51": {
+      "inline_response_200_52": {
         "type": "object",
         "properties": {
           "news": {
@@ -9099,11 +9150,11 @@
             "$ref": "#/components/schemas/metadata"
           },
           "queryParams": {
-            "$ref": "#/components/schemas/inline_response_200_51_queryParams"
+            "$ref": "#/components/schemas/inline_response_200_52_queryParams"
           }
         }
       },
-      "inline_response_200_52": {
+      "inline_response_200_53": {
         "type": "object",
         "properties": {
           "newsCategories": {
@@ -9117,7 +9168,7 @@
           }
         }
       },
-      "inline_response_200_53": {
+      "inline_response_200_54": {
         "type": "object",
         "properties": {
           "newsLanguages": {
@@ -9131,7 +9182,7 @@
           }
         }
       },
-      "inline_response_200_54": {
+      "inline_response_200_55": {
         "type": "object",
         "properties": {
           "news": {
@@ -9178,7 +9229,7 @@
           }
         ]
       },
-      "inline_response_200_55": {
+      "inline_response_200_56": {
         "type": "object",
         "properties": {
           "notice": {
@@ -9191,11 +9242,11 @@
             "$ref": "#/components/schemas/portCode"
           },
           "queryParams": {
-            "$ref": "#/components/schemas/inline_response_200_51_queryParams"
+            "$ref": "#/components/schemas/inline_response_200_52_queryParams"
           }
         }
       },
-      "inline_response_200_56": {
+      "inline_response_200_57": {
         "type": "object",
         "properties": {
           "noticeCategories": {
@@ -9205,11 +9256,11 @@
             "$ref": "#/components/schemas/metadata"
           },
           "queryParams": {
-            "$ref": "#/components/schemas/inline_response_200_56_queryParams"
+            "$ref": "#/components/schemas/inline_response_200_57_queryParams"
           }
         }
       },
-      "inline_response_200_57": {
+      "inline_response_200_58": {
         "type": "object",
         "properties": {
           "noticesLanguages": {
@@ -9226,7 +9277,7 @@
           }
         }
       },
-      "inline_response_200_58": {
+      "inline_response_200_59": {
         "type": "object",
         "properties": {
           "notice": {
@@ -9236,14 +9287,14 @@
             "$ref": "#/components/schemas/metadata"
           },
           "queryParams": {
-            "$ref": "#/components/schemas/inline_response_200_58_queryParams"
+            "$ref": "#/components/schemas/inline_response_200_59_queryParams"
           }
         }
       },
-      "inline_response_200_59": {
+      "inline_response_200_60": {
         "type": "object",
         "properties": {
-          "ratesAndFeesUrl": {
+          "portRatesAndFees": {
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/ratesAndFeesUrl"
@@ -9257,30 +9308,30 @@
           }
         }
       },
-      "inline_response_200_60": {
+      "inline_response_200_61": {
         "type": "object",
         "properties": {
-          "portServices": {
+          "shipServices": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/portService"
+              "$ref": "#/components/schemas/shipService"
             }
           },
           "metadata": {
             "$ref": "#/components/schemas/metadata"
           },
           "queryParams": {
-            "$ref": "#/components/schemas/inline_response_200_60_queryParams"
+            "$ref": "#/components/schemas/inline_response_200_61_queryParams"
           }
         }
       },
-      "inline_response_200_61": {
+      "inline_response_200_62": {
         "type": "object",
         "properties": {
-          "serviceTypes": {
+          "activities": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/serviceTypeSearchResult"
+              "$ref": "#/components/schemas/activity"
             }
           },
           "metadata": {
@@ -9291,30 +9342,13 @@
           }
         }
       },
-      "inline_response_200_62": {
+      "inline_response_200_63": {
         "type": "object",
         "properties": {
           "holidays": {
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/holiday"
-            }
-          },
-          "metadata": {
-            "$ref": "#/components/schemas/metadata"
-          },
-          "queryParams": {
-            "$ref": "#/components/schemas/inline_response_200_62_queryParams"
-          }
-        }
-      },
-      "inline_response_200_63": {
-        "type": "object",
-        "properties": {
-          "companiesOverviewData": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/companyOverviewData"
             }
           },
           "metadata": {
@@ -9328,25 +9362,28 @@
       "inline_response_200_64": {
         "type": "object",
         "properties": {
-          "companyNames": {
+          "holidayTypes": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/companyInfo"
+              "$ref": "#/components/schemas/holidayType"
             }
           },
           "metadata": {
             "$ref": "#/components/schemas/metadata"
           },
           "queryParams": {
-            "$ref": "#/components/schemas/inline_response_200_64_queryParams"
+            "$ref": "#/components/schemas/inline_response_200_1_queryParams"
           }
         }
       },
       "inline_response_200_65": {
         "type": "object",
         "properties": {
-          "companyFromVat": {
-            "$ref": "#/components/schemas/companyInfo"
+          "companies": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/companyOverviewData"
+            }
           },
           "metadata": {
             "$ref": "#/components/schemas/metadata"
@@ -9359,7 +9396,38 @@
       "inline_response_200_66": {
         "type": "object",
         "properties": {
-          "activities": {
+          "companiesByName": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/companyInfo"
+            }
+          },
+          "metadata": {
+            "$ref": "#/components/schemas/metadata"
+          },
+          "queryParams": {
+            "$ref": "#/components/schemas/inline_response_200_66_queryParams"
+          }
+        }
+      },
+      "inline_response_200_67": {
+        "type": "object",
+        "properties": {
+          "companyByVat": {
+            "$ref": "#/components/schemas/companyInfo"
+          },
+          "metadata": {
+            "$ref": "#/components/schemas/metadata"
+          },
+          "queryParams": {
+            "$ref": "#/components/schemas/inline_response_200_67_queryParams"
+          }
+        }
+      },
+      "inline_response_200_68": {
+        "type": "object",
+        "properties": {
+          "companyActivities": {
             "$ref": "#/components/schemas/activities"
           },
           "metadata": {
@@ -9383,7 +9451,7 @@
             "$ref": "#/components/schemas/temperature"
           }
         },
-        "description": "Maximum values for the reported period. Subattributes:- `temperature` : Maximum temperature. See `WeatherForecast.temperature` for description and units. - `feelLikesTemperature`. Maximum feels like temperature. Same semantics and units as `WeatherForecast.feelsLikeTemperature`.-   `relativeHumidity`. Maximum relative humidity. Same semantics and units as `WeatherForecast.relativeHumidity`.",
+        "description": "The maximum values for the reported period. Subattributes:- `temperature` : The maximum temperature. See `WeatherForecast.temperature` for description and units. - `feelLikesTemperature`. The maximum feels like temperature. Same semantics and units as `WeatherForecast.feelsLikeTemperature`.-   `relativeHumidity`. The maximum relative humidity. Same semantics and units as `WeatherForecast.relativeHumidity`.",
         "example": null
       },
       "weatherForecast_dayMinimum": {
@@ -9518,7 +9586,7 @@
       "inline_response_200_21_queryParams": {
         "type": "object",
         "properties": {
-          "portCode": {
+          "containerNumber": {
             "$ref": "#/components/schemas/containerNumber"
           }
         },
@@ -9566,7 +9634,7 @@
         },
         "example": null
       },
-      "inline_response_200_51_queryParams": {
+      "inline_response_200_52_queryParams": {
         "type": "object",
         "properties": {
           "portCode": {
@@ -9581,7 +9649,7 @@
         },
         "example": null
       },
-      "inline_response_200_56_queryParams": {
+      "inline_response_200_57_queryParams": {
         "type": "object",
         "properties": {
           "portCode": {
@@ -9593,7 +9661,7 @@
         },
         "example": null
       },
-      "inline_response_200_58_queryParams": {
+      "inline_response_200_59_queryParams": {
         "type": "object",
         "properties": {
           "portCode": {
@@ -9605,19 +9673,19 @@
         },
         "example": null
       },
-      "inline_response_200_60_queryParams": {
+      "inline_response_200_61_queryParams": {
         "type": "object",
         "properties": {
           "portCode": {
             "$ref": "#/components/schemas/portCode"
           },
-          "serviceType": {
-            "$ref": "#/components/schemas/serviceType"
+          "shipServiceType": {
+            "$ref": "#/components/schemas/shipServiceType"
           }
         },
         "example": null
       },
-      "inline_response_200_62_queryParams": {
+      "inline_response_200_63_queryParams": {
         "type": "object",
         "properties": {
           "country": {
@@ -9638,7 +9706,7 @@
         },
         "example": null
       },
-      "inline_response_200_63_queryParams": {
+      "inline_response_200_65_queryParams": {
         "type": "object",
         "properties": {
           "portCode": {
@@ -9650,7 +9718,7 @@
         },
         "example": null
       },
-      "inline_response_200_64_queryParams": {
+      "inline_response_200_66_queryParams": {
         "type": "object",
         "properties": {
           "portCode": {
@@ -9662,7 +9730,7 @@
         },
         "example": null
       },
-      "inline_response_200_65_queryParams": {
+      "inline_response_200_67_queryParams": {
         "type": "object",
         "properties": {
           "portCode": {
@@ -9701,7 +9769,7 @@
       "subdivision": {
         "name": "subdivision",
         "in": "query",
-        "description": "ubdivision code from ISO 3166 — Codes for the representation of names of countries and their subdivisions.",
+        "description": "ubdivision code from ISO 3166 - Codes for the representation of names of countries and their subdivisions.",
         "required": false,
         "style": "form",
         "explode": false,
@@ -9723,7 +9791,7 @@
       "toDate": {
         "name": "toDate",
         "in": "query",
-        "description": "Last day of a period, expressed as YYYY-MM-DD.",
+        "description": "Last day of a period is expressed as YYYY-MM-DD.",
         "required": false,
         "style": "form",
         "explode": false,
@@ -9763,6 +9831,17 @@
         "explode": false,
         "schema": {
           "$ref": "#/components/schemas/shipName"
+        }
+      },
+      "shipServiceType": {
+        "name": "shipServiceType",
+        "in": "query",
+        "description": "Type of ship service.",
+        "required": false,
+        "style": "form",
+        "explode": false,
+        "schema": {
+          "$ref": "#/components/schemas/shipServiceType"
         }
       },
       "coastalArea": {
@@ -9899,17 +9978,6 @@
           "$ref": "#/components/schemas/id"
         }
       },
-      "serviceType": {
-        "name": "serviceType",
-        "in": "query",
-        "description": "Service type.",
-        "required": false,
-        "style": "form",
-        "explode": false,
-        "schema": {
-          "$ref": "#/components/schemas/serviceType"
-        }
-      },
       "companyName": {
         "name": "companyName",
         "in": "query",
@@ -9957,7 +10025,7 @@
     },
     "headers": {
       "oiapApiVersion": {
-        "description": "String used to identify the version implemented of the Open Info Api for Ports.",
+        "description": "string that is usedto identify the version implemented of the Open Info API for Ports.",
         "example": "0.9.0-oas3"
       }
     }
