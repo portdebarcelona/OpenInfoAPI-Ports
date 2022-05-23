@@ -28,6 +28,40 @@ Proposals of changes, extensions, improvements, corrections.
 - **Notify me when arrives a ship**
 - **TerminalCode** is used in accessWaitTime. Where we provide a list of TerminalCodes?
 
+## Implement OIAP webservices at Port of Barcelona
+
+- Done:
+  - berths
+  - typesOfCargoList
+  - commoditiesList
+  - serviceTypes
+  - holidays
+  - companiesActivities
+
+- Working on:
+  - shipsScheduled
+  - shipsInPort
+  - shipsArrivals
+  - shipsDepartures
+  - shipsAproximation
+  - ferriesArrivals
+  - ferriesDepartures
+  - cruiseCalls
+  - linerServices
+  - linkedPorts
+  - linerCarriers
+  - portGates
+  - portTerminals 
+  - railTerminals 
+  - customsClearanceProcedures
+  - borderInspectionProcedures
+  - vgmProcedures
+  - qualityCertificationProcedures
+  - qualityCertifiedPartners
+  - partnerActivities
+  - pickupDeliveryProcedures
+  - approachInstructions
+
 
 ## Diffusion
 
