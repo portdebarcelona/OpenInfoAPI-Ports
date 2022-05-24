@@ -1,4 +1,4 @@
-# About directory 'docs'
+# Project documentation 
 
 This directory contains documentation about the project.
 
@@ -8,6 +8,6 @@ This directory contains documentation about the project.
 - [Working Environment - Pending](./Workingenvironment.md) 
 - [Benchmarking](./Benchmarking.md) 
 - [Best Practices](./BestPractices.md)
-- [Toolbox - Pending](./Toolbox.md) 
+- [Toolbox](./Toolbox.md) 
 - [Changelog - Pending](./Changelog.md)
 

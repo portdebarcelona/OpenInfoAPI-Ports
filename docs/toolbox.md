@@ -1,70 +1,18 @@
 # Toolbox
-- The toolbox is a uniform framework for the API specification, and it is independent from the application domain (trade, port infrastructure, procedures, weather, companies directory, news, etc.).
-- Several tools are part of the API specification framework, as the: 
-## Business requirements specifications 
-- We need to know the business processes that are behind.
-- The scope is specified in terms of the Business Processes that are involved and the data elements about which information is to be exchanged by the participants who are involved directly in the Information Exchanges that support the related business process.
-- We must identify all the use cases
-## Reference data model
-- A wide reference data model (or information model) must be created, covering all the data that could be shared as a part of the Open Info API for Ports project. 
-- A reference data model is a logical subset, of a wide set of the data elements, that represents a given context.
-- There have been defined several sectorial data models, like the EUCDM (EU Customs Data Model), IMO, ... And there are also more wide data models as the UN/CEFACT Reference Data Models (RDMS) like the Buy Ship Pay Reference Data Model or the Supply Chain Reference Data Model.
-- All these data models cover a specific area but none of them covers all the data of the Open Info API for Ports project. 
-- The definition of data model is also a semantics issue because the existence of a common data model will facilitate the alignment of terms across the different categories of information shared with our APIs.
-- Based on a common semantic to ensure the data shared can be understood in the same way by all the API consumers.
-- The data model describes how data are organised and how they are related.
-- Common understanding
-- Harmonizing the terminology, with clear definitions of what is what.
-- Semantic interoperability
-- Sematic decisions can be found at the [semantics chapter](./semantic.md)
-## API design rules
-
-## Open API specification
-- From this specification, programme code can be generated automatically.
+The toolbox is a uniform set of tools for the API specification, independent from the application domain (trade, port infrastructure, procedures, weather, companies’ directory, news, etc.).
 
 
-## Some technical questions
-
-https://github.com/OAI/OpenAPI-Specification
-
-https://github.com/OAI/OpenAPI-Specification/blob/master/IMPLEMENTATIONS.md
-
-- How to documment an API:
-  - Ratings:
-    - [https://nordicapis.com/5-examples-of-excellent-api-documentation/](https://nordicapis.com/5-examples-of-excellent-api-documentation/)
-    - [https://www.altexsoft.com/blog/api-documentation/](https://www.altexsoft.com/blog/api-documentation/)
-    - [https://geekflare.com/api-documentation-tools/](https://geekflare.com/api-documentation-tools/)
-  - Best practices:
-    - https://www.vinaysahni.com/best-practices-for-a-pragmatic-restful-api
-    - https://github.com/darrin/yaras/blob/master/restful-standards.md
-    - https://docs.python-eve.org/en/stable/rest_api_for_humans.html ( and https://docs.python-eve.org/en/stable/rest_api_for_humans.html )
-    -**https://www.merixstudio.com/blog/best-practices-rest-api-development/** (Very clear!!)
-    - https://www.merixstudio.com/blog/api-documentation-few-tips-will-help-you-write-it-well/
-    - https://dzone.com/articles/api-led-connectivity-with-mule
-    - https://blogs.mulesoft.com/learn-apis/api-led-connectivity/what-is-api-led-connectivity/
- 
-  - Examples:
-    - https://github.com/microsoft/api-guidelines
-    - https://cloud.google.com/apis/design i http://apistylebook.com/design/guidelines/google-api-design-guide#api-design
-    - https://stripe.com/docs/api
-
-  - Tools:
-    - [OAS 3.0 editor per Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=42Crunch.vscode-openapi)
-    - [Raml](https://raml.org/) Ruled out!!! Do not follow OAS !!
-    - [Slate](https://github.com/slatedocs/slate). It seems quite good.
-    - [Swagger-UI](https://swagger.io/tools/swagger-ui/)
-    - [ReadME](https://readme.com/documentation)
-    - [ReDoc](https://github.com/Redocly/redoc): **It allows to publish an API in HTML without having to process**. Only providing the YAML or JSON URL from OAS 3.0.
-    - [ApiDocs](https://apidocjs.com/) Very easy but do not say anything about OAS 3.0.
-    - [Insomnia](https://github.com/Kong/insomnia) Insomnia is a cross-platform REST client, built on top of Electron. And [look at this link from insomnia](https://support.insomnia.rest/collection/105-inso-cli)
-  
-  - Comparatives:
-    - https://blog.vsoftconsulting.com/blog/is-raml-or-swagger-better-for-building-apis
-    - https://nordicapis.com/oas-vs-raml-whats-the-difference/
-
-
-## About the personalization of APIs for a specific port
-
-Think about how to declare the port for which we want to receive the information. 
-- Alternatives: URL from the ws/LOCODE. If there is not a LOCODE, the service will return the information of the local port. For example, http://infoAPI.portic.net/liners/ESBCN or http://infoAPI.portdebarcelona.cat/liners/, accepting also http://infoAPI.portdebarcelona.cat/liners/ESBCN
-- First arg from any ws would have to be the LOCODE. 
+Given that one of the objectives of the project is that it will be easily replicable and understanding that the cost of the tools could be a handicap for its achievement, it has been adopted, as a premise, that all the tools necessary for the development of the project will be `open source`.
+## [GitHub](https://github.com/) 
+- The documentation of the project and the APIs have been published on Github, the portal that allows the registration and control of all the changes made, and allows other users to download their definitions, have access to their documentation and contribute to its development.
+- For this project, a specific repository was created in the Port of Barcelona account, where all its documentation is: https://github.com/portdebarcelona/OpenInfoAPI-Ports
+## [Visual Studio Code](https://code.visualstudio.com/) 
+- Visual Studio Code is a source code editor developed by Microsoft that offers several features that facilitate code development and includes the possibility of adding extensions such as the one used for the development according to the OpenAPI specification.
+## [SwaggerUI](https://swagger.io/tools/swagger-ui/)
+- Swagger's UI allows you to view and interact with this project's API resources without having any implementation logic developed. 
+- It is automatically generated from the OpenAPI specification and makes it easy to implement on the back end and consume on the client side.
+In this project, the API that incorporates all the methods of the identified domains has been published in: https://app.swaggerhub.com/apis/openinfoapiports/oiap/
+## [RapiPDF](https://mrin9.github.io/RapiPdf/)
+- Online tool that can document APIs in pdf from their OpenAPI specifications.
+## [cloudconvert](https://cloudconvert.com/md-to-docx)
+- This online document format conversion tool has been used to convert GitHub's MD extension files to Word files.
