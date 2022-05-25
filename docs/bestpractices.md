@@ -107,135 +107,17 @@ style defines how multiple values are delimited.
 
 
 
-
-
-
-
-
 # To do list
 
 
-## Security Scheme
-- The OPen API Security Scheme Object defines a security scheme that can be used by the operations. Supported schemes are:
-  
-  - HTTP authentication, 
-  - an API key (either as a header, a cookie parameter or as a query parameter), 
-  - OAuth2's common flows (implicit, password, client credentials and authorization code) as defined in RFC6749, and 
-  - OpenID Connect Discovery.
+- Security Scheme
+- Filtering
+- Sorting
+- Pagination of the results
+- Application Rate Limiting
+- Callbacks (from [OpenAPI specification](https://swagger.io/docs/specification/callbacks/))
+-  Marketplace design
 
-- Fields required for the supported schemes:
-  - Common fields
-    - type
-    - description
-  - **HTTP authentication**
-    - scheme ([values registered in the IANA Authentication Scheme registry](https://www.iana.org/assignments/http-authschemes/http-authschemes.xhtml)]
-    - bearerFormat
-  - **API key** 
-    - name
-    - in (valid values are: query, header or cookie)
-  - **oauth2**
-    - flows (supported values are:  implicit, password, clientCredentials, authorizationCode)
-    - These are the configuration details for a supported OAuth Flow:
-      - authorizationUrl string (oauth2 ("implicit", "authorizationCode")) REQUIRED
-      - tokenUrl string (oauth2 ("password", "clientCredentials", "authorizationCode")) REQUIRED 
-      - refreshUrl string (oauth2)
-      - scopes Map[string, string] (oauth2) REQUIRED 
-  - **openIdConnect**
-    - openIdConnectUrl
-
-## Filtering
-- Basic filtering can be added with URL parameters.
-- Filters are composed of three components:
-  - The property (field name)
-  - The operator
-  - The filter value
-- There are several alternatives:
-  - Books which price is greater or equal to 15 and lower or equal to 35. 
-    - GET /books?price[gte]=15&price[lte]=35  
-    - GET /books?price=gte:15&price=lte:35
-  - Books that their title contain the terms white flag and the price is greater or equal to 15 and lower or equal to 35.   
-    - GET /books?q=title:white flag AND price:[15 TO 35]   
-
-## Sorting
-- Sorting is an important feature for any API endpoint that returns a lot of data. 
-  - E.g. GET /users?sort_by=desc(last_modified),asc(email)
-
-
-## Pagination of the results
-- To avoid that an endpoint returns a large list of hits pagination is needed. 
-- There are several alternatives:
-  - `Offset pagination`
-  - `Keyset pagination`
-  - `Seek pagination`
-
-
-## Application Rate Limiting
-- If a user sends too many requests, API rate limiting can throttle client connections instead of disconnecting them immediately. 
-- It will have to define the API Rate Limiting HTTP Response headers
-
-
-
-## Callbacks (from [OpenAPI specification](https://swagger.io/docs/specification/callbacks/))
-- A callback is an asynchronous, out-of-band, request that a service will send to some other service in response to certain events. 
-- A typical example of a callback is subscription functionality – users subscribe to certain events of a service and receive a notification when this or that event occurs. For example, an e-shop can send a notification to the manager on each purchase. 
-- These notifications will be “out-of-band”, that is, they will go through a connection other than the connection through which a visitor works, and they will be asynchronous, as they will be out of the regular request-response flow. 
-
-      paths:
-        /subscribe:
-          description: Add a subscriber
-          post:
-            parameters:
-              - name: callbackUrl
-                in: query
-                required: true
-                schema:
-                  type: string
-                  format: uri
-              - name: event
-                in: query
-                required: true
-                schema:
-                  type: string
-            responses:
-              '201':
-                description: Added
-                content:
-                  application/json:
-                    type: object
-                    properties:
-                      subscriberId: 
-                        type: string
-                        example: AAA-123-BBB-456                    
-            links:  # Link the returned id with the unsubscribe operation
-              unsubscribeOp:
-                operationId: unsubscribeOperation
-                    parameters: 
-                      Id: $response.body#/subscriberId
-            callbacks:
-              myEvent:
-                '{$request.query.callbackUrl}?event={$request.query.event}':
-                  post:
-                    requestBody:
-                      content:
-                        application/json:
-                          example:
-                            message: Some event
-                    responses:
-                      '200':
-                        description: OK
-                    
-        /unsubscribe:
-          post:
-            operationId: unsubscribeOperation
-            parameters:
-              - name: Id
-                in: query
-                required: true
-                schema:
-                  type: string
-
-## Marketplace design
-- There are several solutions to build a marketplace from scratch to marketplace software, through various intermediate solutions. 
 
 
 
