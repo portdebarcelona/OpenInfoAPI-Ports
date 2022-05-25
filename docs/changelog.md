@@ -1,6 +1,10 @@
 # Work Tracking log
 Contains tracking of activities in this project.
 
+## May 2022
+- Finishing Final Report for Puertos
+- Implementing POCs of webservices at Port of Barcelona
+
 ## April 2022
 - Preparing Final Report for Puertos
 - Housekeeping github space
