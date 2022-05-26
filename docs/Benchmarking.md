@@ -1,198 +1,79 @@
 # Benchmarking
-some words of introduction about benchmarking ....
+Conditioned by the commitment to offer services to logistics/port operators and the public, it has been considered appropriate to analyse initiatives from other areas such as port and shipping industry, logistics, government bodies or Smart Cities.
 
-## ShipCalls
-There are many implementations about shipcalls. Ens hem fixat amb alguns dels principals.
-### Definitions and Implementations
+## Port and shipping industry 
+- Some initiatives based on APIs are:
 
-**Definitions**: About definition and content of ship calls we remark:
-- [BERMAN message in Puertos Del Estado](http://www.puertos.es/Documents/BERMAN%204.1.2%20v1.0.pdf) and also [UNCEFACT](https://service.unece.org/trade/untdid/latest/trmd/berman_c.htm). Main standard used to request a ship call sent by shipagents to Port Authorities.- [DCSA Just in Time Port Call](https://dcsa.org/initiatives/just-in-time-port-call/). Proposal procedure with aim to synchronize ship calls with port operations. And furthermore wants to reduce pollution at port areas.- [SMDG Vessel schedules](https://newsmdg.de/documents/edifact-migs-message-implementation-guidelines/vessel-schedules/). EDIFACT Messsage Implementation Guideline for vessel arrival/departures schedules (VESDEP), alternative to BERMAN message. 
-### Discussion
-A ship call is defined by these main concepts: IMO ship identification number and name of ship, Port of origin, Port of call, Berth, date and time expected (or actual) of arrival, date and time expected (or actual) of departure , and Port of Destination. The type of ship is also included (e.g.: container ships, tankers, bulk carriers, ferries, cruise ships, car carriers, Ropax).
+### [IPCSA – a network of trusted networks (NoTN)](https://notn.ipcsa.international/)
+- IPCSA offers two APIs, Portcall and Cargo Status.
 
-The EDIFACT messages mentioned include much more information on the scales of the ships, their characteristics, their cargo and the services required (mooring, towing, pilotage, waste collection). In this proposal, only the 'core' part of the standardized messages will be used, as stated in the previous paragraph.
+### [DCSA](https://dcsa.org/)
+- DCSA have published a series of standards for the container shipping industry, including a common set of processes as well as the data and interfaces for them to be implemented by carriers, shippers and interested third parties, so that communicate digitally in a unified way.
+- As part of their standards, they publish API definitions on SwaggerHub, the open-source API development platform, and documentation and version control can be found on GitHub.
 
-Introduir el paràgraf per enviar-lo al [CatalogIntroduction/Shipcalls](CatalogIntroduction.md)
+### [NxtPort - Port of Antwerp](https://www.nxtport.com/)
+- At the time of writing this document, NxtPort has a Marketplace where more than fifteen APIs are offered. E.g. , Green Lights, that checks the different release steps of your container in the import process.
+- Most of the APIs defined and developed are in accordance with the OpenAPI specification, some of them in version 2 and others in version 3.
 
+### [Digital LAB - Port of Rotterdam](https://lab.portofrotterdam.com/api)
+- The API services that are under development are presented on the Digital LAB website of the Port of Rotterdam. E.g. BoxInsider: Receive updates about your container journeys from port to door and vice versa via the Port of Rotterdam
 
+### [myTerminal (ECT Rotterdam)](https://myterminal.ect.nl/)
+- From the ECT terminals in Rotterdam, offers access to up-to-date information on terminal activity. E.g. information on the estimated date of unloading of the containers.
 
-#### Content
-Resum del contingut principl i link catalog/....
-#### Implementation
-Resum ... link al catalog/...
+### [TradeLens API](https://knowledge.tradelens.com/hc/en-us/categories/4404458990353-TRADELENS-APIs) 
 
-===
+- Tradelens is a collaboration between Maersk and IBM to create a platform to share and optimize shipment information between shipping lines, companies, and different authorities. 
+- They have a set of queries about shipments (Consignment Queries) and another about containers (Transport Equipment Queries) that have been documented using Swagger 2.0 (equivalent to Open API 2.0).
+- To access its APIs, the Tradelens service must be contracted.
 
-## Realtime weather
-adfa
-## Weather Forecast--- 
+### [Bureau International des Containers (BIC)](https://www.bic-code.org/)
 
-## Sea state
-asdfa
-...
+- The Bureau International des Containers provides standards for sea containers. Its standardized codes can be used by any party involved in the supply chain, facilitating communication between the parties involved in a unified and unambiguous way. BIC provides these codes via API so that other applications can create services for the container shipping industry. E.g. Boxtech. Database with the characteristics of the containers, accessible from their license plate. 
 
-## Pollution
-asdf
-## Traffic Status 
-asdf
-## Rail Transport Calls
-asdf
-## Rail Transport Services (o liners)
-adsf
-## Liner Services
-asdf
+## National and international organizations and institutions
+### [UNdata](https://data.un.org/Host.aspx?Content=API)
+- The UNdata API provides access to data within the UNdata platform. Developers can use the API to dynamically query UNdata for the latest data and display the result on a web page, download it to local storage for further processing, etc.
 
-## Terminal Trailer Queues (Gate Congestion)
-Tiempos de acceso
+### [datos.gob.es](https://datos.gob.es/en/apidata)
 
-## Container Gate In/Out
-ref a Codeocos
+- Open information is provided with documentation of the API's methods, parameters, and interactive model, and test queries can be made:
+https://datos.gob.es/es/accessible-apidata.
 
-## Container Ship (un)loading operations
-ref Coarris
-## Inspecciones sobre la mercancía- PIF- escáner
-## News
+### [EDI3 Standards](https://edi3.org/)
 
-## Notices
+- They offer standards for the supply chain and tools for web developers.
+Most international electronic business transactions today are implemented using the standards defined by UN/CEFACT, such as EDIFACT and XML schemas.
+The purpose of EDI3 Standards is to make semantic standards incorporate all pre-existing knowledge of the business domain and make it accessible to web developers. The site also supports interoperable implementations through open tools.
+- All this information can be very useful for web developers.
+- Semantic and technical specifications are published on its website, as well as tools and methods.
 
-# Benchmarking of services by Port
+## Smart cities
+### [FIWARE](https://www.fiware.org)
 
-## Port of Antwerp (NxtPort)
+- FIWARE is defined as an open-source platform component framework to accelerate the development of intelligent solutions. As indicated on its own website, the FIWARE Foundation promotes the definition, and the open-source implementation, of key open standards that allow the development of portable and interoperable smart solutions in a faster, easier, and more affordable way, avoiding blocking scenarios of suppliers, while also fostering FIWARE as a sustainable and innovation-driven business ecosystem.
+- FIWARE offers a set of open-source components that can be assembled or with third party components to build platforms that support the development of Smart solutions faster, easier, and cheaper. The only essential component is a “FIWARE Context Broker Generic Enabler”.
+- They have also promoted the joint initiative "Smart Data Models" between the FIWARE Foundation, the TM Forum, IUDX and OASC to support the adoption of a reference architecture and compatible common data models that support a digital market of interoperable and replicable smart solutions in multiple sectors, starting with Smart Cities. The “Smart Data Models” include three elements: the schema or technical representation of the model that defines the structure and types of technical data, the specification of a document written to be read by people and the content examples for the NGSIv2 and NGSIv2 versions. NGSI-LD.
+- The acronym NGSI stands for "Next Generation Service Interfaces", a set of specifications originally issued by the Open Mobile Alliance (OMA) that included context interfaces. These were adopted and developed as NGSIv2 by the European Future Internet Public-Private-Partnership (PPP), which spawned the FIWARE open-source community.
+- All data models are public and copyright free.
 
-Antwerp port facilitate services through NxtPort plataform. See at https://www.nxtport.com/en/market/our-marketplace/marketplace#live
-- Arrival at Exit: Send the Charge Report (IE507) to Customs for export containers known in the E-balie application
-- Bulkchain: Bulkchain digitises the non-commercial communication between all supply chain members in the Breakbulk & project cargo sector.
-- CCRM: Request or get notified about the Customs status of a container and know when it is allowed to leave the terminal.
-- Certified Pick up: An innovative solution for releasing containers in the Port of Antwerp.
-- e-Balie+ Notifications: Receive status updates for cargo reported through e-Balie/e-Desk
-- Export_Manifest: Send an automated manifest when vessels with export cargo leave the port
-- Import Consignment: Re-use the cargo information digitally
-- Port Directory: Up to date contact information by integrating your systems with the yellow pages of the port community
-- Portcall+: Precise and real-time information on the movement of vessels
-- PortStays: Get an overview of all active sea-going vessels in Antwerp
-- Push Barges Location: Push Barges Location
-- Qronoport: Get visual insights into what other stakeholders have planned on liquid bulk vessels you have to work on, improving planning and reduce lost time.
-- Terminal Events: Enrich your view on your container voyage by obtaining the terminal gate in and out moves
-- Tresco Location: Lat 51.297273 / Lon 4.268129 may not ring a bell, 'Deurganckdok' probably does
-- UN/Locode: Use the UN/LOCODE dataset with ease in your applications
-- VGM: Method 1: Request the weight of an export container (SOLAS method I)
-- VGM: Tare Weight: Request the tare weight of any container to meet the SOLAS VGM (method 2) requirements.
-- VisiGIP: Follow your container through the customs process
-- VisuRIS: Visualise the transport and traffic-aspects on inland waterways
-- Green Lights: Check the different release steps of your container in the import process
-- Next Mode of Transport: Announce the NMoT of your container to the terminal
-  
-## Port of Busan 
+## Other initiatives related to the Domains of this project
+### Free APIs to access global weather data 
+- [Top 8 Best Free Weather APIs to Access Global Weather Data (Updated for 2022)](https://rapidapi.com/blog/access-global-weather-data-with-these-weather-apis/)
+- [WeatherAPI.com](https://www.weatherapi.com/docs/#apis-realtime)  
+- [Meteomatics](https://www.meteomatics.com/en/api/getting-started/)
 
-Port of Busan explain their services at https://www.data.go.kr/en/bbs/ntc/selectNotice.do?originId=NOTICE_0000000002021
+### References on the sea state
+**EMODnet**
+- Europe has developed a website that aggregates several portals, one with this type of information is [EMODnet](https://emodnet.ec.europa.eu/en/physics) where several APIs are offered, such as one with all the sources of this type of information:
+•	www.emodnet-physics.eu/map/Service/WSEmodnet2.aspx
+•	www.emodnet-physics.eu/map/service/WSEmodnet2.asmx
 
-We will inform you of the disposal of API related to Busan Port Authority. 1) Provider: Busan Port Authority 2) Target service (15 types of API)-Busan Port RFID vehicle access data-Pier information-Terminal code-Integrated cargo report information (disembarkation report)- Ship specification information-Ship control information-Ship entry/departure information-Loading list prior report container weight information inquiry-Terminal shipping code-
+**Puertos del Estado**
+- Puertos del Estado offers a service called [SAPO](http://www.puertos.es/es-es/oceanografia/Paginas/portus.aspx) (in Spanish Sistema Autónomo de Predicción del Oleaje - Autonomous Wave Prediction System) to the Port Authorities that request it. This service offers a local wave forecast with a horizon of 48 hours considering the transformations induced by the coastline and the continental shelf. The forecast covers a region of about 600 km2 in the outer area of the port with a wave generation and programming model and the inner area of the port with an agitation model 
 
-Terminal bus code-Terminal container device information-Terminal loading and unloading plan information-Container status information-Unloaded container list-Overseas Port code 3) Reason for disposal: System maintenance has been steadily performed since 2011 to provide public data, but it is decided to dispose of the existing system due to the fact that it is impossible to maintain the existing system such as the end of the flash service 4) Person in charge: Information system manager of Busan Port Corporation 3145
-
-## The Maritime and Port Authority of Singapore (MPA)
-
-The MPA signed a memorandum of understanding (MoU) with five international partners today, to develop and adopt common data standards and Application Programming Interface (API) specifications, which will facilitate data exchange for port and maritime services transactions. These partners are CargoSmart (solution provider for the Global Shipping Business Network), GTD Solutions (representing TradeLens), GeTS and PSA International (jointly representing CALISTA), and the Port of Rotterdam Authority.
-
-Annex A: Areas of cooperation covered by the MoU on common data standards and Application Programming Interface (API) specifications
-
-(a) Generate awareness in the maritime industry about the importance of common data standards and common API specifications across international maritime jurisdictions and platforms;
-
-(b) Sharing of information and best practices in the maritime industry pertaining to the harmonisation of data standards across international maritime jurisdictions and platforms;
-
-(c) Development of common data standards and common API specifications to facilitate data exchange for business activities and transactions;
-
-(d) Adoption of common data standards and API specifications to facilitate data exchange for business activities and transactions;
-
-(e) Adoption of open data sharing by Parties with existing and/or future relevant platforms and databases for efficient flow of information across global maritime transport chains;
-
-(f) Provision of resources, support, capabilities, expertise and setting up of jointentities, whenever applicable, to encourage research and development, test-bedding and adoption of solutions and technologies to facilitate wider adoption of the common API specifications in the maritime industry.
-
-# Terminals Services and others
-
-## Long Beach Container Terminal
-
-Long Beach Container Terminal https://www.globenewswire.com/en/news-release/2019/07/30/1893980/0/en/Long-Beach-Container-Terminal-develops-Application-Programming-Interfaces.html
-
-Planificador del transporte de Hutchison Ports (UK) https://hutchisonports.com/media/stories/paris-api-the-next-generation-in-transport-planning-and-optimisation/ parisoptimalplanning.com https://api.parisoptimalplanning.com/guide/introduction/1
-
-## TradeLens API
-
-And this here is one of the best API for supply chain that is based on blockchain and will provide you with the info on the timely location of shipments and their characteristics (temperature, transit passages, etc). https://docs.tradelens.com/reference/api_documentation/
-
-## IPCSA – network of trusted networks (NoTN) 
-
-https://notn.ipcsa.international/
-
-- Portcall: Receive a real time overview of the time of arrival and departure of vessels from ports across the world in order to support your users planning of port operations and cargo movement. https://notn.ipcsa.international/notn-market/portcalls-info
-- Cargo status: The PCS client accesses this service in order to get track and trace data of an equipment loaded or discharged at a certain port (shipment). https://notn.ipcsa.international/en/notn-market/cargo-status
-
-## APM Terminals https://www.apmterminals.com/en/tools/api
-
-- Import Availability
-- Export Booking Enquiry
-- Vessel Schedule
-- Container Event History
-- Truck Appointments
-- Empty Container Returns
-
-
-## Statistics Benchmarking:
-- Eurostat
-    - https://ec.europa.eu/eurostat/databrowser/view/MAR_TF_QM__custom_917144/default/table?lang=en
-    - https://ec.europa.eu/eurostat/web/transport/data/database
-- United Nations:
-    - https://statswiki.unece.org/  (maritime transport is not covered)
-    - Review of maritime transport [UNCTAD](https://unctad.org/es/node/29022)
-    - [undata API](https://data.un.org/Host.aspx?Content=API)
-- World Bank
-    - https://datacatalog.worldbank.org/dataset/global-international-ports
-
-- [Datos.gob.es](https://datos.gob.es/en/apidata)
-
-
-## Weather Benchmarking:
-- Free Weather APIS to access global weather data:
-  - https://rapidapi.com/blog/access-global-weather-data-with-these-weather-apis/)
-  - Wheatherapi:
-      - https://www.weatherapi.com/docs/#apis-realtime
-      - https://rapidapi.com/weatherapi/api/weatherapi-com/
-  - Meteomatics:
-      - https://www.meteomatics.com/en/api/getting-started/
-
-
-## Sea state Benchmarking:
-- Europe has developed a website that aggregates several portals, one with this kind of information [EMODnet](https://emodnet.ec.europa.eu/en/physics) where are offered several APIs, like one with all the sources of this kind of information:
-  - www.emodnet-physics.eu/map/Service/WSEmodnet2.aspx
-  - www.emodnet-physics.eu/map/service/WSEmodnet2.asmx
-
-- Puertos del Estado offers a service called SAPO (that in Spanish corresponds to the initials of Autonomous Wave Prediction System) to the Port Authorities that request it. This service offers a local wave prediction with a horizon of 48 hours considering the transformations induced by the coastline and the continental shelf. The forecast covers a region of about 600 km2 in the area outside the port with a wave generation and scheduling model and the interior area of the port with an agitation model. 
-  - http://www.puertos.es/es-es/oceanografia/Paginas/portus.aspx
-
-- [NOOA WAVEWATCH-III.v6.07.1 on GitHub](https://github.com/NOAA-EMC/WW3/releases/tag/6.07.1)
-
-- Currents: https://map.emodnet-physics.eu/
-
-## Pollution Benchmarking
-
-- WeatherAPI.com provides access to weather and geo data via a JSON/XML restful API. Among others, they provide following data through their API:
+### Some references on pollution data
+- WeatherAPI.com provides access to weather and geographic data through the JSON/XML restful API. Among others, it provides the following data through its API:
   - Real-time weather
-  - Weather Alerts 
-  - Air Quality Data 
-  - [wheather api](https://www.weatherapi.com/docs/#intro-aqi)
-
-## Rail Transport Benchmarking
-
-- https://ontology.tno.nl/smart-rail/ 
-
-## News Benchmarking
-
-Benchmarking:
-
-- [see 'NewsArticle' at schema.org](https://schema.org/NewsArticle)
-
-## Notices Benchmarking:
-- [SIMAP: Information about European public procurement (swagger)](https://esentool.ted.europa.eu/api/production/swagger-ui.html)
-
-## Port Calendar Benchmarking:
-- https://rapidapi.com/SergeG/api/working-days/
+  - Weather Alerts
+  - [Air Quality Data](https://www.weatherapi.com/docs/#intro-aqi) 

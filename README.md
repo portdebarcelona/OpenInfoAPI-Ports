@@ -1,5 +1,6 @@
-# OpenInfoAPI-Ports content
-- [OpenInfoAPI-Ports content](#openinfoapi-ports-content)
+# Open Info API para Puertos
+![.](https://github.com/portdebarcelona/OpenInfoAPI-Ports/blob/develop/docs/images/banner.png?raw=true)
+## Open Info API para Puertos: Content
   - [About OpenInfoAPI-Ports](#about-openinfoapi-ports)
   - [Introduction to idea Open Info API for Ports](#introduction-to-idea-open-info-api-for-ports)
   - [Deliverables](#deliverables)
@@ -9,10 +10,10 @@
   - [About Ports 4.0](#about-ports-40)
     
 ## About OpenInfoAPI-Ports
-![.](https://github.com/portdebarcelona/OpenInfoAPI-Ports/blob/develop/docs/images/banner.png?raw=true)
 - IDEA awarded at [Ports 4.0 call](https://ports40.es/static/program_idea) on April 9, 2021.
 - [Ports 4.0 decision](docs/annexes/IDEAS-RESOLUCION-PROVISIONAL-CONCESION-DE-AYUDAS_signed.pdf)
 - [More detailed presentation](docs/Presentation.md)
+
 ## Introduction to idea Open Info API for Ports
 All the large commercial ports manage a logistics area where goods change their mode of transport, from the seaside (vessels) to the land side (trucks or trains) and vice versa. This activity is specified as:
 - Vessels that arrive at port, load and unload their cargo (usually in containers/UTIs or as a bulk cargo),
@@ -44,9 +45,9 @@ The deliverables of this idea will be a **catalog of information** that the port
 
 In this six months plan, deliverables will be:
 
-- Creation of **Github repository** or similar: [this repository](https://github.com/org/portdebarcelona/InfoOpenAPI-Ports)
-- Creation of **Swagger repository** or similar
-- Definition of the **types of information**: [see](docs/CatalogIntroduction.md)
+- Creation of **Github repository** or similar: [this repository](https://github.com/portdebarcelona/OpenInfoAPI-Ports)
+- Creation of **Swagger repository** or similar [see](https://app.swaggerhub.com/apis/openinfoapiports/oiap)
+- Definition of the **types of information**: [see](https://github.com/portdebarcelona/OpenInfoAPI-Ports/blob/main/docs/CatalogueIntroduction.md)
 - **Attributes** of each type of information
 - Selection of a **style guide** for API/JSON: [see](docs/OASdefinitionsBestPractices.md)
 - Definition in **OpenAPI 3.x**.
@@ -70,8 +71,22 @@ This project has an agenda that begins on April 9 and ends on October 9, 2021. M
 Work progress is registered on own page:
 - [Work tracking](docs/changelog.md)
 
-## Web Page
-Web of this project is built with gitpages: https://portdebarcelona.github.io/OpenInfoAPI-Ports/
+## License
+
+All the work done in this project is under licence [CC0 1.0 Universal (CC0 1.0) Public Domain Dedication](https://creativecommons.org/publicdomain/zero/1.0/deed.en). Briefly:
+
+```
+The person who associated a work with this deed has dedicated the work to the public domain by waiving all of his or her rights to the work worldwide under copyright law, including all related and neighboring rights, to the extent allowed by law.
+
+You can copy, modify, distribute and perform the work, even for commercial purposes, all without asking permission.
+```
+
+
+## More info
+
+More detailed info and media presentation is available in [this document](./docs/Presentation.md).
+
+~~Web of this project is built with gitpages: https://portdebarcelona.github.io/OpenInfoAPI-Ports/~~
 
 ## About [Ports 4.0](https://ports40.es/static/ports_40)
 

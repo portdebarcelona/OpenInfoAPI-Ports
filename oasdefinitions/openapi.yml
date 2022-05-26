@@ -62,7 +62,7 @@ paths:
     get:
       tags:
         - Port Calls
-      summary: Returns a list of ships that will arrive at a port in a given period of time
+      summary: Returns a list of ships that will arrive at a port in each period of time
       description: Returns a list of ships that will arrive at a port in a given period of time
       parameters:
         - $ref: '#/components/parameters/portCode'
@@ -247,7 +247,7 @@ paths:
     get:
       tags:
         - Port Calls
-      summary: Returns a list of ships that have initiated their aproximation manouvres to a port.
+      summary: Returns a list of ships that have initiated their aproximation manoeuvres to a port.
       description: Returns a list of ships that have initiated their aproximation manouvres to a port.
       parameters:
         - $ref: '#/components/parameters/portCode'
@@ -379,8 +379,8 @@ paths:
     get:
       tags:
         - Port Calls
-      summary: Returns information about next arrival and departure of a cruise ship.
-      description: Returns information about next arrival and departure of a cruise ship.
+      summary: Returns information about the next arrival and departure of a cruise ship.
+      description: Returns information about the next arrival and departure of a cruise ship.
       parameters:
         - $ref: '#/components/parameters/portCode'
         - $ref: '#/components/parameters/shipName'
@@ -624,7 +624,7 @@ paths:
     get:
       tags:
         - Port Infrastructure
-      summary: Information about the main land port accesses. 
+      summary: Information about the mainland port accesses. 
       description: >-
         This GET API returns the list of port gates from a port. 
       parameters:
@@ -757,7 +757,7 @@ paths:
     get:
       tags:
         - Port Infrastructure
-      summary: Information of all the rail terminals and loading tracks of a port
+      summary: Information on all the rail terminals and loading tracks of a port
       description: >
           List of the rail terminals and loading tracks from a port.
           Rail facilities are caracterized because they have rail bundles of up to 10 rail tracks with lengths of a maximum of 800 meters per track. They are equipped to allow simultaneous batch exchanges (direct transshipment) through the use of rail-mounted gantry cranes that stretch over the rail bundles.
@@ -847,7 +847,7 @@ paths:
     get:
       tags:
         - Port Infrastructure
-      summary: Bathymetric data from channel and berths.
+      summary: Bathymetric data from channels and berths.
       description: Data from the regular hydrographic surveis that are being performed at ports.
       parameters:
         - $ref: '#/components/parameters/portCode'
@@ -887,12 +887,12 @@ paths:
                 $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/main/oasdefinitions/oiapComponents.yml#/error' 
 
   # Customs clearance procedure
-  /customsClearanceProcedure:
+  /customsClearanceProcedures:
     get:
       tags:
         - Port Procedures
-      summary: Returns a list of resources where the procedures for clearing the goods in import can be found.
-      description: Returns a list of resources where the procedures for clearing the goods in import can be found. 
+      summary: Returns a resource where the procedures for clearing the goods in import can be found.
+      description: Returns a resource where the procedures for clearing the goods in import can be found. 
       parameters:
         - $ref: '#/components/parameters/portCode'
       responses:
@@ -907,9 +907,7 @@ paths:
                 type: object
                 properties:
                   customsClearanceProcedures:
-                    type: array
-                    items:
-                      $ref: '#/components/schemas/customsClearanceProcedure'
+                    $ref: '#/components/schemas/customsClearanceProcedure'
                   metadata:
                     $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/main/oasdefinitions/oiapComponents.yml#/metadata'
                   queryParams:
@@ -935,8 +933,8 @@ paths:
     get:
       tags:
         - Port Procedures
-      summary: Returns a list of resources where the procedures for clearing the goods subject to controls from the border inspection services can be found.
-      description: Returns a list of resources where the procedures for clearing the goods subject to controls from the border inspection services can be found. 
+      summary: Returns a resource where the procedures for clearing the goods subject to controls from the border inspection services can be found.
+      description: Returns a resource where the procedures for clearing the goods subject to controls from the border inspection services can be found. 
       parameters:
         - $ref: '#/components/parameters/portCode'
       responses:
@@ -951,9 +949,7 @@ paths:
                 type: object
                 properties:
                   borderInspectionProcedures:
-                    type: array
-                    items:
-                      $ref: '#/components/schemas/borderInspectionProcedure'
+                    $ref: '#/components/schemas/borderInspectionProcedure'
                   metadata:
                     $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/main/oasdefinitions/oiapComponents.yml#/metadata'
                   queryParams:
@@ -979,8 +975,8 @@ paths:
     get:
       tags:
         - Port Procedures
-      summary: Returns a list of resources where the verified gross mass (VGM) procedures can be found.
-      description: Returns a list of resources where the verified gross mass (VGM) procedures can be found. 
+      summary: Returns a resource where the verified gross mass (VGM) procedures can be found.
+      description: Returns a resource where the verified gross mass (VGM) procedures can be found. 
       parameters:
         - $ref: '#/components/parameters/portCode'
       responses:
@@ -995,9 +991,7 @@ paths:
                 type: object
                 properties:
                   vgmProcedures:
-                    type: array
-                    items:
-                      $ref: '#/components/schemas/vgmProcedure'
+                    $ref: '#/components/schemas/vgmProcedure'
                   metadata:
                     $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/main/oasdefinitions/oiapComponents.yml#/metadata'
                   queryParams:
@@ -1038,16 +1032,14 @@ paths:
               schema:
                 type: object
                 properties:
-                  containerTare:
-                    type: array
-                    items:
-                      $ref: '#/components/schemas/containerTare'
+                  containerTareWeight:
+                    $ref: '#/components/schemas/containerTare'
                   metadata:
                     $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/main/oasdefinitions/oiapComponents.yml#/metadata'
                   queryParams:
                     type: object
                     properties:
-                      portCode:
+                      containerNumber:
                         $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/main/oasdefinitions/oiapComponents.yml#/containerNumber'
         '400':
           description: Bad request
@@ -1067,8 +1059,8 @@ paths:
     get:
       tags:
         - Port Procedures
-      summary: Returns a list of resources where the quality certification procedures from a port can be found.
-      description: Returns a list of resources where the quality certification procedures from a port can be found. 
+      summary: Returns a resource where the quality certification procedures from a port can be found.
+      description: Returns a resource where the quality certification procedures from a port can be found. 
       parameters:
         - $ref: '#/components/parameters/portCode'
       responses:
@@ -1082,10 +1074,8 @@ paths:
               schema:
                 type: object
                 properties:
-                  vgmProcedures:
-                    type: array
-                    items:
-                      $ref: '#/components/schemas/qualityCertificationProcedure'
+                  qualityCertificationProcedures:
+                    $ref: '#/components/schemas/qualityCertificationProcedure'
                   metadata:
                     $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/main/oasdefinitions/oiapComponents.yml#/metadata'
                   queryParams:
@@ -1126,7 +1116,7 @@ paths:
               schema:
                 type: object
                 properties:
-                  borderInspectionActors:
+                  qualityCertifiedPartners:
                     type: array
                     items:
                       $ref: '#/components/schemas/qualityCertifiedPartner'
@@ -1170,7 +1160,7 @@ paths:
               schema:
                 type: object
                 properties:
-                  activities:
+                  partnerActivities:
                     type: array
                     items:
                       $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/main/oasdefinitions/oiapComponents.yml#/activity'
@@ -1194,13 +1184,13 @@ paths:
               schema:
                 $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/main/oasdefinitions/oiapComponents.yml#/error'
 
-  # Pick up and delivery procedures
-  /pickupDeliveryProcedures:
+  # Pick up procedures
+  /pickupProcedures:
     get:
       tags:
         - Port Procedures
-      summary: Returns a list of resources where the procedures for for pick-up or delivery containers from/to the terminal or depot can be found.
-      description: Returns a list of resources where the procedures for for pick-up or delivery containers from/to the terminal or depot can be found. 
+      summary: Returns a resource, where the procedures for pick-up containers from the terminal and deliver the empty container to the depot, can be found.
+      description: Returns a resource, where the procedures for pick-up containers from the terminal and deliver the empty container to the depot, can be found.
       parameters:
         - $ref: '#/components/parameters/portCode'
       responses:
@@ -1214,10 +1204,50 @@ paths:
               schema:
                 type: object
                 properties:
-                  borderInspectionProcedures:
-                    type: array
-                    items:
-                      $ref: '#/components/schemas/pickupDeliveryProcedure'
+                  pickupProcedures:
+                    $ref: '#/components/schemas/pickupProcedure'
+                  metadata:
+                    $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/main/oasdefinitions/oiapComponents.yml#/metadata'
+                  queryParams:
+                    type: object
+                    properties:
+                      portCode:
+                        $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/main/oasdefinitions/oiapComponents.yml#/portCode'
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/main/oasdefinitions/oiapComponents.yml#/error' 
+        '404':
+          description: Not found
+          content:
+            application/json:
+              schema:
+                $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/main/oasdefinitions/oiapComponents.yml#/error' 
+
+  # Delivery procedures
+  /deliveryProcedures:
+    get:
+      tags:
+        - Port Procedures
+      summary: Returns a resource, where the procedures for pick-up empty containers from the depot and deliver full containers to the terminal, can be found.
+      description: Returns a resource, where the procedures for pick-up empty containers from the depot and deliver full containers to the terminal, can be found.
+      parameters:
+        - $ref: '#/components/parameters/portCode'
+      responses:
+        '200':
+          description: Successful operation
+          headers:
+            oiapApiVersion:
+              $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/main/oasdefinitions/oiapComponents.yml#/oiapApiVersion'
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  deliveryProcedures:
+                    $ref: '#/components/schemas/deliveryProcedure'
                   metadata:
                     $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/main/oasdefinitions/oiapComponents.yml#/metadata'
                   queryParams:
@@ -1243,8 +1273,8 @@ paths:
     get:
       tags:
         - Port Procedures
-      summary: Returns a list of resources where basic information for the approach of the vessels to a port can be found.
-      description: Returns a list of resources where basic information for the approach of the vessels to a port can be found.
+      summary: Returns a resource where basic information for the approach of the vessels to a port can be found.
+      description: Returns a resource where basic information for the approach of the vessels to a port can be found.
       parameters:
         - $ref: '#/components/parameters/portCode'
       responses:
@@ -1258,10 +1288,8 @@ paths:
               schema:
                 type: object
                 properties:
-                  borderInspectionProcedures:
-                    type: array
-                    items:
-                      $ref: '#/components/schemas/approachInstructions'
+                  approachInstructions:
+                    $ref: '#/components/schemas/approachInstructions'
                   metadata:
                     $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/main/oasdefinitions/oiapComponents.yml#/metadata'
                   queryParams:
@@ -1374,7 +1402,7 @@ paths:
                 $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/main/oasdefinitions/oiapComponents.yml#/error' 
 
   # List of types of cargo
-  /typesOfCargoList:
+  /typesOfCargo:
     get:
       tags:
         - Statistics
@@ -1437,7 +1465,7 @@ paths:
               schema:
                 type: object
                 properties:
-                  commodities:
+                  commoditiesList:
                     type: array
                     items:
                       $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/main/oasdefinitions/oiapComponents.yml#/commodity'
@@ -1466,8 +1494,8 @@ paths:
     get:
       tags:
         - Environment-Weather
-      summary: Returns realtime weather information of the default weather station of a port.
-      description: Returns realtime weather information of the default weather station of a port. 
+      summary: Returns real-time weather information on the default weather station of a port.
+      description: Returns realtime weather information on the default weather station of a port. 
       parameters:
         - $ref: '#/components/parameters/portCode'
       responses:
@@ -1596,8 +1624,8 @@ paths:
     get:
       tags:
         - Environment-Sea State
-      summary: Returns information of the sea condition.
-      description: Returns information of the sea condition.
+      summary: Returns information on the sea condition.
+      description: Returns information on the sea condition.
       parameters:
         - $ref: '#/components/parameters/portCode'
       responses:
@@ -1789,7 +1817,7 @@ paths:
               schema:
                 type: object
                 properties:
-                  airParameters:
+                  airPollution:
                     $ref: '#/components/schemas/airParameters'
                   metadata:
                     $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/main/oasdefinitions/oiapComponents.yml#/metadata'
@@ -2210,7 +2238,7 @@ paths:
     get:
       tags:
         - Vehicle Traffic
-      summary: Number of vehicles entering or leaving a port or a terminal through a certain gate and in a given period of time. And segregation of this data by type of vehicles.
+      summary: The number of vehicles entering or leaving a port or a terminal through a certain gate and in each period. And segregation of this data by type of vehicles.
       description: Returns the number of vehicles entering or leaving a port or a terminal through a certain gate and in a given period of time. And segregation of this data by type of vehicles. 
       parameters:
         - $ref: '#/components/parameters/portCode'
@@ -2228,7 +2256,7 @@ paths:
               schema:
                 type: object
                 properties:
-                  basicTrafficEnvironment:
+                  trafficFlowObserved:
                     type: array
                     items:
                       $ref: '#/components/schemas/vehicleTraffic'
@@ -2263,9 +2291,9 @@ paths:
     get:
       tags:
         - Terminal Performance
-      summary: Estimated waiting time that trucks have to queue before they can enter into a terminal.
+      summary: Estimated waiting time that trucks have to queue before they can enter a terminal.
       description: | 
-        Returns a list with the estimated waiting time that trucks have to queue before they can enter into a terminal.
+        Returns a list with the estimated waiting time that trucks have to queue before they can enter a terminal.
 
         `Parameters`: Port Code and Terminal identifier
 
@@ -2284,7 +2312,7 @@ paths:
               schema:
                 type: object
                 properties:
-                  accessTime:
+                  accessWaitTime:
                     type: array
                     items:
                       $ref: '#/components/schemas/accessTime'
@@ -2315,7 +2343,7 @@ paths:
     get:
       tags:
         - Terminal Performance
-      summary: Number of units (containers, freight cars,...) that enter or leave a terminal per hour during the present day.
+      summary: The number of units (containers, freight cars,...) that enter or leave a terminal per hour during the present day.
       description: Returns a list with the number of units (containers, freight cars,...) that enter or leave a terminal per hour during the present day.
       parameters:
         - $ref: '#/components/parameters/portCode'
@@ -2331,7 +2359,7 @@ paths:
               schema:
                 type: object
                 properties:
-                  accessTime:
+                  landsideThroughput:
                     type: array
                     items:
                       $ref: '#/components/schemas/throughput'
@@ -2434,8 +2462,8 @@ paths:
     post:
       tags:
         - News
-      summary: Last step to subscribe to a news service
-      description: 'Post the validation code received to fulfill the subscription request to a news service from a port'
+      summary: Last step for subscribing to a news service
+      description: 'Post the validation code is received to fulfill the subscription request to a news service from a port'
       operationId: subscriptionValidation
       requestBody:
         content:
@@ -2490,8 +2518,8 @@ paths:
     post:
       tags:
         - News
-      summary: Last step to cancel the subscription to a news service
-      description: 'Post the validation code received to cancel the subscription to a news service from a port'
+      summary: Last step for cancelling the subscription to a news service
+      description: 'Post the validation code is received to cancel the subscription to a news service from a port'
       operationId: unsubscriptionValidation
       requestBody:
         content:
@@ -2655,8 +2683,8 @@ paths:
     get:
       tags:
         - News
-      summary: Returns particular news identified by its unique id.
-      description: Returns particular news identified by its unique id.
+      summary: Returns news identified by its unique id.
+      description: Returns news identified by its unique id.
       parameters:
         - $ref: '#/components/parameters/portCode' 
         - $ref: '#/components/parameters/id'
@@ -2723,8 +2751,8 @@ paths:
     post:
       tags:
         - Notices
-      summary: Last step to subscribe to a notices service
-      description: 'Post the validation code received to fulfill the subscription request to a notices service from a port'
+      summary: Last step for subscribing to a notices service
+      description: 'Post the validation code is received to fulfill the subscription request to a notices service from a port'
       operationId: noticesSubscriptionValidation  
       requestBody:
         content:
@@ -2761,7 +2789,7 @@ paths:
                 - $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/main/oasdefinitions/oiapComponents.yml#/email'
                 - $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/main/oasdefinitions/oiapComponents.yml#/phone'
               example: {"email": "name@domain.com"} 
-        description: request placed for unsubscribing to a notices service
+        description: Request placed for unsubscribing to a notices service
         required: true
       responses:
         '200':
@@ -2778,8 +2806,8 @@ paths:
     post:
       tags:
         - Notices
-      summary: Last step to cancel the subscription to a notices service
-      description: 'Post the validation code received to cancel the subscription to a notices service from a port'
+      summary: Last step for cancelling the subscription to a notices service
+      description: 'Post the validation code is received to cancel the subscription to a notices service from a port'
       operationId: noticesUnsubscriptionValidation    
       requestBody:
         content:
@@ -3007,7 +3035,7 @@ paths:
               schema:
                 type: object
                 properties:
-                  ratesAndFeesUrl:
+                  portRatesAndFees:
                     type: array
                     items:
                       $ref: '#/components/schemas/ratesAndFeesUrl'
@@ -3032,16 +3060,15 @@ paths:
                 $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/main/oasdefinitions/oiapComponents.yml#/error'
 
   # Port services.
-  /portServices:
+  /shipServices:
     get:
       tags:
         - Port Services
       summary: Returns a list of port services that can be ordered for a ship. Eg. bunkering, marpol, mooring, pilots, tugs,...
-
       description: Returns a list of port services that can be ordered for a ship. Eg. bunkering, marpol, mooring, pilots, tugs,...
       parameters:
         - $ref: '#/components/parameters/portCode'
-        - $ref: '#/components/parameters/serviceType'
+        - $ref: '#/components/parameters/shipServiceType'
       responses:
         '200':
           description: Successful operation
@@ -3053,10 +3080,10 @@ paths:
               schema:
                 type: object
                 properties:
-                  portServices:
+                  shipServices:
                     type: array
                     items:
-                      $ref: '#/components/schemas/portService'
+                      $ref: '#/components/schemas/shipService'
                   metadata:
                         $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/main/oasdefinitions/oiapComponents.yml#/metadata'                  
                   queryParams:
@@ -3064,8 +3091,8 @@ paths:
                     properties:
                       portCode:
                         $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/main/oasdefinitions/oiapComponents.yml#/portCode'
-                      serviceType:
-                        $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/main/oasdefinitions/oiapComponents.yml#/serviceType'
+                      shipServiceType:
+                        $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/main/oasdefinitions/oiapComponents.yml#/shipServiceType'
         '400':
           description: Bad request
           content:
@@ -3099,10 +3126,10 @@ paths:
               schema:
                 type: object
                 properties:
-                  serviceTypes:
+                  activities:
                     type: array
                     items:
-                      $ref: '#/components/schemas/serviceTypeSearchResult'
+                      $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/main/oasdefinitions/oiapComponents.yml#/activity' 
                   metadata:
                         $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/main/oasdefinitions/oiapComponents.yml#/metadata'                  
                   queryParams:
@@ -3179,11 +3206,54 @@ paths:
               schema:
                 $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/main/oasdefinitions/oiapComponents.yml#/error' 
 
+  /holidayTypes:
+    get:
+      tags:
+        - Port Calendar
+      summary: Returns the list of all the holiday types.
+      description: Information about all the holiday types.
+      parameters:
+        - $ref: '#/components/parameters/portCode'    
+      responses: #status code
+        '200':
+          description: Successful operation
+          headers:
+            oiapApiVersion:
+              $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/main/oasdefinitions/oiapComponents.yml#/oiapApiVersion'
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  holidayTypes:
+                    type: array
+                    items:
+                      $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/main/oasdefinitions/oiapComponents.yml#/holidayType'
+                  metadata:
+                    $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/main/oasdefinitions/oiapComponents.yml#/metadata'
+                  queryParams: 
+                    type: object
+                    properties:
+                      portCode:
+                        $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/main/oasdefinitions/oiapComponents.yml#/portCode'
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/main/oasdefinitions/oiapComponents.yml#/error' 
+        '404':
+          description: Not found
+          content:
+            application/json:
+              schema:
+                $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/main/oasdefinitions/oiapComponents.yml#/error' 
+
   # Companies.
   /companies:
     get:
-      summary: Get some overview data of all the companies from a port or all the companies that perform an specific activity.
-      description: Get some overview data of all the companies from a port or all the companies that perform an specific activity.
+      summary: Get some overview data of all the companies from a port or all the companies that perform a specific activity.
+      description: Get some overview data of all the companies from a port or all the companies that perform a specific activity.
       tags:
         - Port Directory
       parameters:
@@ -3200,7 +3270,7 @@ paths:
               schema:
                 type: object
                 properties:
-                  companiesOverviewData:
+                  companies:
                     type: array
                     items:
                       $ref: '#/components/schemas/companyOverviewData'
@@ -3247,7 +3317,7 @@ paths:
               schema:
                 type: object
                 properties:
-                  companyNames:
+                  companiesByName:
                     type: array
                     items:
                       $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/main/oasdefinitions/oiapComponents.yml#/companyInfo'
@@ -3294,7 +3364,7 @@ paths:
               schema:
                 type: object
                 properties:
-                  companyFromVat:
+                  companyByVat:
                     $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/main/oasdefinitions/oiapComponents.yml#/companyInfo'
                   metadata:
                     $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/main/oasdefinitions/oiapComponents.yml#/metadata'
@@ -3319,7 +3389,7 @@ paths:
                 $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/main/oasdefinitions/oiapComponents.yml#/error'  
 
   # Activities of a company.
-  /companies/activities:
+  /companyActivities:
     get:
       summary: Get a list of all the possible activities for a company or governmental body.
       description: Get a list of all the possible activities for a company or governmental body.
@@ -3338,7 +3408,7 @@ paths:
               schema:
                 type: object
                 properties:
-                  activities:
+                  companyActivities:
                     $ref: '#/components/schemas/activities'
                   metadata:
                     $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/main/oasdefinitions/oiapComponents.yml#/metadata'
@@ -3385,7 +3455,7 @@ components:
     subdivision:
       in: query
       name: subdivision
-      description: ubdivision code from ISO 3166 — Codes for the representation of names of countries and their subdivisions.         
+      description: ubdivision code from ISO 3166 - Codes for the representation of names of countries and their subdivisions.         
       required: false
       style: form
       explode: false
@@ -3405,7 +3475,7 @@ components:
     toDate:
       in: query
       name: toDate
-      description: Last day of a period, expressed as YYYY-MM-DD.        
+      description: Last day of a period is expressed as YYYY-MM-DD.        
       required: false
       style: form
       explode: false
@@ -3442,6 +3512,16 @@ components:
       explode: false
       schema:
         $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/main/oasdefinitions/oiapComponents.yml#/shipName'
+
+    shipServiceType:
+      in: query
+      name: shipServiceType
+      description: Type of ship service. 
+      required: false
+      style: form
+      explode: false
+      schema:
+        $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/main/oasdefinitions/oiapComponents.yml#/shipServiceType'
 
     coastalArea:
       in: query
@@ -3566,16 +3646,6 @@ components:
       explode: false
       schema:
         $ref:  'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/main/oasdefinitions/oiapComponents.yml#/id'
-
-    serviceType:
-      in: query
-      name: serviceType
-      description: Service type.        
-      required: false
-      style: form
-      explode: false
-      schema:
-        $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/main/oasdefinitions/oiapComponents.yml#/serviceType'
 
     companyName:
       in: query
@@ -4056,20 +4126,35 @@ components:
             governmentalBodyDetails:
               $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/main/oasdefinitions/oiapComponents.yml#/companyInfo'
 
-    pickupDeliveryProcedure:
-      description: 'URI where the pick up and delivery procedure from a port can be found.'
+    pickupProcedure:
+      description: 'URI where the container pick up procedure from a port can be found.'
       type: object
       allOf:
         - type: object 
           properties:
-            pickupDeliveryProcedureDescription:
+            pickupProcedureDescription:
               description: 'Procedure description'
               type: string
-              enum: ['Container traffic has a big economic impact in ports and the area that they serve. Logistic operators need to know the procedures that they have to follow for pick-up containes from a port or to delivery them. In this domain are included some APIs related with the information exchanged using the EDI messages for land operations with full and empty containers.'] 
-            pickupDeliveryProcedureUri:
+              enum: ['Container traffic has a big economic impact in ports and the area that they serve. Logistic operators need to know the procedures that they have to follow for pick-up containes from a port. In this domain are included some APIs related with the information exchanged using the EDI messages for land operations with full and empty containers.'] 
+            pickupProcedureUri:
               $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/main/oasdefinitions/oiapComponents.yml#/uri' 
       required:
-        - pickupDeliveryProcedureUri 
+        - pickupProcedureUri 
+
+    deliveryProcedure:
+      description: 'URI where the container delivery procedure from a port can be found.'
+      type: object
+      allOf:
+        - type: object 
+          properties:
+            deliveryProcedureDescription:
+              description: 'Procedure description'
+              type: string
+              enum: ['Container traffic has a big economic impact in ports and the area that they serve. Logistic operators need to know the procedures that they have to follow for delivery containes to a port. In this domain are included some APIs related with the information exchanged using the EDI messages for land operations with full and empty containers.'] 
+            deliveryProcedureUri:
+              $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/main/oasdefinitions/oiapComponents.yml#/uri' 
+      required:
+        - deliveryProcedureUri 
 
     approachInstructions:
       description: 'Basic information for the approach of the vessels to a port.'
@@ -4077,50 +4162,14 @@ components:
       allOf:
         - type: object 
           properties:
-            portName:
-              $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/main/oasdefinitions/oiapComponents.yml#/portName'
-            entrances:
-              type: array
-              items:
-                $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/main/oasdefinitions/oiapComponents.yml#/entrance' 
-            approachChannels:
-              type: array
-              items:
-                $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/main/oasdefinitions/oiapComponents.yml#/approachChannel'
-            precautionaryAreas:
-              type: array
-              items:
-                $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/main/oasdefinitions/oiapComponents.yml#/precautionaryArea'
-            portTraffic:
-              type: array
-              items:
-                $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/main/oasdefinitions/oiapComponents.yml#/portTraffic'              
-            emergency:
-              type: array
-              items:
-                $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/main/oasdefinitions/oiapComponents.yml#/emergency'
-            specialOperations:
-              type: array
-              items:
-                $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/main/oasdefinitions/oiapComponents.yml#/specialOperation'
-            pilotage:
-              type: array
-              items:
-                $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/main/oasdefinitions/oiapComponents.yml#/pilots'
-            tugs:
-              type: array
-              items:
-                $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/main/oasdefinitions/oiapComponents.yml#/tugs'
-            linesmen:
-              type: array
-              items:
-                $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/main/oasdefinitions/oiapComponents.yml#/linesmen'
-            lastChanges:
-              type: array
-              items:
-                $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/main/oasdefinitions/oiapComponents.yml#/lastChanges'
+            approachInstructionsDescription:
+              description: 'Procedure description'
+              type: string
+              enum: ['The purpose of this procedure is to regulate the management of maritime traffic in the waters of the service area of a Port. This shall be achieved, on the one hand, by setting standards and general technical criteria governing the system of navigation in the port waters, providing general services, and management and control mechanisms to facilitate the proper planning and supervision of maritime operations; and on the other hand, by implementing the route of the ship and reporting system in the approaches of the port to achieve a safer and more efficient port access traffic flows'] 
+            approachInstructionsUri:
+              $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/main/oasdefinitions/oiapComponents.yml#/uri' 
       required:
-        - portName  
+        - approachInstructionsUri 
 
     basicTrafficStatistics:
       description: 'Statistical information from the traffic flows from a port.'
@@ -4267,7 +4316,7 @@ components:
             atmosphericPressure:
               $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/main/oasdefinitions/oiapComponents.yml#/atmosphericPressure'
             dayMaximum:
-              description: 'Maximum values for the reported period. Subattributes:- `temperature` : Maximum temperature. See `WeatherForecast.temperature` for description and units. - `feelLikesTemperature`. Maximum feels like temperature. Same semantics and units as `WeatherForecast.feelsLikeTemperature`.-   `relativeHumidity`. Maximum relative humidity. Same semantics and units as `WeatherForecast.relativeHumidity`.'    
+              description: 'The maximum values for the reported period. Subattributes:- `temperature` : The maximum temperature. See `WeatherForecast.temperature` for description and units. - `feelLikesTemperature`. The maximum feels like temperature. Same semantics and units as `WeatherForecast.feelsLikeTemperature`.-   `relativeHumidity`. The maximum relative humidity. Same semantics and units as `WeatherForecast.relativeHumidity`.'    
               type: object  
               properties:
                 feelsLikeTemperature:
@@ -4568,7 +4617,7 @@ components:
         - estimatedTimeOfDeparture 
 
     vehicleTraffic:
-      description: 'Number of vehicles entering or leaving a port or a terminal.'
+      description: 'The number of vehicles entering or leaving a port or a terminal.'
       type: object
       allOf:
         - type: object 
@@ -4585,7 +4634,7 @@ components:
         - vehicleTraffic 
 
     accessTime:
-      description: 'Estimated period of time, in minites, that trucks have to queue before they can enter into a terminal.'
+      description: 'Estimated period of time, in minites, that trucks have to queue before they can enter a terminal.'
       type: object
       allOf:
         - type: object 
@@ -4742,14 +4791,14 @@ components:
             ratesAndFeesUrl:
               $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/main/oasdefinitions/oiapComponents.yml#/uri' 
 
-    portService:
+    shipService:
       description: 'Information about a port service that can be ordered for a ship.'
       type: object
       allOf:
         - type: object 
           properties:
-            serviceType:
-              $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/main/oasdefinitions/oiapComponents.yml#/serviceType' 
+            shipService:
+              $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/main/oasdefinitions/oiapComponents.yml#/shipServiceType' 
             companyName:
               $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/main/oasdefinitions/oiapComponents.yml#/companyName' 
             contactInfo:
@@ -4759,15 +4808,7 @@ components:
               items:
                 $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/main/oasdefinitions/oiapComponents.yml#/shipType'
       required:
-        - serviceType
-
-    serviceTypeSearchResult:
-      description: 'Service type that is offered in a port.'
-      type: object
-      properties:
-        serviceType:
-          $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/main/oasdefinitions/oiapComponents.yml#/serviceType' 
-
+        - shipService
 
     holiday:
       description: 'A day on which normal activities, especially business or work including school, are suspended or reduced.'

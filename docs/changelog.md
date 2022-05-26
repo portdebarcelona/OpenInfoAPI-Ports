@@ -1,5 +1,9 @@
 # Work Tracking log
-Contains tracking of activities in this project.
+It contains the monitoring of the activities carried out during the development of the project.
+
+## May 2022
+- Finishing Final Report for Puertos
+- Implementing POCs of webservices at Port of Barcelona
 
 ## April 2022
 - Preparing Final Report for Puertos
