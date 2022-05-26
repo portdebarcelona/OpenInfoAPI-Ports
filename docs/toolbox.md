@@ -2,7 +2,7 @@
 The toolbox is a uniform set of tools for the API specification, independent from the application domain (trade, port infrastructure, procedures, weather, companies’ directory, news, etc.).
 
 
-Given that one of the objectives of the project is that it will be easily replicable and understanding that the cost of the tools could be a handicap for its achievement, it has been adopted, as a premise, that all the tools necessary for the development of the project will be `open source`.
+Given that one of the objectives of the project is that it will be easily replicable and understanding that the cost of the tools could be a handicap for its achievement, it has been adopted, as a premise, that all the tools necessary for the development of the project will be **open source**.
 ## [GitHub](https://github.com/) 
 - The documentation of the project and the APIs have been published on Github, the portal that allows the registration and control of all the changes made, and allows other users to download their definitions, have access to their documentation and contribute to its development.
 - For this project, a specific repository was created in the Port of Barcelona account, where all its documentation is: https://github.com/portdebarcelona/OpenInfoAPI-Ports
