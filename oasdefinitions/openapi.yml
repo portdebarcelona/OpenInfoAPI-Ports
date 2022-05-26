@@ -1184,13 +1184,13 @@ paths:
               schema:
                 $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents.yml#/error'
 
-  # Pick up and delivery procedures
-  /pickupDeliveryProcedures:
+  # Pick up procedures
+  /pickupProcedures:
     get:
       tags:
         - Port Procedures
-      summary: Returns a resource where the procedures for for pick-up or delivery containers from/to the terminal or depot can be found.
-      description: Returns a resource where the procedures for for pick-up or delivery containers from/to the terminal or depot can be found. 
+      summary: Returns a resource, where the procedures for pick-up containers from the terminal and deliver the empty container to the depot, can be found.
+      description: Returns a resource, where the procedures for pick-up containers from the terminal and deliver the empty container to the depot, can be found.
       parameters:
         - $ref: '#/components/parameters/portCode'
       responses:
@@ -1204,8 +1204,50 @@ paths:
               schema:
                 type: object
                 properties:
-                  pickupDeliveryProcedures:
-                    $ref: '#/components/schemas/pickupDeliveryProcedure'
+                  pickupProcedures:
+                    $ref: '#/components/schemas/pickupProcedure'
+                  metadata:
+                    $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents.yml#/metadata'
+                  queryParams:
+                    type: object
+                    properties:
+                      portCode:
+                        $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents.yml#/portCode'
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents.yml#/error' 
+        '404':
+          description: Not found
+          content:
+            application/json:
+              schema:
+                $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents.yml#/error' 
+
+  # Delivery procedures
+  /deliveryProcedures:
+    get:
+      tags:
+        - Port Procedures
+      summary: Returns a resource, where the procedures for pick-up empty containers from the depot and deliver full containers to the terminal, can be found.
+      description: Returns a resource, where the procedures for pick-up empty containers from the depot and deliver full containers to the terminal, can be found.
+      parameters:
+        - $ref: '#/components/parameters/portCode'
+      responses:
+        '200':
+          description: Successful operation
+          headers:
+            oiapApiVersion:
+              $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents.yml#/oiapApiVersion'
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  deliveryProcedures:
+                    $ref: '#/components/schemas/deliveryProcedure'
                   metadata:
                     $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents.yml#/metadata'
                   queryParams:
@@ -4084,20 +4126,35 @@ components:
             governmentalBodyDetails:
               $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents.yml#/companyInfo'
 
-    pickupDeliveryProcedure:
-      description: 'URI where the pick up and delivery procedure from a port can be found.'
+    pickupProcedure:
+      description: 'URI where the container pick up procedure from a port can be found.'
       type: object
       allOf:
         - type: object 
           properties:
-            pickupDeliveryProcedureDescription:
+            pickupProcedureDescription:
               description: 'Procedure description'
               type: string
-              enum: ['Container traffic has a big economic impact in ports and the area that they serve. Logistic operators need to know the procedures that they have to follow for pick-up containes from a port or to delivery them. In this domain are included some APIs related with the information exchanged using the EDI messages for land operations with full and empty containers.'] 
-            pickupDeliveryProcedureUri:
+              enum: ['Container traffic has a big economic impact in ports and the area that they serve. Logistic operators need to know the procedures that they have to follow for pick-up containes from a port. In this domain are included some APIs related with the information exchanged using the EDI messages for land operations with full and empty containers.'] 
+            pickupProcedureUri:
               $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents.yml#/uri' 
       required:
-        - pickupDeliveryProcedureUri 
+        - pickupProcedureUri 
+
+    deliveryProcedure:
+      description: 'URI where the container delivery procedure from a port can be found.'
+      type: object
+      allOf:
+        - type: object 
+          properties:
+            deliveryProcedureDescription:
+              description: 'Procedure description'
+              type: string
+              enum: ['Container traffic has a big economic impact in ports and the area that they serve. Logistic operators need to know the procedures that they have to follow for delivery containes to a port. In this domain are included some APIs related with the information exchanged using the EDI messages for land operations with full and empty containers.'] 
+            deliveryProcedureUri:
+              $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents.yml#/uri' 
+      required:
+        - deliveryProcedureUri 
 
     approachInstructions:
       description: 'Basic information for the approach of the vessels to a port.'
@@ -4105,50 +4162,14 @@ components:
       allOf:
         - type: object 
           properties:
-            portName:
-              $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents.yml#/portName'
-            entrances:
-              type: array
-              items:
-                $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents.yml#/entrance' 
-            approachChannels:
-              type: array
-              items:
-                $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents.yml#/approachChannel'
-            precautionaryAreas:
-              type: array
-              items:
-                $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents.yml#/precautionaryArea'
-            portTraffic:
-              type: array
-              items:
-                $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents.yml#/portTraffic'              
-            emergency:
-              type: array
-              items:
-                $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents.yml#/emergency'
-            specialOperations:
-              type: array
-              items:
-                $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents.yml#/specialOperation'
-            pilotage:
-              type: array
-              items:
-                $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents.yml#/pilots'
-            tugs:
-              type: array
-              items:
-                $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents.yml#/tugs'
-            linesmen:
-              type: array
-              items:
-                $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents.yml#/linesmen'
-            lastChanges:
-              type: array
-              items:
-                $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents.yml#/lastChanges'
+            approachInstructionsDescription:
+              description: 'Procedure description'
+              type: string
+              enum: ['The purpose of this procedure is to regulate the management of maritime traffic in the waters of the service area of a Port. This shall be achieved, on the one hand, by setting standards and general technical criteria governing the system of navigation in the port waters, providing general services, and management and control mechanisms to facilitate the proper planning and supervision of maritime operations; and on the other hand, by implementing the route of the ship and reporting system in the approaches of the port to achieve a safer and more efficient port access traffic flows'] 
+            approachInstructionsUri:
+              $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents.yml#/uri' 
       required:
-        - portName  
+        - approachInstructionsUri 
 
     basicTrafficStatistics:
       description: 'Statistical information from the traffic flows from a port.'
