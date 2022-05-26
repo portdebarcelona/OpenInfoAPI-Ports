@@ -16,7 +16,7 @@
   },
   "servers": [
     {
-      "url": "https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/"
+      "url": "https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/main/oasdefinitions/"
     }
   ],
   "tags": [
@@ -1690,13 +1690,13 @@
         }
       }
     },
-    "/pickupDeliveryProcedures": {
+    "/pickupProcedures": {
       "get": {
         "tags": [
           "Port Procedures"
         ],
-        "summary": "Returns a resource where the procedures for for pick-up or delivery containers from/to the terminal or depot can be found.",
-        "description": "Returns a resource where the procedures for for pick-up or delivery containers from/to the terminal or depot can be found.",
+        "summary": "Returns a resource, where the procedures for pick-up containers from the terminal and deliver the empty container to the depot, can be found.",
+        "description": "Returns a resource, where the procedures for pick-up containers from the terminal and deliver the empty container to the depot, can be found.",
         "parameters": [
           {
             "name": "portCode",
@@ -1722,6 +1722,65 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/inline_response_200_25"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/error"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/deliveryProcedures": {
+      "get": {
+        "tags": [
+          "Port Procedures"
+        ],
+        "summary": "Returns a resource, where the procedures for pick-up empty containers from the depot and deliver full containers to the terminal, can be found.",
+        "description": "Returns a resource, where the procedures for pick-up empty containers from the depot and deliver full containers to the terminal, can be found.",
+        "parameters": [
+          {
+            "name": "portCode",
+            "in": "query",
+            "description": "Port UN/LOCODE. Default value is Locode of Port what provides the services.",
+            "required": false,
+            "style": "form",
+            "explode": false,
+            "schema": {
+              "$ref": "#/components/schemas/portCode"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful operation",
+            "headers": {
+              "oiapApiVersion": {
+                "$ref": "#/components/headers/oiapApiVersion"
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/inline_response_200_26"
                 }
               }
             }
@@ -1780,7 +1839,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/inline_response_200_26"
+                  "$ref": "#/components/schemas/inline_response_200_27"
                 }
               }
             }
@@ -1839,7 +1898,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/inline_response_200_27"
+                  "$ref": "#/components/schemas/inline_response_200_28"
                 }
               }
             }
@@ -1898,7 +1957,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/inline_response_200_28"
+                  "$ref": "#/components/schemas/inline_response_200_29"
                 }
               }
             }
@@ -1957,7 +2016,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/inline_response_200_29"
+                  "$ref": "#/components/schemas/inline_response_200_30"
                 }
               }
             }
@@ -2016,7 +2075,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/inline_response_200_30"
+                  "$ref": "#/components/schemas/inline_response_200_31"
                 }
               }
             }
@@ -2075,7 +2134,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/inline_response_200_31"
+                  "$ref": "#/components/schemas/inline_response_200_32"
                 }
               }
             }
@@ -2134,7 +2193,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/inline_response_200_32"
+                  "$ref": "#/components/schemas/inline_response_200_33"
                 }
               }
             }
@@ -2193,7 +2252,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/inline_response_200_33"
+                  "$ref": "#/components/schemas/inline_response_200_34"
                 }
               }
             }
@@ -2252,7 +2311,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/inline_response_200_34"
+                  "$ref": "#/components/schemas/inline_response_200_35"
                 }
               }
             }
@@ -2322,7 +2381,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/inline_response_200_35"
+                  "$ref": "#/components/schemas/inline_response_200_36"
                 }
               }
             }
@@ -2392,7 +2451,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/inline_response_200_36"
+                  "$ref": "#/components/schemas/inline_response_200_37"
                 }
               }
             }
@@ -2451,7 +2510,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/inline_response_200_37"
+                  "$ref": "#/components/schemas/inline_response_200_38"
                 }
               }
             }
@@ -2510,7 +2569,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/inline_response_200_38"
+                  "$ref": "#/components/schemas/inline_response_200_39"
                 }
               }
             }
@@ -2569,7 +2628,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/inline_response_200_39"
+                  "$ref": "#/components/schemas/inline_response_200_40"
                 }
               }
             }
@@ -2628,7 +2687,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/inline_response_200_40"
+                  "$ref": "#/components/schemas/inline_response_200_41"
                 }
               }
             }
@@ -2687,7 +2746,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/inline_response_200_41"
+                  "$ref": "#/components/schemas/inline_response_200_42"
                 }
               }
             }
@@ -2746,7 +2805,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/inline_response_200_42"
+                  "$ref": "#/components/schemas/inline_response_200_43"
                 }
               }
             }
@@ -2805,7 +2864,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/inline_response_200_43"
+                  "$ref": "#/components/schemas/inline_response_200_44"
                 }
               }
             }
@@ -2864,7 +2923,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/inline_response_200_44"
+                  "$ref": "#/components/schemas/inline_response_200_45"
                 }
               }
             }
@@ -2923,7 +2982,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/inline_response_200_45"
+                  "$ref": "#/components/schemas/inline_response_200_46"
                 }
               }
             }
@@ -2982,7 +3041,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/inline_response_200_46"
+                  "$ref": "#/components/schemas/inline_response_200_47"
                 }
               }
             }
@@ -3041,7 +3100,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/inline_response_200_47"
+                  "$ref": "#/components/schemas/inline_response_200_48"
                 }
               }
             }
@@ -3133,7 +3192,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/inline_response_200_48"
+                  "$ref": "#/components/schemas/inline_response_200_49"
                 }
               }
             }
@@ -3203,7 +3262,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/inline_response_200_49"
+                  "$ref": "#/components/schemas/inline_response_200_50"
                 }
               }
             }
@@ -3273,7 +3332,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/inline_response_200_50"
+                  "$ref": "#/components/schemas/inline_response_200_51"
                 }
               }
             }
@@ -3343,7 +3402,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/inline_response_200_51"
+                  "$ref": "#/components/schemas/inline_response_200_52"
                 }
               }
             }
@@ -3568,7 +3627,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/inline_response_200_52"
+                  "$ref": "#/components/schemas/inline_response_200_53"
                 }
               }
             }
@@ -3627,7 +3686,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/inline_response_200_53"
+                  "$ref": "#/components/schemas/inline_response_200_54"
                 }
               }
             }
@@ -3686,7 +3745,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/inline_response_200_54"
+                  "$ref": "#/components/schemas/inline_response_200_55"
                 }
               }
             }
@@ -3756,7 +3815,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/inline_response_200_55"
+                  "$ref": "#/components/schemas/inline_response_200_56"
                 }
               }
             }
@@ -3981,7 +4040,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/inline_response_200_56"
+                  "$ref": "#/components/schemas/inline_response_200_57"
                 }
               }
             }
@@ -4040,7 +4099,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/inline_response_200_57"
+                  "$ref": "#/components/schemas/inline_response_200_58"
                 }
               }
             }
@@ -4099,7 +4158,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/inline_response_200_58"
+                  "$ref": "#/components/schemas/inline_response_200_59"
                 }
               }
             }
@@ -4169,7 +4228,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/inline_response_200_59"
+                  "$ref": "#/components/schemas/inline_response_200_60"
                 }
               }
             }
@@ -4228,7 +4287,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/inline_response_200_60"
+                  "$ref": "#/components/schemas/inline_response_200_61"
                 }
               }
             }
@@ -4298,7 +4357,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/inline_response_200_61"
+                  "$ref": "#/components/schemas/inline_response_200_62"
                 }
               }
             }
@@ -4357,7 +4416,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/inline_response_200_62"
+                  "$ref": "#/components/schemas/inline_response_200_63"
                 }
               }
             }
@@ -4460,7 +4519,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/inline_response_200_63"
+                  "$ref": "#/components/schemas/inline_response_200_64"
                 }
               }
             }
@@ -4519,7 +4578,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/inline_response_200_64"
+                  "$ref": "#/components/schemas/inline_response_200_65"
                 }
               }
             }
@@ -4589,7 +4648,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/inline_response_200_65"
+                  "$ref": "#/components/schemas/inline_response_200_66"
                 }
               }
             }
@@ -4659,7 +4718,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/inline_response_200_66"
+                  "$ref": "#/components/schemas/inline_response_200_67"
                 }
               }
             }
@@ -4729,7 +4788,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/inline_response_200_67"
+                  "$ref": "#/components/schemas/inline_response_200_68"
                 }
               }
             }
@@ -4788,7 +4847,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/inline_response_200_68"
+                  "$ref": "#/components/schemas/inline_response_200_69"
                 }
               }
             }
@@ -5468,24 +5527,48 @@
           }
         ]
       },
-      "pickupDeliveryProcedure": {
+      "pickupProcedure": {
         "required": [
-          "pickupDeliveryProcedureUri"
+          "pickupProcedureUri"
         ],
         "type": "object",
-        "description": "URI where the pick up and delivery procedure from a port can be found.",
+        "description": "URI where the container pick up procedure from a port can be found.",
         "allOf": [
           {
             "type": "object",
             "properties": {
-              "pickupDeliveryProcedureDescription": {
+              "pickupProcedureDescription": {
                 "type": "string",
                 "description": "Procedure description",
                 "enum": [
-                  "Container traffic has a big economic impact in ports and the area that they serve. Logistic operators need to know the procedures that they have to follow for pick-up containes from a port or to delivery them. In this domain are included some APIs related with the information exchanged using the EDI messages for land operations with full and empty containers."
+                  "Container traffic has a big economic impact in ports and the area that they serve. Logistic operators need to know the procedures that they have to follow for pick-up containes from a port. In this domain are included some APIs related with the information exchanged using the EDI messages for land operations with full and empty containers."
                 ]
               },
-              "pickupDeliveryProcedureUri": {
+              "pickupProcedureUri": {
+                "$ref": "#/components/schemas/uri"
+              }
+            }
+          }
+        ]
+      },
+      "deliveryProcedure": {
+        "required": [
+          "deliveryProcedureUri"
+        ],
+        "type": "object",
+        "description": "URI where the container delivery procedure from a port can be found.",
+        "allOf": [
+          {
+            "type": "object",
+            "properties": {
+              "deliveryProcedureDescription": {
+                "type": "string",
+                "description": "Procedure description",
+                "enum": [
+                  "Container traffic has a big economic impact in ports and the area that they serve. Logistic operators need to know the procedures that they have to follow for delivery containes to a port. In this domain are included some APIs related with the information exchanged using the EDI messages for land operations with full and empty containers."
+                ]
+              },
+              "deliveryProcedureUri": {
                 "$ref": "#/components/schemas/uri"
               }
             }
@@ -5494,7 +5577,7 @@
       },
       "approachInstructions": {
         "required": [
-          "portName"
+          "approachInstructionsUri"
         ],
         "type": "object",
         "description": "Basic information for the approach of the vessels to a port.",
@@ -5502,68 +5585,15 @@
           {
             "type": "object",
             "properties": {
-              "portName": {
-                "$ref": "#/components/schemas/portName"
+              "approachInstructionsDescription": {
+                "type": "string",
+                "description": "Procedure description",
+                "enum": [
+                  "The purpose of this procedure is to regulate the management of maritime traffic in the waters of the service area of a Port. This shall be achieved, on the one hand, by setting standards and general technical criteria governing the system of navigation in the port waters, providing general services, and management and control mechanisms to facilitate the proper planning and supervision of maritime operations; and on the other hand, by implementing the route of the ship and reporting system in the approaches of the port to achieve a safer and more efficient port access traffic flows"
+                ]
               },
-              "entrances": {
-                "type": "array",
-                "items": {
-                  "$ref": "#/components/schemas/entrance"
-                }
-              },
-              "approachChannels": {
-                "type": "array",
-                "items": {
-                  "$ref": "#/components/schemas/approachChannel"
-                }
-              },
-              "precautionaryAreas": {
-                "type": "array",
-                "items": {
-                  "$ref": "#/components/schemas/precautionaryArea"
-                }
-              },
-              "portTraffic": {
-                "type": "array",
-                "items": {
-                  "$ref": "#/components/schemas/portTraffic"
-                }
-              },
-              "emergency": {
-                "type": "array",
-                "items": {
-                  "$ref": "#/components/schemas/emergency"
-                }
-              },
-              "specialOperations": {
-                "type": "array",
-                "items": {
-                  "$ref": "#/components/schemas/specialOperation"
-                }
-              },
-              "pilotage": {
-                "type": "array",
-                "items": {
-                  "$ref": "#/components/schemas/pilots"
-                }
-              },
-              "tugs": {
-                "type": "array",
-                "items": {
-                  "$ref": "#/components/schemas/tugs"
-                }
-              },
-              "linesmen": {
-                "type": "array",
-                "items": {
-                  "$ref": "#/components/schemas/linesmen"
-                }
-              },
-              "lastChanges": {
-                "type": "array",
-                "items": {
-                  "$ref": "#/components/schemas/lastChanges"
-                }
+              "approachInstructionsUri": {
+                "$ref": "#/components/schemas/uri"
               }
             }
           }
@@ -7520,46 +7550,6 @@
         "description": "Size and type codes of a container, used as a whole. Size codes are determined by annex D of ISO 6346:1995 and type codes according to annex E of the same international standard.",
         "example": "22G1"
       },
-      "entrance": {
-        "type": "string",
-        "description": "Identification of a port entrance."
-      },
-      "approachChannel": {
-        "type": "string",
-        "description": "Identification of an approach channel."
-      },
-      "precautionaryArea": {
-        "type": "string",
-        "description": "Identification of a precautionary area."
-      },
-      "portTraffic": {
-        "type": "string",
-        "description": "Identification of a port traffic service."
-      },
-      "emergency": {
-        "type": "string",
-        "description": "Emergency contact."
-      },
-      "specialOperation": {
-        "type": "string",
-        "description": "Identification of a special operations service."
-      },
-      "pilots": {
-        "type": "string",
-        "description": "Information about pilotage service."
-      },
-      "tugs": {
-        "type": "string",
-        "description": "Information about tugs service."
-      },
-      "linesmen": {
-        "type": "string",
-        "description": "Information about linesmen service."
-      },
-      "lastChanges": {
-        "type": "string",
-        "description": "Details about the last changes."
-      },
       "dataset": {
         "type": "object",
         "description": "2-character code, as defined in annex VIII from Directive 2009/42/EC of the European Parliament and of the Council. Dataset",
@@ -8675,8 +8665,8 @@
       "inline_response_200_25": {
         "type": "object",
         "properties": {
-          "pickupDeliveryProcedures": {
-            "$ref": "#/components/schemas/pickupDeliveryProcedure"
+          "pickupProcedures": {
+            "$ref": "#/components/schemas/pickupProcedure"
           },
           "metadata": {
             "$ref": "#/components/schemas/metadata"
@@ -8687,6 +8677,20 @@
         }
       },
       "inline_response_200_26": {
+        "type": "object",
+        "properties": {
+          "deliveryProcedures": {
+            "$ref": "#/components/schemas/deliveryProcedure"
+          },
+          "metadata": {
+            "$ref": "#/components/schemas/metadata"
+          },
+          "queryParams": {
+            "$ref": "#/components/schemas/inline_response_200_1_queryParams"
+          }
+        }
+      },
+      "inline_response_200_27": {
         "type": "object",
         "properties": {
           "approachInstructions": {
@@ -8700,7 +8704,7 @@
           }
         }
       },
-      "inline_response_200_27": {
+      "inline_response_200_28": {
         "type": "object",
         "properties": {
           "basicTrafficStatistics": {
@@ -8717,7 +8721,7 @@
           }
         }
       },
-      "inline_response_200_28": {
+      "inline_response_200_29": {
         "type": "object",
         "properties": {
           "basicEconomicData": {
@@ -8734,7 +8738,7 @@
           }
         }
       },
-      "inline_response_200_29": {
+      "inline_response_200_30": {
         "type": "object",
         "properties": {
           "typesOfCargo": {
@@ -8751,7 +8755,7 @@
           }
         }
       },
-      "inline_response_200_30": {
+      "inline_response_200_31": {
         "type": "object",
         "properties": {
           "commoditiesList": {
@@ -8768,7 +8772,7 @@
           }
         }
       },
-      "inline_response_200_31": {
+      "inline_response_200_32": {
         "type": "object",
         "properties": {
           "realtimeWeather": {
@@ -8782,7 +8786,7 @@
           }
         }
       },
-      "inline_response_200_32": {
+      "inline_response_200_33": {
         "type": "object",
         "properties": {
           "weatherForecast": {
@@ -8799,7 +8803,7 @@
           }
         }
       },
-      "inline_response_200_33": {
+      "inline_response_200_34": {
         "type": "object",
         "properties": {
           "astronomy": {
@@ -8816,7 +8820,7 @@
           }
         }
       },
-      "inline_response_200_34": {
+      "inline_response_200_35": {
         "type": "object",
         "properties": {
           "seaCondition": {
@@ -8830,7 +8834,7 @@
           }
         }
       },
-      "inline_response_200_35": {
+      "inline_response_200_36": {
         "type": "object",
         "properties": {
           "wavePrediction": {
@@ -8843,11 +8847,11 @@
             "$ref": "#/components/schemas/metadata"
           },
           "queryParams": {
-            "$ref": "#/components/schemas/inline_response_200_35_queryParams"
+            "$ref": "#/components/schemas/inline_response_200_36_queryParams"
           }
         }
       },
-      "inline_response_200_36": {
+      "inline_response_200_37": {
         "type": "object",
         "properties": {
           "tides": {
@@ -8860,11 +8864,11 @@
             "$ref": "#/components/schemas/metadata"
           },
           "queryParams": {
-            "$ref": "#/components/schemas/inline_response_200_35_queryParams"
+            "$ref": "#/components/schemas/inline_response_200_36_queryParams"
           }
         }
       },
-      "inline_response_200_37": {
+      "inline_response_200_38": {
         "type": "object",
         "properties": {
           "airQuality": {
@@ -8878,7 +8882,7 @@
           }
         }
       },
-      "inline_response_200_38": {
+      "inline_response_200_39": {
         "type": "object",
         "properties": {
           "airPollution": {
@@ -8892,7 +8896,7 @@
           }
         }
       },
-      "inline_response_200_39": {
+      "inline_response_200_40": {
         "type": "object",
         "properties": {
           "waterQuality": {
@@ -8906,7 +8910,7 @@
           }
         }
       },
-      "inline_response_200_40": {
+      "inline_response_200_41": {
         "type": "object",
         "properties": {
           "waterParameters": {
@@ -8920,7 +8924,7 @@
           }
         }
       },
-      "inline_response_200_41": {
+      "inline_response_200_42": {
         "type": "object",
         "properties": {
           "noiseLevel": {
@@ -8934,7 +8938,7 @@
           }
         }
       },
-      "inline_response_200_42": {
+      "inline_response_200_43": {
         "type": "object",
         "properties": {
           "railConnections": {
@@ -8951,7 +8955,7 @@
           }
         }
       },
-      "inline_response_200_43": {
+      "inline_response_200_44": {
         "type": "object",
         "properties": {
           "inlandTerminals": {
@@ -8968,7 +8972,7 @@
           }
         }
       },
-      "inline_response_200_44": {
+      "inline_response_200_45": {
         "type": "object",
         "properties": {
           "railUndertakings": {
@@ -8985,7 +8989,7 @@
           }
         }
       },
-      "inline_response_200_45": {
+      "inline_response_200_46": {
         "type": "object",
         "properties": {
           "railLogisticServiceProviders": {
@@ -9002,7 +9006,7 @@
           }
         }
       },
-      "inline_response_200_46": {
+      "inline_response_200_47": {
         "type": "object",
         "properties": {
           "trainArrivals": {
@@ -9019,7 +9023,7 @@
           }
         }
       },
-      "inline_response_200_47": {
+      "inline_response_200_48": {
         "type": "object",
         "properties": {
           "trainDepartures": {
@@ -9036,30 +9040,13 @@
           }
         }
       },
-      "inline_response_200_48": {
+      "inline_response_200_49": {
         "type": "object",
         "properties": {
           "trafficFlowObserved": {
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/vehicleTraffic"
-            }
-          },
-          "metadata": {
-            "$ref": "#/components/schemas/metadata"
-          },
-          "queryParams": {
-            "$ref": "#/components/schemas/inline_response_200_48_queryParams"
-          }
-        }
-      },
-      "inline_response_200_49": {
-        "type": "object",
-        "properties": {
-          "accessWaitTime": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/accessTime"
             }
           },
           "metadata": {
@@ -9073,6 +9060,23 @@
       "inline_response_200_50": {
         "type": "object",
         "properties": {
+          "accessWaitTime": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/accessTime"
+            }
+          },
+          "metadata": {
+            "$ref": "#/components/schemas/metadata"
+          },
+          "queryParams": {
+            "$ref": "#/components/schemas/inline_response_200_50_queryParams"
+          }
+        }
+      },
+      "inline_response_200_51": {
+        "type": "object",
+        "properties": {
           "landsideThroughput": {
             "type": "array",
             "items": {
@@ -9083,11 +9087,11 @@
             "$ref": "#/components/schemas/metadata"
           },
           "queryParams": {
-            "$ref": "#/components/schemas/inline_response_200_49_queryParams"
+            "$ref": "#/components/schemas/inline_response_200_50_queryParams"
           }
         }
       },
-      "inline_response_200_51": {
+      "inline_response_200_52": {
         "type": "object",
         "properties": {
           "accessTime": {
@@ -9100,7 +9104,7 @@
             "$ref": "#/components/schemas/metadata"
           },
           "queryParams": {
-            "$ref": "#/components/schemas/inline_response_200_49_queryParams"
+            "$ref": "#/components/schemas/inline_response_200_50_queryParams"
           }
         }
       },
@@ -9137,7 +9141,7 @@
           }
         ]
       },
-      "inline_response_200_52": {
+      "inline_response_200_53": {
         "type": "object",
         "properties": {
           "news": {
@@ -9150,11 +9154,11 @@
             "$ref": "#/components/schemas/metadata"
           },
           "queryParams": {
-            "$ref": "#/components/schemas/inline_response_200_52_queryParams"
+            "$ref": "#/components/schemas/inline_response_200_53_queryParams"
           }
         }
       },
-      "inline_response_200_53": {
+      "inline_response_200_54": {
         "type": "object",
         "properties": {
           "newsCategories": {
@@ -9168,7 +9172,7 @@
           }
         }
       },
-      "inline_response_200_54": {
+      "inline_response_200_55": {
         "type": "object",
         "properties": {
           "newsLanguages": {
@@ -9182,7 +9186,7 @@
           }
         }
       },
-      "inline_response_200_55": {
+      "inline_response_200_56": {
         "type": "object",
         "properties": {
           "news": {
@@ -9229,7 +9233,7 @@
           }
         ]
       },
-      "inline_response_200_56": {
+      "inline_response_200_57": {
         "type": "object",
         "properties": {
           "notice": {
@@ -9242,11 +9246,11 @@
             "$ref": "#/components/schemas/portCode"
           },
           "queryParams": {
-            "$ref": "#/components/schemas/inline_response_200_52_queryParams"
+            "$ref": "#/components/schemas/inline_response_200_53_queryParams"
           }
         }
       },
-      "inline_response_200_57": {
+      "inline_response_200_58": {
         "type": "object",
         "properties": {
           "noticeCategories": {
@@ -9256,11 +9260,11 @@
             "$ref": "#/components/schemas/metadata"
           },
           "queryParams": {
-            "$ref": "#/components/schemas/inline_response_200_57_queryParams"
+            "$ref": "#/components/schemas/inline_response_200_58_queryParams"
           }
         }
       },
-      "inline_response_200_58": {
+      "inline_response_200_59": {
         "type": "object",
         "properties": {
           "noticesLanguages": {
@@ -9277,7 +9281,7 @@
           }
         }
       },
-      "inline_response_200_59": {
+      "inline_response_200_60": {
         "type": "object",
         "properties": {
           "notice": {
@@ -9287,11 +9291,11 @@
             "$ref": "#/components/schemas/metadata"
           },
           "queryParams": {
-            "$ref": "#/components/schemas/inline_response_200_59_queryParams"
+            "$ref": "#/components/schemas/inline_response_200_60_queryParams"
           }
         }
       },
-      "inline_response_200_60": {
+      "inline_response_200_61": {
         "type": "object",
         "properties": {
           "portRatesAndFees": {
@@ -9308,7 +9312,7 @@
           }
         }
       },
-      "inline_response_200_61": {
+      "inline_response_200_62": {
         "type": "object",
         "properties": {
           "shipServices": {
@@ -9321,11 +9325,11 @@
             "$ref": "#/components/schemas/metadata"
           },
           "queryParams": {
-            "$ref": "#/components/schemas/inline_response_200_61_queryParams"
+            "$ref": "#/components/schemas/inline_response_200_62_queryParams"
           }
         }
       },
-      "inline_response_200_62": {
+      "inline_response_200_63": {
         "type": "object",
         "properties": {
           "activities": {
@@ -9342,7 +9346,7 @@
           }
         }
       },
-      "inline_response_200_63": {
+      "inline_response_200_64": {
         "type": "object",
         "properties": {
           "holidays": {
@@ -9355,11 +9359,11 @@
             "$ref": "#/components/schemas/metadata"
           },
           "queryParams": {
-            "$ref": "#/components/schemas/inline_response_200_63_queryParams"
+            "$ref": "#/components/schemas/inline_response_200_64_queryParams"
           }
         }
       },
-      "inline_response_200_64": {
+      "inline_response_200_65": {
         "type": "object",
         "properties": {
           "holidayTypes": {
@@ -9376,30 +9380,13 @@
           }
         }
       },
-      "inline_response_200_65": {
+      "inline_response_200_66": {
         "type": "object",
         "properties": {
           "companies": {
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/companyOverviewData"
-            }
-          },
-          "metadata": {
-            "$ref": "#/components/schemas/metadata"
-          },
-          "queryParams": {
-            "$ref": "#/components/schemas/inline_response_200_65_queryParams"
-          }
-        }
-      },
-      "inline_response_200_66": {
-        "type": "object",
-        "properties": {
-          "companiesByName": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/companyInfo"
             }
           },
           "metadata": {
@@ -9413,8 +9400,11 @@
       "inline_response_200_67": {
         "type": "object",
         "properties": {
-          "companyByVat": {
-            "$ref": "#/components/schemas/companyInfo"
+          "companiesByName": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/companyInfo"
+            }
           },
           "metadata": {
             "$ref": "#/components/schemas/metadata"
@@ -9425,6 +9415,20 @@
         }
       },
       "inline_response_200_68": {
+        "type": "object",
+        "properties": {
+          "companyByVat": {
+            "$ref": "#/components/schemas/companyInfo"
+          },
+          "metadata": {
+            "$ref": "#/components/schemas/metadata"
+          },
+          "queryParams": {
+            "$ref": "#/components/schemas/inline_response_200_68_queryParams"
+          }
+        }
+      },
+      "inline_response_200_69": {
         "type": "object",
         "properties": {
           "companyActivities": {
@@ -9592,7 +9596,7 @@
         },
         "example": null
       },
-      "inline_response_200_35_queryParams": {
+      "inline_response_200_36_queryParams": {
         "type": "object",
         "properties": {
           "portCode": {
@@ -9604,7 +9608,7 @@
         },
         "example": null
       },
-      "inline_response_200_48_queryParams": {
+      "inline_response_200_49_queryParams": {
         "type": "object",
         "properties": {
           "portCode": {
@@ -9622,7 +9626,7 @@
         },
         "example": null
       },
-      "inline_response_200_49_queryParams": {
+      "inline_response_200_50_queryParams": {
         "type": "object",
         "properties": {
           "portCode": {
@@ -9634,7 +9638,7 @@
         },
         "example": null
       },
-      "inline_response_200_52_queryParams": {
+      "inline_response_200_53_queryParams": {
         "type": "object",
         "properties": {
           "portCode": {
@@ -9649,7 +9653,7 @@
         },
         "example": null
       },
-      "inline_response_200_57_queryParams": {
+      "inline_response_200_58_queryParams": {
         "type": "object",
         "properties": {
           "portCode": {
@@ -9661,7 +9665,7 @@
         },
         "example": null
       },
-      "inline_response_200_59_queryParams": {
+      "inline_response_200_60_queryParams": {
         "type": "object",
         "properties": {
           "portCode": {
@@ -9673,7 +9677,7 @@
         },
         "example": null
       },
-      "inline_response_200_61_queryParams": {
+      "inline_response_200_62_queryParams": {
         "type": "object",
         "properties": {
           "portCode": {
@@ -9685,7 +9689,7 @@
         },
         "example": null
       },
-      "inline_response_200_63_queryParams": {
+      "inline_response_200_64_queryParams": {
         "type": "object",
         "properties": {
           "country": {
@@ -9706,7 +9710,7 @@
         },
         "example": null
       },
-      "inline_response_200_65_queryParams": {
+      "inline_response_200_66_queryParams": {
         "type": "object",
         "properties": {
           "portCode": {
@@ -9718,7 +9722,7 @@
         },
         "example": null
       },
-      "inline_response_200_66_queryParams": {
+      "inline_response_200_67_queryParams": {
         "type": "object",
         "properties": {
           "portCode": {
@@ -9730,7 +9734,7 @@
         },
         "example": null
       },
-      "inline_response_200_67_queryParams": {
+      "inline_response_200_68_queryParams": {
         "type": "object",
         "properties": {
           "portCode": {
