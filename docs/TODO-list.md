@@ -32,10 +32,13 @@ Proposals of changes, extensions, improvements, corrections.
 
 - Done:
   - berths
+  - railTerminals
+  - portGates
   - typesOfCargoList
   - commoditiesList
   - serviceTypes
   - holidays
+  - holidayTypes
   - companiesActivities
 
 - Working on:
@@ -50,9 +53,7 @@ Proposals of changes, extensions, improvements, corrections.
   - linerServices
   - linkedPorts
   - linerCarriers
-  - portGates
-  - portTerminals 
-  - railTerminals 
+  - portTerminals
   - customsClearanceProcedures
   - borderInspectionProcedures
   - vgmProcedures
@@ -62,10 +63,8 @@ Proposals of changes, extensions, improvements, corrections.
   - pickupDeliveryProcedures
   - approachInstructions
 
-
 ## Diffusion
 
 - Publish web with gitpages
 - Open Twitter account
 - Produce information pills
-
