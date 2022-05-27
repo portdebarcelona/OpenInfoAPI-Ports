@@ -2,8 +2,9 @@
 
 Proposals of changes, extensions, improvements, corrections.
 
-## Modificacions of OpenAPI specification
+## Proposal of changes of OpenAPI specification
 
+- Add ws 'Info' to all services. Returns description, parameters and outputs
 - In Liner Services, add **types of Cargo Services** (containers, roro, bulk, ...)
 - **Time is in utc?** always? we would have to publish localdatetime also?
 - **Berths**
@@ -13,25 +14,50 @@ Proposals of changes, extensions, improvements, corrections.
 - **typesOfCargo**: proposal: [] { "code": "32", "description": "40 ft freight units"}, ...] instead of 	[ "32", ...] (without description)
 - **ApproachInstructions**: Simplify with a URL
 
-## News OIAP services
+## Proposal of new OIAP services
 
 - **Notify me when arrives a ship**
 - **TerminalCode** is used in accessWaitTime. Where we provide a list of TerminalCodes?
 
 ## Implement OIAP webservices at Port of Barcelona
 
-- Done:
-  - berths
-  - railTerminals
-  - portGates
-  - typesOfCargoList
-  - commoditiesList
-  - serviceTypes
-  - holidays
-  - holidayTypes
-  - companiesActivities
-
-- Working on:
+- **Implemented**:
+  - **Ship Calls**
+  - **Liner Services**
+  - **Port Infrastructures**
+    - portGates
+    - berths
+    - railTerminals
+  - **Port Procedures**
+    - customsClearanceProcedures
+    - borderInspectionProcedures
+    - vgmProcedures
+    - qualityCertificationProcedures
+    - partnerActivities
+    - pickupProcedures
+    - deliveryProcedures
+    - approachInstructions
+  - **Statistics**
+    - typesOfCargoList
+    - commoditiesList
+  - **Environment-Weather**
+  - **Environment-Sea State**
+  - **Environment-Pollution**
+  - **Rail Transport**
+  - **Vehicle Traffic**
+  - **Terminal Performance**
+  - **News**
+  - **Notices**
+  - **Rates and Fees**
+  - **Port Services**
+    - serviceTypes
+  - **Port Calendar**
+    - holidays
+    - holidayTypes
+  - **Port Directories**
+    - companyActivities
+  
+- **Working on**:
   - shipsScheduled
   - shipsInPort
   - shipsArrivals
@@ -44,14 +70,8 @@ Proposals of changes, extensions, improvements, corrections.
   - linkedPorts
   - linerCarriers
   - portTerminals
-  - customsClearanceProcedures
-  - borderInspectionProcedures
-  - vgmProcedures
-  - qualityCertificationProcedures
-  - qualityCertifiedPartners
-  - partnerActivities
-  - pickupDeliveryProcedures
-  - approachInstructions
+  - accessWaitTime ()
+  - landsideThroughput
 
 ## Diffusion
 
