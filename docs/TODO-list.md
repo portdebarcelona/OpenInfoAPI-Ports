@@ -9,11 +9,52 @@ Proposals of changes, extensions, improvements, corrections.
 - **Time is in utc?** always? we would have to publish localdatetime also?
 - **Berths**
   - Add terminalName ¿?
-- Add **shipTypes**, list of codes and descriptions o ship types (see Annex VI from DIRECTIVE 2009/42/EC OF THE EUROPEAN PARLIAMENT AND OF THE COUNCIL of 6 May 2009)
+- Add **shipTypes** webservice, list of codes and descriptions o ship types (see Annex VI from DIRECTIVE 2009/42/EC OF THE EUROPEAN PARLIAMENT AND OF THE COUNCIL of 6 May 2009)
 - **typesOfCargo**: proposal: [] { "code": "32", "description": "40 ft freight units"}, ...] instead of 	[ "32", ...] (without description)
 - **accessWaitTime**:
   - Include datetime of data reading in each terminal
-  - Question: terminalCode follows some rule? 'ESBCN-00042'
+  - Question: terminalCode follows some rule? 'ESBCN-00042'>> IMO Code
+  - Needed a webservice that return a list of terminalCodes that have info of accessWaitTime
+
+- **landsideThroughput**:
+  - Add field 'meanOfTransport? [ 'TRUCK', 'TRAIN' ]
+  - Add field 'Units'?  [ 'TONES', 'TEUS', ... ] ?
+  - Add field 'Date'? ex: "2020-05-30"
+  - Modify 'hourReported'? '18-19' instead of '18' . Check ISO way
+  - Add query parameters:
+    - Date. Default: 'today'
+    - Hour?
+  - Modify returns: one item info for each hour reported of the day (instead of last hour)
+  - Needed a webservice that return a list of terminalCodes that have info of landsideThroughput
+
+- **portInfrastructure**: 
+  - Must be a dict not a list of dicts!!??
+  - Rturn strings instead of integers (landarea, berths, ..warehousing)
+  - More fields? see memory. Proposal:
+    - portName : Barcelona
+    - portCode : ESBCN
+    - portCoordinates :
+      - latitude: 41,21
+      - longitude : 2,10
+    - landArea: 1113,2 ha
+    - Wharves and berths 23.183 km
+    - Ro-ro ramps 30
+    - Draught up to 16 m
+    - Warehousing
+      - Covered 203,304 m2
+      - Uncovered 5,023,964 m2
+    - ? Dry dock?
+    - ? Entrance ?
+
+- **portRatesAndFees** Must be a Dict instead of a list of dicts?
+- **trafficFlowObserved**. Revise queryParameters:
+  - portGate must be gateName (or a list or gates?)
+  - vehicleTypes must be a list. eg [ 'Truck', 'Van']
+  - Delete external flowDirection
+- **vehicleTypes** webservice needed for trafficFlowObserved
+  - Proposal: [ 'Any', 'Truck', 'Car', 'Bus', 'Van', 'Motorycle' ]
+- **All webservices**:
+  - Add in metadata 'Info', 'Units' (ex minutes of waittime) ?
 
 ## Proposal of new OIAP services
 - **Info** or **/**: Webservice that return:
