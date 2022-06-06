@@ -4,7 +4,7 @@ Proposals of changes, extensions, improvements, corrections.
 
 ## Proposal of changes of OpenAPI specification
 
-- Add ws '**Info**' to all services. Returns description, parameters and outputs
+- Add to'**Info**'  parameters.
 - In Liner Services, add **types of Cargo Services** (containers, roro, bulk, ...)
 - **Time is in utc?** always? we would have to publish localdatetime also?
 - **Berths**
@@ -12,7 +12,7 @@ Proposals of changes, extensions, improvements, corrections.
 - Add **shipTypes** webservice, list of codes and descriptions o ship types (see Annex VI from DIRECTIVE 2009/42/EC OF THE EUROPEAN PARLIAMENT AND OF THE COUNCIL of 6 May 2009)
 - **typesOfCargo**: proposal: [] { "code": "32", "description": "40 ft freight units"}, ...] instead of 	[ "32", ...] (without description)
 - **accessWaitTime**:
-  - Include datetime of data reading in each terminal
+  - Include datetime of data reading in each terminal: 'recordTime'
   - Question: terminalCode follows some rule? 'ESBCN-00042'>> IMO Code
   - Needed a webservice that return a list of terminalCodes that have info of accessWaitTime
 
@@ -29,7 +29,7 @@ Proposals of changes, extensions, improvements, corrections.
 
 - **portInfrastructure**: 
   - Must be a dict not a list of dicts!!??
-  - Rturn strings instead of integers (landarea, berths, ..warehousing)
+  - Return strings instead of integers (landarea, berths, ..warehousing), including units "131 ha"
   - More fields? see memory. Proposal:
     - portName : Barcelona
     - portCode : ESBCN
@@ -37,7 +37,7 @@ Proposals of changes, extensions, improvements, corrections.
       - latitude: 41,21
       - longitude : 2,10
     - landArea: 1113,2 ha
-    - Wharves and berths 23.183 km
+    - Wharves and berths: 23.183 km
     - Ro-ro ramps 30
     - Draught up to 16 m
     - Warehousing
@@ -52,7 +52,7 @@ Proposals of changes, extensions, improvements, corrections.
   - vehicleTypes must be a list. eg [ 'Truck', 'Van']
   - Delete external flowDirection
 - **vehicleTypes** webservice needed for trafficFlowObserved
-  - Proposal: [ 'Any', 'Truck', 'Car', 'Bus', 'Van', 'Motorycle' ]
+  - Proposal: [ 'Any', 'Truck', 'Car', 'Bus', 'Van', 'Motorcycle' ]
 - **All webservices**:
   - Add in metadata 'Info', 'Units' (ex minutes of waittime) ?
 

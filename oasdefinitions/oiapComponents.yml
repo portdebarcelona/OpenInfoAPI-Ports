@@ -444,17 +444,17 @@
     example: Freight2Rail
 
   countryCode: 
-    description: Country alpha-2 code from ISO 3166 — Codes for the representation of names of countries and their subdivisions.            
+    description: Country alpha-2 code from ISO 3166 - Codes for the representation of names of countries and their subdivisions.            
     maxLength: 2
     example: ES 
 
   subdivisionCode: 
-    description: Subdivision code from ISO 3166 — Codes for the representation of names of countries and their subdivisions.             
+    description: Subdivision code from ISO 3166 - Codes for the representation of names of countries and their subdivisions.             
     maxLength: 5
     example: ES-CT 
 
   locode:
-    description: Code for identifying a location as specified in the UN/ECE Recommendation nº16 (UN/LOCODE)
+    description: Code for identifying a location as specified in the UN/ECE Recommendation num 16 (UN/LOCODE)
     type: string
     maxLength: 5
 
