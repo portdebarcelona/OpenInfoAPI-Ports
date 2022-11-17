@@ -1,6 +1,6 @@
 openapi: '3.0.3'
 info:
-  version: '0.9.0-oas3'
+  version: '0.9.1-oas3'
   title: OIAP 
   description: >-
     **Open Info API para Puertos** 
@@ -2316,7 +2316,7 @@ paths:
                     type: array
                     items:
                       $ref: '#/components/schemas/accessTime'
-                      
+
                   metadata:
                     $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents.yml#/metadata'
                   queryParams:
@@ -4656,8 +4656,6 @@ components:
       required:
         - terminalCode
         - waitTime
-        - fromLocalDateTime
-        - toLocalDateTime
 
     throughput:
       description: 'Flow of goods or equipment units, expressed as movements per hour.'
