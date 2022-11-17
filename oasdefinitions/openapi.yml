@@ -2291,13 +2291,13 @@ paths:
     get:
       tags:
         - Terminal Performance
-      summary: Estimated waiting time that trucks have to queue before they can enter a terminal.
+      summary: For each terminal publish last waiting time measured for trucks to get into terminals
       description: | 
-        Returns a list with the estimated waiting time that trucks have to queue before they can enter a terminal.
+        Returns a dictionary of terminals with last waiting time  measured for trucks that have got into a terminal
 
         `Parameters`: Port Code and Terminal identifier
 
-        `Returns`: Wait time of gtrucks to get intro terminals
+        `Returns`: For each terminal publish last waiting time measured for trucks to get into terminals
       parameters:
         - $ref: '#/components/parameters/portCode'
         - $ref: '#/components/parameters/terminal'
@@ -2316,6 +2316,7 @@ paths:
                     type: array
                     items:
                       $ref: '#/components/schemas/accessTime'
+                      
                   metadata:
                     $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents.yml#/metadata'
                   queryParams:
@@ -4634,17 +4635,29 @@ components:
         - vehicleTraffic 
 
     accessTime:
-      description: 'Estimated period of time, in minites, that trucks have to queue before they can enter a terminal.'
+      description: 'Estimated period of time, in minutes, that trucks have to queue before they can enter a terminal.'
       type: object
       allOf:
         - type: object 
           properties:
             terminalCode:
               $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents.yml#/terminalCode' 
+            terminalName:
+              $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents.yml#/terminalName'
             waitTime:
               $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents.yml#/waitTime'
+            fromLocalDateTime:
+              $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents.yml#/fromLocalDateTime'
+            toLocalDateTime:
+              $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents.yml#/toLocalDateTime'
+            dateRange:
+              $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents.yml#/dateRange'
+              example: PT20M
       required:
-        - terminalCode 
+        - terminalCode
+        - waitTime
+        - fromLocalDateTime
+        - toLocalDateTime
 
     throughput:
       description: 'Flow of goods or equipment units, expressed as movements per hour.'

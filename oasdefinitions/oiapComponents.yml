@@ -189,7 +189,7 @@
     description: The duration of a period is expressed as an ISO 8601 code. E.g. 4 weeks and 2 days are represented as P4W2D.
     type: string
     format: iso8601
-    example: P4W  
+    example: P4W
 
   estimatedTimeOfArrival:  
     description: The date and time the means of transport is estimated to arrive at a specified location (ETA), in ISO 8601 Date format.
