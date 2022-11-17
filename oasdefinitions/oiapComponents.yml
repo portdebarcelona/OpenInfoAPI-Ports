@@ -161,6 +161,30 @@
     format: date
     example: "2022-04-12" 
 
+  fromDateTime:  
+    description: The initial datetime of a period. 
+    type: string
+    format: date
+    example: "2022-03-01T08:00:00Z" 
+
+  toDateTime:  
+    description: The final datetime of a period. 
+    type: string
+    format: date
+    example: "2022-03-01T08:20:00Z"
+
+  fromLocalDateTime:  
+    description: The initial local datetime of a period. 
+    type: string
+    format: date
+    example: "2022-03-01T08:00:00" 
+
+  toLocalDateTime:  
+    description: The final local datetime of a period. 
+    type: string
+    format: date
+    example: "2022-03-01T08:20:00"
+
   dateRange: 
     description: The duration of a period is expressed as an ISO 8601 code. E.g. 4 weeks and 2 days are represented as P4W2D.
     type: string
@@ -217,7 +241,7 @@
 
   waitTime:
     description: Wait time, expressed in minutes.
-    type: integer
+    type: float
     minimum: 0
     example: 15
 
