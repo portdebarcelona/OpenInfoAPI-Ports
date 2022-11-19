@@ -39,7 +39,7 @@ Proposals of changes, extensions, improvements, corrections.
   - Modify returns: one item info for each hour reported of the day (instead of last hour)
   - Needed a webservice that return a list of terminalCodes that have info of landsideThroughput
 
-- add **passengerTerminals**
+- add **passengerTerminals** in tag PortInfrastructure
   - codeterm
   - shortname (optional)
   - fullname
