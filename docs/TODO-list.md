@@ -6,7 +6,9 @@ Proposals of changes, extensions, improvements, corrections.
 
 - Add to'**Info**'  parameters.
 - In Liner Services, add **types of Cargo Services** (containers, roro, bulk, ...)
-- **Time is in utc?** always? we would have to publish localdatetime also?
+- **Time is in utc?** always? 
+  - we would have to publish localdatetime also?
+  - we should distinguish wtih name o attributtes (utcDate?, localDate?)
 - **Berths**
   - Add terminalName ¿?
 - Add **shipTypes** webservice, list of codes and descriptions o ship types (see Annex VI from DIRECTIVE 2009/42/EC OF THE EUROPEAN PARLIAMENT AND OF THE COUNCIL of 6 May 2009)
@@ -15,6 +17,16 @@ Proposals of changes, extensions, improvements, corrections.
   - Include datetime of data reading in each terminal: 'recordTime'
   - Question: terminalCode follows some rule? 'ESBCN-00042'>> IMO Code
   - Needed a webservice that return a list of terminalCodes that have info of accessWaitTime
+
+- **trainArrivals**:
+  - add field "name" in station/terminal Departure/Destination
+
+- **shipsArrivals**:
+  - Fix 'shipArrivals' in returns (singular vs plural)
+  - convert shipTypes to DIRECTIVE 2009/42/EC 
+
+- **shipsDepartures**:
+  - Fix 'shipsDepartures' in returns (singular vs plural)
 
 - **landsideThroughput**:
   - Add field 'meanOfTransport? [ 'TRUCK', 'TRAIN' ]
@@ -26,6 +38,13 @@ Proposals of changes, extensions, improvements, corrections.
     - Hour?
   - Modify returns: one item info for each hour reported of the day (instead of last hour)
   - Needed a webservice that return a list of terminalCodes that have info of landsideThroughput
+
+- add **passengerTerminals**
+  - codeterm
+  - shortname (optional)
+  - fullname
+  - coords (optional)
+  - kindof (ferris/cruisers)
 
 - **portInfrastructure**: 
   - Must be a dict not a list of dicts!!??
@@ -67,6 +86,9 @@ Proposals of changes, extensions, improvements, corrections.
 
 - **Implemented**:
   - *Ship Calls* group
+    - **shipsInPort** (need function that returns data of berth and LOCODEPORTORIGEN)
+    - **shipsArrivals**
+    - **shipsDepartures**
   - *Liner Services* group
   - *Port Infrastructures* group
     - **portGates**
@@ -88,6 +110,8 @@ Proposals of changes, extensions, improvements, corrections.
   - *Environment-Sea State* group
   - *Environment-Pollution* group
   - *Rail Transport* group
+    - **trainArrivals**
+    - **trainDepartures**
   - *Vehicle Traffic* group
   - *Terminal Performance* group
     - **accessWaitTime**
@@ -104,9 +128,6 @@ Proposals of changes, extensions, improvements, corrections.
   
 - **Working on**:
   - shipsScheduled
-  - shipsInPort
-  - shipsArrivals
-  - shipsDepartures
   - shipsAproximation
   - ferriesArrivals
   - ferriesDepartures
