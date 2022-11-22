@@ -679,7 +679,7 @@
     properties:
       gateName:
         description: Gate name. 
-        type: string
+        $ref: '#/gateName'
       gateCoordinates:
         description: Gate coordinates. 
         $ref: '#/coordinates'
@@ -687,6 +687,10 @@
         $ref: '#/flowDirection'
       vehicleTypes:
         $ref: '#/vehicleTypes'
+  
+  gateName:
+    description: Gate name. 
+    type: string
 
   totalArea: 
     description: The total area expressed in hectares (ha).
