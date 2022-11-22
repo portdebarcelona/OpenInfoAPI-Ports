@@ -1074,12 +1074,12 @@
   vehicleTypes:  
     description: >
         Type of vehicles from the point of view of their structural characteristics.  
+          * `Any`
           * `Cars`
+          * `Vans`
           * `Trucks`
-          * `Both` - Trucks and cars
-          * `Trains`
     type: string
-    enum: [Cars, Trucks, Both, Trains]
+    enum: [Any, Cars, Trucks, Vans, Trucks]
     example: Trucks
 
 
