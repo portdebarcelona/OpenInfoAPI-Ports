@@ -2268,7 +2268,7 @@ paths:
                       portCode:
                         $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents.yml#/portCode'
                       vehicleTypes:
-                        $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents.yml#/vehicleTypes'
+                        $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents.yml#/vehicleType'
                       portGateName:
                         $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents.yml#/portGateName'
                       flowDirection:
@@ -3638,7 +3638,7 @@ components:
       style: form
       explode: false
       schema:
-        $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents.yml#/vehicleTypes'
+        $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents.yml#/vehicleType'
 
     portGateName:
       in: query
@@ -4669,8 +4669,8 @@ components:
           properties:
             portCode:
               $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents.yml#/portCode' 
-            vehicleTypes:
-              $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents.yml#/vehicleTypes' 
+            vehicleType:
+              $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents.yml#/vehicleType' 
             portGateName:
               $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents.yml#/portGateName' 
             vehicleTraffic:
@@ -4684,14 +4684,6 @@ components:
       required:
         - vehicleTraffic 
 
-    vehicleTypes:
-      description: 'The number of vehicles entering or leaving a port or a terminal.'
-      type: object
-
-      items:
-        $ref:  'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents.yml#/vehicleTypes'
-        example: ['Any', 'Truck', 'Van', 'Truck']
-  
     accessTime:
       description: 'Estimated period of time, in minutes, that trucks have to queue before they can enter a terminal.'
       type: object
@@ -4710,7 +4702,7 @@ components:
               $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents.yml#/toLocalDateTime'
             dateRange:
               $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents.yml#/dateRange'
-              example: PT20M
+              
       required:
         - terminalCode
         - waitTime
