@@ -23,7 +23,7 @@
   oiapApiVersion:
     description: string that is usedto identify the version implemented of the Open Info API for Ports.
     type: string
-    example: 0.9.0-oas3
+    example: 0.9.1-oas3
 
   id:
     description: Entity's unique identifier.
@@ -1071,7 +1071,7 @@
     example: UP
 
   # Road transport
-  vehicleTypes:  
+  vehicleType:  
     description: >
         Type of vehicles from the point of view of their structural characteristics.  
           * `Any`
@@ -1079,8 +1079,9 @@
           * `Vans`
           * `Trucks`
     type: string
-    enum: [ Any, Cars, Trucks, Vans, Trucks ]
-    example: Any, Cars, Trucks, Vans, Trucks
+    enum: [ 'Any', 'Cars', 'Trucks', 'Vans']
+    example: Any, Cars, Trucks, Vans
+
 
 
   # Equipment

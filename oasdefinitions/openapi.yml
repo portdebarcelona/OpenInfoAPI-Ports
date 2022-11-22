@@ -2309,7 +2309,7 @@ paths:
                   vehicleTypes:
                     type: array
                     items:
-                      $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents.yml#/vehicleTypes'
+                      $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents.yml#/vehicleType'
                   metadata:
                     $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents.yml#/metadata'
                   queryParams:
