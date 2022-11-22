@@ -679,7 +679,7 @@
     properties:
       gateName:
         description: Gate name. 
-        $ref: '#/gateName'
+        $ref: '#/portGateName'
       gateCoordinates:
         description: Gate coordinates. 
         $ref: '#/coordinates'
@@ -688,8 +688,8 @@
       vehicleTypes:
         $ref: '#/vehicleTypes'
   
-  gateName:
-    description: Gate name. 
+  portGateName:
+    description: Gate name.
     type: string
 
   totalArea: 
