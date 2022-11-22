@@ -1080,7 +1080,7 @@
           * `Trucks`
     type: string
     enum: [Any, Cars, Trucks, Vans, Trucks]
-    example: Trucks
+    example: [Any, Cars, Trucks, Vans, Trucks]
 
 
   # Equipment

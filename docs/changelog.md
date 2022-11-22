@@ -1,6 +1,15 @@
 # Work Tracking log
 It contains the monitoring of the activities carried out during the development of the project.
 
+## November 2022
+- accessWaitTime modified
+- proposed new ws 'passengerTerminals'
+- modified trafficFlowObserved:
+  - portGateName instead portGate (simplifies query params amd response)
+  - added from and to localDateTime
+  - modified flowDirection
+- proposed new ws 'vehicleTypes'
+  - list of types of vehicles used in trafficFlowObserved
 ## May 2022
 - Finishing Final Report for Puertos
 - Implementing POCs of webservices at Port of Barcelona

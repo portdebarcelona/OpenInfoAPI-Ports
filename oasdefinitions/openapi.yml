@@ -2243,7 +2243,7 @@ paths:
       parameters:
         - $ref: '#/components/parameters/portCode'
         - $ref: '#/components/parameters/vehicleTypes'
-        - $ref: '#/components/parameters/portGate'        
+        - $ref: '#/components/parameters/portGateName'
         - $ref: '#/components/parameters/flowDirection'
       responses:
         '200':
@@ -2269,8 +2269,8 @@ paths:
                         $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents.yml#/portCode'
                       vehicleTypes:
                         $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents.yml#/vehicleTypes'
-                      portGate:
-                        $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents.yml#/gate'
+                      portGateName:
+                        $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents.yml#/portGateName'
                       flowDirection:
                         $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents.yml#/flowDirection'
         '400':
@@ -2285,6 +2285,50 @@ paths:
             application/json:
               schema:
                 $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents.yml#/error'  
+
+  # Vehicles types
+  /vehicleTypes:
+    get:
+      tags:
+        - Vehicle Traffic
+      summary: List of vehicle Types what are expected to be used in params and response of trafficFlowObserved
+      description: List of vehicle Types what are expected to be used in params and response of trafficFlowObserved. 
+      parameters:
+        - $ref: '#/components/parameters/portCode'
+      responses:
+        '200':
+          description: Successful operation
+          headers:
+            oiapApiVersion:
+              $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents.yml#/oiapApiVersion'
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  vehicleTypes:
+                    type: array
+                    items:
+                      $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents.yml#/vehicleTypes'
+                  metadata:
+                    $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents.yml#/metadata'
+                  queryParams:
+                    type: object
+                    properties:
+                      portCode:
+                        $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents.yml#/portCode'
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents.yml#/error' 
+        '404':
+          description: Not found
+          content:
+            application/json:
+              schema:
+                $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents.yml#/error' 
 
   # Access wait time
   /accessWaitTime:
@@ -3596,15 +3640,15 @@ components:
       schema:
         $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents.yml#/vehicleTypes'
 
-    portGate:
+    portGateName:
       in: query
-      name: portGate
+      name: portGateName
       description: Access gate       
       required: false
       style: form
       explode: false
       schema:
-        $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents.yml#/gate'
+        $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents.yml#/portGateName'
 
     flowDirection:
       in: query
@@ -4627,13 +4671,27 @@ components:
               $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents.yml#/portCode' 
             vehicleTypes:
               $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents.yml#/vehicleTypes' 
-            portGate:
-              $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents.yml#/gate' 
+            portGateName:
+              $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents.yml#/portGateName' 
             vehicleTraffic:
-              $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents.yml#/units' 
+              $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents.yml#/units'
+            flowDirection:
+              $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents.yml#/flowDirection'
+            fromLocalDateTime:
+              $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents.yml#/fromLocalDateTime'
+            toLocalDateTime:
+              $ref: 'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents.yml#/toLocalDateTime' 
       required:
         - vehicleTraffic 
 
+    vehicleTypes:
+      description: 'The number of vehicles entering or leaving a port or a terminal.'
+      type: object
+
+      items:
+        $ref:  'https://raw.githubusercontent.com/portdebarcelona/OpenInfoAPI-Ports/develop/oasdefinitions/oiapComponents.yml#/vehicleTypes'
+        example: ['Any', 'Truck', 'Van', 'Truck']
+  
     accessTime:
       description: 'Estimated period of time, in minutes, that trucks have to queue before they can enter a terminal.'
       type: object
