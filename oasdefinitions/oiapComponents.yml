@@ -1079,8 +1079,8 @@
           * `Vans`
           * `Trucks`
     type: string
-    enum: [Any, Cars, Trucks, Vans, Trucks]
-    example: [Any, Cars, Trucks, Vans, Trucks]
+    enum: [ Any, Cars, Trucks, Vans, Trucks ]
+    example: Any, Cars, Trucks, Vans, Trucks
 
 
   # Equipment
