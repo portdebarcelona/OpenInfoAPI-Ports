@@ -1080,7 +1080,7 @@
           * `Vans`
           * `Trucks`
     type: string
-    enum: [ 'Any', 'Cars', 'Trucks', 'Vans']
+    enum: [ Any, Cars, Trucks, Vans ]
     example: Any, Cars, Trucks, Vans
 
 
