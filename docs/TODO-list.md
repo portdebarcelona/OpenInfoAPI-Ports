@@ -21,6 +21,9 @@ Proposals of changes, extensions, improvements, corrections.
 - **trainArrivals**:
   - add field "name" in station/terminal Departure/Destination
 
+- **shipsScheduled**
+  - Revise name of webservice shipsScheduled and name of response: shipArrivalForecast
+
 - **shipsArrivals**:
   - Fix 'shipArrivals' in returns (singular vs plural)
   - convert shipTypes to DIRECTIVE 2009/42/EC 
