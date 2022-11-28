@@ -22,6 +22,10 @@ It contains the monitoring of the activities carried out during the development 
   - portGates
   - berths
   - railTerminals
+- shipsArrivals
+  - Fixed 'shipArrivals' in returns (singular vs plural)
+- shipsDepartures:
+  - Fixed 'shipsDepartures' in returns (singular vs plural)
 
 ## May 2022
 - Finishing Final Report for Puertos

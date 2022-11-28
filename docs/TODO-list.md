@@ -4,7 +4,7 @@ Proposals of changes, extensions, improvements, corrections.
 
 ## Proposal of changes of OpenAPI specification
 
-- Add to'**Info**'  parameters.
+- Add to '**Info**'  parameters.
 - In Liner Services, add **types of Cargo Services** (containers, roro, bulk, ...)
 - **Time is in utc?** always? 
   - we would have to publish localdatetime also?
@@ -85,13 +85,15 @@ Proposals of changes, extensions, improvements, corrections.
 - **Notify me when arrives a ship**
 - **TerminalCode** is used in accessWaitTime. Must we provide a list of TerminalCodes with access time data?
 
-## Implement OIAP webservices at Port of Barcelona
+## Implement OIAP webservices at Port of Barcelona (november 28, 2022)
 
 - **Implemented**:
   - *Ship Calls* group
     - **shipsInPort** (need function that returns data of berth and LOCODEPORTORIGEN)
     - **shipsArrivals**
     - **shipsDepartures**
+    - **ferriesArrivals**
+    - **ferriesDepartures**
   - *Liner Services* group
   - *Port Infrastructures* group
     - **portGates**
@@ -116,6 +118,8 @@ Proposals of changes, extensions, improvements, corrections.
     - **trainArrivals**
     - **trainDepartures**
   - *Vehicle Traffic* group
+    - **trafficFlowObserved**
+    - **vehicleTypes**
   - *Terminal Performance* group
     - **accessWaitTime**
   - *News* group
@@ -132,8 +136,6 @@ Proposals of changes, extensions, improvements, corrections.
 - **Working on**:
   - shipsScheduled
   - shipsAproximation
-  - ferriesArrivals
-  - ferriesDepartures
   - cruiseCalls
   - linerServices
   - linkedPorts
